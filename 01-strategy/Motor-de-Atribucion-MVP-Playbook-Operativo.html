@@ -1,0 +1,1909 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Motor de Atribuci&oacute;n MVP. Playbook Operativo | Grupo Plasencia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { width: 100%; height: 100%; overflow: hidden; background: #0d1117; font-family: 'Inter', system-ui, sans-serif; }
+
+.deck { width: 100vw; height: 100vh; position: relative; }
+.slide { overflow: hidden;
+  position: absolute; top: 0; left: 0;
+  width: 1280px; height: 720px;
+  transform-origin: top left;
+  opacity: 0; visibility: hidden;
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  display: flex; flex-direction: column;
+}
+.slide.active { opacity: 1; visibility: visible; }
+.slide.enter { animation: slideIn 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+#progress { opacity: 0.3;
+  position: fixed; top: 0; left: 0; height: 2px;
+  background: rgba(255,255,255,0.4); z-index: 9999;
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+#counter {
+  position: fixed; bottom: 16px; right: 24px;
+  font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 500;
+  color: rgba(255,255,255,0.5); z-index: 9999;
+  letter-spacing: 0.5px;
+}
+
+.slide--dark { background: #1a2236; color: #F7FAFC; }
+.slide--light { background: #F0F4F8; color: #2D3748; }
+.logo-corner { position: absolute; top: 24px; right: 32px; height: 44px; opacity: 0.8; }
+.slide--dark .logo-d { display: none !important; }
+.slide--dark .logo-w { display: block; }
+.slide--light .logo-w { display: none !important; }
+.slide--light .logo-d { display: block; }
+
+.t-accent   { font-family: 'Playfair Display', Georgia, serif; }
+.t-hero     { font-size: 44px; font-weight: 800; line-height: 1.1; letter-spacing: -0.5px; }
+.t-title    { font-size: 28px; font-weight: 700; line-height: 1.2; letter-spacing: -0.3px; }
+.t-body     { font-size: 15px; font-weight: 400; line-height: 1.6; }
+.t-small    { font-size: 13px; font-weight: 400; line-height: 1.5; opacity: 0.7; }
+.t-label    { font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; }
+.t-red      { color: #C8102E; }
+.t-white    { color: #F7FAFC; }
+.t-center   { text-align: center; }
+
+/* ── Design System: Dark slide overrides ── */
+.slide--dark .t-red { color: #ECC94B !important; }
+.slide--dark .t-label { color: #ECC94B; }
+.slide--dark .tag--red { background: rgba(236,201,75,0.12); color: #ECC94B; }
+.slide--dark .tag--cond { background: rgba(236,201,75,0.15); color: #ECC94B; border-color: rgba(236,201,75,0.3); }
+.slide--dark .divider-red { background: #ECC94B; }
+.slide--dark .tag--green { background: rgba(72,187,120,0.2); color: #68D391; }
+.slide--dark .tag--blue { background: rgba(66,153,225,0.2); color: #63B3ED; }
+.slide--dark .tag--amber { background: rgba(236,201,75,0.2); color: #ECC94B; }
+
+.pad       { padding: 44px 56px; flex: 1; display: flex; flex-direction: column; }
+.flex      { display: flex; }
+.flex-col  { display: flex; flex-direction: column; }
+.gap-4     { gap: 4px; }
+.gap-6     { gap: 6px; }
+.gap-8     { gap: 8px; }
+.gap-10    { gap: 10px; }
+.gap-12    { gap: 12px; }
+.gap-16    { gap: 16px; }
+.gap-20    { gap: 20px; }
+.gap-24    { gap: 24px; }
+.gap-32    { gap: 32px; }
+.center-v  { align-items: center; }
+.center-h  { justify-content: center; }
+.center-all{ align-items: center; justify-content: center; }
+.flex-1    { flex: 1; }
+
+.divider-red { width: 64px; height: 4px; background: #C8102E; border-radius: 2px; }
+
+.card--dark {
+  background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 10px; padding: 14px;
+  display: flex; flex-direction: column;
+}
+.card--red {
+  background: #C8102E; color: #F7FAFC; border-radius: 10px;
+  padding: 16px;
+  display: flex; flex-direction: column;
+}
+.card--blue {
+  background: #4299E1; color: #F7FAFC; border-radius: 10px;
+  padding: 16px;
+  display: flex; flex-direction: column;
+}
+.card {
+  background: #fff; border-radius: 10px;
+  padding: 14px;
+  display: flex; flex-direction: column;
+}
+
+.tag {
+  display: inline-block; padding: 3px 10px; border-radius: 20px;
+  font-size: 9px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+  white-space: nowrap;
+}
+.tag--outline { border: 1.5px solid rgba(255,255,255,0.25); color: rgba(255,255,255,0.6); background: transparent; }
+.tag--green{ background: rgba(72,187,120,0.15); color: #276749; }
+.tag--red  { background: rgba(200,16,46,0.12); color: #C8102E; }
+.tag--cond { background: rgba(200,16,46,0.15); color: #C8102E; border: 1px solid rgba(200,16,46,0.3); }
+.tag--blue { background: rgba(66,153,225,0.15); color: #2B6CB0; }
+.tag--amber { background: rgba(214,158,46,0.15); color: #975A16; }
+
+.num-circle {
+  width: 26px; height: 26px; border-radius: 50%;
+  background: #4299E1; color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 800; font-size: 12px; flex-shrink: 0;
+}
+
+.noes { background: rgba(200,16,46,0.06); border-left: 3px solid #C8102E; border-radius: 4px; padding: 8px 12px; }
+.sies { background: rgba(72,187,120,0.06); border-left: 3px solid #276749; border-radius: 4px; padding: 8px 12px; }
+
+.slide-label {
+  position: absolute; top: 24px; left: 56px;
+  font-size: 9px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+  opacity: 0.4;
+}
+.slide--light .slide-label { color: #2D3748; }
+.slide--dark .slide-label { color: #F7FAFC; }
+
+@media print {
+  @page { size: 1280px 720px landscape; margin: 0; }
+  html, body { overflow: visible; }
+  .slide { position: relative !important; opacity: 1 !important; visibility: visible !important; transform: none !important; left: auto !important; top: auto !important; page-break-after: always; }
+  .slide:last-child { page-break-after: avoid; }
+  #progress, #counter { display: none; }
+}
+</style>
+</head>
+<body>
+
+<div id="progress"></div>
+<div id="counter"></div>
+
+<div class="deck">
+
+
+<!-- ════════════════════════════════════════════════════
+     SLIDE 1 - PORTADA
+     ════════════════════════════════════════════════════ -->
+<section class="slide slide--dark" style="justify-content:center;align-items:center;text-align:center;">
+  <div class="flex-col center-all gap-20" style="flex:1;justify-content:center;padding:32px 64px;">
+    <img src="../assets/logos/LOGO-GP-Blanco.png" alt="Grupo Plasencia" style="height:70px;opacity:0.85;">
+    <div>
+      <div style="font-family:'Playfair Display',Georgia,serif;font-size:56px;font-weight:900;line-height:1.05;color:#fff;letter-spacing:-1px;">Motor de Atribuci&oacute;n</div>
+      <div style="font-family:'Playfair Display',Georgia,serif;font-size:56px;font-weight:900;line-height:1.05;color:#fff;letter-spacing:-1px;">MVP</div>
+      <div style="font-size:16px;font-weight:400;color:rgba(255,255,255,0.5);margin-top:8px;">Playbook Operativo</div>
+    </div>
+    <div style="width:60px;height:2px;background:#C8102E;"></div>
+    <div style="font-size:16px;font-weight:700;color:#ECC94B;letter-spacing:2px;text-transform:uppercase;max-width:700px;line-height:1.5;">Que digital traiga personas con mayor probabilidad de comprar.</div>
+    <div>
+      <div style="font-size:11px;color:rgba(255,255,255,0.3);letter-spacing:1px;text-transform:uppercase;">Documento operativo: detalle de ejecuci&oacute;n del Sprint Roadmap</div>
+      <div style="font-size:11px;color:rgba(255,255,255,0.2);margin-top:6px;">Direcci&oacute;n de Marketing Corporativo | Grupo Plasencia Automotriz</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════
+     SLIDE 2 - OBJETIVO DEL MOTOR
+     ════════════════════════════════════════════════════ -->
+<section class="slide slide--dark">
+  <div class="slide-label">01 / OBJETIVO</div>
+  <img src="../assets/logos/LOGO-GP-Blanco.png" class="logo-corner logo-w"><img src="../assets/logos/Logo-GP-Negro.png" class="logo-corner logo-d">
+  <div class="pad">
+    <div class="t-label t-red" style="margin-bottom:6px;">&iquest;QU&Eacute; ES Y POR QU&Eacute; IMPORTA?</div>
+    <div class="t-title t-white" style="max-width:1100px;font-size:22px;">M&aacute;s ventas, mejor margen, menos desperdicio. El Motor de Atribuci&oacute;n es el habilitador: recoge lo que pasa despu&eacute;s del clic y se lo regresa a las plataformas.</div>
+
+    <div class="flex gap-24" style="margin-top:24px;flex:1;">
+
+      <!-- HOY -->
+      <div class="flex-col gap-10" style="flex:1;">
+        <div class="card--dark" style="padding:20px;border-left:4px solid #ECC94B;flex:1;">
+          <div style="font-size:13px;font-weight:800;color:#ECC94B;letter-spacing:1px;text-transform:uppercase;margin-bottom:10px;">HOY</div>
+          <div style="font-size:14px;color:#fff;line-height:1.7;">
+            <div style="margin-bottom:6px;">&bull; Campa&ntilde;as en modo leadgen / WhatsApp &mdash; volumen, no calidad.</div>
+            <div style="margin-bottom:6px;">&bull; Leads caen a Karbot o WA. Walk-ins se registran manual.</div>
+            <div style="margin-bottom:6px;">&bull; Cada marca usa un CRM distinto (Salesforce, Plasencia CX, otro). Nada conectado.</div>
+            <div style="margin-bottom:6px;">&bull; Las plataformas hoy optimizan por volumen de interacciones. Con se&ntilde;ales de usuario, optimizan por compradores reales.</div>
+            <div>&bull; Ford y Stellantis establecen su baseline desde el piloto. Es la oportunidad de medir desde el inicio.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CON EL MOTOR -->
+      <div class="flex-col gap-10" style="flex:1;">
+        <div class="card--dark" style="padding:20px;border-left:4px solid #48BB78;flex:1;">
+          <div style="font-size:13px;font-weight:800;color:#48BB78;letter-spacing:1px;text-transform:uppercase;margin-bottom:10px;">CON EL MOTOR</div>
+          <div style="font-size:14px;color:#fff;line-height:1.7;">
+            <div style="margin-bottom:6px;">&bull; Enviamos conversiones offline (cita agendada, visita al PDV, compra).</div>
+            <div style="margin-bottom:6px;">&bull; La IA aprende qui&eacute;n es comprador real.</div>
+            <div style="margin-bottom:6px;">&bull; Baja CPA, sube calidad de prospectos.</div>
+            <div>&bull; Aumenta probabilidad de cierre.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom note -->
+    <div class="card--dark" style="padding:12px 16px;margin-top:16px;border:1px solid rgba(66,153,225,0.3);">
+      <div style="font-size:12px;color:#A0AEC0;line-height:1.5;"><strong style="color:#4299E1;">Se&ntilde;ales de usuario:</strong> data points que env&iacute;as de vuelta a las plataformas sobre lo que pas&oacute; despu&eacute;s de la interacci&oacute;n digital. Sin se&ntilde;ales, la IA est&aacute; ciega.</div>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+<!-- ════════════════════════════════════════════════════
+     SLIDE 2b - BLUEPRINT VISUAL (FLUJO CONCEPTUAL)
+     ════════════════════════════════════════════════════ -->
+<section class="slide slide--dark">
+  <div class="slide-label">01b / BLUEPRINT</div>
+  <img src="../assets/logos/LOGO-GP-Blanco.png" class="logo-corner logo-w"><img src="../assets/logos/Logo-GP-Negro.png" class="logo-corner logo-d">
+  <div class="pad">
+    <div class="t-label" style="margin-bottom:6px;color:#ECC94B;">C&oacute;mo funciona el Motor de Atribuci&oacute;n</div>
+    <div class="t-title t-white" style="max-width:1100px;font-size:22px;">El flujo completo: desde la campa&ntilde;a hasta la se&ntilde;al que mejora la siguiente.</div>
+
+    <div style="margin-top:20px;position:relative;">
+      <div style="display:flex;align-items:stretch;gap:0;width:100%;">
+        <div style="flex:1;background:rgba(66,153,225,0.15);border:1.5px solid rgba(66,153,225,0.4);border-radius:10px 0 0 0;padding:14px 10px;text-align:center;display:flex;flex-direction:column;justify-content:center;">
+          <div style="font-size:8px;font-weight:800;color:rgba(66,153,225,0.5);letter-spacing:1px;">PASO 1</div>
+          <div style="font-size:24px;margin:4px 0;">&#128226;</div>
+          <div style="font-size:11px;font-weight:800;color:#63B3ED;">CAMPA&Ntilde;A</div>
+          <div style="font-size:8px;color:#A0AEC0;margin-top:4px;line-height:1.3;">Meta / Google Ads<br>Conversi&oacute;n en web</div>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:center;color:#ECC94B;font-size:22px;font-weight:900;">&#10132;</div>
+        <div style="flex:1;background:rgba(66,153,225,0.1);border:1px solid rgba(66,153,225,0.3);padding:14px 10px;text-align:center;display:flex;flex-direction:column;justify-content:center;">
+          <div style="font-size:8px;font-weight:800;color:rgba(66,153,225,0.5);letter-spacing:1px;">PASO 2</div>
+          <div style="font-size:24px;margin:4px 0;">&#127760;</div>
+          <div style="font-size:11px;font-weight:800;color:#63B3ED;">LANDING PAGE</div>
+          <div style="font-size:8px;color:#A0AEC0;margin-top:4px;line-height:1.3;">grupoplasencia.com<br>Formulario + calendario<br>(agenda de cita por marca)</div>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:center;color:#ECC94B;font-size:22px;font-weight:900;">&#10132;</div>
+        <div style="flex:1;background:rgba(236,201,75,0.1);border:1.5px solid rgba(236,201,75,0.3);padding:14px 10px;text-align:center;display:flex;flex-direction:column;justify-content:center;">
+          <div style="font-size:8px;font-weight:800;color:rgba(236,201,75,0.5);letter-spacing:1px;">PASO 3</div>
+          <div style="font-size:24px;margin:4px 0;">&#128202;</div>
+          <div style="font-size:11px;font-weight:800;color:#ECC94B;">AIRTABLE</div>
+          <div style="font-size:8px;color:#A0AEC0;margin-top:4px;line-height:1.3;">Base central<br>Funnel por marca<br>Folio &uacute;nico por lead</div>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:center;color:#ECC94B;font-size:22px;font-weight:900;">&#10132;</div>
+        <div style="flex:1;background:rgba(72,187,120,0.1);border:1px solid rgba(72,187,120,0.3);padding:14px 10px;text-align:center;display:flex;flex-direction:column;justify-content:center;">
+          <div style="font-size:8px;font-weight:800;color:rgba(72,187,120,0.5);letter-spacing:1px;">PASO 4</div>
+          <div style="font-size:24px;margin:4px 0;">&#129309;</div>
+          <div style="font-size:11px;font-weight:800;color:#48BB78;">VENDEDOR</div>
+          <div style="font-size:8px;color:#A0AEC0;margin-top:4px;line-height:1.3;">Marca: lleg&oacute; / compr&oacute;<br>Cambia status</div>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:center;color:#ECC94B;font-size:22px;font-weight:900;">&#10132;</div>
+        <div style="flex:1;background:rgba(200,16,46,0.1);border:1.5px solid rgba(200,16,46,0.3);border-radius:0 10px 0 0;padding:14px 10px;text-align:center;display:flex;flex-direction:column;justify-content:center;">
+          <div style="font-size:8px;font-weight:800;color:rgba(200,16,46,0.5);letter-spacing:1px;">PASO 5</div>
+          <div style="font-size:24px;margin:4px 0;">&#128640;</div>
+          <div style="font-size:11px;font-weight:800;color:#C8102E;">ZAPIER &rarr; P&Iacute;XELES</div>
+          <div style="font-size:8px;color:#A0AEC0;margin-top:4px;line-height:1.3;">Conversiones offline<br>a Meta / Google</div>
+        </div>
+      </div>
+      <div style="background:rgba(72,187,120,0.08);border:1.5px solid rgba(72,187,120,0.2);border-radius:0 0 10px 10px;padding:10px 20px;display:flex;align-items:center;gap:12px;">
+        <div style="font-size:22px;color:#48BB78;">&#8634;</div>
+        <div style="flex:1;">
+          <div style="font-size:10px;font-weight:700;color:#48BB78;">RETROALIMENTACI&Oacute;N: las conversiones alimentan las campa&ntilde;as &rarr; las campa&ntilde;as aprenden y mejoran &rarr; traen mejores leads con mayor intenci&oacute;n: se parecen a quienes ya visitan y compran, y el formulario web filtra por inter&eacute;s real (m&aacute;s fricci&oacute;n que WA o leadgen = solo llega quien de verdad quiere) &rarr; el ciclo se repite</div>
+          <div style="font-size:9px;color:#A0AEC0;margin-top:3px;">El vendedor cambia status &rarr; status viajan a Zapier &rarr; Zapier los env&iacute;a a p&iacute;xeles como conversiones &rarr; conversiones alimentan campa&ntilde;as &rarr; campa&ntilde;as aprenden &rarr; buscan personas similares a quienes s&iacute; compraron. Cada ciclo mejora al anterior.</div>
+        </div>
+      </div>
+    </div>
+
+    
+
+    <div style="margin-top:14px;background:rgba(236,201,75,0.06);border:1.5px solid rgba(236,201,75,0.2);border-radius:10px;padding:14px 20px;">
+      <div style="font-size:10px;font-weight:800;color:#ECC94B;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px;">Dentro de la base central (Airtable)</div>
+      <div class="flex gap-12">
+        <div style="flex:1;">
+          <div style="font-size:9px;font-weight:700;color:#63B3ED;margin-bottom:4px;">&#8595; QU&Eacute; ENTRA</div>
+          <div style="font-size:9px;color:#A0AEC0;line-height:1.5;">Lead con datos del formulario: nombre, tel&eacute;fono, email, auto de inter&eacute;s, marca, PDV asignado.</div>
+        </div>
+        <div style="flex:1;">
+          <div style="font-size:9px;font-weight:700;color:#ECC94B;margin-bottom:4px;">&#128203; QU&Eacute; CONTROLA</div>
+          <div style="font-size:9px;color:#A0AEC0;line-height:1.5;">Centraliza datos y controla cambios de status del funnel: Lead &rarr; Cita &rarr; Visit&oacute; (SQL) &rarr; Compr&oacute;. El vendedor digital lo actualiza desde una interfaz dedicada. Cada cambio de status viaja autom&aacute;ticamente a Meta/Google v&iacute;a Zapier como conversi&oacute;n offline.</div>
+        </div>
+        <div style="flex:1.3;">
+          <div style="font-size:9px;font-weight:700;color:#48BB78;margin-bottom:4px;">&#8593; QU&Eacute; SALE</div>
+          <div style="display:flex;flex-direction:column;gap:3px;">
+            <div style="font-size:9px;color:#A0AEC0;line-height:1.4;"><strong style="color:#C8102E;">&rarr; Meta/Google:</strong> Se&ntilde;ales de conversi&oacute;n offline. La IA aprende.</div>
+            <div style="font-size:9px;color:#A0AEC0;line-height:1.4;"><strong style="color:#48BB78;">&rarr; Dashboards:</strong> Funnel en tiempo real por marca.</div>
+            <div style="font-size:9px;color:#A0AEC0;line-height:1.4;"><strong style="color:#63B3ED;">&rarr; Automatizaciones:</strong> Recordatorios de cita (WA/email).</div>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:10px;padding-top:8px;border-top:1px solid rgba(236,201,75,0.15);display:flex;gap:10px;">
+        <div style="flex:1;background:rgba(66,153,225,0.06);border:1px solid rgba(66,153,225,0.12);border-radius:6px;padding:8px 10px;">
+          <div style="font-size:9px;font-weight:700;color:#4299E1;margin-bottom:3px;">Escenario 1: OEM permite landing (ideal)</div>
+          <div style="font-size:8px;color:#A0AEC0;line-height:1.4;">Campa&ntilde;a de conversi&oacute;n en web &rarr; landing propia &rarr; formulario + calendario &rarr; Airtable. Se&ntilde;ales retroalimentan directamente. Control completo.</div>
+        </div>
+        <div style="flex:1;background:rgba(236,201,75,0.06);border:1px solid rgba(236,201,75,0.12);border-radius:6px;padding:8px 10px;">
+          <div style="font-size:9px;font-weight:700;color:#ECC94B;margin-bottom:3px;">Escenario 2: OEM no permite landing</div>
+          <div style="font-size:8px;color:#A0AEC0;line-height:1.4;">Leadgen de Meta &rarr; leads a Airtable v&iacute;a Zapier. Se crea <strong style="color:#ECC94B;">evento de conversi&oacute;n personalizado</strong> (ej: visita) para que Meta optimice por acciones de valor, no por form fills. Se&ntilde;ales retroalimentan igual.</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="position:absolute;bottom:16px;left:40px;font-size:7px;color:rgba(255,255,255,0.2);">
+      Direcci&oacute;n de Marketing Corporativo | Grupo Plasencia Automotriz
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════
+     SLIDE 3 - ARQUITECTURA DEL MVP
+     ════════════════════════════════════════════════════ -->
+<section class="slide slide--light">
+  <div class="slide-label">02 / ARQUITECTURA</div>
+  <img src="../assets/logos/LOGO-GP-Blanco.png" class="logo-corner logo-w"><img src="../assets/logos/Logo-GP-Negro.png" class="logo-corner logo-d">
+  <div class="pad">
+    <div class="t-label t-red" style="margin-bottom:6px;">STACK TECNOL&Oacute;GICO</div>
+    <div class="t-title" style="max-width:1100px;font-size:22px;color:#1a2236;">Airtable como base central. Zapier como motor de automatizaci&oacute;n.</div>
+
+    <div class="flex gap-20" style="margin-top:18px;flex:1;">
+
+      <!-- Flow diagram -->
+      <div class="flex-col gap-8" style="flex:0.6;">
+
+        <!-- ADQUISICION -->
+        <div style="background:#4299E1;border-radius:8px;padding:14px 18px;color:#fff;">
+          <div style="font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;opacity:0.8;">ADQUISICI&Oacute;N</div>
+          <div style="font-size:13px;font-weight:600;margin-top:6px;">Meta / Google Ads (campa&ntilde;as de conversiones, NO leadgen)</div>
+          <div style="text-align:center;font-size:18px;margin-top:6px;opacity:0.6;">&darr;</div>
+          <div style="font-size:13px;font-weight:600;">Landing pages en grupoplasencia.com/marca</div>
+          <div style="text-align:center;font-size:18px;margin-top:4px;opacity:0.6;">&darr;</div>
+          <div style="font-size:11px;font-weight:500;opacity:0.85;">form + calendario = lead con cita</div>
+        </div>
+
+        <!-- ORQUESTACION -->
+        <div style="background:#1a2236;border-radius:8px;padding:14px 18px;color:#fff;">
+          <div style="font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;opacity:0.6;">ORQUESTACI&Oacute;N</div>
+          <div style="font-size:13px;font-weight:600;margin-top:6px;">Airtable (registro autom&aacute;tico: nombre, email, tel, auto, fecha/hora)</div>
+          <div style="text-align:center;font-size:18px;margin-top:6px;opacity:0.4;">&darr; Zapier dispara:</div>
+          <div style="font-size:12px;margin-top:6px;line-height:1.7;padding-left:12px;">
+            &rarr; Confirmaci&oacute;n de cita (WA + email)<br>
+            &rarr; Recordatorios autom&aacute;ticos pre-cita<br>
+            &rarr; Notificaci&oacute;n al vendedor digital
+          </div>
+        </div>
+
+        <!-- PISO DE VENTA -->
+        <div style="background:rgba(200,16,46,0.08);border:1.5px solid rgba(200,16,46,0.25);border-radius:8px;padding:12px 18px;color:#2D3748;">
+          <div style="font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#C8102E;">PISO DE VENTA</div>
+          <div style="font-size:13px;font-weight:600;margin-top:4px;">Vendedor digital: marca &#10004; lleg&oacute; / &#128663; compr&oacute;</div>
+        </div>
+
+        <!-- SENAL A PLATAFORMAS -->
+        <div style="background:#48BB78;border-radius:8px;padding:14px 18px;color:#fff;">
+          <div style="font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;opacity:0.8;">SE&Ntilde;AL A PLATAFORMAS</div>
+          <div style="font-size:13px;font-weight:600;margin-top:6px;">Cambio de status &rarr; Zapier &rarr; Meta CAPI + Google Offline Conversions</div>
+        </div>
+
+      </div>
+
+      <!-- Right side: key points -->
+      <div class="flex-col gap-12" style="flex:0.4;">
+        <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#718096;">HERRAMIENTAS</div>
+
+        <div class="card" style="padding:14px;">
+          <div style="font-size:12px;font-weight:700;color:#4299E1;">Airtable</div>
+          <div style="font-size:11px;color:#4A5568;line-height:1.5;margin-top:4px;">Base de datos relacional. Registra leads, citas, status. Interfaz para vendedor digital.</div>
+        </div>
+
+        <div class="card" style="padding:14px;">
+          <div style="font-size:12px;font-weight:700;color:#4299E1;">Zapier</div>
+          <div style="font-size:11px;color:#4A5568;line-height:1.5;margin-top:4px;">Motor de automatizaci&oacute;n. Conecta Airtable con WA, email, Meta CAPI, Google Offline Conversions.</div>
+        </div>
+
+        <div class="card" style="padding:14px;">
+          <div style="font-size:12px;font-weight:700;color:#4299E1;">Meta CAPI</div>
+          <div style="font-size:11px;color:#4A5568;line-height:1.5;margin-top:4px;">Conversions API. Env&iacute;a eventos server-side a Meta (visita, compra) sin depender del pixel.</div>
+        </div>
+
+        <div class="card" style="padding:14px;">
+          <div style="font-size:12px;font-weight:700;color:#4299E1;">Google Offline Conversions</div>
+          <div style="font-size:11px;color:#4A5568;line-height:1.5;margin-top:4px;">Sube conversiones offline a Google Ads para optimizar campa&ntilde;as por compras reales.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════
+     SLIDE 4 - PLAN A vs PLAN B
+     ════════════════════════════════════════════════════ -->
+<section class="slide slide--dark">
+  <div class="slide-label">03 / CAMINOS</div>
+  <img src="../assets/logos/LOGO-GP-Blanco.png" class="logo-corner logo-w"><img src="../assets/logos/Logo-GP-Negro.png" class="logo-corner logo-d">
+  <div class="pad">
+    <div class="t-label t-red" style="margin-bottom:6px;">DOS CAMINOS, MISMO RESULTADO</div>
+    <div class="t-title t-white" style="max-width:1100px;font-size:22px;">El Motor funciona con landing pages propias o con leadgen existente.</div>
+
+    <div class="flex gap-24" style="margin-top:24px;flex:1;">
+
+      <!-- PLAN A -->
+      <div class="flex-col gap-10" style="flex:1;">
+        <div class="flex gap-8 center-v">
+          <span class="tag" style="background:rgba(66,153,225,0.2);color:#4299E1;font-size:10px;font-weight:800;">PLAN A (ideal)</span>
+        </div>
+        <div class="card--dark" style="padding:20px;border-left:4px solid #4299E1;flex:1;">
+          <div style="font-size:15px;font-weight:700;color:#4299E1;margin-bottom:10px;">Landing pages propias en grupoplasencia.com/marca</div>
+          <div style="font-size:13px;color:#E2E8F0;line-height:1.8;">
+            <div style="margin-bottom:4px;">&bull; Control total de UX/UI/CRO, p&iacute;xeles, GTM, formularios.</div>
+            <div style="margin-bottom:4px;">&bull; Seminuevos: sin restricci&oacute;n.</div>
+            <div>&bull; OEM: subdominio GP (validar con marca).</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PLAN B -->
+      <div class="flex-col gap-10" style="flex:1;">
+        <div class="flex gap-8 center-v">
+          <span class="tag" style="background:rgba(214,158,46,0.2);color:#D69E2E;font-size:10px;font-weight:800;">PLAN B (si OEM no permite LPs)</span>
+        </div>
+        <div class="card--dark" style="padding:20px;border-left:4px solid #D69E2E;flex:1;">
+          <div style="font-size:15px;font-weight:700;color:#D69E2E;margin-bottom:10px;">Gerentes mantienen campa&ntilde;as de leadgen</div>
+          <div style="font-size:13px;color:#E2E8F0;line-height:1.8;">
+            <div style="margin-bottom:4px;">&bull; Business Managers centralizados bajo cuenta corporativa.</div>
+            <div style="margin-bottom:4px;">&bull; Leads caen autom&aacute;tico a Airtable via Zapier (sin intervenci&oacute;n del gerente).</div>
+            <div>&bull; Vendedor digital marca status igual.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="card--dark" style="padding:12px 16px;margin-top:16px;border:1px solid rgba(255,255,255,0.15);">
+      <div style="font-size:12px;color:#A0AEC0;line-height:1.5;">En ambos planes las se&ntilde;ales llegan a las plataformas. La diferencia es el nivel de control sobre la experiencia del usuario.</div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════
+     SLIDE 5 - LANDING PAGES
+     ════════════════════════════════════════════════════ -->
+<section class="slide slide--light">
+  <div class="slide-label">04 / LANDING PAGES</div>
+  <img src="../assets/logos/LOGO-GP-Blanco.png" class="logo-corner logo-w"><img src="../assets/logos/Logo-GP-Negro.png" class="logo-corner logo-d">
+  <div class="pad">
+    <div class="t-label t-red" style="margin-bottom:6px;">ECOSISTEMA PROPIO</div>
+    <div class="t-title" style="max-width:1100px;font-size:22px;color:#1a2236;">Construimos landing pages bajo grupoplasencia.com para tener control completo.</div>
+
+    <div class="flex gap-24" style="margin-top:20px;flex:1;">
+
+      <!-- Structure table -->
+      <div class="flex-col gap-10" style="flex:0.55;">
+        <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#718096;">ESTRUCTURA DE URLs</div>
+
+        <div class="card" style="padding:0;overflow:hidden;">
+          <table style="width:100%;border-collapse:collapse;font-size:13px;">
+            <tr style="background:#1a2236;color:#fff;">
+              <td style="padding:10px 14px;font-weight:700;">URL</td>
+              <td style="padding:10px 14px;font-weight:700;">Nota</td>
+            </tr>
+            <tr style="border-bottom:1px solid #E2E8F0;">
+              <td style="padding:10px 14px;font-weight:600;color:#4299E1;">grupoplasencia.com/seminuevos</td>
+              <td style="padding:10px 14px;color:#4A5568;">Control total, sin restricciones</td>
+            </tr>
+            <tr style="border-bottom:1px solid #E2E8F0;">
+              <td style="padding:10px 14px;font-weight:600;color:#4299E1;">grupoplasencia.com/mazda</td>
+              <td style="padding:10px 14px;color:#4A5568;">Subdominio GP (validar OEM)</td>
+            </tr>
+            <tr style="border-bottom:1px solid #E2E8F0;">
+              <td style="padding:10px 14px;font-weight:600;color:#4299E1;">grupoplasencia.com/hyundai</td>
+              <td style="padding:10px 14px;color:#4A5568;">Subdominio GP (validar OEM)</td>
+            </tr>
+            <tr>
+              <td style="padding:10px 14px;font-weight:600;color:#4299E1;">grupoplasencia.com/stellantis</td>
+              <td style="padding:10px 14px;color:#4A5568;">Subdominio GP (validar OEM)</td>
+            </tr>
+          </table>
+        </div>
+
+        <!-- Bottom note -->
+        <div class="noes" style="margin-top:6px;">
+          <div style="font-size:11px;color:#C8102E;font-weight:700;margin-bottom:3px;">Por qu&eacute; no usamos los sitios OEM</div>
+          <div style="font-size:11px;color:#4A5568;line-height:1.5;">Los sitios OEM tienen sus propios est&aacute;ndares de UX y medici&oacute;n. Podemos aprovecharlos para remarketing y complementar con landing pages propias.</div>
+        </div>
+      </div>
+
+      <!-- Checklist -->
+      <div class="flex-col gap-10" style="flex:0.45;">
+        <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#718096;">CADA LANDING PAGE INCLUYE</div>
+
+        <div class="flex-col gap-6">
+          <div class="card" style="padding:10px 14px;flex-direction:row;align-items:center;gap:10px;">
+            <div style="width:22px;height:22px;border-radius:50%;background:#48BB78;color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;flex-shrink:0;">&#10003;</div>
+            <div style="font-size:12px;font-weight:600;color:#2D3748;">Formulario + calendario<br>(agenda de cita por marca) (campos que nosotros definimos)</div>
+          </div>
+          <div class="card" style="padding:10px 14px;flex-direction:row;align-items:center;gap:10px;">
+            <div style="width:22px;height:22px;border-radius:50%;background:#48BB78;color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;flex-shrink:0;">&#10003;</div>
+            <div style="font-size:12px;font-weight:600;color:#2D3748;">Calendario para agendar cita (A/B test: obligatorio vs opcional)</div>
+          </div>
+          <div class="card" style="padding:10px 14px;flex-direction:row;align-items:center;gap:10px;">
+            <div style="width:22px;height:22px;border-radius:50%;background:#48BB78;color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;flex-shrink:0;">&#10003;</div>
+            <div style="font-size:12px;font-weight:600;color:#2D3748;">Pixel de Meta</div>
+          </div>
+          <div class="card" style="padding:10px 14px;flex-direction:row;align-items:center;gap:10px;">
+            <div style="width:22px;height:22px;border-radius:50%;background:#48BB78;color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;flex-shrink:0;">&#10003;</div>
+            <div style="font-size:12px;font-weight:600;color:#2D3748;">Tag de Google</div>
+          </div>
+          <div class="card" style="padding:10px 14px;flex-direction:row;align-items:center;gap:10px;">
+            <div style="width:22px;height:22px;border-radius:50%;background:#48BB78;color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;flex-shrink:0;">&#10003;</div>
+            <div style="font-size:12px;font-weight:600;color:#2D3748;">Contenedor GTM propio</div>
+          </div>
+          <div class="card" style="padding:10px 14px;flex-direction:row;align-items:center;gap:10px;">
+            <div style="width:22px;height:22px;border-radius:50%;background:#48BB78;color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;flex-shrink:0;">&#10003;</div>
+            <div style="font-size:12px;font-weight:600;color:#2D3748;">Evento de conversi&oacute;n server-side</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════
+     SLIDE 6 - INTERFAZ DEL VENDEDOR DIGITAL
+     ════════════════════════════════════════════════════ -->
+<section class="slide slide--dark">
+  <div class="slide-label">05 / VENDEDOR DIGITAL</div>
+  <img src="../assets/logos/LOGO-GP-Blanco.png" class="logo-corner logo-w"><img src="../assets/logos/Logo-GP-Negro.png" class="logo-corner logo-d">
+  <div class="pad">
+    <div class="t-label t-red" style="margin-bottom:6px;">PISO DE VENTA</div>
+    <div class="t-title t-white" style="max-width:1100px;font-size:22px;">El vendedor digital ve qui&eacute;n viene, cu&aacute;ndo y a qu&eacute;. Solo marca dos cosas.</div>
+
+    <div class="flex gap-24" style="margin-top:20px;flex:1;">
+
+      <!-- Mock interface -->
+      <div class="flex-col" style="flex:0.6;">
+        <div style="background:#fff;border-radius:10px;overflow:hidden;flex:1;">
+          <!-- Header -->
+          <div style="background:#1a2236;padding:12px 18px;display:flex;align-items:center;justify-content:space-between;">
+            <div style="font-size:14px;font-weight:700;color:#fff;">Citas de hoy, Seminuevos GDL</div>
+            <span class="tag" style="background:rgba(66,153,225,0.3);color:#4299E1;font-size:8px;">AIRTABLE VIEW</span>
+          </div>
+          <!-- Table header -->
+          <div style="display:grid;grid-template-columns:1.2fr 0.6fr 1.2fr 0.8fr 0.8fr;padding:8px 18px;font-size:10px;font-weight:700;color:#718096;text-transform:uppercase;letter-spacing:1px;border-bottom:1px solid #E2E8F0;">
+            <div>Prospecto</div>
+            <div>Hora</div>
+            <div>Veh&iacute;culo</div>
+            <div>Lleg&oacute;</div>
+            <div>Compr&oacute;</div>
+          </div>
+          <!-- Row 1 -->
+          <div style="display:grid;grid-template-columns:1.2fr 0.6fr 1.2fr 0.8fr 0.8fr;padding:12px 18px;font-size:13px;color:#2D3748;border-bottom:1px solid #E2E8F0;align-items:center;">
+            <div style="font-weight:600;">Juan P&eacute;rez</div>
+            <div>10:00 AM</div>
+            <div>Mazda CX-5 2023</div>
+            <div><span style="background:#C6F6D5;color:#276749;padding:2px 8px;border-radius:12px;font-size:11px;font-weight:700;">&#10004; Lleg&oacute;</span></div>
+            <div><span style="background:#C6F6D5;color:#276749;padding:2px 8px;border-radius:12px;font-size:11px;font-weight:700;">&#128663; Compr&oacute;</span></div>
+          </div>
+          <!-- Row 2 -->
+          <div style="display:grid;grid-template-columns:1.2fr 0.6fr 1.2fr 0.8fr 0.8fr;padding:12px 18px;font-size:13px;color:#2D3748;border-bottom:1px solid #E2E8F0;align-items:center;">
+            <div style="font-weight:600;">Mar&iacute;a L&oacute;pez</div>
+            <div>2:30 PM</div>
+            <div>Honda CR-V 2022</div>
+            <div><span style="background:#C6F6D5;color:#276749;padding:2px 8px;border-radius:12px;font-size:11px;font-weight:700;">&#10004; Lleg&oacute;</span></div>
+            <div><span style="background:#FEFCBF;color:#975A16;padding:2px 8px;border-radius:12px;font-size:11px;font-weight:700;">&#9203; Seguimiento</span></div>
+          </div>
+          <!-- Row 3 -->
+          <div style="display:grid;grid-template-columns:1.2fr 0.6fr 1.2fr 0.8fr 0.8fr;padding:12px 18px;font-size:13px;color:#2D3748;align-items:center;">
+            <div style="font-weight:600;">Carlos Ruiz</div>
+            <div>4:00 PM</div>
+            <div>Toyota RAV4 2024</div>
+            <div><span style="background:#EDF2F7;color:#718096;padding:2px 8px;border-radius:12px;font-size:11px;font-weight:700;">&#9203; Pendiente</span></div>
+            <div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Supervision notes -->
+      <div class="flex-col gap-12" style="flex:0.4;">
+        <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.4);">SUPERVISI&Oacute;N (SINGLE POINT OF FAILURE)</div>
+
+        <div class="card--dark" style="padding:14px;border-left:3px solid #ECC94B;">
+          <div style="font-size:12px;color:#E2E8F0;line-height:1.6;">Si no marca, se pierde la se&ntilde;al m&aacute;s valiosa.</div>
+        </div>
+
+        <div class="card--dark" style="padding:14px;border-left:3px solid #4299E1;">
+          <div style="font-size:11px;font-weight:700;color:#4299E1;margin-bottom:4px;">Mitigaci&oacute;n</div>
+          <div style="font-size:12px;color:#E2E8F0;line-height:1.6;">Mecanismo de baja fricci&oacute;n (QR al llegar).</div>
+        </div>
+
+        <div class="card--dark" style="padding:14px;border-left:3px solid #D69E2E;">
+          <div style="font-size:11px;font-weight:700;color:#D69E2E;margin-bottom:4px;">SLA</div>
+          <div style="font-size:12px;color:#E2E8F0;line-height:1.6;">Es clave que el vendedor digital mantenga el registro actualizado para que las se&ntilde;ales lleguen a las plataformas.</div>
+        </div>
+
+        <div class="card--dark" style="padding:14px;border-left:3px solid #48BB78;">
+          <div style="font-size:11px;font-weight:700;color:#48BB78;margin-bottom:4px;">Backup</div>
+          <div style="font-size:12px;color:#E2E8F0;line-height:1.6;">Via 2 (CDA/DMS) cubre compras como respaldo de reconciliaci&oacute;n.</div>
+        </div>
+
+        <div class="card--dark" style="padding:10px 14px;margin-top:auto;">
+          <div style="font-size:11px;color:#A0AEC0;line-height:1.5;">La interfaz filtra por d&iacute;a y PDV. El vendedor no navega tablas. Solo ve lo que necesita.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════
+     SLIDE 7 - AUTOMATIZACIONES Y SENALES
+     ════════════════════════════════════════════════════ -->
+<section class="slide slide--light">
+  <div class="slide-label">06 / AUTOMATIZACIONES</div>
+  <img src="../assets/logos/LOGO-GP-Blanco.png" class="logo-corner logo-w"><img src="../assets/logos/Logo-GP-Negro.png" class="logo-corner logo-d">
+  <div class="pad">
+    <div class="t-label t-red" style="margin-bottom:6px;">ZAPIER + META CAPI + GOOGLE</div>
+    <div class="t-title" style="max-width:1100px;font-size:22px;color:#1a2236;">Cada cambio de status dispara una se&ntilde;al autom&aacute;tica a las plataformas.</div>
+
+    <div class="flex gap-20" style="margin-top:18px;flex:1;">
+
+      <!-- Signal table -->
+      <div class="flex-col gap-8" style="flex:0.65;">
+        <div class="card" style="padding:0;overflow:hidden;">
+          <table style="width:100%;border-collapse:collapse;font-size:12px;">
+            <tr style="background:#1a2236;color:#fff;">
+              <td style="padding:10px 14px;font-weight:700;">Evento en Airtable</td>
+              <td style="padding:10px 14px;font-weight:700;">Se&ntilde;al enviada</td>
+              <td style="padding:10px 14px;font-weight:700;">Plataforma aprende</td>
+            </tr>
+            <tr style="border-bottom:1px solid #E2E8F0;">
+              <td style="padding:10px 14px;font-weight:600;color:#2D3748;">Lead registrado</td>
+              <td style="padding:10px 14px;color:#4299E1;font-weight:600;">Lead (email + tel)</td>
+              <td style="padding:10px 14px;color:#4A5568;">Perfil de interesado</td>
+            </tr>
+            <tr style="border-bottom:1px solid #E2E8F0;">
+              <td style="padding:10px 14px;font-weight:600;color:#2D3748;">Cita confirmada</td>
+              <td style="padding:10px 14px;color:#4299E1;font-weight:600;">Schedule (fecha + auto)</td>
+              <td style="padding:10px 14px;color:#4A5568;">Perfil que agenda</td>
+            </tr>
+            <tr style="border-bottom:1px solid #E2E8F0;background:#FAFAFA;">
+              <td style="padding:10px 14px;font-weight:600;color:#A0AEC0;">Recordatorio enviado</td>
+              <td style="padding:10px 14px;color:#A0AEC0;font-style:italic;">(interno, no se env&iacute;a)</td>
+              <td style="padding:10px 14px;color:#A0AEC0;">.</td>
+            </tr>
+            <tr style="border-bottom:1px solid #E2E8F0;">
+              <td style="padding:10px 14px;font-weight:600;color:#2D3748;">&#10004; Lleg&oacute; al PDV</td>
+              <td style="padding:10px 14px;color:#48BB78;font-weight:600;">Visit (PDV + fecha)</td>
+              <td style="padding:10px 14px;color:#4A5568;">Perfil que visita</td>
+            </tr>
+            <tr>
+              <td style="padding:10px 14px;font-weight:600;color:#2D3748;">&#128663; Compr&oacute;</td>
+              <td style="padding:10px 14px;color:#48BB78;font-weight:600;">Purchase (monto + auto)</td>
+              <td style="padding:10px 14px;color:#4A5568;font-weight:700;">Perfil comprador</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <!-- Side notes -->
+      <div class="flex-col gap-12" style="flex:0.35;">
+        <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#718096;">VIA 2 (BACKUP)</div>
+        <div class="card" style="padding:14px;border-left:3px solid #D69E2E;">
+          <div style="font-size:12px;color:#4A5568;line-height:1.6;">
+            Si vendedor no marca: TI entrega archivo de compradores desde CDA/DMS &rarr; CSV &rarr; subida manual a Meta/Google &rarr; match por email/tel&eacute;fono.
+          </div>
+        </div>
+
+        <div class="sies" style="margin-top:auto;">
+          <div style="font-size:12px;color:#276749;line-height:1.5;font-weight:500;">Entre m&aacute;s se&ntilde;ales de usuario, mejor aprende la IA. El objetivo es enviar TODAS las etapas del funnel, no solo compras.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════
+     SLIDE 7b - STAKEHOLDERS DEL PILOTO
+     ════════════════════════════════════════════════════ -->
+<section class="slide slide--dark">
+  <div class="slide-label">07b / STAKEHOLDERS</div>
+  <img src="../assets/logos/LOGO-GP-Blanco.png" class="logo-corner logo-w"><img src="../assets/logos/Logo-GP-Negro.png" class="logo-corner logo-d">
+  <div class="pad" style="display:flex;flex-direction:column;height:100%;box-sizing:border-box;">
+    <div class="t-label" style="margin-bottom:4px;color:#ECC94B;">Responsables del Piloto</div>
+    <div class="t-title t-white" style="max-width:1100px;font-size:22px;margin-bottom:14px;">Qui&eacute;n participa, qu&eacute; rol tiene y qu&eacute; resuelve.</div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px 24px;flex:1;">
+
+      <!-- TOP LEFT: Quién decide + orquesta -->
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div>
+          <div style="font-size:8px;font-weight:700;letter-spacing:2px;color:#C8102E;text-transform:uppercase;margin-bottom:6px;">QUI&Eacute;N DECIDE</div>
+          <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:5px;">
+            <div style="padding:7px;background:rgba(200,16,46,0.08);border-left:2px solid #C8102E;border-radius:4px;">
+              <div style="font-size:9px;font-weight:700;color:#fff;">Pepe Morales</div>
+              <div style="font-size:7px;color:#C8102E;">Dir. Finanzas &bull; Sponsor</div>
+            </div>
+            <div style="padding:7px;border-left:2px solid #4299E1;border-radius:4px;background:rgba(66,153,225,0.08);">
+              <div style="font-size:9px;font-weight:700;color:#fff;">M. Alfarache</div>
+              <div style="font-size:7px;color:#4299E1;">Dir. Hyundai</div>
+            </div>
+            <div style="padding:7px;border-left:2px solid #4299E1;border-radius:4px;background:rgba(66,153,225,0.08);">
+              <div style="font-size:9px;font-weight:700;color:#fff;">R. Cabuto</div>
+              <div style="font-size:7px;color:#4299E1;">Dir. Ford</div>
+            </div>
+            <div style="padding:7px;border-left:2px solid #4299E1;border-radius:4px;background:rgba(66,153,225,0.08);">
+              <div style="font-size:9px;font-weight:700;color:#fff;">R. Ben&iacute;tez</div>
+              <div style="font-size:7px;color:#4299E1;">Dir. Stellantis</div>
+            </div>
+            <div style="padding:7px;border-left:2px solid #48BB78;border-radius:4px;background:rgba(72,187,120,0.08);">
+              <div style="font-size:9px;font-weight:700;color:#fff;">J. Medina</div>
+              <div style="font-size:7px;color:#48BB78;">Dir. Seminuevos</div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div style="font-size:8px;font-weight:700;letter-spacing:2px;color:#4299E1;text-transform:uppercase;margin-bottom:6px;">QUI&Eacute;N HABILITA <span style="font-weight:400;color:#718096;letter-spacing:0;text-transform:none;">&mdash; Accesos, OEM, vendedores digitales, cuentas</span></div>
+          <div style="display:flex;gap:6px;">
+            <div style="flex:1;padding:7px 10px;text-align:center;background:rgba(66,153,225,0.06);border-radius:6px;border:1px solid rgba(66,153,225,0.15);">
+              <div style="font-size:9px;font-weight:700;color:#fff;">V. Orozco</div>
+              <div style="font-size:7px;color:#4299E1;">Gte. Hyundai</div>
+            </div>
+            <div style="flex:1;padding:7px 10px;text-align:center;background:rgba(66,153,225,0.06);border-radius:6px;border:1px solid rgba(66,153,225,0.15);">
+              <div style="font-size:9px;font-weight:700;color:#fff;">B. P&eacute;rez</div>
+              <div style="font-size:7px;color:#4299E1;">Gte. Stellantis</div>
+            </div>
+            <div style="flex:1;padding:7px 10px;text-align:center;background:rgba(66,153,225,0.06);border-radius:6px;border:1px solid rgba(66,153,225,0.15);">
+              <div style="font-size:9px;font-weight:700;color:#fff;">J. Reyes</div>
+              <div style="font-size:7px;color:#4299E1;">Gte. Ford + Semi</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="padding:10px 14px;border-left:3px solid #ECC94B;border-radius:6px;background:rgba(236,201,75,0.05);">
+          <div style="font-size:8px;font-weight:700;letter-spacing:2px;color:#ECC94B;text-transform:uppercase;margin-bottom:4px;">QUI&Eacute;N ORQUESTA Y EJECUTA EL PILOTO</div>
+          <div style="font-size:11px;font-weight:700;color:#fff;">Chucho Porras <span style="font-weight:400;color:#A0AEC0;">&mdash; Dir. Marketing Corporativo</span></div>
+          <div style="font-size:8px;color:#718096;margin-top:2px;">Pepe Morales <span style="color:#A0AEC0;">&mdash; Dir. Finanzas &bull; Sponsor ejecutivo</span></div>
+        </div>
+      </div>
+
+      <!-- TOP RIGHT: Propuesta de valor -->
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <div style="font-size:8px;font-weight:700;letter-spacing:2px;color:#48BB78;text-transform:uppercase;margin-bottom:2px;">PROPUESTA DE VALOR PARA LOS DIRECTORES</div>
+        <div style="background:rgba(72,187,120,0.06);border:1px solid rgba(72,187,120,0.18);border-radius:8px;padding:10px 14px;">
+          <div style="font-size:10px;font-weight:800;color:#48BB78;">&iquest;C&oacute;mo vendo m&aacute;s?</div>
+          <div style="font-size:9px;color:#A0AEC0;margin-top:3px;">Mejores prospectos al piso con contexto e intenci&oacute;n real.</div>
+        </div>
+        <div style="background:rgba(72,187,120,0.06);border:1px solid rgba(72,187,120,0.18);border-radius:8px;padding:10px 14px;">
+          <div style="font-size:10px;font-weight:800;color:#48BB78;">&iquest;C&oacute;mo aumento margen?</div>
+          <div style="font-size:9px;color:#A0AEC0;margin-top:3px;">Bajar CPA (costo por venta) y CAC (costo por cliente).</div>
+        </div>
+        <div style="background:rgba(72,187,120,0.06);border:1px solid rgba(72,187,120,0.18);border-radius:8px;padding:10px 14px;">
+          <div style="font-size:10px;font-weight:800;color:#48BB78;">&iquest;C&oacute;mo bajo costos?</div>
+          <div style="font-size:9px;color:#A0AEC0;margin-top:3px;">Gesti&oacute;n activa de proveedores. Eficiencia operativa.</div>
+        </div>
+        <div style="background:rgba(66,153,225,0.06);border:1px solid rgba(66,153,225,0.12);border-radius:8px;padding:10px 14px;">
+          <div style="font-size:9px;font-weight:700;color:#4299E1;margin-bottom:3px;">Para el piso de venta</div>
+          <div style="font-size:9px;color:#A0AEC0;line-height:1.4;">Digital suma al vendedor. Prospectos con contexto, intenci&oacute;n y capacidad financiera. M&aacute;s cierres = m&aacute;s comisi&oacute;n.</div>
+        </div>
+      </div>
+
+      <!-- BOTTOM: Quién hace qué (full width via colspan) -->
+      <div style="grid-column:span 2;">
+        <div style="font-size:8px;font-weight:700;letter-spacing:2px;color:rgba(255,255,255,0.4);text-transform:uppercase;margin-bottom:8px;">QUI&Eacute;N HACE QU&Eacute;</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:8px;">
+          <div style="background:rgba(236,201,75,0.08);border:1px solid rgba(236,201,75,0.15);border-radius:8px;padding:10px 12px;">
+            <div style="font-size:9px;font-weight:700;color:#ECC94B;margin-bottom:4px;">Dir. Marketing</div>
+            <div style="font-size:8px;color:#A0AEC0;line-height:1.4;">Estrategia, landing pages, forms, Airtable, Zapier, an&aacute;lisis, capacitaci&oacute;n vendedor digital</div>
+          </div>
+          <div style="background:rgba(72,187,120,0.08);border:1px solid rgba(72,187,120,0.15);border-radius:8px;padding:10px 12px;">
+            <div style="font-size:9px;font-weight:700;color:#48BB78;margin-bottom:4px;">C&eacute;lula / Partner</div>
+            <div style="font-size:8px;color:#A0AEC0;line-height:1.4;">Campa&ntilde;as Meta/Google, p&iacute;xeles, eventos, monitoreo diario, reporteo dashboards</div>
+          </div>
+          <div style="background:rgba(66,153,225,0.08);border:1px solid rgba(66,153,225,0.15);border-radius:8px;padding:10px 12px;">
+            <div style="font-size:9px;font-weight:700;color:#4299E1;margin-bottom:4px;">Gerentes (habilitan)</div>
+            <div style="font-size:8px;color:#A0AEC0;line-height:1.4;">Accesos BM, oferta/producto, PDV piloto, OEM, supervisar vendedor digital</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:8px;padding:10px 12px;">
+            <div style="font-size:9px;font-weight:700;color:#63B3ED;margin-bottom:4px;">Vendedor digital</div>
+            <div style="font-size:8px;color:#A0AEC0;line-height:1.4;">Recibir prospecto. Marcar lleg&oacute;/compr&oacute; en Airtable. Capacitaci&oacute;n: 15 min.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="position:absolute;bottom:16px;left:40px;font-size:7px;color:rgba(255,255,255,0.2);">
+      Direcci&oacute;n de Marketing Corporativo | Grupo Plasencia Automotriz
+    </div>
+  </div>
+
+</section>
+
+
+<!-- ════════════════════════════════════════════════════
+     SLIDE 7c - HIP&Oacute;TESIS Y OBJETIVOS DEL PILOTO
+     ════════════════════════════════════════════════════ -->
+<section class="slide slide--dark">
+  <div class="slide-label">07c / HIP&Oacute;TESIS</div>
+  <img src="../assets/logos/LOGO-GP-Blanco.png" class="logo-corner logo-w"><img src="../assets/logos/Logo-GP-Negro.png" class="logo-corner logo-d">
+  <div class="pad">
+    <div class="t-label" style="margin-bottom:6px;color:#ECC94B;">Hip&oacute;tesis y Objetivos del Piloto</div>
+    <div class="t-title t-white" style="font-size:22px;">Subir la conversi&oacute;n lead&rarr;venta de 4.35% a 5.35% (+1pp). Eso vale +$661 MDP.</div>
+
+    <div class="flex gap-16" style="margin-top:14px;flex:1;">
+
+      <!-- COL 1: Hip&oacute;tesis + Baseline -->
+      <div class="flex-col gap-8" style="flex:0.55;">
+
+        <div class="t-label" style="font-size:9px;letter-spacing:2px;color:rgba(255,255,255,0.4);">DOS CAMBIOS SIMULT&Aacute;NEOS</div>
+        <div class="flex gap-6">
+          <div class="card--dark" style="flex:1;padding:12px;border-left:3px solid #4299E1;">
+            <div style="font-size:10px;font-weight:800;color:#4299E1;margin-bottom:4px;">CAMBIO 1: TIPO DE CAMPA&Ntilde;A</div>
+            <div style="font-size:11px;color:#fff;line-height:1.4;">
+              <span style="color:#A0AEC0;">AS IS:</span> Leadgen / mensajes WA (volumen)<br>
+              <span style="color:#48BB78;">TO BE:</span> Conversiones en sitio web con formulario (intenci&oacute;n)
+            </div>
+          </div>
+          <div class="card--dark" style="flex:1;padding:12px;border-left:3px solid #48BB78;">
+            <div style="font-size:10px;font-weight:800;color:#48BB78;margin-bottom:4px;">CAMBIO 2: SE&Ntilde;ALES OFFLINE</div>
+            <div style="font-size:11px;color:#fff;line-height:1.4;">
+              <span style="color:#A0AEC0;">AS IS:</span> Plataformas optimizan por interacciones, no por compras<br>
+              <span style="color:#48BB78;">TO BE:</span> Conversiones del funnel → Meta/Google v&iacute;a Zapier
+            </div>
+          </div>
+        </div>
+
+        <div class="t-label" style="font-size:9px;letter-spacing:2px;color:rgba(255,255,255,0.4);">BASELINE PROXY MENSUAL (AGO&ndash;NOV 2025 &divide; 4, 4 MARCAS)</div>
+        <div class="card--dark" style="padding:12px;">
+          <div style="display:grid;grid-template-columns:1fr auto auto;gap:0;font-size:11px;">
+            <div style="padding:3px 8px;font-weight:700;color:#718096;font-size:9px;">ETAPA</div>
+            <div style="padding:3px 8px;text-align:right;font-weight:700;color:#718096;font-size:9px;">VOL/MES</div>
+            <div style="padding:3px 8px;text-align:right;font-weight:700;color:#718096;font-size:9px;">TASA</div>
+            <div style="padding:3px 8px;color:#fff;">Leads</div>
+            <div style="padding:3px 8px;text-align:right;color:#fff;">13,370</div>
+            <div style="padding:3px 8px;text-align:right;color:#A0AEC0;">100%</div>
+            <div style="padding:3px 8px;color:#fff;">Contactados</div>
+            <div style="padding:3px 8px;text-align:right;color:#fff;">8,556</div>
+            <div style="padding:3px 8px;text-align:right;color:#A0AEC0;">64.0%</div>
+            <div style="padding:3px 8px;color:#fff;">SQL / Visitas PDV</div>
+            <div style="padding:3px 8px;text-align:right;color:#fff;">1,447</div>
+            <div style="padding:3px 8px;text-align:right;color:#A0AEC0;">16.9%</div>
+            <div style="padding:3px 8px;color:#fff;">Facturas digitales</div>
+            <div style="padding:3px 8px;text-align:right;color:#fff;">582</div>
+            <div style="padding:3px 8px;text-align:right;color:#A0AEC0;">4.35%</div>
+          </div>
+          <div style="font-size:9px;color:rgba(255,255,255,0.35);margin-top:6px;">Gerentes pueden compartir datos reales de los &uacute;ltimos 3 meses (Q1 2026) para ajustar su baseline. Si no los comparten, este proxy aplica.</div>
+        </div>
+      </div>
+
+      <!-- COL 2: Criterios de validaci&oacute;n -->
+      <div class="flex-col gap-8" style="flex:0.45;">
+
+        <div class="t-label" style="font-size:9px;letter-spacing:2px;color:rgba(255,255,255,0.4);">CRITERIOS DE VALIDACI&Oacute;N (MENSUAL, D&Iacute;A 30 → 90)</div>
+        <div class="card--dark" style="padding:12px;">
+          <div style="display:grid;grid-template-columns:1fr auto auto;gap:0;font-size:10px;">
+            <div style="padding:3px 8px;font-weight:700;color:#718096;font-size:9px;">M&Eacute;TRICA</div>
+            <div style="padding:3px 8px;text-align:right;font-weight:700;color:#718096;font-size:9px;">BASELINE</div>
+            <div style="padding:3px 8px;text-align:right;font-weight:700;color:#48BB78;font-size:9px;">VALIDA SI...</div>
+            <!-- VOLUMEN -->
+            <div style="padding:3px 8px;color:#A0AEC0;font-style:italic;">Leads</div>
+            <div style="padding:3px 8px;text-align:right;color:#A0AEC0;">13,370/mes</div>
+            <div style="padding:3px 8px;text-align:right;color:#ECC94B;">Baja (menos volumen, mejor calidad)</div>
+            <div style="padding:3px 8px;color:#A0AEC0;font-style:italic;">CPL</div>
+            <div style="padding:3px 8px;text-align:right;color:#A0AEC0;">$148*</div>
+            <div style="padding:3px 8px;text-align:right;color:#ECC94B;">Sube (web vs form nativo)</div>
+            <!-- TASAS: lo que tiene que mejorar -->
+            <div style="padding:3px 8px;color:#fff;font-weight:700;">Contactado&rarr;SQL</div>
+            <div style="padding:3px 8px;text-align:right;color:#A0AEC0;">16.9%</div>
+            <div style="padding:3px 8px;text-align:right;color:#48BB78;font-weight:700;">&ge;20.8%</div>
+            <div style="padding:3px 8px;color:#fff;font-weight:700;">SQL&rarr;Venta</div>
+            <div style="padding:3px 8px;text-align:right;color:#A0AEC0;">40.2%</div>
+            <div style="padding:3px 8px;text-align:right;color:#48BB78;font-weight:700;">&ge;40.2% (mantener o subir)</div>
+            <div style="padding:3px 8px;color:#fff;font-weight:700;background:rgba(72,187,120,0.1);">Lead&rarr;Venta</div>
+            <div style="padding:3px 8px;text-align:right;color:#A0AEC0;background:rgba(72,187,120,0.1);">4.35%</div>
+            <div style="padding:3px 8px;text-align:right;color:#48BB78;font-weight:700;background:rgba(72,187,120,0.1);">5.35% (+1pp)</div>
+            <!-- NUEVAS ETAPAS (TO BE del piloto) -->
+            <div style="padding:3px 8px;color:#4299E1;">Cita agendada (nueva)</div>
+            <div style="padding:3px 8px;text-align:right;color:#4299E1;">No existe</div>
+            <div style="padding:3px 8px;text-align:right;color:#4299E1;">Se mide por primera vez</div>
+            <div style="padding:3px 8px;color:#4299E1;">Show rate cita&rarr;SQL</div>
+            <div style="padding:3px 8px;text-align:right;color:#4299E1;">No existe</div>
+            <div style="padding:3px 8px;text-align:right;color:#4299E1;">Se mide por primera vez</div>
+            <!-- COSTOS: bajan porque mejores tasas -->
+            <div style="padding:3px 8px;color:#fff;">CPA</div>
+            <div style="padding:3px 8px;text-align:right;color:#A0AEC0;">$6,971*</div>
+            <div style="padding:3px 8px;text-align:right;color:#48BB78;">Baja</div>
+            <div style="padding:3px 8px;color:#fff;">CAC</div>
+            <div style="padding:3px 8px;text-align:right;color:#A0AEC0;">$3,003*</div>
+            <div style="padding:3px 8px;text-align:right;color:#48BB78;">Baja</div>
+          </div>
+          <div style="font-size:8px;color:rgba(255,255,255,0.3);margin-top:6px;">* Solo Hyundai verificado. Dem&aacute;s marcas establecen baseline en Sprint 0&ndash;1.</div>
+        </div>
+
+        <div class="t-label" style="font-size:9px;letter-spacing:2px;color:rgba(255,255,255,0.4);">CRITERIO DE &Eacute;XITO</div>
+        <div class="card--dark" style="padding:12px;border-left:3px solid #48BB78;">
+          <div style="font-size:11px;color:#fff;line-height:1.5;">
+            <strong style="color:#48BB78;">Mes a mes: &iquest;las tasas suben y los costos bajan vs el baseline?</strong><br>
+            Si s&iacute; → funciona. El cu&aacute;nto mejoraron alimenta el business case (d&iacute;a 60).
+          </div>
+          <div style="font-size:9px;color:rgba(255,255,255,0.4);margin-top:6px;">El +1pp del slide de oportunidad dimensiona el potencial, no es el target del piloto. La mejora real la dictan los datos.</div>
+        </div>
+
+        <div class="t-label" style="font-size:9px;letter-spacing:2px;color:rgba(255,255,255,0.4);">POR QU&Eacute; 1 PDV POR MARCA</div>
+        <div class="card--dark" style="padding:12px;">
+          <div class="flex-col gap-4">
+            <div style="font-size:11px;color:#fff;">&bull; Control de variables (si metes 7 sucursales no sabes qu&eacute; caus&oacute; la mejora)</div>
+            <div style="font-size:11px;color:#fff;">&bull; Un vendedor digital asignado por PDV</div>
+            <div style="font-size:11px;color:#fff;">&bull; Configuraci&oacute;n r&aacute;pida (1 PDV = 1 semana)</div>
+            <div style="font-size:11px;color:#fff;">&bull; Evidencia limpia para el business case</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════
+     SLIDE 7d - CONFIGURACI&Oacute;N DEL PILOTO (SPRINT 0 CHECKLIST)
+     ════════════════════════════════════════════════════ -->
+<section class="slide slide--light">
+  <div class="slide-label">07d / CONFIGURACI&Oacute;N</div>
+  <img src="../assets/logos/LOGO-GP-Blanco.png" class="logo-corner logo-w"><img src="../assets/logos/Logo-GP-Negro.png" class="logo-corner logo-d">
+  <div class="pad">
+    <div class="t-label t-red" style="margin-bottom:6px;">Configuraci&oacute;n del Piloto</div>
+    <div class="t-title" style="font-size:22px;">Lo que cada gerente de marca entrega en Sprint 0.</div>
+
+    <div class="flex gap-20" style="margin-top:16px;flex:1;">
+
+      <!-- COL 1: Checklist -->
+      <div class="flex-col gap-8" style="flex:0.55;">
+        <div class="t-label t-red" style="font-size:9px;letter-spacing:2px;">CHECKLIST POR GERENTE DE MARCA</div>
+
+        <div class="card" style="padding:12px 16px;border-left:3px solid #4299E1;">
+          <div style="font-size:12px;font-weight:700;color:#1E2740;">&iquest;OEM permite landing pages con dominio GP?</div>
+          <div style="font-size:10px;color:#718096;margin-top:3px;">Define Plan A (landing propia) o Plan B (leadgen centralizado). Si no confirma, vamos Plan B.</div>
+        </div>
+
+        <div class="card" style="padding:12px 16px;border-left:3px solid #4299E1;">
+          <div style="font-size:12px;font-weight:700;color:#1E2740;">Data de funnel Q1 2026</div>
+          <div style="font-size:10px;color:#718096;margin-top:3px;">Si quiere corregir el baseline proxy (Ago&ndash;Nov 2025). Si no entrega, el proxy aplica.</div>
+        </div>
+
+        <div class="card" style="padding:12px 16px;border-left:3px solid #4299E1;">
+          <div style="font-size:12px;font-weight:700;color:#1E2740;">Oferta / producto a promocionar</div>
+          <div style="font-size:10px;color:#718096;margin-top:3px;">Lo que la OEM dicta o su prioridad comercial. Qu&eacute; pautamos.</div>
+        </div>
+
+        <div class="card" style="padding:12px 16px;border-left:3px solid #C8102E;">
+          <div style="font-size:12px;font-weight:700;color:#1E2740;">1 PDV piloto (1 sucursal por marca)</div>
+          <div style="font-size:10px;color:#718096;margin-top:3px;">D&oacute;nde ejecutamos. Una sucursal para control de variables y evidencia limpia.</div>
+        </div>
+
+        <div class="card" style="padding:12px 16px;border-left:3px solid #48BB78;">
+          <div style="font-size:12px;font-weight:700;color:#1E2740;">Acceso admin a cuentas digitales <span style="font-size:9px;color:#48BB78;font-weight:400;">BM corporativo creado ✓</span></div>
+          <div style="font-size:10px;color:#718096;margin-top:3px;">Meta: p&aacute;ginas FB, IG, WA Business, Threads, cuentas publicitarias, cat&aacute;logos, p&iacute;xeles. Google: Ads, GA4, GTM. Todo admin a marketingdigital@grupoplasencia.com (BM ID: 313259579011657).</div>
+        </div>
+
+        <div class="card" style="padding:12px 16px;border-left:3px solid #4299E1;">
+          <div style="font-size:12px;font-weight:700;color:#1E2740;">Estrategia comercial y recursos de marca</div>
+          <div style="font-size:10px;color:#718096;margin-top:3px;">Parrillas, artes/videos, guidelines OEM, business plan, objetivos de ventas/mes, buyer personas. Funnel digital &uacute;ltimos 90 d&iacute;as como baseline de performance.</div>
+        </div>
+      </div>
+
+      <!-- COL 2: Por marca -->
+      <div class="flex-col gap-8" style="flex:0.45;">
+        <div class="t-label t-red" style="font-size:9px;letter-spacing:2px;">STATUS POR MARCA PILOTO</div>
+
+        <div class="card" style="padding:12px;border-left:3px solid #48BB78;">
+          <div style="font-size:12px;font-weight:700;color:#1E2740;">Seminuevos <span style="font-size:9px;color:#48BB78;font-weight:400;">Gte. Jos&eacute; Reyes</span></div>
+          <div style="font-size:10px;color:#718096;margin-top:3px;">Sin restricci&oacute;n OEM. Landing propia. Control total. Arranca primero.</div>
+        </div>
+
+        <div class="card" style="padding:12px;border-left:3px solid #4299E1;">
+          <div style="font-size:12px;font-weight:700;color:#1E2740;">Hyundai <span style="font-size:9px;color:#4299E1;font-weight:400;">Gte. Ver&oacute;nica Orozco</span></div>
+          <div style="font-size:10px;color:#718096;margin-top:3px;">&Uacute;nica marca con baseline verificado. Confirmar landing page + PDV + oferta.</div>
+        </div>
+
+        <div class="card" style="padding:12px;border-left:3px solid #4299E1;">
+          <div style="font-size:12px;font-weight:700;color:#1E2740;">Stellantis <span style="font-size:9px;color:#4299E1;font-weight:400;">Gte. Berenice P&eacute;rez</span></div>
+          <div style="font-size:10px;color:#718096;margin-top:3px;">Sin data de funnel. Baseline se establece desde cero. Confirmar todo.</div>
+        </div>
+
+        <div class="card" style="padding:12px;border-left:3px solid rgba(255,255,255,0.15);">
+          <div style="font-size:12px;font-weight:700;color:#A0AEC0;">Ford <span style="font-size:9px;font-weight:400;">Fuera del piloto</span></div>
+          <div style="font-size:10px;color:#A0AEC0;margin-top:3px;">Se reeval&uacute;a despu&eacute;s de resultados con las 3 marcas activas.</div>
+        </div>
+
+        <div style="background:rgba(200,16,46,0.06);border:1px solid rgba(200,16,46,0.15);border-radius:8px;padding:10px 14px;margin-top:auto;">
+          <div style="font-size:10px;color:#2D3748;line-height:1.4;"><strong style="color:#C8102E;">Deadline:</strong> Todo esto se resuelve en Sprint 0 (semanas 1&ndash;2). Lo que no se entregue, se decide con el proxy o se pospone la marca.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════
+     SLIDE 8 - SPRINT 0 ENTREGABLES
+     ════════════════════════════════════════════════════ -->
+<section class="slide slide--dark">
+  <div class="slide-label">08 / SPRINT 0</div>
+  <img src="../assets/logos/LOGO-GP-Blanco.png" class="logo-corner logo-w"><img src="../assets/logos/Logo-GP-Negro.png" class="logo-corner logo-d">
+  <div class="pad">
+    <div class="t-label t-red" style="margin-bottom:6px;">PRIMERAS 2 SEMANAS</div>
+    <div class="t-title t-white" style="max-width:1100px;font-size:22px;">Sprint 0: lo que se necesita para arrancar.</div>
+
+    <div class="flex gap-24" style="margin-top:20px;flex:1;">
+
+      <!-- Checklist -->
+      <div class="flex-col gap-6" style="flex:0.65;">
+
+        <div class="card--dark" style="padding:10px 14px;flex-direction:row;align-items:center;gap:12px;">
+          <div style="width:20px;height:20px;border:2px solid #4299E1;border-radius:4px;flex-shrink:0;"></div>
+          <div style="font-size:12px;color:#E2E8F0;flex:1;">Solicitar bases de datos a TI (CDA/DMS)</div>
+          <span class="tag" style="background:rgba(236,201,75,0.1);color:#ECC94B;font-size:8px;">Pepe empuja a TI</span>
+        </div>
+
+        <div class="card--dark" style="padding:10px 14px;flex-direction:row;align-items:center;gap:12px;">
+          <div style="width:20px;height:20px;border:2px solid #4299E1;border-radius:4px;flex-shrink:0;"></div>
+          <div style="font-size:12px;color:#E2E8F0;flex:1;">Centralizar Business Managers (Meta) bajo cuenta GP</div>
+          <span class="tag" style="background:rgba(214,158,46,0.15);color:#D69E2E;font-size:8px;">Gerentes dan accesos</span>
+        </div>
+
+        <div class="card--dark" style="padding:10px 14px;flex-direction:row;align-items:center;gap:12px;">
+          <div style="width:20px;height:20px;border:2px solid #4299E1;border-radius:4px;flex-shrink:0;"></div>
+          <div style="font-size:12px;color:#E2E8F0;flex:1;">Centralizar MCC (Google) bajo cuenta GP</div>
+          <span class="tag" style="background:rgba(214,158,46,0.15);color:#D69E2E;font-size:8px;">Gerentes dan accesos</span>
+        </div>
+
+        <div class="card--dark" style="padding:10px 14px;flex-direction:row;align-items:center;gap:12px;">
+          <div style="width:20px;height:20px;border:2px solid #4299E1;border-radius:4px;flex-shrink:0;"></div>
+          <div style="font-size:12px;color:#E2E8F0;flex:1;">Auditar contenedores GTM de los 9 sitios</div>
+          <span class="tag" style="background:rgba(66,153,225,0.15);color:#4299E1;font-size:8px;">Dir. Marketing</span>
+        </div>
+
+        <div class="card--dark" style="padding:10px 14px;flex-direction:row;align-items:center;gap:12px;">
+          <div style="width:20px;height:20px;border:2px solid #4299E1;border-radius:4px;flex-shrink:0;"></div>
+          <div style="font-size:12px;color:#E2E8F0;flex:1;">Acceso a dominio grupoplasencia.com y hosting para landing pages del piloto</div>
+          <span class="tag" style="background:rgba(200,16,46,0.15);color:#C8102E;font-size:8px;">TI (v&iacute;a Pepe)</span>
+        </div>
+
+        <div class="card--dark" style="padding:10px 14px;flex-direction:row;align-items:center;gap:12px;">
+          <div style="width:20px;height:20px;border:2px solid #4299E1;border-radius:4px;flex-shrink:0;"></div>
+          <div style="font-size:12px;color:#E2E8F0;flex:1;">Cuenta de Outlook por marca piloto para agenda digital de citas (calendario integrado al formulario)</div>
+          <span class="tag" style="background:rgba(200,16,46,0.15);color:#C8102E;font-size:8px;">TI (v&iacute;a Pepe)</span>
+        </div>
+
+        <div class="card--dark" style="padding:10px 14px;flex-direction:row;align-items:center;gap:12px;">
+          <div style="width:20px;height:20px;border:2px solid #4299E1;border-radius:4px;flex-shrink:0;"></div>
+          <div style="font-size:12px;color:#E2E8F0;flex:1;">Centralizar m&eacute;todos de pago: tope por marca, presupuesto anual, est&aacute;ndar tarjeta/SPEI</div>
+          <span class="tag" style="background:rgba(214,158,46,0.15);color:#D69E2E;font-size:8px;">Finanzas + Dir. MKT</span>
+        </div>
+
+        <div class="card--dark" style="padding:10px 14px;flex-direction:row;align-items:center;gap:12px;">
+          <div style="width:20px;height:20px;border:2px solid #4299E1;border-radius:4px;flex-shrink:0;"></div>
+          <div style="font-size:12px;color:#E2E8F0;flex:1;">Landing page piloto construida (Seminuevos)</div>
+          <span class="tag" style="background:rgba(66,153,225,0.15);color:#4299E1;font-size:8px;">Dir. Mkt / C&eacute;lula</span>
+        </div>
+
+        <div class="card--dark" style="padding:10px 14px;flex-direction:row;align-items:center;gap:12px;">
+          <div style="width:20px;height:20px;border:2px solid #4299E1;border-radius:4px;flex-shrink:0;"></div>
+          <div style="font-size:12px;color:#E2E8F0;flex:1;">Airtable configurado (campos, vistas, permisos)</div>
+          <span class="tag" style="background:rgba(66,153,225,0.15);color:#4299E1;font-size:8px;">Dir. Mkt / C&eacute;lula</span>
+        </div>
+
+        <div class="card--dark" style="padding:10px 14px;flex-direction:row;align-items:center;gap:12px;">
+          <div style="width:20px;height:20px;border:2px solid #4299E1;border-radius:4px;flex-shrink:0;"></div>
+          <div style="font-size:12px;color:#E2E8F0;flex:1;">Zapier configurado (confirmaci&oacute;n, recordatorio, CAPI)</div>
+          <span class="tag" style="background:rgba(66,153,225,0.15);color:#4299E1;font-size:8px;">Dir. Mkt / C&eacute;lula</span>
+        </div>
+
+        <div class="card--dark" style="padding:10px 14px;flex-direction:row;align-items:center;gap:12px;">
+          <div style="width:20px;height:20px;border:2px solid #4299E1;border-radius:4px;flex-shrink:0;"></div>
+          <div style="font-size:12px;color:#E2E8F0;flex:1;">Vendedor digital asignado al piloto</div>
+          <span class="tag" style="background:rgba(236,201,75,0.1);color:#ECC94B;font-size:8px;">Pepe</span>
+        </div>
+
+      </div>
+
+      <!-- Pilotos + Instruccion -->
+      <div class="flex-col gap-12" style="flex:0.35;">
+        <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.4);">PILOTOS</div>
+
+        <div class="card--dark" style="padding:16px;border:1.5px solid rgba(72,187,120,0.3);">
+          <div style="font-size:13px;font-weight:700;color:#48BB78;margin-bottom:8px;">Seminuevos</div>
+          <div style="font-size:12px;color:#A0AEC0;line-height:1.5;">Siempre. Mayor oportunidad de crecimiento digital. Sin restricciones OEM. Control total.</div>
+        </div>
+
+        <div class="card--dark" style="padding:16px;border:1.5px solid rgba(66,153,225,0.3);">
+          <div style="font-size:13px;font-weight:700;color:#4299E1;margin-bottom:8px;">+3 marcas prioridad</div>
+          <div style="font-size:12px;color:#A0AEC0;line-height:1.5;">Hyundai, Stellantis, Ford. Entran al piloto. Las dem&aacute;s se integran conforme el piloto demuestre resultados.</div>
+        </div>
+
+        <div class="card--dark" style="padding:14px;margin-top:auto;border:1.5px solid rgba(200,16,46,0.3);">
+          <div style="font-size:10px;font-weight:700;letter-spacing:1px;color:#ECC94B;text-transform:uppercase;margin-bottom:6px;">Instrucci&oacute;n de la Dir. de Marketing</div>
+          <div style="font-size:12px;color:#E2E8F0;line-height:1.5;">La centralizaci&oacute;n de accesos beneficia a todas las marcas con visibilidad y orden en la gesti&oacute;n de recursos.</div>
+        </div>
+
+        <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.4);">PROGRESI&Oacute;N</div>
+        <div style="background:rgba(72,187,120,0.08);border:1px solid rgba(72,187,120,0.2);border-radius:8px;padding:10px 14px;">
+          <div style="font-size:10px;color:#fff;line-height:1.6;">
+            <strong style="color:#4299E1;">Piloto</strong> (ahora &rarr; d&iacute;a 45) &rarr; ventas demostrables<br>
+            <strong style="color:#ECC94B;">Business case</strong> (d&iacute;a 60) &rarr; justifica CRM + escala<br>
+            <strong style="color:#48BB78;">Escala</strong> (d&iacute;a 60 &rarr; 365) &rarr; todas las marcas + todos los vendedores<br>
+            <strong style="color:#48BB78;">Impacto financiero</strong> al cierre del a&ntilde;o
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ════════════════════════════════════════════════════
+     SLIDE 9 - PRESUPUESTO DEL PILOTO
+     ════════════════════════════════════════════════════ -->
+<section class="slide slide--dark">
+  <div class="slide-label">09 / PRESUPUESTO</div>
+  <img src="../assets/logos/LOGO-GP-Blanco.png" class="logo-corner logo-w"><img src="../assets/logos/Logo-GP-Negro.png" class="logo-corner logo-d">
+  <div class="pad">
+    <div class="t-label" style="margin-bottom:6px;color:#ECC94B;">Presupuesto del Piloto</div>
+    <div class="t-title t-white" style="max-width:1100px;font-size:22px;">Dos escenarios. Los n&uacute;meros muestran por qu&eacute; B es el recomendado.</div>
+
+    <div class="flex gap-16" style="margin-top:16px;">
+
+      <!-- COL 1: Escenarios -->
+      <div style="flex:0.55;display:flex;flex-direction:column;gap:12px;">
+
+        <!-- Escenario A -->
+        <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:10px;padding:16px;border-left:3px solid #4299E1;">
+          <div style="font-size:10px;font-weight:800;color:#4299E1;letter-spacing:1px;margin-bottom:8px;">ESCENARIO A: 30% DEL BUDGET DE MARCA</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:10px;color:#A0AEC0;">
+            <div>Promedio pauta digital/marca: <strong style="color:#fff;">$276K/mes</strong></div>
+            <div>30% = <strong style="color:#fff;">~$83K/mes</strong> por marca</div>
+            <div>Leads/mes por marca (CPL $500): <strong style="color:#fff;">~166</strong></div>
+            <div>Ventas en 45 d&iacute;as (4 marcas, 3%): <strong style="color:#ECC94B;">~28</strong></div>
+          </div>
+          <div style="margin-top:10px;padding:8px 12px;background:rgba(236,201,75,0.1);border-radius:6px;">
+            <div style="font-size:10px;color:#ECC94B;font-weight:700;">Insuficiente para business case. 28 ventas en 45 d&iacute;as no es evidencia s&oacute;lida.</div>
+          </div>
+        </div>
+
+        <!-- Escenario B -->
+        <div style="background:rgba(72,187,120,0.06);border:1.5px solid rgba(72,187,120,0.25);border-radius:10px;padding:16px;border-left:3px solid #48BB78;">
+          <div style="font-size:10px;font-weight:800;color:#48BB78;letter-spacing:1px;margin-bottom:8px;">ESCENARIO B: BUDGET CORPORATIVO NUEVO (RECOMENDADO)</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:10px;color:#A0AEC0;">
+            <div>Pauta por marca: <strong style="color:#fff;">$250K/mes</strong></div>
+            <div>Total 4 marcas: <strong style="color:#fff;">$1M/mes</strong></div>
+            <div>Leads/mes por marca (CPL $500): <strong style="color:#fff;">~500</strong></div>
+            <div>Ventas en 45 d&iacute;as (4 marcas, 3%): <strong style="color:#48BB78;">~90</strong></div>
+          </div>
+          <div style="margin-top:10px;padding:8px 12px;background:rgba(72,187,120,0.1);border-radius:6px;">
+            <div style="font-size:10px;color:#48BB78;font-weight:700;">Es menos que el promedio actual de pauta digital por marca ($276K). No se toca el budget de nadie.</div>
+          </div>
+        </div>
+
+        <!-- Herramientas -->
+        <div style="background:rgba(255,255,255,0.04);border-radius:8px;padding:12px;">
+          <div style="font-size:9px;font-weight:700;color:#A0AEC0;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;">Herramientas</div>
+          <div style="display:flex;gap:16px;font-size:10px;color:#A0AEC0;">
+            <div>Airtable Team: <strong style="color:#fff;">~$1.1K MXN/mes</strong> (3 usuarios)</div>
+            <div>Zapier Pro: <strong style="color:#fff;">~$540 MXN/mes</strong></div>
+            <div>Total herramientas: <strong style="color:#ECC94B;">~$1.6K MXN/mes</strong></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- COL 2: Retorno proyectado -->
+      <div style="flex:0.45;display:flex;flex-direction:column;gap:12px;">
+
+        <div style="font-size:9px;font-weight:700;color:rgba(255,255,255,0.4);letter-spacing:2px;text-transform:uppercase;margin-bottom:4px;">RETORNO PROYECTADO (ESCENARIO B, PEOR CASO)</div>
+
+        <div style="background:rgba(72,187,120,0.08);border:1px solid rgba(72,187,120,0.2);border-radius:10px;padding:16px;">
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <div style="display:flex;justify-content:space-between;align-items:baseline;">
+              <div style="font-size:11px;color:#A0AEC0;">Inversi&oacute;n 3 meses (pauta + herramientas)</div>
+              <div style="font-size:14px;font-weight:800;color:#fff;">$3M MXN</div>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:baseline;">
+              <div style="font-size:11px;color:#A0AEC0;">Ventas en 3 meses (peor caso 3%)</div>
+              <div style="font-size:14px;font-weight:800;color:#48BB78;">180 autos</div>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:baseline;">
+              <div style="font-size:11px;color:#A0AEC0;">Ingreso (180 &times; $412K AOV)</div>
+              <div style="font-size:14px;font-weight:800;color:#48BB78;">$74M MXN</div>
+            </div>
+            <div style="height:1px;background:rgba(255,255,255,0.1);"></div>
+            <div style="display:flex;justify-content:space-between;align-items:baseline;">
+              <div style="font-size:11px;color:#A0AEC0;">Retorno peor caso</div>
+              <div style="font-size:18px;font-weight:900;color:#48BB78;">24x</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="background:#1E2740;border-radius:10px;padding:16px;border:1px solid rgba(236,201,75,0.15);">
+          <div style="font-size:9px;font-weight:700;color:#ECC94B;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;">Benchmark de referencia</div>
+          <div style="font-size:10px;color:#A0AEC0;line-height:1.5;">
+            <div style="margin-bottom:4px;"><strong style="color:#fff;">CPL web form estimado:</strong> $400&ndash;500 MXN (benchmark: Meta $400&ndash;490, Google $700&ndash;775)</div>
+            <div style="margin-bottom:4px;"><strong style="color:#fff;">Promedio pauta digital GP:</strong> $276K/mes por marca (verificado, 4 marcas con data)</div>
+            <div><strong style="color:#fff;">Nota:</strong> CPL sube vs leadgen ($150 hoy) pero CPA baja porque la calidad del lead mejora. Menos leads, m&aacute;s ventas.</div>
+          </div>
+        </div>
+
+        <div style="font-size:9px;color:rgba(255,255,255,0.3);font-style:italic;line-height:1.4;">Fuentes: WordStream Google Ads Benchmarks (2025); LeadSync Meta CPL Benchmarks (2026); Promodo Automotive Digital Benchmarks (2026). Datos GP verificados contra Excel fuente (Ago&ndash;Nov 2025, 4 marcas).</div>
+      </div>
+
+    </div>
+
+    <div style="position:absolute;bottom:16px;left:40px;font-size:7px;color:rgba(255,255,255,0.2);">
+      Direcci&oacute;n de Marketing Corporativo | Grupo Plasencia Automotriz
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════
+     SLIDE 10 — STATUS DEL PILOTO
+     ════════════════════════════════════════════════════ -->
+<section class="slide slide--dark">
+  <div class="slide-label">10 / STATUS</div>
+  <img src="../assets/logos/LOGO-GP-Blanco.png" class="logo-corner logo-w"><img src="../assets/logos/Logo-GP-Negro.png" class="logo-corner logo-d">
+  <div class="pad">
+    <div class="t-label" style="color:#C8102E;margin-bottom:6px;">Status del Piloto</div>
+    <div style="font-size:22px;font-weight:700;color:#fff;max-width:1000px;line-height:1.3;">Estado de alineaci&oacute;n por marca y avances operativos.</div>
+    <div style="font-size:11px;color:#A0AEC0;margin-top:4px;">&Uacute;ltima actualizaci&oacute;n: 31 de marzo de 2026</div>
+
+    <div style="display:flex;gap:16px;margin-top:16px;">
+      <!-- Col 1: Status por marca -->
+      <div style="flex:1;">
+        <div style="font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#ECC94B;margin-bottom:8px;">Alineaci&oacute;n por marca</div>
+
+        <!-- Hyundai -->
+        <div style="padding:10px 12px;background:rgba(72,187,120,0.06);border:1px solid rgba(72,187,120,0.15);border-radius:6px;margin-bottom:8px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <div style="font-size:11px;font-weight:700;color:#48BB78;">Hyundai &mdash; Ver&oacute;nica Orozco</div>
+            <span style="font-size:8px;font-weight:700;padding:2px 8px;border-radius:4px;background:rgba(72,187,120,0.15);color:#48BB78;">ONBOARD</span>
+          </div>
+          <div style="font-size:9px;color:#A0AEC0;margin-top:4px;line-height:1.4;">Piloto en 2 agencias GDL. Acept&oacute; 30% ppto digital, landing bajo grupoplasencia.com/hyundai, acceso a cuentas Meta. Sin resistencia.</div>
+        </div>
+
+        <!-- Seminuevos -->
+        <div style="padding:10px 12px;background:rgba(236,201,75,0.06);border:1px solid rgba(236,201,75,0.15);border-radius:6px;margin-bottom:8px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <div style="font-size:11px;font-weight:700;color:#ECC94B;">Seminuevos &mdash; Jos&eacute; Reyes</div>
+            <span style="font-size:8px;font-weight:700;padding:2px 8px;border-radius:4px;background:rgba(236,201,75,0.15);color:#ECC94B;">PARCIAL</span>
+          </div>
+          <div style="font-size:9px;color:#A0AEC0;margin-top:4px;line-height:1.4;">Receptivo, ofreci&oacute; datos y XML inventario. Redirige hacia infraestructura existente (MaxiPublica, seminuevosplasencia.com). Condiciona presupuesto a validar con Jonathan (Dir. Seminuevos). No tiene ppto propio de MKT.</div>
+        </div>
+
+        <!-- Ford -->
+        <div style="padding:10px 12px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;margin-bottom:8px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <div style="font-size:11px;font-weight:700;color:#A0AEC0;">Ford</div>
+            <span style="font-size:8px;font-weight:700;padding:2px 8px;border-radius:4px;background:rgba(255,255,255,0.08);color:#A0AEC0;">FUERA DEL PILOTO</span>
+          </div>
+          <div style="font-size:9px;color:#A0AEC0;margin-top:4px;line-height:1.4;">Se reeval&uacute;a despu&eacute;s de resultados con las 3 marcas activas.</div>
+        </div>
+
+        <!-- Stellantis -->
+        <div style="padding:10px 12px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <div style="font-size:11px;font-weight:700;color:#ECC94B;">Stellantis &mdash; Berenice P&eacute;rez</div>
+            <span style="font-size:8px;font-weight:700;padding:2px 8px;border-radius:4px;background:rgba(236,201,75,0.15);color:#ECC94B;">ALINEADA (RESTRICCIONES)</span>
+          </div>
+          <div style="font-size:9px;color:#A0AEC0;margin-top:4px;line-height:1.4;">Alineada con la visi&oacute;n. Dir. Rafael autoriz&oacute; $30K/mes adicional para piloto (Escenario B). OEM restrictiva con landing pages. Integraci&oacute;n Zapier&rarr;SICOP en revisi&oacute;n.</div>
+        </div>
+      </div>
+
+      <!-- Col 2: Avances operativos + decisiones tech -->
+      <div style="flex:0.8;">
+        <div style="font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#ECC94B;margin-bottom:8px;">Avances operativos</div>
+
+        <div style="padding:10px 12px;background:rgba(72,187,120,0.06);border:1px solid rgba(72,187,120,0.15);border-radius:6px;margin-bottom:8px;">
+          <div style="font-size:10px;font-weight:700;color:#48BB78;">Completado</div>
+          <div style="font-size:9px;color:#A0AEC0;margin-top:4px;line-height:1.5;">
+            &bull; Resumen ejecutivo + playbook operativo<br>
+            &bull; Auditor&iacute;a de privacidad y tracking (9 sitios)<br>
+            &bull; Validaci&oacute;n con Legal (Carlos Nava)<br>
+            &bull; Correos a TI (Felipe + Pepe) enviados<br>
+            &bull; BM corporativo creado (ID 313259579011657)<br>
+            &bull; Llamadas con Hyundai, Seminuevos y Stellantis<br>
+            &bull; <strong style="color:#48BB78;">Landing pages funcionales (3 marcas) con calculadora, agendamiento, folio y precotizaci&oacute;n PDF</strong><br>
+            &bull; <strong style="color:#48BB78;">Flujo Form &rarr; Zapier &rarr; Airtable funcionando</strong>
+          </div>
+        </div>
+
+        <div style="padding:10px 12px;background:rgba(236,201,75,0.06);border:1px solid rgba(236,201,75,0.15);border-radius:6px;margin-bottom:8px;">
+          <div style="font-size:10px;font-weight:700;color:#ECC94B;">Esperando</div>
+          <div style="font-size:9px;color:#A0AEC0;margin-top:4px;line-height:1.5;">
+            &bull; <strong style="color:#fff;">Pixel + GTM + click IDs en landings</strong> (cr&iacute;tico para CAPI)<br>
+            &bull; <strong style="color:#fff;">Zap Airtable &rarr; Meta CAPI / Google OCT</strong> (cierre del ciclo)<br>
+            &bull; Deployment de landings a subdominios bajo grupoplasencia.com (TI)<br>
+            &bull; VoBo de TI para herramientas (~$300 USD/mes)<br>
+            &bull; Accesos de gerentes a BM corporativo (solicitados)<br>
+            &bull; Acceso a DCA (TI)<br>
+            &bull; Checkbox aviso de privacidad en formularios
+          </div>
+        </div>
+
+        <div style="font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#ECC94B;margin-top:12px;margin-bottom:8px;">Decisiones de tecnolog&iacute;a</div>
+
+        <div style="padding:10px 12px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;margin-bottom:8px;">
+          <div style="font-size:10px;font-weight:700;color:#fff;">Stack confirmado</div>
+          <div style="font-size:9px;color:#A0AEC0;margin-top:4px;line-height:1.5;">
+            &bull; <strong style="color:#fff;">Airtable</strong> &mdash; base central + interfaz vendedor digital<br>
+            &bull; <strong style="color:#fff;">Zapier</strong> &mdash; automatizaciones + se&ntilde;ales a Meta/Google<br>
+            &bull; <strong style="color:#fff;">Claude Code</strong> &mdash; landing pages, an&aacute;lisis, estrategia
+          </div>
+        </div>
+
+        <div style="padding:10px 12px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;">
+          <div style="font-size:10px;font-weight:700;color:#fff;">Evaluados y descartados por ahora</div>
+          <div style="font-size:9px;color:#A0AEC0;margin-top:4px;line-height:1.5;">
+            &bull; <strong>Vambe (IA chatbot)</strong> &mdash; prematuro. Primero medici&oacute;n y funnel, despu&eacute;s chatbot.<br>
+            &bull; <strong>MaxiPublica</strong> &mdash; se mantiene como backend de inventario (XML feed). No es MKT, es infraestructura.
+          </div>
+        </div>
+
+        <div style="font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#ECC94B;margin-top:12px;margin-bottom:8px;">Governance activa</div>
+        <div style="padding:10px 12px;background:rgba(66,153,225,0.06);border:1px solid rgba(66,153,225,0.12);border-radius:6px;">
+          <div style="font-size:9px;color:#A0AEC0;line-height:1.5;">Iniciativas de tecnolog&iacute;a, sitios web, herramientas y proveedores digitales se revisan y alinean desde la Direcci&oacute;n de Marketing para asegurar coherencia con la estrategia. Ejemplos activos:<br>
+            &bull; <strong style="color:#fff;">Sitio web Seminuevos:</strong> Se har&aacute; internamente con IA (~$2K/mes vs $150K agencia). Confirmado por Dir. Seminuevos y Dir. Finanzas.<br>
+            &bull; <strong style="color:#fff;">Vambe:</strong> Se evaluar&aacute; cuando la medici&oacute;n y el funnel est&eacute;n operando. Hoy es prematuro.<br>
+            &bull; <strong style="color:#fff;">Central de Medios:</strong> GP SI como central de compra de medios. Consolida presupuesto de seminuevos en una cuenta. Habilita deducibilidad fiscal completa (CFDI con IVA). Pendiente autorizaci&oacute;n de Finanzas/Legal (ver Anexo A3 del resumen).
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="position:absolute;bottom:16px;left:40px;font-size:7px;color:rgba(255,255,255,0.2);">
+      Direcci&oacute;n de Marketing Corporativo | Grupo Plasencia Automotriz
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════
+     SLIDE 11 — PLAN DE COMUNICACIÓN CON STAKEHOLDERS
+     ════════════════════════════════════════════════════ -->
+<section class="slide slide--dark">
+  <div class="slide-label">11 / COMUNICACI&Oacute;N</div>
+  <img src="../assets/logos/LOGO-GP-Blanco.png" class="logo-corner logo-w"><img src="../assets/logos/Logo-GP-Negro.png" class="logo-corner logo-d">
+  <div class="pad">
+    <div class="t-label" style="color:#C8102E;margin-bottom:6px;">Plan de Comunicaci&oacute;n con Stakeholders</div>
+    <div style="font-size:22px;font-weight:700;color:#fff;max-width:1000px;line-height:1.3;">Datos primero, reuniones despu&eacute;s. No pedimos reuniones para explicar lo que vamos a hacer. Pedimos reuniones para mostrar lo que ya hicimos.</div>
+
+    <div style="display:flex;gap:16px;margin-top:20px;">
+      <!-- Timeline -->
+      <div style="flex:1;">
+        <div style="font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#ECC94B;margin-bottom:10px;">Cadencia de comunicaci&oacute;n</div>
+
+        <div style="display:flex;gap:8px;margin-bottom:10px;">
+          <div style="width:4px;background:linear-gradient(to bottom, #48BB78, #4299E1, #ECC94B, #C8102E);border-radius:4px;"></div>
+          <div style="flex:1;display:flex;flex-direction:column;gap:10px;">
+
+            <div style="padding:10px 12px;background:rgba(72,187,120,0.06);border:1px solid rgba(72,187,120,0.15);border-radius:6px;">
+              <div style="display:flex;justify-content:space-between;align-items:center;">
+                <div style="font-size:10px;font-weight:700;color:#48BB78;">Semana 1 (esta)</div>
+                <span style="font-size:8px;color:#48BB78;">Completado</span>
+              </div>
+              <div style="font-size:9px;color:#A0AEC0;margin-top:4px;line-height:1.4;">Gerentes alineados (Hyundai onboard, Seminuevos parcial). Pepe como sponsor confirmado. Plan entregado.</div>
+            </div>
+
+            <div style="padding:10px 12px;background:rgba(66,153,225,0.06);border:1px solid rgba(66,153,225,0.12);border-radius:6px;">
+              <div style="display:flex;justify-content:space-between;align-items:center;">
+                <div style="font-size:10px;font-weight:700;color:#4299E1;">Semana 2 (KO 1 abril)</div>
+                <span style="font-size:8px;color:#4299E1;">Pr&oacute;ximo</span>
+              </div>
+              <div style="font-size:9px;color:#A0AEC0;margin-top:4px;line-height:1.4;">Presentar resumen a directores. No pedir opini&oacute;n, presentar direcci&oacute;n. &ldquo;Esto es lo que vamos a hacer, estos son los primeros pasos, esto necesito de ustedes.&rdquo;</div>
+            </div>
+
+            <div style="padding:10px 12px;background:rgba(236,201,75,0.06);border:1px solid rgba(236,201,75,0.15);border-radius:6px;">
+              <div style="display:flex;justify-content:space-between;align-items:center;">
+                <div style="font-size:10px;font-weight:700;color:#ECC94B;">Semana 3&ndash;4 (Sprint 1)</div>
+                <span style="font-size:8px;color:#ECC94B;">Planificado</span>
+              </div>
+              <div style="font-size:9px;color:#A0AEC0;margin-top:4px;line-height:1.4;">Primeros datos reales. Update corto por correo (no presentaci&oacute;n): &ldquo;Llevamos X leads, X visitas, esto est&aacute; pasando.&rdquo; Que se acostumbren a recibir n&uacute;meros.</div>
+            </div>
+
+            <div style="padding:10px 12px;background:rgba(236,201,75,0.06);border:1px solid rgba(236,201,75,0.15);border-radius:6px;">
+              <div style="display:flex;justify-content:space-between;align-items:center;">
+                <div style="font-size:10px;font-weight:700;color:#ECC94B;">Semana 6 (d&iacute;a 45)</div>
+                <span style="font-size:8px;color:#ECC94B;">Planificado</span>
+              </div>
+              <div style="font-size:9px;color:#A0AEC0;margin-top:4px;line-height:1.4;">Primeras ventas demostrables. Sesi&oacute;n con directores: &ldquo;Esto es lo que gener&oacute; el piloto. Esto justifica el siguiente paso.&rdquo; Status actualizado con resultados reales.</div>
+            </div>
+
+            <div style="padding:10px 12px;background:rgba(200,16,46,0.06);border:1px solid rgba(200,16,46,0.15);border-radius:6px;">
+              <div style="display:flex;justify-content:space-between;align-items:center;">
+                <div style="font-size:10px;font-weight:700;color:#C8102E;">Semana 8 (d&iacute;a 60)</div>
+                <span style="font-size:8px;color:#C8102E;">Cr&iacute;tico</span>
+              </div>
+              <div style="font-size:9px;color:#A0AEC0;margin-top:4px;line-height:1.4;">Business case formal. Sesi&oacute;n con Consejo (si Pepe abre el foro): &ldquo;El piloto funcion&oacute;, estos son los n&uacute;meros, esto necesito para escalar.&rdquo;</div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Col 2: Principios + formato -->
+      <div style="flex:0.6;">
+        <div style="font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#ECC94B;margin-bottom:10px;">Principios</div>
+
+        <div style="padding:12px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:8px;margin-bottom:10px;">
+          <div style="font-size:10px;font-weight:700;color:#fff;margin-bottom:6px;">Evidencia antes que presentaciones</div>
+          <div style="font-size:9px;color:#A0AEC0;line-height:1.5;">Los directores tradicionales responden a resultados, no a planes. Cada interacci&oacute;n lleva n&uacute;meros reales, no proyecciones.</div>
+        </div>
+
+        <div style="padding:12px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:8px;margin-bottom:10px;">
+          <div style="font-size:10px;font-weight:700;color:#fff;margin-bottom:6px;">Updates cortos, alta frecuencia</div>
+          <div style="font-size:9px;color:#A0AEC0;line-height:1.5;">Correos con datos cada 2 semanas. Reuniones solo cuando hay algo que mostrar. No saturar con slides.</div>
+        </div>
+
+        <div style="padding:12px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:8px;margin-bottom:10px;">
+          <div style="font-size:10px;font-weight:700;color:#fff;margin-bottom:6px;">Formato: demo, no deck</div>
+          <div style="font-size:9px;color:#A0AEC0;line-height:1.5;">Mostrar el tablero con datos reales, no m&aacute;s presentaciones. Sprint review = &ldquo;mira, esto es lo que sali&oacute; esta quincena.&rdquo;</div>
+        </div>
+
+        <div style="padding:12px;background:rgba(66,153,225,0.06);border:1px solid rgba(66,153,225,0.12);border-radius:8px;">
+          <div style="font-size:10px;font-weight:700;color:#4299E1;margin-bottom:6px;">Escalamiento</div>
+          <div style="font-size:9px;color:#A0AEC0;line-height:1.5;">Gerentes: updates operativos (Airtable, status).<br>Directores: resultados de negocio (ventas, CPAs).<br>Consejo: impacto financiero (business case, d&iacute;a 60).</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="position:absolute;bottom:16px;left:40px;font-size:7px;color:rgba(255,255,255,0.2);">
+      Direcci&oacute;n de Marketing Corporativo | Grupo Plasencia Automotriz
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════
+     SLIDE 12 — LEGAL: QUÉ QUEREMOS HACER Y POR QUÉ
+     ════════════════════════════════════════════════════ -->
+<section class="slide slide--dark">
+  <div class="slide-label">12 / LEGAL &mdash; Caso de Uso</div>
+  <img src="../assets/logos/LOGO-GP-Blanco.png" class="logo-corner logo-w"><img src="../assets/logos/Logo-GP-Negro.png" class="logo-corner logo-d">
+  <div class="pad">
+    <div class="t-label t-red" style="margin-bottom:6px;">Qu&eacute; queremos hacer y por qu&eacute;</div>
+    <div class="t-title t-white" style="max-width:1050px;font-size:24px;">El piloto del Motor de Atribuci&oacute;n requiere enviar datos de conversiones a plataformas publicitarias, crear audiencias y hacer remarketing. Necesitamos validar que los avisos de privacidad lo permitan.</div>
+    <div style="display:flex;gap:16px;margin-top:20px;">
+      <div style="flex:1;">
+        <div style="font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#ECC94B;margin-bottom:10px;">Lo que marketing necesita hacer</div>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div style="padding:10px 12px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;">
+            <div style="font-size:10px;font-weight:700;color:#fff;">1. Remarketing por marca</div>
+            <div style="font-size:9px;color:#A0AEC0;margin-top:3px;line-height:1.4;">Mostrar anuncios a visitantes del sitio web de cada marca. Ejemplo: alguien visita Hyundai Plasencia, le aparece un anuncio de Hyundai en Instagram.</div>
+          </div>
+          <div style="padding:10px 12px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;">
+            <div style="font-size:10px;font-weight:700;color:#fff;">2. Promoci&oacute;n cruzada entre marcas del grupo</div>
+            <div style="font-size:9px;color:#A0AEC0;margin-top:3px;line-height:1.4;">Usar audiencias de una marca para otra del grupo. Ejemplo: un cliente de Stellantis podr&iacute;a ver una oferta de Seminuevos. Es estrategia interna del grupo.</div>
+          </div>
+          <div style="padding:10px 12px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;">
+            <div style="font-size:10px;font-weight:700;color:#fff;">3. Crear audiencias personalizadas</div>
+            <div style="font-size:9px;color:#A0AEC0;margin-top:3px;line-height:1.4;">Subir listas de clientes (anonimizadas con hash SHA-256) a Meta y Google para encontrar personas similares que tengan mayor probabilidad de comprar.</div>
+          </div>
+          <div style="padding:10px 12px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;">
+            <div style="font-size:10px;font-weight:700;color:#fff;">4. Enviar conversiones offline</div>
+            <div style="font-size:9px;color:#A0AEC0;margin-top:3px;line-height:1.4;">Enviar datos de lo que pasa despu&eacute;s del clic (visit&oacute;, compr&oacute;, cu&aacute;nto) a Meta/Google v&iacute;a API. Es el core del Motor de Atribuci&oacute;n.</div>
+          </div>
+        </div>
+      </div>
+      <div style="flex:0.7;">
+        <div style="font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#ECC94B;margin-bottom:10px;">Contexto</div>
+        <div style="padding:14px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:8px;margin-bottom:10px;">
+          <div style="font-size:10px;font-weight:700;color:#fff;margin-bottom:6px;">&#191;D&oacute;nde se ejecuta?</div>
+          <div style="font-size:9px;color:#A0AEC0;line-height:1.5;">En <strong style="color:#fff;">landing pages propias bajo grupoplasencia.com</strong> (no en sitios de OEMs). Nosotros controlamos los tags, p&iacute;xeles, formularios y datos. Los sitios OEM siguen como est&aacute;n.</div>
+        </div>
+        <div style="padding:14px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:8px;margin-bottom:10px;">
+          <div style="font-size:10px;font-weight:700;color:#fff;margin-bottom:6px;">&#191;Qu&eacute; datos se usan?</div>
+          <div style="font-size:9px;color:#A0AEC0;line-height:1.5;">Datos del formulario (nombre, tel, email, auto de inter&eacute;s) + datos del funnel (visit&oacute;, compr&oacute;). Los datos se env&iacute;an anonimizados (hash SHA-256) a las plataformas. No se comparte informaci&oacute;n personal identificable.</div>
+        </div>
+        <div style="padding:14px;background:rgba(236,201,75,0.06);border:1px solid rgba(236,201,75,0.15);border-radius:8px;">
+          <div style="font-size:10px;font-weight:700;color:#ECC94B;margin-bottom:6px;">&#191;Qu&eacute; necesitamos de Legal?</div>
+          <div style="font-size:9px;color:#A0AEC0;line-height:1.5;">Validar que los avisos de privacidad actuales cubran estas actividades. Si no, actualizarlos. Se audit&oacute; el estado actual de todos los sitios del grupo. Los hallazgos est&aacute;n en las siguientes p&aacute;ginas.</div>
+        </div>
+      </div>
+    </div>
+    <div style="position:absolute;bottom:16px;left:40px;font-size:7px;color:rgba(255,255,255,0.2);">Direcci&oacute;n de Marketing Corporativo | Grupo Plasencia Automotriz</div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════
+     SLIDE 13 — LEGAL: AUDITORÍA
+     ════════════════════════════════════════════════════ -->
+<section class="slide slide--dark">
+  <div class="slide-label">13 / LEGAL &mdash; Auditor&iacute;a</div>
+  <img src="../assets/logos/LOGO-GP-Blanco.png" class="logo-corner logo-w"><img src="../assets/logos/Logo-GP-Negro.png" class="logo-corner logo-d">
+  <div class="pad">
+    <div class="t-label t-red" style="margin-bottom:6px;">D&oacute;nde estamos hoy</div>
+    <div class="t-title t-white" style="max-width:1050px;font-size:22px;">Se auditaron todos los sitios web del grupo: tags de tracking y avisos de privacidad.</div>
+    <div style="font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#ECC94B;margin-top:10px;margin-bottom:4px;">Tags de tracking por sitio <span style="font-weight:400;color:#A0AEC0;text-transform:none;letter-spacing:0;">&mdash; <span style="color:#4299E1;">azul</span> = piloto</span></div>
+    <table style="width:100%;border-collapse:collapse;font-size:9px;">
+      <tr><th style="background:#2D3748;color:#fff;padding:4px 6px;text-align:left;font-size:8px;">Marca</th><th style="background:#2D3748;color:#fff;padding:4px 6px;text-align:left;font-size:8px;">Sitio</th><th style="background:#2D3748;color:#fff;padding:4px 6px;text-align:left;font-size:8px;">Tipo</th><th style="background:#2D3748;color:#fff;padding:4px 6px;text-align:left;font-size:8px;">GTM</th><th style="background:#2D3748;color:#fff;padding:4px 6px;text-align:left;font-size:8px;">Meta Pixel</th><th style="background:#2D3748;color:#fff;padding:4px 6px;text-align:left;font-size:8px;">Otros</th></tr>
+      <tr><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);"><strong>Grupo GP</strong></td><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);">grupoplasencia.com</td><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);"><span class="tag tag--green" style="font-size:7px;">Propio</span></td><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);"><span class="tag tag--red" style="font-size:7px;">No</span></td><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);"><span class="tag tag--red" style="font-size:7px;">No</span></td><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);color:#A0AEC0;">Limpio</td></tr>
+      <tr style="background:rgba(66,153,225,0.06);"><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);"><strong style="color:#4299E1;">Seminuevos</strong></td><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);">seminuevosplasencia.com</td><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);"><span class="tag tag--green" style="font-size:7px;">Propio</span></td><td colspan="3" style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);color:#A0AEC0;">Error 403. Verificar manualmente.</td></tr>
+      <tr style="background:rgba(66,153,225,0.06);"><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);"><strong style="color:#4299E1;">Hyundai</strong></td><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);">hyundaidistribuidor.com.mx</td><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);"><span class="tag tag--yellow" style="font-size:7px;">OEM</span></td><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);"><span class="tag tag--green" style="font-size:7px;">GTM-5C2Q854</span></td><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);"><span class="tag tag--green" style="font-size:7px;">842196283060068</span></td><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);color:#A0AEC0;">Giosg chat</td></tr>
+      <tr style="background:rgba(66,153,225,0.06);"><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);"><strong style="color:#4299E1;">Ford</strong></td><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);">fordplasencia.mx</td><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);"><span class="tag tag--yellow" style="font-size:7px;">OEM</span></td><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);"><span class="tag tag--green" style="font-size:7px;">GTM-WQM9LCQ</span></td><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);"><span class="tag tag--yellow" style="font-size:7px;">S&iacute; (sin ID)</span></td><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);color:#A0AEC0;">digitaldata</td></tr>
+      <tr style="background:rgba(66,153,225,0.06);"><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);"><strong style="color:#4299E1;">Stellantis</strong></td><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);">stellantisplasencia.com</td><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);"><span class="tag tag--yellow" style="font-size:7px;">OEM</span></td><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);"><span class="tag tag--green" style="font-size:7px;">GTM-5KCFKSZ</span></td><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);"><span class="tag tag--red" style="font-size:7px;">No</span></td><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);color:#A0AEC0;">UA-208305526-1</td></tr>
+      <tr><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);">Mazda</td><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);">mazda.mx/plasencia</td><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);"><span class="tag tag--yellow" style="font-size:7px;">OEM</span></td><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);"><span class="tag tag--green" style="font-size:7px;">GTM-5NVH33B</span></td><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);"><span class="tag tag--red" style="font-size:7px;">No</span></td><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);color:#A0AEC0;">Adobe Analytics</td></tr>
+      <tr><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);">GAC</td><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);">gacmotorplasencia.com.mx</td><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);"><span class="tag tag--yellow" style="font-size:7px;">OEM</span></td><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);"><span class="tag tag--red" style="font-size:7px;">No</span></td><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);"><span class="tag tag--red" style="font-size:7px;">No</span></td><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);color:#A0AEC0;">Limpio</td></tr>
+      <tr><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);">GWM</td><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);">gwmplasencia.com</td><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);"><span class="tag tag--yellow" style="font-size:7px;">OEM</span></td><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);"><span class="tag tag--red" style="font-size:7px;">No</span></td><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);"><span class="tag tag--green" style="font-size:7px;">2228430557502297</span></td><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);color:#A0AEC0;">Google Ads AW-16534235865</td></tr>
+      <tr><td style="padding:3px 6px;">Changan</td><td style="padding:3px 6px;color:#A0AEC0;">No tiene sitio web</td><td style="padding:3px 6px;">&mdash;</td><td style="padding:3px 6px;">&mdash;</td><td style="padding:3px 6px;">&mdash;</td><td style="padding:3px 6px;">&mdash;</td></tr>
+    </table>
+    <div style="font-size:8px;color:rgba(255,255,255,0.3);margin-top:2px;">Sitios OEM: propiedad de las marcas, GP es concesionario. Tags GTM probablemente de OEMs/agencias. Sitios propios (GP + Seminuevos): control total. Landing pages del piloto: contenedores propios de la Direcci&oacute;n de MKT.</div>
+    <div style="font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#ECC94B;margin-top:10px;margin-bottom:4px;">Avisos de privacidad &mdash; cobertura para el piloto</div>
+    <table style="width:100%;border-collapse:collapse;font-size:9px;">
+      <tr><th style="background:#2D3748;color:#fff;padding:4px 6px;font-size:8px;">Sitio</th><th style="background:#2D3748;color:#fff;padding:4px 6px;font-size:8px;">Responsable</th><th style="background:#2D3748;color:#fff;padding:4px 6px;font-size:8px;">Remarketing</th><th style="background:#2D3748;color:#fff;padding:4px 6px;font-size:8px;">Cross-brand</th><th style="background:#2D3748;color:#fff;padding:4px 6px;font-size:8px;">Audiencias</th><th style="background:#2D3748;color:#fff;padding:4px 6px;font-size:8px;">Meta/Google</th><th style="background:#2D3748;color:#fff;padding:4px 6px;font-size:8px;">Status</th></tr>
+      <tr><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);"><strong>Grupo GP</strong></td><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);font-size:8px;">Grupo (m&uacute;ltiples RS)</td><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);"><span class="tag tag--green" style="font-size:7px;">S&iacute;</span></td><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);"><span class="tag tag--green" style="font-size:7px;">S&iacute;</span></td><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);"><span class="tag tag--yellow" style="font-size:7px;">Gap</span></td><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);"><span class="tag tag--yellow" style="font-size:7px;">Gap</span></td><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);"><span class="tag tag--yellow" style="font-size:7px;">Actualizar</span></td></tr>
+      <tr><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);"><strong>Seminuevos</strong></td><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);font-size:8px;color:#A0AEC0;">Error 403</td><td colspan="5" style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);color:#A0AEC0;font-size:8px;">Propio. Verificar manualmente.</td></tr>
+      <tr style="background:rgba(66,153,225,0.04);"><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);"><strong style="color:#4299E1;">Hyundai</strong></td><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);font-size:8px;">Hyundai Motor MX</td><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);"><span class="tag tag--yellow" style="font-size:7px;">Parcial</span></td><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);"><span class="tag tag--green" style="font-size:7px;">S&iacute;</span></td><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);"><span class="tag tag--yellow" style="font-size:7px;">Gap</span></td><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);"><span class="tag tag--yellow" style="font-size:7px;">Gap</span></td><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);"><span class="tag tag--yellow" style="font-size:7px;">Actualizar</span></td></tr>
+      <tr style="background:rgba(200,16,46,0.05);"><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);"><strong style="color:#C8102E;">Ford</strong></td><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);font-size:8px;">Ford Plasencia GDL</td><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);"><span class="tag tag--red" style="font-size:7px;">No</span></td><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);"><span class="tag tag--red" style="font-size:7px;">No</span></td><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);"><span class="tag tag--red" style="font-size:7px;">No</span></td><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);"><span class="tag tag--red" style="font-size:7px;">No</span></td><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);"><span class="tag tag--red" style="font-size:7px;">Urgente</span></td></tr>
+      <tr style="background:rgba(66,153,225,0.04);"><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);"><strong style="color:#4299E1;">Stellantis</strong></td><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);font-size:8px;">Veh. Europeos GDL</td><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);"><span class="tag tag--green" style="font-size:7px;">S&iacute;</span></td><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);"><span class="tag tag--green" style="font-size:7px;">S&iacute;</span></td><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);"><span class="tag tag--yellow" style="font-size:7px;">Gap</span></td><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);"><span class="tag tag--yellow" style="font-size:7px;">Gap</span></td><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);"><span class="tag tag--yellow" style="font-size:7px;">Actualizar</span></td></tr>
+      <tr><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);">Mazda</td><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);font-size:8px;">P. Autos Japoneses</td><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);"><span class="tag tag--green" style="font-size:7px;">S&iacute;</span></td><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);"><span class="tag tag--green" style="font-size:7px;">S&iacute; (GP)</span></td><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);"><span class="tag tag--yellow" style="font-size:7px;">Gap</span></td><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);"><span class="tag tag--yellow" style="font-size:7px;">Gap</span></td><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);"><span class="tag tag--green" style="font-size:7px;">El mejor</span></td></tr>
+      <tr><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);">GAC</td><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);font-size:8px;">Plasencia Mingsan</td><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);"><span class="tag tag--green" style="font-size:7px;">S&iacute;</span></td><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);"><span class="tag tag--green" style="font-size:7px;">S&iacute; (GP)</span></td><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);"><span class="tag tag--yellow" style="font-size:7px;">Gap</span></td><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);"><span class="tag tag--yellow" style="font-size:7px;">Gap</span></td><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);"><span class="tag tag--green" style="font-size:7px;">OK</span></td></tr>
+      <tr><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);">GWM</td><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);font-size:8px;">P. Autos Chinos</td><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);"><span class="tag tag--green" style="font-size:7px;">S&iacute;</span></td><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);"><span class="tag tag--green" style="font-size:7px;">S&iacute; (GP)</span></td><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);"><span class="tag tag--yellow" style="font-size:7px;">Gap</span></td><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);"><span class="tag tag--yellow" style="font-size:7px;">Gap</span></td><td style="padding:3px 6px;border-bottom:1px solid rgba(255,255,255,0.06);"><span class="tag tag--green" style="font-size:7px;">OK</span></td></tr>
+      <tr><td style="padding:3px 6px;">Changan</td><td style="padding:3px 6px;font-size:8px;color:#A0AEC0;">No tiene sitio</td><td colspan="5" style="padding:3px 6px;color:#A0AEC0;font-size:8px;">N/A</td></tr>
+    </table>
+    <div style="position:absolute;bottom:16px;left:40px;font-size:7px;color:rgba(255,255,255,0.2);">Direcci&oacute;n de Marketing Corporativo | Grupo Plasencia Automotriz</div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════
+     SLIDE 14 — LEGAL: CONCLUSIONES
+     ════════════════════════════════════════════════════ -->
+<section class="slide slide--dark">
+  <div class="slide-label">14 / LEGAL &mdash; Conclusiones</div>
+  <img src="../assets/logos/LOGO-GP-Blanco.png" class="logo-corner logo-w"><img src="../assets/logos/Logo-GP-Negro.png" class="logo-corner logo-d">
+  <div class="pad">
+    <div class="t-label t-red" style="margin-bottom:6px;">Validaci&oacute;n con Legal</div>
+    <div class="t-title t-white" style="max-width:1050px;font-size:22px;">Revisado con Carlos Nava (Gte. Jur&iacute;dico). El piloto puede arrancar. Reglas claras definidas.</div>
+    <div style="display:flex;gap:16px;margin-top:16px;">
+      <div style="flex:1;">
+        <div style="padding:14px;background:rgba(72,187,120,0.06);border:1px solid rgba(72,187,120,0.15);border-radius:8px;margin-bottom:12px;">
+          <div style="font-size:11px;font-weight:700;color:#48BB78;margin-bottom:6px;">Validado: el piloto puede arrancar</div>
+          <div style="font-size:10px;color:#A0AEC0;line-height:1.5;">El aviso de privacidad de <strong style="color:#fff;">grupoplasencia.com</strong> ya cubre mercadeo y transferencia entre filiales. Las landing pages del piloto operan bajo este aviso.</div>
+          <div style="font-size:9px;color:rgba(255,255,255,0.5);margin-top:6px;line-height:1.5;padding:6px 8px;background:rgba(255,255,255,0.03);border-radius:4px;"><strong style="color:#A0AEC0;">Qu&eacute; significa &ldquo;filiales&rdquo;:</strong> Cada marca del grupo es una raz&oacute;n social distinta (Plasencia Autos Japoneses = Mazda, Veh&iacute;culos Europeos de GDL = Stellantis, Plasencia Mingsan = GAC, Plasencia Autos Chinos = GWM, etc.). Son empresas legalmente independientes pero todas son subsidiarias del mismo grupo. El aviso permite transferir datos entre todas ellas porque son &ldquo;sociedades subsidiarias, afiliadas o relacionadas.&rdquo; En la pr&aacute;ctica: si alguien deja sus datos en una landing page de grupoplasencia.com, esos datos los puede usar cualquier empresa del grupo para mercadeo y promoci&oacute;n.</div>
+        </div>
+        <div style="font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#48BB78;margin-bottom:8px;">Lo que S&Iacute; se puede hacer</div>
+        <div style="display:flex;flex-direction:column;gap:6px;margin-bottom:10px;">
+          <div style="padding:8px;background:rgba(72,187,120,0.06);border-left:3px solid #48BB78;border-radius:4px;">
+            <div style="font-size:9px;font-weight:700;color:#48BB78;">Custom audiences entre marcas</div>
+            <div style="font-size:8px;color:#A0AEC0;margin-top:2px;line-height:1.4;">S&iacute;. Archivos encriptados (hash). La plataforma no revela origen. A discreci&oacute;n.</div>
+          </div>
+          <div style="padding:8px;background:rgba(72,187,120,0.06);border-left:3px solid #48BB78;border-radius:4px;">
+            <div style="font-size:9px;font-weight:700;color:#48BB78;">Comunicaci&oacute;n cruzada bajo paraguas del grupo</div>
+            <div style="font-size:8px;color:#A0AEC0;margin-top:2px;line-height:1.4;">Prospecto de Mazda puede recibir comunicaci&oacute;n de Grupo Plasencia (no de otra marca).</div>
+          </div>
+          <div style="padding:8px;background:rgba(72,187,120,0.06);border-left:3px solid #48BB78;border-radius:4px;">
+            <div style="font-size:9px;font-weight:700;color:#48BB78;">Remarketing por marca propia</div>
+            <div style="font-size:8px;color:#A0AEC0;margin-top:2px;line-height:1.4;">Cubierto en GP, Stellantis, Mazda, GAC, GWM. Ford: pendiente.</div>
+          </div>
+        </div>
+        <div style="font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#C8102E;margin-bottom:6px;">Lo que NO se puede hacer</div>
+        <div style="padding:8px;background:rgba(200,16,46,0.06);border-left:3px solid #C8102E;border-radius:4px;">
+          <div style="font-size:9px;font-weight:700;color:#C8102E;">Contacto directo marca a marca</div>
+          <div style="font-size:8px;color:#A0AEC0;margin-top:2px;line-height:1.4;">Tel&eacute;fono de prospecto de Mazda → vendedor de Ford le escribe. Prohibido.</div>
+        </div>
+      </div>
+      <div style="flex:1;">
+        <div style="font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#ECC94B;margin-bottom:8px;">Obligatorio para el piloto</div>
+        <div style="padding:10px;background:rgba(236,201,75,0.06);border:1px solid rgba(236,201,75,0.15);border-radius:6px;margin-bottom:10px;">
+          <div style="font-size:10px;font-weight:700;color:#ECC94B;">Aceptaci&oacute;n del aviso de privacidad</div>
+          <div style="font-size:9px;color:#A0AEC0;margin-top:4px;line-height:1.4;">Todos los prospectos deben aceptar el aviso de GP al enviar datos en landing pages o al visitar el PDV. Checkbox o texto legal obligatorio en formularios.</div>
+        </div>
+        <div style="font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#ECC94B;margin-bottom:8px;">Gaps pendientes</div>
+        <div style="display:flex;flex-direction:column;gap:6px;">
+          <div style="padding:8px;background:rgba(200,16,46,0.06);border:1px solid rgba(200,16,46,0.12);border-radius:6px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;"><div style="font-size:9px;font-weight:700;color:#C8102E;">Ford: aviso insuficiente</div><span class="tag tag--red" style="font-size:7px;">Urgente</span></div>
+            <div style="font-size:8px;color:#A0AEC0;margin-top:3px;">Actualizar fordplasencia.mx.</div>
+          </div>
+          <div style="padding:8px;background:rgba(236,201,75,0.06);border:1px solid rgba(236,201,75,0.12);border-radius:6px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;"><div style="font-size:9px;font-weight:700;color:#ECC94B;">GP: plataformas y audiencias</div><span class="tag tag--yellow" style="font-size:7px;">En proceso</span></div>
+            <div style="font-size:8px;color:#A0AEC0;margin-top:3px;">Agregar cookies, p&iacute;xeles, datos anonimizados, audiencias al aviso.</div>
+          </div>
+        </div>
+        <div style="margin-top:10px;padding:8px 10px;background:rgba(72,187,120,0.06);border:1px solid rgba(72,187,120,0.12);border-radius:6px;">
+          <div style="font-size:9px;font-weight:700;color:#48BB78;">Resumen</div>
+          <div style="font-size:8px;color:#A0AEC0;margin-top:3px;line-height:1.4;">Legal valida arranque. Custom audiences entre marcas OK (encriptado). Comunicaci&oacute;n cruzada solo bajo grupo. Contacto directo marca a marca prohibido. Ford urgente.</div>
+        </div>
+      </div>
+    </div>
+    <div style="position:absolute;bottom:16px;left:40px;font-size:7px;color:rgba(255,255,255,0.2);">Direcci&oacute;n de Marketing Corporativo | Grupo Plasencia Automotriz</div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════
+     SLIDE 15 — CENTRAL DE MEDIOS: MODELO FISCAL
+     ════════════════════════════════════════════════════ -->
+<section class="slide slide--light">
+  <div class="slide-label">15 / CENTRAL DE MEDIOS &mdash; Modelo Fiscal</div>
+  <img src="../assets/logos/LOGO-GP-Blanco.png" class="logo-corner logo-w"><img src="../assets/logos/Logo-GP-Negro.png" class="logo-corner logo-d">
+  <div class="pad">
+    <div class="t-label t-red" style="margin-bottom:6px;">Propuesta: Modelo de Central de Medios</div>
+    <div style="font-size:22px;font-weight:700;color:#2D3748;max-width:1100px;line-height:1.3;">Centralizar la compra de medios digitales en Grupo Plasencia SI para consolidar presupuesto, optimizar campañas y habilitar deducibilidad fiscal completa.</div>
+    <div style="font-size:11px;color:#718096;margin-top:4px;">Para revisi&oacute;n y autorizaci&oacute;n de: Finanzas, Tesorer&iacute;a, Legal.</div>
+
+    <div style="margin-top:10px;padding:10px 14px;background:rgba(236,201,75,0.06);border:1px solid rgba(236,201,75,0.25);border-radius:6px;">
+      <div style="font-size:10px;font-weight:700;color:#975A16;margin-bottom:4px;">Aclaraci&oacute;n fiscal importante: qui&eacute;n cobra realmente la pauta</div>
+      <div style="font-size:9px;color:#2D3748;line-height:1.5;">La empresa que cobra la publicidad de Meta es <strong>Meta Platforms Ireland Limited</strong> (Merrion Road, Dublin 4, D04 X2K5, Ireland. VAT Reg. No. IE9692928F). <strong>NO es Meta M&eacute;xico.</strong> Meta tiene oficina en M&eacute;xico, pero esa oficina solo da soporte comercial y de marketing; no factura la pauta ni cobra IVA. Por eso el recibo de Meta a las marcas hoy <strong>no incluye IVA acreditable</strong>: es un servicio prestado por una empresa extranjera (Irlanda). Esta es exactamente la raz&oacute;n por la que el modelo de Central de Medios de GP SI permite recuperar el IVA: GP SI emite CFDI con IVA a las marcas en M&eacute;xico, mientras paga Meta Ireland en el extranjero como gasto deducible de ISR.</div>
+    </div>
+
+    <div style="display:flex;gap:16px;margin-top:14px;">
+      <div style="flex:1;">
+        <div style="font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#C8102E;margin-bottom:6px;">AS IS &mdash; Presupuesto pulverizado</div>
+        <div style="background:#fff;border:1px solid #E2E8F0;border-radius:8px;padding:12px;">
+          <div style="display:flex;gap:6px;margin-bottom:8px;">
+            <div style="flex:0.35;display:flex;flex-direction:column;gap:4px;">
+              <div style="padding:5px 8px;background:rgba(200,16,46,0.04);border:1px solid rgba(200,16,46,0.12);border-radius:4px;font-size:8px;font-weight:600;color:#2D3748;text-align:center;">Ford Semi.<br><span style="color:#718096;font-weight:400;">~$7K/mes</span></div>
+              <div style="padding:5px 8px;background:rgba(200,16,46,0.04);border:1px solid rgba(200,16,46,0.12);border-radius:4px;font-size:8px;font-weight:600;color:#2D3748;text-align:center;">Mazda Semi.<br><span style="color:#718096;font-weight:400;">~$7K/mes</span></div>
+              <div style="padding:5px 8px;background:rgba(200,16,46,0.04);border:1px solid rgba(200,16,46,0.12);border-radius:4px;font-size:8px;font-weight:600;color:#2D3748;text-align:center;">Hyundai Semi.<br><span style="color:#718096;font-weight:400;">~$7K/mes</span></div>
+              <div style="padding:5px 8px;background:rgba(200,16,46,0.04);border:1px solid rgba(200,16,46,0.12);border-radius:4px;font-size:8px;font-weight:600;color:#2D3748;text-align:center;">Stellantis Semi.<br><span style="color:#718096;font-weight:400;">~$7K/mes</span></div>
+              <div style="padding:5px 8px;background:rgba(200,16,46,0.04);border:1px solid rgba(200,16,46,0.12);border-radius:4px;font-size:8px;font-weight:600;color:#2D3748;text-align:center;">GAC Semi.<br><span style="color:#718096;font-weight:400;">~$7K/mes</span></div>
+            </div>
+            <div style="display:flex;flex-direction:column;justify-content:center;font-size:10px;color:#C8102E;">&rarr;<br>&rarr;<br>&rarr;<br>&rarr;<br>&rarr;</div>
+            <div style="flex:0.35;display:flex;flex-direction:column;gap:4px;">
+              <div style="padding:5px 8px;background:rgba(200,16,46,0.04);border:1px solid rgba(200,16,46,0.12);border-radius:4px;font-size:7px;font-weight:600;color:#C8102E;text-align:center;">Cta. Ford<br><span style="color:#718096;font-weight:400;">RS: Ford Plasencia</span></div>
+              <div style="padding:5px 8px;background:rgba(200,16,46,0.04);border:1px solid rgba(200,16,46,0.12);border-radius:4px;font-size:7px;font-weight:600;color:#C8102E;text-align:center;">Cta. Mazda<br><span style="color:#718096;font-weight:400;">RS: P. Autos Jap.</span></div>
+              <div style="padding:5px 8px;background:rgba(200,16,46,0.04);border:1px solid rgba(200,16,46,0.12);border-radius:4px;font-size:7px;font-weight:600;color:#C8102E;text-align:center;">Cta. Hyundai<br><span style="color:#718096;font-weight:400;">RS: Hyundai MX</span></div>
+              <div style="padding:5px 8px;background:rgba(200,16,46,0.04);border:1px solid rgba(200,16,46,0.12);border-radius:4px;font-size:7px;font-weight:600;color:#C8102E;text-align:center;">Cta. Stellantis<br><span style="color:#718096;font-weight:400;">RS: Veh. Europeos</span></div>
+              <div style="padding:5px 8px;background:rgba(200,16,46,0.04);border:1px solid rgba(200,16,46,0.12);border-radius:4px;font-size:7px;font-weight:600;color:#C8102E;text-align:center;">Cta. GAC<br><span style="color:#718096;font-weight:400;">RS: P. Mingsan</span></div>
+            </div>
+            <div style="display:flex;flex-direction:column;justify-content:center;font-size:10px;color:#C8102E;">&rarr;<br>&rarr;<br>&rarr;<br>&rarr;<br>&rarr;</div>
+            <div style="flex:0.3;display:flex;flex-direction:column;gap:4px;">
+              <div style="padding:5px 6px;background:rgba(200,16,46,0.06);border:1px dashed rgba(200,16,46,0.2);border-radius:4px;font-size:7px;color:#C8102E;text-align:center;">Campa&ntilde;a $7K</div>
+              <div style="padding:5px 6px;background:rgba(200,16,46,0.06);border:1px dashed rgba(200,16,46,0.2);border-radius:4px;font-size:7px;color:#C8102E;text-align:center;">Campa&ntilde;a $7K</div>
+              <div style="padding:5px 6px;background:rgba(200,16,46,0.06);border:1px dashed rgba(200,16,46,0.2);border-radius:4px;font-size:7px;color:#C8102E;text-align:center;">Campa&ntilde;a $7K</div>
+              <div style="padding:5px 6px;background:rgba(200,16,46,0.06);border:1px dashed rgba(200,16,46,0.2);border-radius:4px;font-size:7px;color:#C8102E;text-align:center;">Campa&ntilde;a $7K</div>
+              <div style="padding:5px 6px;background:rgba(200,16,46,0.06);border:1px dashed rgba(200,16,46,0.2);border-radius:4px;font-size:7px;color:#C8102E;text-align:center;">Campa&ntilde;a $7K</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:4px;">
+            <div style="flex:1;padding:4px 6px;background:rgba(200,16,46,0.04);border-left:2px solid #C8102E;border-radius:3px;font-size:7px;color:#718096;line-height:1.3;"><strong style="color:#C8102E;">Pulverizado:</strong> 5+ campa&ntilde;as con $7K c/u. La IA no aprende.</div>
+            <div style="flex:1;padding:4px 6px;background:rgba(200,16,46,0.04);border-left:2px solid #C8102E;border-radius:3px;font-size:7px;color:#718096;line-height:1.3;"><strong style="color:#C8102E;">Sin IVA:</strong> Recibo de Meta no es CFDI. Solo ISR.</div>
+            <div style="flex:1;padding:4px 6px;background:rgba(200,16,46,0.04);border-left:2px solid #C8102E;border-radius:3px;font-size:7px;color:#718096;line-height:1.3;"><strong style="color:#C8102E;">Sin visibilidad:</strong> Gasto disperso, no se redistribuye.</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="flex:1;">
+        <div style="font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#48BB78;margin-bottom:6px;">TO BE &mdash; Presupuesto consolidado</div>
+        <div style="background:#fff;border:1px solid #E2E8F0;border-radius:8px;padding:12px;">
+          <div style="display:flex;gap:6px;margin-bottom:8px;align-items:center;">
+            <div style="flex:0.3;display:flex;flex-direction:column;gap:4px;">
+              <div style="padding:4px 6px;background:#F0F4F8;border-radius:3px;font-size:7px;font-weight:600;color:#2D3748;text-align:center;">Ford Semi.</div>
+              <div style="padding:4px 6px;background:#F0F4F8;border-radius:3px;font-size:7px;font-weight:600;color:#2D3748;text-align:center;">Mazda Semi.</div>
+              <div style="padding:4px 6px;background:#F0F4F8;border-radius:3px;font-size:7px;font-weight:600;color:#2D3748;text-align:center;">Hyundai Semi.</div>
+              <div style="padding:4px 6px;background:#F0F4F8;border-radius:3px;font-size:7px;font-weight:600;color:#2D3748;text-align:center;">Stellantis Semi.</div>
+              <div style="padding:4px 6px;background:#F0F4F8;border-radius:3px;font-size:7px;font-weight:600;color:#2D3748;text-align:center;">GAC Semi.</div>
+            </div>
+            <div style="font-size:14px;color:#48BB78;">&#10230;</div>
+            <div style="flex:0.3;padding:12px 8px;background:rgba(72,187,120,0.08);border:2px solid rgba(72,187,120,0.3);border-radius:6px;text-align:center;">
+              <div style="font-size:10px;font-weight:800;color:#276749;">GP SI</div>
+              <div style="font-size:7px;color:#48BB78;margin-top:2px;">Central de medios</div>
+              <div style="font-size:7px;color:#718096;margin-top:2px;">Emite CFDI con IVA</div>
+            </div>
+            <div style="font-size:14px;color:#48BB78;">&#10230;</div>
+            <div style="flex:0.25;padding:12px 8px;background:rgba(72,187,120,0.04);border:2px solid rgba(72,187,120,0.2);border-radius:6px;text-align:center;">
+              <div style="font-size:9px;font-weight:700;color:#276749;">1 cuenta</div>
+              <div style="font-size:7px;color:#718096;margin-top:2px;">RS: GP SI</div>
+              <div style="font-size:8px;font-weight:700;color:#48BB78;margin-top:4px;">$35K+</div>
+            </div>
+            <div style="font-size:14px;color:#48BB78;">&#10230;</div>
+            <div style="flex:0.2;padding:12px 8px;background:rgba(72,187,120,0.1);border:2px solid #48BB78;border-radius:6px;text-align:center;">
+              <div style="font-size:9px;font-weight:800;color:#276749;">1 campa&ntilde;a</div>
+              <div style="font-size:7px;color:#48BB78;margin-top:2px;">IA aprende</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:4px;">
+            <div style="flex:1;padding:4px 6px;background:rgba(72,187,120,0.04);border-left:2px solid #48BB78;border-radius:3px;font-size:7px;color:#718096;line-height:1.3;"><strong style="color:#276749;">Consolidado:</strong> $35K+ en 1 campa&ntilde;a. La IA tiene volumen para optimizar.</div>
+            <div style="flex:1;padding:4px 6px;background:rgba(72,187,120,0.04);border-left:2px solid #48BB78;border-radius:3px;font-size:7px;color:#718096;line-height:1.3;"><strong style="color:#276749;">IVA deducible:</strong> CFDI de GP SI a cada marca. Deducibilidad completa.</div>
+            <div style="flex:1;padding:4px 6px;background:rgba(72,187,120,0.04);border-left:2px solid #48BB78;border-radius:3px;font-size:7px;color:#718096;line-height:1.3;"><strong style="color:#276749;">Visibilidad total:</strong> 1 cuenta, 1 tablero, redistribuci&oacute;n din&aacute;mica.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#2D3748;margin-top:10px;margin-bottom:6px;">Flujo fiscal</div>
+    <div style="display:flex;gap:6px;align-items:stretch;">
+      <div style="flex:1;padding:8px 10px;background:#fff;border:1px solid #E2E8F0;border-radius:6px;text-align:center;">
+        <div style="font-size:10px;font-weight:700;color:#2D3748;">1. Marca transfiere</div>
+        <div style="font-size:8px;color:#718096;margin-top:3px;">La OEM transfiere el monto de pauta a GP SI.</div>
+      </div>
+      <div style="display:flex;align-items:center;font-size:12px;color:#A0AEC0;">&rarr;</div>
+      <div style="flex:1;padding:8px 10px;background:#fff;border:1px solid #E2E8F0;border-radius:6px;text-align:center;">
+        <div style="font-size:10px;font-weight:700;color:#2D3748;">2. GP SI factura</div>
+        <div style="font-size:8px;color:#718096;margin-top:3px;">GP SI emite CFDI por &ldquo;servicios de compra de medios&rdquo; <strong>con IVA.</strong></div>
+      </div>
+      <div style="display:flex;align-items:center;font-size:12px;color:#A0AEC0;">&rarr;</div>
+      <div style="flex:1;padding:8px 10px;background:#fff;border:1px solid #E2E8F0;border-radius:6px;text-align:center;">
+        <div style="font-size:10px;font-weight:700;color:#2D3748;">3. Marca deduce</div>
+        <div style="font-size:8px;color:#718096;margin-top:3px;">La marca deduce ISR + IVA con el CFDI de GP SI.</div>
+      </div>
+      <div style="display:flex;align-items:center;font-size:12px;color:#A0AEC0;">&rarr;</div>
+      <div style="flex:1;padding:8px 10px;background:#fff;border:1px solid #E2E8F0;border-radius:6px;text-align:center;">
+        <div style="font-size:10px;font-weight:700;color:#2D3748;">4. GP SI paga Meta</div>
+        <div style="font-size:8px;color:#718096;margin-top:3px;">GP SI paga Meta Ireland desde la cuenta corporativa.</div>
+      </div>
+    </div>
+
+    <div style="position:absolute;bottom:16px;left:40px;font-size:7px;color:rgba(0,0,0,0.2);">Direcci&oacute;n de Marketing Corporativo | Grupo Plasencia Automotriz</div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════
+     SLIDE 16 — CENTRAL DE MEDIOS: BENEFICIOS
+     ════════════════════════════════════════════════════ -->
+<section class="slide slide--light">
+  <div class="slide-label">16 / CENTRAL DE MEDIOS &mdash; Beneficios</div>
+  <img src="../assets/logos/LOGO-GP-Blanco.png" class="logo-corner logo-w"><img src="../assets/logos/Logo-GP-Negro.png" class="logo-corner logo-d">
+  <div class="pad">
+    <div class="t-label t-red" style="margin-bottom:6px;">Beneficios del Modelo de Central de Medios</div>
+    <div style="font-size:22px;font-weight:700;color:#2D3748;max-width:1100px;line-height:1.3;">Lo que el grupo gana al consolidar la compra de medios en GP SI.</div>
+    <div style="font-size:11px;color:#718096;margin-top:4px;">Beneficios estrat&eacute;gicos/financieros y operativos del d&iacute;a a d&iacute;a.</div>
+
+    <div style="display:flex;gap:16px;margin-top:14px;">
+      <div style="flex:1;">
+        <div style="font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#48BB78;margin-bottom:8px;">Beneficios para el negocio</div>
+        <div style="display:flex;flex-direction:column;gap:6px;">
+          <div style="padding:8px 10px;background:#fff;border:1px solid #E2E8F0;border-left:3px solid #48BB78;border-radius:4px;"><div style="font-size:10px;font-weight:700;color:#2D3748;">1. Recuperaci&oacute;n de IVA en pauta digital</div><div style="font-size:8px;color:#718096;margin-top:2px;line-height:1.4;">Las marcas recuperan ~16% del gasto en pauta como IVA acreditable. Hoy con el recibo de Meta no lo recuperan.</div></div>
+          <div style="padding:8px 10px;background:#fff;border:1px solid #E2E8F0;border-left:3px solid #48BB78;border-radius:4px;"><div style="font-size:10px;font-weight:700;color:#2D3748;">2. Mejor rendimiento con el mismo gasto</div><div style="font-size:8px;color:#718096;margin-top:2px;line-height:1.4;">Consolidar 5 campa&ntilde;as de $7K en 1 de $35K+ le da volumen a la IA para aprender. Mejor CPL/CPA sin gastar m&aacute;s.</div></div>
+          <div style="padding:8px 10px;background:#fff;border:1px solid #E2E8F0;border-left:3px solid #48BB78;border-radius:4px;"><div style="font-size:10px;font-weight:700;color:#2D3748;">3. Trazabilidad fiscal completa</div><div style="font-size:8px;color:#718096;margin-top:2px;line-height:1.4;">Auditable, formal, con CFDI. Reduce riesgo fiscal vs el recibo informal de Meta a otra raz&oacute;n social.</div></div>
+          <div style="padding:8px 10px;background:#fff;border:1px solid #E2E8F0;border-left:3px solid #48BB78;border-radius:4px;"><div style="font-size:10px;font-weight:700;color:#2D3748;">4. Visibilidad financiera consolidada</div><div style="font-size:8px;color:#718096;margin-top:2px;line-height:1.4;">Finanzas ve el gasto total de Seminuevos en un solo lugar. Hoy disperso en 5 cuentas y 5 razones sociales.</div></div>
+          <div style="padding:8px 10px;background:#fff;border:1px solid #E2E8F0;border-left:3px solid #48BB78;border-radius:4px;"><div style="font-size:10px;font-weight:700;color:#2D3748;">5. Redistribuci&oacute;n din&aacute;mica del presupuesto</div><div style="font-size:8px;color:#718096;margin-top:2px;line-height:1.4;">Si una l&iacute;nea funciona mejor, mueves dinero sin renegociar con cada marca ni cambiar de cuenta.</div></div>
+          <div style="padding:8px 10px;background:#fff;border:1px solid #E2E8F0;border-left:3px solid #48BB78;border-radius:4px;"><div style="font-size:10px;font-weight:700;color:#2D3748;">6. GP SI como Central de Medios</div><div style="font-size:8px;color:#718096;margin-top:2px;line-height:1.4;">Capacidad nueva del corporativo. Si funciona en Seminuevos, escala a las marcas OEM.</div></div>
+        </div>
+      </div>
+
+      <div style="flex:1;">
+        <div style="font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#4299E1;margin-bottom:8px;">Beneficios operativos</div>
+        <div style="display:flex;flex-direction:column;gap:6px;">
+          <div style="padding:8px 10px;background:#fff;border:1px solid #E2E8F0;border-left:3px solid #4299E1;border-radius:4px;"><div style="font-size:10px;font-weight:700;color:#2D3748;">1. Una sola cuenta publicitaria</div><div style="font-size:8px;color:#718096;margin-top:2px;line-height:1.4;">Menos p&iacute;xeles, cat&aacute;logos y perfiles de negocio que mantener. Simplificaci&oacute;n directa.</div></div>
+          <div style="padding:8px 10px;background:#fff;border:1px solid #E2E8F0;border-left:3px solid #4299E1;border-radius:4px;"><div style="font-size:10px;font-weight:700;color:#2D3748;">2. Una sola campa&ntilde;a que optimizar</div><div style="font-size:8px;color:#718096;margin-top:2px;line-height:1.4;">El equipo se enfoca en una campa&ntilde;a fuerte, no en parchar 5 campa&ntilde;as chicas en cuentas distintas.</div></div>
+          <div style="padding:8px 10px;background:#fff;border:1px solid #E2E8F0;border-left:3px solid #4299E1;border-radius:4px;"><div style="font-size:10px;font-weight:700;color:#2D3748;">3. Audiencias compartidas entre lotes</div><div style="font-size:8px;color:#718096;margin-top:2px;line-height:1.4;">Quien vio un Mazda seminuevo puede ver autos del lote de Ford o Hyundai. Hoy esos datos viven aislados.</div></div>
+          <div style="padding:8px 10px;background:#fff;border:1px solid #E2E8F0;border-left:3px solid #4299E1;border-radius:4px;"><div style="font-size:10px;font-weight:700;color:#2D3748;">4. Cat&aacute;logo consolidado v&iacute;a MaxiPublica</div><div style="font-size:8px;color:#718096;margin-top:2px;line-height:1.4;">Una sola campa&ntilde;a de cat&aacute;logo cubre todo el inventario del grupo, no fragmentos por lote.</div></div>
+          <div style="padding:8px 10px;background:#fff;border:1px solid #E2E8F0;border-left:3px solid #4299E1;border-radius:4px;"><div style="font-size:10px;font-weight:700;color:#2D3748;">5. P&iacute;xel corporativo &uacute;nico</div><div style="font-size:8px;color:#718096;margin-top:2px;line-height:1.4;">Un solo p&iacute;xel recolectando se&ntilde;ales del sitio. Hoy son 5 p&iacute;xeles separados que no se comunican.</div></div>
+          <div style="padding:8px 10px;background:#fff;border:1px solid #E2E8F0;border-left:3px solid #4299E1;border-radius:4px;"><div style="font-size:10px;font-weight:700;color:#2D3748;">6. Reportes consolidados</div><div style="font-size:8px;color:#718096;margin-top:2px;line-height:1.4;">Un solo dashboard, una sola fuente de verdad. Sin cruzar 5 reportes manualmente.</div></div>
+          <div style="padding:8px 10px;background:#fff;border:1px solid #E2E8F0;border-left:3px solid #4299E1;border-radius:4px;"><div style="font-size:10px;font-weight:700;color:#2D3748;">7. Onboarding r&aacute;pido de nuevos lotes</div><div style="font-size:8px;color:#718096;margin-top:2px;line-height:1.4;">Solo agregas el inventario al cat&aacute;logo. No creas cuenta + BM + perfil + campa&ntilde;a nueva.</div></div>
+          <div style="padding:8px 10px;background:#fff;border:1px solid #E2E8F0;border-left:3px solid #4299E1;border-radius:4px;"><div style="font-size:10px;font-weight:700;color:#2D3748;">8. Control directo de la Direcci&oacute;n de MKT</div><div style="font-size:8px;color:#718096;margin-top:2px;line-height:1.4;">El equipo opera sin pedir permisos a cada gerente para ajustar algo. Reduce fricci&oacute;n pol&iacute;tica operativa.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div style="position:absolute;bottom:16px;left:40px;font-size:7px;color:rgba(0,0,0,0.2);">Direcci&oacute;n de Marketing Corporativo | Grupo Plasencia Automotriz</div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════
+     SLIDE 17 — ADDENDUM: ESTADO AL 23 ABRIL 2026
+     ════════════════════════════════════════════════════ -->
+<section class="slide slide--dark">
+  <div class="slide-label">17 / Addendum &mdash; Estado al 23 abril 2026</div>
+  <img src="../assets/logos/LOGO-GP-Blanco.png" class="logo-corner logo-w"><img src="../assets/logos/Logo-GP-Negro.png" class="logo-corner logo-d">
+  <div class="pad">
+    <div class="t-label" style="color:#ECC94B;margin-bottom:6px;">ADDENDUM &middot; DOUBLE-CHECK 23 ABRIL 2026</div>
+    <div class="t-title t-white" style="font-size:26px;max-width:1100px;">Estado real del piloto despu&eacute;s del GO-LIVE del 16 de abril. Este addendum extiende (no reemplaza) el contenido anterior del Playbook.</div>
+    <div style="font-size:11px;color:#A0AEC0;margin-top:4px;max-width:1100px;line-height:1.5;">El Playbook es doc operativo vivo. Las slides 1-16 reflejan el plan del arranque (15 abril). Esta slide documenta lo ejecutado y el gap de 7 d&iacute;as entre plan y realidad.</div>
+
+    <div style="display:flex;gap:14px;margin-top:18px;">
+      <!-- BLOQUE 1: EJECUCION -->
+      <div style="flex:1;background:rgba(72,187,120,0.06);border:1px solid rgba(72,187,120,0.3);border-radius:6px;padding:12px;">
+        <div style="font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#48BB78;margin-bottom:8px;">Ejecutado</div>
+        <div style="display:flex;flex-direction:column;gap:6px;font-size:10px;color:#E2E8F0;line-height:1.5;">
+          <div><strong style="color:#fff;">GO-LIVE Seminuevos</strong> &mdash; 16 abril 2026, 16:40 GDL. Cuenta Meta 315070902163858. Primera marca con tr&aacute;fico pagado activo.</div>
+          <div><strong style="color:#fff;">3 landings LIVE</strong> &mdash; Seminuevos, Hyundai, Stellantis. Dominios en producci&oacute;n. Flujo progresivo 3-5 pasos con filtros homogeneos.</div>
+          <div><strong style="color:#fff;">CRM Worker LIVE</strong> &mdash; versi&oacute;n d1fea7e3. Cloudflare Access + PAT + control por marca (13 emails mapeados).</div>
+          <div><strong style="color:#fff;">Zapier Pipeline&rarr;Meta CAPI</strong> &mdash; Seminuevos activo. Hyundai / Stellantis pendiente de fondeo.</div>
+          <div><strong style="color:#fff;">GTM v10 + GA4 + Pixel</strong> &mdash; 14 tags publicados, eventos confirmados en GA4 Realtime.</div>
+        </div>
+      </div>
+
+      <!-- BLOQUE 2: METRICAS REALES -->
+      <div style="flex:1;background:rgba(236,201,75,0.06);border:1px solid rgba(236,201,75,0.3);border-radius:6px;padding:12px;">
+        <div style="font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#ECC94B;margin-bottom:8px;">M&eacute;tricas reales a 7 d&iacute;as</div>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div style="display:flex;gap:8px;align-items:center;"><div style="font-size:28px;font-weight:900;color:#fff;line-height:1;">14</div><div style="font-size:9px;color:#A0AEC0;line-height:1.3;"><strong style="color:#fff;">Oportunidades</strong> en pipeline (citas agendadas, no leads crudos).</div></div>
+          <div style="display:flex;gap:8px;align-items:center;"><div style="font-size:28px;font-weight:900;color:#fff;line-height:1;">3</div><div style="font-size:9px;color:#A0AEC0;line-height:1.3;"><strong style="color:#fff;">Marcas</strong> con landing + CRM live (Seminuevos + Hyundai + Stellantis).</div></div>
+          <div style="display:flex;gap:8px;align-items:center;"><div style="font-size:28px;font-weight:900;color:#fff;line-height:1;">$90K</div><div style="font-size:9px;color:#A0AEC0;line-height:1.3;"><strong style="color:#fff;">Incremental matched</strong> / mes (3 x $30K, BAU intocado). Primer ciclo time-to-purchase corriendo.</div></div>
+          <div style="display:flex;gap:8px;align-items:center;"><div style="font-size:28px;font-weight:900;color:#fff;line-height:1;">4</div><div style="font-size:9px;color:#A0AEC0;line-height:1.3;"><strong style="color:#fff;">Semanas</strong> de contrataci&oacute;n a pipeline real (killer metric).</div></div>
+        </div>
+      </div>
+
+      <!-- BLOQUE 3: AJUSTES VS PLAN -->
+      <div style="flex:1;background:rgba(200,16,46,0.06);border:1px solid rgba(200,16,46,0.3);border-radius:6px;padding:12px;">
+        <div style="font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#C8102E;margin-bottom:8px;">Ajustes vs plan original</div>
+        <div style="display:flex;flex-direction:column;gap:6px;font-size:10px;color:#E2E8F0;line-height:1.5;">
+          <div><strong style="color:#fff;">Budget</strong> &mdash; confirmado 3 directores OEM: BAU intocado + $30K incremental matched por marca. Experimental design con grupo control (no "Escenario B").</div>
+          <div><strong style="color:#fff;">Central de medios</strong> &mdash; arranque con Viceversa (persona f&iacute;sica, facturaci&oacute;n a raz&oacute;n social que paga). Migraci&oacute;n a GP SI pendiente de Finanzas/Legal (ver slides 15-16).</div>
+          <div><strong style="color:#fff;">Ford fuera del piloto</strong> &mdash; 3 marcas activas (Seminuevos + Hyundai + Stellantis), no 4. Ford se reeval&uacute;a Fase 1.</div>
+          <div><strong style="color:#fff;">Claims trust bar</strong> &mdash; Seminuevos redujo claims no corroborados a "Seminuevos verificados" post-launch (16 abril 16:50) hasta validar con Jose Reyes.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- REFERENCIAS CRUZADAS -->
+    <div style="margin-top:14px;padding:10px 14px;background:rgba(66,153,225,0.08);border-left:3px solid #4299E1;border-radius:4px;">
+      <div style="font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#63B3ED;margin-bottom:4px;">Vision extendida</div>
+      <div style="font-size:10px;color:#E2E8F0;line-height:1.5;">El Playbook es el manual operativo del piloto. Para la vision de modelo operativo del grupo (Centro de Excelencia AI-powered) y la conversaci&oacute;n con el Consejo, ver <strong style="color:#fff;">Strategy-Definition-MKT-Corporativo-AI-powered.md</strong> (guion) y <strong style="color:#fff;">Centro-Excelencia-MKT-Consejo-Deck.html</strong> (deck v2, en construcci&oacute;n). Estado de trabajo diario en <strong style="color:#fff;">00-context/KO-Operativo.md</strong>.</div>
+    </div>
+
+    <div style="position:absolute;bottom:14px;left:40px;font-size:7px;color:rgba(255,255,255,0.25);">Direcci&oacute;n de Marketing Corporativo | Grupo Plasencia Automotriz | Addendum 23 abril 2026</div>
+  </div>
+</section>
+
+
+</div>
+
+<script>
+(function() {
+  const slides = document.querySelectorAll('.slide');
+  const progress = document.getElementById('progress');
+  const counter = document.getElementById('counter');
+  const total = slides.length;
+  let current = 0;
+
+  function fitSlide() {
+    const vw = window.innerWidth;
+    const vh = window.innerHeight;
+    const scale = Math.min(vw / 1280, vh / 720);
+    slides.forEach(s => {
+      s.style.transform = `scale(${scale})`;
+      s.style.left = ((vw - 1280 * scale) / 2) + 'px';
+      s.style.top = ((vh - 720 * scale) / 2) + 'px';
+    });
+  }
+
+  function goTo(n) {
+    if (n < 0 || n >= total || n === current) return;
+    slides[current].classList.remove('active', 'enter');
+    current = n;
+    slides[current].classList.add('active', 'enter');
+    progress.style.width = ((current + 1) / total * 100) + '%';
+    counter.textContent = (current + 1) + ' / ' + total;
+    counter.style.color = slides[current].classList.contains('slide--light')
+      ? 'rgba(45,55,72,0.4)' : 'rgba(255,255,255,0.5)';
+  }
+
+  function next() { goTo(current + 1); }
+  function prev() { goTo(current - 1); }
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') { e.preventDefault(); next(); }
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') { e.preventDefault(); prev(); }
+    if (e.key === 'Home') { e.preventDefault(); goTo(0); }
+    if (e.key === 'End') { e.preventDefault(); goTo(total - 1); }
+  });
+
+  let touchStartX = 0;
+  document.addEventListener('touchstart', function(e) { touchStartX = e.changedTouches[0].screenX; });
+  document.addEventListener('touchend', function(e) {
+    const diff = touchStartX - e.changedTouches[0].screenX;
+    if (Math.abs(diff) > 50) { diff > 0 ? next() : prev(); }
+  });
+
+  document.addEventListener('click', function(e) {
+    if (e.target.closest('a, button, input')) return;
+    const x = e.clientX / window.innerWidth;
+    x < 0.33 ? prev() : next();
+  });
+
+  fitSlide();
+  window.addEventListener('resize', fitSlide);
+  slides[0].classList.add('active');
+  progress.style.width = (1 / total * 100) + '%';
+  counter.textContent = '1 / ' + total;
+  counter.style.color = 'rgba(255,255,255,0.5)';
+})();
+</script>
+</body>
+</html>

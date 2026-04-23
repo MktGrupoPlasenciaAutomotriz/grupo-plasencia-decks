@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Decks Estrategicos &middot; Grupo Plasencia Marketing Corporativo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: #0F1A2E; color: #F7FAFC; font-family: 'Inter', system-ui, sans-serif; min-height: 100vh; }
+body { padding: 64px 24px; }
+.wrap { max-width: 1100px; margin: 0 auto; }
+
+.head { display: flex; align-items: center; gap: 20px; margin-bottom: 48px; padding-bottom: 32px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+.head img { height: 52px; mix-blend-mode: screen; opacity: 0.9; }
+.head-text .eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 2.5px; color: #ECC94B; text-transform: uppercase; }
+.head-text h1 { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 32px; letter-spacing: -0.5px; margin-top: 4px; line-height: 1.2; }
+.head-text p { font-size: 14px; color: #A0AEC0; margin-top: 6px; max-width: 640px; line-height: 1.5; }
+
+.section-label { font-size: 10px; font-weight: 700; letter-spacing: 2.5px; color: #ECC94B; text-transform: uppercase; margin-bottom: 16px; }
+
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 48px; }
+@media (max-width: 760px) { .grid { grid-template-columns: 1fr; } }
+
+.card {
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 12px; padding: 28px; text-decoration: none; color: inherit;
+  transition: all 0.25s cubic-bezier(0.4,0,0.2,1);
+  display: flex; flex-direction: column; gap: 12px;
+  position: relative; overflow: hidden;
+}
+.card::before {
+  content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: #ECC94B; opacity: 0.6; transition: opacity 0.25s;
+}
+.card:hover { border-color: rgba(236,201,75,0.4); background: rgba(236,201,75,0.04); transform: translateY(-2px); }
+.card:hover::before { opacity: 1; }
+.card.primary::before { background: #C8102E; opacity: 1; height: 4px; }
+.card.primary { border-color: rgba(200,16,46,0.4); }
+
+.tag { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 9px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; }
+.tag--new { background: rgba(200,16,46,0.2); color: #FC8181; }
+.tag--active { background: rgba(72,187,120,0.2); color: #68D391; }
+.tag--snap { background: rgba(160,174,192,0.15); color: #A0AEC0; }
+
+.card h2 { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 20px; line-height: 1.25; color: #F7FAFC; letter-spacing: -0.3px; }
+.card p { font-size: 13px; color: #CBD5E0; line-height: 1.55; }
+.card .meta { font-size: 11px; color: #718096; margin-top: auto; padding-top: 12px; border-top: 1px dashed rgba(255,255,255,0.1); letter-spacing: 0.5px; }
+.card .arrow { font-size: 14px; color: #ECC94B; font-weight: 700; margin-top: 8px; }
+
+.foot { margin-top: 48px; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.08); font-size: 11px; color: #718096; text-align: center; letter-spacing: 0.5px; line-height: 1.6; }
+.foot a { color: #ECC94B; text-decoration: none; }
+.foot a:hover { text-decoration: underline; }
+
+.hint { background: rgba(236,201,75,0.06); border-left: 3px solid #ECC94B; border-radius: 6px; padding: 14px 18px; margin-bottom: 40px; font-size: 13px; color: #E2E8F0; line-height: 1.55; }
+.hint strong { color: #ECC94B; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="head">
+    <img src="assets/logos/LOGO-GP-Blanco.png" alt="Grupo Plasencia">
+    <div class="head-text">
+      <div class="eyebrow">Marketing Corporativo &middot; Direccion</div>
+      <h1>Decks Estrategicos</h1>
+      <p>Artefactos estrategicos del Motor de Atribucion MVP y la propuesta de Centro de Excelencia AI-powered. Uso interno Grupo Plasencia Automotriz.</p>
+    </div>
+  </div>
+
+  <div class="hint">
+    <strong>Navegacion:</strong> flechas &larr; &rarr; / espacio para avanzar slide / Home-End para saltar &middot; click izquierdo = atras, derecho = adelante &middot; touch swipe en mobile.
+  </div>
+
+  <div class="section-label">Presentacion activa &middot; Consejo Directivo</div>
+  <div class="grid">
+    <a href="01-strategy/Centro-Excelencia-MKT-Consejo-Deck.html" class="card primary">
+      <div><span class="tag tag--new">Nuevo &middot; Abril 2026</span></div>
+      <h2>Centro de Excelencia MKT Corporativo AI-powered</h2>
+      <p>Propuesta al Consejo: convertir la Direccion de Marketing en ventaja competitiva estructural. 17 slides &middot; governing thought + 3 pilares + MOAT 5 capas + roadmap 3 fases + 5 decisiones binarias.</p>
+      <div class="meta">17 slides &middot; Deck Consejo v2 &middot; Chucho Porras</div>
+      <div class="arrow">Abrir deck &rarr;</div>
+    </a>
+
+    <a href="01-strategy/Motor-de-Atribucion-MVP-Playbook-Operativo.html" class="card">
+      <div><span class="tag tag--active">Operativo &middot; Live</span></div>
+      <h2>Motor de Atribucion MVP &middot; Playbook Operativo</h2>
+      <p>Playbook de ejecucion del MVP que salio LIVE el 16 abril 2026. Incluye addendum con metricas reales a 7 dias (14 oportunidades, $90K matched, 4 semanas contratacion-a-pipeline).</p>
+      <div class="meta">Playbook operativo + Slide 17 Addendum 23 abril</div>
+      <div class="arrow">Abrir playbook &rarr;</div>
+    </a>
+  </div>
+
+  <div class="section-label">Snapshots de referencia &middot; Entrega inicial</div>
+  <div class="grid">
+    <a href="01-strategy/Driving-Growth-Executive-Summary.html" class="card">
+      <div><span class="tag tag--snap">Snapshot &middot; Abril 2026</span></div>
+      <h2>Driving Growth &middot; Resumen Ejecutivo</h2>
+      <p>Sintesis ejecutiva entregada al inicio del mandato. Diagnostico + vision + plan de 90 dias. Se conserva como referencia del punto de partida.</p>
+      <div class="meta">Resumen ejecutivo &middot; Entrega inicial</div>
+      <div class="arrow">Abrir resumen &rarr;</div>
+    </a>
+
+    <a href="01-strategy/Driving-Growth-Deck.html" class="card">
+      <div><span class="tag tag--snap">Snapshot &middot; Abril 2026</span></div>
+      <h2>Driving Growth &middot; Deck Completo</h2>
+      <p>Deck extendido con diagnostico, arquitectura del Motor de Atribucion, roadmap y caso financiero. Fuente del pitch original, vision extendida en el Deck Consejo v2.</p>
+      <div class="meta">Deck completo &middot; Entrega inicial</div>
+      <div class="arrow">Abrir deck &rarr;</div>
+    </a>
+  </div>
+
+  <div class="foot">
+    Grupo Plasencia Automotriz &middot; Direccion de Marketing Corporativo<br>
+    Source of truth (privado): <a href="https://github.com/MktGrupoPlasenciaAutomotriz/grupo-plasencia-docs">grupo-plasencia-docs</a> &middot;
+    Mirror publico (este sitio): <a href="https://github.com/MktGrupoPlasenciaAutomotriz/grupo-plasencia-decks">grupo-plasencia-decks</a>
+  </div>
+
+</div>
+</body>
+</html>
