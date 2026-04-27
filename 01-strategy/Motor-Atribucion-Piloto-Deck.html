@@ -450,7 +450,7 @@ table.t-pipe tr.tot td { font-weight: 800; color: #ECC94B; border-top: 2px solid
    </div>
    <div style="background:#fff;border-top:3px solid #48BB78;border-radius:8px;padding:11px 14px;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
     <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;color:#276749;text-transform:uppercase;margin-bottom:5px;">Piloto &middot; Lo que cambia</div>
-    <div style="font-size:10px;color:#2D3748;line-height:1.5;"><strong>Atracción</strong> (ad Meta) → <strong>Captura</strong> (SPA + catálogo + calculadora) → <strong>Calificación</strong> (form 5 pasos: enganche, plazo, perfil, sucursal, cita) → <strong>Pre-cotización en PDF</strong> (folio único, llega al cliente por correo) → <strong>Cita en piso</strong> (CRM corporativo) → <strong>Cierre</strong>. Cada paso manda señal <strong>server-side</strong> a Meta CAPI + GA4 MP. <em>El algoritmo aprende a buscar compradores. Cada peso es trazable a una cita y a una venta.</em></div>
+    <div style="font-size:10px;color:#2D3748;line-height:1.5;"><strong>Atracción</strong> (ad Meta) → <strong>Captura</strong> (SPA + catálogo + calculadora) → <strong>Calificación</strong> (form 5 pasos: enganche, plazo, perfil, sucursal, cita) → <strong>Pre-cotización en PDF</strong> (folio único, descargable desde la SPA) → <strong>Cita en piso</strong> (CRM corporativo) → <strong>Cierre</strong>. Cada paso manda señal <strong>server-side</strong> a Meta CAPI + GA4 MP. <em>El algoritmo aprende a buscar compradores. Cada peso es trazable a una cita y a una venta.</em></div>
    </div>
    <div style="background:#fff;border-top:3px solid #ECC94B;border-radius:8px;padding:11px 14px;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
     <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;color:#1E2740;text-transform:uppercase;margin-bottom:5px;">Hipótesis de partida</div>
@@ -518,7 +518,7 @@ table.t-pipe tr.tot td { font-weight: 800; color: #ECC94B; border-top: 2px solid
      <tr style="background:rgba(72,187,120,0.08);">
       <td style="padding:10px 10px;"><strong style="color:#48BB78;font-size:14px;">5</strong></td>
       <td style="padding:10px 10px;line-height:1.4;"><strong style="color:#1E2740;">Deal del piloto</strong> (oportunidad)</td>
-      <td style="padding:10px 10px;line-height:1.4;"><strong>Auto cotizado + precio + enganche + plazo + mensualidad + perfil de pago + sucursal + fecha + hora + email y tel validados &middot; pre-cotización en PDF con folio único enviada al cliente.</strong></td>
+      <td style="padding:10px 10px;line-height:1.4;"><strong>Auto cotizado + precio + enganche + plazo + mensualidad + perfil de pago + sucursal + fecha + hora + email y tel validados &middot; pre-cotización en PDF con folio único (cliente la descarga al confirmar).</strong></td>
       <td style="padding:10px 10px;line-height:1.4;"><strong>Solo confirma la cita.</strong> El contexto ya está armado por la SPA.</td>
       <td style="padding:10px 10px;text-align:right;color:#48BB78;font-weight:800;">Alta</td>
      </tr>
@@ -770,7 +770,7 @@ table.t-pipe tr.tot td { font-weight: 800; color: #ECC94B; border-top: 2px solid
      <div style="font-size:9px;color:#1E2740;line-height:1.3;"><strong style="color:#48BB78;">3.</strong> Datos completos (nombre, tel, email)</div>
      <div style="font-size:9px;color:#1E2740;line-height:1.3;"><strong style="color:#48BB78;">4.</strong> Perfil de pago (financia/contado, comprueba)</div>
      <div style="font-size:9px;color:#1E2740;line-height:1.3;"><strong style="color:#48BB78;">5.</strong> Sucursal + fecha + hora <em style="color:#718096;">(commitment final)</em></div>
-     <div style="font-size:9px;color:#1E2740;line-height:1.3;margin-top:3px;background:rgba(236,201,75,0.12);padding:4px 6px;border-radius:4px;"><strong style="color:#D69E2E;">+</strong> Al confirmar, el sistema genera <strong>pre-cotización en PDF</strong> con folio único y la envía al cliente por correo. <em style="color:#718096;">Artefacto canjeable en sucursal &mdash; ver slide 16.</em></div>
+     <div style="font-size:9px;color:#1E2740;line-height:1.3;margin-top:3px;background:rgba(236,201,75,0.12);padding:4px 6px;border-radius:4px;"><strong style="color:#D69E2E;">+</strong> Al confirmar, el sistema genera <strong>pre-cotización en PDF</strong> con folio único + botón para agendar la cita en su calendar. <em style="color:#718096;">Artefacto canjeable en sucursal &mdash; ver slide 16.</em></div>
     </div>
    </div>
   </div>
@@ -863,7 +863,7 @@ table.t-pipe tr.tot td { font-weight: 800; color: #ECC94B; border-top: 2px solid
 
     <div style="margin-top:8px;background:rgba(236,201,75,0.1);border:1px solid rgba(236,201,75,0.3);border-radius:5px;padding:7px 10px;">
      <div style="font-size:9px;font-weight:700;letter-spacing:1.2px;color:#ECC94B;text-transform:uppercase;margin-bottom:3px;">3 / Pre-cotización en PDF</div>
-     <div style="font-size:10px;color:#CBD5E0;line-height:1.4;">Al confirmar la cita, el sistema genera un PDF con folio único (datos del cliente, vehículo, plan de pago, sucursal, hora, vendedor). Llega al cliente por correo automático. <strong style="color:#ECC94B;">Es la base del value exchange trigger &mdash; ver slide 16.</strong></div>
+     <div style="font-size:10px;color:#CBD5E0;line-height:1.4;">Al confirmar la cita, el sistema genera un PDF con folio único (datos del cliente, vehículo, plan de pago, sucursal, hora, vendedor). Cliente lo descarga + agenda la cita en su calendar desde el front. <strong style="color:#ECC94B;">Base del value exchange trigger &mdash; ver slide 16.</strong></div>
     </div>
    </div>
   </div>
@@ -1068,50 +1068,55 @@ table.t-pipe tr.tot td { font-weight: 800; color: #ECC94B; border-top: 2px solid
    SLIDE 17 NUEVA - VALUE EXCHANGE TRIGGER (PDF + benefit)
    ════════════════════════════════════════════════════ -->
 <section class="slide slide--light">
- <div class="slide-label">16 / Cómo activamos el pipeline ya &middot; value exchange trigger</div>
+ <div class="slide-label">16 / Cómo movemos pipeline a visitas reales &middot; sin depender del vendedor</div>
  <img src="../assets/logos/LOGO-GP-Blanco.png" class="logo-corner logo-w"><img src="../assets/logos/Logo-GP-Negro.png" class="logo-corner logo-d">
  <div class="pad" style="padding:42px 60px 30px;">
-  <div class="t-label t-red" style="margin-bottom:5px;">Una palanca operativa que ya existe + un ask puntual al Consejo</div>
-  <div class="t-title" style="max-width:1080px;color:#2D3748;font-size:22px;line-height:1.25;">El sistema genera una <strong>pre-cotización en PDF</strong> al confirmar la cita &mdash; el cliente ya la tiene en su correo. <strong>Volvámosla el "boleto canjeable"</strong> que mueve pipeline a visitas reales <em>esta semana</em>.</div>
+  <div class="t-label t-red" style="margin-bottom:5px;">Una palanca operativa en 2 fases + ask puntual al Consejo</div>
+  <div class="t-title" style="max-width:1080px;color:#2D3748;font-size:22px;line-height:1.25;">Convertimos la pre-cotización en <strong>boleto canjeable</strong>. <strong>Fase 1:</strong> el cliente la presenta en sucursal y recibe un beneficio exclusivo. <strong>Fase 2:</strong> el folio se convierte en QR &mdash; el vendedor digital lo escanea desde una app privada y el pipeline avanza solo, sin depender del vendedor de marca.</div>
 
-  <div style="display:grid;grid-template-columns:0.9fr 1.1fr;gap:14px;margin-top:14px;align-items:stretch;">
+  <div style="display:grid;grid-template-columns:0.85fr 1.15fr;gap:12px;margin-top:12px;align-items:stretch;">
 
-   <div style="background:#fff;border-radius:8px;padding:8px;box-shadow:0 1px 3px rgba(0,0,0,0.06);display:flex;flex-direction:column;">
-    <div style="background:#F7FAFC;border-radius:4px;padding:4px;flex:1;display:flex;align-items:center;justify-content:center;">
-     <img src="../assets/screenshots/Pre-Cotizacion-PDF-Seminuevos.png" alt="Pre-cotización PDF Seminuevos Plasencia" style="max-width:100%;max-height:340px;object-fit:contain;border-radius:3px;display:block;" loading="lazy">
+   <div style="background:#fff;border-radius:8px;padding:6px;box-shadow:0 1px 3px rgba(0,0,0,0.06);display:flex;flex-direction:column;">
+    <div style="background:#F7FAFC;border-radius:4px;padding:3px;flex:1;display:flex;align-items:center;justify-content:center;">
+     <img src="../assets/screenshots/Pre-Cotizacion-PDF-Seminuevos.png" alt="Pre-cotización PDF Seminuevos Plasencia" style="max-width:100%;max-height:330px;object-fit:contain;border-radius:3px;display:block;" loading="lazy">
     </div>
-    <div style="font-size:8px;color:#718096;margin-top:4px;font-style:italic;text-align:center;">PDF real generado por la SPA al confirmar cita &middot; folio único &middot; cliente lo recibe automáticamente.</div>
+    <div style="font-size:8px;color:#718096;margin-top:3px;font-style:italic;text-align:center;">Pre-cotización generada por la SPA al confirmar cita &middot; folio único &middot; cliente la ve y descarga.</div>
    </div>
 
-   <div style="display:flex;flex-direction:column;gap:10px;">
-    <div style="background:#fff;border-top:3px solid #4299E1;border-radius:8px;padding:12px 14px;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
-     <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;color:#4299E1;text-transform:uppercase;margin-bottom:5px;">Lo que ya tenemos</div>
-     <div style="font-size:10px;color:#2D3748;line-height:1.5;">PDF con <strong>folio único</strong>, datos del cliente, vehículo cotizado con bono, plan de financiamiento (enganche/plazo/mensualidad), <strong>cita confirmada con sucursal, fecha, hora y vendedor asignado</strong>. Llega por correo automático al confirmar la cita.</div>
-    </div>
+   <div style="display:flex;flex-direction:column;gap:8px;">
 
-    <div style="background:rgba(236,201,75,0.1);border:1px solid rgba(236,201,75,0.4);border-radius:8px;padding:12px 14px;">
-     <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;color:#1E2740;text-transform:uppercase;margin-bottom:5px;">La palanca propuesta &middot; <em>value exchange trigger</em></div>
-     <div style="font-size:11px;color:#2D3748;line-height:1.5;font-weight:600;">"Trae tu pre-cotización a la sucursal y obtén un <span style="color:#C8102E;">beneficio exclusivo</span> para clientes digitales del piloto."</div>
-     <div style="font-size:10px;color:#4A5568;line-height:1.5;margin-top:6px;">El PDF deja de ser solo un comprobante y se vuelve <strong>un boleto canjeable</strong>. Aumenta probabilidad de visita, genera urgencia, y le da al vendedor algo concreto que ofrecer al recibir al cliente.</div>
-    </div>
-
-    <div style="background:#fff;border-top:3px solid #48BB78;border-radius:8px;padding:10px 14px;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
-     <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;color:#276749;text-transform:uppercase;margin-bottom:6px;">Ejemplos del beneficio &middot; a definir por marca</div>
-     <div style="display:flex;flex-wrap:wrap;gap:4px;">
-      <span style="background:rgba(72,187,120,0.15);color:#276749;padding:3px 8px;border-radius:10px;font-size:9px;font-weight:700;">Mejor tasa de financiamiento</span>
-      <span style="background:rgba(72,187,120,0.15);color:#276749;padding:3px 8px;border-radius:10px;font-size:9px;font-weight:700;">Bono adicional</span>
-      <span style="background:rgba(72,187,120,0.15);color:#276749;padding:3px 8px;border-radius:10px;font-size:9px;font-weight:700;">Descuento en accesorios</span>
-      <span style="background:rgba(72,187,120,0.15);color:#276749;padding:3px 8px;border-radius:10px;font-size:9px;font-weight:700;">Llantas gratis</span>
-      <span style="background:rgba(72,187,120,0.15);color:#276749;padding:3px 8px;border-radius:10px;font-size:9px;font-weight:700;">Primer servicio gratis</span>
-      <span style="background:rgba(72,187,120,0.15);color:#276749;padding:3px 8px;border-radius:10px;font-size:9px;font-weight:700;">Garantía extendida</span>
-      <span style="background:rgba(72,187,120,0.15);color:#276749;padding:3px 8px;border-radius:10px;font-size:9px;font-weight:700;">&hellip; lo que el negocio decida</span>
+    <div style="background:rgba(236,201,75,0.12);border-left:3px solid #ECC94B;border-radius:8px;padding:10px 12px;">
+     <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px;">
+      <div style="background:#ECC94B;color:#1E2740;font-weight:800;font-size:9px;letter-spacing:1px;padding:2px 7px;border-radius:10px;">FASE 1 &middot; ARRANCA YA</div>
+      <div style="font-size:11px;font-weight:700;color:#1E2740;">El value exchange trigger</div>
+     </div>
+     <div style="font-size:10px;color:#2D3748;line-height:1.5;">"Presenta tu <strong>pre-cotización del piloto</strong> en sucursal y obtén un <span style="color:#C8102E;font-weight:700;">beneficio exclusivo</span>." El PDF deja de ser un comprobante y se vuelve un boleto canjeable. Aumenta probabilidad de visita, genera urgencia, le da al vendedor algo concreto que ofrecer.</div>
+     <div style="display:flex;flex-wrap:wrap;gap:3px;margin-top:6px;">
+      <span style="background:rgba(72,187,120,0.18);color:#276749;padding:2px 7px;border-radius:9px;font-size:8.5px;font-weight:700;">Mejor tasa</span>
+      <span style="background:rgba(72,187,120,0.18);color:#276749;padding:2px 7px;border-radius:9px;font-size:8.5px;font-weight:700;">Bono adicional</span>
+      <span style="background:rgba(72,187,120,0.18);color:#276749;padding:2px 7px;border-radius:9px;font-size:8.5px;font-weight:700;">Descuento accesorios</span>
+      <span style="background:rgba(72,187,120,0.18);color:#276749;padding:2px 7px;border-radius:9px;font-size:8.5px;font-weight:700;">Llantas gratis</span>
+      <span style="background:rgba(72,187,120,0.18);color:#276749;padding:2px 7px;border-radius:9px;font-size:8.5px;font-weight:700;">Primer servicio</span>
+      <span style="background:rgba(72,187,120,0.18);color:#276749;padding:2px 7px;border-radius:9px;font-size:8.5px;font-weight:700;">Garantía extendida</span>
+      <span style="background:rgba(72,187,120,0.18);color:#276749;padding:2px 7px;border-radius:9px;font-size:8.5px;font-weight:700;">&hellip; lo que decida la marca</span>
      </div>
     </div>
+
+    <div style="background:rgba(66,153,225,0.08);border-left:3px solid #4299E1;border-radius:8px;padding:10px 12px;">
+     <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px;">
+      <div style="background:#4299E1;color:#fff;font-weight:800;font-size:9px;letter-spacing:1px;padding:2px 7px;border-radius:10px;">FASE 2 &middot; AL VALIDAR EL BENEFICIO</div>
+      <div style="font-size:11px;font-weight:700;color:#1E2740;">Escaneo automático &middot; quita la dependencia del vendedor</div>
+     </div>
+     <div style="font-size:10px;color:#2D3748;line-height:1.5;">El folio se convierte en <strong>QR</strong> impreso en la pre-cotización. <strong>Cliente muestra QR</strong> en sucursal → <strong>vendedor digital corporativo lo escanea desde una app privada</strong> → CRM auto-marca <strong>Visita Realizada</strong> → cliente recibe beneficio. <em>+ auto-envío de la cotización por correo + integración con calendars (ej. Google Calendar) para gestión de disponibilidad por vendedor y recordatorios bilaterales de la cita.</em></div>
+     <div style="margin-top:5px;font-size:10px;color:#2D3748;line-height:1.5;"><strong style="color:#4299E1;">Por qué cambia todo:</strong> hoy 6/17 deals sin vendedor asignado y 0 visitas registradas porque el vendedor no mueve el pipeline. Con el QR, <strong>el cliente empuja el registro con el incentivo</strong>; la visita se mide cuando físicamente sucede; ya no depende del vendedor de marca.</div>
+     <div style="margin-top:5px;font-size:9px;color:#4A5568;line-height:1.45;font-style:italic;"><strong>Por qué app privada:</strong> solo personal autorizado puede escanear &mdash; evita visitas falsas. Idealmente operada por la <strong>célula de vendedor digital corporativo</strong> (refuerza el ask 1 de slide 22).</div>
+    </div>
+
    </div>
   </div>
 
-  <div style="margin-top:12px;background:rgba(200,16,46,0.06);border-left:3px solid #C8102E;border-radius:6px;padding:11px 14px;">
-   <div style="font-size:11px;color:#2D3748;line-height:1.55;"><strong style="color:#C8102E;">Ask al Consejo:</strong> ¿qué beneficio puede dar cada marca <strong>a partir de ya</strong> para mover el pipeline a visitas? El PDF ya se genera, el copy se ajusta en horas, la implementación es de 1-2 días. <strong>No requiere presupuesto adicional &mdash; requiere decisión del Consejo y de los directores de marca.</strong> <em>Esta es la palanca operativa más rápida para convertir los $5.45M de pipeline en visitas reales mientras se decide el alcance estructural de la Dirección.</em></div>
+  <div style="margin-top:10px;background:rgba(200,16,46,0.06);border-left:3px solid #C8102E;border-radius:6px;padding:9px 14px;">
+   <div style="font-size:10.5px;color:#2D3748;line-height:1.55;"><strong style="color:#C8102E;">Ask al Consejo (Fase 1, decisión inmediata):</strong> ¿qué beneficio puede dar cada marca <strong>a partir de ya</strong> para mover el pipeline a visitas? Implementación 1-2 días, sin presupuesto adicional. <strong>Fase 2 (QR + app privada + auto-envío) la activamos una vez validado qué beneficio funciona</strong> &mdash; es la mejora técnica que escala el modelo y elimina la dependencia operativa del vendedor para mover el embudo.</div>
   </div>
  </div>
  <div class="slide-footer">Motor de Atribución MVP &middot; 17/26</div>
@@ -1590,7 +1595,7 @@ table.t-pipe tr.tot td { font-weight: 800; color: #ECC94B; border-top: 2px solid
      <p style="margin-bottom:4px;"><strong>Lead</strong> &middot; contacto inicial sin cotización ni contexto. Solo nombre + dato de contacto.</p>
      <p style="margin-bottom:4px;"><strong>Pipeline</strong> &middot; conjunto de deals/oportunidades en proceso, valuados en MXN.</p>
      <p style="margin-bottom:4px;"><strong>CPA</strong> &middot; <em>Cost Per Acquisition</em> &middot; gasto en publicidad ÷ deals generados.</p>
-     <p style="margin-bottom:4px;"><strong>Pre-cotización (PDF)</strong> &middot; documento con folio único que el sistema genera al confirmar cita. Trae datos del cliente, vehículo cotizado, plan de financiamiento, sucursal, fecha, hora y vendedor. Llega al cliente por correo automático.</p>
+     <p style="margin-bottom:4px;"><strong>Pre-cotización (PDF)</strong> &middot; documento con folio único que el sistema genera al confirmar cita. Trae datos del cliente, vehículo cotizado, plan de financiamiento, sucursal, fecha, hora y vendedor. Cliente lo descarga desde la SPA + agenda la cita en su calendar con un botón. <em>Auto-envío por correo y QR canjeable: en Fase 2 del value exchange trigger.</em></p>
      <p style="margin:0;"><strong>e2e</strong> &middot; <em>end-to-end</em> &middot; de punta a punta del proceso.</p>
     </div>
    </div>
@@ -1624,7 +1629,7 @@ table.t-pipe tr.tot td { font-weight: 800; color: #ECC94B; border-top: 2px solid
      <p style="margin-bottom:4px;"><strong>Click-to-Message</strong> &middot; ad de Meta cuyo CTA abre WhatsApp directamente.</p>
      <p style="margin-bottom:4px;"><strong>Leadgen Native Form</strong> &middot; formulario dentro de Facebook/Instagram con autofill.</p>
      <p style="margin-bottom:4px;"><strong>Cross-brand</strong> &middot; cliente que ha comprado en múltiples marcas del grupo.</p>
-     <p style="margin-bottom:4px;"><strong>Value Exchange Trigger</strong> &middot; mecanismo donde el cliente intercambia algo concreto (la pre-cotización en PDF) por un beneficio exclusivo en la sucursal. Convierte el PDF en boleto canjeable, aumenta probabilidad de visita y le da al vendedor algo tangible que ofrecer.</p>
+     <p style="margin-bottom:4px;"><strong>Value Exchange Trigger</strong> &middot; mecanismo donde el cliente intercambia algo concreto (la pre-cotización en PDF, en Fase 2 con QR canjeable) por un beneficio exclusivo en la sucursal. Convierte el PDF en boleto canjeable, aumenta probabilidad de visita y le da al vendedor algo tangible que ofrecer. En Fase 2: el QR se escanea desde una app privada del vendedor digital corporativo y el CRM marca la visita automáticamente, removiendo la dependencia del vendedor de marca para mover el pipeline.</p>
      <p style="margin-bottom:4px;"><strong>Costo hundido (sunk cost)</strong> &middot; inversión gastada que no produce retorno.</p>
      <p style="margin:0;"><strong>MOAT</strong> &middot; "foso defensivo" &middot; ventaja competitiva sostenible y difícil de replicar.</p>
     </div>
