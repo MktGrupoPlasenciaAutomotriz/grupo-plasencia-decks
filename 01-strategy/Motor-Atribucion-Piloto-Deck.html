@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Motor de Atribucion MVP &middot; Reporte del Piloto al Consejo &middot; Grupo Plasencia</title>
+<title>Motor de Atribución MVP &middot; Reporte del Piloto al Consejo &middot; Grupo Plasencia</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800;900&family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet">
@@ -13,30 +13,30 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: #0d1117; f
 
 .deck { width: 100vw; height: 100vh; position: relative; }
 .slide { overflow: hidden;
-  position: absolute; top: 0; left: 0;
-  width: 1280px; height: 720px;
-  transform-origin: top left;
-  opacity: 0; visibility: hidden;
-  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-  display: flex; flex-direction: column;
+ position: absolute; top: 0; left: 0;
+ width: 1280px; height: 720px;
+ transform-origin: top left;
+ opacity: 0; visibility: hidden;
+ transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+ display: flex; flex-direction: column;
 }
 .slide.active { opacity: 1; visibility: visible; }
 .slide.enter { animation: slideIn 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
 @keyframes slideIn {
-  from { opacity: 0; transform: translateY(18px); }
-  to   { opacity: 1; transform: translateY(0); }
+ from { opacity: 0; transform: translateY(18px); }
+ to  { opacity: 1; transform: translateY(0); }
 }
 
 #progress { opacity: 0.5;
-  position: fixed; top: 0; left: 0; height: 2px;
-  background: #ECC94B; z-index: 9999;
-  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+ position: fixed; top: 0; left: 0; height: 2px;
+ background: #ECC94B; z-index: 9999;
+ transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 #counter {
-  position: fixed; bottom: 16px; right: 24px;
-  font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 500;
-  color: rgba(255,255,255,0.5); z-index: 9999;
-  letter-spacing: 0.5px;
+ position: fixed; bottom: 16px; right: 24px;
+ font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 500;
+ color: rgba(255,255,255,0.5); z-index: 9999;
+ letter-spacing: 0.5px;
 }
 
 .slide--dark { background: #1E2740; color: #F7FAFC; }
@@ -48,111 +48,111 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: #0d1117; f
 .slide--light .logo-w { display: none !important; }
 .slide--light .logo-d { display: block; mix-blend-mode: normal; opacity: 0.8; }
 
-.t-display  { font-family: 'Montserrat', sans-serif; font-weight: 800; }
-.t-accent   { font-family: 'Playfair Display', Georgia, serif; }
-.t-hero     { font-size: 48px; font-weight: 800; line-height: 1.1; letter-spacing: -0.8px; }
-.t-title    { font-size: 28px; font-weight: 700; line-height: 1.25; letter-spacing: -0.3px; }
-.t-body     { font-size: 15px; font-weight: 400; line-height: 1.6; }
-.t-small    { font-size: 12px; font-weight: 400; line-height: 1.5; opacity: 0.8; }
-.t-label    { font-size: 10px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; }
-.t-red      { color: #C8102E; }
-.t-gold     { color: #ECC94B; }
-.t-blue     { color: #4299E1; }
-.t-green    { color: #48BB78; }
-.t-white    { color: #F7FAFC; }
-.t-muted    { color: #A0AEC0; }
+.t-display { font-family: 'Montserrat', sans-serif; font-weight: 800; }
+.t-accent  { font-family: 'Playfair Display', Georgia, serif; }
+.t-hero   { font-size: 48px; font-weight: 800; line-height: 1.1; letter-spacing: -0.8px; }
+.t-title  { font-size: 28px; font-weight: 700; line-height: 1.25; letter-spacing: -0.3px; }
+.t-body   { font-size: 15px; font-weight: 400; line-height: 1.6; }
+.t-small  { font-size: 12px; font-weight: 400; line-height: 1.5; opacity: 0.8; }
+.t-label  { font-size: 10px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; }
+.t-red   { color: #C8102E; }
+.t-gold   { color: #ECC94B; }
+.t-blue   { color: #4299E1; }
+.t-green  { color: #48BB78; }
+.t-white  { color: #F7FAFC; }
+.t-muted  { color: #A0AEC0; }
 
 .slide--dark .t-red, .slide--darker .t-red { color: #ECC94B !important; }
 .slide--dark .t-label, .slide--darker .t-label { color: #ECC94B; }
 
-.pad       { padding: 48px 60px; flex: 1; display: flex; flex-direction: column; }
-.pad-lg    { padding: 56px 72px; flex: 1; display: flex; flex-direction: column; }
-.flex      { display: flex; }
-.flex-col  { display: flex; flex-direction: column; }
-.gap-4     { gap: 4px; }
-.gap-6     { gap: 6px; }
-.gap-8     { gap: 8px; }
-.gap-12    { gap: 12px; }
-.gap-16    { gap: 16px; }
-.gap-20    { gap: 20px; }
-.gap-24    { gap: 24px; }
-.gap-32    { gap: 32px; }
-.center-v  { align-items: center; }
-.center-h  { justify-content: center; }
+.pad    { padding: 48px 60px; flex: 1; display: flex; flex-direction: column; }
+.pad-lg  { padding: 56px 72px; flex: 1; display: flex; flex-direction: column; }
+.flex   { display: flex; }
+.flex-col { display: flex; flex-direction: column; }
+.gap-4   { gap: 4px; }
+.gap-6   { gap: 6px; }
+.gap-8   { gap: 8px; }
+.gap-12  { gap: 12px; }
+.gap-16  { gap: 16px; }
+.gap-20  { gap: 20px; }
+.gap-24  { gap: 24px; }
+.gap-32  { gap: 32px; }
+.center-v { align-items: center; }
+.center-h { justify-content: center; }
 .center-all{ align-items: center; justify-content: center; text-align: center; }
-.flex-1    { flex: 1; }
+.flex-1  { flex: 1; }
 
 .divider-red { width: 64px; height: 4px; background: #C8102E; border-radius: 2px; }
 .slide--dark .divider-red, .slide--darker .divider-red { background: #ECC94B; }
 
 .anchor-num {
-  font-family: 'Montserrat', sans-serif; font-weight: 900;
-  font-size: 72px; line-height: 1; color: #ECC94B; letter-spacing: -2px;
+ font-family: 'Montserrat', sans-serif; font-weight: 900;
+ font-size: 72px; line-height: 1; color: #ECC94B; letter-spacing: -2px;
 }
 .anchor-label { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #A0AEC0; margin-top: 6px; }
 
 .card {
-  background: #fff; border-radius: 10px; padding: 18px;
-  display: flex; flex-direction: column;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+ background: #fff; border-radius: 10px; padding: 18px;
+ display: flex; flex-direction: column;
+ box-shadow: 0 1px 3px rgba(0,0,0,0.06);
 }
 .card--dark {
-  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.14);
-  border-radius: 10px; padding: 16px;
-  display: flex; flex-direction: column;
+ background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.14);
+ border-radius: 10px; padding: 16px;
+ display: flex; flex-direction: column;
 }
 .card--pill-gold {
-  background: rgba(236,201,75,0.08); border: 1px solid rgba(236,201,75,0.3);
-  border-radius: 10px; padding: 14px;
+ background: rgba(236,201,75,0.08); border: 1px solid rgba(236,201,75,0.3);
+ border-radius: 10px; padding: 14px;
 }
 .card--pill-red {
-  background: rgba(200,16,46,0.08); border: 1px solid rgba(200,16,46,0.3);
-  border-radius: 10px; padding: 14px;
+ background: rgba(200,16,46,0.08); border: 1px solid rgba(200,16,46,0.3);
+ border-radius: 10px; padding: 14px;
 }
 .card--pill-green {
-  background: rgba(72,187,120,0.08); border-left: 3px solid #48BB78;
-  border-radius: 6px; padding: 12px 14px;
+ background: rgba(72,187,120,0.08); border-left: 3px solid #48BB78;
+ border-radius: 6px; padding: 12px 14px;
 }
 
 .tag {
-  display: inline-block; padding: 4px 10px; border-radius: 20px;
-  font-size: 9px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
-  white-space: nowrap;
+ display: inline-block; padding: 4px 10px; border-radius: 20px;
+ font-size: 9px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+ white-space: nowrap;
 }
-.tag--gold  { background: rgba(236,201,75,0.18); color: #ECC94B; }
+.tag--gold { background: rgba(236,201,75,0.18); color: #ECC94B; }
 .tag--green { background: rgba(72,187,120,0.2); color: #68D391; }
-.tag--red   { background: rgba(200,16,46,0.18); color: #FC8181; }
-.tag--live  { background: #48BB78; color: #fff; }
-.tag--v1    { background: rgba(160,174,192,0.2); color: #A0AEC0; border: 1px solid rgba(160,174,192,0.3); }
-.tag--v2    { background: rgba(72,187,120,0.18); color: #68D391; border: 1px solid rgba(72,187,120,0.4); }
+.tag--red  { background: rgba(200,16,46,0.18); color: #FC8181; }
+.tag--live { background: #48BB78; color: #fff; }
+.tag--v1  { background: rgba(160,174,192,0.2); color: #A0AEC0; border: 1px solid rgba(160,174,192,0.3); }
+.tag--v2  { background: rgba(72,187,120,0.18); color: #68D391; border: 1px solid rgba(72,187,120,0.4); }
 
 .slide-label {
-  position: absolute; top: 24px; left: 60px;
-  font-size: 9px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
-  opacity: 0.4;
+ position: absolute; top: 24px; left: 60px;
+ font-size: 9px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+ opacity: 0.4;
 }
 .slide--light .slide-label { color: #2D3748; }
 .slide--dark .slide-label, .slide--darker .slide-label { color: #F7FAFC; }
 
 .slide-footer {
-  position: absolute; bottom: 18px; left: 60px;
-  font-size: 8px; letter-spacing: 1px; opacity: 0.35;
-  text-transform: uppercase;
+ position: absolute; bottom: 18px; left: 60px;
+ font-size: 8px; letter-spacing: 1px; opacity: 0.35;
+ text-transform: uppercase;
 }
 .slide--light .slide-footer { color: #2D3748; }
 .slide--dark .slide-footer, .slide--darker .slide-footer { color: #F7FAFC; }
 
 .strike-x {
-  display: inline-block; width: 22px; height: 22px; border-radius: 50%;
-  background: rgba(200,16,46,0.15); color: #C8102E;
-  text-align: center; line-height: 22px; font-weight: 800; font-size: 13px;
-  margin-right: 12px; flex-shrink: 0;
+ display: inline-block; width: 22px; height: 22px; border-radius: 50%;
+ background: rgba(200,16,46,0.15); color: #C8102E;
+ text-align: center; line-height: 22px; font-weight: 800; font-size: 13px;
+ margin-right: 12px; flex-shrink: 0;
 }
 .check-ok {
-  display: inline-block; width: 22px; height: 22px; border-radius: 50%;
-  background: rgba(72,187,120,0.18); color: #276749;
-  text-align: center; line-height: 22px; font-weight: 800; font-size: 13px;
-  margin-right: 12px; flex-shrink: 0;
+ display: inline-block; width: 22px; height: 22px; border-radius: 50%;
+ background: rgba(72,187,120,0.18); color: #276749;
+ text-align: center; line-height: 22px; font-weight: 800; font-size: 13px;
+ margin-right: 12px; flex-shrink: 0;
 }
 .slide--dark .check-ok, .slide--darker .check-ok { background: rgba(72,187,120,0.25); color: #68D391; }
 .slide--dark .strike-x, .slide--darker .strike-x { background: rgba(252,129,129,0.18); color: #FC8181; }
@@ -177,9 +177,9 @@ table.t-pipe tr.tot td { font-weight: 800; color: #ECC94B; border-top: 2px solid
 .timeline-h .step .detail { font-size: 10px; color: #A0AEC0; margin-top: 4px; line-height: 1.4; }
 
 .arch-box {
-  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.12);
-  border-radius: 8px; padding: 12px 14px; flex: 1; min-width: 0;
-  display: flex; flex-direction: column; gap: 4px;
+ background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.12);
+ border-radius: 8px; padding: 12px 14px; flex: 1; min-width: 0;
+ display: flex; flex-direction: column; gap: 4px;
 }
 .arch-box .name { font-size: 11px; font-weight: 800; color: #fff; }
 .arch-box .role { font-size: 9px; color: #A0AEC0; line-height: 1.4; }
@@ -190,47 +190,47 @@ table.t-pipe tr.tot td { font-weight: 800; color: #ECC94B; border-top: 2px solid
 .arrow { font-size: 18px; color: #ECC94B; align-self: center; padding: 0 4px; flex-shrink: 0; }
 
 .ask-card {
-  background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.18);
-  border-left: 3px solid #ECC94B;
-  border-radius: 8px; padding: 18px 20px; flex: 1;
-  display: flex; flex-direction: column; gap: 8px;
+ background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.18);
+ border-left: 3px solid #ECC94B;
+ border-radius: 8px; padding: 18px 20px; flex: 1;
+ display: flex; flex-direction: column; gap: 8px;
 }
 .ask-card .num-ask { font-family: 'Montserrat',sans-serif; font-weight: 900; font-size: 28px; color: #ECC94B; line-height: 1; }
 .ask-card .decision { font-size: 14px; font-weight: 700; color: #fff; line-height: 1.35; }
 .ask-card .detail { font-size: 11px; color: #CBD5E0; line-height: 1.5; }
 
 .diag-card {
-  background: #fff; border-radius: 10px; padding: 20px; border-top: 3px solid #C8102E;
-  display: flex; flex-direction: column; gap: 6px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+ background: #fff; border-radius: 10px; padding: 20px; border-top: 3px solid #C8102E;
+ display: flex; flex-direction: column; gap: 6px;
+ box-shadow: 0 1px 3px rgba(0,0,0,0.06);
 }
 .diag-card .stat { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 28px; color: #1E2740; line-height: 1.1; letter-spacing: -0.5px; }
 .diag-card .label { font-size: 10px; font-weight: 700; letter-spacing: 2px; color: #718096; text-transform: uppercase; }
 .diag-card .desc { font-size: 12px; color: #4A5568; line-height: 1.5; margin-top: 4px; }
 
 .lim-card {
-  background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.14);
-  border-left: 3px solid #FC8181;
-  border-radius: 8px; padding: 16px 18px; flex: 1;
-  display: flex; flex-direction: column; gap: 6px;
+ background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.14);
+ border-left: 3px solid #FC8181;
+ border-radius: 8px; padding: 16px 18px; flex: 1;
+ display: flex; flex-direction: column; gap: 6px;
 }
 .lim-card .num { font-family: 'Montserrat',sans-serif; font-weight: 900; font-size: 24px; color: #FC8181; line-height: 1; }
 .lim-card .name { font-size: 13px; font-weight: 700; color: #fff; }
 .lim-card .desc { font-size: 11px; color: #CBD5E0; line-height: 1.5; }
 
 .insight-card {
-  background: #fff; border-radius: 10px; padding: 20px;
-  border-left: 4px solid #4299E1;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+ background: #fff; border-radius: 10px; padding: 20px;
+ border-left: 4px solid #4299E1;
+ box-shadow: 0 1px 3px rgba(0,0,0,0.06);
 }
 .insight-card .num { font-family: 'Montserrat',sans-serif; font-weight: 900; font-size: 24px; color: #4299E1; line-height: 1; }
 .insight-card .what { font-size: 14px; font-weight: 700; color: #1E2740; line-height: 1.3; margin-top: 6px; }
 .insight-card .desc { font-size: 12px; color: #4A5568; line-height: 1.55; margin-top: 6px; }
 
 .thread-row {
-  display: flex; align-items: flex-start; gap: 14px;
-  padding: 12px 14px;
-  border-bottom: 1px dashed rgba(45,55,72,0.15);
+ display: flex; align-items: flex-start; gap: 14px;
+ padding: 12px 14px;
+ border-bottom: 1px dashed rgba(45,55,72,0.15);
 }
 .thread-row:last-child { border-bottom: none; }
 .thread-row .n { font-family: 'Montserrat',sans-serif; font-weight: 800; font-size: 18px; color: #C8102E; line-height: 1; flex-shrink: 0; min-width: 24px; }
@@ -238,11 +238,11 @@ table.t-pipe tr.tot td { font-weight: 800; color: #ECC94B; border-top: 2px solid
 .thread-row .desc { font-size: 11px; color: #4A5568; line-height: 1.5; margin-top: 3px; }
 
 @media print {
-  @page { size: 1280px 720px landscape; margin: 0; }
-  html, body { overflow: visible; }
-  .slide { position: relative !important; opacity: 1 !important; visibility: visible !important; transform: none !important; left: auto !important; top: auto !important; page-break-after: always; }
-  .slide:last-child { page-break-after: avoid; }
-  #progress, #counter { display: none; }
+ @page { size: 1280px 720px landscape; margin: 0; }
+ html, body { overflow: visible; }
+ .slide { position: relative !important; opacity: 1 !important; visibility: visible !important; transform: none !important; left: auto !important; top: auto !important; page-break-after: always; }
+ .slide:last-child { page-break-after: avoid; }
+ #progress, #counter { display: none; }
 }
 </style>
 </head>
@@ -254,631 +254,631 @@ table.t-pipe tr.tot td { font-weight: 800; color: #ECC94B; border-top: 2px solid
 <div class="deck">
 
 <!-- ════════════════════════════════════════════════════
-     SLIDE 1 - PORTADA
-     ════════════════════════════════════════════════════ -->
+   SLIDE 1 - PORTADA
+   ════════════════════════════════════════════════════ -->
 <section class="slide slide--darker" style="justify-content:center;align-items:center;">
-  <div class="flex-col center-all gap-24" style="flex:1;justify-content:center;padding:0 60px;">
-    <img src="../assets/logos/LOGO-GP-Blanco.png" alt="Grupo Plasencia" style="height:80px;opacity:0.85;mix-blend-mode:screen;margin-bottom:8px;">
-    <div style="text-align:center;">
-      <div class="t-label t-gold" style="margin-bottom:14px;">Marketing Corporativo &middot; Reporte de piloto</div>
-      <div class="t-display" style="font-size:54px;line-height:1.05;color:#fff;letter-spacing:-1px;">Motor de Atribucion <span style="color:#ECC94B;">MVP</span><br><span style="font-size:32px;font-weight:600;color:rgba(247,250,252,0.7);">Lo que construi en mis primeras semanas</span></div>
-      <div style="margin-top:22px;font-size:16px;font-weight:500;color:rgba(247,250,252,0.7);max-width:780px;line-height:1.5;">Reporte al Consejo Directivo: que encontre, que decidi, que construi, que aprendi y que esta produciendo el piloto al dia 11 post-arranque.</div>
-    </div>
-    <div class="divider-red" style="margin:14px auto 0;"></div>
-    <div style="text-align:center;">
-      <div style="font-size:13px;font-weight:700;letter-spacing:3px;color:#ECC94B;text-transform:uppercase;">Capitulo 1 &middot; El Piloto</div>
-      <div style="margin-top:6px;font-size:11px;color:rgba(247,250,252,0.4);letter-spacing:1.5px;">Marzo &ndash; Abril 2026 &middot; Chucho Porras, Director de Marketing Corporativo</div>
-    </div>
+ <div class="flex-col center-all gap-24" style="flex:1;justify-content:center;padding:0 60px;">
+  <img src="../assets/logos/LOGO-GP-Blanco.png" alt="Grupo Plasencia" style="height:80px;opacity:0.85;mix-blend-mode:screen;margin-bottom:8px;">
+  <div style="text-align:center;">
+   <div class="t-label t-gold" style="margin-bottom:14px;">Marketing Corporativo &middot; Reporte de piloto</div>
+   <div class="t-display" style="font-size:54px;line-height:1.05;color:#fff;letter-spacing:-1px;">Motor de Atribución <span style="color:#ECC94B;">MVP</span><br><span style="font-size:32px;font-weight:600;color:rgba(247,250,252,0.7);">Lo que construí en mis primeras semanas</span></div>
+   <div style="margin-top:22px;font-size:16px;font-weight:500;color:rgba(247,250,252,0.7);max-width:780px;line-height:1.5;">Reporte al Consejo Directivo: que encontré, que decidí, que construí, que aprendí y que está produciendo el piloto al día 11 post-arranque.</div>
   </div>
-  <div style="position:absolute;bottom:14px;left:0;right:0;text-align:center;">
-    <span style="opacity:0.35;font-size:9px;letter-spacing:2px;color:#ECC94B;text-transform:uppercase;">Confidencial &middot; Uso interno Grupo Plasencia</span>
+  <div class="divider-red" style="margin:14px auto 0;"></div>
+  <div style="text-align:center;">
+   <div style="font-size:13px;font-weight:700;letter-spacing:3px;color:#ECC94B;text-transform:uppercase;">Capítulo 1 &middot; El Piloto</div>
+   <div style="margin-top:6px;font-size:11px;color:rgba(247,250,252,0.4);letter-spacing:1.5px;">Marzo &ndash; Abril 2026 &middot; Chucho Porras, Director de Marketing Corporativo</div>
   </div>
+ </div>
+ <div style="position:absolute;bottom:14px;left:0;right:0;text-align:center;">
+  <span style="opacity:0.35;font-size:9px;letter-spacing:2px;color:#ECC94B;text-transform:uppercase;">Confidencial &middot; Uso interno Grupo Plasencia</span>
+ </div>
 </section>
 
 <!-- ════════════════════════════════════════════════════
-     SLIDE 2 - GOVERNING THOUGHT
-     ════════════════════════════════════════════════════ -->
+   SLIDE 2 - GOVERNING THOUGHT
+   ════════════════════════════════════════════════════ -->
 <section class="slide slide--dark">
-  <div class="slide-label">01 / La frase que resume todo</div>
-  <img src="../assets/logos/LOGO-GP-Blanco.png" class="logo-corner logo-w"><img src="../assets/logos/Logo-GP-Negro.png" class="logo-corner logo-d">
-  <div class="pad-lg flex-col center-h" style="justify-content:center;">
-    <div class="t-label t-gold" style="margin-bottom:14px;">El reporte en una sola frase</div>
-    <div class="t-display" style="font-size:30px;color:#fff;line-height:1.4;max-width:1020px;letter-spacing:-0.3px;font-weight:700;">
-      En <span style="color:#ECC94B;">4 semanas</span> construi el primer sistema de atribucion del grupo. Hoy lleva <span style="color:#ECC94B;">11 dias live</span>, <span style="color:#ECC94B;">3 marcas</span>, <span style="color:#ECC94B;">30 citas reales</span> &mdash; y se reescribio entero <span style="color:#ECC94B;">en pleno vuelo</span>.
-    </div>
-    <div style="display:flex;gap:60px;margin-top:56px;">
-      <div><div class="anchor-num">4</div><div class="anchor-label">Semanas<br>de mandato a piloto</div></div>
-      <div><div class="anchor-num">11</div><div class="anchor-label">Dias<br>en produccion</div></div>
-      <div><div class="anchor-num">3</div><div class="anchor-label">Marcas activas<br>Sem &middot; Hyu &middot; STL</div></div>
-      <div><div class="anchor-num">30</div><div class="anchor-label">Citas reales<br>en pipeline</div></div>
-    </div>
+ <div class="slide-label">01 / La frase que resume todo</div>
+ <img src="../assets/logos/LOGO-GP-Blanco.png" class="logo-corner logo-w"><img src="../assets/logos/Logo-GP-Negro.png" class="logo-corner logo-d">
+ <div class="pad-lg flex-col center-h" style="justify-content:center;">
+  <div class="t-label t-gold" style="margin-bottom:14px;">El reporte en una sola frase</div>
+  <div class="t-display" style="font-size:30px;color:#fff;line-height:1.4;max-width:1020px;letter-spacing:-0.3px;font-weight:700;">
+   En <span style="color:#ECC94B;">4 semanas</span> construí el primer sistema de atribución del grupo. Hoy lleva <span style="color:#ECC94B;">11 días live</span>, <span style="color:#ECC94B;">3 marcas</span>, <span style="color:#ECC94B;">30 citas reales</span> &mdash; y se reescribió entero <span style="color:#ECC94B;">en pleno vuelo</span>.
   </div>
-  <div class="slide-footer">Motor de Atribucion MVP &middot; Reporte al Consejo &middot; Abril 2026 &middot; 2/15</div>
+  <div style="display:flex;gap:60px;margin-top:56px;">
+   <div><div class="anchor-num">4</div><div class="anchor-label">Semanas<br>de mandato a piloto</div></div>
+   <div><div class="anchor-num">11</div><div class="anchor-label">Días<br>en producción</div></div>
+   <div><div class="anchor-num">3</div><div class="anchor-label">Marcas activas<br>Sem &middot; Hyu &middot; STL</div></div>
+   <div><div class="anchor-num">30</div><div class="anchor-label">Citas reales<br>en pipeline</div></div>
+  </div>
+ </div>
+ <div class="slide-footer">Motor de Atribución MVP &middot; Reporte al Consejo &middot; Abril 2026 &middot; 2/15</div>
 </section>
 
 <!-- ════════════════════════════════════════════════════
-     SLIDE 3 - CUANDO ENTRE
-     ════════════════════════════════════════════════════ -->
+   SLIDE 3 - CUANDO ENTRE
+   ════════════════════════════════════════════════════ -->
 <section class="slide slide--light">
-  <div class="slide-label">02 / Cuando entre</div>
-  <img src="../assets/logos/LOGO-GP-Blanco.png" class="logo-corner logo-w"><img src="../assets/logos/Logo-GP-Negro.png" class="logo-corner logo-d">
-  <div class="pad">
-    <div class="t-label t-red" style="margin-bottom:6px;">Marzo 2026</div>
-    <div class="t-title" style="max-width:1080px;color:#2D3748;">Asumi la Direccion de Marketing Corporativo. El mandato: convertir el gasto de medios en pipeline medible.</div>
-    <div style="font-size:14px;color:#4A5568;line-height:1.6;margin-top:18px;max-width:1000px;">Las primeras semanas las dedique a entender el grupo desde adentro: como se compraban los medios, como se generaban los leads, como se reportaban los resultados, y donde estaba el dinero que mas se invertia sin saber que estaba produciendo.</div>
+ <div class="slide-label">02 / Cuando entré</div>
+ <img src="../assets/logos/LOGO-GP-Blanco.png" class="logo-corner logo-w"><img src="../assets/logos/Logo-GP-Negro.png" class="logo-corner logo-d">
+ <div class="pad">
+  <div class="t-label t-red" style="margin-bottom:6px;">Marzo 2026</div>
+  <div class="t-title" style="max-width:1080px;color:#2D3748;">Asumí la Dirección de Marketing Corporativo. El mandato: convertir el gasto de medios en pipeline medible.</div>
+  <div style="font-size:14px;color:#4A5568;line-height:1.6;margin-top:18px;max-width:1000px;">Las primeras semanas las dedique a entender el grupo desde adentro: como se compraban los medios, como se generaban los leads, como se reportaban los resultados, y donde estaba el dinero que más se invertia sin saber que estaba produciendo.</div>
 
-    <div style="display:flex;gap:0;margin-top:36px;align-items:stretch;">
-      <div style="flex:1;background:#fff;border-radius:8px 0 0 8px;padding:18px 20px;border-left:4px solid #1E2740;">
-        <div style="font-size:9px;font-weight:700;letter-spacing:2px;color:#718096;text-transform:uppercase;">Semana 1-2</div>
-        <div style="font-size:13px;font-weight:700;color:#1E2740;margin-top:6px;">Diagnostico</div>
-        <div style="font-size:11px;color:#4A5568;margin-top:4px;line-height:1.5;">Reuniones con cada marca, agencias, equipo de marketing, vendedores en piso.</div>
-      </div>
-      <div style="flex:1;background:#fff;padding:18px 20px;border-left:4px solid #C8102E;">
-        <div style="font-size:9px;font-weight:700;letter-spacing:2px;color:#718096;text-transform:uppercase;">Semana 2-3</div>
-        <div style="font-size:13px;font-weight:700;color:#1E2740;margin-top:6px;">Decision de alcance</div>
-        <div style="font-size:11px;color:#4A5568;margin-top:4px;line-height:1.5;">3 marcas piloto, MVP server-side, team-of-one + IA. Sin equipo nuevo todavia.</div>
-      </div>
-      <div style="flex:1;background:#fff;padding:18px 20px;border-left:4px solid #ECC94B;">
-        <div style="font-size:9px;font-weight:700;letter-spacing:2px;color:#718096;text-transform:uppercase;">Semana 3-4</div>
-        <div style="font-size:13px;font-weight:700;color:#1E2740;margin-top:6px;">Construccion</div>
-        <div style="font-size:11px;color:#4A5568;margin-top:4px;line-height:1.5;">3 landings + Airtable + Zapier + Worker. Stack provisional, pensado para activar rapido.</div>
-      </div>
-      <div style="flex:1;background:#fff;border-radius:0 8px 8px 0;padding:18px 20px;border-left:4px solid #48BB78;">
-        <div style="font-size:9px;font-weight:700;letter-spacing:2px;color:#718096;text-transform:uppercase;">16 abril 16:40</div>
-        <div style="font-size:13px;font-weight:700;color:#1E2740;margin-top:6px;">GO-LIVE</div>
-        <div style="font-size:11px;color:#4A5568;margin-top:4px;line-height:1.5;">Trafico de prospeccion encendido. Primer lead real esa misma tarde.</div>
-      </div>
-    </div>
+  <div style="display:flex;gap:0;margin-top:36px;align-items:stretch;">
+   <div style="flex:1;background:#fff;border-radius:8px 0 0 8px;padding:18px 20px;border-left:4px solid #1E2740;">
+    <div style="font-size:9px;font-weight:700;letter-spacing:2px;color:#718096;text-transform:uppercase;">Semana 1-2</div>
+    <div style="font-size:13px;font-weight:700;color:#1E2740;margin-top:6px;">Diagnóstico</div>
+    <div style="font-size:11px;color:#4A5568;margin-top:4px;line-height:1.5;">Reuniones con cada marca, agencias, equipo de marketing, vendedores en piso.</div>
+   </div>
+   <div style="flex:1;background:#fff;padding:18px 20px;border-left:4px solid #C8102E;">
+    <div style="font-size:9px;font-weight:700;letter-spacing:2px;color:#718096;text-transform:uppercase;">Semana 2-3</div>
+    <div style="font-size:13px;font-weight:700;color:#1E2740;margin-top:6px;">Decisión de alcance</div>
+    <div style="font-size:11px;color:#4A5568;margin-top:4px;line-height:1.5;">3 marcas piloto, MVP server-side, team-of-one + IA. Sin equipo nuevo todavia.</div>
+   </div>
+   <div style="flex:1;background:#fff;padding:18px 20px;border-left:4px solid #ECC94B;">
+    <div style="font-size:9px;font-weight:700;letter-spacing:2px;color:#718096;text-transform:uppercase;">Semana 3-4</div>
+    <div style="font-size:13px;font-weight:700;color:#1E2740;margin-top:6px;">Construcción</div>
+    <div style="font-size:11px;color:#4A5568;margin-top:4px;line-height:1.5;">3 landings + Airtable + Zapier + Worker. Stack provisional, pensado para activar rápido.</div>
+   </div>
+   <div style="flex:1;background:#fff;border-radius:0 8px 8px 0;padding:18px 20px;border-left:4px solid #48BB78;">
+    <div style="font-size:9px;font-weight:700;letter-spacing:2px;color:#718096;text-transform:uppercase;">16 abril 16:40</div>
+    <div style="font-size:13px;font-weight:700;color:#1E2740;margin-top:6px;">GO-LIVE</div>
+    <div style="font-size:11px;color:#4A5568;margin-top:4px;line-height:1.5;">Trafico de prospeccion encendido. Primer lead real esa misma tarde.</div>
+   </div>
   </div>
-  <div class="slide-footer">Motor de Atribucion MVP &middot; 3/15</div>
+ </div>
+ <div class="slide-footer">Motor de Atribución MVP &middot; 3/15</div>
 </section>
 
 <!-- ════════════════════════════════════════════════════
-     SLIDE 4 - LO QUE ENCONTRE
-     ════════════════════════════════════════════════════ -->
+   SLIDE 4 - LO QUE ENCONTRE
+   ════════════════════════════════════════════════════ -->
 <section class="slide slide--light">
-  <div class="slide-label">03 / Lo que encontre</div>
-  <img src="../assets/logos/LOGO-GP-Blanco.png" class="logo-corner logo-w"><img src="../assets/logos/Logo-GP-Negro.png" class="logo-corner logo-d">
-  <div class="pad">
-    <div class="t-label t-red" style="margin-bottom:6px;">Diagnostico honesto</div>
-    <div class="t-title" style="max-width:1080px;color:#2D3748;">Encontre escala operativa enorme &mdash; y cero atribucion entre el peso gastado y la cita en piso.</div>
+ <div class="slide-label">03 / Lo que encontre</div>
+ <img src="../assets/logos/LOGO-GP-Blanco.png" class="logo-corner logo-w"><img src="../assets/logos/Logo-GP-Negro.png" class="logo-corner logo-d">
+ <div class="pad">
+  <div class="t-label t-red" style="margin-bottom:6px;">Diagnóstico honesto</div>
+  <div class="t-title" style="max-width:1080px;color:#2D3748;">Encontré escala operativa enorme &mdash; y cero atribución entre el peso gastado y la cita en piso.</div>
 
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;margin-top:32px;">
-      <div class="diag-card" style="border-top-color:#1E2740;">
-        <div class="label">Escala operativa</div>
-        <div class="stat">8 marcas + Sem.</div>
-        <div class="desc">42 concesionarias en 10 estados &middot; ~60 personas en marketing &middot; cada marca con su propio equipo y agencias.</div>
-      </div>
-      <div class="diag-card">
-        <div class="label">Inversion en MKT</div>
-        <div class="stat">$100 MDP</div>
-        <div class="desc">Equivalente al <strong>0.78%</strong> de los ingresos 2025 ($12.8 MMDP). Ejecutado por agencias externas.</div>
-      </div>
-      <div class="diag-card" style="border-top-color:#ECC94B;">
-        <div class="label">Atribucion lead-piso</div>
-        <div class="stat">0%</div>
-        <div class="desc">Cada agencia optimizaba con su propio Pixel. Nadie en el grupo podia decir cuanto cuesta una cita real.</div>
-      </div>
-    </div>
-
-    <div style="margin-top:28px;background:rgba(200,16,46,0.04);border-left:3px solid #C8102E;border-radius:6px;padding:16px 20px;">
-      <div style="font-size:13px;color:#2D3748;line-height:1.6;"><strong>El sintoma resumido:</strong> el grupo invertia 100 millones de pesos al ano en medios, pero no podia conectar ni un solo peso con una cita en piso. Las agencias tampoco &mdash; cada una optimizaba ciega con la senal que su propio Pixel le devolvia, que en muchos casos era ~40% sub-medida (sin server-side conversions).</div>
-    </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;margin-top:32px;">
+   <div class="diag-card" style="border-top-color:#1E2740;">
+    <div class="label">Escala operativa</div>
+    <div class="stat">8 marcas + Sem.</div>
+    <div class="desc">42 concesiónarias en 10 estados &middot; ~60 personas en marketing &middot; cada marca con su propio equipo y agencias.</div>
+   </div>
+   <div class="diag-card">
+    <div class="label">Inversión en MKT</div>
+    <div class="stat">$100 MDP</div>
+    <div class="desc">Equivalente al <strong>0.78%</strong> de los ingresos 2025 ($12.8 MMDP). Ejecutado por agencias externas.</div>
+   </div>
+   <div class="diag-card" style="border-top-color:#ECC94B;">
+    <div class="label">Atribución lead-piso</div>
+    <div class="stat">0%</div>
+    <div class="desc">Cada agencia optimizaba con su propio Pixel. Nadie en el grupo podía decir cuanto cuesta una cita real.</div>
+   </div>
   </div>
-  <div class="slide-footer">Motor de Atribucion MVP &middot; 4/15</div>
+
+  <div style="margin-top:28px;background:rgba(200,16,46,0.04);border-left:3px solid #C8102E;border-radius:6px;padding:16px 20px;">
+   <div style="font-size:13px;color:#2D3748;line-height:1.6;"><strong>El síntoma resumido:</strong> el grupo invertia 100 millones de pesos al ano en medios, pero no podía conectar ni un solo peso con una cita en piso. Las agencias tampoco &mdash; cada una optimizaba ciega con la senal que su propio Pixel le devolvia, que en muchos casos era ~40% sub-medida (sin server-side conversions).</div>
+  </div>
+ </div>
+ <div class="slide-footer">Motor de Atribución MVP &middot; 4/15</div>
 </section>
 
 <!-- ════════════════════════════════════════════════════
-     SLIDE 5 - LA DECISION
-     ════════════════════════════════════════════════════ -->
+   SLIDE 5 - LA DECISION
+   ════════════════════════════════════════════════════ -->
 <section class="slide slide--dark">
-  <div class="slide-label">04 / La decision</div>
-  <img src="../assets/logos/LOGO-GP-Blanco.png" class="logo-corner logo-w"><img src="../assets/logos/Logo-GP-Negro.png" class="logo-corner logo-d">
-  <div class="pad">
-    <div class="t-label t-gold" style="margin-bottom:6px;">Como decidi atacar el problema</div>
-    <div class="t-title t-white" style="max-width:1080px;">Empezar pequeno, rapido y barato &mdash; demostrar que funciona, despues escalar.</div>
+ <div class="slide-label">04 / La decisión</div>
+ <img src="../assets/logos/LOGO-GP-Blanco.png" class="logo-corner logo-w"><img src="../assets/logos/Logo-GP-Negro.png" class="logo-corner logo-d">
+ <div class="pad">
+  <div class="t-label t-gold" style="margin-bottom:6px;">Como decidí atacar el problema</div>
+  <div class="t-title t-white" style="max-width:1080px;">Empezar pequeño, rápido y barato &mdash; demostrar que funcióna, después escalar.</div>
 
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:32px;">
-      <div>
-        <div class="t-label" style="color:#FC8181;margin-bottom:14px;">Lo que decidi NO hacer</div>
-        <div class="flex-col gap-12">
-          <div style="display:flex;align-items:flex-start;"><span class="strike-x">&times;</span><div><div style="font-size:14px;font-weight:700;color:#fff;">Contratar equipo grande</div><div style="font-size:12px;color:#CBD5E0;margin-top:3px;line-height:1.5;">Caro, lento, riesgoso sin entender primero el problema real.</div></div></div>
-          <div style="display:flex;align-items:flex-start;"><span class="strike-x">&times;</span><div><div style="font-size:14px;font-weight:700;color:#fff;">Comprar suite enterprise</div><div style="font-size:12px;color:#CBD5E0;margin-top:3px;line-height:1.5;">Salesforce / HubSpot Enterprise: meses de implementacion, contratos largos.</div></div></div>
-          <div style="display:flex;align-items:flex-start;"><span class="strike-x">&times;</span><div><div style="font-size:14px;font-weight:700;color:#fff;">Pedir presupuesto extra al Consejo</div><div style="font-size:12px;color:#CBD5E0;margin-top:3px;line-height:1.5;">Antes de demostrar resultado &mdash; la credibilidad se gana, no se solicita.</div></div></div>
-        </div>
-      </div>
-      <div>
-        <div class="t-label" style="color:#68D391;margin-bottom:14px;">Lo que decidi SI hacer</div>
-        <div class="flex-col gap-12">
-          <div style="display:flex;align-items:flex-start;"><span class="check-ok">&check;</span><div><div style="font-size:14px;font-weight:700;color:#fff;">Team-of-one + IA</div><div style="font-size:12px;color:#CBD5E0;margin-top:3px;line-height:1.5;">Yo solo + Claude Code + skills especializados. IA como multiplicador real, no demo.</div></div></div>
-          <div style="display:flex;align-items:flex-start;"><span class="check-ok">&check;</span><div><div style="font-size:14px;font-weight:700;color:#fff;">MVP de 3 marcas</div><div style="font-size:12px;color:#CBD5E0;margin-top:3px;line-height:1.5;">Seminuevos &middot; Hyundai &middot; Stellantis. Variedad maxima de escenarios para probar la hipotesis.</div></div></div>
-          <div style="display:flex;align-items:flex-start;"><span class="check-ok">&check;</span><div><div style="font-size:14px;font-weight:700;color:#fff;">Stack barato y rapido primero</div><div style="font-size:12px;color:#CBD5E0;margin-top:3px;line-height:1.5;">SaaS off-the-shelf para activar en 4 semanas. Ingenieria propia despues si funciona.</div></div></div>
-        </div>
-      </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:32px;">
+   <div>
+    <div class="t-label" style="color:#FC8181;margin-bottom:14px;">Lo que decidí NO hacer</div>
+    <div class="flex-col gap-12">
+     <div style="display:flex;align-items:flex-start;"><span class="strike-x">&times;</span><div><div style="font-size:14px;font-weight:700;color:#fff;">Contratar equipo grande</div><div style="font-size:12px;color:#CBD5E0;margin-top:3px;line-height:1.5;">Caro, lento, riesgoso sin entender primero el problema real.</div></div></div>
+     <div style="display:flex;align-items:flex-start;"><span class="strike-x">&times;</span><div><div style="font-size:14px;font-weight:700;color:#fff;">Comprar suite enterprise</div><div style="font-size:12px;color:#CBD5E0;margin-top:3px;line-height:1.5;">Salesforce / HubSpot Enterprise: meses de implementación, contratos largos.</div></div></div>
+     <div style="display:flex;align-items:flex-start;"><span class="strike-x">&times;</span><div><div style="font-size:14px;font-weight:700;color:#fff;">Pedir presupuesto extra al Consejo</div><div style="font-size:12px;color:#CBD5E0;margin-top:3px;line-height:1.5;">Antes de demostrar resultado &mdash; la credibilidad se gana, no se solicita.</div></div></div>
     </div>
+   </div>
+   <div>
+    <div class="t-label" style="color:#68D391;margin-bottom:14px;">Lo que decidí SI hacer</div>
+    <div class="flex-col gap-12">
+     <div style="display:flex;align-items:flex-start;"><span class="check-ok">&check;</span><div><div style="font-size:14px;font-weight:700;color:#fff;">Team-of-one + IA</div><div style="font-size:12px;color:#CBD5E0;margin-top:3px;line-height:1.5;">Yo solo + Claude Code + skills especializados. IA como multiplicador real, no demo.</div></div></div>
+     <div style="display:flex;align-items:flex-start;"><span class="check-ok">&check;</span><div><div style="font-size:14px;font-weight:700;color:#fff;">MVP de 3 marcas</div><div style="font-size:12px;color:#CBD5E0;margin-top:3px;line-height:1.5;">Seminuevos &middot; Hyundai &middot; Stellantis. Variedad máxima de escenarios para probar la hipótesis.</div></div></div>
+     <div style="display:flex;align-items:flex-start;"><span class="check-ok">&check;</span><div><div style="font-size:14px;font-weight:700;color:#fff;">Stack barato y rápido primero</div><div style="font-size:12px;color:#CBD5E0;margin-top:3px;line-height:1.5;">SaaS off-the-shelf para activar en 4 semanas. Ingenieria propia después si funcióna.</div></div></div>
+    </div>
+   </div>
   </div>
-  <div class="slide-footer">Motor de Atribucion MVP &middot; 5/15</div>
+ </div>
+ <div class="slide-footer">Motor de Atribución MVP &middot; 5/15</div>
 </section>
 
 <!-- ════════════════════════════════════════════════════
-     SLIDE 6 - QUE CONSTRUI V1
-     ════════════════════════════════════════════════════ -->
+   SLIDE 6 - QUE CONSTRUI V1
+   ════════════════════════════════════════════════════ -->
 <section class="slide slide--light">
-  <div class="slide-label">05 / Que construi</div>
-  <img src="../assets/logos/LOGO-GP-Blanco.png" class="logo-corner logo-w"><img src="../assets/logos/Logo-GP-Negro.png" class="logo-corner logo-d">
-  <div class="pad">
-    <div class="t-label t-red" style="margin-bottom:6px;">Arquitectura v1 &middot; 16 abril GO-LIVE</div>
-    <div class="t-title" style="max-width:1080px;color:#2D3748;">Lo que arme en 4 semanas: un stack provisional, hecho con piezas off-the-shelf para llegar al GO-LIVE el 16 de abril.</div>
+ <div class="slide-label">05 / Que construi</div>
+ <img src="../assets/logos/LOGO-GP-Blanco.png" class="logo-corner logo-w"><img src="../assets/logos/Logo-GP-Negro.png" class="logo-corner logo-d">
+ <div class="pad">
+  <div class="t-label t-red" style="margin-bottom:6px;">Arquitectura v1 &middot; 16 abril GO-LIVE</div>
+  <div class="t-title" style="max-width:1080px;color:#2D3748;">Lo que armé en 4 semanas: un stack provisional, hecho con piezas off-the-shelf para llegar al GO-LIVE el 16 de abril.</div>
 
-    <div style="display:flex;gap:8px;align-items:stretch;margin-top:36px;">
-      <div style="flex:1;background:#fff;border-radius:8px;padding:14px 16px;border-left:3px solid #1E2740;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
-        <div style="font-size:9px;font-weight:700;letter-spacing:1.5px;color:#718096;text-transform:uppercase;">Captura</div>
-        <div style="font-size:13px;font-weight:700;color:#1E2740;margin-top:4px;">3 Landings HTML</div>
-        <div style="font-size:11px;color:#4A5568;margin-top:4px;line-height:1.5;">Catalogo + form de cita por marca. Hosted en GitHub Pages.</div>
-      </div>
-      <div style="align-self:center;font-size:18px;color:#C8102E;padding:0 4px;">&rarr;</div>
-      <div style="flex:1;background:#fff;border-radius:8px;padding:14px 16px;border-left:3px solid #C8102E;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
-        <div style="font-size:9px;font-weight:700;letter-spacing:1.5px;color:#718096;text-transform:uppercase;">Middleware</div>
-        <div style="font-size:13px;font-weight:700;color:#1E2740;margin-top:4px;">Zapier &middot; 4 Zaps</div>
-        <div style="font-size:11px;color:#4A5568;margin-top:4px;line-height:1.5;">Webhook → Airtable → Meta CAPI → GA4 (cadena de Zaps).</div>
-      </div>
-      <div style="align-self:center;font-size:18px;color:#C8102E;padding:0 4px;">&rarr;</div>
-      <div style="flex:1;background:#fff;border-radius:8px;padding:14px 16px;border-left:3px solid #ECC94B;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
-        <div style="font-size:9px;font-weight:700;letter-spacing:1.5px;color:#718096;text-transform:uppercase;">Storage</div>
-        <div style="font-size:13px;font-weight:700;color:#1E2740;margin-top:4px;">Airtable &middot; 12 tablas</div>
-        <div style="font-size:11px;color:#4A5568;margin-top:4px;line-height:1.5;">Leads x3 + Pipeline x3 + Visitas x3 + Compras x3.</div>
-      </div>
-      <div style="align-self:center;font-size:18px;color:#C8102E;padding:0 4px;">&rarr;</div>
-      <div style="flex:1;background:#fff;border-radius:8px;padding:14px 16px;border-left:3px solid #4299E1;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
-        <div style="font-size:9px;font-weight:700;letter-spacing:1.5px;color:#718096;text-transform:uppercase;">Frontend CRM</div>
-        <div style="font-size:13px;font-weight:700;color:#1E2740;margin-top:4px;">Worker proxy + kanban</div>
-        <div style="font-size:11px;color:#4A5568;margin-top:4px;line-height:1.5;">Cloudflare Worker leyendo Airtable, kanban HTML para vendedores.</div>
-      </div>
-    </div>
-
-    <div style="margin-top:36px;background:rgba(236,201,75,0.08);border-left:3px solid #ECC94B;border-radius:6px;padding:16px 20px;">
-      <div style="font-size:13px;color:#2D3748;line-height:1.6;"><strong>Razonamiento:</strong> elegi el stack mas rapido posible para estar vivo el 16 de abril. <strong>Sabia que iba a ser provisional</strong> &mdash; el objetivo era validar la hipotesis de atribucion, no optimizar arquitectura. Costo SaaS aproximado: <strong>$260 USD/mes</strong> (Airtable team + Zapier Pro).</div>
-    </div>
+  <div style="display:flex;gap:8px;align-items:stretch;margin-top:36px;">
+   <div style="flex:1;background:#fff;border-radius:8px;padding:14px 16px;border-left:3px solid #1E2740;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+    <div style="font-size:9px;font-weight:700;letter-spacing:1.5px;color:#718096;text-transform:uppercase;">Captura</div>
+    <div style="font-size:13px;font-weight:700;color:#1E2740;margin-top:4px;">3 Landings HTML</div>
+    <div style="font-size:11px;color:#4A5568;margin-top:4px;line-height:1.5;">Catalogo + form de cita por marca. Hosted en GitHub Pages.</div>
+   </div>
+   <div style="align-self:center;font-size:18px;color:#C8102E;padding:0 4px;">&rarr;</div>
+   <div style="flex:1;background:#fff;border-radius:8px;padding:14px 16px;border-left:3px solid #C8102E;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+    <div style="font-size:9px;font-weight:700;letter-spacing:1.5px;color:#718096;text-transform:uppercase;">Middleware</div>
+    <div style="font-size:13px;font-weight:700;color:#1E2740;margin-top:4px;">Zapier &middot; 4 Zaps</div>
+    <div style="font-size:11px;color:#4A5568;margin-top:4px;line-height:1.5;">Webhook → Airtable → Meta CAPI → GA4 (cadena de Zaps).</div>
+   </div>
+   <div style="align-self:center;font-size:18px;color:#C8102E;padding:0 4px;">&rarr;</div>
+   <div style="flex:1;background:#fff;border-radius:8px;padding:14px 16px;border-left:3px solid #ECC94B;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+    <div style="font-size:9px;font-weight:700;letter-spacing:1.5px;color:#718096;text-transform:uppercase;">Storage</div>
+    <div style="font-size:13px;font-weight:700;color:#1E2740;margin-top:4px;">Airtable &middot; 12 tablas</div>
+    <div style="font-size:11px;color:#4A5568;margin-top:4px;line-height:1.5;">Leads x3 + Pipeline x3 + Visitas x3 + Compras x3.</div>
+   </div>
+   <div style="align-self:center;font-size:18px;color:#C8102E;padding:0 4px;">&rarr;</div>
+   <div style="flex:1;background:#fff;border-radius:8px;padding:14px 16px;border-left:3px solid #4299E1;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+    <div style="font-size:9px;font-weight:700;letter-spacing:1.5px;color:#718096;text-transform:uppercase;">Frontend CRM</div>
+    <div style="font-size:13px;font-weight:700;color:#1E2740;margin-top:4px;">Worker proxy + kanban</div>
+    <div style="font-size:11px;color:#4A5568;margin-top:4px;line-height:1.5;">Cloudflare Worker leyendo Airtable, kanban HTML para vendedores.</div>
+   </div>
   </div>
-  <div class="slide-footer">Motor de Atribucion MVP &middot; 6/15</div>
+
+  <div style="margin-top:36px;background:rgba(236,201,75,0.08);border-left:3px solid #ECC94B;border-radius:6px;padding:16px 20px;">
+   <div style="font-size:13px;color:#2D3748;line-height:1.6;"><strong>Razonamiento:</strong> elegí el stack más rápido posible para estar vivo el 16 de abril. <strong>Sabía que iba a ser provisional</strong> &mdash; el objetivo era validar la hipótesis de atribución, no optimizar arquitectura. Costo SaaS aproximado: <strong>$260 USD/mes</strong> (Airtable team + Zapier Pro).</div>
+  </div>
+ </div>
+ <div class="slide-footer">Motor de Atribución MVP &middot; 6/15</div>
 </section>
 
 <!-- ════════════════════════════════════════════════════
-     SLIDE 7 - DIA 1-7 NUMEROS
-     ════════════════════════════════════════════════════ -->
+   SLIDE 7 - DIA 1-7 NUMEROS
+   ════════════════════════════════════════════════════ -->
 <section class="slide slide--dark">
-  <div class="slide-label">06 / Lo que produjo en su primera semana</div>
-  <img src="../assets/logos/LOGO-GP-Blanco.png" class="logo-corner logo-w"><img src="../assets/logos/Logo-GP-Negro.png" class="logo-corner logo-d">
-  <div class="pad">
-    <div class="t-label t-gold" style="margin-bottom:6px;">Dia 1 al 7 post GO-LIVE</div>
-    <div class="t-title t-white" style="max-width:1080px;">Por primera vez, el grupo pudo ver cuanto cuesta producir una cita en piso por marca.</div>
+ <div class="slide-label">06 / Lo que produjo en su primera semana</div>
+ <img src="../assets/logos/LOGO-GP-Blanco.png" class="logo-corner logo-w"><img src="../assets/logos/Logo-GP-Negro.png" class="logo-corner logo-d">
+ <div class="pad">
+  <div class="t-label t-gold" style="margin-bottom:6px;">Día 1 al 7 post GO-LIVE</div>
+  <div class="t-title t-white" style="max-width:1080px;">Por primera vez, el grupo pudo ver cuanto cuesta producir una cita en piso por marca.</div>
 
-    <div style="display:flex;gap:48px;margin-top:48px;justify-content:center;">
-      <div style="text-align:center;">
-        <div class="anchor-num">14</div>
-        <div class="anchor-label">Oportunidades reales<br>identificadas con<br>atribucion completa</div>
-      </div>
-      <div style="text-align:center;">
-        <div class="anchor-num">$90K</div>
-        <div class="anchor-label">Gasto en Meta<br>vinculado a leads<br>reales (matched)</div>
-      </div>
-      <div style="text-align:center;">
-        <div class="anchor-num">4</div>
-        <div class="anchor-label">Sub-marcas activas<br>con tracking<br>end-to-end</div>
-      </div>
-      <div style="text-align:center;">
-        <div class="anchor-num">7</div>
-        <div class="anchor-label">Dias desde<br>GO-LIVE hasta<br>primer corte</div>
-      </div>
-    </div>
-
-    <div style="margin-top:56px;text-align:center;font-size:14px;color:#A0AEC0;line-height:1.6;max-width:920px;margin-left:auto;margin-right:auto;font-style:italic;">"Antes: $100M/ano sin saber que producen. Despues: cada peso del piloto rastreable hasta una persona que pidio cita."</div>
+  <div style="display:flex;gap:48px;margin-top:48px;justify-content:center;">
+   <div style="text-align:center;">
+    <div class="anchor-num">14</div>
+    <div class="anchor-label">Oportunidades reales<br>identificadas con<br>atribución completa</div>
+   </div>
+   <div style="text-align:center;">
+    <div class="anchor-num">$90K</div>
+    <div class="anchor-label">Gasto en Meta<br>vinculado a leads<br>reales (matched)</div>
+   </div>
+   <div style="text-align:center;">
+    <div class="anchor-num">4</div>
+    <div class="anchor-label">Sub-marcas activas<br>con tracking<br>end-to-end</div>
+   </div>
+   <div style="text-align:center;">
+    <div class="anchor-num">7</div>
+    <div class="anchor-label">Días desde<br>GO-LIVE hasta<br>primer corte</div>
+   </div>
   </div>
-  <div class="slide-footer">Motor de Atribucion MVP &middot; 7/15</div>
+
+  <div style="margin-top:56px;text-align:center;font-size:14px;color:#A0AEC0;line-height:1.6;max-width:920px;margin-left:auto;margin-right:auto;font-style:italic;">"Antes: $100M/ano sin saber que producen. Después: cada peso del piloto rastreable hasta una persona que pidio cita."</div>
+ </div>
+ <div class="slide-footer">Motor de Atribución MVP &middot; 7/15</div>
 </section>
 
 <!-- ════════════════════════════════════════════════════
-     SLIDE 8 - LO QUE DESCUBRI
-     ════════════════════════════════════════════════════ -->
+   SLIDE 8 - LO QUE DESCUBRI
+   ════════════════════════════════════════════════════ -->
 <section class="slide slide--dark">
-  <div class="slide-label">07 / Lo que descubri en el camino</div>
-  <img src="../assets/logos/LOGO-GP-Blanco.png" class="logo-corner logo-w"><img src="../assets/logos/Logo-GP-Negro.png" class="logo-corner logo-d">
-  <div class="pad">
-    <div class="t-label t-gold" style="margin-bottom:6px;">3 limitaciones del stack v1</div>
-    <div class="t-title t-white" style="max-width:1080px;">El piloto funciono &mdash; pero corriendolo en produccion descubri 3 problemas que no se podian ignorar.</div>
+ <div class="slide-label">07 / Lo que descubrí en el camino</div>
+ <img src="../assets/logos/LOGO-GP-Blanco.png" class="logo-corner logo-w"><img src="../assets/logos/Logo-GP-Negro.png" class="logo-corner logo-d">
+ <div class="pad">
+  <div class="t-label t-gold" style="margin-bottom:6px;">3 limitaciones del stack v1</div>
+  <div class="t-title t-white" style="max-width:1080px;">El piloto funcionó &mdash; pero corriéndolo en producción descubrí 3 problemas que no se podían ignorar.</div>
 
-    <div style="display:flex;gap:18px;margin-top:32px;">
-      <div class="lim-card">
-        <div class="num">1</div>
-        <div class="name">No podia auditar si todos los submits llegaban</div>
-        <div class="desc">El webhook de Zapier era una caja negra. Sin log propio, no podia confirmar si un lead se habia perdido en la cadena. Auditabilidad opaca.</div>
-      </div>
-      <div class="lim-card">
-        <div class="num">2</div>
-        <div class="name">Dependencia triple en SaaS</div>
-        <div class="desc">Zapier + Airtable + 4 Zaps en cadena. Cada componente era un punto de falla externo. Ningun cambio de logica era operable por mi mismo en horas.</div>
-      </div>
-      <div class="lim-card">
-        <div class="num">3</div>
-        <div class="name">Costo SaaS creciente con escala</div>
-        <div class="desc">$260 USD/mes y subiendo. Si el piloto funcionaba y escalaba a 8 marcas, los costos de SaaS iban a ser ~$1,000+/mes solo en middleware.</div>
-      </div>
-    </div>
-
-    <div style="margin-top:36px;text-align:center;font-size:14px;color:#ECC94B;line-height:1.6;font-style:italic;">"v1 me sirvio para activar. No servia para escalar al grupo entero."</div>
+  <div style="display:flex;gap:18px;margin-top:32px;">
+   <div class="lim-card">
+    <div class="num">1</div>
+    <div class="name">No podía auditar si todos los submits llegaban</div>
+    <div class="desc">El webhook de Zapier era una caja negra. Sin log propio, no podía confirmar si un lead se había perdido en la cadena. Auditabilidad opaca.</div>
+   </div>
+   <div class="lim-card">
+    <div class="num">2</div>
+    <div class="name">Dependencia triple en SaaS</div>
+    <div class="desc">Zapier + Airtable + 4 Zaps en cadena. Cada componente era un punto de falla externo. Ningún cambio de lógica era operable por mí mismo en horas.</div>
+   </div>
+   <div class="lim-card">
+    <div class="num">3</div>
+    <div class="name">Costo SaaS creciente con escala</div>
+    <div class="desc">$260 USD/mes y subiendo. Si el piloto funcionaba y escalaba a 8 marcas, los costos de SaaS iban a ser ~$1,000+/mes solo en middleware.</div>
+   </div>
   </div>
-  <div class="slide-footer">Motor de Atribucion MVP &middot; 8/15</div>
+
+  <div style="margin-top:36px;text-align:center;font-size:14px;color:#ECC94B;line-height:1.6;font-style:italic;">"v1 me sirvió para activar. No servía para escalar al grupo entero."</div>
+ </div>
+ <div class="slide-footer">Motor de Atribución MVP &middot; 8/15</div>
 </section>
 
 <!-- ════════════════════════════════════════════════════
-     SLIDE 9 - LA DECISION DIFICIL
-     ════════════════════════════════════════════════════ -->
+   SLIDE 9 - LA DECISION DIFICIL
+   ════════════════════════════════════════════════════ -->
 <section class="slide slide--darker">
-  <div class="slide-label">08 / La decision dificil</div>
-  <img src="../assets/logos/LOGO-GP-Blanco.png" class="logo-corner logo-w"><img src="../assets/logos/Logo-GP-Negro.png" class="logo-corner logo-d">
-  <div class="pad-lg flex-col" style="justify-content:center;">
-    <div class="t-label t-gold" style="margin-bottom:14px;">24 de abril, 8 dias post GO-LIVE</div>
-    <div class="t-display" style="font-size:36px;color:#fff;line-height:1.25;letter-spacing:-0.4px;max-width:1080px;font-weight:700;">
-      "Hoy nos comemos el pastel completo." <br><span style="color:#ECC94B;font-size:24px;font-weight:600;">Matar Airtable + Zapier en un dia. Reescribir el backend completo. Sin red de seguridad.</span>
-    </div>
-
-    <div style="display:flex;gap:24px;margin-top:48px;">
-      <div class="card--pill-red" style="flex:1;">
-        <div style="font-size:9px;font-weight:700;letter-spacing:2px;color:#FC8181;text-transform:uppercase;">El riesgo</div>
-        <div style="font-size:14px;font-weight:700;color:#fff;margin-top:8px;line-height:1.4;">Cero downtime tolerado</div>
-        <div style="font-size:11px;color:#CBD5E0;margin-top:6px;line-height:1.5;">Leads en vivo entrando. Sin ventana de mantenimiento. Si fallaba, perdia leads reales con dinero invertido detras.</div>
-      </div>
-      <div class="card--pill-gold" style="flex:1;">
-        <div style="font-size:9px;font-weight:700;letter-spacing:2px;color:#ECC94B;text-transform:uppercase;">El tiempo</div>
-        <div style="font-size:14px;font-weight:700;color:#fff;margin-top:8px;line-height:1.4;">24 horas, una persona</div>
-        <div style="font-size:11px;color:#CBD5E0;margin-top:6px;line-height:1.5;">Manana del 24 al manana del 25. Nuevo backend, schema nuevo, integraciones nuevas, frontend re-cableado.</div>
-      </div>
-      <div class="card--pill-green" style="flex:1;">
-        <div style="font-size:9px;font-weight:700;letter-spacing:2px;color:#68D391;text-transform:uppercase;">El resultado</div>
-        <div style="font-size:14px;font-weight:700;color:#fff;margin-top:8px;line-height:1.4;">Cutover sin downtime</div>
-        <div style="font-size:11px;color:#CBD5E0;margin-top:6px;line-height:1.5;">25 abril manana: Airtable apagada, 4 Zaps pausados, secret revocado. Stack v2 vivo. 3 leads del fin de semana entraron limpios al nuevo sistema.</div>
-      </div>
-    </div>
-
-    <div style="margin-top:36px;text-align:center;font-size:13px;color:#A0AEC0;line-height:1.6;font-style:italic;max-width:920px;margin-left:auto;margin-right:auto;">"La velocidad de iteracion solo es real si puedes ejecutar cambios estructurales en horas, no semanas. Esa fue la prueba."</div>
+ <div class="slide-label">08 / La decisión difícil</div>
+ <img src="../assets/logos/LOGO-GP-Blanco.png" class="logo-corner logo-w"><img src="../assets/logos/Logo-GP-Negro.png" class="logo-corner logo-d">
+ <div class="pad-lg flex-col" style="justify-content:center;">
+  <div class="t-label t-gold" style="margin-bottom:14px;">24 de abril, 8 días post GO-LIVE</div>
+  <div class="t-display" style="font-size:36px;color:#fff;line-height:1.25;letter-spacing:-0.4px;max-width:1080px;font-weight:700;">
+   "Hoy nos comemos el pastel completo." <br><span style="color:#ECC94B;font-size:24px;font-weight:600;">Matar Airtable + Zapier en un día. Reescribir el backend completo. Sin red de seguridad.</span>
   </div>
-  <div class="slide-footer">Motor de Atribucion MVP &middot; 9/15</div>
+
+  <div style="display:flex;gap:24px;margin-top:48px;">
+   <div class="card--pill-red" style="flex:1;">
+    <div style="font-size:9px;font-weight:700;letter-spacing:2px;color:#FC8181;text-transform:uppercase;">El riesgo</div>
+    <div style="font-size:14px;font-weight:700;color:#fff;margin-top:8px;line-height:1.4;">Cero downtime tolerado</div>
+    <div style="font-size:11px;color:#CBD5E0;margin-top:6px;line-height:1.5;">Leads en vivo entrando. Sin ventana de mantenimiento. Si fallaba, perdía leads reales con dinero invertido detrás.</div>
+   </div>
+   <div class="card--pill-gold" style="flex:1;">
+    <div style="font-size:9px;font-weight:700;letter-spacing:2px;color:#ECC94B;text-transform:uppercase;">El tiempo</div>
+    <div style="font-size:14px;font-weight:700;color:#fff;margin-top:8px;line-height:1.4;">24 horas, una persona</div>
+    <div style="font-size:11px;color:#CBD5E0;margin-top:6px;line-height:1.5;">Manana del 24 al manana del 25. Nuevo backend, schema nuevo, integraciones nuevas, frontend re-cableado.</div>
+   </div>
+   <div class="card--pill-green" style="flex:1;">
+    <div style="font-size:9px;font-weight:700;letter-spacing:2px;color:#68D391;text-transform:uppercase;">El resultado</div>
+    <div style="font-size:14px;font-weight:700;color:#fff;margin-top:8px;line-height:1.4;">Cutover sin downtime</div>
+    <div style="font-size:11px;color:#CBD5E0;margin-top:6px;line-height:1.5;">25 abril manana: Airtable apagada, 4 Zaps pausados, secret revocado. Stack v2 vivo. 3 leads del fin de semana entraron limpios al nuevo sistema.</div>
+   </div>
+  </div>
+
+  <div style="margin-top:36px;text-align:center;font-size:13px;color:#A0AEC0;line-height:1.6;font-style:italic;max-width:920px;margin-left:auto;margin-right:auto;">"La velocidad de iteración solo es real si puedes ejecutar cambios estructurales en horas, no semanas. Esa fue la prueba."</div>
+ </div>
+ <div class="slide-footer">Motor de Atribución MVP &middot; 9/15</div>
 </section>
 
 <!-- ════════════════════════════════════════════════════
-     SLIDE 10 - QUE ES V2
-     ════════════════════════════════════════════════════ -->
+   SLIDE 10 - QUE ES V2
+   ════════════════════════════════════════════════════ -->
 <section class="slide slide--light">
-  <div class="slide-label">09 / La arquitectura v2</div>
-  <img src="../assets/logos/LOGO-GP-Blanco.png" class="logo-corner logo-w"><img src="../assets/logos/Logo-GP-Negro.png" class="logo-corner logo-d">
-  <div class="pad">
-    <div class="t-label t-red" style="margin-bottom:6px;">Lo que esta vivo HOY &middot; 25 abril en adelante</div>
-    <div class="t-title" style="max-width:1080px;color:#2D3748;">Backend propio, codigo iterable en horas, log persistente, $0 al mes en SaaS.</div>
+ <div class="slide-label">09 / La arquitectura v2</div>
+ <img src="../assets/logos/LOGO-GP-Blanco.png" class="logo-corner logo-w"><img src="../assets/logos/Logo-GP-Negro.png" class="logo-corner logo-d">
+ <div class="pad">
+  <div class="t-label t-red" style="margin-bottom:6px;">Lo que está vivo HOY &middot; 25 abril en adelante</div>
+  <div class="t-title" style="max-width:1080px;color:#2D3748;">Backend propio, código iterable en horas, log persistente, $0 al mes en SaaS.</div>
 
-    <div style="display:flex;gap:8px;align-items:stretch;margin-top:36px;">
-      <div style="flex:1;background:#fff;border-radius:8px;padding:14px 16px;border-left:3px solid #1E2740;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
-        <div style="font-size:9px;font-weight:700;letter-spacing:1.5px;color:#718096;text-transform:uppercase;">Captura</div>
-        <div style="font-size:13px;font-weight:700;color:#1E2740;margin-top:4px;">3 Landings HTML</div>
-        <div style="font-size:11px;color:#4A5568;margin-top:4px;line-height:1.5;">GitHub Pages, sin cambios. POST directo al Worker.</div>
-      </div>
-      <div style="align-self:center;font-size:18px;color:#48BB78;padding:0 4px;">&rarr;</div>
-      <div style="flex:1.4;background:#fff;border-radius:8px;padding:14px 16px;border-left:3px solid #48BB78;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
-        <div style="font-size:9px;font-weight:700;letter-spacing:1.5px;color:#48BB78;text-transform:uppercase;">Backend &middot; Codigo propio</div>
-        <div style="font-size:13px;font-weight:700;color:#1E2740;margin-top:4px;">Cloudflare Worker <code style="background:rgba(72,187,120,0.1);padding:1px 5px;border-radius:3px;font-size:10px;">crm-plasencia</code></div>
-        <div style="font-size:11px;color:#4A5568;margin-top:4px;line-height:1.5;">33.7 KB. Endpoint <code style="font-size:10px;">/api/lead/:marca</code> con <code style="font-size:10px;">applyPayloadAliases()</code>, hashing PII server-side, log <code style="font-size:10px;">lead_intake_log</code>.</div>
-      </div>
-      <div style="align-self:center;font-size:18px;color:#48BB78;padding:0 4px;">&rarr;</div>
-      <div style="flex:1;background:#fff;border-radius:8px;padding:14px 16px;border-left:3px solid #ECC94B;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
-        <div style="font-size:9px;font-weight:700;letter-spacing:1.5px;color:#718096;text-transform:uppercase;">Fuente unica</div>
-        <div style="font-size:13px;font-weight:700;color:#1E2740;margin-top:4px;">D1 <code style="background:rgba(236,201,75,0.1);padding:1px 5px;border-radius:3px;font-size:10px;">crm-plasencia-db</code></div>
-        <div style="font-size:11px;color:#4A5568;margin-top:4px;line-height:1.5;">7 tablas: leads, pipeline, events, vendedores, sucursales, audit_log, lead_intake_log.</div>
-      </div>
-    </div>
-
-    <div style="display:flex;gap:8px;align-items:stretch;margin-top:14px;">
-      <div style="flex:1;"></div>
-      <div style="flex:1.4;display:flex;gap:8px;justify-content:center;">
-        <div style="flex:1;background:#fff;border-radius:8px;padding:12px 14px;border-left:3px solid #4299E1;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
-          <div style="font-size:9px;font-weight:700;letter-spacing:1.5px;color:#718096;text-transform:uppercase;">Server-side &middot; Paralelo</div>
-          <div style="font-size:12px;font-weight:700;color:#1E2740;margin-top:3px;">Meta CAPI &middot; 3 pixels</div>
-          <div style="font-size:10px;color:#4A5568;margin-top:3px;">Dedup automatico Pixel↔CAPI via <code style="font-size:9px;">event_id</code>.</div>
-        </div>
-        <div style="flex:1;background:#fff;border-radius:8px;padding:12px 14px;border-left:3px solid #4299E1;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
-          <div style="font-size:9px;font-weight:700;letter-spacing:1.5px;color:#718096;text-transform:uppercase;">Server-side &middot; Paralelo</div>
-          <div style="font-size:12px;font-weight:700;color:#1E2740;margin-top:3px;">GA4 MP &middot; 3 props</div>
-          <div style="font-size:10px;color:#4A5568;margin-top:3px;">Eventos enriquecidos sin tocar landings.</div>
-        </div>
-      </div>
-      <div style="flex:1;"></div>
-    </div>
-
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-top:24px;">
-      <div class="card--pill-green" style="background:rgba(72,187,120,0.06);border-left:3px solid #48BB78;border-radius:6px;padding:12px 14px;">
-        <div style="font-size:9px;font-weight:700;letter-spacing:1.5px;color:#276749;text-transform:uppercase;">Lo que gane</div>
-        <div style="font-size:13px;font-weight:700;color:#1E2740;margin-top:4px;">Auditabilidad total</div>
-        <div style="font-size:11px;color:#4A5568;margin-top:3px;line-height:1.5;">Cada submit deja rastro raw en <code style="font-size:10px;">lead_intake_log</code> incluso si el handler falla.</div>
-      </div>
-      <div class="card--pill-green" style="background:rgba(72,187,120,0.06);border-left:3px solid #48BB78;border-radius:6px;padding:12px 14px;">
-        <div style="font-size:9px;font-weight:700;letter-spacing:1.5px;color:#276749;text-transform:uppercase;">Lo que gane</div>
-        <div style="font-size:13px;font-weight:700;color:#1E2740;margin-top:4px;">$0 USD/mes</div>
-        <div style="font-size:11px;color:#4A5568;margin-top:3px;line-height:1.5;">Free tier Cloudflare Workers + D1. Ahorro ~$3K USD/ano vs v1.</div>
-      </div>
-      <div class="card--pill-green" style="background:rgba(72,187,120,0.06);border-left:3px solid #48BB78;border-radius:6px;padding:12px 14px;">
-        <div style="font-size:9px;font-weight:700;letter-spacing:1.5px;color:#276749;text-transform:uppercase;">Lo que gane</div>
-        <div style="font-size:13px;font-weight:700;color:#1E2740;margin-top:4px;">Velocidad de iteracion</div>
-        <div style="font-size:11px;color:#4A5568;margin-top:3px;line-height:1.5;">Cualquier cambio de logica es deploy en minutos, no ticket a Zapier.</div>
-      </div>
-    </div>
+  <div style="display:flex;gap:8px;align-items:stretch;margin-top:36px;">
+   <div style="flex:1;background:#fff;border-radius:8px;padding:14px 16px;border-left:3px solid #1E2740;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+    <div style="font-size:9px;font-weight:700;letter-spacing:1.5px;color:#718096;text-transform:uppercase;">Captura</div>
+    <div style="font-size:13px;font-weight:700;color:#1E2740;margin-top:4px;">3 Landings HTML</div>
+    <div style="font-size:11px;color:#4A5568;margin-top:4px;line-height:1.5;">GitHub Pages, sin cambios. POST directo al Worker.</div>
+   </div>
+   <div style="align-self:center;font-size:18px;color:#48BB78;padding:0 4px;">&rarr;</div>
+   <div style="flex:1.4;background:#fff;border-radius:8px;padding:14px 16px;border-left:3px solid #48BB78;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+    <div style="font-size:9px;font-weight:700;letter-spacing:1.5px;color:#48BB78;text-transform:uppercase;">Backend &middot; Código propio</div>
+    <div style="font-size:13px;font-weight:700;color:#1E2740;margin-top:4px;">Cloudflare Worker <code style="background:rgba(72,187,120,0.1);padding:1px 5px;border-radius:3px;font-size:10px;">crm-plasencia</code></div>
+    <div style="font-size:11px;color:#4A5568;margin-top:4px;line-height:1.5;">33.7 KB. Endpoint <code style="font-size:10px;">/api/lead/:marca</code> con <code style="font-size:10px;">applyPayloadAliases()</code>, hashing PII server-side, log <code style="font-size:10px;">lead_intake_log</code>.</div>
+   </div>
+   <div style="align-self:center;font-size:18px;color:#48BB78;padding:0 4px;">&rarr;</div>
+   <div style="flex:1;background:#fff;border-radius:8px;padding:14px 16px;border-left:3px solid #ECC94B;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+    <div style="font-size:9px;font-weight:700;letter-spacing:1.5px;color:#718096;text-transform:uppercase;">Fuente única</div>
+    <div style="font-size:13px;font-weight:700;color:#1E2740;margin-top:4px;">D1 <code style="background:rgba(236,201,75,0.1);padding:1px 5px;border-radius:3px;font-size:10px;">crm-plasencia-db</code></div>
+    <div style="font-size:11px;color:#4A5568;margin-top:4px;line-height:1.5;">7 tablas: leads, pipeline, events, vendedores, sucursales, audit_log, lead_intake_log.</div>
+   </div>
   </div>
-  <div class="slide-footer">Motor de Atribucion MVP &middot; 10/15</div>
+
+  <div style="display:flex;gap:8px;align-items:stretch;margin-top:14px;">
+   <div style="flex:1;"></div>
+   <div style="flex:1.4;display:flex;gap:8px;justify-content:center;">
+    <div style="flex:1;background:#fff;border-radius:8px;padding:12px 14px;border-left:3px solid #4299E1;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+     <div style="font-size:9px;font-weight:700;letter-spacing:1.5px;color:#718096;text-transform:uppercase;">Server-side &middot; Paralelo</div>
+     <div style="font-size:12px;font-weight:700;color:#1E2740;margin-top:3px;">Meta CAPI &middot; 3 pixels</div>
+     <div style="font-size:10px;color:#4A5568;margin-top:3px;">Dedup automático Pixel↔CAPI via <code style="font-size:9px;">event_id</code>.</div>
+    </div>
+    <div style="flex:1;background:#fff;border-radius:8px;padding:12px 14px;border-left:3px solid #4299E1;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+     <div style="font-size:9px;font-weight:700;letter-spacing:1.5px;color:#718096;text-transform:uppercase;">Server-side &middot; Paralelo</div>
+     <div style="font-size:12px;font-weight:700;color:#1E2740;margin-top:3px;">GA4 MP &middot; 3 props</div>
+     <div style="font-size:10px;color:#4A5568;margin-top:3px;">Eventos enriquecidos sin tocar landings.</div>
+    </div>
+   </div>
+   <div style="flex:1;"></div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-top:24px;">
+   <div class="card--pill-green" style="background:rgba(72,187,120,0.06);border-left:3px solid #48BB78;border-radius:6px;padding:12px 14px;">
+    <div style="font-size:9px;font-weight:700;letter-spacing:1.5px;color:#276749;text-transform:uppercase;">Lo que gane</div>
+    <div style="font-size:13px;font-weight:700;color:#1E2740;margin-top:4px;">Auditabilidad total</div>
+    <div style="font-size:11px;color:#4A5568;margin-top:3px;line-height:1.5;">Cada submit deja rastro raw en <code style="font-size:10px;">lead_intake_log</code> incluso si el handler falla.</div>
+   </div>
+   <div class="card--pill-green" style="background:rgba(72,187,120,0.06);border-left:3px solid #48BB78;border-radius:6px;padding:12px 14px;">
+    <div style="font-size:9px;font-weight:700;letter-spacing:1.5px;color:#276749;text-transform:uppercase;">Lo que gane</div>
+    <div style="font-size:13px;font-weight:700;color:#1E2740;margin-top:4px;">$0 USD/mes</div>
+    <div style="font-size:11px;color:#4A5568;margin-top:3px;line-height:1.5;">Free tier Cloudflare Workers + D1. Ahorro ~$3K USD/año vs v1.</div>
+   </div>
+   <div class="card--pill-green" style="background:rgba(72,187,120,0.06);border-left:3px solid #48BB78;border-radius:6px;padding:12px 14px;">
+    <div style="font-size:9px;font-weight:700;letter-spacing:1.5px;color:#276749;text-transform:uppercase;">Lo que gane</div>
+    <div style="font-size:13px;font-weight:700;color:#1E2740;margin-top:4px;">Velocidad de iteración</div>
+    <div style="font-size:11px;color:#4A5568;margin-top:3px;line-height:1.5;">Cualquier cambio de lógica es deploy en minutos, no ticket a Zapier.</div>
+   </div>
+  </div>
+ </div>
+ <div class="slide-footer">Motor de Atribución MVP &middot; 10/15</div>
 </section>
 
 <!-- ════════════════════════════════════════════════════
-     SLIDE 11 - NUMEROS HOY
-     ════════════════════════════════════════════════════ -->
+   SLIDE 11 - NUMEROS HOY
+   ════════════════════════════════════════════════════ -->
 <section class="slide slide--dark">
-  <div class="slide-label">10 / Numeros reales al dia 11</div>
-  <img src="../assets/logos/LOGO-GP-Blanco.png" class="logo-corner logo-w"><img src="../assets/logos/Logo-GP-Negro.png" class="logo-corner logo-d">
-  <div class="pad">
-    <div class="t-label t-gold" style="margin-bottom:6px;">Estado al 25 abril (corte verificado en D1)</div>
-    <div class="t-title t-white" style="max-width:1080px;">Lo que el sistema esta produciendo, sin filtros &mdash; incluyendo lo que no esta funcionando.</div>
+ <div class="slide-label">10 / Números reales al día 11</div>
+ <img src="../assets/logos/LOGO-GP-Blanco.png" class="logo-corner logo-w"><img src="../assets/logos/Logo-GP-Negro.png" class="logo-corner logo-d">
+ <div class="pad">
+  <div class="t-label t-gold" style="margin-bottom:6px;">Estado al 25 abril (corte verificado en D1)</div>
+  <div class="t-title t-white" style="max-width:1080px;">Lo que el sistema está produciendo, sin filtros &mdash; incluyendo lo que no está funcionando.</div>
 
-    <div style="display:flex;gap:32px;margin-top:30px;">
-      <div style="flex:1.3;">
-        <div class="t-label" style="color:#A0AEC0;margin-bottom:10px;">Pipeline activo por marca</div>
-        <table class="t-pipe">
-          <thead>
-            <tr><th>Marca</th><th class="num">Cita Agendada</th><th class="num">Visita</th><th class="num">Perdida</th><th class="num">Total</th></tr>
-          </thead>
-          <tbody>
-            <tr><td><strong style="color:#fff;">Seminuevos</strong></td><td class="num">9</td><td class="num">0</td><td class="num">3</td><td class="num"><strong>12</strong></td></tr>
-            <tr><td><strong style="color:#fff;">Hyundai</strong></td><td class="num">3</td><td class="num">1</td><td class="num">0</td><td class="num"><strong>4</strong></td></tr>
-            <tr><td><strong style="color:#fff;">Stellantis</strong></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num"><strong style="color:#FC8181;">0</strong></td></tr>
-            <tr class="tot"><td>Total piloto</td><td class="num">12</td><td class="num">1</td><td class="num">3</td><td class="num">16</td></tr>
-          </tbody>
-        </table>
-        <div style="margin-top:14px;font-size:11px;color:#FC8181;line-height:1.5;font-style:italic;">Stellantis 0 leads desde el cutover. Honestidad: no es un dato bonito, es el dato. Estoy diagnosticando si campanas estan activas o tracking link roto.</div>
-      </div>
-      <div style="flex:1;display:flex;flex-direction:column;gap:10px;">
-        <div class="card--dark">
-          <div style="font-size:9px;font-weight:700;letter-spacing:1.5px;color:#ECC94B;text-transform:uppercase;">Total leads en D1</div>
-          <div style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:36px;color:#fff;line-height:1;margin-top:4px;">30</div>
-          <div style="font-size:10px;color:#CBD5E0;margin-top:4px;">Leads reales (16-25 abril). Match perfecto CAPI ↔ GA4 MP ↔ D1: 100%.</div>
-        </div>
-        <div class="card--dark">
-          <div style="font-size:9px;font-weight:700;letter-spacing:1.5px;color:#ECC94B;text-transform:uppercase;">Budget medios</div>
-          <div style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:36px;color:#fff;line-height:1;margin-top:4px;">$90K</div>
-          <div style="font-size:10px;color:#CBD5E0;margin-top:4px;">MXN/mes &middot; $30K por marca &middot; ejecutado en Meta Ads.</div>
-        </div>
-        <div class="card--dark">
-          <div style="font-size:9px;font-weight:700;letter-spacing:1.5px;color:#ECC94B;text-transform:uppercase;">Infraestructura</div>
-          <div style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:36px;color:#fff;line-height:1;margin-top:4px;">$0</div>
-          <div style="font-size:10px;color:#CBD5E0;margin-top:4px;">USD/mes &middot; Worker version <code style="font-size:9px;">53516374...</code>, deploy 26 abril.</div>
-        </div>
-      </div>
+  <div style="display:flex;gap:32px;margin-top:30px;">
+   <div style="flex:1.3;">
+    <div class="t-label" style="color:#A0AEC0;margin-bottom:10px;">Pipeline activo por marca</div>
+    <table class="t-pipe">
+     <thead>
+      <tr><th>Marca</th><th class="num">Cita Agendada</th><th class="num">Visita</th><th class="num">Perdida</th><th class="num">Total</th></tr>
+     </thead>
+     <tbody>
+      <tr><td><strong style="color:#fff;">Seminuevos</strong></td><td class="num">9</td><td class="num">0</td><td class="num">3</td><td class="num"><strong>12</strong></td></tr>
+      <tr><td><strong style="color:#fff;">Hyundai</strong></td><td class="num">3</td><td class="num">1</td><td class="num">0</td><td class="num"><strong>4</strong></td></tr>
+      <tr><td><strong style="color:#fff;">Stellantis</strong></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num"><strong style="color:#FC8181;">0</strong></td></tr>
+      <tr class="tot"><td>Total piloto</td><td class="num">12</td><td class="num">1</td><td class="num">3</td><td class="num">16</td></tr>
+     </tbody>
+    </table>
+    <div style="margin-top:14px;font-size:11px;color:#FC8181;line-height:1.5;font-style:italic;">Stellantis 0 leads desde el cutover. Honestidad: no es un dato bonito, es el dato. Estoy diagnosticando si campañas están activas o tracking link roto.</div>
+   </div>
+   <div style="flex:1;display:flex;flex-direction:column;gap:10px;">
+    <div class="card--dark">
+     <div style="font-size:9px;font-weight:700;letter-spacing:1.5px;color:#ECC94B;text-transform:uppercase;">Total leads en D1</div>
+     <div style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:36px;color:#fff;line-height:1;margin-top:4px;">30</div>
+     <div style="font-size:10px;color:#CBD5E0;margin-top:4px;">Leads reales (16-25 abril). Match perfecto CAPI ↔ GA4 MP ↔ D1: 100%.</div>
     </div>
+    <div class="card--dark">
+     <div style="font-size:9px;font-weight:700;letter-spacing:1.5px;color:#ECC94B;text-transform:uppercase;">Budget medios</div>
+     <div style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:36px;color:#fff;line-height:1;margin-top:4px;">$90K</div>
+     <div style="font-size:10px;color:#CBD5E0;margin-top:4px;">MXN/mes &middot; $30K por marca &middot; ejecutado en Meta Ads.</div>
+    </div>
+    <div class="card--dark">
+     <div style="font-size:9px;font-weight:700;letter-spacing:1.5px;color:#ECC94B;text-transform:uppercase;">Infraestructura</div>
+     <div style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:36px;color:#fff;line-height:1;margin-top:4px;">$0</div>
+     <div style="font-size:10px;color:#CBD5E0;margin-top:4px;">USD/mes &middot; Worker versión <code style="font-size:9px;">53516374...</code>, deploy 26 abril.</div>
+    </div>
+   </div>
   </div>
-  <div class="slide-footer">Motor de Atribucion MVP &middot; 11/15</div>
+ </div>
+ <div class="slide-footer">Motor de Atribución MVP &middot; 11/15</div>
 </section>
 
 <!-- ════════════════════════════════════════════════════
-     SLIDE 12 - QUE APRENDI DEL GRUPO
-     ════════════════════════════════════════════════════ -->
+   SLIDE 12 - QUE APRENDI DEL GRUPO
+   ════════════════════════════════════════════════════ -->
 <section class="slide slide--light">
-  <div class="slide-label">11 / Que aprendi corriendo el piloto</div>
-  <img src="../assets/logos/LOGO-GP-Blanco.png" class="logo-corner logo-w"><img src="../assets/logos/Logo-GP-Negro.png" class="logo-corner logo-d">
-  <div class="pad">
-    <div class="t-label t-red" style="margin-bottom:6px;">3 cosas que solo se ven cuando el sistema corre en produccion</div>
-    <div class="t-title" style="max-width:1080px;color:#2D3748;">No son hipotesis &mdash; son observaciones de ver el embudo real durante 11 dias.</div>
+ <div class="slide-label">11 / Que aprendí corriendo el piloto</div>
+ <img src="../assets/logos/LOGO-GP-Blanco.png" class="logo-corner logo-w"><img src="../assets/logos/Logo-GP-Negro.png" class="logo-corner logo-d">
+ <div class="pad">
+  <div class="t-label t-red" style="margin-bottom:6px;">3 cosas que solo se ven cuando el sistema corre en producción</div>
+  <div class="t-title" style="max-width:1080px;color:#2D3748;">No son hipótesis &mdash; son observaciones de ver el embudo real durante 11 días.</div>
 
-    <div style="display:flex;gap:18px;margin-top:36px;">
-      <div class="insight-card" style="flex:1;">
-        <div class="num">1</div>
-        <div class="what">El embudo del grupo no estaba estandarizado</div>
-        <div class="desc">Cada marca tenia su propia idea de "etapa" en el pipeline. Tuve que construir un glosario consensuado: <strong>Cita Agendada → Visita Realizada → Negociacion → Ganada / Perdida</strong>. Sin esto, comparar marcas era imposible.</div>
-      </div>
-      <div class="insight-card" style="flex:1;">
-        <div class="num">2</div>
-        <div class="what">Vendedores en piso sin visibilidad de leads digitales</div>
-        <div class="desc">El kanban del CRM les llego como herramienta nueva. El cambio de habito (revisar leads digitales antes de la cita, no solo walk-ins) toma tiempo &mdash; <strong>el software es la parte facil</strong>.</div>
-      </div>
-      <div class="insight-card" style="flex:1;">
-        <div class="num">3</div>
-        <div class="what">Las agencias optimizaban con datos sub-medidos</div>
-        <div class="desc">Sin server-side conversions (CAPI), ~40% de los eventos no llegaban a Meta. Despues de v2, las agencias optimizan con datos reales. <strong>Mismo gasto, mejor decision algoritmica.</strong></div>
-      </div>
-    </div>
+  <div style="display:flex;gap:18px;margin-top:36px;">
+   <div class="insight-card" style="flex:1;">
+    <div class="num">1</div>
+    <div class="what">El embudo del grupo no estaba estandarizado</div>
+    <div class="desc">Cada marca tenía su propia idea de "etapa" en el pipeline. Tuve que construir un glosario consensuado: <strong>Cita Agendada → Visita Realizada → Negociación → Ganada / Perdida</strong>. Sin esto, comparar marcas era imposible.</div>
+   </div>
+   <div class="insight-card" style="flex:1;">
+    <div class="num">2</div>
+    <div class="what">Vendedores en piso sin visibilidad de leads digitales</div>
+    <div class="desc">El kanban del CRM les llegó como herramienta nueva. El cambio de hábito (revisar leads digitales antes de la cita, no solo walk-ins) toma tiempo &mdash; <strong>el software es la parte fácil</strong>.</div>
+   </div>
+   <div class="insight-card" style="flex:1;">
+    <div class="num">3</div>
+    <div class="what">Las agencias optimizaban con datos sub-medidos</div>
+    <div class="desc">Sin server-side conversions (CAPI), ~40% de los eventos no llegaban a Meta. Después de v2, las agencias optimizan con datos reales. <strong>Mismo gasto, mejor decisión algorítmica.</strong></div>
+   </div>
   </div>
-  <div class="slide-footer">Motor de Atribucion MVP &middot; 12/15</div>
+ </div>
+ <div class="slide-footer">Motor de Atribución MVP &middot; 12/15</div>
 </section>
 
 <!-- ════════════════════════════════════════════════════
-     SLIDE 13 - HILOS ABIERTOS
-     ════════════════════════════════════════════════════ -->
+   SLIDE 13 - HILOS ABIERTOS
+   ════════════════════════════════════════════════════ -->
 <section class="slide slide--light">
-  <div class="slide-label">12 / Hilos abiertos honestos</div>
-  <img src="../assets/logos/LOGO-GP-Blanco.png" class="logo-corner logo-w"><img src="../assets/logos/Logo-GP-Negro.png" class="logo-corner logo-d">
-  <div class="pad">
-    <div class="t-label t-red" style="margin-bottom:6px;">Lo que aun no esta resuelto</div>
-    <div class="t-title" style="max-width:1080px;color:#2D3748;">No traigo el reporte limpio &mdash; traigo la lista honesta de lo que falta. Los siguientes 5 dias.</div>
+ <div class="slide-label">12 / Hilos abiertos honestos</div>
+ <img src="../assets/logos/LOGO-GP-Blanco.png" class="logo-corner logo-w"><img src="../assets/logos/Logo-GP-Negro.png" class="logo-corner logo-d">
+ <div class="pad">
+  <div class="t-label t-red" style="margin-bottom:6px;">Lo que aún no está resuelto</div>
+  <div class="t-title" style="max-width:1080px;color:#2D3748;">No traigo el reporte limpio &mdash; traigo la lista honesta de lo que falta. Los siguientes 5 días.</div>
 
-    <div style="background:#fff;border-radius:10px;margin-top:24px;box-shadow:0 1px 3px rgba(0,0,0,0.06);overflow:hidden;">
-      <div class="thread-row">
-        <div class="n">1</div>
-        <div style="flex:1;">
-          <div class="what">Stellantis: 0 leads desde el cutover</div>
-          <div class="desc">Sin confirmar si campanas estan activas o si hay break en el tracking link. Diagnostico en curso.</div>
-        </div>
-      </div>
-      <div class="thread-row">
-        <div class="n">2</div>
-        <div style="flex:1;">
-          <div class="what">Parametros Meta (<code style="font-size:11px;background:#F7FAFC;padding:1px 5px;border-radius:3px;">ad_id</code>, <code style="font-size:11px;background:#F7FAFC;padding:1px 5px;border-radius:3px;">placement</code>) llegan vacios</div>
-          <div class="desc">Falta configurar URL parameter template en Meta Ads Manager. Sin esto, no se puede reportar performance por anuncio individual.</div>
-        </div>
-      </div>
-      <div class="thread-row">
-        <div class="n">3</div>
-        <div style="flex:1;">
-          <div class="what">3 leads del fin de semana con <code style="font-size:11px;background:#F7FAFC;padding:1px 5px;border-radius:3px;">value: 0</code> en CAPI</div>
-          <div class="desc">Bug de aliases ya corregido (<code style="font-size:11px;background:#F7FAFC;padding:1px 5px;border-radius:3px;">applyPayloadAliases()</code>). Los 3 leads no son recuperables por dedup &mdash; el resto si.</div>
-        </div>
-      </div>
-      <div class="thread-row">
-        <div class="n">4</div>
-        <div style="flex:1;">
-          <div class="what">3 citas SEM del fin de semana sin vendedor asignado</div>
-          <div class="desc">Asignacion automatica pendiente. Mientras, Jose Reyes / Flor Alcaraz deben tomarlos manualmente.</div>
-        </div>
-      </div>
-      <div class="thread-row">
-        <div class="n">5</div>
-        <div style="flex:1;">
-          <div class="what">Borrado definitivo de la base Airtable</div>
-          <div class="desc">Apagada y desconectada el 25 abril, pero la base aun existe (residual). Borrado pendiente como housekeeping.</div>
-        </div>
-      </div>
+  <div style="background:#fff;border-radius:10px;margin-top:24px;box-shadow:0 1px 3px rgba(0,0,0,0.06);overflow:hidden;">
+   <div class="thread-row">
+    <div class="n">1</div>
+    <div style="flex:1;">
+     <div class="what">Stellantis: 0 leads desde el cutover</div>
+     <div class="desc">Sin confirmar si campañas están activas o si hay break en el tracking link. Diagnóstico en curso.</div>
     </div>
+   </div>
+   <div class="thread-row">
+    <div class="n">2</div>
+    <div style="flex:1;">
+     <div class="what">Parámetros Meta (<code style="font-size:11px;background:#F7FAFC;padding:1px 5px;border-radius:3px;">ad_id</code>, <code style="font-size:11px;background:#F7FAFC;padding:1px 5px;border-radius:3px;">placement</code>) llegan vacíos</div>
+     <div class="desc">Falta configurar URL parameter template en Meta Ads Manager. Sin esto, no se puede reportar performance por anuncio individual.</div>
+    </div>
+   </div>
+   <div class="thread-row">
+    <div class="n">3</div>
+    <div style="flex:1;">
+     <div class="what">3 leads del fin de semana con <code style="font-size:11px;background:#F7FAFC;padding:1px 5px;border-radius:3px;">value: 0</code> en CAPI</div>
+     <div class="desc">Bug de aliases ya corregido (<code style="font-size:11px;background:#F7FAFC;padding:1px 5px;border-radius:3px;">applyPayloadAliases()</code>). Los 3 leads no son recuperables por dedup &mdash; el resto si.</div>
+    </div>
+   </div>
+   <div class="thread-row">
+    <div class="n">4</div>
+    <div style="flex:1;">
+     <div class="what">3 citas SEM del fin de semana sin vendedor asignado</div>
+     <div class="desc">Asignación automática pendiente. Mientras, Jose Reyes / Flor Alcaraz deben tomarlos manualmente.</div>
+    </div>
+   </div>
+   <div class="thread-row">
+    <div class="n">5</div>
+    <div style="flex:1;">
+     <div class="what">Borrado definitivo de la base Airtable</div>
+     <div class="desc">Apagada y desconectada el 25 abril, pero la base aun existe (residual). Borrado pendiente como housekeeping.</div>
+    </div>
+   </div>
   </div>
-  <div class="slide-footer">Motor de Atribucion MVP &middot; 13/15</div>
+ </div>
+ <div class="slide-footer">Motor de Atribución MVP &middot; 13/15</div>
 </section>
 
 <!-- ════════════════════════════════════════════════════
-     SLIDE 14 - LO QUE PIDO
-     ════════════════════════════════════════════════════ -->
+   SLIDE 14 - LO QUE PIDO
+   ════════════════════════════════════════════════════ -->
 <section class="slide slide--darker">
-  <div class="slide-label">13 / Lo que pido</div>
-  <img src="../assets/logos/LOGO-GP-Blanco.png" class="logo-corner logo-w"><img src="../assets/logos/Logo-GP-Negro.png" class="logo-corner logo-d">
-  <div class="pad-lg">
-    <div class="t-label t-gold" style="margin-bottom:14px;">Para continuar y consolidar el piloto</div>
-    <div class="t-display" style="font-size:34px;color:#fff;line-height:1.15;letter-spacing:-0.4px;font-weight:700;max-width:1080px;">
-      3 decisiones puntuales del Consejo &mdash; ninguna requiere presupuesto extraordinario hoy.
-    </div>
-
-    <div style="display:flex;gap:18px;margin-top:40px;">
-      <div class="ask-card">
-        <div class="num-ask">1</div>
-        <div class="decision">Continuidad operativa del piloto</div>
-        <div class="detail">Mantener el budget actual ($90K MXN/mes en Meta + $0 en infra) y los 3 dominios activos por los proximos 3 meses para consolidar metricas y cerrar hilos abiertos.</div>
-      </div>
-      <div class="ask-card">
-        <div class="num-ask">2</div>
-        <div class="decision">Visibilidad estructural ante Consejo</div>
-        <div class="detail">Acceso trimestral al Consejo para reportar status del piloto. Institucionalizar el foro &mdash; no como concesion, sino como mecanismo permanente de gobernanza.</div>
-      </div>
-      <div class="ask-card">
-        <div class="num-ask">3</div>
-        <div class="decision">Aprobacion preliminar para fase 2 del piloto</div>
-        <div class="detail">Ampliar de 3 a 6 marcas + agregar Google Ads + TikTok Pixel server-side. Presupuesto detallado a presentar el proximo trimestre con base en metricas consolidadas de fase 1.</div>
-      </div>
-    </div>
-
-    <div style="margin-top:36px;text-align:center;font-size:13px;color:#A0AEC0;line-height:1.6;font-style:italic;">"Lo que pido aqui es minimo &mdash; continuidad, visibilidad, y derecho a proponer mas. La vision completa de a donde puede escalar esto, viene en la siguiente parte."</div>
+ <div class="slide-label">13 / Lo que pido</div>
+ <img src="../assets/logos/LOGO-GP-Blanco.png" class="logo-corner logo-w"><img src="../assets/logos/Logo-GP-Negro.png" class="logo-corner logo-d">
+ <div class="pad-lg">
+  <div class="t-label t-gold" style="margin-bottom:14px;">Para continuar y consolidar el piloto</div>
+  <div class="t-display" style="font-size:34px;color:#fff;line-height:1.15;letter-spacing:-0.4px;font-weight:700;max-width:1080px;">
+   3 decisiones puntuales del Consejo &mdash; ninguna requiere presupuesto extraordinario hoy.
   </div>
-  <div class="slide-footer">Motor de Atribucion MVP &middot; 14/15</div>
+
+  <div style="display:flex;gap:18px;margin-top:40px;">
+   <div class="ask-card">
+    <div class="num-ask">1</div>
+    <div class="decision">Continuidad operativa del piloto</div>
+    <div class="detail">Mantener el budget actual ($90K MXN/mes en Meta + $0 en infra) y los 3 dominios activos por los próximos 3 meses para consolidar métricas y cerrar hilos abiertos.</div>
+   </div>
+   <div class="ask-card">
+    <div class="num-ask">2</div>
+    <div class="decision">Visibilidad estructural ante Consejo</div>
+    <div class="detail">Acceso trimestral al Consejo para reportar status del piloto. Institucionalizar el foro &mdash; no como concesión, sino como mecanismo permanente de gobernanza.</div>
+   </div>
+   <div class="ask-card">
+    <div class="num-ask">3</div>
+    <div class="decision">Aprobación preliminar para fase 2 del piloto</div>
+    <div class="detail">Ampliar de 3 a 6 marcas + agregar Google Ads + TikTok Pixel server-side. Presupuesto detallado a presentar el próximo trimestre con base en métricas consolidadas de fase 1.</div>
+   </div>
+  </div>
+
+  <div style="margin-top:36px;text-align:center;font-size:13px;color:#A0AEC0;line-height:1.6;font-style:italic;">"Lo que pido aquí es mínimo &mdash; continuidad, visibilidad, y derecho a proponer más. La visión completa de a donde puede escalar esto, viene en la siguiente parte."</div>
+ </div>
+ <div class="slide-footer">Motor de Atribución MVP &middot; 14/15</div>
 </section>
 
 <!-- ════════════════════════════════════════════════════
-     SLIDE 15 - CIERRE
-     ════════════════════════════════════════════════════ -->
+   SLIDE 15 - CIERRE
+   ════════════════════════════════════════════════════ -->
 <section class="slide slide--darker">
-  <div class="slide-label">14 / Cierre</div>
-  <img src="../assets/logos/LOGO-GP-Blanco.png" class="logo-corner logo-w"><img src="../assets/logos/Logo-GP-Negro.png" class="logo-corner logo-d">
-  <div class="pad-lg flex-col center-all" style="justify-content:center;">
-    <div class="t-label t-gold" style="margin-bottom:18px;">Resumen del piloto al dia 11</div>
-    <div class="t-display" style="font-size:36px;color:#fff;line-height:1.3;letter-spacing:-0.4px;font-weight:700;max-width:1000px;text-align:center;">
-      Lo que vieron es el <span style="color:#ECC94B;">piloto</span>:<br>una direccion de marketing corriendo<br>como <span style="color:#ECC94B;">producto</span>, no como gasto.
-    </div>
-
-    <div style="display:flex;gap:48px;margin-top:48px;justify-content:center;">
-      <div style="text-align:center;">
-        <div class="anchor-num" style="font-size:48px;">4</div>
-        <div class="anchor-label">Semanas hasta<br>el GO-LIVE</div>
-      </div>
-      <div style="text-align:center;">
-        <div class="anchor-num" style="font-size:48px;">2</div>
-        <div class="anchor-label">Arquitecturas<br>(v1 + v2 en vuelo)</div>
-      </div>
-      <div style="text-align:center;">
-        <div class="anchor-num" style="font-size:48px;">11</div>
-        <div class="anchor-label">Dias produciendo<br>citas reales</div>
-      </div>
-      <div style="text-align:center;">
-        <div class="anchor-num" style="font-size:48px;">1</div>
-        <div class="anchor-label">Persona<br>+ IA como apalancamiento</div>
-      </div>
-    </div>
-
-    <div style="margin-top:44px;font-size:14px;color:#A0AEC0;line-height:1.6;max-width:820px;text-align:center;font-style:italic;">"Cuando el Consejo lo considere oportuno y el piloto haya consolidado mas datos, traigo la siguiente fase: como esto se convierte en la ventaja competitiva estructural del grupo."</div>
-
-    <div style="margin-top:32px;font-size:12px;color:#ECC94B;letter-spacing:2px;text-transform:uppercase;font-weight:700;">Gracias &middot; Quedo a sus preguntas</div>
+ <div class="slide-label">14 / Cierre</div>
+ <img src="../assets/logos/LOGO-GP-Blanco.png" class="logo-corner logo-w"><img src="../assets/logos/Logo-GP-Negro.png" class="logo-corner logo-d">
+ <div class="pad-lg flex-col center-all" style="justify-content:center;">
+  <div class="t-label t-gold" style="margin-bottom:18px;">Resumen del piloto al día 11</div>
+  <div class="t-display" style="font-size:36px;color:#fff;line-height:1.3;letter-spacing:-0.4px;font-weight:700;max-width:1000px;text-align:center;">
+   Lo que vieron es el <span style="color:#ECC94B;">piloto</span>:<br>una dirección de marketing corriendo<br>como <span style="color:#ECC94B;">producto</span>, no como gasto.
   </div>
-  <div style="position:absolute;bottom:14px;left:0;right:0;text-align:center;">
-    <span style="opacity:0.35;font-size:9px;letter-spacing:2px;color:#ECC94B;text-transform:uppercase;">Chucho Porras &middot; Director de Marketing Corporativo &middot; Abril 2026</span>
+
+  <div style="display:flex;gap:48px;margin-top:48px;justify-content:center;">
+   <div style="text-align:center;">
+    <div class="anchor-num" style="font-size:48px;">4</div>
+    <div class="anchor-label">Semanas hasta<br>el GO-LIVE</div>
+   </div>
+   <div style="text-align:center;">
+    <div class="anchor-num" style="font-size:48px;">2</div>
+    <div class="anchor-label">Arquitecturas<br>(v1 + v2 en vuelo)</div>
+   </div>
+   <div style="text-align:center;">
+    <div class="anchor-num" style="font-size:48px;">11</div>
+    <div class="anchor-label">Días produciendo<br>citas reales</div>
+   </div>
+   <div style="text-align:center;">
+    <div class="anchor-num" style="font-size:48px;">1</div>
+    <div class="anchor-label">Persona<br>+ IA como apalancamiento</div>
+   </div>
   </div>
+
+  <div style="margin-top:44px;font-size:14px;color:#A0AEC0;line-height:1.6;max-width:820px;text-align:center;font-style:italic;">"Cuando el Consejo lo considere oportuno y el piloto haya consolidado más datos, traigo la siguiente fase: como esto se convierte en la ventaja competitiva estructural del grupo."</div>
+
+  <div style="margin-top:32px;font-size:12px;color:#ECC94B;letter-spacing:2px;text-transform:uppercase;font-weight:700;">Gracias &middot; Quedo a sus preguntas</div>
+ </div>
+ <div style="position:absolute;bottom:14px;left:0;right:0;text-align:center;">
+  <span style="opacity:0.35;font-size:9px;letter-spacing:2px;color:#ECC94B;text-transform:uppercase;">Chucho Porras &middot; Director de Marketing Corporativo &middot; Abril 2026</span>
+ </div>
 </section>
 
 </div>
 
 <script>
 (function() {
-  const slides = document.querySelectorAll('.slide');
-  const progress = document.getElementById('progress');
-  const counter = document.getElementById('counter');
-  const total = slides.length;
-  let current = 0;
+ const slides = document.querySelectorAll('.slide');
+ const progress = document.getElementById('progress');
+ const counter = document.getElementById('counter');
+ const total = slides.length;
+ let current = 0;
 
-  function fitSlide() {
-    const vw = window.innerWidth;
-    const vh = window.innerHeight;
-    const scale = Math.min(vw / 1280, vh / 720);
-    slides.forEach(s => {
-      s.style.transform = 'scale(' + scale + ')';
-      s.style.left = ((vw - 1280 * scale) / 2) + 'px';
-      s.style.top = ((vh - 720 * scale) / 2) + 'px';
-    });
-  }
-
-  function goTo(n) {
-    if (n < 0 || n >= total || n === current) return;
-    slides[current].classList.remove('active', 'enter');
-    current = n;
-    slides[current].classList.add('active', 'enter');
-    progress.style.width = ((current + 1) / total * 100) + '%';
-    counter.textContent = (current + 1) + ' / ' + total;
-    counter.style.color = slides[current].classList.contains('slide--light')
-      ? 'rgba(45,55,72,0.4)' : 'rgba(255,255,255,0.5)';
-  }
-
-  function next() { goTo(current + 1); }
-  function prev() { goTo(current - 1); }
-
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') { e.preventDefault(); next(); }
-    if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') { e.preventDefault(); prev(); }
-    if (e.key === 'Home') { e.preventDefault(); goTo(0); }
-    if (e.key === 'End') { e.preventDefault(); goTo(total - 1); }
+ function fitSlide() {
+  const vw = window.innerWidth;
+  const vh = window.innerHeight;
+  const scale = Math.min(vw / 1280, vh / 720);
+  slides.forEach(s => {
+   s.style.transform = 'scale(' + scale + ')';
+   s.style.left = ((vw - 1280 * scale) / 2) + 'px';
+   s.style.top = ((vh - 720 * scale) / 2) + 'px';
   });
+ }
 
-  let touchStartX = 0;
-  document.addEventListener('touchstart', function(e) { touchStartX = e.changedTouches[0].screenX; });
-  document.addEventListener('touchend', function(e) {
-    const diff = touchStartX - e.changedTouches[0].screenX;
-    if (Math.abs(diff) > 50) { diff > 0 ? next() : prev(); }
-  });
+ function goTo(n) {
+  if (n < 0 || n >= total || n === current) return;
+  slides[current].classList.remove('active', 'enter');
+  current = n;
+  slides[current].classList.add('active', 'enter');
+  progress.style.width = ((current + 1) / total * 100) + '%';
+  counter.textContent = (current + 1) + ' / ' + total;
+  counter.style.color = slides[current].classList.contains('slide--light')
+   ? 'rgba(45,55,72,0.4)' : 'rgba(255,255,255,0.5)';
+ }
 
-  document.addEventListener('click', function(e) {
-    if (e.target.closest('a, button, input')) return;
-    const x = e.clientX / window.innerWidth;
-    x < 0.33 ? prev() : next();
-  });
+ function next() { goTo(current + 1); }
+ function prev() { goTo(current - 1); }
 
-  fitSlide();
-  window.addEventListener('resize', fitSlide);
-  slides[0].classList.add('active');
-  progress.style.width = (1 / total * 100) + '%';
-  counter.textContent = '1 / ' + total;
-  counter.style.color = 'rgba(255,255,255,0.5)';
+ document.addEventListener('keydown', function(e) {
+  if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') { e.preventDefault(); next(); }
+  if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') { e.preventDefault(); prev(); }
+  if (e.key === 'Home') { e.preventDefault(); goTo(0); }
+  if (e.key === 'End') { e.preventDefault(); goTo(total - 1); }
+ });
+
+ let touchStartX = 0;
+ document.addEventListener('touchstart', function(e) { touchStartX = e.changedTouches[0].screenX; });
+ document.addEventListener('touchend', function(e) {
+  const diff = touchStartX - e.changedTouches[0].screenX;
+  if (Math.abs(diff) > 50) { diff > 0 ? next() : prev(); }
+ });
+
+ document.addEventListener('click', function(e) {
+  if (e.target.closest('a, button, input')) return;
+  const x = e.clientX / window.innerWidth;
+  x < 0.33 ? prev() : next();
+ });
+
+ fitSlide();
+ window.addEventListener('resize', fitSlide);
+ slides[0].classList.add('active');
+ progress.style.width = (1 / total * 100) + '%';
+ counter.textContent = '1 / ' + total;
+ counter.style.color = 'rgba(255,255,255,0.5)';
 })();
 </script>
 </body>
