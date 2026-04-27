@@ -19,6 +19,7 @@ echo ""
 # Decks HTML
 mkdir -p "$DEST/01-strategy"
 for f in \
+  "Motor-Atribucion-Piloto-Deck.html" \
   "Centro-Excelencia-MKT-Consejo-Deck.html" \
   "Motor-de-Atribucion-MVP-Playbook-Operativo.html" \
   "Driving-Growth-Deck.html" \
