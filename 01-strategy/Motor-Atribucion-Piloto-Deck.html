@@ -166,47 +166,24 @@ table.t-pipe tr.tot td { font-weight: 800; color: #ECC94B; border-top: 2px solid
 .slide--light table.t-pipe td { color: #2D3748; border-bottom: 1px solid #E2E8F0; }
 .slide--light table.t-pipe tr.tot td { color: #1E2740; border-top: 2px solid #C8102E; }
 
-.timeline-h { display: flex; gap: 0; margin-top: 28px; align-items: stretch; }
-.timeline-h .step { flex: 1; padding: 14px 16px; border-radius: 8px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.12); margin-right: 8px; position: relative; }
-.timeline-h .step:last-child { margin-right: 0; }
-.timeline-h .step.active { background: rgba(236,201,75,0.1); border-color: rgba(236,201,75,0.4); }
-.timeline-h .step.live { background: rgba(72,187,120,0.1); border-color: rgba(72,187,120,0.4); }
-.timeline-h .step .when { font-size: 9px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #ECC94B; }
-.timeline-h .step.live .when { color: #68D391; }
-.timeline-h .step .what { font-size: 12px; color: #E2E8F0; margin-top: 6px; line-height: 1.4; font-weight: 600; }
-.timeline-h .step .detail { font-size: 10px; color: #A0AEC0; margin-top: 4px; line-height: 1.4; }
-
-.arch-box {
- background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.12);
- border-radius: 8px; padding: 12px 14px; flex: 1; min-width: 0;
- display: flex; flex-direction: column; gap: 4px;
-}
-.arch-box .name { font-size: 11px; font-weight: 800; color: #fff; }
-.arch-box .role { font-size: 9px; color: #A0AEC0; line-height: 1.4; }
-.arch-box .where { font-size: 8px; color: #ECC94B; letter-spacing: 1px; text-transform: uppercase; margin-top: 4px; font-weight: 700; }
-.arch-box.retired { opacity: 0.4; text-decoration: line-through; }
-.arch-box.new { border-color: rgba(72,187,120,0.4); background: rgba(72,187,120,0.06); }
-
-.arrow { font-size: 18px; color: #ECC94B; align-self: center; padding: 0 4px; flex-shrink: 0; }
-
 .ask-card {
  background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.18);
  border-left: 3px solid #ECC94B;
- border-radius: 8px; padding: 18px 20px; flex: 1;
- display: flex; flex-direction: column; gap: 8px;
+ border-radius: 8px; padding: 16px 18px; flex: 1;
+ display: flex; flex-direction: column; gap: 6px;
 }
-.ask-card .num-ask { font-family: 'Montserrat',sans-serif; font-weight: 900; font-size: 28px; color: #ECC94B; line-height: 1; }
-.ask-card .decision { font-size: 14px; font-weight: 700; color: #fff; line-height: 1.35; }
-.ask-card .detail { font-size: 11px; color: #CBD5E0; line-height: 1.5; }
+.ask-card .num-ask { font-family: 'Montserrat',sans-serif; font-weight: 900; font-size: 24px; color: #ECC94B; line-height: 1; }
+.ask-card .decision { font-size: 13px; font-weight: 700; color: #fff; line-height: 1.3; }
+.ask-card .detail { font-size: 10px; color: #CBD5E0; line-height: 1.5; }
 
 .diag-card {
- background: #fff; border-radius: 10px; padding: 20px; border-top: 3px solid #C8102E;
+ background: #fff; border-radius: 10px; padding: 18px; border-top: 3px solid #C8102E;
  display: flex; flex-direction: column; gap: 6px;
  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
 }
-.diag-card .stat { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 28px; color: #1E2740; line-height: 1.1; letter-spacing: -0.5px; }
+.diag-card .stat { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 26px; color: #1E2740; line-height: 1.1; letter-spacing: -0.5px; }
 .diag-card .label { font-size: 10px; font-weight: 700; letter-spacing: 2px; color: #718096; text-transform: uppercase; }
-.diag-card .desc { font-size: 12px; color: #4A5568; line-height: 1.5; margin-top: 4px; }
+.diag-card .desc { font-size: 11px; color: #4A5568; line-height: 1.5; margin-top: 4px; }
 
 .lim-card {
  background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.14);
@@ -219,23 +196,39 @@ table.t-pipe tr.tot td { font-weight: 800; color: #ECC94B; border-top: 2px solid
 .lim-card .desc { font-size: 11px; color: #CBD5E0; line-height: 1.5; }
 
 .insight-card {
- background: #fff; border-radius: 10px; padding: 20px;
+ background: #fff; border-radius: 10px; padding: 18px;
  border-left: 4px solid #4299E1;
  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
 }
-.insight-card .num { font-family: 'Montserrat',sans-serif; font-weight: 900; font-size: 24px; color: #4299E1; line-height: 1; }
-.insight-card .what { font-size: 14px; font-weight: 700; color: #1E2740; line-height: 1.3; margin-top: 6px; }
-.insight-card .desc { font-size: 12px; color: #4A5568; line-height: 1.55; margin-top: 6px; }
+.insight-card .num { font-family: 'Montserrat',sans-serif; font-weight: 900; font-size: 22px; color: #4299E1; line-height: 1; }
+.insight-card .what { font-size: 13px; font-weight: 700; color: #1E2740; line-height: 1.3; margin-top: 6px; }
+.insight-card .desc { font-size: 11px; color: #4A5568; line-height: 1.55; margin-top: 6px; }
 
 .thread-row {
- display: flex; align-items: flex-start; gap: 14px;
- padding: 12px 14px;
+ display: flex; align-items: flex-start; gap: 12px;
+ padding: 10px 14px;
  border-bottom: 1px dashed rgba(45,55,72,0.15);
 }
 .thread-row:last-child { border-bottom: none; }
-.thread-row .n { font-family: 'Montserrat',sans-serif; font-weight: 800; font-size: 18px; color: #C8102E; line-height: 1; flex-shrink: 0; min-width: 24px; }
-.thread-row .what { font-size: 13px; font-weight: 700; color: #1E2740; line-height: 1.3; }
+.thread-row .n { font-family: 'Montserrat',sans-serif; font-weight: 800; font-size: 16px; color: #C8102E; line-height: 1; flex-shrink: 0; min-width: 22px; }
+.thread-row .what { font-size: 12px; font-weight: 700; color: #1E2740; line-height: 1.3; }
 .thread-row .desc { font-size: 11px; color: #4A5568; line-height: 1.5; margin-top: 3px; }
+
+.glossary {
+ background: rgba(66,153,225,0.08);
+ border-left: 3px solid #4299E1;
+ border-radius: 6px;
+ padding: 8px 12px;
+ font-size: 10px;
+ color: #4A5568;
+ line-height: 1.5;
+}
+.slide--dark .glossary, .slide--darker .glossary {
+ background: rgba(66,153,225,0.1);
+ color: #CBD5E0;
+}
+.glossary strong { color: #1E2740; font-weight: 800; }
+.slide--dark .glossary strong, .slide--darker .glossary strong { color: #63B3ED; }
 
 @media print {
  @page { size: 1280px 720px landscape; margin: 0; }
@@ -261,13 +254,13 @@ table.t-pipe tr.tot td { font-weight: 800; color: #ECC94B; border-top: 2px solid
   <img src="../assets/logos/LOGO-GP-Blanco.png" alt="Grupo Plasencia" style="height:80px;opacity:0.85;mix-blend-mode:screen;margin-bottom:8px;">
   <div style="text-align:center;">
    <div class="t-label t-gold" style="margin-bottom:14px;">Marketing Corporativo &middot; Reporte de piloto</div>
-   <div class="t-display" style="font-size:54px;line-height:1.05;color:#fff;letter-spacing:-1px;">Motor de Atribución <span style="color:#ECC94B;">MVP</span><br><span style="font-size:32px;font-weight:600;color:rgba(247,250,252,0.7);">Lo que construí en mis primeras semanas</span></div>
-   <div style="margin-top:22px;font-size:16px;font-weight:500;color:rgba(247,250,252,0.7);max-width:780px;line-height:1.5;">Reporte al Consejo Directivo: que encontré, que decidí, que construí, que aprendí y que está produciendo el piloto al día 11 post-arranque.</div>
+   <div class="t-display" style="font-size:54px;line-height:1.05;color:#fff;letter-spacing:-1px;">Motor de Atribución <span style="color:#ECC94B;">MVP</span><br><span style="font-size:30px;font-weight:600;color:rgba(247,250,252,0.7);">Lo que construí en mis primeras semanas</span></div>
+   <div style="margin-top:22px;font-size:16px;font-weight:500;color:rgba(247,250,252,0.7);max-width:780px;line-height:1.5;">Reporte al Consejo Directivo: qué encontré, qué decidí, qué construí, qué aprendí y qué está produciendo el piloto al día 11 post-arranque.</div>
   </div>
   <div class="divider-red" style="margin:14px auto 0;"></div>
   <div style="text-align:center;">
    <div style="font-size:13px;font-weight:700;letter-spacing:3px;color:#ECC94B;text-transform:uppercase;">Capítulo 1 &middot; El Piloto</div>
-   <div style="margin-top:6px;font-size:11px;color:rgba(247,250,252,0.4);letter-spacing:1.5px;">Marzo &ndash; Abril 2026 &middot; Chucho Porras, Director de Marketing Corporativo</div>
+   <div style="margin-top:6px;font-size:11px;color:rgba(247,250,252,0.4);letter-spacing:1.5px;">Marzo &ndash; Abril 2026 &middot; Jesús Pérez Porras, Director de Marketing Corporativo</div>
   </div>
  </div>
  <div style="position:absolute;bottom:14px;left:0;right:0;text-align:center;">
@@ -292,129 +285,156 @@ table.t-pipe tr.tot td { font-weight: 800; color: #ECC94B; border-top: 2px solid
    <div><div class="anchor-num">3</div><div class="anchor-label">Marcas activas<br>Sem &middot; Hyu &middot; STL</div></div>
    <div><div class="anchor-num">30</div><div class="anchor-label">Citas reales<br>en pipeline</div></div>
   </div>
+  <div style="margin-top:36px;font-size:13px;color:#A0AEC0;font-style:italic;text-align:center;max-width:880px;">"Operando a velocidad startup &mdash; el grupo puede ir a ese ritmo si así lo decide."</div>
  </div>
- <div class="slide-footer">Motor de Atribución MVP &middot; Reporte al Consejo &middot; Abril 2026 &middot; 2/15</div>
+ <div class="slide-footer">Motor de Atribución MVP &middot; Reporte al Consejo &middot; Abril 2026 &middot; 2/18</div>
 </section>
 
 <!-- ════════════════════════════════════════════════════
    SLIDE 3 - CUANDO ENTRE
    ════════════════════════════════════════════════════ -->
 <section class="slide slide--light">
- <div class="slide-label">02 / Cuando entré</div>
+ <div class="slide-label">02 / Cuándo entré</div>
  <img src="../assets/logos/LOGO-GP-Blanco.png" class="logo-corner logo-w"><img src="../assets/logos/Logo-GP-Negro.png" class="logo-corner logo-d">
  <div class="pad">
   <div class="t-label t-red" style="margin-bottom:6px;">Marzo 2026</div>
-  <div class="t-title" style="max-width:1080px;color:#2D3748;">Asumí la Dirección de Marketing Corporativo. El mandato: convertir el gasto de medios en pipeline medible.</div>
-  <div style="font-size:14px;color:#4A5568;line-height:1.6;margin-top:18px;max-width:1000px;">Las primeras semanas las dedique a entender el grupo desde adentro: como se compraban los medios, como se generaban los leads, como se reportaban los resultados, y donde estaba el dinero que más se invertia sin saber que estaba produciendo.</div>
+  <div class="t-title" style="max-width:1080px;color:#2D3748;">Asumí la Dirección de Marketing Corporativo. El mandato: convertir el gasto de medios en pipeline medible &mdash; sin equipo, sin presupuesto corporativo, sin manual.</div>
+  <div style="font-size:14px;color:#4A5568;line-height:1.6;margin-top:18px;max-width:1000px;">Las primeras semanas las dediqué a entender el grupo desde adentro: cómo se compraban los medios, cómo se generaban los leads, cómo se reportaban los resultados, y dónde estaba el dinero que más se invertía sin saber qué estaba produciendo.</div>
 
-  <div style="display:flex;gap:0;margin-top:36px;align-items:stretch;">
-   <div style="flex:1;background:#fff;border-radius:8px 0 0 8px;padding:18px 20px;border-left:4px solid #1E2740;">
+  <div style="display:flex;gap:0;margin-top:30px;align-items:stretch;">
+   <div style="flex:1;background:#fff;border-radius:8px 0 0 8px;padding:16px 18px;border-left:4px solid #1E2740;">
     <div style="font-size:9px;font-weight:700;letter-spacing:2px;color:#718096;text-transform:uppercase;">Semana 1-2</div>
     <div style="font-size:13px;font-weight:700;color:#1E2740;margin-top:6px;">Diagnóstico</div>
     <div style="font-size:11px;color:#4A5568;margin-top:4px;line-height:1.5;">Reuniones con cada marca, agencias, equipo de marketing, vendedores en piso.</div>
    </div>
-   <div style="flex:1;background:#fff;padding:18px 20px;border-left:4px solid #C8102E;">
+   <div style="flex:1;background:#fff;padding:16px 18px;border-left:4px solid #C8102E;">
     <div style="font-size:9px;font-weight:700;letter-spacing:2px;color:#718096;text-transform:uppercase;">Semana 2-3</div>
     <div style="font-size:13px;font-weight:700;color:#1E2740;margin-top:6px;">Decisión de alcance</div>
-    <div style="font-size:11px;color:#4A5568;margin-top:4px;line-height:1.5;">3 marcas piloto, MVP server-side, team-of-one + IA. Sin equipo nuevo todavia.</div>
+    <div style="font-size:11px;color:#4A5568;margin-top:4px;line-height:1.5;">3 marcas piloto. MVP server-side. Team-of-one + IA. Sin equipo nuevo.</div>
    </div>
-   <div style="flex:1;background:#fff;padding:18px 20px;border-left:4px solid #ECC94B;">
+   <div style="flex:1;background:#fff;padding:16px 18px;border-left:4px solid #ECC94B;">
     <div style="font-size:9px;font-weight:700;letter-spacing:2px;color:#718096;text-transform:uppercase;">Semana 3-4</div>
     <div style="font-size:13px;font-weight:700;color:#1E2740;margin-top:6px;">Construcción</div>
-    <div style="font-size:11px;color:#4A5568;margin-top:4px;line-height:1.5;">3 landings + Airtable + Zapier + Worker. Stack provisional, pensado para activar rápido.</div>
+    <div style="font-size:11px;color:#4A5568;margin-top:4px;line-height:1.5;">3 SPAs + Airtable + Zapier + Worker. Stack provisional para activar rápido.</div>
    </div>
-   <div style="flex:1;background:#fff;border-radius:0 8px 8px 0;padding:18px 20px;border-left:4px solid #48BB78;">
+   <div style="flex:1;background:#fff;border-radius:0 8px 8px 0;padding:16px 18px;border-left:4px solid #48BB78;">
     <div style="font-size:9px;font-weight:700;letter-spacing:2px;color:#718096;text-transform:uppercase;">16 abril 16:40</div>
     <div style="font-size:13px;font-weight:700;color:#1E2740;margin-top:6px;">GO-LIVE</div>
-    <div style="font-size:11px;color:#4A5568;margin-top:4px;line-height:1.5;">Trafico de prospeccion encendido. Primer lead real esa misma tarde.</div>
+    <div style="font-size:11px;color:#4A5568;margin-top:4px;line-height:1.5;">Tráfico de prospección encendido. Primer lead real esa misma tarde.</div>
    </div>
   </div>
+
+  <div style="margin-top:24px;background:rgba(200,16,46,0.04);border-left:3px solid #C8102E;border-radius:6px;padding:14px 18px;">
+   <div style="font-size:12px;color:#2D3748;line-height:1.6;"><strong>Punto de partida operativo:</strong> sin presupuesto corporativo asignado, sin equipo dedicado, sin acuerdos preexistentes con agencias. El mandato fue claro: <em>resultados en 90 días con los recursos que existan</em>.</div>
+  </div>
  </div>
- <div class="slide-footer">Motor de Atribución MVP &middot; 3/15</div>
+ <div class="slide-footer">Motor de Atribución MVP &middot; 3/18</div>
 </section>
 
 <!-- ════════════════════════════════════════════════════
    SLIDE 4 - LO QUE ENCONTRE
    ════════════════════════════════════════════════════ -->
 <section class="slide slide--light">
- <div class="slide-label">03 / Lo que encontre</div>
+ <div class="slide-label">03 / Lo que encontré</div>
  <img src="../assets/logos/LOGO-GP-Blanco.png" class="logo-corner logo-w"><img src="../assets/logos/Logo-GP-Negro.png" class="logo-corner logo-d">
  <div class="pad">
   <div class="t-label t-red" style="margin-bottom:6px;">Diagnóstico honesto</div>
-  <div class="t-title" style="max-width:1080px;color:#2D3748;">Encontré escala operativa enorme &mdash; y cero atribución entre el peso gastado y la cita en piso.</div>
+  <div class="t-title" style="max-width:1080px;color:#2D3748;">Escala operativa enorme &mdash; con tracking parcial, fragmentado y sin estándar.</div>
 
-  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;margin-top:32px;">
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:14px;margin-top:24px;">
    <div class="diag-card" style="border-top-color:#1E2740;">
-    <div class="label">Escala operativa</div>
-    <div class="stat">8 marcas + Sem.</div>
-    <div class="desc">42 concesiónarias en 10 estados &middot; ~60 personas en marketing &middot; cada marca con su propio equipo y agencias.</div>
+    <div class="label">Escala</div>
+    <div class="stat">8 marcas</div>
+    <div class="desc">+ Seminuevos &middot; 41 agencias en 10 estados &middot; 61 personas en MKT.</div>
    </div>
    <div class="diag-card">
-    <div class="label">Inversión en MKT</div>
-    <div class="stat">$100 MDP</div>
-    <div class="desc">Equivalente al <strong>0.78%</strong> de los ingresos 2025 ($12.8 MMDP). Ejecutado por agencias externas.</div>
+    <div class="label">Ventas 2025</div>
+    <div class="stat">$12,813 MDP</div>
+    <div class="desc">29,595 unidades. Crecimiento +9.5% YoY.</div>
    </div>
    <div class="diag-card" style="border-top-color:#ECC94B;">
-    <div class="label">Atribución lead-piso</div>
-    <div class="stat">0%</div>
-    <div class="desc">Cada agencia optimizaba con su propio Pixel. Nadie en el grupo podía decir cuanto cuesta una cita real.</div>
+    <div class="label">Inversión MKT</div>
+    <div class="stat">~$73 MDP</div>
+    <div class="desc"><strong>0.57%</strong> de ingresos. Benchmark industria: 5-10%.</div>
+   </div>
+   <div class="diag-card" style="border-top-color:#4299E1;">
+    <div class="label">Atribución a digital</div>
+    <div class="stat">~33%</div>
+    <div class="desc">~$4,228 MDP / ~9,800 unidades influidas. <strong>Pero tracking parcial, mal hecho.</strong></div>
    </div>
   </div>
 
-  <div style="margin-top:28px;background:rgba(200,16,46,0.04);border-left:3px solid #C8102E;border-radius:6px;padding:16px 20px;">
-   <div style="font-size:13px;color:#2D3748;line-height:1.6;"><strong>El síntoma resumido:</strong> el grupo invertia 100 millones de pesos al ano en medios, pero no podía conectar ni un solo peso con una cita en piso. Las agencias tampoco &mdash; cada una optimizaba ciega con la senal que su propio Pixel le devolvia, que en muchos casos era ~40% sub-medida (sin server-side conversions).</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px;">
+   <div style="background:rgba(200,16,46,0.04);border-left:3px solid #C8102E;border-radius:6px;padding:14px 18px;">
+    <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;color:#C8102E;text-transform:uppercase;margin-bottom:6px;">El síntoma</div>
+    <div style="font-size:12px;color:#2D3748;line-height:1.55;">El registro de leads vivía en Excel, sheets, CRMs distintos por marca (Salesforce, Karbot, Plasencia CX), 5+ agencias creativas. Sin centralización. Sin estándar. <strong>Cada quien registraba donde podía, cuando podía, donde quería.</strong></div>
+   </div>
+   <div style="background:rgba(200,16,46,0.04);border-left:3px solid #C8102E;border-radius:6px;padding:14px 18px;">
+    <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;color:#C8102E;text-transform:uppercase;margin-bottom:6px;">El costo invisible</div>
+    <div style="font-size:12px;color:#2D3748;line-height:1.55;">Sin server-side conversions, ~40% de eventos no llegaban a Meta/Google. Cada agencia optimizaba con su propio Pixel, ciega al resto del embudo. <strong>Resultado: el algoritmo busca curiosos, no compradores.</strong></div>
+   </div>
   </div>
  </div>
- <div class="slide-footer">Motor de Atribución MVP &middot; 4/15</div>
+ <div class="slide-footer">Motor de Atribución MVP &middot; 4/18</div>
 </section>
 
 <!-- ════════════════════════════════════════════════════
-   SLIDE 5 - LA DECISION
+   SLIDE 5 - LA DECISION (NO FUE ELECCION)
    ════════════════════════════════════════════════════ -->
 <section class="slide slide--dark">
- <div class="slide-label">04 / La decisión</div>
+ <div class="slide-label">04 / La decisión que NO fue elección</div>
  <img src="../assets/logos/LOGO-GP-Blanco.png" class="logo-corner logo-w"><img src="../assets/logos/Logo-GP-Negro.png" class="logo-corner logo-d">
  <div class="pad">
-  <div class="t-label t-gold" style="margin-bottom:6px;">Como decidí atacar el problema</div>
-  <div class="t-title t-white" style="max-width:1080px;">Empezar pequeño, rápido y barato &mdash; demostrar que funcióna, después escalar.</div>
+  <div class="t-label t-gold" style="margin-bottom:6px;">Mandato sin recursos</div>
+  <div class="t-title t-white" style="max-width:1080px;">No fue mi elección operar así &mdash; fue lo único posible. Me armé un <span style="color:#ECC94B;">hack/workaround</span> con lo que había: yo + Claude Code + presupuesto pedido a las marcas.</div>
 
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:32px;">
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:24px;">
    <div>
-    <div class="t-label" style="color:#FC8181;margin-bottom:14px;">Lo que decidí NO hacer</div>
-    <div class="flex-col gap-12">
-     <div style="display:flex;align-items:flex-start;"><span class="strike-x">&times;</span><div><div style="font-size:14px;font-weight:700;color:#fff;">Contratar equipo grande</div><div style="font-size:12px;color:#CBD5E0;margin-top:3px;line-height:1.5;">Caro, lento, riesgoso sin entender primero el problema real.</div></div></div>
-     <div style="display:flex;align-items:flex-start;"><span class="strike-x">&times;</span><div><div style="font-size:14px;font-weight:700;color:#fff;">Comprar suite enterprise</div><div style="font-size:12px;color:#CBD5E0;margin-top:3px;line-height:1.5;">Salesforce / HubSpot Enterprise: meses de implementación, contratos largos.</div></div></div>
-     <div style="display:flex;align-items:flex-start;"><span class="strike-x">&times;</span><div><div style="font-size:14px;font-weight:700;color:#fff;">Pedir presupuesto extra al Consejo</div><div style="font-size:12px;color:#CBD5E0;margin-top:3px;line-height:1.5;">Antes de demostrar resultado &mdash; la credibilidad se gana, no se solicita.</div></div></div>
+    <div class="t-label" style="color:#FC8181;margin-bottom:10px;">Lo que NO había</div>
+    <div class="flex-col gap-8">
+     <div style="display:flex;align-items:flex-start;"><span class="strike-x">&times;</span><div><div style="font-size:12px;font-weight:700;color:#fff;">Presupuesto corporativo MKT</div><div style="font-size:10px;color:#CBD5E0;margin-top:2px;line-height:1.4;">Cada agencia paga sus ads desde su propia razón social (directa o vía agencia de medios).</div></div></div>
+     <div style="display:flex;align-items:flex-start;"><span class="strike-x">&times;</span><div><div style="font-size:12px;font-weight:700;color:#fff;">Equipo dedicado</div><div style="font-size:10px;color:#CBD5E0;margin-top:2px;line-height:1.4;">Sin head de digital, sin tech lead, sin product designer asignado.</div></div></div>
+     <div style="display:flex;align-items:flex-start;"><span class="strike-x">&times;</span><div><div style="font-size:12px;font-weight:700;color:#fff;">Vehículo de central de medios</div><div style="font-size:10px;color:#CBD5E0;margin-top:2px;line-height:1.4;">Aún en construcción con Contraloría &mdash; ver Anexo del Resumen Ejecutivo.</div></div></div>
     </div>
    </div>
    <div>
-    <div class="t-label" style="color:#68D391;margin-bottom:14px;">Lo que decidí SI hacer</div>
-    <div class="flex-col gap-12">
-     <div style="display:flex;align-items:flex-start;"><span class="check-ok">&check;</span><div><div style="font-size:14px;font-weight:700;color:#fff;">Team-of-one + IA</div><div style="font-size:12px;color:#CBD5E0;margin-top:3px;line-height:1.5;">Yo solo + Claude Code + skills especializados. IA como multiplicador real, no demo.</div></div></div>
-     <div style="display:flex;align-items:flex-start;"><span class="check-ok">&check;</span><div><div style="font-size:14px;font-weight:700;color:#fff;">MVP de 3 marcas</div><div style="font-size:12px;color:#CBD5E0;margin-top:3px;line-height:1.5;">Seminuevos &middot; Hyundai &middot; Stellantis. Variedad máxima de escenarios para probar la hipótesis.</div></div></div>
-     <div style="display:flex;align-items:flex-start;"><span class="check-ok">&check;</span><div><div style="font-size:14px;font-weight:700;color:#fff;">Stack barato y rápido primero</div><div style="font-size:12px;color:#CBD5E0;margin-top:3px;line-height:1.5;">SaaS off-the-shelf para activar en 4 semanas. Ingenieria propia después si funcióna.</div></div></div>
+    <div class="t-label" style="color:#ECC94B;margin-bottom:10px;">Lo que tuve que hacer</div>
+    <div class="flex-col gap-8">
+     <div style="display:flex;align-items:flex-start;"><span class="check-ok">!</span><div><div style="font-size:12px;font-weight:700;color:#fff;">Pedir presupuesto a las marcas</div><div style="font-size:10px;color:#CBD5E0;margin-top:2px;line-height:1.4;">Negocié con directores y gerentes de Hyundai, Stellantis y Seminuevos para liberar 30% de su pauta digital al piloto.</div></div></div>
+     <div style="display:flex;align-items:flex-start;"><span class="check-ok">!</span><div><div style="font-size:12px;font-weight:700;color:#fff;">Usar agencia de medios existente</div><div style="font-size:10px;color:#CBD5E0;margin-top:2px;line-height:1.4;">Decisión con Contraloría: se reusó la agencia que ya operaba con Hyundai. No por elección ideal &mdash; por orden y trazabilidad fiscal.</div></div></div>
+     <div style="display:flex;align-items:flex-start;"><span class="check-ok">!</span><div><div style="font-size:12px;font-weight:700;color:#fff;">Team-of-one + IA</div><div style="font-size:10px;color:#CBD5E0;margin-top:2px;line-height:1.4;">Yo + Claude Code como apalancamiento real (no demo). Cero agencias, cero consultores, cero terceros.</div></div></div>
+    </div>
+   </div>
+   <div>
+    <div class="t-label" style="color:#68D391;margin-bottom:10px;">Lo que esto produjo</div>
+    <div class="flex-col gap-8" style="background:rgba(72,187,120,0.06);border-left:3px solid #48BB78;border-radius:6px;padding:14px 16px;">
+     <div style="font-size:14px;font-weight:800;color:#fff;line-height:1.3;">Time-to-market de startup</div>
+     <div style="font-size:11px;color:#CBD5E0;line-height:1.5;">Lo que en una agencia + consultoría tradicional toma <strong>3-6 meses</strong> (diseño, integración, deploy, testing), lo construí en <strong>4 semanas</strong>.</div>
+     <div style="font-size:11px;color:#CBD5E0;line-height:1.5;margin-top:4px;">Esa <strong>velocidad de iteración</strong> es la nueva ventaja competitiva del grupo &mdash; un diferenciador que muy pocos en la industria automotriz mexicana tienen hoy.</div>
     </div>
    </div>
   </div>
+
+  <div style="margin-top:18px;text-align:center;font-size:13px;color:#ECC94B;line-height:1.6;font-style:italic;">"La restricción se convirtió en ventaja injusta. La velocidad gracias a IA / Claude Code es la nueva competitividad &mdash; no en contra del grupo, sino del grupo hacia la industria."</div>
  </div>
- <div class="slide-footer">Motor de Atribución MVP &middot; 5/15</div>
+ <div class="slide-footer">Motor de Atribución MVP &middot; 5/18</div>
 </section>
 
 <!-- ════════════════════════════════════════════════════
-   SLIDE 6 - QUE CONSTRUI V1
+   SLIDE 6 - QUE CONSTRUI V1 (SPAs + CONTRALORIA)
    ════════════════════════════════════════════════════ -->
 <section class="slide slide--light">
- <div class="slide-label">05 / Que construi</div>
+ <div class="slide-label">05 / Qué construí (v1)</div>
  <img src="../assets/logos/LOGO-GP-Blanco.png" class="logo-corner logo-w"><img src="../assets/logos/Logo-GP-Negro.png" class="logo-corner logo-d">
  <div class="pad">
   <div class="t-label t-red" style="margin-bottom:6px;">Arquitectura v1 &middot; 16 abril GO-LIVE</div>
-  <div class="t-title" style="max-width:1080px;color:#2D3748;">Lo que armé en 4 semanas: un stack provisional, hecho con piezas off-the-shelf para llegar al GO-LIVE el 16 de abril.</div>
+  <div class="t-title" style="max-width:1080px;color:#2D3748;">3 SPAs + middleware off-the-shelf + Worker proxy. Provisional, hecho para activar &mdash; no para escalar.</div>
 
-  <div style="display:flex;gap:8px;align-items:stretch;margin-top:36px;">
+  <div style="display:flex;gap:6px;align-items:stretch;margin-top:28px;">
    <div style="flex:1;background:#fff;border-radius:8px;padding:14px 16px;border-left:3px solid #1E2740;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
     <div style="font-size:9px;font-weight:700;letter-spacing:1.5px;color:#718096;text-transform:uppercase;">Captura</div>
-    <div style="font-size:13px;font-weight:700;color:#1E2740;margin-top:4px;">3 Landings HTML</div>
-    <div style="font-size:11px;color:#4A5568;margin-top:4px;line-height:1.5;">Catalogo + form de cita por marca. Hosted en GitHub Pages.</div>
+    <div style="font-size:13px;font-weight:700;color:#1E2740;margin-top:4px;">3 SPAs</div>
+    <div style="font-size:11px;color:#4A5568;margin-top:4px;line-height:1.5;">Single Page Applications con catálogo dinámico, calculadora, formulario. No son páginas estáticas &mdash; son apps interactivas.</div>
    </div>
    <div style="align-self:center;font-size:18px;color:#C8102E;padding:0 4px;">&rarr;</div>
    <div style="flex:1;background:#fff;border-radius:8px;padding:14px 16px;border-left:3px solid #C8102E;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
@@ -426,62 +446,111 @@ table.t-pipe tr.tot td { font-weight: 800; color: #ECC94B; border-top: 2px solid
    <div style="flex:1;background:#fff;border-radius:8px;padding:14px 16px;border-left:3px solid #ECC94B;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
     <div style="font-size:9px;font-weight:700;letter-spacing:1.5px;color:#718096;text-transform:uppercase;">Storage</div>
     <div style="font-size:13px;font-weight:700;color:#1E2740;margin-top:4px;">Airtable &middot; 12 tablas</div>
-    <div style="font-size:11px;color:#4A5568;margin-top:4px;line-height:1.5;">Leads x3 + Pipeline x3 + Visitas x3 + Compras x3.</div>
+    <div style="font-size:11px;color:#4A5568;margin-top:4px;line-height:1.5;">Leads x3 + Pipeline x3 + Visitas x3 + Compras x3 (1 base por marca).</div>
    </div>
    <div style="align-self:center;font-size:18px;color:#C8102E;padding:0 4px;">&rarr;</div>
    <div style="flex:1;background:#fff;border-radius:8px;padding:14px 16px;border-left:3px solid #4299E1;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
     <div style="font-size:9px;font-weight:700;letter-spacing:1.5px;color:#718096;text-transform:uppercase;">Frontend CRM</div>
-    <div style="font-size:13px;font-weight:700;color:#1E2740;margin-top:4px;">Worker proxy + kanban</div>
+    <div style="font-size:13px;font-weight:700;color:#1E2740;margin-top:4px;">Worker + kanban</div>
     <div style="font-size:11px;color:#4A5568;margin-top:4px;line-height:1.5;">Cloudflare Worker leyendo Airtable, kanban HTML para vendedores.</div>
    </div>
   </div>
 
-  <div style="margin-top:36px;background:rgba(236,201,75,0.08);border-left:3px solid #ECC94B;border-radius:6px;padding:16px 20px;">
-   <div style="font-size:13px;color:#2D3748;line-height:1.6;"><strong>Razonamiento:</strong> elegí el stack más rápido posible para estar vivo el 16 de abril. <strong>Sabía que iba a ser provisional</strong> &mdash; el objetivo era validar la hipótesis de atribución, no optimizar arquitectura. Costo SaaS aproximado: <strong>$260 USD/mes</strong> (Airtable team + Zapier Pro).</div>
+  <div class="glossary" style="margin-top:18px;"><strong>SPA (Single Page Application)</strong> &middot; aplicación web que vive en una sola URL pero se comporta como app: navegación instantánea, estado dinámico, formularios sin recarga. Más cercano a una app móvil que a una landing page tradicional.</div>
+
+  <div style="display:grid;grid-template-columns:1.3fr 1fr;gap:14px;margin-top:14px;">
+   <div style="background:rgba(236,201,75,0.08);border-left:3px solid #ECC94B;border-radius:6px;padding:14px 16px;">
+    <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;color:#1E2740;text-transform:uppercase;margin-bottom:6px;">Por qué este stack</div>
+    <div style="font-size:11px;color:#2D3748;line-height:1.55;">Elegí lo más rápido posible para estar vivo el 16 de abril. <strong>Sabía que iba a ser provisional</strong> &mdash; el objetivo era validar la hipótesis de atribución, no optimizar arquitectura. Costo SaaS: <strong>~$89 USD/mes</strong> (Airtable + Zapier).</div>
+   </div>
+   <div style="background:rgba(66,153,225,0.06);border-left:3px solid #4299E1;border-radius:6px;padding:14px 16px;">
+    <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;color:#1E2740;text-transform:uppercase;margin-bottom:6px;">Decisión con Contraloría</div>
+    <div style="font-size:11px;color:#2D3748;line-height:1.55;">Para los ads se reusó la <strong>agencia de medios que ya operaba con Hyundai</strong>. No fue elección ideal &mdash; fue orden fiscal: cada agencia paga ads desde su razón social hasta que el corporativo pueda actuar como <em>central de medios</em>.</div>
+   </div>
   </div>
  </div>
- <div class="slide-footer">Motor de Atribución MVP &middot; 6/15</div>
+ <div class="slide-footer">Motor de Atribución MVP &middot; 6/18</div>
 </section>
 
 <!-- ════════════════════════════════════════════════════
-   SLIDE 7 - DIA 1-7 NUMEROS
+   SLIDE 7 - LO QUE PRODUJO (KANBAN + SEÑALES)
    ════════════════════════════════════════════════════ -->
 <section class="slide slide--dark">
- <div class="slide-label">06 / Lo que produjo en su primera semana</div>
+ <div class="slide-label">06 / Lo que el sistema empezó a producir</div>
  <img src="../assets/logos/LOGO-GP-Blanco.png" class="logo-corner logo-w"><img src="../assets/logos/Logo-GP-Negro.png" class="logo-corner logo-d">
  <div class="pad">
-  <div class="t-label t-gold" style="margin-bottom:6px;">Día 1 al 7 post GO-LIVE</div>
-  <div class="t-title t-white" style="max-width:1080px;">Por primera vez, el grupo pudo ver cuanto cuesta producir una cita en piso por marca.</div>
+  <div class="t-label t-gold" style="margin-bottom:6px;">No solo números &mdash; un cambio operativo de fondo</div>
+  <div class="t-title t-white" style="max-width:1080px;">Una vista única del pipeline e2e + señales que entrenan los algoritmos publicitarios.</div>
 
-  <div style="display:flex;gap:48px;margin-top:48px;justify-content:center;">
-   <div style="text-align:center;">
-    <div class="anchor-num">14</div>
-    <div class="anchor-label">Oportunidades reales<br>identificadas con<br>atribución completa</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:24px;">
+   <div class="card--dark">
+    <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;color:#ECC94B;text-transform:uppercase;margin-bottom:8px;">1 / Vista Kanban e2e</div>
+    <div style="font-size:14px;font-weight:700;color:#fff;line-height:1.3;">Una sola pantalla. Todas las marcas. Todas las etapas.</div>
+    <div style="font-size:11px;color:#CBD5E0;margin-top:8px;line-height:1.55;">Pipeline visible por <strong>marca / agencia / línea de negocio</strong>: <em>Cita Agendada → Visita Realizada → Negociación → Ganada / Perdida</em>. Antes: cada quien con su Excel/sheet. Ahora: una vista corporativa unificada, en tiempo real.</div>
+    <div style="margin-top:10px;display:flex;gap:6px;flex-wrap:wrap;">
+     <span class="tag tag--gold">Cita Agendada</span><span class="tag tag--gold">Visita</span><span class="tag tag--gold">Negociación</span><span class="tag tag--green">Ganada</span><span class="tag tag--red">Perdida</span>
+    </div>
    </div>
-   <div style="text-align:center;">
-    <div class="anchor-num">$90K</div>
-    <div class="anchor-label">Gasto en Meta<br>vinculado a leads<br>reales (matched)</div>
-   </div>
-   <div style="text-align:center;">
-    <div class="anchor-num">4</div>
-    <div class="anchor-label">Sub-marcas activas<br>con tracking<br>end-to-end</div>
-   </div>
-   <div style="text-align:center;">
-    <div class="anchor-num">7</div>
-    <div class="anchor-label">Días desde<br>GO-LIVE hasta<br>primer corte</div>
+   <div class="card--dark">
+    <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;color:#ECC94B;text-transform:uppercase;margin-bottom:8px;">2 / Señales server-side</div>
+    <div style="font-size:14px;font-weight:700;color:#fff;line-height:1.3;">Le enseñamos a los algoritmos a quién mostrarle anuncios.</div>
+    <div style="font-size:11px;color:#CBD5E0;margin-top:8px;line-height:1.55;">Hoy ya no se segmenta a mano (edad / código postal). Los algoritmos de Meta y Google deciden quién ve cada anuncio buscando personas que <strong>se parezcan</strong> a las que ya interactuaron. Las señales que les mandamos:</div>
+    <div style="margin-top:10px;display:flex;gap:8px;">
+     <span style="background:rgba(72,187,120,0.18);color:#68D391;padding:6px 12px;border-radius:20px;font-size:11px;font-weight:700;letter-spacing:0.5px;">+ Citas</span>
+     <span style="background:rgba(72,187,120,0.18);color:#68D391;padding:6px 12px;border-radius:20px;font-size:11px;font-weight:700;letter-spacing:0.5px;">+ Visitas</span>
+     <span style="background:rgba(72,187,120,0.18);color:#68D391;padding:6px 12px;border-radius:20px;font-size:11px;font-weight:700;letter-spacing:0.5px;">+ Compras</span>
+    </div>
    </div>
   </div>
 
-  <div style="margin-top:56px;text-align:center;font-size:14px;color:#A0AEC0;line-height:1.6;max-width:920px;margin-left:auto;margin-right:auto;font-style:italic;">"Antes: $100M/ano sin saber que producen. Después: cada peso del piloto rastreable hasta una persona que pidio cita."</div>
+  <div class="glossary" style="margin-top:18px;"><strong>Kanban</strong> &middot; tablero visual donde cada lead es una tarjeta que avanza de columna en columna conforme su etapa progresa. <strong>Conversion API (CAPI)</strong> &middot; canal directo del servidor a Meta/Google para enviar señales sin depender del navegador del usuario; recupera ~40% de eventos que se perdían con el pixel tradicional.</div>
+
+  <div style="margin-top:18px;text-align:center;font-size:13px;color:#A0AEC0;line-height:1.6;font-style:italic;">"Por primera vez, el grupo puede ver cuánto cuesta producir una cita en piso por marca &mdash; y en paralelo, los algoritmos de Meta están aprendiendo a buscar más personas como las que ya nos visitaron."</div>
  </div>
- <div class="slide-footer">Motor de Atribución MVP &middot; 7/15</div>
+ <div class="slide-footer">Motor de Atribución MVP &middot; 7/18</div>
 </section>
 
 <!-- ════════════════════════════════════════════════════
-   SLIDE 8 - LO QUE DESCUBRI
+   SLIDE 8 - LOS ANUNCIOS TAMBIEN SON CODIGO (IA + ANDROMEDA)
+   ════════════════════════════════════════════════════ -->
+<section class="slide slide--light">
+ <div class="slide-label">07 / Los anuncios también son código</div>
+ <img src="../assets/logos/LOGO-GP-Blanco.png" class="logo-corner logo-w"><img src="../assets/logos/Logo-GP-Negro.png" class="logo-corner logo-d">
+ <div class="pad">
+  <div class="t-label t-red" style="margin-bottom:6px;">Creativos hechos con IA, optimizados para Meta Andromeda</div>
+  <div class="t-title" style="max-width:1080px;color:#2D3748;">Los anuncios del piloto se diseñaron con una <strong>skill propia de Claude Code</strong> afinada para el algoritmo que hoy decide qué creativo gana &mdash; y los creativos tradicionales del grupo y la industria, simplemente, no califican.</div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:22px;">
+   <div style="background:#fff;border-radius:10px;padding:16px 18px;box-shadow:0 1px 3px rgba(0,0,0,0.06);border-top:3px solid #4299E1;">
+    <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;color:#4299E1;text-transform:uppercase;margin-bottom:6px;">¿Qué es Andromeda?</div>
+    <div style="font-size:13px;font-weight:700;color:#1E2740;line-height:1.3;">El nuevo sistema de optimización de Meta Ads</div>
+    <div style="font-size:11px;color:#4A5568;margin-top:6px;line-height:1.55;">Lanzado por Meta en 2024-2025. Sustituye la segmentación tradicional (edad, código postal, intereses). En su lugar, decide qué creativo le muestra a cada persona en función de las <strong>señales de usuario</strong> que le mandamos. Para aprender bien, necesita <strong>variedad masiva de creativos</strong> &mdash; no le sirve un template con copy rotando.</div>
+   </div>
+   <div style="background:#fff;border-radius:10px;padding:16px 18px;box-shadow:0 1px 3px rgba(0,0,0,0.06);border-top:3px solid #ECC94B;">
+    <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;color:#1E2740;text-transform:uppercase;margin-bottom:6px;">¿Qué hace mi skill?</div>
+    <div style="font-size:13px;font-weight:700;color:#1E2740;line-height:1.3;">Genera y optimiza creativos con variedad real para que Andromeda aprenda</div>
+    <div style="font-size:11px;color:#4A5568;margin-top:6px;line-height:1.55;">Skill propia construida en Claude Code, codifica las reglas de Andromeda: variabilidad de hooks, ángulos, formatos, copy, jerarquía visual. <strong>No son adaptaciones de un template &mdash; son ejes creativos distintos.</strong> El algoritmo tiene material para entrenar y elegir.</div>
+   </div>
+  </div>
+
+  <div style="margin-top:14px;background:rgba(200,16,46,0.05);border-left:3px solid #C8102E;border-radius:6px;padding:14px 18px;">
+   <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;color:#C8102E;text-transform:uppercase;margin-bottom:6px;">Por qué los creativos tradicionales del grupo y la industria no funcionan</div>
+   <div style="font-size:12px;color:#2D3748;line-height:1.6;">Las áreas de marketing actuales (grupo y agencias) producen <strong>adaptaciones de un template de marca</strong> rotando copy de ofertas y fotos de producto. Para Andromeda esto es <strong>un solo anuncio efectivo aunque subas 10</strong> &mdash; el algoritmo los percibe como variantes triviales y los descarta. <em>No es opinión: es cómo funciona el sistema hoy.</em></div>
+  </div>
+
+  <div style="margin-top:14px;background:rgba(66,153,225,0.05);border-left:3px solid #4299E1;border-radius:6px;padding:14px 18px;">
+   <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;color:#4299E1;text-transform:uppercase;margin-bottom:6px;">Lectura estratégica del gap</div>
+   <div style="font-size:12px;color:#2D3748;line-height:1.6;">La transformación digital que la industria automotriz debió hacer hacia <strong>~2014</strong> sigue pendiente en grupos y concesionarios. Con la era de IA, el gap se va a <strong>acrecentar</strong> &mdash; los que no se actualicen ahora se quedan atrás. La buena noticia: con el enfoque correcto se cierra rápido. <strong>Eso es lo que estoy proponiendo desde la dirección.</strong></div>
+  </div>
+ </div>
+ <div class="slide-footer">Motor de Atribución MVP &middot; 8/18</div>
+</section>
+
+<!-- ════════════════════════════════════════════════════
+   SLIDE 9 - LO QUE DESCUBRI (LIMITACIONES V1)
    ════════════════════════════════════════════════════ -->
 <section class="slide slide--dark">
- <div class="slide-label">07 / Lo que descubrí en el camino</div>
+ <div class="slide-label">08 / Lo que descubrí en el camino</div>
  <img src="../assets/logos/LOGO-GP-Blanco.png" class="logo-corner logo-w"><img src="../assets/logos/Logo-GP-Negro.png" class="logo-corner logo-d">
  <div class="pad">
   <div class="t-label t-gold" style="margin-bottom:6px;">3 limitaciones del stack v1</div>
@@ -501,320 +570,381 @@ table.t-pipe tr.tot td { font-weight: 800; color: #ECC94B; border-top: 2px solid
    <div class="lim-card">
     <div class="num">3</div>
     <div class="name">Costo SaaS creciente con escala</div>
-    <div class="desc">$260 USD/mes y subiendo. Si el piloto funcionaba y escalaba a 8 marcas, los costos de SaaS iban a ser ~$1,000+/mes solo en middleware.</div>
+    <div class="desc">$89 USD/mes y subiendo. Si el piloto escalaba a 8 marcas, los costos de SaaS iban a ser ~$500+/mes solo en middleware reemplazable.</div>
    </div>
   </div>
 
-  <div style="margin-top:36px;text-align:center;font-size:14px;color:#ECC94B;line-height:1.6;font-style:italic;">"v1 me sirvió para activar. No servía para escalar al grupo entero."</div>
+  <div style="margin-top:36px;text-align:center;font-size:14px;color:#ECC94B;line-height:1.6;font-style:italic;">"v1 me sirvió para activar &mdash; no servía para escalar al grupo entero."</div>
  </div>
- <div class="slide-footer">Motor de Atribución MVP &middot; 8/15</div>
+ <div class="slide-footer">Motor de Atribución MVP &middot; 8/17middot; 9/18</div>
 </section>
 
 <!-- ════════════════════════════════════════════════════
-   SLIDE 9 - LA DECISION DIFICIL
+   SLIDE 9 - LA DECISION DIFICIL (CUTOVER 24h)
    ════════════════════════════════════════════════════ -->
 <section class="slide slide--darker">
- <div class="slide-label">08 / La decisión difícil</div>
+ <div class="slide-label">09 / La decisión difícil</div>
  <img src="../assets/logos/LOGO-GP-Blanco.png" class="logo-corner logo-w"><img src="../assets/logos/Logo-GP-Negro.png" class="logo-corner logo-d">
  <div class="pad-lg flex-col" style="justify-content:center;">
   <div class="t-label t-gold" style="margin-bottom:14px;">24 de abril, 8 días post GO-LIVE</div>
-  <div class="t-display" style="font-size:36px;color:#fff;line-height:1.25;letter-spacing:-0.4px;max-width:1080px;font-weight:700;">
-   "Hoy nos comemos el pastel completo." <br><span style="color:#ECC94B;font-size:24px;font-weight:600;">Matar Airtable + Zapier en un día. Reescribir el backend completo. Sin red de seguridad.</span>
+  <div class="t-display" style="font-size:34px;color:#fff;line-height:1.25;letter-spacing:-0.4px;max-width:1080px;font-weight:700;">
+   "Hoy nos comemos el pastel completo." <br><span style="color:#ECC94B;font-size:22px;font-weight:600;">Matar Airtable + Zapier en un día. Reescribir el backend completo. Sin red de seguridad.</span>
   </div>
 
-  <div style="display:flex;gap:24px;margin-top:48px;">
+  <div style="display:flex;gap:24px;margin-top:40px;">
    <div class="card--pill-red" style="flex:1;">
     <div style="font-size:9px;font-weight:700;letter-spacing:2px;color:#FC8181;text-transform:uppercase;">El riesgo</div>
-    <div style="font-size:14px;font-weight:700;color:#fff;margin-top:8px;line-height:1.4;">Cero downtime tolerado</div>
-    <div style="font-size:11px;color:#CBD5E0;margin-top:6px;line-height:1.5;">Leads en vivo entrando. Sin ventana de mantenimiento. Si fallaba, perdía leads reales con dinero invertido detrás.</div>
+    <div style="font-size:13px;font-weight:700;color:#fff;margin-top:8px;line-height:1.4;">Cero downtime tolerado</div>
+    <div style="font-size:10px;color:#CBD5E0;margin-top:6px;line-height:1.5;">Leads en vivo entrando. Sin ventana de mantenimiento. Si fallaba, perdía leads reales con dinero invertido detrás.</div>
    </div>
    <div class="card--pill-gold" style="flex:1;">
     <div style="font-size:9px;font-weight:700;letter-spacing:2px;color:#ECC94B;text-transform:uppercase;">El tiempo</div>
-    <div style="font-size:14px;font-weight:700;color:#fff;margin-top:8px;line-height:1.4;">24 horas, una persona</div>
-    <div style="font-size:11px;color:#CBD5E0;margin-top:6px;line-height:1.5;">Manana del 24 al manana del 25. Nuevo backend, schema nuevo, integraciones nuevas, frontend re-cableado.</div>
+    <div style="font-size:13px;font-weight:700;color:#fff;margin-top:8px;line-height:1.4;">24 horas, una persona</div>
+    <div style="font-size:10px;color:#CBD5E0;margin-top:6px;line-height:1.5;">Mañana del 24 a la mañana del 25. Nuevo backend, schema nuevo, integraciones nuevas, frontend re-cableado.</div>
    </div>
    <div class="card--pill-green" style="flex:1;">
     <div style="font-size:9px;font-weight:700;letter-spacing:2px;color:#68D391;text-transform:uppercase;">El resultado</div>
-    <div style="font-size:14px;font-weight:700;color:#fff;margin-top:8px;line-height:1.4;">Cutover sin downtime</div>
-    <div style="font-size:11px;color:#CBD5E0;margin-top:6px;line-height:1.5;">25 abril manana: Airtable apagada, 4 Zaps pausados, secret revocado. Stack v2 vivo. 3 leads del fin de semana entraron limpios al nuevo sistema.</div>
+    <div style="font-size:13px;font-weight:700;color:#fff;margin-top:8px;line-height:1.4;">Cutover sin downtime</div>
+    <div style="font-size:10px;color:#CBD5E0;margin-top:6px;line-height:1.5;">25 abril mañana: Airtable apagada, 4 Zaps pausados, secret revocado. Stack v2 vivo. 3 leads del fin de semana entraron limpios.</div>
    </div>
   </div>
 
-  <div style="margin-top:36px;text-align:center;font-size:13px;color:#A0AEC0;line-height:1.6;font-style:italic;max-width:920px;margin-left:auto;margin-right:auto;">"La velocidad de iteración solo es real si puedes ejecutar cambios estructurales en horas, no semanas. Esa fue la prueba."</div>
+  <div style="margin-top:32px;text-align:center;font-size:13px;color:#A0AEC0;line-height:1.6;font-style:italic;max-width:920px;margin-left:auto;margin-right:auto;">"La velocidad de iteración solo es real si puedes ejecutar cambios estructurales en horas, no semanas. Esa fue la prueba &mdash; y el grupo la pasó."</div>
  </div>
- <div class="slide-footer">Motor de Atribución MVP &middot; 9/15</div>
+ <div class="slide-footer">Motor de Atribución MVP &middot; 9/17middot; 10/18</div>
 </section>
 
 <!-- ════════════════════════════════════════════════════
-   SLIDE 10 - QUE ES V2
+   SLIDE 10 - V2 + COSTO REALISTA
    ════════════════════════════════════════════════════ -->
 <section class="slide slide--light">
- <div class="slide-label">09 / La arquitectura v2</div>
+ <div class="slide-label">10 / La arquitectura v2</div>
  <img src="../assets/logos/LOGO-GP-Blanco.png" class="logo-corner logo-w"><img src="../assets/logos/Logo-GP-Negro.png" class="logo-corner logo-d">
  <div class="pad">
   <div class="t-label t-red" style="margin-bottom:6px;">Lo que está vivo HOY &middot; 25 abril en adelante</div>
-  <div class="t-title" style="max-width:1080px;color:#2D3748;">Backend propio, código iterable en horas, log persistente, $0 al mes en SaaS.</div>
+  <div class="t-title" style="max-width:1080px;color:#2D3748;">Backend propio. Código iterable en horas. Log persistente. Infraestructura prácticamente gratis.</div>
 
-  <div style="display:flex;gap:8px;align-items:stretch;margin-top:36px;">
-   <div style="flex:1;background:#fff;border-radius:8px;padding:14px 16px;border-left:3px solid #1E2740;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+  <div style="display:flex;gap:6px;align-items:stretch;margin-top:24px;">
+   <div style="flex:1;background:#fff;border-radius:8px;padding:12px 14px;border-left:3px solid #1E2740;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
     <div style="font-size:9px;font-weight:700;letter-spacing:1.5px;color:#718096;text-transform:uppercase;">Captura</div>
-    <div style="font-size:13px;font-weight:700;color:#1E2740;margin-top:4px;">3 Landings HTML</div>
-    <div style="font-size:11px;color:#4A5568;margin-top:4px;line-height:1.5;">GitHub Pages, sin cambios. POST directo al Worker.</div>
+    <div style="font-size:12px;font-weight:700;color:#1E2740;margin-top:4px;">3 SPAs</div>
+    <div style="font-size:10px;color:#4A5568;margin-top:3px;line-height:1.5;">GitHub Pages, sin cambios. POST directo al Worker.</div>
    </div>
-   <div style="align-self:center;font-size:18px;color:#48BB78;padding:0 4px;">&rarr;</div>
-   <div style="flex:1.4;background:#fff;border-radius:8px;padding:14px 16px;border-left:3px solid #48BB78;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+   <div style="align-self:center;font-size:16px;color:#48BB78;padding:0 2px;">&rarr;</div>
+   <div style="flex:1.4;background:#fff;border-radius:8px;padding:12px 14px;border-left:3px solid #48BB78;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
     <div style="font-size:9px;font-weight:700;letter-spacing:1.5px;color:#48BB78;text-transform:uppercase;">Backend &middot; Código propio</div>
-    <div style="font-size:13px;font-weight:700;color:#1E2740;margin-top:4px;">Cloudflare Worker <code style="background:rgba(72,187,120,0.1);padding:1px 5px;border-radius:3px;font-size:10px;">crm-plasencia</code></div>
-    <div style="font-size:11px;color:#4A5568;margin-top:4px;line-height:1.5;">33.7 KB. Endpoint <code style="font-size:10px;">/api/lead/:marca</code> con <code style="font-size:10px;">applyPayloadAliases()</code>, hashing PII server-side, log <code style="font-size:10px;">lead_intake_log</code>.</div>
+    <div style="font-size:12px;font-weight:700;color:#1E2740;margin-top:4px;">Cloudflare Worker</div>
+    <div style="font-size:10px;color:#4A5568;margin-top:3px;line-height:1.5;">33.7 KB. Endpoint <code style="font-size:9px;">/api/lead/:marca</code> con hashing PII server-side y log <code style="font-size:9px;">lead_intake_log</code>.</div>
    </div>
-   <div style="align-self:center;font-size:18px;color:#48BB78;padding:0 4px;">&rarr;</div>
-   <div style="flex:1;background:#fff;border-radius:8px;padding:14px 16px;border-left:3px solid #ECC94B;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+   <div style="align-self:center;font-size:16px;color:#48BB78;padding:0 2px;">&rarr;</div>
+   <div style="flex:1;background:#fff;border-radius:8px;padding:12px 14px;border-left:3px solid #ECC94B;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
     <div style="font-size:9px;font-weight:700;letter-spacing:1.5px;color:#718096;text-transform:uppercase;">Fuente única</div>
-    <div style="font-size:13px;font-weight:700;color:#1E2740;margin-top:4px;">D1 <code style="background:rgba(236,201,75,0.1);padding:1px 5px;border-radius:3px;font-size:10px;">crm-plasencia-db</code></div>
-    <div style="font-size:11px;color:#4A5568;margin-top:4px;line-height:1.5;">7 tablas: leads, pipeline, events, vendedores, sucursales, audit_log, lead_intake_log.</div>
+    <div style="font-size:12px;font-weight:700;color:#1E2740;margin-top:4px;">D1 (7 tablas)</div>
+    <div style="font-size:10px;color:#4A5568;margin-top:3px;line-height:1.5;">Leads, pipeline, events, vendedores, sucursales, audit_log, intake_log.</div>
+   </div>
+   <div style="align-self:center;font-size:16px;color:#48BB78;padding:0 2px;">&rarr;</div>
+   <div style="flex:1;background:#fff;border-radius:8px;padding:12px 14px;border-left:3px solid #4299E1;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+    <div style="font-size:9px;font-weight:700;letter-spacing:1.5px;color:#4299E1;text-transform:uppercase;">Server-side</div>
+    <div style="font-size:12px;font-weight:700;color:#1E2740;margin-top:4px;">Meta CAPI + GA4 MP</div>
+    <div style="font-size:10px;color:#4A5568;margin-top:3px;line-height:1.5;">3 pixels + 3 properties. Dedup automático Pixel↔CAPI.</div>
    </div>
   </div>
 
-  <div style="display:flex;gap:8px;align-items:stretch;margin-top:14px;">
-   <div style="flex:1;"></div>
-   <div style="flex:1.4;display:flex;gap:8px;justify-content:center;">
-    <div style="flex:1;background:#fff;border-radius:8px;padding:12px 14px;border-left:3px solid #4299E1;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
-     <div style="font-size:9px;font-weight:700;letter-spacing:1.5px;color:#718096;text-transform:uppercase;">Server-side &middot; Paralelo</div>
-     <div style="font-size:12px;font-weight:700;color:#1E2740;margin-top:3px;">Meta CAPI &middot; 3 pixels</div>
-     <div style="font-size:10px;color:#4A5568;margin-top:3px;">Dedup automático Pixel↔CAPI via <code style="font-size:9px;">event_id</code>.</div>
-    </div>
-    <div style="flex:1;background:#fff;border-radius:8px;padding:12px 14px;border-left:3px solid #4299E1;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
-     <div style="font-size:9px;font-weight:700;letter-spacing:1.5px;color:#718096;text-transform:uppercase;">Server-side &middot; Paralelo</div>
-     <div style="font-size:12px;font-weight:700;color:#1E2740;margin-top:3px;">GA4 MP &middot; 3 props</div>
-     <div style="font-size:10px;color:#4A5568;margin-top:3px;">Eventos enriquecidos sin tocar landings.</div>
-    </div>
+  <div style="display:grid;grid-template-columns:2fr 1fr;gap:14px;margin-top:18px;">
+   <div style="background:rgba(236,201,75,0.06);border:1px solid rgba(236,201,75,0.3);border-radius:8px;padding:14px 18px;">
+    <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;color:#1E2740;text-transform:uppercase;margin-bottom:8px;">Costo real del piloto al 27 abril</div>
+    <table style="width:100%;font-size:11px;color:#2D3748;line-height:1.5;">
+     <tr><td style="padding:3px 0;"><strong>Marzo 2026</strong></td><td style="text-align:right;">$100 USD Claude Code</td><td style="text-align:right;color:#718096;font-size:10px;">(yo lo pagué de mi bolsa al entrar al grupo)</td></tr>
+     <tr><td style="padding:3px 0;"><strong>Abril 2026</strong></td><td style="text-align:right;">$100 + $60 + $29 = $189 USD</td><td style="text-align:right;color:#718096;font-size:10px;">(Claude Code + Zapier + Airtable, ya con tarjeta corporativa)</td></tr>
+     <tr><td style="padding:3px 0;"><strong>Mayo en adelante</strong></td><td style="text-align:right;color:#48BB78;"><strong>$100 USD/mes</strong></td><td style="text-align:right;color:#48BB78;font-size:10px;">(solo Claude Code &mdash; v2 eliminó Zapier+Airtable)</td></tr>
+     <tr style="border-top:1px solid #CBD5E0;"><td style="padding:8px 0 0;"><strong>Total infra al 27 abril</strong></td><td style="text-align:right;padding-top:8px;"><strong style="color:#1E2740;">$289 USD ≈ $5,800 MXN</strong></td><td></td></tr>
+    </table>
    </div>
-   <div style="flex:1;"></div>
-  </div>
-
-  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-top:24px;">
-   <div class="card--pill-green" style="background:rgba(72,187,120,0.06);border-left:3px solid #48BB78;border-radius:6px;padding:12px 14px;">
-    <div style="font-size:9px;font-weight:700;letter-spacing:1.5px;color:#276749;text-transform:uppercase;">Lo que gane</div>
-    <div style="font-size:13px;font-weight:700;color:#1E2740;margin-top:4px;">Auditabilidad total</div>
-    <div style="font-size:11px;color:#4A5568;margin-top:3px;line-height:1.5;">Cada submit deja rastro raw en <code style="font-size:10px;">lead_intake_log</code> incluso si el handler falla.</div>
-   </div>
-   <div class="card--pill-green" style="background:rgba(72,187,120,0.06);border-left:3px solid #48BB78;border-radius:6px;padding:12px 14px;">
-    <div style="font-size:9px;font-weight:700;letter-spacing:1.5px;color:#276749;text-transform:uppercase;">Lo que gane</div>
-    <div style="font-size:13px;font-weight:700;color:#1E2740;margin-top:4px;">$0 USD/mes</div>
-    <div style="font-size:11px;color:#4A5568;margin-top:3px;line-height:1.5;">Free tier Cloudflare Workers + D1. Ahorro ~$3K USD/año vs v1.</div>
-   </div>
-   <div class="card--pill-green" style="background:rgba(72,187,120,0.06);border-left:3px solid #48BB78;border-radius:6px;padding:12px 14px;">
-    <div style="font-size:9px;font-weight:700;letter-spacing:1.5px;color:#276749;text-transform:uppercase;">Lo que gane</div>
-    <div style="font-size:13px;font-weight:700;color:#1E2740;margin-top:4px;">Velocidad de iteración</div>
-    <div style="font-size:11px;color:#4A5568;margin-top:3px;line-height:1.5;">Cualquier cambio de lógica es deploy en minutos, no ticket a Zapier.</div>
+   <div style="background:rgba(72,187,120,0.06);border-left:3px solid #48BB78;border-radius:6px;padding:14px 16px;">
+    <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;color:#276749;text-transform:uppercase;margin-bottom:6px;">Lo que NO costó</div>
+    <div style="font-size:11px;color:#2D3748;line-height:1.55;"><strong>$0</strong> en agencias de marketing.<br><strong>$0</strong> en consultoría tech.<br><strong>$0</strong> en diseño de producto externo.<br><strong>$0</strong> en equipo interno adicional.<br><span style="color:#718096;font-size:10px;">+ mi sueldo (por debajo de mercado para Director de MKT Corporativo).</span></div>
    </div>
   </div>
  </div>
- <div class="slide-footer">Motor de Atribución MVP &middot; 10/15</div>
+ <div class="slide-footer">Motor de Atribución MVP &middot; 10/17middot; 11/18</div>
 </section>
 
 <!-- ════════════════════════════════════════════════════
-   SLIDE 11 - NUMEROS HOY
+   SLIDE 11 - NUMEROS HOY (PIPELINE + GASTO META + CPA)
    ════════════════════════════════════════════════════ -->
 <section class="slide slide--dark">
- <div class="slide-label">10 / Números reales al día 11</div>
+ <div class="slide-label">11 / Números reales al día 11</div>
  <img src="../assets/logos/LOGO-GP-Blanco.png" class="logo-corner logo-w"><img src="../assets/logos/Logo-GP-Negro.png" class="logo-corner logo-d">
  <div class="pad">
-  <div class="t-label t-gold" style="margin-bottom:6px;">Estado al 25 abril (corte verificado en D1)</div>
-  <div class="t-title t-white" style="max-width:1080px;">Lo que el sistema está produciendo, sin filtros &mdash; incluyendo lo que no está funcionando.</div>
+  <div class="t-label t-gold" style="margin-bottom:6px;">Estado al 27 de abril (corte verificado en D1 + Meta Ads)</div>
+  <div class="t-title t-white" style="max-width:1080px;">Lo que el sistema está produciendo, sin filtros &mdash; con gasto real y CPA por marca.</div>
 
-  <div style="display:flex;gap:32px;margin-top:30px;">
-   <div style="flex:1.3;">
-    <div class="t-label" style="color:#A0AEC0;margin-bottom:10px;">Pipeline activo por marca</div>
-    <table class="t-pipe">
-     <thead>
-      <tr><th>Marca</th><th class="num">Cita Agendada</th><th class="num">Visita</th><th class="num">Perdida</th><th class="num">Total</th></tr>
-     </thead>
-     <tbody>
-      <tr><td><strong style="color:#fff;">Seminuevos</strong></td><td class="num">9</td><td class="num">0</td><td class="num">3</td><td class="num"><strong>12</strong></td></tr>
-      <tr><td><strong style="color:#fff;">Hyundai</strong></td><td class="num">3</td><td class="num">1</td><td class="num">0</td><td class="num"><strong>4</strong></td></tr>
-      <tr><td><strong style="color:#fff;">Stellantis</strong></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num"><strong style="color:#FC8181;">0</strong></td></tr>
-      <tr class="tot"><td>Total piloto</td><td class="num">12</td><td class="num">1</td><td class="num">3</td><td class="num">16</td></tr>
-     </tbody>
-    </table>
-    <div style="margin-top:14px;font-size:11px;color:#FC8181;line-height:1.5;font-style:italic;">Stellantis 0 leads desde el cutover. Honestidad: no es un dato bonito, es el dato. Estoy diagnosticando si campañas están activas o tracking link roto.</div>
+  <table class="t-pipe" style="margin-top:24px;">
+   <thead>
+    <tr><th>Marca</th><th class="num">Citas</th><th class="num">Visita</th><th class="num">Perdida</th><th class="num">Gasto Meta</th><th class="num">CPA real</th><th>Estado campañas</th></tr>
+   </thead>
+   <tbody>
+    <tr><td><strong style="color:#fff;">Seminuevos</strong></td><td class="num">9</td><td class="num">0</td><td class="num">3</td><td class="num">$6,333.48</td><td class="num"><strong style="color:#68D391;">$527.79</strong></td><td><span class="tag tag--green">Activa</span></td></tr>
+    <tr><td><strong style="color:#fff;">Hyundai</strong></td><td class="num">3</td><td class="num">1</td><td class="num">0</td><td class="num">$3,558.54</td><td class="num"><strong style="color:#ECC94B;">$889.64</strong></td><td><span class="tag tag--red">Detenida</span></td></tr>
+    <tr><td><strong style="color:#fff;">Stellantis</strong></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">$1,329.85</td><td class="num"><strong style="color:#FC8181;">N/A</strong></td><td><span class="tag tag--red">Detenida</span></td></tr>
+    <tr class="tot"><td>Total piloto</td><td class="num">12</td><td class="num">1</td><td class="num">3</td><td class="num">$11,221.87</td><td class="num">&nbsp;</td><td>&nbsp;</td></tr>
+   </tbody>
+  </table>
+  <div style="font-size:10px;color:#A0AEC0;margin-top:6px;font-style:italic;">Gasto Meta Ads del 16 al 27 abril, 12 días corridos. CPA = gasto / (cita + visita).</div>
+
+  <div style="display:grid;grid-template-columns:2fr 1fr;gap:14px;margin-top:20px;">
+   <div style="background:rgba(252,129,129,0.08);border-left:3px solid #FC8181;border-radius:6px;padding:14px 18px;">
+    <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;color:#FC8181;text-transform:uppercase;margin-bottom:6px;">Honestidad: Hyundai y Stellantis con campañas detenidas</div>
+    <div style="font-size:11px;color:#CBD5E0;line-height:1.55;">Estamos jugando <strong>fuera de la cancha de las marcas OEM</strong>, dentro del ecosistema digital del <em>grupo</em>, no de la <em>marca</em>. A propósito y a sabiendas de que esto puede ser un problema. Pausamos las campañas para alinear con los directores y solicitar acercamiento formal con las OEMs antes de continuar. Stellantis lleva 0 leads desde el cutover &mdash; consecuencia directa.</div>
    </div>
-   <div style="flex:1;display:flex;flex-direction:column;gap:10px;">
-    <div class="card--dark">
-     <div style="font-size:9px;font-weight:700;letter-spacing:1.5px;color:#ECC94B;text-transform:uppercase;">Total leads en D1</div>
-     <div style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:36px;color:#fff;line-height:1;margin-top:4px;">30</div>
-     <div style="font-size:10px;color:#CBD5E0;margin-top:4px;">Leads reales (16-25 abril). Match perfecto CAPI ↔ GA4 MP ↔ D1: 100%.</div>
-    </div>
-    <div class="card--dark">
-     <div style="font-size:9px;font-weight:700;letter-spacing:1.5px;color:#ECC94B;text-transform:uppercase;">Budget medios</div>
-     <div style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:36px;color:#fff;line-height:1;margin-top:4px;">$90K</div>
-     <div style="font-size:10px;color:#CBD5E0;margin-top:4px;">MXN/mes &middot; $30K por marca &middot; ejecutado en Meta Ads.</div>
-    </div>
-    <div class="card--dark">
-     <div style="font-size:9px;font-weight:700;letter-spacing:1.5px;color:#ECC94B;text-transform:uppercase;">Infraestructura</div>
-     <div style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:36px;color:#fff;line-height:1;margin-top:4px;">$0</div>
-     <div style="font-size:10px;color:#CBD5E0;margin-top:4px;">USD/mes &middot; Worker versión <code style="font-size:9px;">53516374...</code>, deploy 26 abril.</div>
-    </div>
+   <div class="card--dark">
+    <div style="font-size:9px;font-weight:700;letter-spacing:1.5px;color:#ECC94B;text-transform:uppercase;">Total leads en D1</div>
+    <div style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:32px;color:#fff;line-height:1;margin-top:4px;">30</div>
+    <div style="font-size:10px;color:#CBD5E0;margin-top:4px;line-height:1.45;">Leads reales (16-27 abril). Match perfecto Meta CAPI ↔ GA4 MP ↔ D1: 100%.</div>
    </div>
   </div>
  </div>
- <div class="slide-footer">Motor de Atribución MVP &middot; 11/15</div>
+ <div class="slide-footer">Motor de Atribución MVP &middot; 11/17middot; 12/18</div>
 </section>
 
 <!-- ════════════════════════════════════════════════════
-   SLIDE 12 - QUE APRENDI DEL GRUPO
+   SLIDE 12 - PLASENCIA MARKETPLACE
    ════════════════════════════════════════════════════ -->
 <section class="slide slide--light">
- <div class="slide-label">11 / Que aprendí corriendo el piloto</div>
+ <div class="slide-label">12 / Plasencia como marketplace</div>
+ <img src="../assets/logos/LOGO-GP-Blanco.png" class="logo-corner logo-w"><img src="../assets/logos/Logo-GP-Negro.png" class="logo-corner logo-d">
+ <div class="pad">
+  <div class="t-label t-red" style="margin-bottom:6px;">El enfoque estratégico detrás del piloto</div>
+  <div class="t-title" style="max-width:1080px;color:#2D3748;">Grupo Plasencia es su propio canal de ventas e2e &mdash; un marketplace donde las marcas viven dentro de la experiencia del grupo.</div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:24px;">
+   <div style="background:#fff;border-radius:10px;padding:18px;box-shadow:0 1px 3px rgba(0,0,0,0.06);border-top:3px solid #1E2740;">
+    <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;color:#718096;text-transform:uppercase;margin-bottom:6px;">El cambio de mentalidad</div>
+    <div style="font-size:13px;font-weight:700;color:#1E2740;line-height:1.3;">El cliente compra donde quiera. Cross-brand. Toda la vida.</div>
+    <div style="font-size:11px;color:#4A5568;margin-top:8px;line-height:1.55;">Una persona puede haber comprado un Mazda en Plasencia, después un Hyundai, después un Seminuevo. <strong>No deja de ser cliente del grupo.</strong> La estrategia de adquisición, retención, lealtad y recurrencia <em>vive a nivel grupo</em>, no a nivel marca.</div>
+   </div>
+   <div style="background:#fff;border-radius:10px;padding:18px;box-shadow:0 1px 3px rgba(0,0,0,0.06);border-top:3px solid #ECC94B;">
+    <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;color:#718096;text-transform:uppercase;margin-bottom:6px;">Por qué empezar con Seminuevos</div>
+    <div style="font-size:13px;font-weight:700;color:#1E2740;line-height:1.3;">Caso fácil: ya existe Plasencia Seminuevos como sub-marca con libertad.</div>
+    <div style="font-size:11px;color:#4A5568;margin-top:8px;line-height:1.55;">Allí viven seminuevos de todas las marcas (Mazda, Ford, Hyundai...) sin restricciones de OEM. Es el laboratorio natural para probar marca, promoción y experiencia &mdash; siguiendo lineamientos de Plasencia (que aún son escuetos).</div>
+   </div>
+  </div>
+
+  <div style="margin-top:18px;background:rgba(66,153,225,0.06);border-left:3px solid #4299E1;border-radius:6px;padding:14px 18px;">
+   <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;color:#4299E1;text-transform:uppercase;margin-bottom:6px;">Lo que falta articular formalmente</div>
+   <div style="font-size:12px;color:#2D3748;line-height:1.55;"><strong>Identidad del grupo</strong> &middot; sistema de diseño multi-marca &middot; definición de experiencia ideal e2e. Hoy operamos sin esa base &mdash; cada marca con sus propias agencias y criterios. Refinarlo requiere un <em>proyecto de diseño estratégico</em> que sostenga al grupo como plataforma, no como suma de agencias. <strong>Esto entra al ask.</strong></div>
+  </div>
+ </div>
+ <div class="slide-footer">Motor de Atribución MVP &middot; 12/17middot; 13/18</div>
+</section>
+
+<!-- ════════════════════════════════════════════════════
+   SLIDE 13 - SI LO HUBIERA HECHO CON 3eros
+   ════════════════════════════════════════════════════ -->
+<section class="slide slide--dark">
+ <div class="slide-label">13 / Si lo hubiera hecho con terceros</div>
+ <img src="../assets/logos/LOGO-GP-Blanco.png" class="logo-corner logo-w"><img src="../assets/logos/Logo-GP-Negro.png" class="logo-corner logo-d">
+ <div class="pad">
+  <div class="t-label t-gold" style="margin-bottom:6px;">Comparativa de qué habría costado el mismo MVP con apoyo externo</div>
+  <div class="t-title t-white" style="max-width:1080px;">Lo que entregué en 4 semanas con $5,800 MXN equivale a un proyecto de <span style="color:#ECC94B;">~$730K MXN y 6 meses</span> ejecutado por 3eros.</div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:24px;">
+   <div style="background:rgba(252,129,129,0.06);border:1px solid rgba(252,129,129,0.3);border-radius:10px;padding:18px;">
+    <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;color:#FC8181;text-transform:uppercase;margin-bottom:10px;">Escenario A &middot; Si hubiera contratado 3eros</div>
+    <table style="width:100%;font-size:11px;color:#CBD5E0;line-height:1.5;">
+     <tr><td style="padding:4px 0;">Agencia digital MKT (4 meses)</td><td style="text-align:right;">~$100K MXN</td></tr>
+     <tr><td style="padding:4px 0;">Tech consultancy (CRM + integraciones)</td><td style="text-align:right;">~$150K MXN</td></tr>
+     <tr><td style="padding:4px 0;">Diseño de producto (3 SPAs UX/UI)</td><td style="text-align:right;">~$80K MXN</td></tr>
+     <tr><td style="padding:4px 0;">Equipo interno mínimo (PM + 2 devs, 4 meses)</td><td style="text-align:right;">~$400K MXN</td></tr>
+     <tr style="border-top:1px solid rgba(252,129,129,0.3);"><td style="padding:8px 0 0;"><strong style="color:#FC8181;">Total estimado</strong></td><td style="text-align:right;padding-top:8px;"><strong style="color:#FC8181;font-size:14px;">~$730K MXN</strong></td></tr>
+     <tr><td style="padding:2px 0;color:#A0AEC0;font-size:10px;">Tiempo a producción</td><td style="text-align:right;color:#A0AEC0;font-size:10px;">4-6 meses</td></tr>
+    </table>
+   </div>
+   <div style="background:rgba(72,187,120,0.06);border:1px solid rgba(72,187,120,0.3);border-radius:10px;padding:18px;">
+    <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;color:#68D391;text-transform:uppercase;margin-bottom:10px;">Escenario B &middot; Lo que hice realmente</div>
+    <table style="width:100%;font-size:11px;color:#CBD5E0;line-height:1.5;">
+     <tr><td style="padding:4px 0;">Claude Code (marzo + abril)</td><td style="text-align:right;">$200 USD ≈ $4,000 MXN</td></tr>
+     <tr><td style="padding:4px 0;">Zapier + Airtable (solo abril, ya retirado)</td><td style="text-align:right;">$89 USD ≈ $1,800 MXN</td></tr>
+     <tr><td style="padding:4px 0;">Agencias / consultoría / diseño</td><td style="text-align:right;color:#68D391;">$0</td></tr>
+     <tr><td style="padding:4px 0;">Equipo dedicado (PM/devs/UX)</td><td style="text-align:right;color:#68D391;">$0</td></tr>
+     <tr style="border-top:1px solid rgba(72,187,120,0.3);"><td style="padding:8px 0 0;"><strong style="color:#68D391;">Total real al 27 abril</strong></td><td style="text-align:right;padding-top:8px;"><strong style="color:#68D391;font-size:14px;">~$5,800 MXN</strong></td></tr>
+     <tr><td style="padding:2px 0;color:#A0AEC0;font-size:10px;">Tiempo a producción</td><td style="text-align:right;color:#A0AEC0;font-size:10px;">4 semanas</td></tr>
+    </table>
+    <div style="margin-top:8px;font-size:10px;color:#A0AEC0;font-style:italic;">+ mi sueldo de 2 meses (por debajo de mercado para el cargo)</div>
+   </div>
+  </div>
+
+  <div style="margin-top:20px;text-align:center;font-size:14px;color:#ECC94B;line-height:1.5;font-weight:600;">
+   ~125x menos costo &middot; ~5x más rápido &middot; <span style="color:#fff;">esa es la ventaja injusta gracias a IA</span>
+  </div>
+  <div style="margin-top:8px;text-align:center;font-size:11px;color:#A0AEC0;font-style:italic;">No es contra el grupo ni contra sus áreas legacy &mdash; es <em>en favor del grupo hacia la industria</em>. Time-to-market de startup como diferenciador competitivo a nivel nacional.</div>
+ </div>
+ <div class="slide-footer">Motor de Atribución MVP &middot; 13/17middot; 14/18</div>
+</section>
+
+<!-- ════════════════════════════════════════════════════
+   SLIDE 14 - QUE APRENDI DEL GRUPO
+   ════════════════════════════════════════════════════ -->
+<section class="slide slide--light">
+ <div class="slide-label">14 / Qué aprendí corriendo el piloto</div>
  <img src="../assets/logos/LOGO-GP-Blanco.png" class="logo-corner logo-w"><img src="../assets/logos/Logo-GP-Negro.png" class="logo-corner logo-d">
  <div class="pad">
   <div class="t-label t-red" style="margin-bottom:6px;">3 cosas que solo se ven cuando el sistema corre en producción</div>
-  <div class="t-title" style="max-width:1080px;color:#2D3748;">No son hipótesis &mdash; son observaciones de ver el embudo real durante 11 días.</div>
+  <div class="t-title" style="max-width:1080px;color:#2D3748;">El problema NO es prospectar. Es alinear y gestionar la fuerza de ventas.</div>
 
-  <div style="display:flex;gap:18px;margin-top:36px;">
-   <div class="insight-card" style="flex:1;">
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-top:24px;">
+   <div class="insight-card">
     <div class="num">1</div>
     <div class="what">El embudo del grupo no estaba estandarizado</div>
-    <div class="desc">Cada marca tenía su propia idea de "etapa" en el pipeline. Tuve que construir un glosario consensuado: <strong>Cita Agendada → Visita Realizada → Negociación → Ganada / Perdida</strong>. Sin esto, comparar marcas era imposible.</div>
+    <div class="desc">Cada marca con su idea de "etapa" en pipeline. Construí un glosario consensuado: <strong>Cita Agendada → Visita Realizada → Negociación → Ganada / Perdida</strong>. Sin esto, comparar marcas era imposible.</div>
    </div>
-   <div class="insight-card" style="flex:1;">
-    <div class="num">2</div>
-    <div class="what">Vendedores en piso sin visibilidad de leads digitales</div>
-    <div class="desc">El kanban del CRM les llegó como herramienta nueva. El cambio de hábito (revisar leads digitales antes de la cita, no solo walk-ins) toma tiempo &mdash; <strong>el software es la parte fácil</strong>.</div>
+   <div class="insight-card" style="border-left-color:#C8102E;">
+    <div class="num" style="color:#C8102E;">2</div>
+    <div class="what">El cuello de botella es la fuerza de ventas, no la prospección</div>
+    <div class="desc">Conversión grupo: <strong>4.3% lead-a-factura</strong>. <strong>83% de contactados nunca llega a la agencia.</strong> Hay leads que nadie trabaja, citas que no se cierran, falta de seguimiento. El enfoque actual es <em>táctico, no estratégico</em>.</div>
    </div>
-   <div class="insight-card" style="flex:1;">
+   <div class="insight-card">
     <div class="num">3</div>
     <div class="what">Las agencias optimizaban con datos sub-medidos</div>
-    <div class="desc">Sin server-side conversions (CAPI), ~40% de los eventos no llegaban a Meta. Después de v2, las agencias optimizan con datos reales. <strong>Mismo gasto, mejor decisión algorítmica.</strong></div>
+    <div class="desc">Sin server-side conversions, ~40% de los eventos no llegaban a Meta. Ahora optimizan con datos reales. <strong>Mismo gasto, mejor decisión algorítmica &mdash; sin tocar el presupuesto.</strong></div>
    </div>
   </div>
+
+  <div style="margin-top:20px;background:rgba(200,16,46,0.04);border-left:3px solid #C8102E;border-radius:6px;padding:14px 18px;">
+   <div style="font-size:12px;color:#2D3748;line-height:1.6;"><strong>Implicación estratégica:</strong> el piloto demostró que sí se puede medir, atribuir y optimizar al frente del embudo. Pero el verdadero salto está en el <em>medio del embudo</em> &mdash; alinear, capacitar y gestionar a la fuerza de ventas para que las citas se conviertan en visitas y las visitas en compras. Eso es lo que entra al ask.</div>
+  </div>
  </div>
- <div class="slide-footer">Motor de Atribución MVP &middot; 12/15</div>
+ <div class="slide-footer">Motor de Atribución MVP &middot; 14/17middot; 15/18</div>
 </section>
 
 <!-- ════════════════════════════════════════════════════
-   SLIDE 13 - HILOS ABIERTOS
+   SLIDE 15 - HILOS ABIERTOS (ESTRATEGICOS)
    ════════════════════════════════════════════════════ -->
 <section class="slide slide--light">
- <div class="slide-label">12 / Hilos abiertos honestos</div>
+ <div class="slide-label">15 / Hilos abiertos &middot; áreas de oportunidad</div>
  <img src="../assets/logos/LOGO-GP-Blanco.png" class="logo-corner logo-w"><img src="../assets/logos/Logo-GP-Negro.png" class="logo-corner logo-d">
  <div class="pad">
-  <div class="t-label t-red" style="margin-bottom:6px;">Lo que aún no está resuelto</div>
-  <div class="t-title" style="max-width:1080px;color:#2D3748;">No traigo el reporte limpio &mdash; traigo la lista honesta de lo que falta. Los siguientes 5 días.</div>
+  <div class="t-label t-red" style="margin-bottom:6px;">Lo que aún no está resuelto &mdash; agrupado por horizonte</div>
+  <div class="t-title" style="max-width:1080px;color:#2D3748;">Traigo la lista honesta. Cada hilo abierto es también una oportunidad estratégica.</div>
 
-  <div style="background:#fff;border-radius:10px;margin-top:24px;box-shadow:0 1px 3px rgba(0,0,0,0.06);overflow:hidden;">
+  <div style="background:#fff;border-radius:10px;margin-top:18px;box-shadow:0 1px 3px rgba(0,0,0,0.06);overflow:hidden;">
    <div class="thread-row">
     <div class="n">1</div>
-    <div style="flex:1;">
-     <div class="what">Stellantis: 0 leads desde el cutover</div>
-     <div class="desc">Sin confirmar si campañas están activas o si hay break en el tracking link. Diagnóstico en curso.</div>
-    </div>
+    <div style="flex:1;"><div class="what">Stellantis: 0 leads desde cutover</div><div class="desc">Diagnóstico técnico-político en curso. Posiblemente relacionado con campaña detenida + alineación pendiente con marca.</div></div>
    </div>
    <div class="thread-row">
     <div class="n">2</div>
-    <div style="flex:1;">
-     <div class="what">Parámetros Meta (<code style="font-size:11px;background:#F7FAFC;padding:1px 5px;border-radius:3px;">ad_id</code>, <code style="font-size:11px;background:#F7FAFC;padding:1px 5px;border-radius:3px;">placement</code>) llegan vacíos</div>
-     <div class="desc">Falta configurar URL parameter template en Meta Ads Manager. Sin esto, no se puede reportar performance por anuncio individual.</div>
-    </div>
+    <div style="flex:1;"><div class="what">Sin central de medios corporativa</div><div class="desc">Cada marca paga ads desde su razón social. Vehículo en construcción con Contraloría para que el corporativo opere como central. <strong>Estructural.</strong></div></div>
    </div>
    <div class="thread-row">
     <div class="n">3</div>
-    <div style="flex:1;">
-     <div class="what">3 leads del fin de semana con <code style="font-size:11px;background:#F7FAFC;padding:1px 5px;border-radius:3px;">value: 0</code> en CAPI</div>
-     <div class="desc">Bug de aliases ya corregido (<code style="font-size:11px;background:#F7FAFC;padding:1px 5px;border-radius:3px;">applyPayloadAliases()</code>). Los 3 leads no son recuperables por dedup &mdash; el resto si.</div>
-    </div>
+    <div style="flex:1;"><div class="what">Falta de seguimiento sistemático en piso</div><div class="desc">Vendedores con vicios operativos identificados. El problema no es prospectar &mdash; es gestionar. Aplica a todo el grupo. <strong>Operativo-estratégico.</strong></div></div>
    </div>
    <div class="thread-row">
     <div class="n">4</div>
-    <div style="flex:1;">
-     <div class="what">3 citas SEM del fin de semana sin vendedor asignado</div>
-     <div class="desc">Asignación automática pendiente. Mientras, Jose Reyes / Flor Alcaraz deben tomarlos manualmente.</div>
-    </div>
+    <div style="flex:1;"><div class="what">Identidad y diseño estratégico del grupo sin articular</div><div class="desc">No hay sistema de diseño multi-marca, ni definición formal de experiencia e2e Plasencia. Refinarlo es proyecto. <strong>Estratégico.</strong></div></div>
    </div>
    <div class="thread-row">
     <div class="n">5</div>
-    <div style="flex:1;">
-     <div class="what">Borrado definitivo de la base Airtable</div>
-     <div class="desc">Apagada y desconectada el 25 abril, pero la base aun existe (residual). Borrado pendiente como housekeeping.</div>
-    </div>
+    <div style="flex:1;"><div class="what">Coordinación formal con OEMs</div><div class="desc">Estamos jugando dentro del ecosistema digital del grupo, fuera de la cancha de las marcas. Necesario alinear con Mazda, Ford, Stellantis, Hyundai. <strong>Político-comercial.</strong></div></div>
+   </div>
+   <div class="thread-row">
+    <div class="n">6</div>
+    <div style="flex:1;"><div class="what">Parámetros Meta (<code style="font-size:11px;background:#F7FAFC;padding:1px 5px;border-radius:3px;">ad_id</code>, <code style="font-size:11px;background:#F7FAFC;padding:1px 5px;border-radius:3px;">placement</code>) llegan vacíos</div><div class="desc">URL parameter template pendiente en Meta Ads Manager. <strong>Técnico, resoluble en días.</strong></div></div>
    </div>
   </div>
  </div>
- <div class="slide-footer">Motor de Atribución MVP &middot; 13/15</div>
+ <div class="slide-footer">Motor de Atribución MVP &middot; 15/17middot; 16/18</div>
 </section>
 
 <!-- ════════════════════════════════════════════════════
-   SLIDE 14 - LO QUE PIDO
+   SLIDE 16 - LO QUE PIDO (4 ASKS)
    ════════════════════════════════════════════════════ -->
 <section class="slide slide--darker">
- <div class="slide-label">13 / Lo que pido</div>
+ <div class="slide-label">16 / Lo que pido</div>
  <img src="../assets/logos/LOGO-GP-Blanco.png" class="logo-corner logo-w"><img src="../assets/logos/Logo-GP-Negro.png" class="logo-corner logo-d">
- <div class="pad-lg">
-  <div class="t-label t-gold" style="margin-bottom:14px;">Para continuar y consolidar el piloto</div>
-  <div class="t-display" style="font-size:34px;color:#fff;line-height:1.15;letter-spacing:-0.4px;font-weight:700;max-width:1080px;">
-   3 decisiones puntuales del Consejo &mdash; ninguna requiere presupuesto extraordinario hoy.
+ <div class="pad">
+  <div class="t-label t-gold" style="margin-bottom:14px;">Para consolidar el piloto y abrir el siguiente nivel</div>
+  <div class="t-display" style="font-size:30px;color:#fff;line-height:1.2;letter-spacing:-0.4px;font-weight:700;max-width:1080px;">
+   4 decisiones puntuales del Consejo &mdash; cada una habilita una capa nueva del modelo.
   </div>
 
-  <div style="display:flex;gap:18px;margin-top:40px;">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:24px;">
    <div class="ask-card">
     <div class="num-ask">1</div>
-    <div class="decision">Continuidad operativa del piloto</div>
-    <div class="detail">Mantener el budget actual ($90K MXN/mes en Meta + $0 en infra) y los 3 dominios activos por los próximos 3 meses para consolidar métricas y cerrar hilos abiertos.</div>
+    <div class="decision">Equipo de ventas digitales corporativas</div>
+    <div class="detail">Aislar los vicios operativos actuales y poder garantizar/trazar ventas reales atribuidas al piloto en los <strong>próximos 30-45 días</strong>. Una célula corporativa que opere directamente sobre los leads del Motor de Atribución, sin pasar por la fricción operativa de cada agencia.</div>
    </div>
    <div class="ask-card">
     <div class="num-ask">2</div>
-    <div class="decision">Visibilidad estructural ante Consejo</div>
-    <div class="detail">Acceso trimestral al Consejo para reportar status del piloto. Institucionalizar el foro &mdash; no como concesión, sino como mecanismo permanente de gobernanza.</div>
+    <div class="decision">Marketing Corporativo evoluciona a RevOps</div>
+    <div class="detail">Pasar de "área de gasto" a "área de growth" con modelo de <strong>comisiones / participación en ventas</strong> (planteado desde la entrevista). RevOps = alinear MKT + ventas + data hacia un solo resultado: ingreso medible.</div>
    </div>
    <div class="ask-card">
     <div class="num-ask">3</div>
-    <div class="decision">Aprobación preliminar para fase 2 del piloto</div>
-    <div class="detail">Ampliar de 3 a 6 marcas + agregar Google Ads + TikTok Pixel server-side. Presupuesto detallado a presentar el próximo trimestre con base en métricas consolidadas de fase 1.</div>
+    <div class="decision">Proyecto de diseño estratégico del grupo</div>
+    <div class="detail">Refinar identidad de Grupo Plasencia, sistemas de diseño multi-marca, definición de experiencia e2e ideal. Sin esta base, escalar el modelo a las 8 marcas se vuelve operativamente caótico.</div>
+   </div>
+   <div class="ask-card">
+    <div class="num-ask">4</div>
+    <div class="decision">Apertura formal con OEMs &middot; respaldo del Consejo</div>
+    <div class="detail">Acercamiento coordinado con marcas (Mazda, Ford, Stellantis, Hyundai, etc.) con respaldo institucional para exponer la necesidad de jugar dentro/fuera de la cancha de marca + completar el vehículo de central de medios corporativa con Contraloría.</div>
    </div>
   </div>
 
-  <div style="margin-top:36px;text-align:center;font-size:13px;color:#A0AEC0;line-height:1.6;font-style:italic;">"Lo que pido aquí es mínimo &mdash; continuidad, visibilidad, y derecho a proponer más. La visión completa de a donde puede escalar esto, viene en la siguiente parte."</div>
+  <div style="margin-top:14px;background:rgba(252,129,129,0.06);border-left:3px solid #FC8181;border-radius:6px;padding:12px 16px;">
+   <div style="font-size:11px;color:#CBD5E0;line-height:1.6;"><strong style="color:#FC8181;">Importante:</strong> estas 4 decisiones requieren <strong>respaldo del Consejo</strong>, no negociación marca por marca. Lo construido hasta hoy se hizo bottom-up por necesidad. Escalar requiere top-down por diseño.</div>
+  </div>
+
+  <div class="glossary" style="margin-top:10px;"><strong>RevOps (Revenue Operations)</strong> &middot; modelo operativo donde marketing, ventas y data se alinean bajo una sola dirección con métricas compartidas y, idealmente, esquemas de compensación variable atados a resultados de ingreso. La Dirección de MKT deja de ser "área de gasto" y pasa a ser "área de growth".</div>
  </div>
- <div class="slide-footer">Motor de Atribución MVP &middot; 14/15</div>
+ <div class="slide-footer">Motor de Atribución MVP &middot; 17/18</div>
 </section>
 
 <!-- ════════════════════════════════════════════════════
-   SLIDE 15 - CIERRE
+   SLIDE 18 - CIERRE
    ════════════════════════════════════════════════════ -->
 <section class="slide slide--darker">
- <div class="slide-label">14 / Cierre</div>
+ <div class="slide-label">17 / Cierre</div>
  <img src="../assets/logos/LOGO-GP-Blanco.png" class="logo-corner logo-w"><img src="../assets/logos/Logo-GP-Negro.png" class="logo-corner logo-d">
  <div class="pad-lg flex-col center-all" style="justify-content:center;">
   <div class="t-label t-gold" style="margin-bottom:18px;">Resumen del piloto al día 11</div>
-  <div class="t-display" style="font-size:36px;color:#fff;line-height:1.3;letter-spacing:-0.4px;font-weight:700;max-width:1000px;text-align:center;">
+  <div class="t-display" style="font-size:34px;color:#fff;line-height:1.3;letter-spacing:-0.4px;font-weight:700;max-width:1000px;text-align:center;">
    Lo que vieron es el <span style="color:#ECC94B;">piloto</span>:<br>una dirección de marketing corriendo<br>como <span style="color:#ECC94B;">producto</span>, no como gasto.
   </div>
 
-  <div style="display:flex;gap:48px;margin-top:48px;justify-content:center;">
+  <div style="display:flex;gap:48px;margin-top:36px;justify-content:center;">
    <div style="text-align:center;">
-    <div class="anchor-num" style="font-size:48px;">4</div>
+    <div class="anchor-num" style="font-size:44px;">4</div>
     <div class="anchor-label">Semanas hasta<br>el GO-LIVE</div>
    </div>
    <div style="text-align:center;">
-    <div class="anchor-num" style="font-size:48px;">2</div>
+    <div class="anchor-num" style="font-size:44px;">2</div>
     <div class="anchor-label">Arquitecturas<br>(v1 + v2 en vuelo)</div>
    </div>
    <div style="text-align:center;">
-    <div class="anchor-num" style="font-size:48px;">11</div>
+    <div class="anchor-num" style="font-size:44px;">11</div>
     <div class="anchor-label">Días produciendo<br>citas reales</div>
    </div>
    <div style="text-align:center;">
-    <div class="anchor-num" style="font-size:48px;">1</div>
-    <div class="anchor-label">Persona<br>+ IA como apalancamiento</div>
+    <div class="anchor-num" style="font-size:44px;">$5.8K</div>
+    <div class="anchor-label">MXN totales<br>en infraestructura</div>
    </div>
   </div>
 
-  <div style="margin-top:44px;font-size:14px;color:#A0AEC0;line-height:1.6;max-width:820px;text-align:center;font-style:italic;">"Cuando el Consejo lo considere oportuno y el piloto haya consolidado más datos, traigo la siguiente fase: como esto se convierte en la ventaja competitiva estructural del grupo."</div>
+  <div style="margin-top:32px;font-size:18px;color:#ECC94B;line-height:1.4;max-width:880px;text-align:center;font-weight:600;">"Estoy operando a velocidad <span style="color:#fff;">startup</span>. El grupo puede ir a ese ritmo si así lo decide."</div>
 
-  <div style="margin-top:32px;font-size:12px;color:#ECC94B;letter-spacing:2px;text-transform:uppercase;font-weight:700;">Gracias &middot; Quedo a sus preguntas</div>
+  <div style="margin-top:22px;background:rgba(255,255,255,0.05);border:1px solid rgba(236,201,75,0.3);border-radius:10px;padding:14px 22px;max-width:920px;">
+   <div style="font-size:10px;font-weight:700;letter-spacing:2px;color:#ECC94B;text-transform:uppercase;margin-bottom:6px;text-align:center;">Una nota sobre cómo llegamos hasta aquí</div>
+   <div style="font-size:11px;color:#CBD5E0;line-height:1.55;text-align:center;">Esta conversación pudo haber empezado desde el día 1 del contrato. En el primer acercamiento se planteó acceso directo al Consejo; durante el onboarding ese canal no se materializó. Resultado: <strong>mes y medio para evidenciar bottom-up lo que se podía discutir desde el inicio</strong>, pidiendo presupuesto marca por marca. El patrón a futuro es <strong>top-down por diseño</strong>: las transformaciones se construyen desde el Consejo hacia abajo, no al revés.</div>
+  </div>
+
+  <div style="margin-top:14px;font-size:12px;color:#A0AEC0;line-height:1.6;max-width:820px;text-align:center;font-style:italic;">"El piloto es valor de corto plazo. El impacto estratégico real que puedo dar sigue subutilizado si esto se queda solo aquí. Cuando el Consejo lo considere oportuno, traigo la siguiente fase."</div>
+
+  <div style="margin-top:18px;font-size:11px;color:#ECC94B;letter-spacing:2px;text-transform:uppercase;font-weight:700;">Gracias &middot; Quedo a sus preguntas</div>
  </div>
  <div style="position:absolute;bottom:14px;left:0;right:0;text-align:center;">
-  <span style="opacity:0.35;font-size:9px;letter-spacing:2px;color:#ECC94B;text-transform:uppercase;">Chucho Porras &middot; Director de Marketing Corporativo &middot; Abril 2026</span>
+  <span style="opacity:0.35;font-size:9px;letter-spacing:2px;color:#ECC94B;text-transform:uppercase;">Jesús Pérez Porras &middot; Director de Marketing Corporativo &middot; Abril 2026</span>
  </div>
 </section>
 
