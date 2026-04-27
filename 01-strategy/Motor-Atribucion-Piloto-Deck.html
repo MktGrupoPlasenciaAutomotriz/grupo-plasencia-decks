@@ -490,8 +490,8 @@ table.t-pipe tr.tot td { font-weight: 800; color: #ECC94B; border-top: 2px solid
     <div style="font-size:11px;color:#2D3748;line-height:1.55;">Elegí lo más rápido posible para estar vivo el 16 de abril. <strong>Sabía que iba a ser provisional</strong> &mdash; el objetivo era validar la hipótesis de atribución, no optimizar arquitectura. Costo SaaS: <strong>~$89 USD/mes</strong> (Airtable + Zapier).</div>
    </div>
    <div style="background:rgba(66,153,225,0.06);border-left:3px solid #4299E1;border-radius:6px;padding:14px 16px;">
-    <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;color:#1E2740;text-transform:uppercase;margin-bottom:6px;">Decisión con Contraloría &middot; agencia de medios</div>
-    <div style="font-size:11px;color:#2D3748;line-height:1.55;">Para ejecutar los ads se reusó la <strong>agencia de medios que ya operaba con Hyundai</strong>, definido con Contraloría por orden fiscal (cada agencia paga ads desde su razón social). Las centrales de medios cobran comisión por la compra publicitaria &mdash; práctica normal en la industria. <strong>En este caso, 8% del gasto se va a la agencia.</strong> Es un costo eliminable cuando el corporativo opere directamente como central de medios. <em>No es mi recomendación de operación a futuro: es lo que se pudo hacer hoy.</em></div>
+    <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;color:#1E2740;text-transform:uppercase;margin-bottom:6px;">Decisión con Contraloría &middot; flujo del presupuesto</div>
+    <div style="font-size:11px;color:#2D3748;line-height:1.55;">Sin presupuesto corporativo asignado a MKT, el flujo se armó <em>bottom-up</em>: las <strong>concesionarias del grupo</strong> (Hyundai, Stellantis, Seminuevos) fondean <strong>$30K MXN/mes cada una</strong> a la <strong>agencia de medios externa</strong> que ya operaba con Hyundai. Los gerentes de marca están <em>onboard</em>. Las centrales cobran comisión por compra publicitaria &mdash; práctica normal de la industria. En este caso: <strong>8% del gasto se va a la agencia</strong>. Es un costo eliminable cuando el corporativo opere directamente como central de medios. <em>No es mi recomendación de operación a futuro: es lo que se pudo hacer hoy.</em></div>
    </div>
   </div>
  </div>
@@ -508,24 +508,25 @@ table.t-pipe tr.tot td { font-weight: 800; color: #ECC94B; border-top: 2px solid
   <div class="t-label t-gold" style="margin-bottom:6px;">No solo números &mdash; un cambio operativo de fondo</div>
   <div class="t-title t-white" style="max-width:1080px;">Una vista única del pipeline e2e + señales que entrenan los algoritmos publicitarios.</div>
 
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:24px;">
-   <div class="card--dark">
-    <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;color:#ECC94B;text-transform:uppercase;margin-bottom:8px;">1 / Vista Kanban e2e</div>
-    <div style="font-size:14px;font-weight:700;color:#fff;line-height:1.3;">Una sola pantalla. Todas las marcas. Todas las etapas.</div>
-    <div style="font-size:11px;color:#CBD5E0;margin-top:8px;line-height:1.55;">Pipeline visible por <strong>marca / agencia / línea de negocio</strong>: <em>Cita Agendada → Visita Realizada → Negociación → Ganada / Perdida</em>. Antes: cada quien con su Excel/sheet. Ahora: una vista corporativa unificada, en tiempo real.</div>
-    <div style="margin-top:10px;display:flex;gap:6px;flex-wrap:wrap;">
-     <span class="tag tag--gold">Cita Agendada</span><span class="tag tag--gold">Visita</span><span class="tag tag--gold">Negociación</span><span class="tag tag--green">Ganada</span><span class="tag tag--red">Perdida</span>
+  <div style="display:grid;grid-template-columns:1.5fr 1fr;gap:14px;margin-top:18px;">
+   <div class="card--dark" style="padding:12px;">
+    <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;color:#ECC94B;text-transform:uppercase;margin-bottom:6px;">1 / Vista Kanban e2e &middot; CRM corporativo del piloto</div>
+    <div style="font-size:11px;color:#CBD5E0;line-height:1.5;margin-bottom:8px;">Una sola pantalla. <strong>Todas las marcas. Todas las etapas.</strong> Pipeline por marca / agencia / línea de negocio: Cita → Visita → Negociación → Ganada / Perdida. Antes: Excel/sheets fragmentados. Ahora: vista corporativa unificada en tiempo real.</div>
+    <div style="background:#0F1A2E;border:1px solid rgba(255,255,255,0.15);border-radius:6px;padding:4px;overflow:hidden;">
+     <img src="../assets/screenshots/Kanban-Pipeline.png" alt="Kanban CRM Plasencia - vista del pipeline real al 27 abril" style="width:100%;border-radius:4px;display:block;" loading="lazy">
     </div>
+    <div style="font-size:9px;color:#A0AEC0;margin-top:4px;font-style:italic;text-align:center;">Captura real del CRM en producción al 27 abril 2026</div>
    </div>
-   <div class="card--dark">
-    <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;color:#ECC94B;text-transform:uppercase;margin-bottom:8px;">2 / Señales server-side</div>
-    <div style="font-size:14px;font-weight:700;color:#fff;line-height:1.3;">Le enseñamos a los algoritmos a quién mostrarle anuncios.</div>
-    <div style="font-size:11px;color:#CBD5E0;margin-top:8px;line-height:1.55;">Hoy ya no se segmenta a mano (edad / código postal). Los algoritmos de Meta y Google deciden quién ve cada anuncio buscando personas que <strong>se parezcan</strong> a las que ya interactuaron. Las señales que les mandamos:</div>
-    <div style="margin-top:10px;display:flex;gap:8px;">
-     <span style="background:rgba(72,187,120,0.18);color:#68D391;padding:6px 12px;border-radius:20px;font-size:11px;font-weight:700;letter-spacing:0.5px;">+ Citas</span>
-     <span style="background:rgba(72,187,120,0.18);color:#68D391;padding:6px 12px;border-radius:20px;font-size:11px;font-weight:700;letter-spacing:0.5px;">+ Visitas</span>
-     <span style="background:rgba(72,187,120,0.18);color:#68D391;padding:6px 12px;border-radius:20px;font-size:11px;font-weight:700;letter-spacing:0.5px;">+ Compras</span>
+   <div class="card--dark" style="padding:14px;">
+    <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;color:#ECC94B;text-transform:uppercase;margin-bottom:6px;">2 / Señales server-side</div>
+    <div style="font-size:13px;font-weight:700;color:#fff;line-height:1.3;">Le enseñamos a los algoritmos a quién mostrarle anuncios.</div>
+    <div style="font-size:10px;color:#CBD5E0;margin-top:6px;line-height:1.5;">Hoy ya no se segmenta a mano (edad / código postal). Los algoritmos deciden quién ve cada anuncio buscando personas que <strong>se parezcan</strong> a las que ya interactuaron. Las señales que les mandamos:</div>
+    <div style="margin-top:10px;display:flex;flex-direction:column;gap:6px;">
+     <span style="background:rgba(72,187,120,0.18);color:#68D391;padding:6px 12px;border-radius:6px;font-size:11px;font-weight:700;">+ Citas agendadas</span>
+     <span style="background:rgba(72,187,120,0.18);color:#68D391;padding:6px 12px;border-radius:6px;font-size:11px;font-weight:700;">+ Visitas en piso</span>
+     <span style="background:rgba(72,187,120,0.18);color:#68D391;padding:6px 12px;border-radius:6px;font-size:11px;font-weight:700;">+ Compras (cuando ocurran)</span>
     </div>
+    <div style="margin-top:8px;font-size:9px;color:#A0AEC0;line-height:1.4;font-style:italic;">No clicks. No interacciones. <strong style="color:#68D391;">Señales reales de negocio.</strong></div>
    </div>
   </div>
 
@@ -557,14 +558,19 @@ table.t-pipe tr.tot td { font-weight: 800; color: #ECC94B; border-top: 2px solid
     <div style="display:flex;align-items:flex-start;"><span class="strike-x">&times;</span><div style="font-size:11px;line-height:1.5;color:#2D3748;"><strong>Optimización por número de interacciones</strong> &middot; el algoritmo aprende a buscar gente que hace click o escribe mensajes &mdash; no gente que compra. <em>El presupuesto se diluye buscando el perfil equivocado.</em></div></div>
    </div>
 
-   <div style="background:#fff;border-radius:10px;padding:16px 18px;border-top:3px solid #48BB78;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
-    <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;color:#276749;text-transform:uppercase;margin-bottom:8px;">Lo que hacen las SPAs del MVP</div>
+   <div style="background:#fff;border-radius:10px;padding:14px 16px;border-top:3px solid #48BB78;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+    <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;color:#276749;text-transform:uppercase;margin-bottom:6px;">Lo que hacen las SPAs del MVP</div>
 
-    <div style="display:flex;align-items:flex-start;margin-bottom:10px;"><span class="check-ok">&check;</span><div style="font-size:11px;line-height:1.5;color:#2D3748;"><strong>Catálogo + calculadora obligatorios</strong> antes del formulario. El prospecto ve el auto, ajusta enganche (10-70%) y plazo (12-60m), conoce su mensualidad estimada. <em>Filtra a quien le alcanza, antes del lead.</em></div></div>
+    <div style="display:flex;align-items:flex-start;margin-bottom:6px;"><span class="check-ok">&check;</span><div style="font-size:10px;line-height:1.45;color:#2D3748;"><strong>Catálogo + calculadora obligatorios</strong> antes del form. Ve el auto, ajusta enganche y plazo, conoce su mensualidad. <em>Filtra a quien le alcanza, antes del lead.</em></div></div>
 
-    <div style="display:flex;align-items:flex-start;margin-bottom:10px;"><span class="check-ok">&check;</span><div style="font-size:11px;line-height:1.5;color:#2D3748;"><strong>Cita pre-agendada con datos completos</strong> &middot; nombre, vehículo, precio, enganche, mensualidad, fecha, hora, sucursal, tipo de persona, si comprueba ingresos, auto a cuenta. <em>El vendedor ya no vende la cita: la confirma.</em></div></div>
+    <div style="display:flex;align-items:flex-start;margin-bottom:6px;"><span class="check-ok">&check;</span><div style="font-size:10px;line-height:1.45;color:#2D3748;"><strong>Cita pre-agendada con datos completos</strong> &middot; vehículo, precio, enganche, mensualidad, fecha, hora, sucursal, tipo de persona. <em>El vendedor ya no vende la cita: la confirma.</em></div></div>
 
-    <div style="display:flex;align-items:flex-start;"><span class="check-ok">&check;</span><div style="font-size:11px;line-height:1.5;color:#2D3748;"><strong>Optimización por señales de negocio</strong> &middot; mandamos a Meta/Google citas, visitas y compras (no clicks). El algoritmo aprende a buscar gente que <em>se parece a quien ya compró</em>.</div></div>
+    <div style="display:flex;align-items:flex-start;margin-bottom:8px;"><span class="check-ok">&check;</span><div style="font-size:10px;line-height:1.45;color:#2D3748;"><strong>Optimización por señales de negocio</strong> &middot; citas, visitas, compras a Meta/Google (no clicks).</div></div>
+
+    <div style="background:#0F1A2E;border-radius:5px;padding:3px;">
+     <img src="../assets/screenshots/Landing-Seminuevos-Cotiza.png" alt="Wizard de cita en SPA Seminuevos - paso Cotiza" style="width:100%;border-radius:3px;display:block;" loading="lazy">
+    </div>
+    <div style="font-size:8px;color:#718096;margin-top:3px;font-style:italic;text-align:center;">Wizard de la SPA Seminuevos &middot; paso 1 (Cotiza) &middot; calculadora obligatoria</div>
    </div>
   </div>
 
@@ -781,8 +787,8 @@ table.t-pipe tr.tot td { font-weight: 800; color: #ECC94B; border-top: 2px solid
 
   <div style="display:grid;grid-template-columns:2fr 1fr;gap:14px;margin-top:20px;">
    <div style="background:rgba(236,201,75,0.08);border-left:3px solid #ECC94B;border-radius:6px;padding:14px 18px;">
-    <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;color:#ECC94B;text-transform:uppercase;margin-bottom:6px;">Hyundai y Stellantis: pausa intencional para alinear primero</div>
-    <div style="font-size:11px;color:#CBD5E0;line-height:1.55;">El piloto opera dentro del ecosistema digital del <strong>grupo</strong>, no de cada marca. Antes de escalar campañas en estas dos OEMs, prefiero <strong>alinear visión con el Consejo y directores</strong> y luego acercarnos a las marcas con respaldo institucional. <em>No es ir en contra: es ir alineados &mdash; el grupo + las marcas avanzando juntos.</em> El relanzamiento se está rediseñando con la oferta comercial de mayo.</div>
+    <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;color:#ECC94B;text-transform:uppercase;margin-bottom:6px;">El piloto sigue activo &mdash; con Seminuevos como marco de referencia</div>
+    <div style="font-size:11px;color:#CBD5E0;line-height:1.55;"><strong>Seminuevos</strong> sigue en producción y es la prueba real de si el modelo sirve o no. <strong>Hyundai y Stellantis</strong> pausados intencionalmente para <strong>alinear visión con Consejo y directores primero</strong>, luego acercamiento conjunto con OEMs. El relanzamiento se está rediseñando con la oferta de mayo. <em>Mientras se hace la alineación, no es necesario operarlo en las 3 marcas &mdash; el resultado de Seminuevos será el mismo o muy parecido en las otras.</em></div>
    </div>
    <div class="card--dark">
     <div style="font-size:9px;font-weight:700;letter-spacing:1.5px;color:#ECC94B;text-transform:uppercase;">Total leads en D1</div>

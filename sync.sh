@@ -36,6 +36,10 @@ done
 mkdir -p "$DEST/assets/logos"
 cp "$SRC/assets/logos/"*.png "$DEST/assets/logos/" 2>/dev/null && echo "[OK]  assets/logos/*.png" || echo "[SKIP] logos"
 
+# Screenshots
+mkdir -p "$DEST/assets/screenshots"
+cp "$SRC/assets/screenshots/"*.png "$DEST/assets/screenshots/" 2>/dev/null && echo "[OK]  assets/screenshots/*.png" || echo "[SKIP] screenshots"
+
 echo ""
 echo "Sync completo. Ahora:"
 echo "  cd $DEST"
