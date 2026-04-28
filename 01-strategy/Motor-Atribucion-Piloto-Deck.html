@@ -894,56 +894,10 @@ table.t-pipe tr.tot td { font-weight: 800; color: #ECC94B; border-top: 2px solid
    SLIDE 9 - LO QUE DESCUBRI (LIMITACIONES V1)
    ════════════════════════════════════════════════════ -->
 <!-- ════════════════════════════════════════════════════
-   SLIDE NUEVA - DATA DASHBOARD (28 abril)
-   ════════════════════════════════════════════════════ -->
-<section class="slide slide--light">
- <div class="slide-label">12 / Dashboard de atribución &middot; medición e2e del funnel digital</div>
- <img src="../assets/logos/LOGO-GP-Blanco.png" class="logo-corner logo-w"><img src="../assets/logos/Logo-GP-Negro.png" class="logo-corner logo-d">
- <div class="pad" style="padding:42px 60px 30px;">
-  <div class="t-label t-red" style="margin-bottom:5px;">Construido en medio día (28 abril) &middot; embebido en la app del Motor de Atribución</div>
-  <div class="t-title" style="max-width:1080px;color:#2D3748;font-size:22px;line-height:1.25;"><strong>9 secciones, multi-source</strong> (D1 + GA4 + Meta Ads + Clarity + GSC) con cron auto diario. <strong>Por primera vez el grupo puede gestionar el funnel digital con datos vivos</strong> &mdash; no con reportes mensuales que llegan tarde y desconectados.</div>
-
-  <div style="display:grid;grid-template-columns:1.4fr 1fr;gap:14px;margin-top:14px;align-items:stretch;">
-
-   <div style="background:#fff;border-radius:8px;padding:6px;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
-    <div style="background:#0F1A2E;border-radius:4px;padding:3px;">
-     <img src="../assets/screenshots/Data-Dashboard.png" alt="Dashboard de atribución · funnel digital de 3 landings por marca" style="width:100%;border-radius:3px;display:block;" loading="lazy">
-    </div>
-    <div style="font-size:8px;color:#718096;margin-top:3px;font-style:italic;text-align:center;">Captura del 28 abril, 14:19 hrs &middot; sección "Funnel digital de 3 landings" (1 de 9 secciones).</div>
-   </div>
-
-   <div style="display:flex;flex-direction:column;gap:8px;">
-
-    <div style="background:#fff;border-top:3px solid #4299E1;border-radius:8px;padding:9px 14px;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
-     <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;color:#4299E1;text-transform:uppercase;margin-bottom:4px;">Las 9 secciones</div>
-     <div style="font-size:9.5px;color:#2D3748;line-height:1.5;">Headline KPIs · Funnel digital 3 landings · Funnel pipeline · Cost matrix · Demográficas converters · GA4 vs Meta · Inversión · Atribución · Vendedores · SLA Motor. <em>Cada sección con filtros marca/período propios.</em></div>
-    </div>
-
-    <div style="background:#fff;border-top:3px solid #ECC94B;border-radius:8px;padding:9px 14px;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
-     <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;color:#1E2740;text-transform:uppercase;margin-bottom:4px;">Cómo se alimenta &middot; cron auto 8AM GDL</div>
-     <div style="font-size:9.5px;color:#2D3748;line-height:1.5;"><strong>D1</strong> en tiempo real (pipeline, leads, eventos). <strong>GA4 + Meta + GSC + Clarity</strong> via APIs server-side, cache D1, refresh cron 08:00 GDL diario. <em>Acceso por PIN: Chucho/Pepe ven todo cross-marca; gerentes de marca ven solo su marca.</em></div>
-    </div>
-
-    <div style="background:rgba(72,187,120,0.06);border-left:3px solid #48BB78;border-radius:8px;padding:9px 14px;">
-     <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;color:#276749;text-transform:uppercase;margin-bottom:4px;">Hallazgo cross-brand al 28 abril</div>
-     <div style="font-size:9.5px;color:#2D3748;line-height:1.5;"><strong>Seminuevos 1.42% &middot; Stellantis 5.52% &middot; Hyundai 3.55%</strong> de conversión session→lead. <em>Sin este dashboard, ese gap tomaba semanas detectar.</em> Es la base de gestión que RevOps necesita para decisiones diarias.</div>
-    </div>
-
-   </div>
-  </div>
-
-  <div style="margin-top:10px;background:rgba(66,153,225,0.06);border-left:3px solid #4299E1;border-radius:6px;padding:9px 14px;">
-   <div style="font-size:10.5px;color:#2D3748;line-height:1.5;"><strong style="color:#4299E1;">Decisión arquitectónica:</strong> se descartó Looker (no tiene API/MCP que permita orquestar desde Claude Code) y se construyó custom sobre el mismo Cloudflare Worker del CRM. <strong>Cero infra nueva, cero dependencia externa, deploys instantáneos.</strong> El Motor de Atribución pasa de captura a <strong>plataforma de gestión</strong> &mdash; la diferencia entre operar a ciegas y operar con instrumentos.</div>
-  </div>
- </div>
- <div class="slide-footer">Motor de Atribución MVP &middot; 13/27</div>
-</section>
-
-<!-- ════════════════════════════════════════════════════
    SLIDE 9 - LO QUE DESCUBRI (LIMITACIONES V1)
    ════════════════════════════════════════════════════ -->
 <section class="slide slide--dark">
- <div class="slide-label">13 / Lo que descubrí en el camino</div>
+ <div class="slide-label">12 / Lo que descubrí en el camino</div>
  <img src="../assets/logos/LOGO-GP-Blanco.png" class="logo-corner logo-w"><img src="../assets/logos/Logo-GP-Negro.png" class="logo-corner logo-d">
  <div class="pad">
   <div class="t-label t-gold" style="margin-bottom:6px;">3 limitaciones del stack v1</div>
@@ -969,14 +923,14 @@ table.t-pipe tr.tot td { font-weight: 800; color: #ECC94B; border-top: 2px solid
 
   <div style="margin-top:36px;text-align:center;font-size:14px;color:#ECC94B;line-height:1.6;font-style:italic;">"v1 me sirvió para activar &mdash; no servía para escalar al grupo entero."</div>
  </div>
- <div class="slide-footer">Motor de Atribución MVP &middot; 14/27</div>
+ <div class="slide-footer">Motor de Atribución MVP &middot; 13/27</div>
 </section>
 
 <!-- ════════════════════════════════════════════════════
    SLIDE 9 - LA DECISION DIFICIL (CUTOVER 24h)
    ════════════════════════════════════════════════════ -->
 <section class="slide slide--darker">
- <div class="slide-label">14 / La decisión difícil</div>
+ <div class="slide-label">13 / La decisión difícil</div>
  <img src="../assets/logos/LOGO-GP-Blanco.png" class="logo-corner logo-w"><img src="../assets/logos/Logo-GP-Negro.png" class="logo-corner logo-d">
  <div class="pad-lg flex-col" style="justify-content:center;">
   <div class="t-label t-gold" style="margin-bottom:14px;">24 de abril, 8 días post GO-LIVE</div>
@@ -1005,14 +959,14 @@ table.t-pipe tr.tot td { font-weight: 800; color: #ECC94B; border-top: 2px solid
 
   <div style="margin-top:32px;text-align:center;font-size:13px;color:#A0AEC0;line-height:1.6;font-style:italic;max-width:920px;margin-left:auto;margin-right:auto;">"La velocidad de iteración solo es real si puedes ejecutar cambios estructurales en horas, no semanas. Esa fue la prueba &mdash; y el grupo la pasó."</div>
  </div>
- <div class="slide-footer">Motor de Atribución MVP &middot; 15/27</div>
+ <div class="slide-footer">Motor de Atribución MVP &middot; 14/27</div>
 </section>
 
 <!-- ════════════════════════════════════════════════════
    SLIDE 10 - V2 + COSTO REALISTA
    ════════════════════════════════════════════════════ -->
 <section class="slide slide--light">
- <div class="slide-label">15 / El ecosistema digital v2</div>
+ <div class="slide-label">14 / El ecosistema digital v2</div>
  <img src="../assets/logos/LOGO-GP-Blanco.png" class="logo-corner logo-w"><img src="../assets/logos/Logo-GP-Negro.png" class="logo-corner logo-d">
  <div class="pad">
   <div class="t-label t-red" style="margin-bottom:6px;">Lo que está vivo HOY &middot; 25 abril en adelante</div>
@@ -1060,6 +1014,52 @@ table.t-pipe tr.tot td { font-weight: 800; color: #ECC94B; border-top: 2px solid
    </div>
   </div>
  </div>
+ <div class="slide-footer">Motor de Atribución MVP &middot; 15/27</div>
+</section>
+
+<!-- ════════════════════════════════════════════════════
+   SLIDE NUEVA - DATA DASHBOARD (28 abril)
+   ════════════════════════════════════════════════════ -->
+<section class="slide slide--light">
+ <div class="slide-label">15 / Dashboard de atribución &middot; medición e2e del funnel digital</div>
+ <img src="../assets/logos/LOGO-GP-Blanco.png" class="logo-corner logo-w"><img src="../assets/logos/Logo-GP-Negro.png" class="logo-corner logo-d">
+ <div class="pad" style="padding:42px 60px 30px;">
+  <div class="t-label t-red" style="margin-bottom:5px;">Construido en medio día (28 abril) &middot; embebido en la app del Motor de Atribución</div>
+  <div class="t-title" style="max-width:1080px;color:#2D3748;font-size:22px;line-height:1.25;"><strong>9 secciones, multi-source</strong> (D1 + GA4 + Meta Ads + Clarity + GSC) con cron auto diario. <strong>Por primera vez el grupo puede gestionar el funnel digital con datos vivos</strong> &mdash; no con reportes mensuales que llegan tarde y desconectados.</div>
+
+  <div style="display:grid;grid-template-columns:1.4fr 1fr;gap:14px;margin-top:14px;align-items:stretch;">
+
+   <div style="background:#fff;border-radius:8px;padding:6px;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+    <div style="background:#0F1A2E;border-radius:4px;padding:3px;">
+     <img src="../assets/screenshots/Data-Dashboard.png" alt="Dashboard de atribución · funnel digital de 3 landings por marca" style="width:100%;border-radius:3px;display:block;" loading="lazy">
+    </div>
+    <div style="font-size:8px;color:#718096;margin-top:3px;font-style:italic;text-align:center;">Captura del 28 abril, 14:19 hrs &middot; sección "Funnel digital de 3 landings" (1 de 9 secciones).</div>
+   </div>
+
+   <div style="display:flex;flex-direction:column;gap:8px;">
+
+    <div style="background:#fff;border-top:3px solid #4299E1;border-radius:8px;padding:9px 14px;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+     <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;color:#4299E1;text-transform:uppercase;margin-bottom:4px;">Las 9 secciones</div>
+     <div style="font-size:9.5px;color:#2D3748;line-height:1.5;">Headline KPIs · Funnel digital 3 landings · Funnel pipeline · Cost matrix · Demográficas converters · GA4 vs Meta · Inversión · Atribución · Vendedores · SLA Motor. <em>Cada sección con filtros marca/período propios.</em></div>
+    </div>
+
+    <div style="background:#fff;border-top:3px solid #ECC94B;border-radius:8px;padding:9px 14px;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+     <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;color:#1E2740;text-transform:uppercase;margin-bottom:4px;">Cómo se alimenta &middot; cron auto 8AM GDL</div>
+     <div style="font-size:9.5px;color:#2D3748;line-height:1.5;"><strong>D1</strong> en tiempo real (pipeline, leads, eventos). <strong>GA4 + Meta + GSC + Clarity</strong> via APIs server-side, cache D1, refresh cron 08:00 GDL diario. <em>Acceso por PIN: Chucho/Pepe ven todo cross-marca; gerentes de marca ven solo su marca.</em></div>
+    </div>
+
+    <div style="background:rgba(72,187,120,0.06);border-left:3px solid #48BB78;border-radius:8px;padding:9px 14px;">
+     <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;color:#276749;text-transform:uppercase;margin-bottom:4px;">Hallazgo cross-brand al 28 abril</div>
+     <div style="font-size:9.5px;color:#2D3748;line-height:1.5;"><strong>Seminuevos 1.42% &middot; Stellantis 5.52% &middot; Hyundai 3.55%</strong> de conversión session→lead. <em>Sin este dashboard, ese gap tomaba semanas detectar.</em> Es la base de gestión que RevOps necesita para decisiones diarias.</div>
+    </div>
+
+   </div>
+  </div>
+
+  <div style="margin-top:10px;background:rgba(66,153,225,0.06);border-left:3px solid #4299E1;border-radius:6px;padding:9px 14px;">
+   <div style="font-size:10.5px;color:#2D3748;line-height:1.5;"><strong style="color:#4299E1;">Decisión arquitectónica:</strong> se descartó Looker (no tiene API/MCP que permita orquestar desde Claude Code) y se construyó custom sobre el mismo Cloudflare Worker del CRM. <strong>Cero infra nueva, cero dependencia externa, deploys instantáneos.</strong> El Motor de Atribución pasa de captura a <strong>plataforma de gestión</strong> &mdash; la diferencia entre operar a ciegas y operar con instrumentos.</div>
+  </div>
+ </div>
  <div class="slide-footer">Motor de Atribución MVP &middot; 16/27</div>
 </section>
 
@@ -1083,19 +1083,19 @@ table.t-pipe tr.tot td { font-weight: 800; color: #ECC94B; border-top: 2px solid
     <tr><th>Marca</th><th class="num">Cita Ag.</th><th class="num">Visita</th><th class="num">Negoc.</th><th class="num">Ganada</th><th class="num">Perdida</th><th class="num">Total</th><th class="num">Pipeline (MXN)</th><th class="num">Gasto Meta</th><th class="num">CPA / deal</th></tr>
    </thead>
    <tbody>
-    <tr><td><strong style="color:#fff;">Seminuevos</strong></td><td class="num">11</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">3</td><td class="num"><strong>14</strong></td><td class="num">$4,322,000</td><td class="num">$6,333</td><td class="num"><strong style="color:#68D391;">$452</strong></td></tr>
+    <tr><td><strong style="color:#fff;">Seminuevos</strong></td><td class="num">10</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">4</td><td class="num"><strong>14</strong></td><td class="num">$4,320,900</td><td class="num">$6,333</td><td class="num"><strong style="color:#68D391;">$452</strong></td></tr>
     <tr><td><strong style="color:#fff;">Hyundai</strong></td><td class="num">2</td><td class="num">1</td><td class="num">0</td><td class="num">0</td><td class="num">1</td><td class="num"><strong>4</strong></td><td class="num">$1,292,600</td><td class="num">$3,559</td><td class="num"><strong style="color:#ECC94B;">$890</strong></td></tr>
     <tr><td><strong style="color:#fff;">Stellantis</strong></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num"><strong style="color:#FC8181;">0</strong></td><td class="num">$0</td><td class="num">$1,330</td><td class="num"><strong style="color:#FC8181;">N/A</strong></td></tr>
-    <tr class="tot"><td>Total piloto</td><td class="num">13</td><td class="num">1</td><td class="num">0</td><td class="num">0</td><td class="num">4</td><td class="num">18</td><td class="num">$5,613,500</td><td class="num">$11,222</td><td class="num">$623</td></tr>
+    <tr class="tot"><td>Total piloto</td><td class="num">12</td><td class="num">1</td><td class="num">0</td><td class="num">0</td><td class="num">5</td><td class="num">18</td><td class="num">$5,613,500</td><td class="num">$11,222</td><td class="num">$623</td></tr>
    </tbody>
   </table>
-  <div style="font-size:9px;color:#A0AEC0;margin-top:5px;font-style:italic;">Datos Dashboard + D1 producción al 28 abril, 12 días post GO-LIVE. CPA = gasto Meta / total deals creados (incl. perdidas). Pipeline activo $4.61M · perdido $1.01M.</div>
+  <div style="font-size:9px;color:#A0AEC0;margin-top:5px;font-style:italic;">Datos D1 producción consultada en vivo al 28 abril (sin TEST/QA), 12 días post GO-LIVE. CPA = gasto Meta / total deals creados (incl. perdidas). Pipeline activo $4.18M · perdido $1.44M. Hyu+STL pausadas desde 23 abril (gasto histórico).</div>
 
   <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:10px;">
    <div style="background:rgba(252,129,129,0.08);border-left:3px solid #FC8181;border-radius:6px;padding:8px 12px;">
     <div style="font-size:9px;font-weight:700;letter-spacing:1.5px;color:#FC8181;text-transform:uppercase;margin-bottom:2px;">Cierres a hoy</div>
     <div style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:20px;color:#fff;line-height:1;">0 / 18</div>
-    <div style="font-size:9px;color:#CBD5E0;margin-top:2px;">0 ganadas · 0 negociaciones · 4 perdidas · 14 activas.</div>
+    <div style="font-size:9px;color:#CBD5E0;margin-top:2px;">0 ganadas · 0 negociaciones · 5 perdidas · 13 activas.</div>
    </div>
    <div style="background:rgba(252,129,129,0.08);border-left:3px solid #FC8181;border-radius:6px;padding:8px 12px;">
     <div style="font-size:9px;font-weight:700;letter-spacing:1.5px;color:#FC8181;text-transform:uppercase;margin-bottom:2px;">Sin vendedor asignado</div>
