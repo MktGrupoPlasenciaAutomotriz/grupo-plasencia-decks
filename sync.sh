@@ -40,6 +40,28 @@ cp "$SRC/assets/logos/"*.png "$DEST/assets/logos/" 2>/dev/null && echo "[OK]  as
 mkdir -p "$DEST/assets/screenshots"
 cp "$SRC/assets/screenshots/"*.png "$DEST/assets/screenshots/" 2>/dev/null && echo "[OK]  assets/screenshots/*.png" || echo "[SKIP] screenshots"
 
+# Sistema MAP (índice navegable + pillars + workflow del CLAUDE.md de docs)
+# Para que cualquier Claude (claude.ai web, otra Mac, otra IA) pueda
+# entender la estructura documental del proyecto sin acceso al repo privado.
+# El CONTENIDO sensible (KO, framing Experiencia Plasencia Automotriz, work
+# sessions, 03-tech, 05-stakeholders) se queda en privado. Esto es solo
+# el sistema de navegación.
+mkdir -p "$DEST/00-context/pillars"
+if [ -f "$SRC/00-context/MAP-Plasencia.md" ]; then
+  cp "$SRC/00-context/MAP-Plasencia.md" "$DEST/00-context/MAP-Plasencia.md"
+  echo "[OK]  00-context/MAP-Plasencia.md"
+fi
+for f in MAP-Producto MAP-Tech MAP-Datos-Atribucion MAP-Diseno MAP-Estrategia MAP-Operacion; do
+  if [ -f "$SRC/00-context/pillars/$f.md" ]; then
+    cp "$SRC/00-context/pillars/$f.md" "$DEST/00-context/pillars/$f.md"
+    echo "[OK]  00-context/pillars/$f.md"
+  fi
+done
+if [ -f "$SRC/CLAUDE.md" ]; then
+  cp "$SRC/CLAUDE.md" "$DEST/CLAUDE-docs-workflow.md"
+  echo "[OK]  CLAUDE-docs-workflow.md (workflow + decision tree del repo de docs)"
+fi
+
 echo ""
 echo "Sync completo. Ahora:"
 echo "  cd $DEST"
