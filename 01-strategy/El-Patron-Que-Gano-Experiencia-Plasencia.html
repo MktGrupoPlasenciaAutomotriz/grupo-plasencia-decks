@@ -1,0 +1,1641 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Experiencia Plasencia Automotriz — Propuesta sustentada con evidencia mundial 2020–2025</title>
+<meta name="description" content="Propuesta del Director de Marketing Corporativo para Grupo Plasencia, sustentada con evidencia mundial 2020–2025. Estructura Minto + SCR + Answer-First. Para Pepe Morales y el Consejo Directivo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@500;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gp-red: #C8102E;
+    --gp-navy: #1E2740;
+    --gp-slate: #2D3748;
+    --green: #48BB78;
+    --deep-green: #276749;
+    --blue: #4299E1;
+    --deep-blue: #2B6CB0;
+    --amber: #D69E2E;
+    --gold: #ECC94B;
+    --bg: #F0F4F8;
+    --paper: #FFFFFF;
+    --near-white: #F7FAFC;
+    --g100: #EDF2F7;
+    --g300: #CBD5E0;
+    --g400: #A0AEC0;
+    --g500: #718096;
+    --g600: #4A5568;
+    --text: #2D3748;
+    --serif: 'Playfair Display', Georgia, serif;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html, body { background:var(--bg); }
+  body {
+    font-family: var(--sans);
+    color: var(--text);
+    line-height: 1.55;
+    font-size: 10pt;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  @page {
+    size: A4;
+    margin: 18mm 18mm 22mm 18mm;
+    @bottom-right {
+      content: counter(page);
+      font-family: 'Inter', sans-serif;
+      font-size: 9pt;
+      color: #718096;
+    }
+    @bottom-left {
+      content: "Confidencial · Grupo Plasencia · Dirección de Marketing Corporativo";
+      font-family: 'Inter', sans-serif;
+      font-size: 8pt;
+      color: #A0AEC0;
+    }
+    @top-right {
+      content: "Experiencia Plasencia Automotriz · Propuesta sustentada con evidencia";
+      font-family: 'Inter', sans-serif;
+      font-size: 8pt;
+      color: #A0AEC0;
+    }
+  }
+  @page :first { @top-right { content: ""; } @bottom-right { content: ""; } @bottom-left { content: ""; } }
+  @page cover { margin: 0; }
+
+  .page {
+    background: var(--paper);
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0 auto 8mm auto;
+    padding: 18mm 18mm 22mm 18mm;
+    position: relative;
+    page-break-after: always;
+    box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 4px 24px rgba(30,39,64,.08);
+  }
+  .page:last-child { page-break-after: auto; }
+
+  /* ============ COVER ============ */
+  .cover {
+    background: var(--gp-navy);
+    color: var(--near-white);
+    padding: 0;
+    page: cover;
+  }
+  .cover-inner {
+    padding: 36mm 22mm 24mm 22mm;
+    min-height: 297mm;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background:
+      radial-gradient(ellipse at 100% 0%, rgba(236,201,75,0.12) 0%, transparent 55%),
+      radial-gradient(ellipse at 0% 100%, rgba(200,16,46,0.10) 0%, transparent 55%),
+      var(--gp-navy);
+    position: relative;
+  }
+  .cover-inner::before {
+    content: "";
+    position: absolute;
+    top: 24mm; left: 22mm;
+    width: 64mm; height: 1px;
+    background: var(--gold);
+  }
+  .cover-mark {
+    font-family: var(--sans);
+    font-weight: 700;
+    font-size: 11pt;
+    letter-spacing: 4px;
+    color: var(--gold);
+    text-transform: uppercase;
+  }
+  .cover-mark span { display:block; font-weight:400; color:rgba(255,255,255,0.55); margin-top:4px; letter-spacing:1px; font-size:9pt; }
+  .cover-eyebrow {
+    font-family: var(--sans);
+    font-size: 10pt;
+    font-weight: 700;
+    letter-spacing: 5px;
+    color: var(--gp-red);
+    text-transform: uppercase;
+    margin-top: 14mm;
+  }
+  .cover-title {
+    font-family: var(--serif);
+    font-weight: 800;
+    font-size: 50pt;
+    line-height: 1.02;
+    letter-spacing: -1.8px;
+    margin-top: 6mm;
+    color: var(--near-white);
+  }
+  .cover-title em { font-style: italic; color: var(--gold); font-weight: 700; }
+  .cover-subtitle {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-style: italic;
+    font-size: 17pt;
+    color: var(--gold);
+    margin-top: 8mm;
+    letter-spacing: -0.3px;
+    line-height: 1.3;
+  }
+  .cover-pull {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-style: italic;
+    font-size: 12pt;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.5;
+    border-left: 3px solid var(--gp-red);
+    padding-left: 8mm;
+    margin-top: 16mm;
+    max-width: 150mm;
+  }
+  .cover-pull cite {
+    display: block;
+    font-style: normal;
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 9pt;
+    letter-spacing: 1.5px;
+    color: var(--gp-red);
+    margin-top: 6mm;
+    text-transform: uppercase;
+  }
+  .cover-tags { display:flex; gap:6mm; margin-top: 14mm; flex-wrap:wrap; }
+  .cover-tag {
+    font-family: var(--sans);
+    font-size: 9pt;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: rgba(255,255,255,0.85);
+    border: 1px solid rgba(255,255,255,0.25);
+    padding: 4px 10px;
+    border-radius: 999px;
+    text-transform: uppercase;
+  }
+  .cover-tag.accent { color: var(--gold); border-color: rgba(236,201,75,0.4); }
+  .cover-tag.urgent { color: var(--gp-red); border-color: rgba(200,16,46,0.4); }
+  .cover-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 16mm;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    padding-top: 8mm;
+  }
+  .cover-meta-block { font-size: 9pt; color: rgba(255,255,255,0.65); line-height: 1.7; }
+  .cover-meta-block strong { display:block; color: var(--near-white); font-weight: 700; font-size: 10pt; letter-spacing: .5px; }
+
+  /* ============ TOC ============ */
+  .toc { margin-top: 6mm; }
+  .toc-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 3mm 0;
+    border-bottom: 1px dotted var(--g300);
+    font-size: 10.5pt;
+  }
+  .toc-num {
+    font-family: var(--serif);
+    font-weight: 800;
+    font-size: 13pt;
+    color: var(--gp-red);
+    width: 14mm;
+    flex-shrink: 0;
+  }
+  .toc-title {
+    flex: 1;
+    color: var(--gp-navy);
+    font-weight: 700;
+    padding-right: 4mm;
+  }
+  .toc-sub { display: block; font-size: 9pt; color: var(--g500); font-weight: 400; margin-top: 1mm; }
+  .toc-page {
+    color: var(--g500);
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 11pt;
+    flex-shrink: 0;
+  }
+
+  /* ============ TYPOGRAPHY ============ */
+  h1.section-title {
+    font-family: var(--serif);
+    font-weight: 800;
+    font-size: 30pt;
+    line-height: 1.05;
+    letter-spacing: -1px;
+    color: var(--gp-navy);
+    border-top: 3px solid var(--gp-red);
+    padding-top: 6mm;
+    margin-bottom: 6mm;
+  }
+  h1.section-title .num {
+    display: block;
+    font-family: var(--sans);
+    font-weight: 700;
+    font-size: 9pt;
+    letter-spacing: 4px;
+    color: var(--gp-red);
+    text-transform: uppercase;
+    margin-bottom: 4mm;
+  }
+  h2.section-h2 {
+    font-size: 15pt;
+    font-weight: 800;
+    color: var(--gp-navy);
+    margin-top: 8mm;
+    margin-bottom: 3mm;
+    line-height: 1.2;
+  }
+  h3.section-h3 {
+    font-size: 12pt;
+    font-weight: 700;
+    color: var(--gp-navy);
+    margin-top: 5mm;
+    margin-bottom: 2mm;
+  }
+  p { margin: 0 0 3mm 0; }
+  strong { font-weight: 700; color: var(--gp-navy); }
+  em { font-style: italic; }
+
+  .lead { font-size: 11pt; line-height: 1.65; color: var(--g600); margin-bottom: 4mm; }
+  .lead strong { color: var(--gp-navy); }
+  .small { font-size: 8.5pt; color: var(--g500); }
+
+  .section-flag {
+    display: inline-block;
+    font-family: var(--sans);
+    font-size: 8pt;
+    font-weight: 800;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 4px;
+    background: rgba(200, 16, 46, 0.08);
+    color: var(--gp-red);
+    margin-bottom: 4mm;
+  }
+  .section-flag.blue { background: rgba(66, 153, 225, 0.08); color: var(--deep-blue); }
+  .section-flag.green { background: rgba(72, 187, 120, 0.1); color: var(--deep-green); }
+  .section-flag.amber { background: rgba(214, 158, 46, 0.1); color: var(--amber); }
+  .section-flag.gold { background: rgba(236, 201, 75, 0.18); color: #997706; }
+
+  /* ============ STAT STRIP ============ */
+  .stat-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4mm;
+    margin: 4mm 0 6mm 0;
+  }
+  .stat-strip .s {
+    background: var(--paper);
+    border: 1px solid var(--g100);
+    border-top: 3px solid var(--gp-navy);
+    padding: 4mm 4mm;
+    text-align: left;
+  }
+  .stat-strip .s .big {
+    font-family: var(--serif);
+    font-weight: 900;
+    font-size: 22pt;
+    color: var(--gp-navy);
+    line-height: 1;
+    margin-bottom: 1mm;
+    letter-spacing: -0.5px;
+  }
+  .stat-strip .s .lbl {
+    font-size: 8pt;
+    color: var(--g500);
+    line-height: 1.3;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+  }
+
+  /* ============ COMPLICATION DRIVERS ============ */
+  .drivers {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4mm;
+    margin-top: 4mm;
+  }
+  .driver {
+    background: var(--paper);
+    border: 1px solid var(--g100);
+    border-left: 4px solid var(--gp-red);
+    padding: 5mm 6mm;
+    page-break-inside: avoid;
+  }
+  .driver .driver-num {
+    font-family: var(--serif);
+    font-weight: 900;
+    font-size: 36pt;
+    color: var(--gp-red);
+    line-height: 1;
+    float: left;
+    margin: -2mm 4mm 0 0;
+  }
+  .driver h3 {
+    font-size: 12pt;
+    font-weight: 800;
+    color: var(--gp-navy);
+    margin-bottom: 2mm;
+    line-height: 1.25;
+    overflow: hidden;
+  }
+  .driver p {
+    font-size: 9.5pt;
+    color: var(--g600);
+    line-height: 1.55;
+    overflow: hidden;
+    margin-bottom: 0;
+  }
+  .driver p strong { color: var(--gp-navy); }
+
+  /* ============ STATEMENT (HOLY BLOCK) ============ */
+  .statement {
+    background: var(--gp-navy);
+    color: var(--near-white);
+    padding: 14mm 14mm;
+    margin: 6mm 0 8mm 0;
+    border-left: 5px solid var(--gold);
+    page-break-inside: avoid;
+    position: relative;
+  }
+  .statement::before {
+    content: "“";
+    position: absolute;
+    top: 4mm;
+    right: 12mm;
+    font-family: var(--serif);
+    font-size: 88pt;
+    color: rgba(236,201,75,0.18);
+    line-height: 1;
+    font-weight: 900;
+  }
+  .statement .label {
+    font-family: var(--sans);
+    font-size: 9pt;
+    font-weight: 800;
+    letter-spacing: 3px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 4mm;
+    display: block;
+  }
+  .statement .text {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 500;
+    font-size: 18pt;
+    line-height: 1.45;
+    color: var(--near-white);
+    letter-spacing: -0.3px;
+  }
+  .statement .text strong {
+    color: var(--gold);
+    font-weight: 700;
+    font-style: normal;
+    font-family: var(--sans);
+    font-size: 17pt;
+  }
+
+  /* ============ HYPOTHESIS BLOCK ============ */
+  .hypothesis {
+    background: var(--g100);
+    border-left: 4px solid var(--gp-navy);
+    padding: 6mm 7mm;
+    margin: 4mm 0;
+  }
+  .hypothesis .label {
+    display: block;
+    font-family: var(--sans);
+    font-size: 9pt;
+    font-weight: 800;
+    letter-spacing: 3px;
+    color: var(--gp-red);
+    text-transform: uppercase;
+    margin-bottom: 3mm;
+  }
+  .hypothesis h3 {
+    font-family: var(--serif);
+    font-weight: 800;
+    font-size: 17pt;
+    color: var(--gp-navy);
+    line-height: 1.25;
+    letter-spacing: -0.5px;
+    margin-bottom: 3mm;
+  }
+  .hypothesis p {
+    font-size: 11pt;
+    color: var(--g600);
+    line-height: 1.6;
+    margin-bottom: 0;
+  }
+
+  /* ============ PILLARS / ATTRIBUTES ============ */
+  .pillars {
+    list-style: none;
+    margin: 4mm 0;
+    counter-reset: attr;
+  }
+  .pillars li {
+    display: grid;
+    grid-template-columns: 14mm 1fr;
+    gap: 4mm;
+    padding: 4mm 0;
+    border-bottom: 1px dotted var(--g300);
+    page-break-inside: avoid;
+  }
+  .pillars li:last-child { border-bottom: none; }
+  .pillars li::before {
+    counter-increment: attr;
+    content: counter(attr);
+    font-family: var(--serif);
+    font-weight: 900;
+    font-size: 24pt;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .pillars h4 {
+    font-size: 11pt;
+    font-weight: 800;
+    color: var(--gp-navy);
+    margin: 0 0 1mm 0;
+    line-height: 1.25;
+  }
+  .pillars p {
+    font-size: 9.5pt;
+    color: var(--g600);
+    margin: 0;
+    line-height: 1.55;
+  }
+
+  /* ============ NOT BLOCK ============ */
+  .not-block {
+    background: rgba(200, 16, 46, 0.04);
+    border: 1px solid rgba(200, 16, 46, 0.2);
+    border-left: 4px solid var(--gp-red);
+    padding: 5mm 6mm;
+    margin: 5mm 0;
+  }
+  .not-block .label {
+    display: block;
+    font-family: var(--sans);
+    font-size: 9pt;
+    font-weight: 800;
+    letter-spacing: 3px;
+    color: var(--gp-red);
+    text-transform: uppercase;
+    margin-bottom: 3mm;
+  }
+  .not-block h3 {
+    font-family: var(--serif);
+    font-weight: 800;
+    font-size: 14pt;
+    color: var(--gp-navy);
+    margin-bottom: 3mm;
+    line-height: 1.25;
+  }
+  .not-block ul { list-style: none; padding: 0; }
+  .not-block ul li {
+    font-size: 9.5pt;
+    color: var(--g600);
+    padding: 1.5mm 0 1.5mm 6mm;
+    position: relative;
+    line-height: 1.5;
+  }
+  .not-block ul li::before {
+    content: "✕";
+    position: absolute;
+    left: 0;
+    color: var(--gp-red);
+    font-weight: bold;
+  }
+  .not-block ul li strong { color: var(--gp-slate); }
+
+  /* ============ EVIDENCE STRIP ============ */
+  .evidence {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4mm;
+    margin: 5mm 0;
+  }
+  .ev {
+    background: var(--paper);
+    border: 1px solid var(--g100);
+    border-top: 3px solid var(--gp-red);
+    padding: 5mm;
+    page-break-inside: avoid;
+  }
+  .ev:nth-child(2) { border-top-color: var(--blue); }
+  .ev:nth-child(3) { border-top-color: var(--green); }
+  .ev .ev-num {
+    font-family: var(--serif);
+    font-weight: 900;
+    font-size: 9pt;
+    color: var(--gp-red);
+    letter-spacing: 2px;
+    margin-bottom: 2mm;
+  }
+  .ev:nth-child(2) .ev-num { color: var(--blue); }
+  .ev:nth-child(3) .ev-num { color: var(--deep-green); }
+  .ev h4 {
+    font-size: 10.5pt;
+    font-weight: 800;
+    color: var(--gp-navy);
+    margin-bottom: 2mm;
+    line-height: 1.25;
+  }
+  .ev p {
+    font-size: 9pt;
+    color: var(--g600);
+    line-height: 1.5;
+    margin: 0;
+  }
+  .ev p strong { color: var(--gp-navy); }
+
+  /* ============ GROUP CARDS ============ */
+  .groups {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4mm;
+    margin-top: 4mm;
+  }
+  .group-card {
+    background: var(--paper);
+    border: 1px solid var(--g100);
+    border-left: 3px solid var(--gp-navy);
+    padding: 5mm 6mm;
+    page-break-inside: avoid;
+  }
+  .group-card:nth-child(odd) { border-left-color: var(--gold); }
+  .group-card:nth-child(even) { border-left-color: var(--blue); }
+  .group-card .geo {
+    display: inline-block;
+    font-family: var(--sans);
+    font-size: 7.5pt;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: var(--g500);
+    text-transform: uppercase;
+    margin-bottom: 1mm;
+  }
+  .group-card h3 {
+    font-size: 13pt;
+    font-weight: 800;
+    color: var(--gp-navy);
+    margin-bottom: 2mm;
+    line-height: 1.2;
+  }
+  .group-card p {
+    font-size: 9pt;
+    color: var(--g600);
+    line-height: 1.5;
+    margin-bottom: 2mm;
+  }
+  .group-card .stat-line {
+    background: var(--gp-navy);
+    color: var(--gold);
+    font-family: var(--serif);
+    font-weight: 800;
+    font-size: 10pt;
+    padding: 2mm 4mm;
+    margin-top: 2mm;
+    line-height: 1.4;
+  }
+  .group-card .stat-line strong {
+    color: var(--near-white);
+    font-family: var(--sans);
+    font-weight: 700;
+    font-size: 8.5pt;
+    display: block;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    margin-bottom: 1mm;
+  }
+
+  /* ============ COMPARISON TABLE ============ */
+  table.compare {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 4mm;
+    font-size: 9pt;
+    page-break-inside: avoid;
+  }
+  table.compare thead th {
+    background: var(--gp-navy);
+    color: var(--near-white);
+    font-weight: 700;
+    text-align: left;
+    padding: 3mm 4mm;
+    font-size: 8.5pt;
+    letter-spacing: 0.5px;
+  }
+  table.compare thead th:first-child { color: var(--gold); }
+  table.compare tbody td {
+    padding: 3mm 4mm;
+    border-bottom: 1px solid var(--g100);
+    vertical-align: top;
+    color: var(--g600);
+    line-height: 1.5;
+  }
+  table.compare tbody td:first-child {
+    background: var(--g100);
+    font-weight: 700;
+    color: var(--gp-navy);
+    width: 36%;
+  }
+  table.compare tbody td strong { color: var(--gp-navy); }
+
+  /* ============ URGENCY ============ */
+  .urgency {
+    background: linear-gradient(135deg, rgba(200,16,46,0.06) 0%, rgba(214,158,46,0.04) 100%);
+    border-left: 5px solid var(--gp-red);
+    padding: 7mm 8mm;
+    margin: 5mm 0;
+    page-break-inside: avoid;
+  }
+  .urgency .label {
+    display: block;
+    font-family: var(--sans);
+    font-size: 9pt;
+    font-weight: 800;
+    letter-spacing: 3px;
+    color: var(--gp-red);
+    text-transform: uppercase;
+    margin-bottom: 3mm;
+  }
+  .urgency h3 {
+    font-family: var(--serif);
+    font-weight: 800;
+    font-size: 19pt;
+    color: var(--gp-navy);
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+    margin-bottom: 3mm;
+  }
+  .urgency p {
+    font-size: 10.5pt;
+    color: var(--g600);
+    line-height: 1.6;
+    margin-bottom: 0;
+  }
+
+  /* ============ ANTI-PATTERNS ============ */
+  .anti {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4mm;
+    margin-top: 4mm;
+  }
+  .anti-item {
+    background: rgba(200, 16, 46, 0.04);
+    border-left: 3px solid var(--gp-red);
+    padding: 4mm 5mm;
+    page-break-inside: avoid;
+  }
+  .anti-item h4 {
+    color: var(--gp-red);
+    font-size: 10pt;
+    margin-bottom: 1mm;
+    font-weight: 800;
+  }
+  .anti-item p { font-size: 8.5pt; color: var(--g600); margin: 0; line-height: 1.5; }
+
+  /* ============ ROADMAP PHASES ============ */
+  .phases { margin-top: 4mm; }
+  .phase {
+    background: var(--paper);
+    border: 1px solid var(--g100);
+    padding: 5mm 6mm;
+    margin-bottom: 4mm;
+    border-left: 4px solid var(--gold);
+    page-break-inside: avoid;
+  }
+  .phase:nth-child(2) { border-left-color: var(--blue); }
+  .phase:nth-child(3) { border-left-color: var(--amber); }
+  .phase:nth-child(4) { border-left-color: var(--green); }
+  .phase .phase-tag {
+    display: inline-block;
+    font-family: var(--sans);
+    font-size: 8pt;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gp-navy);
+    margin-bottom: 2mm;
+  }
+  .phase h4 {
+    font-size: 12pt;
+    font-weight: 800;
+    color: var(--gp-navy);
+    text-transform: none;
+    letter-spacing: 0;
+    margin: 0 0 3mm 0;
+  }
+  .phase-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4mm;
+    margin-top: 3mm;
+  }
+  .phase-cell h5 {
+    font-family: var(--sans);
+    font-size: 8pt;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    color: var(--gp-red);
+    text-transform: uppercase;
+    margin-bottom: 1mm;
+  }
+  .phase-cell ul { list-style: none; padding: 0; }
+  .phase-cell ul li {
+    font-size: 9pt;
+    color: var(--g600);
+    padding: 0.8mm 0 0.8mm 5mm;
+    position: relative;
+    line-height: 1.45;
+  }
+  .phase-cell ul li::before {
+    content: "▸";
+    position: absolute;
+    left: 0;
+    color: var(--gp-red);
+    font-weight: bold;
+  }
+  .phase-cell p { font-size: 9pt; color: var(--g600); margin: 0; line-height: 1.45; }
+
+  /* ============ FINANCIAL ============ */
+  .financial {
+    background: var(--paper);
+    border: 1px solid var(--g100);
+    margin-top: 4mm;
+    page-break-inside: avoid;
+  }
+  .financial-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .fin-cell {
+    padding: 6mm;
+    border-right: 1px solid var(--g100);
+    border-bottom: 1px solid var(--g100);
+  }
+  .fin-cell:nth-child(even) { border-right: none; }
+  .fin-cell:nth-last-child(-n+2) { border-bottom: none; }
+  .fin-cell .label {
+    font-size: 8pt;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: var(--g500);
+    text-transform: uppercase;
+    margin-bottom: 2mm;
+  }
+  .fin-cell .value {
+    font-family: var(--serif);
+    font-weight: 900;
+    font-size: 24pt;
+    color: var(--gp-navy);
+    line-height: 1;
+    letter-spacing: -0.5px;
+    margin-bottom: 1mm;
+  }
+  .fin-cell .value.gold { color: var(--gold); }
+  .fin-cell .value.green { color: var(--deep-green); }
+  .fin-cell .value.red { color: var(--gp-red); }
+  .fin-cell p {
+    font-size: 9pt;
+    color: var(--g600);
+    line-height: 1.45;
+    margin: 0;
+  }
+
+  .killer {
+    background: var(--gp-navy);
+    color: var(--near-white);
+    padding: 8mm 10mm;
+    margin-top: 5mm;
+    border-left: 4px solid var(--gold);
+    page-break-inside: avoid;
+  }
+  .killer .label {
+    font-size: 9pt;
+    font-weight: 800;
+    letter-spacing: 3px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 2mm;
+    display: block;
+  }
+  .killer h3 {
+    font-family: var(--serif);
+    font-weight: 800;
+    font-size: 18pt;
+    color: var(--near-white);
+    margin-bottom: 2mm;
+    line-height: 1.25;
+  }
+  .killer p {
+    font-size: 10.5pt;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.55;
+    margin-bottom: 0;
+  }
+  .killer strong { color: var(--gold); }
+
+  /* ============ ASKS ============ */
+  .asks {
+    list-style: none;
+    counter-reset: ask;
+    margin-top: 4mm;
+  }
+  .asks li {
+    display: grid;
+    grid-template-columns: 14mm 1fr 30mm;
+    gap: 4mm;
+    padding: 4mm 0;
+    border-bottom: 1px solid var(--g100);
+    page-break-inside: avoid;
+    align-items: start;
+  }
+  .asks li::before {
+    counter-increment: ask;
+    content: counter(ask);
+    font-family: var(--serif);
+    font-weight: 900;
+    font-size: 28pt;
+    color: var(--gp-red);
+    line-height: 1;
+  }
+  .asks h4 {
+    font-size: 11pt;
+    font-weight: 800;
+    color: var(--gp-navy);
+    margin: 0 0 1mm 0;
+    text-transform: none;
+    letter-spacing: 0;
+  }
+  .asks p {
+    font-size: 9pt;
+    color: var(--g600);
+    margin: 0;
+    line-height: 1.5;
+  }
+  .ask-decision {
+    text-align: right;
+    font-family: var(--sans);
+    font-size: 9pt;
+    font-weight: 700;
+    color: var(--gp-red);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    line-height: 1.4;
+  }
+  .ask-decision span { display: block; font-weight: 400; color: var(--g500); font-size: 8pt; text-transform: none; letter-spacing: 0; margin-top: 1mm; }
+
+  /* ============ CLOSING ============ */
+  .closing {
+    background: var(--gp-navy);
+    color: var(--near-white);
+    padding: 30mm 22mm;
+    margin: -18mm;
+    margin-top: 16mm;
+    min-height: 230mm;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    background:
+      radial-gradient(ellipse at 50% 0%, rgba(236,201,75,0.12) 0%, transparent 60%),
+      radial-gradient(ellipse at 50% 100%, rgba(200,16,46,0.10) 0%, transparent 60%),
+      var(--gp-navy);
+  }
+  .closing .ribbon {
+    font-family: var(--sans);
+    font-size: 9pt;
+    font-weight: 700;
+    letter-spacing: 5px;
+    color: var(--gp-red);
+    text-transform: uppercase;
+    margin-bottom: 12mm;
+  }
+  .closing h2 {
+    font-family: var(--serif);
+    font-weight: 800;
+    font-size: 36pt;
+    color: var(--near-white);
+    margin-bottom: 8mm;
+    line-height: 1.05;
+    letter-spacing: -1px;
+  }
+  .closing h2 em { font-style: italic; color: var(--gold); font-weight: 700; }
+  .closing .pull {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 13pt;
+    color: var(--gold);
+    line-height: 1.5;
+    max-width: 150mm;
+    margin: 0 auto 10mm auto;
+  }
+  .closing .body-text {
+    font-size: 11pt;
+    color: rgba(255,255,255,0.78);
+    max-width: 150mm;
+    margin: 0 auto;
+    line-height: 1.65;
+  }
+  .closing .signature {
+    margin-top: 14mm;
+    font-size: 9pt;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 1.5px;
+  }
+  .closing .signature strong { color: var(--gold); display: block; font-size: 11pt; letter-spacing: 2.5px; margin-bottom: 1mm; }
+
+  @media print {
+    body { background: white; }
+    .page { box-shadow: none; margin: 0; padding: 0; }
+    .cover { padding: 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ COVER ============ -->
+<section class="page cover">
+  <div class="cover-inner">
+    <div>
+      <div class="cover-mark">Grupo Plasencia<span>Documento de Validación Estratégica · Mayo 2026</span></div>
+
+      <p class="cover-eyebrow">Para el Consejo</p>
+      <h1 class="cover-title">Experiencia <em>Plasencia</em><br>Automotriz.</h1>
+      <p class="cover-subtitle">Mi propuesta para Grupo Plasencia, sustentada con evidencia mundial 2020–2025.</p>
+
+      <p class="cover-pull">
+        Este documento expone el contexto que hace urgente actuar, la tesis estratégica que propongo como respuesta, la evidencia mundial 2020–2025 que la sustenta, el modelo operativo, el roadmap de 12 meses y las cinco decisiones binarias que el Consejo debe tomar.
+        <cite>Resumen del documento</cite>
+      </p>
+
+      <div class="cover-tags">
+        <span class="cover-tag">Validación Estratégica</span>
+        <span class="cover-tag accent">Evidencia 2020–2025</span>
+        <span class="cover-tag urgent">Decisión del Consejo</span>
+      </div>
+    </div>
+
+    <div>
+      <div class="cover-meta">
+        <div class="cover-meta-block">
+          <strong>Audiencia</strong>
+          Pepe Morales · Consejo Directivo · Directores de Marca
+        </div>
+        <div class="cover-meta-block" style="text-align:right;">
+          <strong>Mayo 2026</strong>
+          Versión 1.0 · 14 páginas
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PAGE 2: TOC + ANSWER-FIRST ============ -->
+<section class="page">
+  <h1 class="section-title"><span class="num">Contenido y respuesta primero</span>La narrativa en una página.</h1>
+
+  <p class="lead">Este documento sigue una estructura clásica de Strategy Definition: <strong>Situación → Complicación → Resolución → Validación → Modelo → Roadmap → Caso Financiero → Ask</strong>. La respuesta vive abajo. La argumentación, en las siguientes páginas.</p>
+
+  <div class="hypothesis">
+    <span class="label">Recomendación al Consejo</span>
+    <h3>Aprobar Experiencia Plasencia Automotriz como dirección estratégica del grupo en marketing y experiencia comercial.</h3>
+    <p>Modelo Endorsed Brands con master endorser Plasencia, sub-marcas funcionales (Seminuevos, Crédito, Flotillas, Posventa, Club) y plataforma digital propia. Inversión consolidada sobre la base actual de US$73.4M MXN/año de gasto en marketing. Killer metric: replicar el patrón Lithia &amp; Driveway que pasó de pérdida US$45.9M a utilidad US$15.4M de financiera cautiva en 12 meses (2023→2024).</p>
+  </div>
+
+  <h2 class="section-h2">Tabla de contenido</h2>
+
+  <div class="toc">
+    <div class="toc-item">
+      <span class="toc-num">01</span>
+      <span class="toc-title">Situación<span class="toc-sub">Grupo Plasencia hoy: el activo y el contexto compartido.</span></span>
+      <span class="toc-page">p. 3</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-num">02</span>
+      <span class="toc-title">Complicación<span class="toc-sub">Cuatro drivers que cambian las reglas en 2025–2026.</span></span>
+      <span class="toc-page">p. 4</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-num">03</span>
+      <span class="toc-title">Resolución · La tesis<span class="toc-sub">Experiencia Plasencia Automotriz: governing thought, cuatro pilares y lo que NO es.</span></span>
+      <span class="toc-page">p. 5</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-num">04</span>
+      <span class="toc-title">La propuesta y su sustento<span class="toc-sub">Ocho grupos cotizados que ya operan variantes del modelo, con cifras públicas 2020–2025.</span></span>
+      <span class="toc-page">p. 7</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-num">05</span>
+      <span class="toc-title">El modelo · cómo funciona<span class="toc-sub">Comparación punto-por-punto Plasencia ↔ casos globales.</span></span>
+      <span class="toc-page">p. 9</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-num">06</span>
+      <span class="toc-title">Por qué ahora · timing y riesgos<span class="toc-sub">Ventana 24–36 meses y anti-patrones documentados.</span></span>
+      <span class="toc-page">p. 10</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-num">07</span>
+      <span class="toc-title">El roadmap · 12 meses<span class="toc-sub">Cuatro fases con phase gates, quick wins y entregables.</span></span>
+      <span class="toc-page">p. 11</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-num">08</span>
+      <span class="toc-title">El caso financiero<span class="toc-sub">Baseline, palancas, killer metric y costo de no actuar.</span></span>
+      <span class="toc-page">p. 12</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-num">09</span>
+      <span class="toc-title">El ask · cinco decisiones binarias<span class="toc-sub">Lo que el Consejo necesita aprobar.</span></span>
+      <span class="toc-page">p. 13</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PAGE 3: SITUACIÓN ============ -->
+<section class="page">
+  <span class="section-flag">§ 01 · Situación</span>
+  <h1 class="section-title"><span class="num">El punto de partida</span>Grupo Plasencia hoy: 30+ años de equity y un piloto operando.</h1>
+
+  <p class="lead">Antes de proponer cambio, conviene recordar lo que el grupo ya es. Esta sección establece el contexto compartido sobre el que toda la argumentación posterior se sostiene. Nada de esto es controversial; son datos.</p>
+
+  <div class="stat-strip">
+    <div class="s">
+      <div class="big">$12,813M</div>
+      <div class="lbl">Revenue 2025 MXN<br>+9.5% YoY</div>
+    </div>
+    <div class="s">
+      <div class="big">29,595</div>
+      <div class="lbl">Unidades 2025<br>+10.2% YoY</div>
+    </div>
+    <div class="s">
+      <div class="big">42</div>
+      <div class="lbl">Agencias activas<br>en 6 ciudades</div>
+    </div>
+    <div class="s">
+      <div class="big">$73.4M</div>
+      <div class="lbl">Gasto MKT anual<br>61 personas + 14 agencias</div>
+    </div>
+  </div>
+
+  <h2 class="section-h2">El portafolio</h2>
+  <p>Grupo Plasencia opera <strong>8 marcas-OEM</strong> (Mazda 54.3% del volumen, Hyundai 18.4%, Ford 8.6%, Stellantis 4.4%, Changan 5.1%, GWM 3.5%, GAC 3.4%, Isuzu 2.3%) más una sub-marca propia consolidada (<strong>Seminuevos Plasencia</strong>: 3,611 unidades 2025, $1,137M revenue, $49.6M utilidad anual, 3.8x el benchmark nacional de seminuevos por punto de venta). Adicional opera <strong>Arrendadora Plasencia</strong> y una función transversal de <strong>Posventa corporativa</strong>. La estructura organizacional incluye Consejo Corporativo, Director General, Direcciones de Finanzas, TI, Jurídico, Talento, Auditoría, y la nueva Dirección de Marketing Corporativo creada en 2026.</p>
+
+  <h2 class="section-h2">El piloto operando</h2>
+  <p>Desde abril 2026 está vivo el <strong>Motor de Atribución MVP</strong>: tres marcas (Seminuevos, Hyundai, Stellantis) con landings propias, CRM corporativo único (Cloudflare Worker + D1), CAPI offline server-side hacia Meta y Google, dashboard ejecutivo con cron diario, conciliación diaria de citas, integración de Microsoft Clarity por marca. Se construyó con un equipo mínimo (team-of-one + IA generativa) en cuatro semanas y produjo <strong>US$90K MXN matched en pipeline real</strong>. Es la prueba operativa de que <em>cuando el grupo opera como sistema, aparecen señales que ninguna unidad puede ver desde adentro</em>.</p>
+
+  <h2 class="section-h2">Lo que el insight de la dirección ya dijo en voz alta</h2>
+  <p>El Director General Pepe Morales lo articuló de forma directa: <em>"Tenemos metas más agresivas que nuestra capacidad interna para cumplirlas."</em> Y el deck del Piloto presentado en abril 2026 lo formalizó como visión: <em>"Plasencia como ecosistema digital del cliente cross-brand."</em> El cliente compra cross-brand toda la vida (Mazda → Hyundai → Seminuevo → Stellantis…). Hoy el grupo no mide, no orquesta, no captura ese viaje. Esa es la situación.</p>
+</section>
+
+<!-- ============ PAGE 4: COMPLICACIÓN ============ -->
+<section class="page">
+  <span class="section-flag">§ 02 · Complicación</span>
+  <h1 class="section-title"><span class="num">Por qué ahora</span>Cuatro drivers que cambian las reglas en 2025–2026.</h1>
+
+  <p class="lead">El status quo es operacionalmente sostenible — Plasencia genera $12.8 mil millones de pesos al año. El problema no es de hoy. Es que <strong>cuatro fuerzas que llevaban años acumulándose acaban de inflexionar simultáneamente entre 2024 y 2026</strong>, y cada una recorta una porción de la ventaja competitiva del grupo si no se mueve.</p>
+
+  <div class="drivers">
+    <div class="driver">
+      <div class="driver-num">1</div>
+      <h3>Andromeda penaliza el creative reactivo a oferta del mes</h3>
+      <p>El motor de Meta Ads (Andromeda + GEM, rollout completo Oct-2025) requiere <strong>8–15+ creatives genuinamente distintos</strong> y broad targeting; penaliza estructuras hiper-segmentadas y creative atado a la promoción mensual del OEM. Las marcas-OEM liberan oferta los días 5–15 del mes, cuando ya pasó la mejor ventana de aprendizaje algorítmico.</p>
+    </div>
+    <div class="driver">
+      <div class="driver-num">2</div>
+      <h3>La pelea por "quién es dueño del cliente" sigue abierta</h3>
+      <p>El modelo "agency" europeo está en repliegue (Ford abandonó abril 2024; Stellantis suspendió 2025; Volkswagen revirtió Alemania/UK/Suecia; Mercedes pospuso España fines 2026; BMW retrasó core 2027). <strong>La narrativa "OEM dueño del cliente" perdió momentum, pero puede reactivarse en 2027–2028</strong> y llegar a México 2–3 años después. Construir captura de CLTV antes es defensa estructural.</p>
+    </div>
+    <div class="driver">
+      <div class="driver-num">3</div>
+      <h3>Captura de CLTV cross-marca es lo que separa a los retailers ganadores</h3>
+      <p>El cliente automotive deja <strong>US$47,700 USD a lo largo de 8 años</strong> (Demand Local 2025) — pero el dealer tradicional captura una fracción mínima. Lithia construyó Driveway Finance Corp (cartera US$3.7B → US$4.3B; primera utilidad US$15.4M 2024 → meta US$50–60M 2025). El servicio tiene márgenes 45–55% (McKinsey). La oportunidad concreta está abierta y cuantificable.</p>
+    </div>
+    <div class="driver">
+      <div class="driver-num">4</div>
+      <h3>La capacidad operativa se construye con IA, no con headcount</h3>
+      <p>Carvana 2024: SG&amp;A/unidad −US$1,240 YoY, publicidad/unidad −25%, NPS récord en dos años, llamadas/venta −20%. Voice AI cierra 86% de citas vs 90% humano. <strong>76% de dealers planean aumentar presupuesto de IA en 2026</strong>. El insight de Pepe Morales sobre la asimetría entre metas y capacidad interna se resuelve con IA generativa apalancada, no con expansión de plantilla.</p>
+    </div>
+  </div>
+
+  <h2 class="section-h2">El costo de no actuar</h2>
+  <p>Los cuatro drivers no son hipotéticos: están sucediendo ahora con datos públicos. La consecuencia agregada es concreta. <strong>Si el grupo no construye una capa corporativa visible y una plataforma digital propia, queda como inventory dentro del marketplace de otros</strong> (caso Stellantis–Mercado Libre México abril 2026), pierde la ventana de captura de CLTV cross-marca, no puede alimentar Andromeda con creative diversity real, y arriesga ser comisionista del OEM si el modelo agency regresa al hemisferio. La asimetría intra-grupo (Mazda convierte 22% lead→factura, las otras 7 marcas convierten &lt;8%; CAC va de $1,326 a $10,084) demuestra que las prácticas exitosas <em>no se transfieren</em> dentro del grupo porque no hay sistema operativo común. El status quo se rompe solo por las fuerzas externas; la pregunta es si rompe a favor de Plasencia o en contra.</p>
+</section>
+
+<!-- ============ PAGE 5: RESOLUCIÓN — LA TESIS ============ -->
+<section class="page">
+  <span class="section-flag green">§ 03 · Resolución</span>
+  <h1 class="section-title"><span class="num">La tesis</span>Experiencia Plasencia Automotriz, en una oración y cuatro pilares.</h1>
+
+  <div class="hypothesis">
+    <span class="label">Governing thought</span>
+    <h3>Convertir a Grupo Plasencia en un retailer-marketplace donde Plasencia es la marca-paraguas visible al cliente y las marcas OEM operan como inventory dentro de un sistema operativo común.</h3>
+    <p>Manteniendo el respeto a guidelines de cada OEM en el piso físico, pero subordinando el journey digital, la captura de CLTV, la plataforma tecnológica y la narrativa de marca a la identidad de Grupo Plasencia. <strong>Iniciativa de transformación organizacional, no de marketing táctico.</strong></p>
+  </div>
+
+  <h2 class="section-h2">Los cuatro pilares</h2>
+
+  <ol class="pillars">
+    <li>
+      <div>
+        <h4>Marca corporativa visible y plataforma digital propia <em>por encima</em> del franchise OEM</h4>
+        <p>Plasencia es el sujeto principal de comunicación al cliente. El sitio web corporativo, la app del cliente, el agente conversacional y el dashboard ejecutivo viven bajo identidad Plasencia. El piso físico mantiene co-branding con cada OEM, pero la experiencia digital es retailer-led. Sub-marcas funcionales coordinadas: <strong>Plasencia Seminuevos</strong> (ya existe), <strong>Plasencia Crédito</strong>, <strong>Plasencia Flotillas</strong>, <strong>Plasencia Posventa</strong>, <strong>Plasencia Club</strong>.</p>
+      </div>
+    </li>
+    <li>
+      <div>
+        <h4>Plataforma digital corporativa que orquesta el journey end-to-end</h4>
+        <p>Plasencia.mx como hub cross-marca con configurador, calculadora real, pre-aprobación de crédito, valoración de trade-in al peso, agendado, accesorios visualizables, app cliente unificada, posventa proactiva, recompra automatizada. Stack: CRM corporativo + CDP cross-touchpoint + CAPI offline server-side + agente conversacional + atribución multi-touch + Andromeda-readiness. Evolución del Motor de Atribución MVP que ya opera, no construcción desde cero.</p>
+      </div>
+    </li>
+    <li>
+      <div>
+        <h4>Captura del CLTV cross-marca como motor económico</h4>
+        <p>Financiera cuasi-cautiva (mix in-house/externo formalizado), arrendamiento como pipeline cerrado a Seminuevos del propio grupo, posventa unificada como motor de margen 45–55%, refacciones y accesorios e-commerce, recompra automatizada con first-party data, loyalty cross-marca. Modelo Lithia Driveway Finance + Sonic EchoPark + Lithia equity mining adaptados al contexto mexicano.</p>
+      </div>
+    </li>
+    <li>
+      <div>
+        <h4>Capacidad operativa apalancada por IA, no por expansión de headcount</h4>
+        <p>El Motor de Atribución MVP demostró en cuatro semanas que un equipo mínimo + IA generativa puede operar tres marcas con resultados medibles. La transformación se industrializa con CDP corporativo, agente conversacional WhatsApp/IG/FB unificado, generación de creative diversity con IA generativa (8–15 creatives/marca/mes a coste de uno), dashboard P&amp;L con AI insights. Headcount adicional <em>solo</em> en roles no automatizables (Customer Experience Lead, Captive Finance Lead, Aftersales Lead).</p>
+      </div>
+    </li>
+  </ol>
+</section>
+
+<!-- ============ PAGE 6: LO QUE NO ES ============ -->
+<section class="page">
+  <span class="section-flag green">§ 03 · Resolución (cont.)</span>
+  <h1 class="section-title"><span class="num">Manejando expectativas</span>Lo que Experiencia Plasencia Automotriz NO es.</h1>
+
+  <p class="lead">Los modelos de transformación fracasan tan seguido por lo que <em>asumen incorrectamente</em> que prometen como por lo que prometen. Para evitar fricción innecesaria con OEMs, gerentes de marca, vendedores y áreas adyacentes, conviene declarar explícitamente lo que esta iniciativa <strong>NO</strong> es.</p>
+
+  <div class="not-block">
+    <span class="label">Lo que la tesis NO propone</span>
+    <h3>Cinco aclaraciones para la audiencia interna y externa</h3>
+    <ul>
+      <li><strong>NO es eliminar al concesionario marca-OEM.</strong> Mazda Plasencia, Ford Plasencia, etc. siguen existiendo en el piso físico con co-branding visible. La capa Plasencia opera <em>encima</em>, no en sustitución.</li>
+      <li><strong>NO es eliminar el piso físico ni convertir el modelo a 100% digital.</strong> Las 42 agencias son activo, no carga. Cazoo (£1.4B quemados, administración 2024) y Vroom (liquidación enero 2024) demostraron que el modelo puro digital fracasa en alto-ticket. Plasencia rediseña el handoff online↔presencial, no lo elimina.</li>
+      <li><strong>NO es eliminar la comisión del vendedor en mercado mexicano.</strong> La LFT y la cultura comercial mexicana hacen inviable el modelo Tesla. Plasencia transforma al vendedor con AI coaching real-time + sueldo fijo + comisión + bonus colectivo, no con eliminación.</li>
+      <li><strong>NO es lanzar suscripción de auto como producto principal.</strong> Care by Volvo cerrada agosto 2024, Audi/BMW/Mercedes/Cadillac/Genesis ya habían salido. Anti-patrón documentado. La iniciativa sí incluye loyalty/membership cross-marca tipo NIO Points, pero no suscripción puro como producto.</li>
+      <li><strong>NO es contratar un equipo de 200 personas.</strong> La capacidad operativa se construye con IA generativa apalancada. El equipo corporativo se mantiene mínimo + headcount selectivo en roles no automatizables. Modelo Lithia/Asbury/Carvana en términos de eficiencia operativa.</li>
+    </ul>
+  </div>
+
+  <h2 class="section-h2">Cómo los cuatro pilares trabajan juntos</h2>
+  <p>Los pilares no son iniciativas independientes. Son un sistema. <strong>El pilar 2 (plataforma digital) es el habilitador técnico</strong> que conecta a Plasencia con cliente final y proveedores; <strong>el pilar 1 (marca corporativa) es la propuesta de valor</strong> que el cliente percibe; <strong>el pilar 3 (CLTV cross-marca) es el motor económico</strong> que vuelve la inversión sostenible; <strong>el pilar 4 (capacidad apalancada por IA) es el modelo organizacional</strong> que permite ejecutar todo lo anterior sin escalar headcount linealmente. Quitar uno colapsa los otros tres: una marca corporativa sin plataforma es un brand book; una plataforma sin marca es infraestructura sin propuesta; CLTV sin capacidad es deseo sin ejecución; capacidad sin CLTV es eficiencia sin retorno.</p>
+
+  <h2 class="section-h2">El piloto Motor de Atribución MVP es la primera implementación</h2>
+  <p>Esta iniciativa no se construye desde cero. <strong>El piloto que ya está vivo desde abril 2026 (3 marcas, US$90K matched, team-of-one + IA, infraestructura propia) es la primera capa del pilar 2 ya en operación</strong>. La pregunta del Consejo no es si arrancar — es si escalar lo que ya está demostrado.</p>
+</section>
+
+<!-- ============ PAGE 7: LA AFIRMACIÓN VALIDADA ============ -->
+<section class="page">
+  <span class="section-flag gold">§ 04 · La propuesta y su sustento</span>
+  <h1 class="section-title"><span class="num">La evidencia que respalda la tesis</span>Ocho grupos cotizados ya operan variantes del modelo.</h1>
+
+  <p class="lead">La tesis presentada en la sección anterior es <strong>mi propuesta para Grupo Plasencia</strong>. Esta sección presenta la evidencia primaria 2020–2025 que la sustenta: ocho grupos automotrices cotizados — los más sofisticados del mundo en su categoría — operan hoy variantes del mismo modelo con resultados defendibles. La fuerza del argumento no está en que copiemos a otros, sino en que el patrón ha sido construido independientemente por múltiples grupos y converge en los mismos cuatro pilares que la propuesta plantea.</p>
+
+  <div class="statement">
+    <span class="label">El sustento</span>
+    <p class="text">La propuesta <strong>Experiencia Plasencia Automotriz</strong> — Endorsed Brands con master endorser Plasencia, sub-marcas funcionales, plataforma digital propia y capacidad apalancada por IA — está <strong>sustentada por evidencia primaria 2020–2025: ocho grupos cotizados ejecutan variantes del mismo modelo con resultados públicos auditables.</strong></p>
+  </div>
+
+  <h2 class="section-h2">Tres evidencias ancla</h2>
+
+  <div class="evidence">
+    <div class="ev">
+      <div class="ev-num">EVIDENCIA 1</div>
+      <h4>Lithia &amp; Driveway capturó el patrón en USA con datos públicos</h4>
+      <p>Rebrand corporativo a "Lithia &amp; Driveway" Feb-2024. Driveway alcanzó <strong>1.9M visitantes únicos/mes</strong> y <strong>32% del mix retail Q1 2025</strong>. Driveway Finance Corporation registró su primera utilidad anual: <strong>US$15.4M en 2024</strong>, proyectada US$50–60M en 2025.</p>
+    </div>
+    <div class="ev">
+      <div class="ev-num">EVIDENCIA 2</div>
+      <h4>Asbury Clicklane es el playbook tecnológico replicable</h4>
+      <p>Plataforma única lanzada Dic-2020 que opera en 91 dealerships y standalone. <strong>92% de transacciones</strong> Q2 2022 con clientes nuevos al grupo. <strong>Cierre cash en 8 minutos, financiado en 14 minutos</strong>. Conversión 2x sobre el sistema previo. Más de US$1B revenue 2022.</p>
+    </div>
+    <div class="ev">
+      <div class="ev-num">EVIDENCIA 3</div>
+      <h4>El patrón se repite en ocho grupos cotizados independientes</h4>
+      <p>Group 1, Hendrick, AutoNation, Pendragon (vendido a Lithia 2024), Inchcape (DXP en 14 países LATAM), Sonic+EchoPark (récord EBITDA 2025). <strong>No es un caso aislado. Es el patrón.</strong> Convergente entre USA, UK y LATAM.</p>
+    </div>
+  </div>
+
+  <h2 class="section-h2">Los ocho grupos que ya lo ejecutaron</h2>
+
+  <div class="groups">
+    <div class="group-card">
+      <span class="geo">USA + Canadá + UK · 52 OEM</span>
+      <h3>Lithia &amp; Driveway</h3>
+      <p>Rebrand corporativo Feb-2024. Driveway como plataforma digital propia. GreenCars como hub educativo. Driveway Finance Corp como cautiva integrada al journey.</p>
+      <div class="stat-line">
+        <strong>Resultado 2024–2025</strong>
+        133,000 unidades digitales · 32% mix Q1 2025 · DFC primera utilidad US$15.4M
+      </div>
+    </div>
+
+    <div class="group-card">
+      <span class="geo">USA · 31 OEM · 91 dealerships</span>
+      <h3>Asbury Clicklane</h3>
+      <p>Plataforma única e2e que cierra cash en 8 min y financiado en 14 min. Marketplace integrado de 30+ prestamistas. Penny perfect trade-in.</p>
+      <div class="stat-line">
+        <strong>Resultado Q2 2022</strong>
+        92% transacciones con clientes nuevos · Conversión 2x · &gt;US$1B revenue 2022
+      </div>
+    </div>
+
+    <div class="group-card">
+      <span class="geo">USA + UK · 30 brands</span>
+      <h3>Group 1 · AcceleRide</h3>
+      <p>Plataforma digital corporativa rollout 2019–2020 a 116 dealerships US. Integración con desking + CRM + crédito.</p>
+      <div class="stat-line">
+        <strong>Resultado operativo</strong>
+        ~10% unidades vía AcceleRide · &gt;70% clientes lo tocan · US$19B revenue 2025
+      </div>
+    </div>
+
+    <div class="group-card">
+      <span class="geo">USA · 26 nameplates · 96 ubicaciones</span>
+      <h3>Hendrick · HendrickCars.com</h3>
+      <p>Hub único de inventario que une 96 ubicaciones bajo un mismo SKU virtual. Hendrick Autoguard como ESC propio.</p>
+      <div class="stat-line">
+        <strong>Resultado operativo</strong>
+        &gt;35,000 vehículos sincronizados · 96 ubicaciones · 133 franchises
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PAGE 8: GRUPOS PARTE 2 ============ -->
+<section class="page">
+  <div class="groups">
+    <div class="group-card">
+      <span class="geo">USA · Master Brand · public</span>
+      <h3>AutoNation</h3>
+      <p>Consolidación nacional 2000–2013 de 210+ franquicias bajo identidad única. AutoNation USA (seminuevos), Precision Parts, Auto Auctions, One Price.</p>
+      <div class="stat-line">
+        <strong>Lección clave para Plasencia</strong>
+        13 años de consolidación — Plasencia NO replica eso; sí lanza la plataforma digital primero
+      </div>
+    </div>
+
+    <div class="group-card">
+      <span class="geo">UK · vendido a Lithia 2024</span>
+      <h3>Pendragon · Powered by Pendragon</h3>
+      <p>"Powered by Pendragon" 2020 como rebrand corporativo. Stratstone (premium), Evans Halshaw (mainstream), Car Store (seminuevos). Pinewood Technologies sigue independiente.</p>
+      <div class="stat-line">
+        <strong>Resultado y exit</strong>
+        Modelo validado · Adquirido por Lithia en 2024
+      </div>
+    </div>
+
+    <div class="group-card">
+      <span class="geo">14 países LATAM + Asia · 60+ OEM</span>
+      <h3>Inchcape · DXP</h3>
+      <p>Pure-play distribution desde 2024. DXP como plataforma omnicanal. Adquirió Derco LATAM por <strong>US$1.5B</strong>. 22 nuevos contratos OEM en 2024.</p>
+      <div class="stat-line">
+        <strong>Resultado regional</strong>
+        14 países LATAM bajo DXP · presencia en Chile, Perú, Colombia, México
+      </div>
+    </div>
+
+    <div class="group-card">
+      <span class="geo">USA · multi-OEM + sub-marca</span>
+      <h3>Sonic Automotive · EchoPark</h3>
+      <p>Cerró 8 ubicaciones EchoPark en 2023, NO abrió tiendas nuevas en 2024–2025. <strong>Lección:</strong> consolidación supera expansión.</p>
+      <div class="stat-line">
+        <strong>Resultado 2025</strong>
+        EBITDA EchoPark récord US$49.2M (+78% YoY) sin abrir tiendas
+      </div>
+    </div>
+  </div>
+
+  <h2 class="section-h2">Por qué los ocho convergen, no divergen</h2>
+  <p>Los ocho grupos comparten exactamente los <strong>cuatro pilares</strong> que define la propuesta Experiencia Plasencia Automotriz: marca corporativa visible, plataforma digital propia, captura de CLTV cross-marca y capacidad operativa apalancada (en los más recientes — Carvana, Lithia, Asbury — ya por IA y data, no solo por escala). Operan en mercados distintos: USA mayoritariamente cotizado y maduro, UK con Pendragon antes del exit y la herencia Pinewood, LATAM vía Inchcape como distribuidor regional, China-pivote en NIO con showrooms boutique y app integrada. <strong>Que el modelo no sea divergente entre geografías sino convergente refuerza la propuesta:</strong> múltiples grupos llegaron a la misma conclusión por caminos distintos. La única referencia LATAM directa (Kavak) pivotó de 100% digital a phygital con piso, replegándose a México con cinco tiendas nuevas en 2024 — confirmando por la negativa que el piso físico es activo, no carga.</p>
+
+  <p class="small" style="margin-top:5mm;">Las cifras de Lithia, Sonic, Asbury, Group 1, Carvana y Pendragon provienen de SEC filings y earnings calls 2024–2026 auditables. Hendrick (privately held) y Kavak (privately held post-SoftBank) provienen de comunicación pública y prensa especializada.</p>
+</section>
+
+<!-- ============ PAGE 9: COMPARACIÓN PUNTO POR PUNTO ============ -->
+<section class="page">
+  <span class="section-flag gold">§ 05 · El modelo · cómo funciona</span>
+  <h1 class="section-title"><span class="num">Punto por punto</span>El modelo de Plasencia ↔ los casos globales que ya lo ejecutaron.</h1>
+
+  <p class="lead">Esta tabla mapea cada pilar de la propuesta <strong>Experiencia Plasencia Automotriz</strong> contra los casos globales donde el atributo está documentado y operando con resultados públicos. La pregunta no es si funciona aislado — es si los seis atributos de la propuesta coexisten en evidencia primaria. La respuesta es sí, y con cifras auditables.</p>
+
+  <table class="compare">
+    <thead>
+      <tr>
+        <th>Atributo del modelo Experiencia Plasencia</th>
+        <th>Casos globales que ya lo ejecutan (con cifras)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Marca corporativa Plasencia visible sobre el franchise OEM</strong></td>
+        <td><strong>Lithia &amp; Driveway</strong> (rebrand 2024, "Lithia [OEM]" en piso + Driveway/GreenCars/DFC como sub-marcas digitales). <strong>Pendragon</strong> ("Powered by Pendragon" 2020, omnichannel campaign sin afectar signage de dealerships). <strong>AutoNation</strong> (consolidación 2013 con apoyo OEM de GM, Ford, Chrysler, Nissan, Toyota, Honda, VW, Hyundai). <strong>Hendrick</strong> ("Rick Hendrick [OEM/Ciudad]" + HendrickCars.com como hub).</td>
+      </tr>
+      <tr>
+        <td><strong>Plataforma digital propia que orquesta el journey end-to-end</strong></td>
+        <td><strong>Asbury Clicklane</strong> (cierre cash 8 min, conversión 2x). <strong>Lithia Driveway</strong> (1.9M UV/mes, 32% mix retail). <strong>Group 1 AcceleRide</strong> (116 dealerships, &gt;70% clients touch). <strong>HendrickCars.com</strong> (35K vehículos, 96 ubicaciones). <strong>Inchcape DXP</strong> (omnicanal en 14 países LATAM).</td>
+      </tr>
+      <tr>
+        <td><strong>Sub-marca dedicada a seminuevos rentable</strong></td>
+        <td><strong>Sonic EchoPark</strong> (US$49.2M EBITDA récord 2025 sin expansión). <strong>AutoNation USA</strong> (lanzada 2016, escaló sobre One Price + inventario centralizado). <strong>Pendragon Car Store</strong>. <strong>Lithia Driveway</strong> como hub que también vende seminuevos. Plasencia Seminuevos ya existe — es el activo en lanzamiento más maduro del grupo.</td>
+      </tr>
+      <tr>
+        <td><strong>Financiera cautiva o cuasi-cautiva integrada al journey</strong></td>
+        <td><strong>Lithia Driveway Finance Corp</strong> (cartera US$3.7B → US$4.3B; primera utilidad US$15.4M 2024 → meta US$50–60M 2025; APR &gt;9%; meta cartera US$17B con US$550–650M ingresos financieros anuales). <strong>Asbury Clicklane</strong> (30+ prestamistas integrados). <strong>Webmotors</strong> (Banco Santander Brasil) integra crédito directo. <strong>Plasencia Crédito</strong> tiene la palanca individual de mayor potencial — US$11M+ MXN abiertos en subsidios cruzados.</td>
+      </tr>
+      <tr>
+        <td><strong>Multi-OEM bajo identidad de retailer</strong></td>
+        <td><strong>Lithia</strong> 52 OEM. <strong>Inchcape</strong> 60+ OEM. <strong>Group 1</strong> 30 brands. <strong>Asbury</strong> 31 OEM. <strong>Hendrick</strong> 26 nameplates. <strong>Plasencia</strong> 8 OEM + Seminuevos + Arrendadora — escala suficiente para replicar el modelo.</td>
+      </tr>
+      <tr>
+        <td><strong>Capacidad operativa apalancada por IA, no por headcount</strong></td>
+        <td><strong>Carvana</strong> 2024: SG&amp;A/unidad −US$1,240 YoY, publicidad/unidad −25% a US$550, NPS récord 2 años, AI chat triplicó adopción. <strong>STELLA</strong> +20% service show rate. <strong>Pied Piper STE 2025</strong>: voice AI cierra 86% citas vs 90% humano. <strong>Plasencia Motor de Atribución MVP</strong>: team-of-one + IA generativa, US$90K MXN matched, 4 semanas, 3 marcas.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2 class="section-h2">El veredicto operativo</h2>
+  <p>De los <strong>seis atributos de la propuesta Experiencia Plasencia Automotriz</strong>, los seis están sustentados por evidencia operativa en al menos dos grupos diferentes cada uno, en geografías distintas, durante 2020 y 2025. <strong>No hay un solo pilar de la propuesta sin sustento en evidencia primaria.</strong> Esto reduce significativamente el riesgo asociado a la decisión: el Consejo no aprueba un experimento, aprueba una propuesta cuyos pilares — individualmente — ya están documentados como operables con resultados defendibles. La novedad de la propuesta no está en inventar los pilares; está en integrarlos en un sistema operativo coherente para Grupo Plasencia, en mercado mexicano, con el portafolio y los activos del grupo.</p>
+</section>
+
+<!-- ============ PAGE 10: TIMING + ANTI-PATRONES ============ -->
+<section class="page">
+  <span class="section-flag amber">§ 06 · Timing y riesgos</span>
+  <h1 class="section-title"><span class="num">Por qué ahora</span>La ventana competitiva y los anti-patrones documentados.</h1>
+
+  <div class="urgency">
+    <span class="label">Ventana competitiva concreta</span>
+    <h3>24 a 36 meses antes de que algún OEM intente capturar customer data en serio en México.</h3>
+    <p>El modelo "agency" europeo está en repliegue: Ford lo abandonó en abril 2024, Stellantis lo suspendió bajo Imparato en 2025, Volkswagen revirtió en Alemania/UK/Suecia, Mercedes-Benz pospuso España hasta finales de 2026, BMW retrasó la marca core a 2027. <strong>La narrativa "OEM dueño del cliente" perdió momentum globalmente, pero puede reactivarse en 2027–2028 y llegar a México 2–3 años después.</strong> Construir captura de CLTV antes de que esa conversación regrese es defensa estructural, no especulación.</p>
+  </div>
+
+  <h2 class="section-h2">Cuatro riesgos de no actuar</h2>
+
+  <div class="anti">
+    <div class="anti-item">
+      <h4>Riesgo OEM agency</h4>
+      <p>Si BMW, Mercedes o Stellantis reactivan agency 2027–2028, llegan a México 2–3 años después. Sin captura de CLTV propia, Plasencia se vuelve comisionista del OEM en lugar de retailer.</p>
+    </div>
+    <div class="anti-item">
+      <h4>Riesgo China entrante</h4>
+      <p>BYD, GWM, GAC, Changan, MG están entrando masivamente. BYD ya supera 80,000 ventas 2025 con 80+ showrooms y alianza con Liverpool retail. Modelos híbridos con menos restricciones pero también menos co-inversión.</p>
+    </div>
+    <div class="anti-item">
+      <h4>Riesgo Andromeda</h4>
+      <p>Meta Andromeda + GEM (rollout completo Oct-2025) penaliza creative atado a oferta mensual OEM. Operar sin marca corporativa propia limita la capacidad de alimentar al algoritmo con creative diversity real, manteniendo CAC artificialmente alto.</p>
+    </div>
+    <div class="anti-item">
+      <h4>Riesgo Mercado Libre</h4>
+      <p>Stellantis lanzó marketplace en Mercado Libre México (Abr-2026) con Jeep/RAM/Dodge/Fiat/Peugeot. Sin plataforma propia, Plasencia termina siendo inventory dentro del marketplace de otro, no un destino retailer.</p>
+    </div>
+  </div>
+
+  <h2 class="section-h2">Anti-patrones documentados — lo que NO hacer</h2>
+  <p>La evidencia mundial 2020–2025 también es clara sobre los modelos que <strong>fracasaron</strong>. <strong>Cazoo</strong> (UK seminuevos digital puro): quemó £1.4B y entró en administración 2024. <strong>Vroom</strong>: liquidó ecommerce enero 2024, valuación cayó de US$8.1B (2020) a US$75M. <strong>Honda US</strong>: discontinuó piloto de venta directa online 2022. <strong>Carvana</strong>: sobrevivió únicamente con ajuste brutal de SG&amp;A/unidad −US$1,240 YoY. <strong>Care by Volvo</strong> y suscripciones OEM: Audi, BMW, Mercedes, Cadillac, Genesis salieron antes; Volvo cerró agosto 2024. <strong>Stellantis agency Europa</strong>: pushback dealer asociaciones, IT issues piloto Bélgica/Países Bajos, suspendido bajo Imparato en 2025.</p>
+
+  <p>El modelo Experiencia Plasencia Automotriz <em>incorpora estas lecciones</em>: mantiene piso físico (42 agencias como activo, no carga), no propone suscripción como producto principal, no elimina al vendedor (lo apalanca con IA), y no construye desde cero — evoluciona el piloto Motor de Atribución MVP que ya está operando con resultados medidos.</p>
+
+  <h2 class="section-h2">La lección del intento previo (2025)</h2>
+  <p>El predecesor en la Dirección de Marketing identificó correctamente el problema (28 puntos de debilidad documentados, propuesta de "Marketing Grupo Plasencia") pero <strong>priorizó orden sobre valor</strong>: de 15 proyectos planeados, solo completó 4 (todos administrativos). Los proyectos de impacto real (homologación de leads, SEO, IA Growth Partner, capacitación) quedaron entre 0% y 11%. La iniciativa Experiencia Plasencia Automotriz incorpora esta lección: <strong>la Fase 1 del roadmap es operacional con resultados medibles en 90 días, no homologación administrativa</strong>. La Fase 1 vive — el piloto MVP ya está operando.</p>
+</section>
+
+<!-- ============ PAGE 11: ROADMAP ============ -->
+<section class="page">
+  <span class="section-flag blue">§ 07 · Roadmap</span>
+  <h1 class="section-title"><span class="num">Cómo se construye</span>Cuatro fases en 12 meses.</h1>
+
+  <p class="lead">El roadmap progresa de la consolidación de palancas inmediatas (Fase 1, ya en marcha) hacia la industrialización con IA generativa (Fase 4). Cada fase tiene cuatro elementos: <strong>qué se hace, qué cambia, qué ve el Consejo, qué cuesta</strong>. Phase gates definidos. Quick wins en Fase 1 con costo cero o negativo.</p>
+
+  <div class="phases">
+    <div class="phase">
+      <span class="phase-tag">Fase 1 · Mes 0–3 · Consolidación + Narrative</span>
+      <h4>Marco interno y palancas inmediatas (cuatro entregables, costo neto bajo o negativo)</h4>
+      <div class="phase-grid">
+        <div class="phase-cell">
+          <h5>Qué se hace</h5>
+          <ul>
+            <li>Brand Book corporativo "Plasencia (vende Mazda, Ford, Stellantis...)" + sub-marcas funcionales nominadas + asset templating para vendedores.</li>
+            <li>Renegociación OEM sobre subsidios cruzados (US$11M+ MXN abiertos) con narrative de ecosystem y respaldo de evidencia mundial.</li>
+            <li>Consolidación de las 14 agencias externas a 2–3 max (modelo Hendrick + Motivated Marketing).</li>
+            <li>Refinamiento del piloto Motor de Atribución MVP que ya opera (3 marcas → 5 marcas).</li>
+          </ul>
+        </div>
+        <div class="phase-cell">
+          <h5>Qué cambia · Qué ve el Consejo · Qué cuesta</h5>
+          <p><strong>Cambia:</strong> renegociación OEM, agencias consolidadas, brand book vivo. <strong>Ve:</strong> ahorro inmediato US$5–8M MXN en agencias + bajada de subsidio neto. <strong>Cuesta:</strong> negativo (ahorra antes de gastar).</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="phase">
+      <span class="phase-tag">Fase 2 · Mes 3–6 · Plataforma Digital Corporativa MVP</span>
+      <h4>El "Clicklane mexicano" (replica MVP del playbook tecnológico Asbury)</h4>
+      <div class="phase-grid">
+        <div class="phase-cell">
+          <h5>Qué se hace</h5>
+          <ul>
+            <li>Plasencia.mx unificado: configurador cross-marca + calculadora real + trade-in valuation online + agendado.</li>
+            <li>Evolución del Motor de Atribución a CDP corporativo (Tealium / mParticle).</li>
+            <li>Agente conversacional WhatsApp + IG + FB unificado (STELLA / Impel / Podium).</li>
+          </ul>
+        </div>
+        <div class="phase-cell">
+          <h5>Qué cambia · Qué ve el Consejo · Qué cuesta</h5>
+          <p><strong>Cambia:</strong> Plasencia.mx existe como destino retailer, no agregador de concesionarios. <strong>Ve:</strong> dashboard P&amp;L unificado por marca/agencia. <strong>Cuesta:</strong> US$2–4M MXN en stack tecnológico + 1–2 hires.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="phase">
+      <span class="phase-tag">Fase 3 · Mes 6–9 · Plasencia Crédito + Posventa</span>
+      <h4>Captura del CLTV — la palanca económica más grande</h4>
+      <div class="phase-grid">
+        <div class="phase-cell">
+          <h5>Qué se hace</h5>
+          <ul>
+            <li>Pre-aprobación online (mix in-house/externo formalizado, marketplace de prestamistas estilo Asbury).</li>
+            <li>App cliente única para servicio + recordatorios + accesorios.</li>
+            <li>Pipeline lease-return automatizado a Seminuevos Plasencia.</li>
+          </ul>
+        </div>
+        <div class="phase-cell">
+          <h5>Qué cambia · Qué ve el Consejo · Qué cuesta</h5>
+          <p><strong>Cambia:</strong> CLTV cross-marca empieza a capturarse. <strong>Ve:</strong> primera utilidad de financiera cuasi-cautiva (replica Lithia DFC año 1). <strong>Cuesta:</strong> US$5–8M MXN setup + capital de trabajo cautiva.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="phase">
+      <span class="phase-tag">Fase 4 · Mes 9–12 · Industrialización con IA</span>
+      <h4>Andromeda-ready + loyalty + escalamiento</h4>
+      <div class="phase-grid">
+        <div class="phase-cell">
+          <h5>Qué se hace</h5>
+          <ul>
+            <li>Andromeda + GEM creative diversity con IA generativa (8–15 creatives/marca/mes a coste de uno).</li>
+            <li>"Plasencia Club" loyalty cross-marca (NIO Points pattern adaptado).</li>
+            <li>Dashboard P&amp;L por marca/agencia/vendedor con AI insights.</li>
+          </ul>
+        </div>
+        <div class="phase-cell">
+          <h5>Qué cambia · Qué ve el Consejo · Qué cuesta</h5>
+          <p><strong>Cambia:</strong> CAC baja, repeat purchase rate sube. <strong>Ve:</strong> P&amp;L con captura de CLTV cross-marca medible. <strong>Cuesta:</strong> US$2–3M MXN tooling + IA + agencia consolidada operando.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PAGE 12: CASO FINANCIERO ============ -->
+<section class="page">
+  <span class="section-flag green">§ 08 · El caso financiero</span>
+  <h1 class="section-title"><span class="num">Inversión y retorno</span>Por qué la matemática funciona.</h1>
+
+  <p class="lead">El caso financiero responde una pregunta simple: ¿es defendible esta inversión sobre la base actual? La respuesta es sí, y se sostiene en cuatro hechos auditables: el baseline de gasto MKT actual, las palancas concretas ya identificadas, el killer metric documentado en evidencia mundial, y el costo de no actuar cuantificado.</p>
+
+  <div class="financial">
+    <div class="financial-grid">
+      <div class="fin-cell">
+        <div class="label">Baseline anual MKT</div>
+        <div class="value">$73.4M</div>
+        <p>Pauta publicitaria $36.3M (49%) + plantilla MKT 61 personas $21.4M (29%) + 14 proveedores externos $15.7M (22%). MXN/año.</p>
+      </div>
+      <div class="fin-cell">
+        <div class="label">Conversión asimétrica intra-grupo</div>
+        <div class="value">22% / 8%</div>
+        <p>Mazda convierte 22% lead→factura. Las otras 7 marcas operan bajo 8%. Transferir prácticas con plataforma común es palanca evidente.</p>
+      </div>
+      <div class="fin-cell">
+        <div class="label">Subsidios cruzados abiertos</div>
+        <div class="value gold">$11M+</div>
+        <p>Plasencia subsidia el 100% del marketing de Changan, Ford, GWM, Stellantis, Seminuevos (0% co-inversión OEM). Renegociable con narrative ecosystem y evidencia mundial.</p>
+      </div>
+      <div class="fin-cell">
+        <div class="label">Consolidación de agencias</div>
+        <div class="value green">$5–8M</div>
+        <p>De 14 proveedores externos a 2–3 (modelo Hendrick + Motivated Marketing). Ahorro neto anual estimado MXN.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="killer">
+    <span class="label">Killer metric</span>
+    <h3>Lithia Driveway Finance Corp pasó de pérdida US$45.9M (2023) a utilidad US$15.4M (2024) en doce meses.</h3>
+    <p>Proyectada para 2025: <strong>US$50–60M</strong>. Meta corporativa: cartera US$17B con <strong>US$550–650M de ingresos financieros anuales</strong>. <strong>Plasencia Crédito</strong> es la palanca equivalente: la replicación del patrón Lithia adaptada al contexto mexicano (mix in-house/externo, marketplace de prestamistas estilo Asbury Clicklane). Con AOV de $432K MXN y volumen de 29,595 unidades/año, la captura del 5% de margen financiero promedio representa orden de magnitud comparable a la utilidad anual de Seminuevos Plasencia ($49.6M MXN).</p>
+  </div>
+
+  <h2 class="section-h2">Costo de NO actuar</h2>
+  <p>Tres costos cuantificables si la iniciativa no se aprueba: <strong>(1)</strong> CAC dispar mantenido (Mazda $1,326 vs GAC $10,084 — 7.6x) por incapacidad de transferir prácticas; cada mes que la asimetría se mantiene representa pérdida de eficiencia operativa medible. <strong>(2)</strong> Subsidios cruzados $11M+ MXN/año no renegociados → pérdida directa cada año fiscal. <strong>(3)</strong> Pérdida de la ventana de captura de CLTV antes del eventual regreso del modelo agency a México (24–36 meses estimados); cuando llegue, la captura quedará bloqueada vía contratos OEM revisados, costando un múltiplo de la inversión necesaria hoy.</p>
+
+  <h2 class="section-h2">El caso de la Fase 1 específicamente</h2>
+  <p>La Fase 1 (Mes 0–3) tiene <strong>costo neto negativo</strong>: ahorra (renegociación OEM + consolidación agencias) más de lo que invierte (refinamiento del piloto MVP que ya opera). Es el quick win operativo: el Consejo aprueba la iniciativa, el grupo recupera dinero <em>antes</em> de gastar el siguiente peso. La Fase 1 es la más fácil de aprobar y la que destraba el resto del roadmap.</p>
+</section>
+
+<!-- ============ PAGE 13: ASK ============ -->
+<section class="page">
+  <span class="section-flag">§ 09 · El ask</span>
+  <h1 class="section-title"><span class="num">Cinco decisiones</span>Lo que el Consejo necesita aprobar.</h1>
+
+  <p class="lead">Cada decisión es <strong>binaria</strong> (sí/no), está cuantificada en costo, tiene timeline asociado y consecuencia clara. La estructura sigue el orden secuencial obligatorio: Pepe → Consejo → Carlos Nava → Gerentes MKT → Marcas OEM. Sin la primera, las siguientes no se mueven.</p>
+
+  <ol class="asks">
+    <li>
+      <div>
+        <h4>Aprobar Experiencia Plasencia Automotriz como dirección estratégica del grupo en marketing y experiencia comercial</h4>
+        <p>Endorso del Consejo al modelo Endorsed Brands con master endorser Plasencia + sub-marcas funcionales + plataforma digital propia + capacidad apalancada por IA, derivado del Strategy Definition completo y respaldado por evidencia mundial 2020–2025.</p>
+      </div>
+      <div class="ask-decision">
+        Sí / No<br>
+        <span>Si SÍ → autoriza Fase 1 inmediatamente.</span>
+      </div>
+    </li>
+    <li>
+      <div>
+        <h4>Autorizar la consolidación de las 14 agencias externas a 2–3 proveedores</h4>
+        <p>Modelo Hendrick + Motivated Marketing como agencia única coordinando ubicaciones múltiples. Ahorro neto anual estimado US$5–8M MXN. RFP corre en Mes 1–2, transición Mes 2–3.</p>
+      </div>
+      <div class="ask-decision">
+        Sí / No<br>
+        <span>Costo: ahorro neto. Sin nuevo headcount.</span>
+      </div>
+    </li>
+    <li>
+      <div>
+        <h4>Autorizar renegociación de subsidios cruzados con OEMs</h4>
+        <p>$11M+ MXN/año abiertos (marcas con 0% co-inversión: Changan, Ford, GWM, Stellantis, Seminuevos). Argumentación: narrative de ecosystem + evidencia Lithia/Asbury 2024. Negociación corre Mes 1–4.</p>
+      </div>
+      <div class="ask-decision">
+        Sí / No<br>
+        <span>Costo: tiempo Director MKT + soporte Jurídico.</span>
+      </div>
+    </li>
+    <li>
+      <div>
+        <h4>Autorizar inversión en plataforma digital corporativa (Fase 2)</h4>
+        <p>Plasencia.mx hub cross-marca + CDP corporativo + agente conversacional unificado. Inversión Fase 2: US$2–4M MXN + 1–2 hires en roles no automatizables. Phase gate antes de Fase 3: KPIs Mes 6 cumplidos.</p>
+      </div>
+      <div class="ask-decision">
+        Sí condicional<br>
+        <span>Aprobado pendiente de KPIs Fase 1 cumplidos.</span>
+      </div>
+    </li>
+    <li>
+      <div>
+        <h4>Autorizar exploración de Plasencia Crédito como cuasi-cautiva (Fase 3)</h4>
+        <p>Mix in-house/externo formalizado + marketplace de prestamistas estilo Asbury Clicklane. Inversión Fase 3: US$5–8M MXN setup + capital de trabajo. Decisión de inversión final post-Fase 2 con caso financiero detallado.</p>
+      </div>
+      <div class="ask-decision">
+        Sí condicional<br>
+        <span>Aprobación de exploración. Decisión final post-Fase 2.</span>
+      </div>
+    </li>
+  </ol>
+
+  <h2 class="section-h2">Lo que pasa en los próximos 30 días si se aprueba hoy</h2>
+  <p>Aprobado el ask #1: <strong>Mes 0 (semana 1–2):</strong> Brand Book corporativo y asset templating en draft para circulación interna; RFP de consolidación de agencias lanzado a los 14 proveedores actuales. <strong>Semana 3–4:</strong> primera reunión formal con dos directores de marca con co-inversión 0% para iniciar conversación de renegociación; refinamiento del piloto MVP a 5 marcas (extensión Mazda y Ford). <strong>Mes 1–3:</strong> ejecución completa de Fase 1 con KPIs reportables al Consejo en revisión de Mes 3 (phase gate hacia Fase 2). El piloto MVP — <em>la Fase 1 técnica</em> — ya está operando: la pregunta es si el Consejo escala lo que ya funciona o lo deja como demo.</p>
+</section>
+
+<!-- ============ PAGE 14: CIERRE ============ -->
+<section class="page" style="padding: 0;">
+  <div class="closing">
+    <p class="ribbon">— Documento de cierre —</p>
+
+    <h2>Mi propuesta para Grupo Plasencia,<br><em>sustentada</em> con evidencia.</h2>
+
+    <p class="pull">"De los seis atributos de la propuesta Experiencia Plasencia Automotriz, los seis están sustentados por evidencia operativa en al menos dos grupos diferentes cada uno, en geografías distintas, durante 2020 y 2025. La novedad no está en inventar los pilares; está en integrarlos como sistema operativo para Grupo Plasencia."</p>
+
+    <p class="body-text">
+      Lithia, Asbury, Group 1, Hendrick, AutoNation, Pendragon, Inchcape y Sonic+EchoPark publican métricas operativas que respaldan los cuatro pilares de la propuesta. Plasencia tiene el portafolio (8 OEM + Seminuevos + Arrendadora), la infraestructura (Motor de Atribución operando), la capacidad operativa apalancada por IA (team-of-one validado), las palancas económicas concretas (US$11M+ MXN abiertos, conversión asimétrica intra-grupo, US$73.4M MXN baseline) y la ventana competitiva (24–36 meses antes de que el agency model regrese). <strong>La propuesta es mía. La evidencia la sustenta. La decisión es del Consejo.</strong>
+    </p>
+
+    <div class="signature">
+      <strong>Experiencia Plasencia Automotriz</strong>
+      Documento de validación estratégica · Dirección de Marketing Corporativo · Mayo 2026
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
