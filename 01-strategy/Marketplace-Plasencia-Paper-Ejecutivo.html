@@ -1,0 +1,1222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Marketplace Plasencia — Estado del Arte Mundial 2026</title>
+<meta name="description" content="Documento ejecutivo destilado de la investigación profunda sobre arquitectura retailer-marketplace en automotive global 2024–2026. Confidencial · Grupo Plasencia · Dirección de Marketing Corporativo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@500;700;800;900&display=swap" rel="stylesheet">
+<style>
+  /* ==================== TOKENS ==================== */
+  :root {
+    --gp-red: #C8102E;
+    --gp-navy: #1E2740;
+    --gp-slate: #2D3748;
+    --green: #48BB78;
+    --deep-green: #276749;
+    --blue: #4299E1;
+    --deep-blue: #2B6CB0;
+    --amber: #D69E2E;
+    --gold: #ECC94B;
+    --bg: #F0F4F8;
+    --paper: #FFFFFF;
+    --near-white: #F7FAFC;
+    --g100: #EDF2F7;
+    --g300: #CBD5E0;
+    --g400: #A0AEC0;
+    --g500: #718096;
+    --g600: #4A5568;
+    --text: #2D3748;
+
+    --serif: 'Playfair Display', Georgia, serif;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  /* ==================== RESET ==================== */
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html, body { background:var(--bg); }
+  body {
+    font-family: var(--sans);
+    color: var(--text);
+    line-height: 1.55;
+    font-size: 10pt;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* ==================== A4 PAGE SIZING ==================== */
+  @page {
+    size: A4;
+    margin: 18mm 18mm 22mm 18mm;
+    @bottom-right {
+      content: counter(page);
+      font-family: 'Inter', sans-serif;
+      font-size: 9pt;
+      color: #718096;
+    }
+    @bottom-left {
+      content: "Confidencial · Grupo Plasencia · Dirección de Marketing Corporativo";
+      font-family: 'Inter', sans-serif;
+      font-size: 8pt;
+      color: #A0AEC0;
+    }
+    @top-right {
+      content: "Marketplace Plasencia · Estado del Arte Mundial 2026";
+      font-family: 'Inter', sans-serif;
+      font-size: 8pt;
+      color: #A0AEC0;
+    }
+  }
+  @page :first { @top-right { content: ""; } @bottom-right { content: ""; } @bottom-left { content: ""; } }
+  @page cover { margin: 0; }
+
+  .page {
+    background: var(--paper);
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0 auto 8mm auto;
+    padding: 18mm 18mm 22mm 18mm;
+    position: relative;
+    page-break-after: always;
+    box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 4px 24px rgba(30,39,64,.08);
+  }
+  .page:last-child { page-break-after: auto; }
+
+  /* Cover full bleed */
+  .cover {
+    background: var(--gp-navy);
+    color: var(--near-white);
+    padding: 0;
+    page: cover;
+  }
+  .cover-inner {
+    padding: 36mm 22mm 24mm 22mm;
+    min-height: 297mm;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background:
+      radial-gradient(ellipse at 100% 0%, rgba(236,201,75,0.12) 0%, transparent 55%),
+      radial-gradient(ellipse at 0% 100%, rgba(66,153,225,0.10) 0%, transparent 55%),
+      var(--gp-navy);
+    position: relative;
+  }
+  .cover-inner::before {
+    content: "";
+    position: absolute;
+    top: 24mm; left: 22mm;
+    width: 64mm; height: 1px;
+    background: var(--gold);
+  }
+  .cover-mark {
+    font-family: var(--sans);
+    font-weight: 700;
+    font-size: 11pt;
+    letter-spacing: 4px;
+    color: var(--gold);
+    text-transform: uppercase;
+  }
+  .cover-mark span { display:block; font-weight:400; color:rgba(255,255,255,0.55); margin-top:4px; letter-spacing:1px; font-size:9pt; }
+  .cover-title {
+    font-family: var(--serif);
+    font-weight: 800;
+    font-size: 52pt;
+    line-height: 1.02;
+    letter-spacing: -1.8px;
+    margin-top: 12mm;
+    color: var(--near-white);
+  }
+  .cover-subtitle {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-style: italic;
+    font-size: 20pt;
+    color: var(--gold);
+    margin-top: 6mm;
+    letter-spacing: -0.3px;
+  }
+  .cover-pull {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-style: italic;
+    font-size: 14pt;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.45;
+    border-left: 3px solid var(--gold);
+    padding-left: 8mm;
+    margin-top: 16mm;
+    max-width: 140mm;
+  }
+  .cover-pull cite {
+    display: block;
+    font-style: normal;
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 9pt;
+    letter-spacing: 1px;
+    color: var(--gold);
+    margin-top: 6mm;
+    text-transform: uppercase;
+  }
+  .cover-tags { display:flex; gap:6mm; margin-top: 16mm; flex-wrap:wrap; }
+  .cover-tag {
+    font-family: var(--sans);
+    font-size: 9pt;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: rgba(255,255,255,0.85);
+    border: 1px solid rgba(255,255,255,0.25);
+    padding: 4px 10px;
+    border-radius: 999px;
+    text-transform: uppercase;
+  }
+  .cover-tag.accent { color: var(--gold); border-color: rgba(236,201,75,0.4); }
+  .cover-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 18mm;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    padding-top: 8mm;
+  }
+  .cover-meta-block { font-size: 9pt; color: rgba(255,255,255,0.65); line-height: 1.7; }
+  .cover-meta-block strong { display:block; color: var(--near-white); font-weight: 700; font-size: 10pt; letter-spacing: .5px; }
+  .cover-confidential {
+    font-family: var(--sans);
+    font-weight: 700;
+    font-size: 8pt;
+    letter-spacing: 4px;
+    color: var(--gp-red);
+    text-transform: uppercase;
+  }
+
+  /* ==================== TYPOGRAPHY ==================== */
+  h1, h2, h3, h4 { font-family: var(--sans); font-weight: 700; color: var(--gp-navy); letter-spacing: -0.2px; }
+  h1.section-title {
+    font-family: var(--serif);
+    font-weight: 800;
+    font-size: 32pt;
+    line-height: 1.05;
+    letter-spacing: -1px;
+    color: var(--gp-navy);
+    border-top: 3px solid var(--gp-red);
+    padding-top: 6mm;
+    margin-bottom: 4mm;
+  }
+  h1.section-title .num {
+    display: block;
+    font-family: var(--sans);
+    font-weight: 700;
+    font-size: 9pt;
+    letter-spacing: 4px;
+    color: var(--gp-red);
+    text-transform: uppercase;
+    margin-bottom: 4mm;
+  }
+  h2.section-h2 {
+    font-size: 16pt;
+    font-weight: 800;
+    color: var(--gp-navy);
+    margin-top: 10mm;
+    margin-bottom: 4mm;
+    line-height: 1.2;
+  }
+  h3.section-h3 {
+    font-size: 12pt;
+    font-weight: 700;
+    color: var(--gp-navy);
+    margin-top: 6mm;
+    margin-bottom: 2mm;
+  }
+  h4.section-h4 {
+    font-size: 10pt;
+    font-weight: 700;
+    color: var(--gp-slate);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-top: 5mm;
+    margin-bottom: 2mm;
+  }
+  p { margin: 0 0 3mm 0; }
+  p + p { margin-top: 0; }
+  strong { font-weight: 700; color: var(--gp-navy); }
+  em { font-style: italic; }
+  a { color: var(--deep-blue); text-decoration: none; border-bottom: 1px solid var(--g300); }
+
+  /* ==================== INTRO BLOCK ==================== */
+  .intro {
+    background: var(--g100);
+    border-left: 4px solid var(--gp-red);
+    padding: 6mm 8mm;
+    margin-bottom: 8mm;
+    font-size: 10.5pt;
+    line-height: 1.6;
+    color: var(--g600);
+  }
+  .intro strong { color: var(--gp-navy); }
+
+  /* ==================== TLDR BULLETS ==================== */
+  .tldr-list { list-style: none; margin-top: 4mm; }
+  .tldr-list li {
+    background: var(--paper);
+    border: 1px solid var(--g100);
+    border-left: 4px solid var(--gp-red);
+    padding: 6mm 7mm;
+    margin-bottom: 4mm;
+    font-size: 10pt;
+    line-height: 1.55;
+    color: var(--g600);
+    page-break-inside: avoid;
+  }
+  .tldr-list li:nth-child(2) { border-left-color: var(--blue); }
+  .tldr-list li:nth-child(3) { border-left-color: var(--green); }
+  .tldr-list li strong { color: var(--gp-navy); display: inline; }
+  .tldr-list .label {
+    display: block;
+    font-family: var(--sans);
+    font-size: 8pt;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: var(--gp-red);
+    text-transform: uppercase;
+    margin-bottom: 2mm;
+  }
+  .tldr-list li:nth-child(2) .label { color: var(--blue); }
+  .tldr-list li:nth-child(3) .label { color: var(--deep-green); }
+
+  /* ==================== HALLAZGO CARDS ==================== */
+  .findings { display: grid; grid-template-columns: 1fr; gap: 4mm; margin-top: 4mm; }
+  .finding {
+    background: var(--paper);
+    border: 1px solid var(--g100);
+    border-left: 3px solid var(--gp-navy);
+    padding: 5mm 6mm;
+    page-break-inside: avoid;
+  }
+  .finding .num {
+    font-family: var(--serif);
+    font-weight: 900;
+    font-size: 32pt;
+    line-height: 1;
+    color: var(--gold);
+    float: left;
+    margin: -2mm 4mm 0 0;
+  }
+  .finding h3 {
+    font-size: 12pt;
+    font-weight: 800;
+    color: var(--gp-navy);
+    margin-bottom: 2mm;
+    line-height: 1.25;
+  }
+  .finding p {
+    font-size: 9.5pt;
+    line-height: 1.55;
+    color: var(--g600);
+  }
+  .finding .cite {
+    display: block;
+    font-size: 8.5pt;
+    color: var(--g500);
+    margin-top: 3mm;
+    border-top: 1px solid var(--g100);
+    padding-top: 2mm;
+  }
+  .finding .cite strong { color: var(--gp-slate); }
+
+  /* ==================== CASE CARDS ==================== */
+  .cases { display: grid; grid-template-columns: 1fr; gap: 4mm; margin-top: 4mm; }
+  .case {
+    background: var(--paper);
+    border: 1px solid var(--g100);
+    padding: 6mm 7mm;
+    page-break-inside: avoid;
+    position: relative;
+  }
+  .case .case-tag {
+    display: inline-block;
+    font-family: var(--sans);
+    font-size: 8pt;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 999px;
+    background: var(--gold);
+    color: var(--gp-navy);
+    margin-bottom: 3mm;
+  }
+  .case h3 { font-size: 14pt; font-weight: 800; color: var(--gp-navy); margin-bottom: 1mm; }
+  .case .geo { font-size: 9pt; color: var(--g500); margin-bottom: 3mm; font-weight: 600; }
+  .case .desc { font-size: 9.5pt; color: var(--g600); line-height: 1.55; }
+  .case .desc strong { color: var(--gp-navy); }
+  .case .why {
+    margin-top: 3mm;
+    padding: 3mm 4mm;
+    background: var(--g100);
+    border-left: 3px solid var(--gp-red);
+    font-size: 9pt;
+    color: var(--g600);
+  }
+  .case .why strong { color: var(--gp-red); display: block; font-size: 8.5pt; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 1mm; }
+
+  /* ==================== TABLE ==================== */
+  table.benchmark {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 4mm;
+    font-size: 8.5pt;
+    page-break-inside: avoid;
+  }
+  table.benchmark thead th {
+    background: var(--gp-navy);
+    color: var(--near-white);
+    font-weight: 700;
+    text-align: left;
+    padding: 3mm 3mm;
+    font-size: 8.5pt;
+    letter-spacing: 0.3px;
+  }
+  table.benchmark tbody td {
+    padding: 2.5mm 3mm;
+    border-bottom: 1px solid var(--g100);
+    vertical-align: top;
+    color: var(--g600);
+  }
+  table.benchmark tbody tr:nth-child(odd) td { background: var(--near-white); }
+  table.benchmark tbody td strong { color: var(--gp-navy); }
+
+  /* ==================== JOURNEY GRID ==================== */
+  .journey { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; margin-top: 4mm; }
+  .stage {
+    background: var(--paper);
+    border: 1px solid var(--g100);
+    padding: 5mm;
+    page-break-inside: avoid;
+  }
+  .stage .stage-num {
+    font-family: var(--serif);
+    font-weight: 900;
+    font-size: 22pt;
+    color: var(--gp-red);
+    line-height: 1;
+    display: block;
+    margin-bottom: 1mm;
+  }
+  .stage h4 { font-size: 11pt; font-weight: 800; color: var(--gp-navy); text-transform: none; letter-spacing: 0; margin: 0 0 2mm 0; }
+  .stage p { font-size: 9pt; line-height: 1.5; color: var(--g600); }
+  .stage .ex { font-size: 8.5pt; color: var(--g500); margin-top: 2mm; }
+  .stage .ex strong { color: var(--gp-slate); }
+
+  /* ==================== CALLOUTS ==================== */
+  .callout {
+    background: var(--gp-navy);
+    color: var(--near-white);
+    padding: 6mm 8mm;
+    margin: 5mm 0;
+    page-break-inside: avoid;
+    border-left: 4px solid var(--gold);
+    position: relative;
+  }
+  .callout .label {
+    font-family: var(--sans);
+    font-size: 8pt;
+    font-weight: 800;
+    letter-spacing: 3px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 2mm;
+    display: block;
+  }
+  .callout p {
+    font-size: 11pt;
+    line-height: 1.5;
+    color: var(--near-white);
+    margin: 0;
+  }
+  .callout strong { color: var(--gold); font-weight: 700; }
+
+  /* ==================== PRIORITIZED LIST ==================== */
+  .priority-list { list-style: none; margin-top: 4mm; counter-reset: pri; }
+  .priority-list li {
+    display: grid;
+    grid-template-columns: 18mm 1fr;
+    gap: 5mm;
+    padding: 4mm 0;
+    border-bottom: 1px solid var(--g100);
+    page-break-inside: avoid;
+  }
+  .priority-list li::before {
+    counter-increment: pri;
+    content: counter(pri);
+    font-family: var(--serif);
+    font-weight: 900;
+    font-size: 28pt;
+    color: var(--gp-red);
+    line-height: 1;
+  }
+  .priority-list h4 { font-size: 11pt; font-weight: 800; color: var(--gp-navy); text-transform: none; letter-spacing: 0; margin: 0 0 1mm 0; }
+  .priority-list p { font-size: 9pt; color: var(--g600); margin: 0; line-height: 1.5; }
+  .priority-list .meta {
+    display: flex;
+    gap: 5mm;
+    margin-top: 2mm;
+    font-size: 8.5pt;
+    color: var(--g500);
+    flex-wrap: wrap;
+  }
+  .priority-list .meta span strong { color: var(--gp-slate); }
+
+  /* ==================== ANTIPATTERNS LIST ==================== */
+  .antipatterns { list-style: none; margin-top: 4mm; }
+  .antipatterns li {
+    background: rgba(200, 16, 46, 0.04);
+    border-left: 3px solid var(--gp-red);
+    padding: 4mm 5mm;
+    margin-bottom: 3mm;
+    page-break-inside: avoid;
+  }
+  .antipatterns li strong {
+    display: block;
+    color: var(--gp-red);
+    font-size: 10pt;
+    margin-bottom: 1mm;
+  }
+  .antipatterns li p { font-size: 9pt; color: var(--g600); margin: 0; line-height: 1.5; }
+
+  /* ==================== STATS HERO ==================== */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4mm;
+    margin: 4mm 0;
+  }
+  .stat {
+    background: var(--gp-navy);
+    color: var(--near-white);
+    padding: 6mm 5mm;
+    text-align: center;
+    page-break-inside: avoid;
+  }
+  .stat .big {
+    font-family: var(--serif);
+    font-weight: 900;
+    font-size: 36pt;
+    line-height: 1;
+    color: var(--gold);
+    margin-bottom: 2mm;
+  }
+  .stat .lbl {
+    font-size: 8.5pt;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.4;
+    letter-spacing: 0.3px;
+  }
+
+  /* ==================== ROADMAP ==================== */
+  .roadmap { margin-top: 4mm; }
+  .phase {
+    background: var(--paper);
+    border: 1px solid var(--g100);
+    padding: 5mm 6mm;
+    margin-bottom: 4mm;
+    border-left: 4px solid var(--blue);
+    page-break-inside: avoid;
+  }
+  .phase:nth-child(1) { border-left-color: var(--gold); }
+  .phase:nth-child(2) { border-left-color: var(--blue); }
+  .phase:nth-child(3) { border-left-color: var(--amber); }
+  .phase:nth-child(4) { border-left-color: var(--green); }
+  .phase .phase-tag {
+    display: inline-block;
+    font-family: var(--sans);
+    font-size: 8pt;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gp-navy);
+    margin-bottom: 2mm;
+  }
+  .phase h4 {
+    font-size: 11pt;
+    font-weight: 800;
+    color: var(--gp-navy);
+    text-transform: none;
+    letter-spacing: 0;
+    margin: 0 0 2mm 0;
+  }
+  .phase ul { list-style: none; padding: 0; }
+  .phase ul li {
+    font-size: 9pt;
+    color: var(--g600);
+    padding: 1mm 0 1mm 5mm;
+    position: relative;
+    line-height: 1.5;
+  }
+  .phase ul li::before {
+    content: "▸";
+    position: absolute;
+    left: 0;
+    color: var(--gp-red);
+    font-weight: bold;
+  }
+
+  /* ==================== TOC ==================== */
+  .toc { margin-top: 6mm; }
+  .toc-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 2.5mm 0;
+    border-bottom: 1px dotted var(--g300);
+    font-size: 10pt;
+  }
+  .toc-item .t { color: var(--gp-navy); font-weight: 600; }
+  .toc-item .p { color: var(--g500); font-family: var(--serif); font-style: italic; }
+
+  /* ==================== CLOSING ==================== */
+  .closing {
+    background: var(--gp-navy);
+    color: var(--near-white);
+    padding: 24mm 18mm;
+    text-align: center;
+    margin: -18mm;
+    margin-top: 16mm;
+    min-height: 200mm;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .closing h2 {
+    font-family: var(--serif);
+    font-weight: 800;
+    font-size: 32pt;
+    color: var(--near-white);
+    margin-bottom: 8mm;
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+  }
+  .closing .pull {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 16pt;
+    color: var(--gold);
+    line-height: 1.4;
+    max-width: 140mm;
+    margin: 0 auto 12mm auto;
+  }
+  .closing .signature {
+    margin-top: 12mm;
+    font-size: 9pt;
+    color: rgba(255,255,255,0.55);
+    letter-spacing: 1px;
+  }
+  .closing .signature strong { color: var(--gold); display: block; font-size: 11pt; letter-spacing: 2px; margin-bottom: 1mm; }
+
+  /* ==================== UTILITIES ==================== */
+  .lead { font-size: 11pt; line-height: 1.6; color: var(--g600); margin-bottom: 5mm; }
+  .lead strong { color: var(--gp-navy); }
+  .small { font-size: 8.5pt; color: var(--g500); }
+
+  /* Print rendering */
+  @media print {
+    body { background: white; }
+    .page { box-shadow: none; margin: 0; padding: 0; }
+    .cover { padding: 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ==================== COVER ==================== -->
+<section class="page cover">
+  <div class="cover-inner">
+    <div>
+      <div class="cover-mark">Grupo Plasencia<span>Dirección de Marketing Corporativo</span></div>
+      <h1 class="cover-title">Marketplace<br>Plasencia</h1>
+      <p class="cover-subtitle">Estado del Arte Mundial 2026</p>
+
+      <p class="cover-pull">
+        El cliente compra <em>cross-brand</em> toda la vida. La pregunta no es si nos paramos como retailer-marketplace; es <em>cuánto tardamos</em> en hacerlo antes de que el patrón global llegue a México por la fuerza.
+        <cite>Tesis del documento</cite>
+      </p>
+
+      <div class="cover-tags">
+        <span class="cover-tag">Investigación</span>
+        <span class="cover-tag">Benchmark Global</span>
+        <span class="cover-tag accent">Documento Ejecutivo</span>
+      </div>
+    </div>
+
+    <div>
+      <div class="cover-meta">
+        <div class="cover-meta-block">
+          <strong>Audiencia</strong>
+          Pepe Morales · Consejo Directivo · Gerentes MKT
+        </div>
+        <div class="cover-meta-block" style="text-align:right;">
+          <strong>Mayo 2026</strong>
+          Versión 1.0 · ~12 páginas
+        </div>
+      </div>
+      <p class="cover-confidential" style="margin-top: 6mm;">— Confidencial —</p>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== PAGE 2: PROPÓSITO + TLDR ==================== -->
+<section class="page">
+  <h1 class="section-title"><span class="num">01 · Propósito y TL;DR</span>El patrón ya ganó globalmente. Es replicarlo, no inventarlo.</h1>
+
+  <div class="intro">
+    Este documento destila los hallazgos clave de una investigación profunda sobre cómo los grupos automotrices más sofisticados del mundo construyen <strong>identidad de retailer-marketplace por encima de las marcas OEM</strong>, orquestan el customer journey end-to-end y monetizan el customer lifetime value. Período: 2024–2026. Geografías: USA, UK/Europa, China y LATAM. Sirve como base empírica para el documento Marco Operativo de <strong>Experiencia Plasencia Automotriz</strong>.
+  </div>
+
+  <h2 class="section-h2">Tres ideas para llevarse</h2>
+
+  <ol class="tldr-list">
+    <li>
+      <span class="label">Hallazgo 1 · Modelo ganador</span>
+      <strong>El modelo "concesionario unificado bajo marca-paraguas con motor digital propio" ha ganado el debate global 2024–2026.</strong> Los grupos cotizados que mejor capturan CLTV — Lithia &amp; Driveway, Asbury Clicklane, Group 1 AcceleRide, AutoNation, Sonic+EchoPark, Pendragon→Pinewood, Inchcape — operan con tres atributos comunes: marca corporativa visible y plataforma digital propia por encima del franchise OEM, financiera cautiva integrada al journey, y sub-marca dedicada a seminuevos. Lithia consolidó el patrón con 133,000 unidades digitales en 2024 (32% del mix Q1 2025) y la primera utilidad anual de Driveway Finance Corporation (US$15.4M en 2024, proyectada US$50–60M en 2025).
+    </li>
+    <li>
+      <span class="label">Hallazgo 2 · Anti-patrones documentados</span>
+      <strong>Eliminar el piso o eliminar al vendedor humano no son opciones defendibles.</strong> El modelo 100% digital fracasó: Cazoo quemó £1.4 mil millones y entró en administración en 2024; Vroom liquidó ecommerce en enero 2024; Carvana sobrevivió únicamente reduciendo SG&amp;A por unidad ~US$1,240 y rebajando publicidad/unidad −25%. Las suscripciones OEM colapsaron (Care by Volvo cerrada agosto 2024). El modelo "agency" europeo está en repliegue (Ford, Stellantis, VW, Mercedes, BMW retrasados o suspendidos). Kavak —la única referencia LATAM— pivotó de digital puro a phygital con showrooms y se replegó a México.
+    </li>
+    <li>
+      <span class="label">Hallazgo 3 · IA es la palanca real</span>
+      <strong>La capacidad operativa apalancada por IA es la palanca real 2025–2026, no el headcount.</strong> Carvana triplicó la proporción de clientes que sólo interactúan con su agente conversacional, redujo llamadas/venta ~20% y NPS llegó a máximos de dos años. Voice AI cierra 86% de citas vs 90% humano. 56% de los leads automotrices llegan fuera de horario hábil pero sólo 37% de los dealers responden en menos de una hora. El piloto Motor de Atribución de Plasencia (team-of-one + IA generativa, 4 semanas, US$90K MXN matched) está alineado con la frontera tecnológica y debe <em>evolucionarse</em>, no reiniciarse.
+    </li>
+  </ol>
+
+  <div class="callout">
+    <span class="label">Insight central</span>
+    <p>El modelo que el Director de Marketing Corporativo planteó en abril 2026 como "Experiencia Plasencia Automotriz" — Endorsed Brands con master endorser Plasencia + sub-marcas funcionales + plataforma digital propia — <strong>no es una hipótesis local</strong>. Es exactamente el patrón que ganó globalmente entre 2020 y 2025.</p>
+  </div>
+</section>
+
+<!-- ==================== PAGE 3: 7 HALLAZGOS - PARTE 1 ==================== -->
+<section class="page">
+  <h1 class="section-title"><span class="num">02 · Siete hallazgos principales</span>Lo que la investigación demostró con datos.</h1>
+
+  <p class="lead">Los hallazgos siguientes están sostenidos por SEC filings y earnings calls 2024–2026 de grupos cotizados, complementados con benchmarks de industria (CDK, Pied Piper STE, Auto Trader, McKinsey, Demand Local).</p>
+
+  <div class="findings">
+    <div class="finding">
+      <div class="num">1</div>
+      <h3>La marca-paraguas del retailer es el activo defendible ante el ciclo de vida del cliente cross-OEM.</h3>
+      <p>Lithia (rebranded a "Lithia &amp; Driveway"), Asbury (Clicklane como ecosistema con 30+ prestamistas y 91 dealerships), Hendrick (HendrickCars.com como hub único de >35,000 vehículos a través de 96 ubicaciones), Group 1 (AcceleRide en 116 dealerships US, ~10% de unidades vendidas, >70% de clientes lo tocan), AutoNation (consolidación nacional 2013), Pendragon ("Powered by Pendragon" 2020), Inchcape (DXP omnicanal en 14 países LATAM tras la compra de Derco por US$1.5B). El patrón es <strong>híbrido (Endorsed/Master)</strong>: marca corporativa primaria + sub-marcas funcionales (digital, seminuevos, financiero, posventa).</p>
+    </div>
+
+    <div class="finding">
+      <div class="num">2</div>
+      <h3>El modelo 100% digital sin piso es anti-patrón documentado.</h3>
+      <p>Cazoo entró en administración (mayo 2024) tras quemar £1.4 mil millones; abandonó home delivery y se reconvirtió en clasificado tipo Auto Trader. Vroom liquidó ecommerce el 22-Ene-2024, despidió 800 empleados (90% del headcount), valuación cayó de US$8.1B (2020) a US$75M (Ene-2024). Honda US discontinuó su piloto de venta directa online en 2022. Shift quebró en 2023. Carvana sobrevivió pero sólo tras un brutal ajuste operativo: SG&amp;A/unidad −US$1,240 YoY y publicidad/unidad −25% a US$550 en 2024.</p>
+    </div>
+
+    <div class="finding">
+      <div class="num">3</div>
+      <h3>El modelo "agency" europeo está en repliegue, no en avance.</h3>
+      <p>Ford lo abandonó en abril 2024. Stellantis lo suspendió bajo Imparato en 2025 (sólo se mantiene en Austria, Bélgica, Luxemburgo, Países Bajos). Volkswagen Group lo revirtió en Alemania, UK y Suecia. Mercedes-Benz pospuso España hasta finales de 2026 (originalmente Q1 2024). BMW retrasó la marca core a 2027. <strong>Implicación:</strong> la pelea por "quién es dueño del cliente" sigue abierta y favorece al retailer que mueva primero.</p>
+    </div>
+
+    <div class="finding">
+      <div class="num">4</div>
+      <h3>La sub-marca de seminuevos rentable es patrón ganador, pero requiere disciplina, no expansión.</h3>
+      <p>Sonic Automotive registró récord histórico anual de EBITDA de EchoPark de US$49.2M en 2025 (+78% YoY) <strong>tras suspender 8 ubicaciones en 2023 y NO abrir tiendas nuevas en 2024–2025</strong>. CarMax mantiene liderazgo pero pierde participación frente a Carvana en unit economics. Lithia construyó Driveway Finance Corp con cartera de US$3.7B (2024) → US$4.3B (2025), APR >9%. AutoNation USA (sub-marca seminuevos lanzada 2016) escaló sobre la plataforma de inventario centralizado.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== PAGE 4: 7 HALLAZGOS - PARTE 2 ==================== -->
+<section class="page">
+  <div class="findings">
+    <div class="finding">
+      <div class="num">5</div>
+      <h3>La financiera cautiva es el segundo motor de utilidad y captura de CLTV.</h3>
+      <p>Lithia: Driveway Finance Corp pasó de pérdida US$45.9M (2023) a utilidad US$15.4M (2024), proyectada US$50–60M (2025), meta de cartera US$17B con US$550–650M de ingresos financieros anuales. Asbury Clicklane integra >30 prestamistas con "penny perfect" trade-in y loan payoff. Webmotors (Banco Santander Brasil) integra crédito directamente en marketplace. <strong>Aplicable a Plasencia:</strong> la asimetría de subsidios cruzados (US$11M+ MXN abiertos) y el mix in-house/externo del financiamiento son palancas que los grupos US ya capturan estructuralmente vía cautiva.</p>
+    </div>
+
+    <div class="finding">
+      <div class="num">6</div>
+      <h3>El stack tecnológico de un retailer phygital sofisticado en 2026 converge.</h3>
+      <p>CRM corporativo unificado + DMS modernizado + CDP cross-touchpoint (Tealium, Segment, mParticle, Treasure Data, Insider, Cox/VinSolutions) + CAPI offline server-side + agente conversacional (STELLA, Impel, Podium, Fullpath, Flai) + atribución multi-touch (Clarivoy + Treasure Data partnership Ene-2025) + Andromeda-ready con creative diversity. Cifras: dealerships con CRM+CDP+ads <strong>duplican output de ventas</strong> y ven +20% eficiencia Meta; 91% de empresas tienen CRM pero sólo 22% reportan alta utilización; 84% de dealers tienen tools, sólo 30% activos.</p>
+    </div>
+
+    <div class="finding">
+      <div class="num">7</div>
+      <h3>La IA generativa y el agente conversacional son la palanca real de capacidad operativa, no el headcount.</h3>
+      <p>Carvana triplicó la proporción de clientes que sólo usan su chat AI y redujo llamadas/venta 20% YoY entre 2022 y 2024. Pied Piper Service Telephone Effectiveness 2025: AI maneja exitosamente 91% de llamadas de servicio, agenda en 86% (vs 90% humano). 56% de leads automotrices llegan fuera de horas; sólo 37% de dealers responden en &lt;1 hora. CDK Friction Points 2026: 72% de salespeople usan video personalizado; dealers grandes 80%+ usan video como estándar. <strong>76% de dealers planean aumentar presupuesto de IA en 2026, 74% apuntan a voice AI como prioridad #1.</strong></p>
+    </div>
+  </div>
+
+  <h2 class="section-h2">Cifras ancla 2024–2025</h2>
+
+  <div class="stats">
+    <div class="stat">
+      <div class="big">133K</div>
+      <div class="lbl">Unidades digitales Lithia 2024 — 32% del mix Q1 2025</div>
+    </div>
+    <div class="stat">
+      <div class="big">£1.4B</div>
+      <div class="lbl">Quemados por Cazoo antes de entrar en administración</div>
+    </div>
+    <div class="stat">
+      <div class="big">+78%</div>
+      <div class="lbl">EBITDA EchoPark 2025 sin abrir tiendas nuevas</div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== PAGE 5: 3 CASOS BENCHMARK ==================== -->
+<section class="page">
+  <h1 class="section-title"><span class="num">03 · Tres casos benchmark</span>Lo que más le aplica a Plasencia.</h1>
+
+  <p class="lead">De los grupos analizados, tres son los referentes que más directamente aplican al contexto de Grupo Plasencia: <strong>portafolio multi-OEM, identidad corporativa con peso, ambición de marketplace digital</strong>.</p>
+
+  <div class="cases">
+    <div class="case">
+      <span class="case-tag">Techo aspiracional</span>
+      <h3>Lithia &amp; Driveway</h3>
+      <p class="geo">USA + Canadá + UK · 52 OEM · 448 tiendas globales Q2 2025</p>
+      <p class="desc"><strong>Mismo problema que Plasencia:</strong> portafolio multi-OEM con tradición de identidad local fragmentada. <strong>Solución:</strong> rebranding corporativo a "Lithia &amp; Driveway", plataforma educativa GreenCars (11.2M visitantes únicos +48% YoY), Driveway (1.9M UV/mes, 32% del mix retail Q1 2025), Driveway Finance Corp como segundo P&amp;L (US$15.4M utilidad 2024, ruta a US$550–650M annual income).</p>
+      <div class="why">
+        <strong>Aplicabilidad a Plasencia</strong>
+        El modelo "casa de marcas con marca corporativa visible + plataforma digital propia + cautiva financiera + adyacencias" replica directamente lo que Plasencia debe construir con 8 OEM + Seminuevos + Arrendadora + Posventa + Refacciones.
+      </div>
+    </div>
+
+    <div class="case">
+      <span class="case-tag">Playbook tecnológico</span>
+      <h3>Asbury Automotive · Clicklane</h3>
+      <p class="geo">USA · 31 OEM · 91 dealerships</p>
+      <p class="desc"><strong>Construyó Clicklane (Dic-2020) como un solo ecosistema</strong> que opera tanto en sus 91 dealerships como standalone para mercados sin presencia física. Métricas defendibles: 92% de transacciones Q2 2022 con clientes "no Asbury" en últimos 3 años; 95% de entregas dentro de 50 millas; cierre cash promedio en 8 minutos, financiado en 14 minutos; <strong>>US$1B revenue en 2022; conversión 2x sobre el sistema previo.</strong></p>
+      <div class="why">
+        <strong>Aplicabilidad a Plasencia</strong>
+        Plasencia ya tiene CRM corporativo + CAPI offline. La siguiente capa es el "Clicklane mexicano" — calculadora de mensualidad real, pre-aprobación de crédito, valoración de trade-in al peso, accesorios visualizados. Todo operable por team-of-one + IA.
+      </div>
+    </div>
+
+    <div class="case">
+      <span class="case-tag">Lección LATAM</span>
+      <h3>Kavak</h3>
+      <p class="geo">México + LATAM · Único unicornio regional</p>
+      <p class="desc"><strong>Pivote forzado 2023–2024:</strong> salió de Colombia y Perú (Ene-2024), abrió 5 tiendas nuevas en México bajo Juan Cruz de la Rúa (Feb-2024), Q4 2023 transacciones +70%, 240 puntos de inspección por unidad. Peak de US$8.7B valuation con SoftBank. <strong>La lección NO es replicar Kavak;</strong> es entender que incluso el player más capitalizado de LATAM <em>tuvo que volver al piso físico</em> y consolidar en menos mercados con más densidad.</p>
+      <div class="why">
+        <strong>Aplicabilidad a Plasencia</strong>
+        El piso de 42 agencias es el activo, no el problema. La pregunta es cómo orquestar el handoff online↔presencial sin que se rompa, no cómo eliminarlo.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== PAGE 6: 3 MOVIMIENTOS NO OBVIOS ==================== -->
+<section class="page">
+  <h1 class="section-title"><span class="num">04 · Tres movimientos no obvios</span>Lo que la industria está haciendo en 2025–2026 que vale considerar.</h1>
+
+  <div class="cases">
+    <div class="case" style="border-left: 4px solid var(--blue); padding-left: 7mm;">
+      <h3 style="margin-top:0;">A · Del "lead único" al ecosistema de touchpoints proactivos</h3>
+      <p class="desc">Lithia: "My DRIVEWAY" portal incrementa touchpoints a lo largo del lifecycle. Carvana usa cambios de inventario en tiempo real para reactivar leads cold de 6–12 meses. Hendrick HendrickCars.com une 96 ubicaciones bajo un mismo SKU virtual. <strong>Implicación:</strong> el "lead" como unidad de medida está obsoleto; la métrica relevante es la cobertura de touchpoints por cliente a lo largo de 5–9 años. Demand Local benchmark: <strong>US$47,700 por cliente retenido sobre 8 años</strong>, con 74% de clientes de servicio recomprando en el mismo dealer.</p>
+    </div>
+
+    <div class="case" style="border-left: 4px solid var(--green); padding-left: 7mm;">
+      <h3 style="margin-top:0;">B · La consolidación de SG&amp;A es el verdadero motor de margen, no la expansión</h3>
+      <p class="desc">Carvana 2024: SG&amp;A/unidad −US$1,240 YoY, publicidad/unidad −25% a US$550. Lithia: SG&amp;A/gross profit de 70% (2019) → 67% (2024) → meta 60–65% midterm. Sonic Automotive cerró 8 ubicaciones EchoPark en 2023 y NO ha abierto tiendas nuevas en 2024–2025 mientras EBITDA del segmento llegó a récord 2025. <strong>Implicación para Plasencia:</strong> la palanca de US$11M+ MXN en subsidios cruzados OEM y la consolidación de las 14 agencias externas de marketing son intervenciones de mayor ROI que crecer headcount.</p>
+    </div>
+
+    <div class="case" style="border-left: 4px solid var(--gp-red); padding-left: 7mm;">
+      <h3 style="margin-top:0;">C · La IA conversacional + Andromeda + creative diversity sustituye al targeting</h3>
+      <p class="desc">Meta Andromeda (rollout completo Oct-2025): 4x más eficiente, recall +6%, ad quality +8%. Requiere 8–15+ creatives genuinamente distintos por campaña, broad targeting en lugar de granularidad. GEM (Meta H2-2025) determina la secuencia. Andromeda + GEM rompen estructuras de campaña hiper-segmentadas y <strong>penalizan el creative atado a oferta mensual OEM</strong>. El piloto Plasencia ya envía señales offline server-side via CAPI; la siguiente jugada es industrializar la generación de creatives con IA generativa: suprimir oferta mensual OEM como sujeto de comunicación, sustituir por estímulos de marca corporativa + producto cross-OEM.</p>
+    </div>
+  </div>
+
+  <div class="callout">
+    <span class="label">Lo que esto significa para Plasencia</span>
+    <p>Los tres movimientos refuerzan que el camino correcto es <strong>retailer phygital con IA como palanca de capacidad</strong>, no expansión de headcount ni más oferta mensual. El piloto Motor de Atribución ya está alineado con esta frontera.</p>
+  </div>
+</section>
+
+<!-- ==================== PAGE 7: ARQUITECTURA DE MARCA + TABLA ==================== -->
+<section class="page">
+  <h1 class="section-title"><span class="num">05 · Arquitectura de marca</span>Diez grupos comparados. Un modelo recomendado.</h1>
+
+  <p class="lead">El patrón que mejor aplica a Plasencia no es Master Brand puro (AutoNation) ni House of Brands (Sonic+EchoPark): es <strong>Endorsed con plataforma digital propia</strong>, al estilo Lithia &amp; Driveway / Asbury Clicklane / Group 1 AcceleRide / Hendrick.</p>
+
+  <table class="benchmark">
+    <thead>
+      <tr>
+        <th style="width:24%;">Grupo</th>
+        <th style="width:18%;">Geografía</th>
+        <th style="width:24%;">Modelo de marca</th>
+        <th style="width:34%;">Naming visible al cliente</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Lithia &amp; Driveway</strong></td><td>USA + CA + UK</td><td>Híbrido (Master + Endorsed)</td><td>"Lithia [OEM]" en piso; Driveway, GreenCars, Driveway Finance como sub-marcas digitales</td></tr>
+      <tr><td><strong>AutoNation</strong></td><td>USA</td><td>Master Brand dominante</td><td>"AutoNation [Marca/Ciudad]"; AutoNation USA, Precision Parts, Auto Auctions</td></tr>
+      <tr><td><strong>Asbury</strong></td><td>USA</td><td>Endorsed con plataforma digital propia</td><td>Marcas locales por dealership + Clicklane como capa unificadora</td></tr>
+      <tr><td><strong>Sonic Automotive</strong></td><td>USA</td><td>Híbrido (House of brands)</td><td>Sonic + EchoPark (sub-marca seminuevos diferenciada) + Powersports</td></tr>
+      <tr><td><strong>Hendrick</strong></td><td>USA</td><td>Master Brand (privately held)</td><td>"Rick Hendrick [OEM/Ciudad]" + HendrickCars.com como hub</td></tr>
+      <tr><td><strong>Group 1</strong></td><td>USA + UK</td><td>Master + Plataforma digital</td><td>"Group 1 [OEM]" + AcceleRide</td></tr>
+      <tr><td><strong>Pendragon → Pinewood</strong></td><td>UK</td><td>Master con sub-marcas funcionales</td><td>Stratstone, Evans Halshaw, Car Store; "Powered by Pendragon"</td></tr>
+      <tr><td><strong>Inchcape</strong></td><td>14 países LATAM + Asia</td><td>Distribuidor + DXP omnicanal</td><td>OEM al frente; Inchcape como holding institucional</td></tr>
+      <tr><td><strong>Carvana</strong></td><td>USA</td><td>Single Brand · D2C puro digital</td><td>Carvana</td></tr>
+      <tr><td><strong>Kavak</strong></td><td>MX + BR + GCC</td><td>Single Brand · Phygital post-pivote</td><td>Kavak</td></tr>
+    </tbody>
+  </table>
+
+  <h2 class="section-h2">Modelo recomendado para Plasencia</h2>
+
+  <p>Con 30+ años de equity corporativa y 8 OEM, Plasencia <strong>no es candidato a Master Brand puro</strong> estilo AutoNation (que requirió consolidar 210+ franquicias con apoyo explícito de OEM, decisión 2000–2013 con escala US$8B+). Tampoco es candidato a House of Brands estilo Sonic/EchoPark, porque la asimetría intra-grupo (Mazda 22% conv, GAC 8%, CAC 7.6x) sugiere que el problema NO es de propuesta diferenciada por sub-marca sino de <strong>capacidad operativa cross-marca</strong>.</p>
+
+  <p>El modelo <strong>Endorsed con plataforma digital propia</strong> es el patrón de menor fricción con OEM y mayor ROI de corto plazo: el cliente sigue viendo "Mazda Plasencia" o "Ford Plasencia" en el piso físico — respetando guidelines OEM — pero el journey digital (descubrimiento, configurador, calculadora, pre-aprobación, agendado, post-venta) ocurre bajo <strong>Plasencia / Plasencia.mx / MyPlasencia / Plasencia Crédito / Plasencia Seminuevos</strong> con inventario unificado cross-marca.</p>
+
+  <div class="callout">
+    <span class="label">Sub-marcas funcionales recomendadas</span>
+    <p><strong>Plasencia Seminuevos</strong> (ya existe) · <strong>Plasencia Crédito</strong> (financiera) · <strong>Plasencia Flotillas</strong> (Arrendadora con identidad alineada) · <strong>Plasencia Posventa</strong> (Servicio + Refacciones + Accesorios) · <strong>Plasencia Club</strong> (loyalty cross-marca, modelo NIO Points). Cada una operable como punto de captura de CLTV cross-OEM.</p>
+  </div>
+</section>
+
+<!-- ==================== PAGE 8: CUSTOMER JOURNEY E2E ==================== -->
+<section class="page">
+  <h1 class="section-title"><span class="num">06 · Customer Journey End-to-End</span>Mejores prácticas por etapa del ciclo de vida del auto.</h1>
+
+  <p class="lead">El cliente automotive pasa por 8 etapas a lo largo de 5–7 años de relación. Cada etapa tiene best-in-class identificados. La oportunidad para Plasencia está en orquestarlas como un solo journey.</p>
+
+  <div class="journey">
+    <div class="stage">
+      <span class="stage-num">1</span>
+      <h4>Descubrimiento</h4>
+      <p>Sujeto de comunicación: el grupo, no la marca OEM. Plataforma educativa siempre-presente.</p>
+      <p class="ex"><strong>Caso:</strong> Lithia GreenCars 11.2M UV (+48%); Auto Trader UK AI search 970M visitas/año.</p>
+    </div>
+
+    <div class="stage">
+      <span class="stage-num">2</span>
+      <h4>Consideración</h4>
+      <p>Configurador cross-marca. Inventario virtualizado entre puntos de venta.</p>
+      <p class="ex"><strong>Caso:</strong> Asbury Clicklane penny-perfect; Group 1 AcceleRide en 116 dealerships.</p>
+    </div>
+
+    <div class="stage">
+      <span class="stage-num">3</span>
+      <h4>Cotización + Crédito</h4>
+      <p>Pre-aprobación online con marketplace de prestamistas. Real APR, taxes, fees.</p>
+      <p class="ex"><strong>Caso:</strong> Asbury 30+ prestamistas; Webmotors Banco Santander Brasil; Driveway Finance APR &gt;9%.</p>
+    </div>
+
+    <div class="stage">
+      <span class="stage-num">4</span>
+      <h4>Compra</h4>
+      <p>Cierre digital con handoff diseñado a entrega física. NO es "comprar online sin showroom".</p>
+      <p class="ex"><strong>Caso:</strong> Lithia 32% mix digital Q1 2025; Asbury cierre cash 8 min, financiado 14 min.</p>
+    </div>
+
+    <div class="stage">
+      <span class="stage-num">5</span>
+      <h4>Onboarding</h4>
+      <p>Entrega ceremoniosa, hospitalidad, app del cliente activada en el momento de la entrega.</p>
+      <p class="ex"><strong>Caso:</strong> Genesis "Son-nim", Concierge, color/materials lab; NIO Houses comunidad.</p>
+    </div>
+
+    <div class="stage">
+      <span class="stage-num">6</span>
+      <h4>Uso · Mantenimiento</h4>
+      <p>Service plans, recordatorios proactivos, AI/voice. <strong>49% del gross profit del dealer</strong> (McKinsey).</p>
+      <p class="ex"><strong>Caso:</strong> STELLA AI +20% service show rate; Hendrick Autoguard ESC propio.</p>
+    </div>
+
+    <div class="stage">
+      <span class="stage-num">7</span>
+      <h4>Renovación · Recompra</h4>
+      <p>Equity mining + first-party data. "Your next car" automatizado cross-brand.</p>
+      <p class="ex"><strong>Caso:</strong> Lithia equity mining; Hendrick misma cuenta cliente para 96 ubicaciones.</p>
+    </div>
+
+    <div class="stage">
+      <span class="stage-num">8</span>
+      <h4>Trade-in · Disposición</h4>
+      <p>Valoración online penny-perfect. Pipeline retorno-de-lease directo a sub-marca de seminuevos.</p>
+      <p class="ex"><strong>Caso:</strong> Localiza Seminovos 120+ tiendas, 8K stock; Sonic+EchoPark sin auction wholesale.</p>
+    </div>
+  </div>
+
+  <div class="callout">
+    <span class="label">Tres huecos críticos en Plasencia hoy</span>
+    <p>1. <strong>Configurador cross-marca</strong> (cliente de Mazda no puede ver Hyundai sin perder atribución). 2. <strong>Pre-aprobación de crédito online</strong>. 3. <strong>App cliente unificada</strong> para servicio, recordatorios, recompra. Los tres son entregables 0–6 meses con stack ya disponible.</p>
+  </div>
+</section>
+
+<!-- ==================== PAGE 9: SERVICIOS Y CLTV ==================== -->
+<section class="page">
+  <h1 class="section-title"><span class="num">07 · Servicios complementarios</span>Por qué la financiera y la posventa son los motores reales.</h1>
+
+  <p class="lead">El margen del auto es modesto. El margen de los servicios complementarios — financiamiento, mantenimiento, F&amp;I, refacciones, lease, seguros, recompra — es donde se construye el negocio.</p>
+
+  <h2 class="section-h2">Cifras de referencia 2024–2025</h2>
+
+  <div class="stats">
+    <div class="stat">
+      <div class="big">49%</div>
+      <div class="lbl">del gross profit del dealer viene del servicio (McKinsey)</div>
+    </div>
+    <div class="stat">
+      <div class="big">$2,515</div>
+      <div class="lbl">F&amp;I PVR USD promedio public groups Q2 2025 vs $1,800 dealer privado</div>
+    </div>
+    <div class="stat">
+      <div class="big">$47.7K</div>
+      <div class="lbl">CLTV USD por cliente retenido sobre 8 años (Demand Local)</div>
+    </div>
+  </div>
+
+  <h2 class="section-h2">Margen y captura por línea</h2>
+
+  <table class="benchmark">
+    <thead>
+      <tr>
+        <th style="width:24%;">Servicio</th>
+        <th style="width:16%;">Margen típico</th>
+        <th style="width:60%;">Cómo se integra · referente</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Financiamiento</strong></td><td>9%+ APR</td><td>Cautiva + marketplace de prestamistas; pre-aprobación online integrada al checkout. <em>Lithia Driveway Finance, Asbury 30+ prestamistas, Webmotors.</em></td></tr>
+      <tr><td><strong>Arrendamiento</strong></td><td>Recurrente</td><td>Pipeline cerrado lease→Seminuevos del mismo grupo. <em>Localiza, Lithia, Sonic.</em></td></tr>
+      <tr><td><strong>Seguros</strong></td><td>Alto recurrente</td><td>Bundled en checkout. <em>Care by Volvo lo hizo bien antes de cerrar; Kavak Crédito incluye seguro.</em></td></tr>
+      <tr><td><strong>Mantenimiento · Servicio</strong></td><td><strong>45–55%</strong></td><td>Service plans/subs, agendado app, recordatorios proactivos, AI/voice. <em>STELLA +20% show rate.</em></td></tr>
+      <tr><td><strong>Refacciones · Accesorios</strong></td><td>Medio-alto</td><td>E-commerce integrado, visualizer pre-venta. <em>AutoNation Precision Parts; Asbury+Insignia.</em></td></tr>
+      <tr><td><strong>Re-compra · Trade-in</strong></td><td>Cierra ciclo</td><td>Penny-perfect online valuation + auto-routing a sub-marca seminuevos. <em>Asbury, Sonic, Localiza.</em></td></tr>
+      <tr><td><strong>F&amp;I adyacentes</strong></td><td>Alto resiliente</td><td>ESC, GAP, credit life. <em>Service contract attach 46%, GAP 45% industry benchmarks.</em></td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    <span class="label">El modelo Lithia Driveway Finance Corp</span>
+    <p>De pérdida US$45.9M (2023) a utilidad US$15.4M (2024) en 12 meses, proyectada US$50–60M en 2025 con cartera US$3.7B → US$4.3B. <strong>Meta corporativa: cartera US$17B con US$550–650M de ingresos financieros anuales.</strong> Es exactamente la palanca que Plasencia tiene abierta: subsidios cruzados US$11M+ MXN sin co-inversión OEM y mix in-house/externo informal del financiamiento.</p>
+  </div>
+</section>
+
+<!-- ==================== PAGE 10: STACK + CAMBIO ORG ==================== -->
+<section class="page">
+  <h1 class="section-title"><span class="num">08 · Stack tecnológico y cambio organizacional</span>Lo que se necesita y cómo se ha logrado.</h1>
+
+  <h2 class="section-h2">Stack que converge en 2026</h2>
+
+  <p class="lead">El stack de un retailer phygital sofisticado en 2026 tiene 6 capas. Plasencia ya opera parcialmente las capas 3, 4 y 5 con el Motor de Atribución. Faltan CDP, configurador, app cliente y agente conversacional unificado.</p>
+
+  <div class="findings">
+    <div class="finding">
+      <div class="num">1</div>
+      <h3>Sistema de récord — DMS + CRM</h3>
+      <p>CDK Global, Reynolds &amp; Reynolds, Dealertrack, Pinewood (independiente desde 2024). CRM dealership-centric: VinSolutions (Cox), Elead, AutoRaptor.</p>
+    </div>
+    <div class="finding">
+      <div class="num">2</div>
+      <h3>CDP — identity resolution cross-touchpoint</h3>
+      <p>Tealium (Leader Gartner Magic Quadrant 2024), Segment, mParticle, Treasure Data (partnership Clarivoy Ene-2025). Insider One es CDP automotive específico (casos Renault, Lexus, Avis, Toyota).</p>
+    </div>
+    <div class="finding">
+      <div class="num">3</div>
+      <h3>Atribución y measurement</h3>
+      <p>Clarivoy multi-touch + walk-in attribution. CAPI offline server-side (Meta), Enhanced Conversions (Google). <strong>Plasencia ya opera esta capa parcialmente vía Worker D1 + folio como join key.</strong></p>
+    </div>
+    <div class="finding">
+      <div class="num">4</div>
+      <h3>IA conversacional · Voice · BDC</h3>
+      <p>STELLA Automotive AI (op codes 270+, +20% service show rate). Impel (rebrand Spincar/Outsell). Podium (148 ventas en una sola implementación). Fullpath, Flai (Y-Combinator S25). Pied Piper STE 2025: AI cierra 86% de citas (vs 90% humano).</p>
+    </div>
+    <div class="finding">
+      <div class="num">5</div>
+      <h3>Plataforma digital de retail propia</h3>
+      <p>Asbury Clicklane (Gubagoo white-label), Lithia Driveway/My DRIVEWAY, Group 1 AcceleRide, Inchcape DXP, HendrickCars.com (proprietary). <strong>Plasencia.mx debe ser este nivel.</strong></p>
+    </div>
+    <div class="finding">
+      <div class="num">6</div>
+      <h3>Performance marketing · Andromeda-readiness</h3>
+      <p>Meta Andromeda + GEM (rollout completo Oct-2025): broad targeting, 8–15+ creatives diversos, consolidated ad sets. Test Five Nine Strategy A/B 45 días: <strong>+17% conversiones / −16% costo</strong>.</p>
+    </div>
+  </div>
+
+  <h2 class="section-h2">Cambio organizacional — cómo lo lograron</h2>
+
+  <ul class="antipatterns">
+    <li>
+      <strong>AutoNation 2000–2013 — 13 años de consolidación</strong>
+      <p>210 franquicias bajo identidad única. <em>Ya no es realista hacer eso en 12–24 meses; sí lo es lanzar la plataforma digital corporativa primero y dejar que el branding del piso evolucione gradualmente.</em></p>
+    </li>
+    <li style="border-left-color: var(--blue); background: rgba(66,153,225,0.05);">
+      <strong style="color: var(--deep-blue);">Lithia 2020–2025 — curva realista</strong>
+      <p>Driveway lanzado Oct-2020, 5 años para 32% mix digital y primer año rentable de Driveway Finance.</p>
+    </li>
+    <li style="border-left-color: var(--green); background: rgba(72,187,120,0.05);">
+      <strong style="color: var(--deep-green);">Asbury Clicklane 2020–2022 — curva acelerada</strong>
+      <p>8 meses de pilot a 91 dealerships rollout completo. 18 meses para US$1B revenue. <strong>Es el benchmark más realista para Plasencia.</strong></p>
+    </li>
+    <li style="border-left-color: var(--amber); background: rgba(214,158,46,0.05);">
+      <strong style="color: var(--amber);">Sonic EchoPark 2023–2025 — turnaround sin expansión</strong>
+      <p>Récord EBITDA 2025 tras suspender 8 ubicaciones en 2023 y NO abrir tiendas nuevas. <em>Consolidación &gt; expansión.</em></p>
+    </li>
+  </ul>
+</section>
+
+<!-- ==================== PAGE 11: IMPLICACIONES Y ROADMAP ==================== -->
+<section class="page">
+  <h1 class="section-title"><span class="num">09 · Implicaciones para Plasencia</span>Roadmap 12 meses y cinco movimientos prioritarios.</h1>
+
+  <h2 class="section-h2">Orden de transformación recomendado</h2>
+
+  <div class="roadmap">
+    <div class="phase">
+      <span class="phase-tag">MES 0–3 · Consolidación + Narrative</span>
+      <h4>Marco interno y palancas inmediatas</h4>
+      <ul>
+        <li>Brand Book corporativo "Plasencia (vende Mazda, Ford, Stellantis, etc.)" + sub-marcas funcionales nominadas + asset templating para vendedores.</li>
+        <li>Renegociación OEM sobre subsidios cruzados (US$11M+ MXN) con narrative de ecosystem.</li>
+        <li>Consolidación de las 14 agencias externas a 2–3 max (modelo Hendrick + Motivated Marketing).</li>
+      </ul>
+    </div>
+
+    <div class="phase">
+      <span class="phase-tag">MES 3–6 · Plataforma digital corporativa MVP</span>
+      <h4>El "Clicklane mexicano"</h4>
+      <ul>
+        <li>Plasencia.mx unificado: configurador cross-marca + calculadora real + trade-in valuation online + agendado.</li>
+        <li>Evolución del Motor de Atribución a CDP corporativo (Tealium / mParticle).</li>
+        <li>Agente conversacional WhatsApp + IG + FB unificado (STELLA / Impel / Podium).</li>
+      </ul>
+    </div>
+
+    <div class="phase">
+      <span class="phase-tag">MES 6–9 · Plasencia Crédito + Posventa</span>
+      <h4>Captura del CLTV</h4>
+      <ul>
+        <li>Pre-aprobación online (mix in-house/externo, marketplace de prestamistas estilo Asbury).</li>
+        <li>App cliente única para servicio + recordatorios + accesorios.</li>
+        <li>Pipeline lease-return automatizado a Seminuevos Plasencia.</li>
+      </ul>
+    </div>
+
+    <div class="phase">
+      <span class="phase-tag">MES 9–12 · Industrialización</span>
+      <h4>Andromeda-ready + loyalty</h4>
+      <ul>
+        <li>Andromeda + GEM creative diversity con IA generativa (8–15 creatives/marca/mes a coste de 1).</li>
+        <li>"Plasencia Club" loyalty cross-marca (NIO Points pattern adaptado).</li>
+        <li>Dashboard P&amp;L por marca/agencia/vendedor con AI insights (no reportes estáticos).</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2 class="section-h2">Cinco movimientos concretos priorizados</h2>
+
+  <ol class="priority-list">
+    <li>
+      <div>
+        <h4>Plasencia.mx hub cross-marca con configurador + pre-aprobación + trade-in valuation</h4>
+        <p>Replica MVP de Clicklane + AcceleRide. Es el activo defendible que cierra el journey digital y abre la captura de CLTV.</p>
+        <div class="meta"><span><strong>Impacto:</strong> Muy alto</span><span><strong>Esfuerzo:</strong> Medio</span><span><strong>Plazo:</strong> 0–6 meses</span></div>
+      </div>
+    </li>
+    <li>
+      <div>
+        <h4>CDP corporativo + agente conversacional unificado WhatsApp/IG/FB sobre el Motor de Atribución</h4>
+        <p>Capa que Plasencia ya tiene parcialmente armada — el Worker D1 + CAPI offline son la base. Falta CDP encima.</p>
+        <div class="meta"><span><strong>Impacto:</strong> Alto</span><span><strong>Esfuerzo:</strong> Bajo–medio</span><span><strong>Plazo:</strong> 0–4 meses</span></div>
+      </div>
+    </li>
+    <li>
+      <div>
+        <h4>Plasencia Crédito como cuasi-cautiva con marketplace de prestamistas</h4>
+        <p>Replica Driveway Finance: US$0 → US$15M utilidad en 4 años. La palanca individual de mayor potencial.</p>
+        <div class="meta"><span><strong>Impacto:</strong> Muy alto</span><span><strong>Esfuerzo:</strong> Alto</span><span><strong>Plazo:</strong> 6–12 meses</span></div>
+      </div>
+    </li>
+    <li>
+      <div>
+        <h4>Renegociación de subsidios OEM con narrative ecosystem + Brand Book + asset templating para vendedores</h4>
+        <p>US$11M+ MXN palanca abierta. Apoyado en evidencia mundial (Lithia Q4 2024 earnings call: "ecosystem" como narrativa al OEM, no "discount").</p>
+        <div class="meta"><span><strong>Impacto:</strong> Alto</span><span><strong>Esfuerzo:</strong> Medio</span><span><strong>Plazo:</strong> 0–6 meses</span></div>
+      </div>
+    </li>
+    <li>
+      <div>
+        <h4>Consolidación de agencias externas 14 → 2–3 + creative diversity industrial Andromeda-ready</h4>
+        <p>CAC reduction + Andromeda fit. Modelo Hendrick + Motivated Marketing como agencia única coordinando 96 ubicaciones.</p>
+        <div class="meta"><span><strong>Impacto:</strong> Alto</span><span><strong>Esfuerzo:</strong> Medio</span><span><strong>Plazo:</strong> 3–9 meses</span></div>
+      </div>
+    </li>
+  </ol>
+</section>
+
+<!-- ==================== PAGE 12: ANTI-PATRONES + CAVEATS ==================== -->
+<section class="page">
+  <h1 class="section-title"><span class="num">10 · Anti-patrones a evitar</span>Lo que falló globalmente y por qué Plasencia debe evitarlo.</h1>
+
+  <p class="lead">Estos no son riesgos teóricos. Son fracasos documentados que vale la pena conocer antes de cometerlos.</p>
+
+  <ul class="antipatterns">
+    <li>
+      <strong>1 · Priorizar orden sobre valor</strong>
+      <p>Lección 2025 del predecesor en la Dirección de Marketing: planeó 15 proyectos administrativos y completó 4. Patrón global Cazoo / Vroom / Care by Volvo. <strong>Mitigación:</strong> los movimientos #1 y #2 del roadmap son operacionales con impacto medible en 90 días, no homologaciones.</p>
+    </li>
+    <li>
+      <strong>2 · Eliminar el piso físico</strong>
+      <p>Carvana, Cazoo, Vroom, Honda US online pilot. Las 42 agencias son activo, no carga. <strong>Mitigación:</strong> rediseñar handoff online↔presencial, no eliminarlo.</p>
+    </li>
+    <li>
+      <strong>3 · Eliminar la comisión del vendedor en mercado mexicano</strong>
+      <p>LFT risk retroactivo. No replicar Tesla 2019. <strong>Mitigación:</strong> AI-augmentar al vendedor con sueldo fijo + comisión + bonus colectivo + coaching real-time. Sí transformar, no eliminar.</p>
+    </li>
+    <li>
+      <strong>4 · Suscripción de auto como producto principal</strong>
+      <p>Care by Volvo cerrada Ago-2024. Audi, BMW, Mercedes, Cadillac, Genesis ya habían salido. <strong>Mitigación:</strong> NO replicar suscripciones; SÍ membership/loyalty (NIO Points pattern).</p>
+    </li>
+    <li>
+      <strong>5 · Convencer-sin-ejecutar</strong>
+      <p>Stellantis agency Europa 2022–2025. <strong>Mitigación:</strong> mover valor primero (Mes 0–3), luego homologar. Brand Book sale al Consejo después de que la plataforma esté en aire.</p>
+    </li>
+    <li>
+      <strong>6 · Beacons / Metaverse retail / AR sin caso de uso</strong>
+      <p>ScienceDirect 2024 reporta que metaverse-first reduce WTP. <strong>Mitigación:</strong> no implementar tracking phygital sin caso de uso documentado y consent management compatible con LFPDPPP.</p>
+    </li>
+    <li>
+      <strong>7 · Apps con &lt;5% de adopción</strong>
+      <p>Demand Local: 84% de dealers tienen tools, 30% activos. <strong>Mitigación:</strong> app cliente única tiene que pasar por gating de retención mínima 20% antes de escalar.</p>
+    </li>
+    <li>
+      <strong>8 · CRM "junk" con duplicados</strong>
+      <p>Fullpath 2024–2025: el CDP es el primer entregable post-MVP, no el último.</p>
+    </li>
+  </ul>
+
+  <h2 class="section-h2">Caveats sobre la investigación</h2>
+  <p class="small">
+    Las cifras financieras públicas (Lithia, Sonic, Asbury, Group 1, Carvana, Vroom, Polestar) provienen de SEC filings y earnings calls 2024–2026 auditables. Las cifras de adopción de IA y benchmarks de industria (Demand Local, Tealium, Pied Piper STE, Auto Trader, McKinsey, Insider) son direccionales. Hendrick (privately held) y Kavak (privately held post-SoftBank) no son auditables públicamente al mismo nivel. <strong>F&amp;I PVR y CLTV son US-centric;</strong> deben re-baselinearse a unit economics Plasencia 2024–2025 antes de usar como targets internos. La validación primaria del insight central — Andromeda penalizando creative atado a oferta mensual — está confirmada por Meta Engineering Dec-2024 + Search Engine Land 2026 + Five Nine Strategy A/B test (+17% / −16%).
+  </p>
+</section>
+
+<!-- ==================== PAGE 13 (CLOSING) ==================== -->
+<section class="page" style="padding: 0;">
+  <div class="closing">
+    <p class="cover-confidential" style="margin-bottom: 16mm;">— Documento de cierre —</p>
+
+    <h2>El patrón ya ganó.<br>Es replicarlo, no inventarlo.</h2>
+
+    <p class="pull">"La pelea por quién es dueño del cliente sigue abierta y favorece al retailer que mueva primero. Plasencia tiene una ventana de 24–36 meses antes de que algún OEM intente capturar customer data en serio en México."</p>
+
+    <p style="font-size: 11pt; color: rgba(255,255,255,0.75); max-width: 140mm; line-height: 1.6;">
+      Este documento destila la evidencia mundial sobre la transformación retailer-marketplace que Lithia, Asbury, Group 1, Pendragon, Inchcape, Hendrick y Sonic ya completaron entre 2020 y 2025. El roadmap propuesto para Grupo Plasencia es ambicioso pero realista: el benchmark más cercano (Asbury Clicklane) tomó 18 meses para US$1B de revenue. La capacidad operativa apalancada por IA — ya demostrada en el piloto Motor de Atribución — es la palanca que cierra la brecha entre la ambición y la ejecución.
+    </p>
+
+    <div class="signature">
+      <strong>Experiencia Plasencia Automotriz</strong>
+      Documento ejecutivo · Dirección de Marketing Corporativo · Mayo 2026
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

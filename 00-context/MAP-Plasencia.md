@@ -4,18 +4,27 @@
 
 > **Mantenimiento:** cuando agregues un doc nuevo en `03-tech/`, `02-design/` o `01-strategy/`, registra una línea en la tabla de "Decisión por intent". Si no aparece en este MAP, no existe para futuros agentes.
 
-> **Última verificación de vínculos:** 2026-04-29
+> **Última verificación de vínculos:** 2026-05-06
 
 ---
 
-## Estado vivo (al 2026-04-29)
+## Estado vivo (al 2026-05-06)
 
+- ✅ **Catálogo Seminuevos XML-first** (cutover 06-may). Fuente única de verdad: feed XML oficial de Maxipublica S3 (`vehicle_feed_group_e1490ae1e92f.xml`, ~639 listings, refresh horario). Sustituye el scraping del API JSON privado de seminuevosplasencia.com (retirado, cero deuda técnica). Cron pasó de diario 04:03 GDL a horario `:04` cada hora. D1 limpia (273 huérfanos sweep aplicado, 639 activos = feed, 181 piloto). Modal PDP con ficha técnica ampliada + equipamiento colapsable (162/181 autos con equipamiento parseado). Cero invenciones: si un campo no está en el XML directo o no matchea regex acotado del `<description>`, queda vacío y la UI omite el chip. TRIM eliminado (no estructurado en feed). Doc actualizada: [`03-tech/Catalogo-Seminuevos-Sync-D1.md`](../03-tech/Catalogo-Seminuevos-Sync-D1.md).
+- ✅ **Airtable eliminado del piloto** (cerrado 05-may). Cuenta cerrada por el director. Catálogo Stellantis congelado en JSON estático (workflow disabled, rehacer después).
+- ✅ **CRM con tracking GA4** (`G-PPEPCW309W`, property `Pipeline de GP` `536115689`). Eventos `login`, `session_resume`, `contact_click` (call/whatsapp/email). 11 custom dimensions registradas. Doc: [`03-tech/Tracking-CRM-GA4.md`](../03-tech/Tracking-CRM-GA4.md).
+- ✅ **Calendar 1-may bloqueado** en las 3 landings. `BLOCKED_DATES` extensible.
+- ✅ **Catálogo SEM** "Catálogo del mes · Bonos hasta $20,000", vigencia 22-abr a 10-may.
+- ✅ **Kanban** distingue **fecha de registro** vs **fecha de cita**. Toggle de orden en toolbar.
 - ✅ **3 marcas LIVE** (Seminuevos, Hyundai, Stellantis). Solo Seminuevos gastando en Meta — Hyundai/Stellantis paused desde 23-abr.
-- ✅ **CRM Worker D1-only** — `crm-plasencia.grupo-plasencia-automotriz.workers.dev`, version `9158b834`. Airtable Pipeline apagado.
+- 🟡 **Bajada de leads SEM mayo**: 1 lead en lo que va vs 18 baseline 2da quincena abril. Verificación e2e: cero fugas en infra (D1 + intake_log + conciliación). Cuello upstream (gasto Meta o tráfico). Pendiente revisar gasto Meta SEM últimos 7d.
+- ✅ **CRM Worker D1-only** — `crm-plasencia.grupo-plasencia-automotriz.workers.dev`, version `ac5e209c`. Airtable Pipeline apagado.
 - ✅ **Dashboard ejecutivo** live en tab `/dashboard` — cron diario 8AM GDL.
 - ✅ **Conciliación diaria** D1 vs GA4 browser/server — cron 7:03 AM GDL.
 - ✅ **Sistema MAP-Plasencia + 6 pillars** deployed (29-abr) — re-contextualización en <2 min.
 - 🟡 **Experiencia Plasencia Automotriz** (naming cerrado 29-abr) — iniciativa estratégica de arquitectura de marca + sistema de marketing integral del grupo. Reframe del problema: no es "always-on de ads", es **modelo Endorsed brands** con 4 niveles (Grupo · sub-marcas propias · concesionarios marca-OEM · vendedores). Caso especial Stellantis: nivel 3 con sub-niveles (RAM/Jeep/Dodge/Fiat/Peugeot). Materialización de visión Phygital ya formulada por Chucho. **Framing v2 producido:** [`01-strategy/Experiencia-Plasencia-Automotriz-Framing.md`](../01-strategy/Experiencia-Plasencia-Automotriz-Framing.md). Próximo paso: validación 1:1 con Pepe Morales antes de escalar. Orden secuencial obligatorio: Pepe → Consejo → Carlos Nava → Gerentes MKT → Marcas OEM.
+- ✅ **Deep Research Marketplace mundial 2026 — EJECUTADO + PAPER EJECUTIVO** (6-may) — output disponible en [`01-strategy/Deep-Research-Output-Marketplace-Plasencia.md`](../01-strategy/Deep-Research-Output-Marketplace-Plasencia.md) (~50KB, 420 líneas) + paper A4 de 13 páginas en [`01-strategy/Marketplace-Plasencia-Paper-Ejecutivo.html`](../01-strategy/Marketplace-Plasencia-Paper-Ejecutivo.html) con sistema de diseño corporativo (Navy + Gold + Red, Playfair Display + Inter). Hallazgos clave: (1) modelo "concesionario unificado bajo marca-paraguas con motor digital propio" ganó el debate global 2024-2026 (Lithia, Asbury, Group 1, AutoNation, Sonic+EchoPark, Pendragon, Inchcape); (2) modelo 100% digital sin piso es anti-patrón documentado (Cazoo £1.4B quemados, Vroom liquidado, Honda US discontinuado); (3) modelo "agency" europeo en repliegue (Ford abandonó, Stellantis suspendió, VW revirtió); (4) sub-marca de seminuevos rentable es patrón ganador con disciplina; (5) financiera cautiva = 2do motor de utilidad y captura de CLTV; (6) stack 2026 converge en CRM+CDP+CAPI+conversational AI; (7) capacidad apalancada por IA es la palanca real, no headcount. Brief original: [`01-strategy/Deep-Research-Brief-Marketplace-Plasencia.md`](../01-strategy/Deep-Research-Brief-Marketplace-Plasencia.md). Próximo paso: insumo para Marco Operativo Experiencia Plasencia Automotriz.
+- 🟢 **Concepto Always-On Seminuevos + 13 creativos Reels generados** (29-abr noche) — `01-strategy/Always-On-Seminuevos-Concepto.md` con plan operativo + 13 PNGs 9:16 con texto en `Always-On Seminuevos/v2/` (bypass del repo de docs). Para budget $650/día: 5 conceptos seleccionados (c01, c07, c09, c11, c13). Copy Meta listo: 5 textos primarios, 5 headlines, 5 descripciones rotables. Pendiente: subir a Ads Manager.
 - 🟡 **Stellantis 0 leads reales desde cutover** — confirmar tracking.
 - 🟡 **8 imágenes Stellantis** pendientes (Peugeot/Dodge).
 - ✅ **Doc landings a nivel código publicado** (29-abr noche) — `03-tech/Landings-Arquitectura-Codigo.md` con stack común, tabla de divergencias por marca, 25 eventos dataLayer, 15 gotchas técnicos.
@@ -43,11 +52,15 @@ Si la tarea o pregunta del usuario trata de algo en la columna izquierda, abre l
 | Conciliación D1 vs GA4 (fugas) | `03-tech/Conciliacion-Diaria-Citas.md` | `03-tech/Folio-Cita.md` |
 | Cambio en una landing (código, JS, payload) | `03-tech/Landings-Arquitectura-Codigo.md` | Repo: `catalogo-seminuevos-piloto` / `landing-hyundai-plasencia` / `landing-stellantis-plasencia` · `02-design/Design-System-Multi-Marca.md`, `02-design/UX-CRO-Patterns.md`, `03-tech/audits/Auditoria-CRO-UX-<marca>.md` |
 | Diseño visual / tokens / consistencia | `02-design/Design-System-Multi-Marca.md` | `02-design/Design-System-Cards-y-Consistencia.md`, `02-design/GP-Design-System-Original.md` |
-| Catálogo de autos (Seminuevos/Stellantis) | `03-tech/Catalogo-Seminuevos-Flujo-E2E.md` | `03-tech/Catalogos-Plasencia-Airtable.md`, `00-context/Anexo-Integracion-MaxiPublica.md` |
+| Catálogo de autos (Seminuevos sync D1) | `03-tech/Catalogo-Seminuevos-Sync-D1.md` | `00-context/Anexo-Integracion-MaxiPublica.md` |
+| Catálogo de autos (flujo histórico Airtable, retirado 5-may) | `03-tech/Catalogo-Seminuevos-Flujo-E2E.md` | contexto histórico |
 | Strategy definition / pitch al Consejo | `01-strategy/Strategy-Definition-MKT-Corporativo-AI-powered.md` | `01-strategy/Centro-Excelencia-MKT-Consejo-Deck.html`, `01-strategy/Motor-de-Atribucion-MVP-Playbook-Operativo.html` |
 | Experiencia Plasencia Automotriz (arquitectura marca + sistema mkt + comercial) | `01-strategy/Experiencia-Plasencia-Automotriz-Framing.md` | `00-context/KO-Estrategico.md` (datos cuantitativos), `01-strategy/Strategy-Definition-MKT-Corporativo-AI-powered.md`, deck Motor de Atribución slide 18 |
+| Concepto Always-On Seminuevos (Meta Ads Andromeda 2026) | `01-strategy/Always-On-Seminuevos-Concepto.md` | Skill `meta-ads-andromeda`, `00-context/KO-Operativo.md` §funnel digital, `03-tech/Landings-Arquitectura-Codigo.md` (eventos + payload) |
+| Investigación benchmark mundial marketplace automotive — brief, output y paper ejecutivo | `01-strategy/Marketplace-Plasencia-Paper-Ejecutivo.html` (paper A4, 13 páginas, look&feel corporativo Navy+Gold+Red) | `01-strategy/Deep-Research-Output-Marketplace-Plasencia.md` (output completo), `01-strategy/Deep-Research-Brief-Marketplace-Plasencia.md` (brief), `01-strategy/Experiencia-Plasencia-Automotriz-Framing.md`, `00-context/KO-Estrategico.md` |
 | Stakeholder específico (Vero/Bere/Jose) | `05-stakeholders/Minuta-<Marca>-<Nombre>.md` | `00-context/KO-Estrategico.md` §Stakeholders |
-| GTM / GA4 dimensions / Pixels | `00-context/KO-Operativo.md` §Update 24-abr | memory `reference_gtm_mcp_version_bug.md` |
+| GTM / GA4 dimensions / Pixels (landings) | `00-context/KO-Operativo.md` §Update 24-abr | memory `reference_gtm_mcp_version_bug.md` |
+| Tracking del CRM (login, session_resume, contact_click, user_id/PIN) | `03-tech/Tracking-CRM-GA4.md` | `pillars/MAP-Tech.md`, `pillars/MAP-Datos-Atribucion.md` |
 | Seguridad / tokens / OAuth | `03-tech/Security-Audit-E2E.md` | `03-tech/Credenciales-y-Tokens.md`, memory `reference_claude_code_setup.md` |
 | Microsoft Clarity (MCPs por marca) | `03-tech/Microsoft-Clarity-MCP-Setup.md` | — |
 | Funnel events Visita/Compra (Pipeline → CAPI) | `03-tech/Airtable-Funnel-Tables-Automations.md` (vigente, ver corrección 21-abr) | `03-tech/D1-CAPI-MP-Server-Side-Architecture.md` |
