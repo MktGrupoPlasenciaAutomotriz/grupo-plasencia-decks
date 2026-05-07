@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Discovery Estratégico — Dirección de Marketing Corporativo · Grupo Plasencia</title>
+<meta name="description" content="Brief de discovery para Gerentes de Marketing del Grupo Plasencia. Solicitud abierta para entender la operación de marketing por marca/línea de negocio desde la perspectiva del gerente. Insumo para el Centro de Excelencia MKT corporativo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@500;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gp-red: #C8102E;
+    --gp-navy: #1E2740;
+    --gp-slate: #2D3748;
+    --green: #48BB78;
+    --deep-green: #276749;
+    --blue: #4299E1;
+    --deep-blue: #2B6CB0;
+    --amber: #D69E2E;
+    --gold: #ECC94B;
+    --bg: #F0F4F8;
+    --paper: #FFFFFF;
+    --near-white: #F7FAFC;
+    --g100: #EDF2F7;
+    --g200: #E2E8F0;
+    --g300: #CBD5E0;
+    --g400: #A0AEC0;
+    --g500: #718096;
+    --g600: #4A5568;
+    --text: #2D3748;
+    --serif: 'Playfair Display', Georgia, serif;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { background: var(--bg); }
+  body {
+    font-family: var(--sans);
+    color: var(--text);
+    line-height: 1.55;
+    font-size: 10pt;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  @page {
+    size: A4;
+    margin: 18mm 18mm 22mm 18mm;
+    @bottom-right {
+      content: counter(page);
+      font-family: 'Inter', sans-serif;
+      font-size: 9pt;
+      color: #718096;
+    }
+    @bottom-left {
+      content: "Confidencial · Grupo Plasencia · Dirección de Marketing Corporativo";
+      font-family: 'Inter', sans-serif;
+      font-size: 8pt;
+      color: #A0AEC0;
+    }
+    @top-right {
+      content: "Discovery Estratégico · Marketing Corporativo";
+      font-family: 'Inter', sans-serif;
+      font-size: 8pt;
+      color: #A0AEC0;
+    }
+  }
+  @page :first { @top-right { content: ""; } @bottom-right { content: ""; } @bottom-left { content: ""; } }
+  @page cover { margin: 0; }
+
+  .page {
+    background: var(--paper);
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0 auto 8mm auto;
+    padding: 18mm 18mm 22mm 18mm;
+    position: relative;
+    page-break-after: always;
+    box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 4px 24px rgba(30,39,64,.08);
+  }
+  .page:last-child { page-break-after: auto; }
+
+  /* ============ COVER ============ */
+  .cover {
+    background: var(--gp-navy);
+    color: var(--near-white);
+    padding: 0;
+    page: cover;
+  }
+  .cover-inner {
+    padding: 36mm 22mm 24mm 22mm;
+    min-height: 297mm;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background:
+      radial-gradient(ellipse at 100% 0%, rgba(236,201,75,0.12) 0%, transparent 55%),
+      radial-gradient(ellipse at 0% 100%, rgba(200,16,46,0.10) 0%, transparent 55%),
+      var(--gp-navy);
+    position: relative;
+  }
+  .cover-inner::before {
+    content: "";
+    position: absolute;
+    top: 24mm; left: 22mm;
+    width: 64mm; height: 1px;
+    background: var(--gold);
+  }
+  .cover-mark {
+    font-family: var(--sans);
+    font-weight: 700;
+    font-size: 11pt;
+    letter-spacing: 4px;
+    color: var(--gold);
+    text-transform: uppercase;
+  }
+  .cover-mark span { display: block; font-weight: 400; color: rgba(255,255,255,0.55); margin-top: 4px; letter-spacing: 1px; font-size: 9pt; }
+
+  .cover-eyebrow {
+    font-family: var(--sans);
+    font-size: 10pt;
+    font-weight: 700;
+    letter-spacing: 5px;
+    color: var(--gp-red);
+    text-transform: uppercase;
+    margin-top: 14mm;
+  }
+  .cover-title {
+    font-family: var(--serif);
+    font-weight: 800;
+    font-size: 46pt;
+    line-height: 1.04;
+    letter-spacing: -1.5px;
+    margin-top: 6mm;
+    color: var(--near-white);
+  }
+  .cover-title em { font-style: italic; color: var(--gold); font-weight: 700; }
+  .cover-subtitle {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-style: italic;
+    font-size: 16pt;
+    color: var(--gold);
+    margin-top: 8mm;
+    letter-spacing: -0.3px;
+    line-height: 1.35;
+  }
+  .cover-pull {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-style: italic;
+    font-size: 12pt;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.55;
+    border-left: 3px solid var(--gp-red);
+    padding-left: 8mm;
+    margin-top: 14mm;
+    max-width: 150mm;
+  }
+  .cover-pull cite {
+    display: block;
+    font-style: normal;
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 9pt;
+    letter-spacing: 1.5px;
+    color: var(--gp-red);
+    margin-top: 6mm;
+    text-transform: uppercase;
+  }
+  .cover-tags { display: flex; gap: 6mm; margin-top: 12mm; flex-wrap: wrap; }
+  .cover-tag {
+    font-family: var(--sans);
+    font-size: 9pt;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: rgba(255,255,255,0.85);
+    border: 1px solid rgba(255,255,255,0.25);
+    padding: 4px 10px;
+    border-radius: 999px;
+    text-transform: uppercase;
+  }
+  .cover-tag.accent { color: var(--gold); border-color: rgba(236,201,75,0.4); }
+  .cover-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 16mm;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    padding-top: 8mm;
+  }
+  .cover-meta-block { font-size: 9pt; color: rgba(255,255,255,0.65); line-height: 1.7; }
+  .cover-meta-block strong { display: block; color: var(--near-white); font-weight: 700; font-size: 10pt; letter-spacing: .5px; }
+
+  /* ============ TYPOGRAPHY ============ */
+  h1.section-title {
+    font-family: var(--serif);
+    font-weight: 800;
+    font-size: 28pt;
+    line-height: 1.08;
+    letter-spacing: -1px;
+    color: var(--gp-navy);
+    border-top: 3px solid var(--gp-red);
+    padding-top: 6mm;
+    margin-bottom: 6mm;
+  }
+  h1.section-title .num {
+    display: block;
+    font-family: var(--sans);
+    font-weight: 700;
+    font-size: 9pt;
+    letter-spacing: 4px;
+    color: var(--gp-red);
+    text-transform: uppercase;
+    margin-bottom: 4mm;
+  }
+  h2.section-h2 {
+    font-size: 14pt;
+    font-weight: 800;
+    color: var(--gp-navy);
+    margin-top: 8mm;
+    margin-bottom: 3mm;
+    line-height: 1.25;
+    font-family: var(--sans);
+  }
+  h3.section-h3 {
+    font-size: 11.5pt;
+    font-weight: 700;
+    color: var(--gp-navy);
+    margin-top: 5mm;
+    margin-bottom: 2mm;
+    font-family: var(--sans);
+  }
+  p { margin: 0 0 3mm 0; }
+  strong { font-weight: 700; color: var(--gp-navy); }
+  em { font-style: italic; }
+
+  .lead { font-size: 11pt; line-height: 1.65; color: var(--g600); margin-bottom: 4mm; }
+  .lead strong { color: var(--gp-navy); }
+  .small { font-size: 8.5pt; color: var(--g500); }
+
+  .section-flag {
+    display: inline-block;
+    font-family: var(--sans);
+    font-size: 8pt;
+    font-weight: 800;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 4px;
+    background: rgba(200, 16, 46, 0.08);
+    color: var(--gp-red);
+    margin-bottom: 4mm;
+  }
+  .section-flag.blue { background: rgba(66, 153, 225, 0.08); color: var(--deep-blue); }
+  .section-flag.green { background: rgba(72, 187, 120, 0.1); color: var(--deep-green); }
+  .section-flag.amber { background: rgba(214, 158, 46, 0.1); color: var(--amber); }
+  .section-flag.gold { background: rgba(236, 201, 75, 0.18); color: #997706; }
+
+  /* ============ DIMENSION CARDS ============ */
+  .dimensions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4mm;
+    margin-top: 5mm;
+  }
+  .dim {
+    background: var(--paper);
+    border: 1px solid var(--g100);
+    border-left: 4px solid var(--gp-navy);
+    padding: 5mm 6mm;
+    page-break-inside: avoid;
+  }
+  .dim.red { border-left-color: var(--gp-red); }
+  .dim.gold { border-left-color: var(--gold); }
+  .dim.blue { border-left-color: var(--blue); }
+  .dim.green { border-left-color: var(--green); }
+  .dim.amber { border-left-color: var(--amber); }
+  .dim .dim-num {
+    font-family: var(--serif);
+    font-weight: 900;
+    font-size: 30pt;
+    color: var(--g300);
+    line-height: 1;
+    float: left;
+    margin: -1mm 4mm 0 0;
+  }
+  .dim.red .dim-num { color: rgba(200,16,46,0.25); }
+  .dim.gold .dim-num { color: rgba(236,201,75,0.5); }
+  .dim.blue .dim-num { color: rgba(66,153,225,0.25); }
+  .dim.green .dim-num { color: rgba(72,187,120,0.25); }
+  .dim.amber .dim-num { color: rgba(214,158,46,0.3); }
+  .dim h3 {
+    font-size: 11.5pt;
+    font-weight: 800;
+    color: var(--gp-navy);
+    margin-bottom: 2mm;
+    line-height: 1.25;
+    overflow: hidden;
+    font-family: var(--sans);
+  }
+  .dim p {
+    font-size: 9.5pt;
+    color: var(--g600);
+    line-height: 1.55;
+    overflow: hidden;
+    margin-bottom: 0;
+  }
+  .dim p strong { color: var(--gp-navy); }
+
+  /* ============ STATEMENT BLOCK ============ */
+  .statement {
+    background: var(--gp-navy);
+    color: var(--near-white);
+    padding: 12mm 14mm;
+    margin: 6mm 0 8mm 0;
+    border-left: 5px solid var(--gold);
+    page-break-inside: avoid;
+    position: relative;
+  }
+  .statement::before {
+    content: "“";
+    position: absolute;
+    top: 4mm;
+    right: 12mm;
+    font-family: var(--serif);
+    font-size: 80pt;
+    color: rgba(236,201,75,0.18);
+    line-height: 1;
+    font-weight: 900;
+  }
+  .statement .label {
+    font-family: var(--sans);
+    font-size: 9pt;
+    font-weight: 800;
+    letter-spacing: 3px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 4mm;
+    display: block;
+  }
+  .statement .text {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 500;
+    font-size: 16pt;
+    line-height: 1.45;
+    color: var(--near-white);
+    letter-spacing: -0.3px;
+  }
+  .statement .text strong {
+    color: var(--gold);
+    font-weight: 700;
+    font-style: normal;
+    font-family: var(--sans);
+    font-size: 15pt;
+  }
+
+  /* ============ CALLOUT ============ */
+  .callout {
+    background: var(--g100);
+    border-left: 4px solid var(--gp-navy);
+    padding: 6mm 7mm;
+    margin: 4mm 0;
+    page-break-inside: avoid;
+  }
+  .callout.gold { border-left-color: var(--gold); background: rgba(236,201,75,0.08); }
+  .callout.red { border-left-color: var(--gp-red); background: rgba(200,16,46,0.05); }
+  .callout.blue { border-left-color: var(--blue); background: rgba(66,153,225,0.05); }
+  .callout .label {
+    display: block;
+    font-family: var(--sans);
+    font-size: 8.5pt;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: var(--gp-navy);
+    text-transform: uppercase;
+    margin-bottom: 3mm;
+  }
+  .callout.gold .label { color: #997706; }
+  .callout.red .label { color: var(--gp-red); }
+  .callout.blue .label { color: var(--deep-blue); }
+  .callout .text { font-size: 10pt; color: var(--g600); line-height: 1.6; }
+  .callout .text strong { color: var(--gp-navy); }
+  .callout .text p { margin-bottom: 2mm; }
+  .callout .text p:last-child { margin-bottom: 0; }
+
+  /* ============ TIMELINE ============ */
+  .timeline {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4mm;
+    margin: 5mm 0;
+  }
+  .ts {
+    background: var(--paper);
+    border: 1px solid var(--g200);
+    border-top: 3px solid var(--gp-navy);
+    padding: 5mm 5mm;
+    page-break-inside: avoid;
+  }
+  .ts.red { border-top-color: var(--gp-red); }
+  .ts.gold { border-top-color: var(--gold); }
+  .ts .step {
+    font-family: var(--sans);
+    font-size: 8pt;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: var(--gp-red);
+    text-transform: uppercase;
+    margin-bottom: 2mm;
+  }
+  .ts h4 {
+    font-family: var(--sans);
+    font-size: 11pt;
+    font-weight: 800;
+    color: var(--gp-navy);
+    margin-bottom: 2mm;
+    line-height: 1.25;
+  }
+  .ts p {
+    font-size: 9pt;
+    color: var(--g600);
+    line-height: 1.5;
+    margin-bottom: 0;
+  }
+  .ts .when {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 9.5pt;
+    color: var(--gp-navy);
+    font-weight: 600;
+    margin-top: 3mm;
+    display: block;
+  }
+
+  /* ============ NEGATIVE LIST ============ */
+  .negatives { margin: 4mm 0; }
+  .negative {
+    display: flex;
+    align-items: flex-start;
+    gap: 4mm;
+    padding: 3mm 0;
+    border-bottom: 1px dotted var(--g300);
+  }
+  .negative:last-child { border-bottom: none; }
+  .negative .x {
+    font-family: var(--serif);
+    font-weight: 900;
+    font-size: 18pt;
+    color: var(--gp-red);
+    line-height: 1;
+    flex-shrink: 0;
+    width: 8mm;
+  }
+  .negative .copy { font-size: 10pt; color: var(--g600); line-height: 1.55; }
+  .negative .copy strong { color: var(--gp-navy); }
+
+  /* ============ SIGNATURE ============ */
+  .signature {
+    margin-top: 14mm;
+    padding-top: 8mm;
+    border-top: 2px solid var(--gp-navy);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  .sig-name {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 22pt;
+    color: var(--gp-navy);
+    font-weight: 700;
+    line-height: 1;
+  }
+  .sig-name span {
+    display: block;
+    font-family: var(--sans);
+    font-style: normal;
+    font-weight: 700;
+    font-size: 9pt;
+    color: var(--g500);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 3mm;
+    line-height: 1.4;
+  }
+  .sig-stamp {
+    text-align: right;
+    font-size: 8.5pt;
+    color: var(--g500);
+    line-height: 1.5;
+  }
+  .sig-stamp strong { display: block; color: var(--gp-navy); font-size: 9pt; letter-spacing: 0.5px; }
+
+  /* ============ TABLE ============ */
+  table.simple {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 4mm 0;
+    font-size: 9.5pt;
+  }
+  table.simple th {
+    background: var(--gp-navy);
+    color: var(--near-white);
+    text-align: left;
+    padding: 3mm 4mm;
+    font-weight: 700;
+    font-family: var(--sans);
+    font-size: 9pt;
+    letter-spacing: 0.5px;
+  }
+  table.simple td {
+    padding: 3mm 4mm;
+    border-bottom: 1px solid var(--g200);
+    color: var(--g600);
+    line-height: 1.5;
+  }
+  table.simple tr:nth-child(even) td { background: var(--g100); }
+  table.simple td strong { color: var(--gp-navy); }
+
+  /* ============ UTIL ============ */
+  .mt-0 { margin-top: 0 !important; }
+  .mt-2 { margin-top: 2mm; }
+  .mt-4 { margin-top: 4mm; }
+  .mt-6 { margin-top: 6mm; }
+  .mt-8 { margin-top: 8mm; }
+  .mb-0 { margin-bottom: 0 !important; }
+  .mb-2 { margin-bottom: 2mm; }
+  .mb-4 { margin-bottom: 4mm; }
+
+  ul.clean { list-style: none; padding: 0; margin: 3mm 0; }
+  ul.clean li {
+    padding: 2mm 0 2mm 8mm;
+    position: relative;
+    font-size: 10pt;
+    line-height: 1.55;
+    color: var(--g600);
+  }
+  ul.clean li::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 5mm;
+    width: 4mm; height: 1px;
+    background: var(--gp-red);
+  }
+  ul.clean li strong { color: var(--gp-navy); }
+
+  /* Print fine-tuning */
+  @media print {
+    .page { box-shadow: none; margin: 0; }
+    body { background: var(--paper); }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===================== COVER ===================== -->
+<section class="page cover">
+  <div class="cover-inner">
+    <div>
+      <div class="cover-mark">
+        Grupo Plasencia
+        <span>Dirección de Marketing Corporativo</span>
+      </div>
+
+      <div class="cover-eyebrow">Discovery Estratégico · 2026</div>
+
+      <h1 class="cover-title">
+        Cuéntame tu <em>marketing</em><br>
+        desde tu lugar.
+      </h1>
+
+      <div class="cover-subtitle">
+        Brief de discovery para Gerentes de Marketing por marca y línea de negocio del Grupo Plasencia.
+      </div>
+
+      <div class="cover-pull">
+        Quiero entender cómo opera tu marca desde tu perspectiva. No te mando un formato a llenar — te pido que me cuentes con la lógica que ya usas, en el medio que te acomode. La forma en que estructures tu pensamiento es parte de lo que quiero escuchar.
+        <cite>Chucho Porras · Director de Marketing Corporativo</cite>
+      </div>
+
+      <div class="cover-tags">
+        <span class="cover-tag">Formato libre</span>
+        <span class="cover-tag accent">8 dimensiones</span>
+        <span class="cover-tag">Async + 1:1 90 min</span>
+        <span class="cover-tag accent">Insumo Centro de Excelencia MKT</span>
+      </div>
+    </div>
+
+    <div class="cover-meta">
+      <div class="cover-meta-block">
+        <strong>Solicitante</strong>
+        Chucho Porras<br>
+        Dir. Marketing Corporativo · Grupo Plasencia
+      </div>
+      <div class="cover-meta-block" style="text-align:right;">
+        <strong>Versión 2026-05-07</strong>
+        Aprobado por Pepe Morales (Dir. General)<br>
+        Próximo paso: respuesta async en 7 días naturales
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PÁGINA 1 — POR QUÉ ===================== -->
+<section class="page">
+  <h1 class="section-title">
+    <span class="num">01 · Contexto</span>
+    Por qué te lo pido.
+  </h1>
+
+  <p class="lead">
+    Estamos formalizando la integración del marketing del Grupo en un <strong>Centro de Excelencia que apoye a cada marca</strong>, no que centralice lo que ya funciona en cada una. Para que ese diseño parta de lo que <strong>tú</strong> construiste —no de un plano abstracto desde la dirección— necesito entenderte mejor.
+  </p>
+
+  <p>Lo que viene a continuación es un brief abierto. <strong>No es un formato a llenar</strong>, no es una auditoría, no hay respuestas correctas. Es una invitación a que me cuentes cómo opera tu marca/línea desde el ángulo de marketing, con la lógica con la que tú la entiendes, en el medio que tú elijas.</p>
+
+  <h2 class="section-h2">El marco general</h2>
+
+  <p>El Grupo está construyendo un <strong>modelo Endorsed brands</strong> con cuatro niveles articulados (Grupo · sub-marcas propias · concesionarios marca-OEM · vendedores). Lo que tú gestionas es uno de esos niveles, y tu operación tiene aprendizajes que hoy viven solo en tu cabeza y en tu equipo.</p>
+
+  <p>Antes de pedirte cualquier cosa, <strong>quiero entender qué ya está bien</strong>. La integración debe partir de la realidad de cada gerencia, no de un ideal genérico.</p>
+
+  <div class="callout gold">
+    <span class="label">El por qué de un brief abierto</span>
+    <div class="text">
+      <p>Si te mando un cuestionario a llenar, todos respondemos parecido — pierdo lo que más me importa: <strong>cómo razonas, cómo organizas, cómo presentas</strong>. La forma en que armes tu entrega es información valiosa para mí, tan valiosa como el contenido.</p>
+      <p class="mb-0">Por eso prefiero que me lo cuentes <strong>con tu lenguaje y tu lógica</strong>.</p>
+    </div>
+  </div>
+
+  <h2 class="section-h2">Qué pasa con esta entrega</h2>
+
+  <p>Tu entrega es input directo para tres cosas:</p>
+
+  <ul class="clean">
+    <li><strong>Mapa cross-marca del Grupo</strong>: quiero ver cómo cada gerencia opera hoy, dónde estamos parejos y dónde diferimos.</li>
+    <li><strong>Diseño del Centro de Excelencia</strong>: qué se centraliza (lo que duplicamos hoy entre marcas, como tooling, dashboards, capacitación, vendor master) y qué se queda en cada marca (lo que es cercano al negocio).</li>
+    <li><strong>Tu rol en ese diseño</strong>: cómo te apoyamos, qué te abre el siguiente nivel, dónde podemos sumar capacidad sin que pierdas autonomía.</li>
+  </ul>
+</section>
+
+<!-- ===================== PÁGINA 2 — QUÉ QUIERO ENTENDER ===================== -->
+<section class="page">
+  <h1 class="section-title">
+    <span class="num">02 · Lo que quiero entender</span>
+    Ocho dimensiones.<br>En el orden y profundidad que tú decidas.
+  </h1>
+
+  <p class="lead">No tienes que cubrirlas en este orden, ni con la misma profundidad. <strong>Donde sientas que dominas, profundiza. Donde sientas que hay vacíos, sé honesto</strong> — escribir <em>"no medido"</em> también es información útil.</p>
+
+  <div class="dimensions">
+    <div class="dim red">
+      <span class="dim-num">1</span>
+      <h3>Tu negocio</h3>
+      <p>Qué vendes, a quién, geografías. Volumen unidades/mes y AOV. Mix nuevo vs seminuevo, contado vs financiado. Estacionalidad. Sucursales. Cliente típico (ICP). Top 3 competidores y por qué te eligen.</p>
+    </div>
+
+    <div class="dim gold">
+      <span class="dim-num">2</span>
+      <h3>Tu estrategia</h3>
+      <p>Cómo razonas tu propuesta de valor diferencial. Visión 12 meses y 3 años. Cómo manejas los lineamientos OEM y cómo los aterrizas a tu mercado local. Cómo decides qué pautar.</p>
+    </div>
+
+    <div class="dim blue">
+      <span class="dim-num">3</span>
+      <h3>Tu operación / BAU</h3>
+      <p>Parrillas, calendarios de campañas, workflow creativo, bajada de creativos OEM. Cuántos días tarda un brief en estar live. Cómo aprueban copy y oferta. Rituales mensuales.</p>
+    </div>
+
+    <div class="dim green">
+      <span class="dim-num">4</span>
+      <h3>Tu mix de medios y budget</h3>
+      <p>Cómo distribuyes el budget anual y mensual entre canales: paid digital, paid análogo, owned, earned, trade marketing, tecnología. Co-op con OEM. Tu canal con mejor y peor rendimiento.</p>
+    </div>
+
+    <div class="dim amber">
+      <span class="dim-num">5</span>
+      <h3>Tu performance y funnel</h3>
+      <p>Cómo defines el funnel. KPIs principales (CPA, CAC, MER, ROAS, LTV, lead-to-show, show-to-close). Cómo mides impacto on/offline. Tu reporting mensual y a quién lo entregas. Histórico comparable.</p>
+    </div>
+
+    <div class="dim red">
+      <span class="dim-num">6</span>
+      <h3>Tu equipo y proveedores</h3>
+      <p>Organigrama. Qué hace internamente y qué outsourceas. Vendors principales, qué hacen, antigüedad de la relación. Dependencias críticas. Capability gap del equipo hoy.</p>
+    </div>
+
+    <div class="dim blue">
+      <span class="dim-num">7</span>
+      <h3>Tu ecosistema digital y análogo</h3>
+      <p>Cuentas activas (web, redes, GBP, CRM, herramientas). Stack tech actual (GTM, GA4, Pixel, CAPI, dashboards). Sucursales, materiales POP, eventos, test drives.</p>
+    </div>
+
+    <div class="dim gold">
+      <span class="dim-num">8</span>
+      <h3>Lo que necesitas</h3>
+      <p>Qué te falta para hacer mejor tu trabajo. Procesos rotos que nadie ha tenido tiempo de arreglar. Tu ambición de 12 meses si tuvieras los recursos. Riesgos en el horizonte. Tu desarrollo profesional.</p>
+    </div>
+  </div>
+
+  <div class="callout">
+    <span class="label">Sobre la profundidad</span>
+    <div class="text">
+      <p class="mb-0">No esperes ser exhaustivo en las ocho. <strong>Mejor profundo en cinco que superficial en ocho.</strong> Lo que profundices y lo que dejes plano también es información — me dice dónde está tu foco hoy.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PÁGINA 3 — FORMATO Y CONFIDENCIALIDAD ===================== -->
+<section class="page">
+  <h1 class="section-title">
+    <span class="num">03 · El formato</span>
+    Como tú lo trabajas. Como ya lo presentas.
+  </h1>
+
+  <p class="lead">
+    El formato lo eliges tú. <strong>Si ya tienes un deck que presentas mensual a la dirección, mándamelo.</strong> Si tienes un dashboard que usas, mándame screenshots con tus comentarios. Si prefieres armar un brief desde cero, también está bien.
+  </p>
+
+  <h2 class="section-h2">Algunas opciones equivalentes</h2>
+
+  <table class="simple">
+    <thead>
+      <tr>
+        <th style="width:30%;">Si ya usas...</th>
+        <th>Mándame eso</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Deck mensual a dirección</strong></td>
+        <td>El último que hayas presentado, con anotaciones tuyas si hay contexto que falte</td>
+      </tr>
+      <tr>
+        <td><strong>Reporte ejecutivo en Word/PDF</strong></td>
+        <td>Tal cual, con sus anexos</td>
+      </tr>
+      <tr>
+        <td><strong>Notion / página colaborativa</strong></td>
+        <td>El link con permisos para mí, o exportado a PDF</td>
+      </tr>
+      <tr>
+        <td><strong>Excel/Google Sheets de KPIs</strong></td>
+        <td>Acompañado de un párrafo corto explicando lectura de los números</td>
+      </tr>
+      <tr>
+        <td><strong>Nada formal aún</strong></td>
+        <td>Arma lo que se te haga útil. Word, Google Doc, presentación, lo que uses</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2 class="section-h2">Sobre transparencia con datos</h2>
+
+  <p>Si hay datos que no mides hoy o que no recuerdas, <strong>escríbelo</strong>. <em>"No medido"</em>, <em>"no lo sé al cierre"</em>, <em>"se reporta pero no lo accionamos"</em> — son respuestas válidas y útiles. No quiero que inventes ni que me des solo lo bueno. Me sirve más entender lo real.</p>
+
+  <div class="callout red">
+    <span class="label">Sobre datos sensibles del equipo y vendors</span>
+    <div class="text">
+      <p>Para nombres, roles, antigüedad y descripción de funciones — incluido en el doc principal.</p>
+      <p class="mb-0">Para <strong>salarios, comisiones, bonos y honorarios de vendors</strong> — manejado en hoja aparte (mensaje directo o impreso). <strong>No en el doc principal</strong>, no se difunde.</p>
+    </div>
+  </div>
+
+  <h2 class="section-h2">Si tienes dudas antes de entregar</h2>
+
+  <p>WhatsApp directo conmigo. Cualquier formato me sirve, lo importante es que <strong>lo armes tú</strong>. La elección de medio, la estructura que escojas y el orden con que cuentes las cosas es parte del valor de la entrega.</p>
+
+  <div class="statement">
+    <span class="label">Lo que NO es esto</span>
+    <p class="text">
+      No es <strong>evaluación punitiva</strong>. No es <strong>auditoría</strong>. No tienes que <strong>fingir madurez</strong> que no tengas. Si llegamos a un punto donde no sabemos algo, ese es exactamente el quick win que vamos a resolver juntos.
+    </p>
+  </div>
+</section>
+
+<!-- ===================== PÁGINA 4 — CUÁNDO Y CÓMO ===================== -->
+<section class="page">
+  <h1 class="section-title">
+    <span class="num">04 · Timeline</span>
+    Cuándo y cómo lo trabajamos.
+  </h1>
+
+  <p class="lead">El proceso tiene dos fases. La primera es asíncrona y la armas tú a tu ritmo. La segunda es una sesión 1:1 conmigo donde profundizamos lo que mandaste.</p>
+
+  <div class="timeline">
+    <div class="ts red">
+      <div class="step">Fase 1 · Async</div>
+      <h4>Tu entrega</h4>
+      <p>Armas tu doc/deck/material en el formato que elijas. Cubre las ocho dimensiones con la profundidad que tú decidas. Si tienes vendors, organigrama o reportes, los adjuntas.</p>
+      <span class="when">Plazo: 7 días naturales</span>
+    </div>
+
+    <div class="ts gold">
+      <div class="step">Fase 2 · 1:1</div>
+      <h4>Sesión conmigo</h4>
+      <p>Revisamos juntos lo que mandaste. Profundizo donde haga falta. Conversamos riesgos, ambición, apoyo necesario.</p>
+      <span class="when">90 minutos · semana siguiente</span>
+    </div>
+
+    <div class="ts">
+      <div class="step">Fase 3 · Cierre</div>
+      <h4>Acuerdo</h4>
+      <p>Cerramos con <strong>tres quick wins priorizados</strong> que arrancamos en menos de 30 días, y <strong>una ambición de 12 meses</strong> que me llevo conmigo a pelear contigo al Consejo.</p>
+      <span class="when">Al cierre del 1:1</span>
+    </div>
+  </div>
+
+  <h2 class="section-h2">Manejo de objeciones / preguntas frecuentes</h2>
+
+  <h3 class="section-h3">¿Esto lo sabe Pepe Morales?</h3>
+  <p>Sí. Es parte del proceso aprobado por la Dirección General. El output va a informar la propuesta de Centro de Excelencia que llevemos al Consejo. Tú eres input clave.</p>
+
+  <h3 class="section-h3">¿Van a recortar gente o vendors?</h3>
+  <p>Al revés. La propuesta es <strong>darle más capacidad a cada marca, no menos</strong>. Lo que vamos a centralizar es lo que duplicamos hoy entre marcas (tooling, dashboards, capacitación, vendor master), no la operación cercana al negocio. Tu equipo y tus relaciones con vendors siguen siendo tuyas.</p>
+
+  <h3 class="section-h3">¿Y si no tengo un deck o reporte formal todavía?</h3>
+  <p>No importa. Arma lo que se te haga útil. Un Google Doc con bullets también funciona. Lo único que pido es que sea <strong>tuyo</strong>, no un template.</p>
+
+  <h3 class="section-h3">¿Hasta dónde tengo que profundizar en números?</h3>
+  <p>Hasta donde sepas, con honestidad. Si tu reporte mensual tiene CPA, CAC y MER, perfecto. Si solo tienes leads y ventas, dime exactamente eso. Si <em>"el OEM nos pide reportar X pero internamente vemos Y"</em>, cuéntame esa tensión.</p>
+
+  <h3 class="section-h3">¿Y si hay cosas que no quiero poner por escrito?</h3>
+  <p>Las hablamos en el 1:1, sin problema. Pon en el doc lo que te sea cómodo escribir. Lo demás es conversación abierta cara a cara.</p>
+</section>
+
+<!-- ===================== PÁGINA 5 — LO QUE NO ES + CIERRE ===================== -->
+<section class="page">
+  <h1 class="section-title">
+    <span class="num">05 · Cinco anclas para no perdernos</span>
+    Lo que sí, lo que no, y cómo arrancamos.
+  </h1>
+
+  <p class="lead">Antes de cerrar, te dejo cinco anclas para que no haya malentendidos sobre el espíritu de este ejercicio.</p>
+
+  <div class="negatives">
+    <div class="negative">
+      <span class="x">✕</span>
+      <div class="copy"><strong>No es evaluación punitiva.</strong> Es discovery con vista a integrar lo que ya funciona y reforzar lo que falte. La premisa es de suma, no de resta.</div>
+    </div>
+    <div class="negative">
+      <span class="x">✕</span>
+      <div class="copy"><strong>No hay respuestas correctas.</strong> Hay decisiones tuyas con razones detrás. Eso es lo que quiero escuchar — la lógica, no el manual.</div>
+    </div>
+    <div class="negative">
+      <span class="x">✕</span>
+      <div class="copy"><strong>No tienes que fingir madurez que no tengas.</strong> Si algo no se mide, no se hace, o se hace pero a medias — escríbelo así. La honestidad operativa es lo que abre conversaciones útiles.</div>
+    </div>
+    <div class="negative">
+      <span class="x">✕</span>
+      <div class="copy"><strong>No es comparación pública entre gerencias.</strong> Cada marca tiene un negocio distinto. La comparación que haga es para diseñar el Centro de Excelencia, no para ranquear personas.</div>
+    </div>
+    <div class="negative">
+      <span class="x">✕</span>
+      <div class="copy"><strong>No es papeleo que muere en el cajón.</strong> El acuerdo del 1:1 (tres quick wins + una ambición) es ejecutable y empieza dentro de 30 días. Tu input cambia cómo trabajamos juntos.</div>
+    </div>
+  </div>
+
+  <div class="statement">
+    <span class="label">Lo que sí es</span>
+    <p class="text">
+      Una <strong>conversación profesional entre director y gerente</strong> sobre cómo operas tu negocio, qué te abrió camino, qué te frena, y cómo el corporativo te ayuda a llegar más lejos sin meterse en tu casa.
+    </p>
+  </div>
+
+  <h2 class="section-h2">Próximos pasos</h2>
+
+  <ul class="clean">
+    <li><strong>Hoy o mañana:</strong> respondes a este brief confirmando que lo recibiste y que arrancas. Agendamos el 1:1 de 90 min en tu calendario para 7-10 días después.</li>
+    <li><strong>En 7 días naturales:</strong> me mandas tu doc/deck/material por el medio que prefieras (email, Drive, Notion, lo que sea).</li>
+    <li><strong>1:1 conmigo (90 min):</strong> revisamos juntos. Profundizamos lo que haga falta. Cerramos con acuerdo concreto.</li>
+    <li><strong>Dentro de 30 días del 1:1:</strong> arrancan los tres quick wins acordados. La ambición de 12 meses entra al roadmap del Centro de Excelencia.</li>
+  </ul>
+
+  <div class="signature">
+    <div>
+      <div class="sig-name">
+        Chucho Porras
+        <span>Director de Marketing Corporativo<br>Grupo Plasencia Automotriz</span>
+      </div>
+    </div>
+    <div class="sig-stamp">
+      <strong>Confidencial</strong>
+      Para el destinatario nombrado<br>
+      Versión 2026-05-07<br>
+      Aprobado por Dir. General
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
