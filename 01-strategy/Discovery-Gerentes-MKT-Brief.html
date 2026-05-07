@@ -45,28 +45,8 @@
 
   @page {
     size: A4;
-    margin: 18mm 18mm 22mm 18mm;
-    @bottom-right {
-      content: counter(page);
-      font-family: 'Inter', sans-serif;
-      font-size: 9pt;
-      color: #718096;
-    }
-    @bottom-left {
-      content: "Confidencial · Grupo Plasencia Automotriz · Dirección de Marketing Corporativo";
-      font-family: 'Inter', sans-serif;
-      font-size: 8pt;
-      color: #A0AEC0;
-    }
-    @top-right {
-      content: "Discovery Estratégico · Marketing Corporativo";
-      font-family: 'Inter', sans-serif;
-      font-size: 8pt;
-      color: #A0AEC0;
-    }
+    margin: 0;
   }
-  @page :first { @top-right { content: ""; } @bottom-right { content: ""; } @bottom-left { content: ""; } }
-  @page cover { margin: 0; }
 
   .page {
     background: var(--paper);
@@ -107,10 +87,13 @@
     color: var(--near-white);
     padding: 0;
     page: cover;
+    height: 297mm;
+    display: flex;
   }
   .cover-inner {
     padding: 28mm 22mm 22mm 22mm;
-    min-height: 297mm;
+    flex: 1;
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
