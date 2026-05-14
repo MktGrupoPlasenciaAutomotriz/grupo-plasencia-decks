@@ -504,32 +504,37 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: #0d1117; f
 <section class="slide slide--light">
   <div class="slide-label">09 / Cómo se ve durante el piloto</div>
   <img src="../assets/logos/LOGO-GP-Blanco.png" class="logo-corner logo-w"><img src="../assets/logos/Logo-GP-Negro.png" class="logo-corner logo-d">
-  <div class="pad-lg flex-col" style="gap:20px;">
+  <div class="pad-lg flex-col" style="gap:14px;">
     <div>
       <div class="t-label t-red">§ 07 · Operación cotidiana del piloto</div>
-      <div class="t-accent" style="font-size:34px;font-weight:800;color:#1E2740;letter-spacing:-0.5px;margin-top:6px;line-height:1.2;">Tres artefactos visibles en tiempo real.</div>
-      <div style="font-size:14px;color:#4A5568;margin-top:8px;max-width:1080px;line-height:1.6;">La operación cotidiana de las tres marcas piloto se concentra en tres artefactos que cualquier persona autorizada del grupo puede consultar en tiempo real.</div>
+      <div class="t-accent" style="font-size:30px;font-weight:800;color:#1E2740;letter-spacing:-0.5px;margin-top:4px;line-height:1.2;">Tres artefactos visibles en tiempo real.</div>
+      <div style="font-size:13px;color:#4A5568;margin-top:6px;max-width:1080px;line-height:1.55;">La operación cotidiana de las tres marcas piloto se concentra en tres artefactos que cualquier persona autorizada del grupo puede consultar en tiempo real.</div>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;flex:1;">
-      <div class="artifact">
-        <div class="head">Artefacto 1</div>
-        <h4>Dashboard ejecutivo</h4>
-        <p>Corte diario. Filtro global por canal y por marca. Indicadores principales del periodo, embudo de marca a sucursal, costo por oportunidad por marca y tabla por vendedor. Es la fuente de verdad operativa del piloto.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;flex:1;">
+      <div class="artifact" style="padding:14px;gap:8px;">
+        <div class="head">Artefacto 1 · Dashboard ejecutivo</div>
+        <div style="background:#0F1A2E;border-radius:6px;overflow:hidden;display:flex;align-items:center;justify-content:center;flex:1;min-height:0;">
+          <img src="../assets/screenshots/Data-Dashboard.png" alt="Dashboard ejecutivo del Motor de Atribución" style="width:100%;height:100%;object-fit:cover;object-position:top center;display:block;" loading="lazy">
+        </div>
+        <p style="font-size:11px;color:#4A5568;line-height:1.5;margin-top:2px;">Corte diario. Filtro global por canal y por marca. Indicadores principales del periodo, embudo de marca a sucursal, costo por oportunidad y tabla por vendedor. Es la fuente de verdad operativa del piloto.</p>
       </div>
-      <div class="artifact">
-        <div class="head">Artefacto 2</div>
-        <h4>Kanban corporativo</h4>
-        <p>Seis columnas que cubren todas las etapas del pipeline desde por contactar hasta ganada o perdida. Transversal a las tres marcas piloto. Cada vendedor accede con identificador personal y solo ve las oportunidades de su universo.</p>
-      </div>
-      <div class="artifact">
-        <div class="head">Artefacto 3</div>
-        <h4>Conciliación diaria</h4>
-        <p>Reporte automatizado que cada mañana cruza la base corporativa contra tres fuentes externas para verificar que no haya fugas ni desviaciones. Genera además los comandos correctivos cuando detecta alguna inconsistencia.</p>
+      <div class="artifact" style="padding:14px;gap:8px;">
+        <div class="head">Artefacto 2 · Kanban corporativo</div>
+        <div style="background:#0F1A2E;border-radius:6px;overflow:hidden;display:flex;align-items:center;justify-content:center;flex:1;min-height:0;">
+          <img src="../assets/screenshots/Kanban-Pipeline.png" alt="Kanban corporativo transversal a marcas" style="width:100%;height:100%;object-fit:cover;object-position:top center;display:block;" loading="lazy">
+        </div>
+        <p style="font-size:11px;color:#4A5568;line-height:1.5;margin-top:2px;">Seis columnas que cubren todas las etapas del pipeline desde por contactar hasta ganada o perdida. Transversal a las tres marcas piloto. Cada vendedor accede con identificador personal a su universo.</p>
       </div>
     </div>
-    <div style="background:rgba(66,153,225,0.08);border-left:4px solid #4299E1;border-radius:8px;padding:14px 22px;display:flex;align-items:center;gap:20px;">
-      <div style="font-size:10px;font-weight:800;letter-spacing:2px;color:#2B6CB0;text-transform:uppercase;flex-shrink:0;">Capacidad nueva en el piloto</div>
-      <div style="font-size:13.5px;color:#1E2740;line-height:1.55;">Por primera vez el grupo tiene la posibilidad de observar la operación digital cross-marca en tiempo real durante el periodo del piloto. La observación misma es uno de los productos de la prueba.</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+      <div class="card" style="border-left:3px solid #4299E1;padding:12px 16px;">
+        <div style="font-size:10px;font-weight:800;letter-spacing:1.5px;color:#2B6CB0;text-transform:uppercase;margin-bottom:3px;">Artefacto 3 · Conciliación diaria</div>
+        <div style="font-size:11.5px;color:#4A5568;line-height:1.55;">Reporte automatizado que cada mañana cruza la base corporativa contra tres fuentes externas para verificar la integridad de los datos. Genera los comandos correctivos cuando detecta alguna inconsistencia. Es un proceso de fondo, no una interfaz visual.</div>
+      </div>
+      <div style="background:rgba(66,153,225,0.08);border-left:3px solid #4299E1;border-radius:6px;padding:12px 16px;display:flex;align-items:center;gap:14px;">
+        <div style="font-size:10px;font-weight:800;letter-spacing:1.5px;color:#2B6CB0;text-transform:uppercase;flex-shrink:0;">Capacidad nueva</div>
+        <div style="font-size:11.5px;color:#1E2740;line-height:1.55;">Por primera vez el grupo tiene la posibilidad de observar la operación digital cross-marca en tiempo real durante el periodo del piloto.</div>
+      </div>
     </div>
   </div>
   <div class="slide-footer">Motor de Atribución · Sesión de contexto · Consejo · Mayo 2026</div>
