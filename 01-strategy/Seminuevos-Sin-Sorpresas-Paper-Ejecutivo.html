@@ -1,0 +1,1866 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Seminuevos Plasencia · Sin Sorpresas — Concepto rector de la marca-negocio</title>
+<meta name="description" content="Strategy Definition de Seminuevos Plasencia. Concepto rector 'Sin Sorpresas' como respuesta a la doble presión competitiva (lote tradicional + marketplace digital). Para Pepe Morales, Jonathan Medina y el Consejo Directivo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@500;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gp-red: #C8102E;
+    --gp-navy: #1E2740;
+    --gp-slate: #2D3748;
+    --green: #48BB78;
+    --deep-green: #276749;
+    --blue: #4299E1;
+    --deep-blue: #2B6CB0;
+    --amber: #D69E2E;
+    --gold: #ECC94B;
+    --sem-gold: #FBC645;
+    --bg: #F0F4F8;
+    --paper: #FFFFFF;
+    --near-white: #F7FAFC;
+    --g100: #EDF2F7;
+    --g300: #CBD5E0;
+    --g400: #A0AEC0;
+    --g500: #718096;
+    --g600: #4A5568;
+    --text: #2D3748;
+    --serif: 'Playfair Display', Georgia, serif;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html, body { background:var(--bg); }
+  body {
+    font-family: var(--sans);
+    color: var(--text);
+    line-height: 1.55;
+    font-size: 10pt;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  @page {
+    size: A4;
+    margin: 18mm 18mm 22mm 18mm;
+    @bottom-right {
+      content: counter(page);
+      font-family: 'Inter', sans-serif;
+      font-size: 9pt;
+      color: #718096;
+    }
+    @bottom-left {
+      content: "Confidencial · Grupo Plasencia · Dirección de Marketing Corporativo";
+      font-family: 'Inter', sans-serif;
+      font-size: 8pt;
+      color: #A0AEC0;
+    }
+    @top-right {
+      content: "Seminuevos Plasencia · Sin Sorpresas · Concepto rector";
+      font-family: 'Inter', sans-serif;
+      font-size: 8pt;
+      color: #A0AEC0;
+    }
+  }
+  @page :first { @top-right { content: ""; } @bottom-right { content: ""; } @bottom-left { content: ""; } }
+  @page cover { margin: 0; }
+
+  .page {
+    background: var(--paper);
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0 auto 8mm auto;
+    padding: 18mm 18mm 22mm 18mm;
+    position: relative;
+    page-break-after: always;
+    box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 4px 24px rgba(30,39,64,.08);
+  }
+  .page:last-child { page-break-after: auto; }
+
+  /* ============ COVER ============ */
+  .cover {
+    background: var(--gp-navy);
+    color: var(--near-white);
+    padding: 0;
+    page: cover;
+  }
+  .cover-inner {
+    padding: 36mm 22mm 24mm 22mm;
+    min-height: 297mm;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background:
+      radial-gradient(ellipse at 100% 0%, rgba(251,198,69,0.14) 0%, transparent 55%),
+      radial-gradient(ellipse at 0% 100%, rgba(200,16,46,0.10) 0%, transparent 55%),
+      var(--gp-navy);
+    position: relative;
+  }
+  .cover-inner::before {
+    content: "";
+    position: absolute;
+    top: 24mm; left: 22mm;
+    width: 64mm; height: 1px;
+    background: var(--sem-gold);
+  }
+  .cover-mark {
+    font-family: var(--sans);
+    font-weight: 700;
+    font-size: 11pt;
+    letter-spacing: 4px;
+    color: var(--sem-gold);
+    text-transform: uppercase;
+  }
+  .cover-mark span { display:block; font-weight:400; color:rgba(255,255,255,0.55); margin-top:4px; letter-spacing:1px; font-size:9pt; }
+  .cover-eyebrow {
+    font-family: var(--sans);
+    font-size: 10pt;
+    font-weight: 700;
+    letter-spacing: 5px;
+    color: var(--gp-red);
+    text-transform: uppercase;
+    margin-top: 14mm;
+  }
+  .cover-title {
+    font-family: var(--serif);
+    font-weight: 800;
+    font-size: 80pt;
+    line-height: 0.95;
+    letter-spacing: -2.5px;
+    margin-top: 8mm;
+    color: var(--near-white);
+  }
+  .cover-title em { font-style: italic; color: var(--sem-gold); font-weight: 700; }
+  .cover-title-after {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 500;
+    font-size: 13pt;
+    color: rgba(255,255,255,0.65);
+    margin-top: 4mm;
+    letter-spacing: -0.2px;
+  }
+  .cover-subtitle {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-style: italic;
+    font-size: 17pt;
+    color: var(--sem-gold);
+    margin-top: 14mm;
+    letter-spacing: -0.3px;
+    line-height: 1.3;
+  }
+  .cover-pull {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-style: italic;
+    font-size: 12pt;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.55;
+    border-left: 3px solid var(--gp-red);
+    padding-left: 8mm;
+    margin-top: 14mm;
+    max-width: 150mm;
+  }
+  .cover-pull cite {
+    display: block;
+    font-style: normal;
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 9pt;
+    letter-spacing: 1.5px;
+    color: var(--gp-red);
+    margin-top: 6mm;
+    text-transform: uppercase;
+  }
+  .cover-tags { display:flex; gap:6mm; margin-top: 12mm; flex-wrap:wrap; }
+  .cover-tag {
+    font-family: var(--sans);
+    font-size: 9pt;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: rgba(255,255,255,0.85);
+    border: 1px solid rgba(255,255,255,0.25);
+    padding: 4px 10px;
+    border-radius: 999px;
+    text-transform: uppercase;
+  }
+  .cover-tag.accent { color: var(--sem-gold); border-color: rgba(251,198,69,0.4); }
+  .cover-tag.urgent { color: var(--gp-red); border-color: rgba(200,16,46,0.4); }
+  .cover-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 14mm;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    padding-top: 8mm;
+  }
+  .cover-meta-block { font-size: 9pt; color: rgba(255,255,255,0.65); line-height: 1.7; }
+  .cover-meta-block strong { display:block; color: var(--near-white); font-weight: 700; font-size: 10pt; letter-spacing: .5px; }
+
+  /* ============ TOC ============ */
+  .toc { margin-top: 6mm; }
+  .toc-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 3mm 0;
+    border-bottom: 1px dotted var(--g300);
+    font-size: 10.5pt;
+  }
+  .toc-num {
+    font-family: var(--serif);
+    font-weight: 800;
+    font-size: 13pt;
+    color: var(--gp-red);
+    width: 14mm;
+    flex-shrink: 0;
+  }
+  .toc-title {
+    flex: 1;
+    color: var(--gp-navy);
+    font-weight: 700;
+    padding-right: 4mm;
+  }
+  .toc-sub { display: block; font-size: 9pt; color: var(--g500); font-weight: 400; margin-top: 1mm; }
+  .toc-page {
+    color: var(--g500);
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 11pt;
+    flex-shrink: 0;
+  }
+
+  /* ============ TYPOGRAPHY ============ */
+  h1.section-title {
+    font-family: var(--serif);
+    font-weight: 800;
+    font-size: 30pt;
+    line-height: 1.05;
+    letter-spacing: -1px;
+    color: var(--gp-navy);
+    border-top: 3px solid var(--gp-red);
+    padding-top: 6mm;
+    margin-bottom: 6mm;
+  }
+  h1.section-title .num {
+    display: block;
+    font-family: var(--sans);
+    font-weight: 700;
+    font-size: 9pt;
+    letter-spacing: 4px;
+    color: var(--gp-red);
+    text-transform: uppercase;
+    margin-bottom: 4mm;
+  }
+  h2.section-h2 {
+    font-size: 15pt;
+    font-weight: 800;
+    color: var(--gp-navy);
+    margin-top: 8mm;
+    margin-bottom: 3mm;
+    line-height: 1.2;
+  }
+  h3.section-h3 {
+    font-size: 12pt;
+    font-weight: 700;
+    color: var(--gp-navy);
+    margin-top: 5mm;
+    margin-bottom: 2mm;
+  }
+  p { margin: 0 0 3mm 0; }
+  strong { font-weight: 700; color: var(--gp-navy); }
+  em { font-style: italic; }
+
+  .lead { font-size: 11pt; line-height: 1.65; color: var(--g600); margin-bottom: 4mm; }
+  .lead strong { color: var(--gp-navy); }
+  .small { font-size: 8.5pt; color: var(--g500); }
+
+  .section-flag {
+    display: inline-block;
+    font-family: var(--sans);
+    font-size: 8pt;
+    font-weight: 800;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 4px;
+    background: rgba(200, 16, 46, 0.08);
+    color: var(--gp-red);
+    margin-bottom: 4mm;
+  }
+  .section-flag.blue { background: rgba(66, 153, 225, 0.08); color: var(--deep-blue); }
+  .section-flag.green { background: rgba(72, 187, 120, 0.1); color: var(--deep-green); }
+  .section-flag.amber { background: rgba(214, 158, 46, 0.1); color: var(--amber); }
+  .section-flag.gold { background: rgba(251, 198, 69, 0.22); color: #997706; }
+
+  /* ============ STAT STRIP ============ */
+  .stat-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4mm;
+    margin: 4mm 0 6mm 0;
+  }
+  .stat-strip .s {
+    background: var(--paper);
+    border: 1px solid var(--g100);
+    border-top: 3px solid var(--gp-navy);
+    padding: 4mm 4mm;
+    text-align: left;
+  }
+  .stat-strip .s .big {
+    font-family: var(--serif);
+    font-weight: 900;
+    font-size: 22pt;
+    color: var(--gp-navy);
+    line-height: 1;
+    margin-bottom: 1mm;
+    letter-spacing: -0.5px;
+  }
+  .stat-strip .s .lbl {
+    font-size: 8pt;
+    color: var(--g500);
+    line-height: 1.3;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+  }
+
+  /* ============ COMPLICATION DRIVERS ============ */
+  .drivers {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4mm;
+    margin-top: 4mm;
+  }
+  .driver {
+    background: var(--paper);
+    border: 1px solid var(--g100);
+    border-left: 4px solid var(--gp-red);
+    padding: 5mm 6mm;
+    page-break-inside: avoid;
+  }
+  .driver .driver-num {
+    font-family: var(--serif);
+    font-weight: 900;
+    font-size: 36pt;
+    color: var(--gp-red);
+    line-height: 1;
+    float: left;
+    margin: -2mm 4mm 0 0;
+  }
+  .driver h3 {
+    font-size: 12pt;
+    font-weight: 800;
+    color: var(--gp-navy);
+    margin-bottom: 2mm;
+    line-height: 1.25;
+    overflow: hidden;
+  }
+  .driver p {
+    font-size: 9.5pt;
+    color: var(--g600);
+    line-height: 1.55;
+    overflow: hidden;
+    margin-bottom: 0;
+  }
+  .driver p strong { color: var(--gp-navy); }
+
+  /* ============ STATEMENT (HOLY BLOCK) ============ */
+  .statement {
+    background: var(--gp-navy);
+    color: var(--near-white);
+    padding: 14mm 14mm;
+    margin: 6mm 0 8mm 0;
+    border-left: 5px solid var(--sem-gold);
+    page-break-inside: avoid;
+    position: relative;
+  }
+  .statement::before {
+    content: "“";
+    position: absolute;
+    top: 4mm;
+    right: 12mm;
+    font-family: var(--serif);
+    font-size: 88pt;
+    color: rgba(251,198,69,0.18);
+    line-height: 1;
+    font-weight: 900;
+  }
+  .statement .label {
+    font-family: var(--sans);
+    font-size: 9pt;
+    font-weight: 800;
+    letter-spacing: 3px;
+    color: var(--sem-gold);
+    text-transform: uppercase;
+    margin-bottom: 4mm;
+    display: block;
+  }
+  .statement .text {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 500;
+    font-size: 18pt;
+    line-height: 1.45;
+    color: var(--near-white);
+    letter-spacing: -0.3px;
+  }
+  .statement .text strong {
+    color: var(--sem-gold);
+    font-weight: 700;
+    font-style: normal;
+    font-family: var(--sans);
+    font-size: 17pt;
+  }
+
+  /* ============ METHOD NOTE (deuda metodológica) ============ */
+  .method-note {
+    background: rgba(214, 158, 46, 0.05);
+    border: 1px solid rgba(214, 158, 46, 0.28);
+    border-left: 4px solid var(--amber);
+    padding: 5mm 6mm;
+    margin: 4mm 0;
+    page-break-inside: avoid;
+  }
+  .method-note .label {
+    display: block;
+    font-family: var(--sans);
+    font-size: 9pt;
+    font-weight: 800;
+    letter-spacing: 3px;
+    color: var(--amber);
+    text-transform: uppercase;
+    margin-bottom: 3mm;
+  }
+  .method-note h3 {
+    font-family: var(--serif);
+    font-weight: 800;
+    font-size: 13pt;
+    color: var(--gp-navy);
+    margin-bottom: 3mm;
+    line-height: 1.3;
+    letter-spacing: -0.3px;
+  }
+  .method-note p {
+    font-size: 9.5pt;
+    color: var(--g600);
+    line-height: 1.6;
+    margin-bottom: 2mm;
+  }
+  .method-note p:last-child { margin-bottom: 0; }
+  .method-note p strong { color: var(--gp-navy); }
+
+  /* ============ HYPOTHESIS BLOCK ============ */
+  .hypothesis {
+    background: var(--g100);
+    border-left: 4px solid var(--gp-navy);
+    padding: 6mm 7mm;
+    margin: 4mm 0;
+  }
+  .hypothesis .label {
+    display: block;
+    font-family: var(--sans);
+    font-size: 9pt;
+    font-weight: 800;
+    letter-spacing: 3px;
+    color: var(--gp-red);
+    text-transform: uppercase;
+    margin-bottom: 3mm;
+  }
+  .hypothesis h3 {
+    font-family: var(--serif);
+    font-weight: 800;
+    font-size: 17pt;
+    color: var(--gp-navy);
+    line-height: 1.25;
+    letter-spacing: -0.5px;
+    margin-bottom: 3mm;
+  }
+  .hypothesis p {
+    font-size: 11pt;
+    color: var(--g600);
+    line-height: 1.6;
+    margin-bottom: 0;
+  }
+
+  /* ============ PILLARS / PROMESAS ============ */
+  .pillars {
+    list-style: none;
+    margin: 4mm 0;
+    counter-reset: attr;
+  }
+  .pillars li {
+    display: grid;
+    grid-template-columns: 14mm 1fr;
+    gap: 4mm;
+    padding: 4mm 0;
+    border-bottom: 1px dotted var(--g300);
+    page-break-inside: avoid;
+  }
+  .pillars li:last-child { border-bottom: none; }
+  .pillars li::before {
+    counter-increment: attr;
+    content: counter(attr, decimal-leading-zero);
+    font-family: var(--serif);
+    font-weight: 900;
+    font-size: 24pt;
+    color: var(--sem-gold);
+    line-height: 1;
+  }
+  .pillars h4 {
+    font-size: 11pt;
+    font-weight: 800;
+    color: var(--gp-navy);
+    margin: 0 0 1mm 0;
+    line-height: 1.25;
+  }
+  .pillars p {
+    font-size: 9.5pt;
+    color: var(--g600);
+    margin: 0;
+    line-height: 1.55;
+  }
+  .pillars .evidence-tag {
+    display: inline-block;
+    margin-top: 2mm;
+    font-size: 8pt;
+    font-weight: 700;
+    color: var(--deep-green);
+    background: rgba(72,187,120,0.1);
+    padding: 1mm 3mm;
+    border-radius: 3px;
+    letter-spacing: 0.3px;
+  }
+
+  /* ============ NOT BLOCK ============ */
+  .not-block {
+    background: rgba(200, 16, 46, 0.04);
+    border: 1px solid rgba(200, 16, 46, 0.2);
+    border-left: 4px solid var(--gp-red);
+    padding: 5mm 6mm;
+    margin: 5mm 0;
+  }
+  .not-block .label {
+    display: block;
+    font-family: var(--sans);
+    font-size: 9pt;
+    font-weight: 800;
+    letter-spacing: 3px;
+    color: var(--gp-red);
+    text-transform: uppercase;
+    margin-bottom: 3mm;
+  }
+  .not-block h3 {
+    font-family: var(--serif);
+    font-weight: 800;
+    font-size: 14pt;
+    color: var(--gp-navy);
+    margin-bottom: 3mm;
+    line-height: 1.25;
+  }
+  .not-block ul { list-style: none; padding: 0; }
+  .not-block ul li {
+    font-size: 9.5pt;
+    color: var(--g600);
+    padding: 1.5mm 0 1.5mm 6mm;
+    position: relative;
+    line-height: 1.5;
+  }
+  .not-block ul li::before {
+    content: "✕";
+    position: absolute;
+    left: 0;
+    color: var(--gp-red);
+    font-weight: bold;
+  }
+  .not-block ul li strong { color: var(--gp-slate); }
+
+  /* ============ DEFENSIBILITY TABLE ============ */
+  table.compare {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 4mm;
+    font-size: 9pt;
+    page-break-inside: avoid;
+  }
+  table.compare thead th {
+    background: var(--gp-navy);
+    color: var(--near-white);
+    font-weight: 700;
+    text-align: left;
+    padding: 3mm 4mm;
+    font-size: 8.5pt;
+    letter-spacing: 0.5px;
+  }
+  table.compare thead th:first-child { color: var(--sem-gold); }
+  table.compare tbody td {
+    padding: 3mm 4mm;
+    border-bottom: 1px solid var(--g100);
+    vertical-align: top;
+    color: var(--g600);
+    line-height: 1.5;
+  }
+  table.compare tbody td:first-child {
+    background: var(--g100);
+    font-weight: 700;
+    color: var(--gp-navy);
+    width: 32%;
+  }
+  table.compare tbody tr.us td {
+    background: rgba(251,198,69,0.08);
+    font-weight: 700;
+    color: var(--gp-navy);
+  }
+  table.compare tbody tr.us td:first-child {
+    background: var(--sem-gold);
+    color: var(--gp-navy);
+  }
+  table.compare tbody td strong { color: var(--gp-navy); }
+  table.compare .yes { color: var(--deep-green); font-weight: 700; }
+  table.compare .no { color: var(--gp-red); font-weight: 700; }
+  table.compare .partial { color: var(--amber); font-weight: 700; }
+
+  /* ============ PRINCIPLES ============ */
+  .principles {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4mm;
+    margin-top: 4mm;
+  }
+  .principle {
+    background: var(--paper);
+    border: 1px solid var(--g100);
+    border-top: 3px solid var(--gp-navy);
+    padding: 5mm 6mm;
+    page-break-inside: avoid;
+  }
+  .principle .num {
+    font-family: var(--serif);
+    font-weight: 900;
+    font-size: 9pt;
+    color: var(--gp-red);
+    letter-spacing: 2px;
+    margin-bottom: 2mm;
+    text-transform: uppercase;
+  }
+  .principle h4 {
+    font-size: 11pt;
+    font-weight: 800;
+    color: var(--gp-navy);
+    margin-bottom: 2mm;
+    line-height: 1.25;
+  }
+  .principle p {
+    font-size: 9pt;
+    color: var(--g600);
+    line-height: 1.5;
+    margin: 0;
+  }
+  .principle p strong { color: var(--gp-navy); }
+
+  /* ============ TONAL DESCENT (BAJADAS) ============ */
+  .bajadas { margin-top: 4mm; }
+  .bajada {
+    background: var(--paper);
+    border: 1px solid var(--g100);
+    padding: 5mm 6mm;
+    margin-bottom: 4mm;
+    border-left: 4px solid var(--gp-navy);
+    page-break-inside: avoid;
+  }
+  .bajada:nth-child(2) { border-left-color: var(--blue); }
+  .bajada:nth-child(3) { border-left-color: var(--amber); }
+  .bajada:nth-child(4) { border-left-color: var(--deep-green); }
+  .bajada .tag {
+    display: inline-block;
+    font-family: var(--sans);
+    font-size: 8pt;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gp-navy);
+    background: var(--g100);
+    padding: 2px 8px;
+    border-radius: 3px;
+    margin-bottom: 2mm;
+  }
+  .bajada h4 {
+    font-size: 13pt;
+    font-weight: 800;
+    color: var(--gp-navy);
+    margin: 0 0 2mm 0;
+    line-height: 1.2;
+  }
+  .bajada .audience {
+    font-size: 8.5pt;
+    color: var(--g500);
+    margin-bottom: 3mm;
+    font-style: italic;
+  }
+  .bajada-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4mm;
+    margin-top: 3mm;
+  }
+  .bajada-cell h5 {
+    font-family: var(--sans);
+    font-size: 8pt;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    color: var(--gp-red);
+    text-transform: uppercase;
+    margin-bottom: 1mm;
+  }
+  .bajada-cell.si h5 { color: var(--deep-green); }
+  .bajada-cell ul { list-style: none; padding: 0; }
+  .bajada-cell ul li {
+    font-size: 9pt;
+    color: var(--g600);
+    padding: 0.8mm 0 0.8mm 5mm;
+    position: relative;
+    line-height: 1.45;
+  }
+  .bajada-cell.si ul li::before {
+    content: "▸";
+    position: absolute;
+    left: 0;
+    color: var(--deep-green);
+    font-weight: bold;
+  }
+  .bajada-cell:not(.si) ul li::before {
+    content: "✕";
+    position: absolute;
+    left: 0;
+    color: var(--gp-red);
+    font-weight: bold;
+  }
+  .copy-sample {
+    background: var(--gp-navy);
+    color: var(--sem-gold);
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 11pt;
+    padding: 3mm 5mm;
+    margin-top: 3mm;
+    border-left: 3px solid var(--sem-gold);
+    line-height: 1.5;
+  }
+  .copy-sample strong { color: var(--near-white); font-style: normal; font-family: var(--sans); font-size: 8pt; letter-spacing: 1.5px; display: block; margin-bottom: 1mm; font-weight: 700; }
+
+  /* ============ ROADMAP PHASES ============ */
+  .phases { margin-top: 4mm; }
+  .phase {
+    background: var(--paper);
+    border: 1px solid var(--g100);
+    padding: 5mm 6mm;
+    margin-bottom: 4mm;
+    border-left: 4px solid var(--sem-gold);
+    page-break-inside: avoid;
+  }
+  .phase:nth-child(2) { border-left-color: var(--blue); }
+  .phase:nth-child(3) { border-left-color: var(--amber); }
+  .phase:nth-child(4) { border-left-color: var(--deep-green); }
+  .phase:nth-child(5) { border-left-color: var(--gp-navy); }
+  .phase .phase-tag {
+    display: inline-block;
+    font-family: var(--sans);
+    font-size: 8pt;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gp-navy);
+    margin-bottom: 2mm;
+  }
+  .phase h4 {
+    font-size: 12pt;
+    font-weight: 800;
+    color: var(--gp-navy);
+    margin: 0 0 1mm 0;
+  }
+  .phase .timeline { font-size: 9pt; color: var(--g500); margin-bottom: 3mm; font-style: italic; }
+  .phase-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4mm;
+    margin-top: 3mm;
+  }
+  .phase-cell h5 {
+    font-family: var(--sans);
+    font-size: 8pt;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    color: var(--gp-red);
+    text-transform: uppercase;
+    margin-bottom: 1mm;
+  }
+  .phase-cell ul { list-style: none; padding: 0; }
+  .phase-cell ul li {
+    font-size: 9pt;
+    color: var(--g600);
+    padding: 0.8mm 0 0.8mm 5mm;
+    position: relative;
+    line-height: 1.45;
+  }
+  .phase-cell ul li::before {
+    content: "▸";
+    position: absolute;
+    left: 0;
+    color: var(--gp-red);
+    font-weight: bold;
+  }
+  .phase-cell p { font-size: 9pt; color: var(--g600); margin: 0; line-height: 1.45; }
+
+  /* ============ METRICS TABLE ============ */
+  table.metrics {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 3mm;
+    font-size: 9pt;
+    page-break-inside: avoid;
+  }
+  table.metrics thead th {
+    background: var(--g100);
+    color: var(--gp-navy);
+    font-weight: 700;
+    text-align: left;
+    padding: 2.5mm 3mm;
+    font-size: 8.5pt;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid var(--gp-navy);
+  }
+  table.metrics tbody td {
+    padding: 2.5mm 3mm;
+    border-bottom: 1px solid var(--g100);
+    vertical-align: top;
+    color: var(--g600);
+    line-height: 1.5;
+  }
+  table.metrics tbody td:first-child {
+    font-weight: 700;
+    color: var(--gp-navy);
+    width: 36%;
+  }
+  table.metrics tbody td.target {
+    color: var(--deep-green);
+    font-weight: 700;
+  }
+
+  /* ============ KILLER ============ */
+  .killer {
+    background: var(--gp-navy);
+    color: var(--near-white);
+    padding: 8mm 10mm;
+    margin-top: 5mm;
+    border-left: 4px solid var(--sem-gold);
+    page-break-inside: avoid;
+  }
+  .killer .label {
+    font-size: 9pt;
+    font-weight: 800;
+    letter-spacing: 3px;
+    color: var(--sem-gold);
+    text-transform: uppercase;
+    margin-bottom: 2mm;
+    display: block;
+  }
+  .killer h3 {
+    font-family: var(--serif);
+    font-weight: 800;
+    font-size: 18pt;
+    color: var(--near-white);
+    margin-bottom: 2mm;
+    line-height: 1.25;
+  }
+  .killer p {
+    font-size: 10.5pt;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.55;
+    margin-bottom: 0;
+  }
+  .killer strong { color: var(--sem-gold); }
+
+  /* ============ ASKS ============ */
+  .asks {
+    list-style: none;
+    counter-reset: ask;
+    margin-top: 4mm;
+  }
+  .asks li {
+    display: grid;
+    grid-template-columns: 14mm 1fr 30mm;
+    gap: 4mm;
+    padding: 4mm 0;
+    border-bottom: 1px solid var(--g100);
+    page-break-inside: avoid;
+    align-items: start;
+  }
+  .asks li::before {
+    counter-increment: ask;
+    content: counter(ask);
+    font-family: var(--serif);
+    font-weight: 900;
+    font-size: 28pt;
+    color: var(--gp-red);
+    line-height: 1;
+  }
+  .asks h4 {
+    font-size: 11pt;
+    font-weight: 800;
+    color: var(--gp-navy);
+    margin: 0 0 1mm 0;
+  }
+  .asks p {
+    font-size: 9pt;
+    color: var(--g600);
+    margin: 0;
+    line-height: 1.5;
+  }
+  .ask-decision {
+    text-align: right;
+    font-family: var(--sans);
+    font-size: 9pt;
+    font-weight: 700;
+    color: var(--gp-red);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    line-height: 1.4;
+  }
+  .ask-decision span { display: block; font-weight: 400; color: var(--g500); font-size: 8pt; text-transform: none; letter-spacing: 0; margin-top: 1mm; }
+
+  /* ============ RISKS ============ */
+  .risks { margin-top: 4mm; }
+  .risk {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5mm;
+    background: var(--paper);
+    border: 1px solid var(--g100);
+    border-left: 3px solid var(--gp-red);
+    padding: 4mm 5mm;
+    margin-bottom: 3mm;
+    page-break-inside: avoid;
+  }
+  .risk:nth-child(odd) { border-left-color: var(--amber); }
+  .risk-side h5 {
+    font-family: var(--sans);
+    font-size: 8pt;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    color: var(--gp-red);
+    text-transform: uppercase;
+    margin-bottom: 1mm;
+  }
+  .risk-side:nth-child(2) h5 { color: var(--deep-green); }
+  .risk-side p {
+    font-size: 9pt;
+    color: var(--g600);
+    margin: 0;
+    line-height: 1.5;
+  }
+  .risk-side p strong { color: var(--gp-navy); }
+
+  /* ============ CLOSING ============ */
+  .closing {
+    background: var(--gp-navy);
+    color: var(--near-white);
+    padding: 30mm 22mm;
+    margin: -18mm;
+    margin-top: 16mm;
+    min-height: 230mm;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    background:
+      radial-gradient(ellipse at 50% 0%, rgba(251,198,69,0.14) 0%, transparent 60%),
+      radial-gradient(ellipse at 50% 100%, rgba(200,16,46,0.10) 0%, transparent 60%),
+      var(--gp-navy);
+  }
+  .closing .ribbon {
+    font-family: var(--sans);
+    font-size: 9pt;
+    font-weight: 700;
+    letter-spacing: 5px;
+    color: var(--gp-red);
+    text-transform: uppercase;
+    margin-bottom: 12mm;
+  }
+  .closing h2 {
+    font-family: var(--serif);
+    font-weight: 800;
+    font-size: 42pt;
+    color: var(--near-white);
+    margin-bottom: 8mm;
+    line-height: 1.05;
+    letter-spacing: -1.2px;
+  }
+  .closing h2 em { font-style: italic; color: var(--sem-gold); font-weight: 700; }
+  .closing .pull {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 13pt;
+    color: var(--sem-gold);
+    line-height: 1.55;
+    max-width: 150mm;
+    margin: 0 auto 10mm auto;
+  }
+  .closing .body-text {
+    font-size: 11pt;
+    color: rgba(255,255,255,0.78);
+    max-width: 150mm;
+    margin: 0 auto;
+    line-height: 1.65;
+  }
+  .closing .signature {
+    margin-top: 14mm;
+    font-size: 9pt;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 1.5px;
+  }
+  .closing .signature strong { color: var(--sem-gold); display: block; font-size: 11pt; letter-spacing: 2.5px; margin-bottom: 1mm; }
+
+  @media print {
+    body { background: white; }
+    .page { box-shadow: none; margin: 0; padding: 0; }
+    .cover { padding: 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ COVER ============ -->
+<section class="page cover">
+  <div class="cover-inner">
+    <div>
+      <div class="cover-mark">Seminuevos Plasencia<span>Concepto Rector · Mayo 2026</span></div>
+
+      <p class="cover-eyebrow">Para Pepe Morales y el Consejo</p>
+      <h1 class="cover-title">Sin<br><em>Sorpresas.</em></h1>
+      <p class="cover-title-after">El concepto rector de la marca-negocio Seminuevos Plasencia.</p>
+
+      <p class="cover-pull">
+        Este documento define el concepto rector que rige la marca-negocio Seminuevos hacia adelante. Codifica la promesa que captura simultáneamente al comprador del lote tradicional y al comprador con mindset digital, sin fragmentar la voz del negocio. Es source of truth de comunicación, experiencia digital, operación de vendedores y pitch institucional.
+        <cite>Resumen del documento</cite>
+      </p>
+
+      <div class="cover-tags">
+        <span class="cover-tag">Strategy Definition</span>
+        <span class="cover-tag accent">Concepto Rector</span>
+        <span class="cover-tag urgent">Decisión del Consejo</span>
+      </div>
+    </div>
+
+    <div>
+      <div class="cover-meta">
+        <div class="cover-meta-block">
+          <strong>Audiencia</strong>
+          Pepe Morales · Jonathan Medina · Jose Reyes · Consejo
+        </div>
+        <div class="cover-meta-block" style="text-align:right;">
+          <strong>Mayo 2026</strong>
+          Versión 1.0 · 12 páginas
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PAGE 2: ANSWER-FIRST + TOC ============ -->
+<section class="page">
+  <h1 class="section-title"><span class="num">La respuesta primero</span>La narrativa en una página.</h1>
+
+  <p class="lead">Este documento sigue una estructura clásica de Strategy Definition: <strong>Situación → Complicación → Resolución → Modelo → Bajadas Tonales → Roadmap → Caso → Ask</strong>. La recomendación vive abajo. La argumentación, en las siguientes páginas.</p>
+
+  <div class="hypothesis">
+    <span class="label">Recomendación al Consejo</span>
+    <h3>Adoptar “Sin Sorpresas” como concepto rector de Seminuevos Plasencia, capítulo táctico dentro de Experiencia Plasencia Automotriz.</h3>
+    <p>El concepto codifica la promesa de eliminar el riesgo de arrepentimiento del cliente en la compra de un seminuevo. Captura simultáneamente al mindset tradicional (busca respaldo institucional) y al mindset digital (busca transparencia informacional). Se sostiene en activos reales que solo un incumbente con permanencia puede ofrecer: 75 años de operación, 3 sucursales físicas, financiera del Grupo, postventa real, motor digital propio. Rige comunicación externa, experiencia de producto, operación comercial y pitch institucional.</p>
+  </div>
+
+  <div class="method-note">
+    <span class="label">Nota metodológica · cómo leer este documento</span>
+    <h3>Esto es un Answer-First sustentado en direccional observable, no en investigación primaria con usuarios.</h3>
+    <p>El documento se construyó usando un Answer-First clásico: la recomendación arriba, la argumentación abajo. La argumentación se apoya en cuatro fuentes: <strong>(1)</strong> direccionales del piloto digital (5,396 sessions, funnel observable, cierre digital vs tradicional 39%/70%); <strong>(2)</strong> perfil del cliente inferido del brief de abril 2026 y del juicio operativo del director; <strong>(3)</strong> activos verificables del negocio (75 años, 3 sucursales, financiera, postventa, red OEM, motor digital propio); <strong>(4)</strong> evidencia global automotive 2020–2025 documentada en El Patrón Que Ganó.</p>
+    <p><strong>El método canónico recomendado</strong> para llegar a un concepto rector de marca-negocio es: investigación primaria con usuarios reales (entrevistas JTBD, switch interviews, observación de comportamiento de compra) → síntesis de jobs y mindsets → validación de hipótesis contra el research → concepto rector. <strong>Ese research no se hizo aquí.</strong> Las hipótesis sobre cómo piensan los dos mindsets de comprador son razonadas y razonables, pero <strong>no están confirmadas con voz de cliente</strong>.</p>
+    <p><strong>Implicación:</strong> “Sin Sorpresas” se adopta como apuesta direccional sustentada con evidencia contextual. La investigación con usuario queda como <strong>deuda metodológica explícita</strong>, recomendada antes de comprometer comunicación externa a escala o transferencia del concepto a marcas OEM. Documentada en §6 (Fase 1) y §8 (Riesgo 7).</p>
+  </div>
+
+  <h2 class="section-h2">Tabla de contenido</h2>
+
+  <div class="toc">
+    <div class="toc-item">
+      <span class="toc-num">01</span>
+      <span class="toc-title">Situación<span class="toc-sub">Seminuevos Plasencia hoy: pilar de rentabilidad probado en transformación digital activa.</span></span>
+      <span class="toc-page">p. 3</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-num">02</span>
+      <span class="toc-title">Complicación<span class="toc-sub">La doble presión competitiva: lote tradicional sin respaldo institucional y marketplace digital sin permanencia.</span></span>
+      <span class="toc-page">p. 4</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-num">03</span>
+      <span class="toc-title">Resolución · La tesis<span class="toc-sub">Sin Sorpresas: governing thought, cuatro sub-promesas y lo que NO es el concepto.</span></span>
+      <span class="toc-page">p. 5</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-num">04</span>
+      <span class="toc-title">El modelo · cómo funciona<span class="toc-sub">JTBD compartido, activos que sostienen, defensibilidad vs competencia y los seis principios derivados.</span></span>
+      <span class="toc-page">p. 6–7</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-num">05</span>
+      <span class="toc-title">Bajadas tonales<span class="toc-sub">Cómo se traduce el concepto en comunicación externa, experiencia digital, vendedores y pitch institucional.</span></span>
+      <span class="toc-page">p. 8–9</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-num">06</span>
+      <span class="toc-title">Roadmap de adopción<span class="toc-sub">Cinco fases de implementación con responsables, gates y entregables.</span></span>
+      <span class="toc-page">p. 10</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-num">07</span>
+      <span class="toc-title">El caso · criterios de éxito<span class="toc-sub">Métricas cualitativas, cuantitativas y killer metric. La apuesta vale lo que entrega en 6 a 12 meses.</span></span>
+      <span class="toc-page">p. 11</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-num">08</span>
+      <span class="toc-title">El ask y los riesgos<span class="toc-sub">Cuatro decisiones binarias del Consejo y seis riesgos enumerados con mitigación.</span></span>
+      <span class="toc-page">p. 12</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PAGE 3: SITUACIÓN ============ -->
+<section class="page">
+  <h1 class="section-title"><span class="num">§1 · Situación</span>Seminuevos Plasencia hoy.</h1>
+
+  <p class="lead">Seminuevos Plasencia es una <strong>sub-marca propia</strong> del Grupo, operativa hace décadas, y hoy uno de los pilares de rentabilidad más eficientes de la organización. Tres realidades simultáneas conviven en este momento.</p>
+
+  <div class="stat-strip">
+    <div class="s"><div class="big">3,611</div><div class="lbl">Unidades vendidas 2025</div></div>
+    <div class="s"><div class="big">$1,137M</div><div class="lbl">Ingresos 2025 MXN</div></div>
+    <div class="s"><div class="big">$49.6M</div><div class="lbl">Utilidad 2025 MXN · 33.4% del Grupo</div></div>
+    <div class="s"><div class="big">3.8x</div><div class="lbl">Eficiencia vs benchmark nacional</div></div>
+  </div>
+
+  <h2 class="section-h2">Tres realidades simultáneas</h2>
+
+  <h3 class="section-h3">1. Pilar de rentabilidad probado</h3>
+  <p>Con 12.2% del volumen del Grupo y 33.4% de la utilidad, Seminuevos opera con una eficiencia que duplica el promedio interno. La eficiencia operativa es 3.8x el benchmark nacional: 492 unidades por punto de venta por año contra 130 nacional. El inventario rota en 45 días promedio, con $44K de utilidad promedio por unidad y $317K de venta promedio. La operación es autosuficiente, no depende de inyección de capital externo, y se sostiene con financiera del Grupo y postventa propia.</p>
+
+  <h3 class="section-h3">2. Negocio en transformación digital activa</h3>
+  <p>Desde abril de 2026 opera el Motor de Atribución MVP: catálogo XML-first con sync horario, landing lite con form de un paso, CRM kanban en producción, tracking implacable cliente y servidor, conciliación diaria entre fuentes. El piloto digital captura hoy aproximadamente <strong>5.1% del mercado</strong> de Seminuevos (18 leads digitales contra 356 ventas reales en abril). El 94.9% restante sigue viniendo por canales no digitales: piso, referidos, recompra, clientes de la red postventa Plasencia.</p>
+
+  <h3 class="section-h3">3. Doble presión competitiva sobre el mismo cliente</h3>
+  <p>Por arriba, marketplaces digitales con capital institucional (Kavak, unicornio US$8.7B; MercadoLibre presente en el funnel con 17.3% de los leads del Q4 2025). Por abajo, particulares en Facebook Marketplace y lotes locales sin respaldo institucional. El cliente compara cada vez más las tres opciones en una misma decisión, y la pregunta estratégica deja de ser “contra quién competimos” y se vuelve <strong>“cómo nos posicionamos para que ambos mindsets nos reconozcan como la opción correcta”</strong>, sin que el negocio se fracture en dos voces.</p>
+
+  <p class="small" style="margin-top:6mm;">Fuentes: <em>KO-Estrategico.md</em> §Seminuevos Plasencia operativos · <em>KO-Operativo.md</em> Update 2026-05-14 · <em>Landings-Lite-Arquitectura.md</em> §Por qué este pivote.</p>
+</section>
+
+<!-- ============ PAGE 4: COMPLICACIÓN ============ -->
+<section class="page">
+  <h1 class="section-title"><span class="num">§2 · Complicación</span>El cliente contrata el mismo job, pero busca certeza por mecanismos opuestos.</h1>
+
+  <span class="section-flag">Tensión central</span>
+
+  <p class="lead">El comprador de seminuevos en GDL hoy se mueve entre dos mindsets dominantes. <strong>Comparte el mismo trabajo a contratar</strong> (decidir sin arrepentirse), pero busca la certeza por dos mecanismos emocionales distintos. Ambos mindsets pueden comprarnos. Ambos también pueden comprarle al competidor equivocado para cada uno. La marca-negocio que los capture sin fragmentar la voz, gana.</p>
+
+  <div class="drivers">
+    <div class="driver">
+      <div class="driver-num">01</div>
+      <h3>El mindset tradicional busca respaldo institucional</h3>
+      <p>“Voy a un lugar con historia. Si tienen 75 años es porque saben. El respaldo de la institución me protege del error.” <strong>Hoy esta mayoría sí nos compra</strong>, principalmente offline. Es el cliente que valida en piso, exige factura, quiere ver el auto, pregunta por la garantía escrita.</p>
+    </div>
+    <div class="driver">
+      <div class="driver-num">02</div>
+      <h3>El mindset digital busca transparencia informacional</h3>
+      <p>“Yo me informo, comparo, controlo el proceso. La transparencia de la información me protege del error.” Es el cliente que ya compara a Kavak y MercadoLibre antes de pisar un lote. <strong>Hoy hay síntomas sueltos de su presencia</strong> en el piloto, pero no es volumen medido.</p>
+    </div>
+    <div class="driver">
+      <div class="driver-num">03</div>
+      <h3>El competidor digital es frágil estructuralmente</h3>
+      <p>La evidencia mundial 2020–2025 es clara: el modelo digital sin piso falla recurrentemente. <strong>Cazoo (£1.4B quemados, liquidada). Vroom (liquidada 2024). Honda Online Used (discontinuado). Carvana (sobrevivió con reestructura masiva).</strong> La sorpresa estructural de la startup es ella misma.</p>
+    </div>
+    <div class="driver">
+      <div class="driver-num">04</div>
+      <h3>El competidor tradicional no tiene motor digital propio</h3>
+      <p>Lotes locales y particulares pueden ofrecer el producto físico, pero no la transparencia de información, el proceso sin fricción, el asesor que llama en menos de dos horas, la trazabilidad de cada cliente. <strong>No sostienen la mitad digital de la promesa</strong> que el cliente de 2026 espera.</p>
+    </div>
+  </div>
+
+  <div class="statement">
+    <span class="label">El reto en una frase</span>
+    <p class="text">El cliente busca <strong>la misma certeza</strong>, pero la pide en dos idiomas distintos. La marca-negocio que les hable a ambos sin segmentar la voz, gana la categoría de la compra de seminuevos en Guadalajara.</p>
+  </div>
+
+  <p class="small">Fuentes: <em>El-Patron-Que-Gano-Experiencia-Plasencia.html</em> §Anti-patrón digital · <em>KO-Estrategico.md</em> §Análisis competitivo · <em>4Q Seminuevos.xlsx</em> via KO-Estrategico §Q4 2025.</p>
+</section>
+
+<!-- ============ PAGE 5: RESOLUCIÓN ============ -->
+<section class="page">
+  <h1 class="section-title"><span class="num">§3 · Resolución · La tesis</span>Sin Sorpresas como concepto rector.</h1>
+
+  <span class="section-flag gold">Governing thought</span>
+
+  <div class="hypothesis" style="border-left-color: var(--sem-gold);">
+    <span class="label">Concepto rector</span>
+    <h3>Seminuevos Plasencia entrega autos cuya compra no tiene sorpresas. Lo que ves es lo que recibes. Lo que prometemos lo entregamos. Lo que pagas es lo que vale. Hace 75 años que opera así.</h3>
+    <p>“Sin Sorpresas” codifica el trabajo emocional que ambos mindsets contratan (protección contra el arrepentimiento), expresándolo de una forma que ambos reconocen como valiosa. No es slogan, es promesa operacional. No es disrupción, es continuidad con elevación. Y es defendible solamente porque los activos institucionales del Grupo más el motor digital propio la sostienen materialmente.</p>
+  </div>
+
+  <h2 class="section-h2">Cuatro sub-promesas (las pilares operativas)</h2>
+  <p class="lead">El concepto se desagrega en cuatro promesas componentes, cada una con evidencia operativa que la hace verificable.</p>
+
+  <ol class="pillars">
+    <li>
+      <div>
+        <h4>Sin sorpresas en el auto</h4>
+        <p>Lo que el catálogo dice del auto es lo que el auto es. Sin kilometraje alterado, sin choques ocultos, sin factura dudosa.</p>
+        <span class="evidence-tag">Evidencia: inspección de 150 puntos · factura original verificada · historial documentado · postventa propia respalda hallazgos posteriores</span>
+      </div>
+    </li>
+    <li>
+      <div>
+        <h4>Sin sorpresas en el precio</h4>
+        <p>El precio publicado es el precio respetado. Las condiciones de financiamiento están publicadas. Lo que aparece en la mesa al cerrar es lo que aparecía en el catálogo.</p>
+        <span class="evidence-tag">Evidencia: catálogo XML-first con sync horario · calculadora con fórmula y tasa publicadas · disclaimers legales explícitos en landing</span>
+      </div>
+    </li>
+    <li>
+      <div>
+        <h4>Sin sorpresas en el proceso</h4>
+        <p>El cliente sabe siempre dónde está parado. El asesor llama en menos de dos horas. La cita la confirma una persona con nombre, no un bot. El proceso digital no oculta nada del físico.</p>
+        <span class="evidence-tag">Evidencia: asesor asignado server-side con nombre real · SLA &lt;2h post-registro · PDF de confirmación con folio y datos completos · CRM kanban trazable</span>
+      </div>
+    </li>
+    <li>
+      <div>
+        <h4>Sin sorpresas en la postventa</h4>
+        <p>El respaldo no termina al firmar la factura. La garantía es escrita y exigible. La red postventa Plasencia respalda el mantenimiento de las marcas del Grupo.</p>
+        <span class="evidence-tag">Evidencia: 1 año de garantía documentada · red Ford, Mazda, Hyundai, Stellantis, GAC, Changan, GWM disponible · 75 años de operación continua</span>
+      </div>
+    </li>
+  </ol>
+
+  <div class="not-block">
+    <span class="label">Lo que el concepto NO es</span>
+    <h3>Cinco fronteras claras para evitar dilución posterior.</h3>
+    <ul>
+      <li><strong>No es slogan.</strong> Puede usarse como copy externo, pero el concepto rige decisiones internas. Un eslogan cambia cada campaña; el concepto rector no.</li>
+      <li><strong>No es disclaimer.</strong> No es la línea legal abajo del ad. Es la regla de cómo se vende, atiende, entrega y respalda.</li>
+      <li><strong>No es promesa de precio bajo.</strong> Es promesa de precio correcto. Un cliente puede pagar lo justo y sentir que la decisión fue correcta porque no hubo sorpresas.</li>
+      <li><strong>No es promesa anti-competencia.</strong> No menciona Kavak, MercadoLibre ni Facebook Marketplace. La diferenciación se infiere por contraste implícito.</li>
+      <li><strong>No es promesa de cero defectos.</strong> Es promesa de cero secretos. Un seminuevo tiene historia, y la honestidad sobre esa historia es parte de la entrega.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ PAGE 6: MODELO · JTBD + DEFENSIBILIDAD ============ -->
+<section class="page">
+  <h1 class="section-title"><span class="num">§4 · El modelo · Parte 1</span>El job compartido y la defensibilidad estructural.</h1>
+
+  <span class="section-flag blue">Job-to-be-done</span>
+
+  <p class="lead">El cliente que compra un seminuevo en GDL no contrata “tener un auto”. Contrata <strong>tres jobs apilados</strong>. Funcional, emocional y social. Los dos mindsets corren el mismo programa mental, solo difieren en el mecanismo emocional por el que se sienten protegidos.</p>
+
+  <h2 class="section-h2">El job-to-be-done compartido</h2>
+
+  <ol class="pillars">
+    <li>
+      <div>
+        <h4>Funcional</h4>
+        <p>Adquirir movilidad confiable sin equivocarme. Que el auto no me deje varado. Que no me roben. Que no pague de más. Que no se vuelva un agujero negro de mantenimiento.</p>
+      </div>
+    </li>
+    <li>
+      <div>
+        <h4>Emocional</h4>
+        <p>Sentir que estoy tomando una decisión inteligente, no impulsiva. Que mi yo de seis meses adelante me va a dar las gracias por cómo elegí.</p>
+      </div>
+    </li>
+    <li>
+      <div>
+        <h4>Social</h4>
+        <p>Mostrar que sé navegar una decisión financiera grande de $200K a $1M. Que no me ven como ingenuo. Que no me vieron la cara.</p>
+      </div>
+    </li>
+  </ol>
+
+  <h2 class="section-h2">La defensibilidad estructural</h2>
+  <p class="lead">“Sin Sorpresas” parece una promesa banal hasta que se examina <strong>quién puede sostenerla creíblemente</strong>. La fortaleza estratégica de Seminuevos Plasencia es que tiene activos en ambos dominios.</p>
+
+  <table class="compare">
+    <thead>
+      <tr>
+        <th>Competidor</th>
+        <th>Activos institucionales</th>
+        <th>Activos digitales</th>
+        <th>Promesa creíble</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Particular · Facebook Marketplace</td>
+        <td><span class="no">Ninguno</span></td>
+        <td><span class="no">Ninguno</span></td>
+        <td><span class="no">No</span></td>
+      </tr>
+      <tr>
+        <td>Lote tradicional sin transformación</td>
+        <td><span class="partial">Parcial</span></td>
+        <td><span class="no">No</span></td>
+        <td><span class="partial">Sostiene el auto, no el proceso</span></td>
+      </tr>
+      <tr>
+        <td>Kavak · MercadoLibre · digital-only</td>
+        <td><span class="no">Operación reciente · capital externo · sin red física comparable</span></td>
+        <td><span class="yes">Sí</span></td>
+        <td><span class="partial">Sostiene el proceso, no la permanencia</span></td>
+      </tr>
+      <tr class="us">
+        <td>Seminuevos Plasencia</td>
+        <td><strong>Sí, completo</strong></td>
+        <td><strong>Sí, en operación</strong></td>
+        <td><strong>Sí, completa</strong></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="statement">
+    <span class="label">La defensa en una frase</span>
+    <p class="text">La promesa “Sin Sorpresas” la pueden decir muchos. <strong>La pueden sostener pocos.</strong> Entre los que la sostienen parcialmente, ninguno la sostiene completa. Esa es la posición estratégica que ningún competidor solo puede igualar.</p>
+  </div>
+</section>
+
+<!-- ============ PAGE 7: MODELO · 6 PRINCIPIOS ============ -->
+<section class="page">
+  <h1 class="section-title"><span class="num">§4 · El modelo · Parte 2</span>Los seis principios derivados.</h1>
+
+  <span class="section-flag amber">Reglas operativas</span>
+
+  <p class="lead">El concepto rector se traduce en seis reglas operativas. Toda decisión de comunicación, producto, operación o inversión tiene que poder justificarse contra <strong>al menos uno de estos principios</strong>. Si una decisión los contradice, no procede.</p>
+
+  <div class="principles">
+    <div class="principle">
+      <div class="num">Principio 01</div>
+      <h4>La promesa antes que la oferta</h4>
+      <p>Antes de hablar del precio del mes o del bono, comunicamos por qué el cliente puede confiar en lo que compra. La oferta es consecuencia, no ancla. <strong>Invertimos la lógica del retail tradicional automotriz</strong>, donde el precio lidera.</p>
+    </div>
+
+    <div class="principle">
+      <div class="num">Principio 02</div>
+      <h4>Toda promesa requiere evidencia operativa</h4>
+      <p>Nunca afirmamos algo que no podemos demostrar materialmente. Si decimos “inspección 150 puntos”, el cliente puede pedir el reporte. Si decimos “asesor en 2 horas”, el SLA se cumple. <strong>Lista de claims validados es activo del documento</strong>, no del copy de cada campaña.</p>
+    </div>
+
+    <div class="principle">
+      <div class="num">Principio 03</div>
+      <h4>Permanencia es ventaja, no lastre</h4>
+      <p>Los 75 años no se citan como nostalgia. Se citan como evidencia de permanencia futura. <strong>El cliente firma sabiendo que vamos a seguir aquí</strong> cuando necesite hacer valer la garantía. Pasado y presente se balancean en cada comunicación.</p>
+    </div>
+
+    <div class="principle">
+      <div class="num">Principio 04</div>
+      <h4>Sin confrontación con competencia</h4>
+      <p>“Sin Sorpresas” no se construye atacando a Kavak, MercadoLibre, lotes ni particulares. Se construye afirmando lo que sí entregamos. <strong>La diferenciación se infiere por contraste implícito.</strong> Cero menciones a competidores en copy externo.</p>
+    </div>
+
+    <div class="principle">
+      <div class="num">Principio 05</div>
+      <h4>La experiencia digital es continuación, no sustituto</h4>
+      <p>El motor digital amplía la operación del lote, no la reemplaza. El asesor sigue siendo persona. La visita física sigue siendo parte del cierre. <strong>La sucursal sigue siendo el lugar donde se firma la factura.</strong></p>
+    </div>
+
+    <div class="principle">
+      <div class="num">Principio 06</div>
+      <h4>Honestidad operativa antes que aspiración</h4>
+      <p>Cuando hay tensión entre lo que la marca aspira a comunicar y lo que la operación puede entregar, <strong>prevalece la operación</strong>. Preferible comunicar menos y entregar lo prometido, que comunicar más y deber explicaciones después.</p>
+    </div>
+  </div>
+
+  <p class="small" style="margin-top:6mm;">Cada principio actúa como gate de revisión. En auditorías trimestrales, todo material publicado se contrasta contra los seis. Si un ad, una página, un script de vendedor o un argumento de pitch contradice uno, se devuelve a edición.</p>
+</section>
+
+<!-- ============ PAGE 8: BAJADAS TONALES 1-2 ============ -->
+<section class="page">
+  <h1 class="section-title"><span class="num">§5 · Bajadas tonales · Parte 1</span>Comunicación externa y experiencia digital.</h1>
+
+  <span class="section-flag blue">Cómo se escucha el concepto</span>
+
+  <p class="lead">El concepto rector es uno, pero la voz varía según el público y el canal. Estas son dos de las cuatro bajadas tonales (las otras dos viven en la página siguiente).</p>
+
+  <div class="bajadas">
+
+    <div class="bajada">
+      <span class="tag">Frente 1 · Comunicación externa</span>
+      <h4>Voz confiada, serena, institucional con calidez</h4>
+      <p class="audience">Audiencia: comprador prospectivo · primera exposición · ads, redes, copy de campaña</p>
+      <div class="bajada-grid">
+        <div class="bajada-cell si">
+          <h5>Sí</h5>
+          <ul>
+            <li>Ancla institucional explícita (75 años · desde 1947 · 4 generaciones)</li>
+            <li>Promesa específica y verificable (150 puntos · garantía 1 año · factura original)</li>
+            <li>CTA tangible al final (registro · catálogo · habla con asesor)</li>
+            <li>Tono que respeta la inteligencia del comprador</li>
+          </ul>
+        </div>
+        <div class="bajada-cell">
+          <h5>No</h5>
+          <ul>
+            <li>Precio puntual sin contexto en hero</li>
+            <li>Urgencia artificial (“últimos días” · “últimas unidades”)</li>
+            <li>Lenguaje “low price” o “ganga”</li>
+            <li>Confrontación con competidores</li>
+          </ul>
+        </div>
+      </div>
+      <div class="copy-sample">
+        <strong>Sample copy hero (ilustrativo, no para producción)</strong>
+        “Tu próximo seminuevo, sin sorpresas. 75 años de respaldarlo.”
+      </div>
+    </div>
+
+    <div class="bajada">
+      <span class="tag">Frente 2 · Experiencia digital</span>
+      <h4>Voz clara, directa, sin jerga · la interfaz no esconde nada</h4>
+      <p class="audience">Audiencia: prospecto post-ad · cliente registrado · asesor operativo · director que monitorea</p>
+      <div class="bajada-grid">
+        <div class="bajada-cell si">
+          <h5>Sí</h5>
+          <ul>
+            <li>H1 de la landing afirma la promesa explícita</li>
+            <li>Trust bar con claims operativamente sostenidos</li>
+            <li>Modal PDP muestra todo lo que sabemos del auto</li>
+            <li>Página de confirmación con folio + asesor con nombre + sucursal</li>
+            <li>PDF de registro descargable como evidencia</li>
+          </ul>
+        </div>
+        <div class="bajada-cell">
+          <h5>No</h5>
+          <ul>
+            <li>Trucos visuales (timers de presión · scarcity falso)</li>
+            <li>Campos del catálogo inventados cuando el feed no los provee</li>
+            <li>CTA engañosos</li>
+            <li>Estados del CRM ocultos al cliente cuando podrían mostrarse</li>
+          </ul>
+        </div>
+      </div>
+      <div class="copy-sample">
+        <strong>Cambio concreto en la landing actual</strong>
+        Cambiar “agendar tu visita al <em>lote</em>” por “agendar tu visita en <em>sucursal</em>” en el paso 3 de Cómo Funciona. Revisar H1 a una variante alineada con la promesa.
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ PAGE 9: BAJADAS TONALES 3-4 ============ -->
+<section class="page">
+  <h1 class="section-title"><span class="num">§5 · Bajadas tonales · Parte 2</span>Operación comercial y pitch institucional.</h1>
+
+  <div class="bajadas">
+
+    <div class="bajada">
+      <span class="tag">Frente 3 · Operación y vendedores</span>
+      <h4>Voz consultiva, paciente, asesora · no vendedora en sentido tradicional</h4>
+      <p class="audience">Audiencia: vendedores Seminuevos (Flor, Jonathan Medina, Pepe Reyes, equipo digital) · gerentes operativos</p>
+      <div class="bajada-grid">
+        <div class="bajada-cell si">
+          <h5>Sí</h5>
+          <ul>
+            <li>Vendedor conoce la promesa y la usa como guía en la llamada</li>
+            <li>Si pregunta por algo que no aparece en catálogo, admite el hueco y se compromete a averiguar</li>
+            <li>Cotización formal por escrito tras llamada de calificación, no en sala con presión</li>
+            <li>El cierre puede esperar · un cliente que vuelve vale más que uno que firma con dudas</li>
+          </ul>
+        </div>
+        <div class="bajada-cell">
+          <h5>No</h5>
+          <ul>
+            <li>Promesas verbales que no aparezcan en factura</li>
+            <li>Presión al cierre</li>
+            <li>Inventar respuestas si no se sabe</li>
+            <li>Restar transparencia para proteger margen</li>
+          </ul>
+        </div>
+      </div>
+      <div class="copy-sample">
+        <strong>Playbook subproducto</strong>
+        Documento operativo para vendedores se construye con Jonathan Medina en la Fase 3 del roadmap (julio-agosto 2026).
+      </div>
+    </div>
+
+    <div class="bajada">
+      <span class="tag">Frente 4 · Pitch institucional</span>
+      <h4>Voz ejecutiva, sustentada en evidencia, sin marketing-speak</h4>
+      <p class="audience">Audiencia: Consejo · Pepe Morales · Carlos Nava · gerentes de marca · eventualmente OEMs</p>
+      <div class="bajada-grid">
+        <div class="bajada-cell si">
+          <h5>Sí</h5>
+          <ul>
+            <li>Concepto presentado como apuesta sustentada con data del piloto y evidencia mundial</li>
+            <li>Decisiones binarias y reversibles donde aplica</li>
+            <li>Riesgos enumerados explícitamente</li>
+            <li>Métricas de éxito definidas antes de pedir inversión</li>
+            <li>Distinguir plataforma (lo que Pixel mide) de negocio (lo que se factura)</li>
+          </ul>
+        </div>
+        <div class="bajada-cell">
+          <h5>No</h5>
+          <ul>
+            <li>Visión sin números</li>
+            <li>Aspiración sin operación</li>
+            <li>Comparativos hueros con startups</li>
+            <li>Pedidos abiertos sin cuantificar</li>
+          </ul>
+        </div>
+      </div>
+      <div class="copy-sample">
+        <strong>One-pager subproducto</strong>
+        Cuando este documento se valide internamente, se produce un one-pager extraído de §1 a §4 para Consejo. Título sugerido: “Posicionamiento Seminuevos Plasencia 2026-2027: Sin Sorpresas”.
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ PAGE 10: ROADMAP ============ -->
+<section class="page">
+  <h1 class="section-title"><span class="num">§6 · Roadmap de adopción</span>Cinco fases con responsables y gates.</h1>
+
+  <span class="section-flag green">Cómo se aterriza</span>
+
+  <p class="lead">Adopción en cinco fases. Cada fase tiene entregables explícitos, responsable nominal y gate de salida (qué tiene que ocurrir para pasar a la siguiente).</p>
+
+  <div class="phases">
+
+    <div class="phase">
+      <span class="phase-tag">Fase 1 · Mayo–Junio 2026</span>
+      <h4>Validación interna · y cerrar la deuda metodológica</h4>
+      <p class="timeline">Líder: Chucho Porras · Validador final: Pepe Morales</p>
+      <div class="phase-grid">
+        <div class="phase-cell">
+          <h5>Qué hacemos</h5>
+          <ul>
+            <li>Revisión 1:1 con Pepe Morales antes de cualquier difusión</li>
+            <li>Ajustes según feedback</li>
+            <li>Presentación a Jonathan Medina (Dir. Seminuevos)</li>
+            <li>Validación de claims con Jose Reyes (Gte. MKT)</li>
+            <li>Producción de pitch one-pager para Consejo</li>
+            <li><strong>Investigación primaria con usuario (deuda metodológica):</strong> 8–12 entrevistas JTBD a compradores recientes y prospectos no convertidos. Mix tradicional/digital. Switch interviews para entender qué activó la decisión de comprar y qué activó la decisión de no comprarnos a nosotros.</li>
+          </ul>
+        </div>
+        <div class="phase-cell">
+          <h5>Gate de salida</h5>
+          <p>Documento validado por Pepe y Jonathan. Lista de claims firmada por Jose Reyes. One-pager listo. <strong>Hallazgos de investigación primaria contrastados contra el concepto: confirman, ajustan o pivotean la hipótesis antes de comprometer escala en Fase 2.</strong></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="phase">
+      <span class="phase-tag">Fase 2 · Junio 2026</span>
+      <h4>Aterrizaje en comunicación externa</h4>
+      <p class="timeline">Líder: Chucho Porras + equipo creativo</p>
+      <div class="phase-grid">
+        <div class="phase-cell">
+          <h5>Qué hacemos</h5>
+          <ul>
+            <li>Iteración v4 de creativos Meta Ads alineados (sustituye v3 c01/c07/c09)</li>
+            <li>Revisión de copy de landing lite contra los 6 principios</li>
+            <li>Ajustes al H1, paso 3 de Cómo Funciona, trust bar</li>
+            <li>Audit de copy en WhatsApp Business y respuestas automáticas</li>
+          </ul>
+        </div>
+        <div class="phase-cell">
+          <h5>Gate de salida</h5>
+          <p>Primer lote de comunicación externa con voz “Sin Sorpresas” en producción. Métricas baseline registradas.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="phase">
+      <span class="phase-tag">Fase 3 · Julio–Agosto 2026</span>
+      <h4>Aterrizaje operativo</h4>
+      <p class="timeline">Líder: Jonathan Medina (Dir. Seminuevos) + Chucho Porras</p>
+      <div class="phase-grid">
+        <div class="phase-cell">
+          <h5>Qué hacemos</h5>
+          <ul>
+            <li>Playbook de vendedor “Sin Sorpresas” en operación</li>
+            <li>Capacitación de vendedores SEM en el playbook</li>
+            <li>Revisión de scripts y plantillas del CRM</li>
+            <li>Audit de proceso cita → visita → factura contra el concepto</li>
+          </ul>
+        </div>
+        <div class="phase-cell">
+          <h5>Gate de salida</h5>
+          <p>Vendedores operando con el playbook. Métricas de calidad de la llamada en baseline.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="phase">
+      <span class="phase-tag">Fase 4 · Q3 2026</span>
+      <h4>Comunicación al Consejo y al ecosistema</h4>
+      <p class="timeline">Líder: Pepe Morales + Chucho Porras</p>
+      <div class="phase-grid">
+        <div class="phase-cell">
+          <h5>Qué hacemos</h5>
+          <ul>
+            <li>Presentación formal al Consejo: Seminuevos como caso piloto de Experiencia Plasencia Automotriz</li>
+            <li>Comunicación a gerentes de marcas OEM (Verónica HYU · Berenice + Juliet STL · Jose Reyes Ford)</li>
+            <li>Evaluación de adopción en al menos una marca OEM piloto</li>
+          </ul>
+        </div>
+        <div class="phase-cell">
+          <h5>Gate de salida</h5>
+          <p>Decisión del Consejo sobre la extensión del modelo a marcas OEM.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="phase">
+      <span class="phase-tag">Fase 5 · Continuo desde Q4 2026</span>
+      <h4>Iteración y refinamiento</h4>
+      <p class="timeline">Líder: Chucho Porras + Jonathan Medina · Revisión anual: Pepe Morales</p>
+      <div class="phase-grid">
+        <div class="phase-cell">
+          <h5>Qué hacemos</h5>
+          <ul>
+            <li>Revisión trimestral de métricas contra targets de §7</li>
+            <li>Revisión anual del concepto rector (no se cambia sin evidencia robusta)</li>
+            <li>Documentación de hallazgos, aprendizajes y ajustes en addenda</li>
+          </ul>
+        </div>
+        <div class="phase-cell">
+          <h5>Gate de salida</h5>
+          <p>Concepto vigente sostenido por evidencia operativa. Documento vivo.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ PAGE 11: CASO FINANCIERO Y MÉTRICAS ============ -->
+<section class="page">
+  <h1 class="section-title"><span class="num">§7 · El caso · Criterios de éxito</span>Cómo sabremos que el concepto funcionó.</h1>
+
+  <span class="section-flag amber">Métricas que importan</span>
+
+  <p class="lead">El concepto rector se considera asentado cuando se cumplen criterios cualitativos y cuantitativos auditables. Algunos son medibles en plataforma; otros son cualitativos pero observables. <strong>La apuesta vale lo que entrega en 6 a 12 meses.</strong></p>
+
+  <h2 class="section-h2">Criterios cualitativos a 12 meses</h2>
+  <ul class="pillars" style="margin-top:2mm;">
+    <li>
+      <div>
+        <h4>Coherencia downstream</h4>
+        <p>Un copywriter, creativo o gerente de marca puede producir comunicación coherente con el concepto sin necesidad de brief detallado. El concepto basta.</p>
+      </div>
+    </li>
+    <li>
+      <div>
+        <h4>Adopción operativa</h4>
+        <p>Los vendedores de Seminuevos lo asumen en su pitch sin notarlo, porque coincide con cómo ya quieren operar.</p>
+      </div>
+    </li>
+    <li>
+      <div>
+        <h4>Reconocimiento de cliente</h4>
+        <p>Clientes recientes mencionan elementos que el concepto codifica (transparencia, respaldo, sin sorpresas) sin haber sido prompteados.</p>
+      </div>
+    </li>
+    <li>
+      <div>
+        <h4>Transferibilidad institucional</h4>
+        <p>El concepto se adopta como modelo en al menos una marca-OEM del Grupo bajo Experiencia Plasencia Automotriz.</p>
+      </div>
+    </li>
+  </ul>
+
+  <h2 class="section-h2">Criterios cuantitativos · plataforma</h2>
+  <table class="metrics">
+    <thead>
+      <tr><th>Métrica</th><th>Baseline (abr 2026)</th><th>Target 6 meses</th><th>Target 12 meses</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Conversión Sessions → Lead (landing lite)</td><td>0.9% pre-lite · target lite ≥2.5%</td><td class="target">≥3.5%</td><td class="target">≥4.5%</td></tr>
+      <tr><td>EMQ Pixel + CAPI</td><td>por verificar</td><td class="target">≥7.5</td><td class="target">≥8.5</td></tr>
+      <tr><td>Tasa de calificación cold → cita</td><td>por medir post-lite</td><td class="target">≥20%</td><td class="target">≥30%</td></tr>
+      <tr><td>Cierre cita → factura (digital)</td><td>39% (Q4 2025)</td><td class="target">≥45%</td><td class="target">≥55%</td></tr>
+    </tbody>
+  </table>
+
+  <h2 class="section-h2">Criterios cuantitativos · negocio</h2>
+  <table class="metrics">
+    <thead>
+      <tr><th>Métrica</th><th>Baseline 2025</th><th>Target 2026</th><th>Target 2027</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Unidades vendidas</td><td>3,611</td><td class="target">≥4,000 (+11%)</td><td class="target">≥4,500 (+25%)</td></tr>
+      <tr><td>Ingresos</td><td>$1,137M</td><td class="target">≥$1,260M</td><td class="target">≥$1,420M</td></tr>
+      <tr><td>Utilidad</td><td>$49.6M</td><td class="target">≥$55M</td><td class="target">≥$62M</td></tr>
+      <tr><td>Captura digital del mercado</td><td>5.1%</td><td class="target">≥10%</td><td class="target">≥18%</td></tr>
+      <tr><td>Días en inventario</td><td>45</td><td class="target">≤40</td><td class="target">≤35</td></tr>
+    </tbody>
+  </table>
+
+  <div class="killer">
+    <span class="label">Killer metric</span>
+    <h3>Mover el cierre digital cita → factura de 39% a 55% en 12 meses.</h3>
+    <p>Si el concepto opera bien, el cliente llega menos defensivo a la mesa porque ya le entregamos la promesa antes del cierre. <strong>Una mejora de 39% a 55% sobre el volumen digital esperado (≥1,200 citas/año) equivale a +192 facturas digitales/año adicionales, ≈$61M ingresos incrementales, ≈$8.4M utilidad incremental.</strong> Sin headcount nuevo. Sin cambios estructurales. Solo el concepto operando.</p>
+  </div>
+</section>
+
+<!-- ============ PAGE 12: ASK + RIESGOS ============ -->
+<section class="page">
+  <h1 class="section-title"><span class="num">§8 · El ask y los riesgos</span>Cuatro decisiones binarias y seis riesgos enumerados.</h1>
+
+  <span class="section-flag">Lo que necesitamos del Consejo</span>
+
+  <p class="lead">Cada decisión se presenta binaria. La mayoría no cuestan dinero adicional. El presupuesto no se mueve: <strong>esto es asignación de capacidad estratégica</strong>, no inyección presupuestaria.</p>
+
+  <h2 class="section-h2">Las cuatro decisiones</h2>
+
+  <ol class="asks">
+    <li>
+      <div>
+        <h4>Adoptar “Sin Sorpresas” como concepto rector de la marca-negocio Seminuevos Plasencia.</h4>
+        <p>Source of truth de comunicación, experiencia digital, operación comercial y pitch institucional. Versionado, auditable, modificable solo con evidencia robusta. Capítulo táctico de Experiencia Plasencia Automotriz.</p>
+      </div>
+      <div class="ask-decision">Sí / No<span>Costo: cero</span></div>
+    </li>
+    <li>
+      <div>
+        <h4>Validar y firmar la lista de claims operativos sostenidos.</h4>
+        <p>Jose Reyes (Gte. MKT Ford + Seminuevos) recibe la lista de claims utilizados en comunicación externa, valida cuáles están operativamente sostenidos hoy y cuáles requieren ajuste. Lo que no esté firmado, no se publica.</p>
+      </div>
+      <div class="ask-decision">Sí / No<span>Costo: 1 sesión + tiempo de Jose</span></div>
+    </li>
+    <li>
+      <div>
+        <h4>Construir el playbook operativo del vendedor en Fase 3 del roadmap.</h4>
+        <p>Jonathan Medina (Dir. Seminuevos) lidera junto con Chucho la construcción del playbook que aterriza “Sin Sorpresas” en la llamada de calificación, la visita y el cierre. Pilotear con vendedores actuales antes de escalar.</p>
+      </div>
+      <div class="ask-decision">Sí / No<span>Costo: capacidad de Jonathan</span></div>
+    </li>
+    <li>
+      <div>
+        <h4>Aprobar evaluación de adopción en al menos una marca OEM piloto (Q3 2026).</h4>
+        <p>Si Seminuevos demuestra resultados en las métricas de §7, evaluar la transferencia del concepto a una marca-OEM (Hyundai, Stellantis o Ford) bajo Experiencia Plasencia Automotriz. Decisión condicional, sujeta a evidencia de Fase 1-3.</p>
+      </div>
+      <div class="ask-decision">Sí / No<span>Decisión condicional</span></div>
+    </li>
+  </ol>
+
+  <h2 class="section-h2">Riesgos enumerados con mitigación</h2>
+
+  <div class="risks">
+
+    <div class="risk">
+      <div class="risk-side">
+        <h5>Riesgo · Alta severidad</h5>
+        <p><strong>El concepto se diluye en bajadas</strong> (ads, vendedores) y se convierte en slogan vacío.</p>
+      </div>
+      <div class="risk-side">
+        <h5>Mitigación</h5>
+        <p>Los 6 principios derivados actúan como gate. Audit trimestral de coherencia. Toda comunicación que los contradiga no procede.</p>
+      </div>
+    </div>
+
+    <div class="risk">
+      <div class="risk-side">
+        <h5>Riesgo · Alta severidad</h5>
+        <p><strong>La operación no sostiene la promesa</strong> (vendedor presiona · garantía rechaza casos · asesor no llama en &lt;2h).</p>
+      </div>
+      <div class="risk-side">
+        <h5>Mitigación</h5>
+        <p>Principio 6 (honestidad operativa) prevalece. Si el SLA no se sostiene, la promesa se ajusta antes de seguir comunicándola. Monitor en dashboard ejecutivo.</p>
+      </div>
+    </div>
+
+    <div class="risk">
+      <div class="risk-side">
+        <h5>Riesgo · Media severidad</h5>
+        <p><strong>Competidores adoptan el lenguaje</strong> “sin sorpresas” sin sostén operativo.</p>
+      </div>
+      <div class="risk-side">
+        <h5>Mitigación</h5>
+        <p>La defensa estructural es la permanencia. La startup puede decir “sin sorpresas”, pero su biografía la contradice. Cada comunicación nuestra acompaña promesa con activos institucionales explícitos.</p>
+      </div>
+    </div>
+
+    <div class="risk">
+      <div class="risk-side">
+        <h5>Riesgo · Media severidad</h5>
+        <p><strong>Volumen del mindset digital no llega</strong> (sigue siendo nicho dentro del piloto).</p>
+      </div>
+      <div class="risk-side">
+        <h5>Mitigación</h5>
+        <p>El concepto no exige escalamiento agresivo del mindset digital. Sirve también al tradicional, que es la mayoría hoy. Si el digital crece, gana proporcionalmente; si no, no hay pérdida.</p>
+      </div>
+    </div>
+
+    <div class="risk">
+      <div class="risk-side">
+        <h5>Riesgo · Alta severidad</h5>
+        <p><strong>Director comercial percibe que “sin presión al cierre” reduce volumen</strong> de ventas en piso.</p>
+      </div>
+      <div class="risk-side">
+        <h5>Mitigación</h5>
+        <p>Cierre digital 39% vs tradicional 70% en Q4 2025: hay margen. Hipótesis: mover digital de 39% a 55% (killer metric) compensa cualquier supuesta pérdida y probablemente mejora el piso. Monitor mensual.</p>
+      </div>
+    </div>
+
+    <div class="risk">
+      <div class="risk-side">
+        <h5>Riesgo · Media severidad</h5>
+        <p><strong>Gerentes OEM rechazan extensión</strong> del concepto a sus marcas por restricciones OEM.</p>
+      </div>
+      <div class="risk-side">
+        <h5>Mitigación</h5>
+        <p>Seminuevos es sub-marca propia sin restricciones OEM. La adopción en OEM es opcional, no requisito. El concepto se sostiene aunque solo opere en Seminuevos.</p>
+      </div>
+    </div>
+
+    <div class="risk" style="border-left-color: var(--amber);">
+      <div class="risk-side">
+        <h5 style="color: var(--amber);">Riesgo metodológico · explícito</h5>
+        <p><strong>El concepto no está validado con investigación primaria de usuario.</strong> Las hipótesis sobre cómo piensan los dos mindsets son razonadas, pero no confirmadas con voz de cliente. Si la investigación primaria contradice la hipótesis del JTBD compartido o de los mecanismos de certeza por mindset, el concepto rector podría requerir ajuste o pivote.</p>
+      </div>
+      <div class="risk-side">
+        <h5>Mitigación</h5>
+        <p>Investigación con usuario incorporada como entregable obligatorio de Fase 1 (8–12 entrevistas JTBD + switch interviews). Gate de salida de Fase 1 condiciona la entrada a Fase 2 (escala de comunicación externa) a que los hallazgos confirmen, ajusten o pivoteen la hipótesis. <strong>Costo bajo (capacidad del equipo + tiempo de campo), payoff alto (decisión informada antes de comprometer producción creativa y entrenamiento).</strong></p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ CLOSING ============ -->
+<section class="page">
+  <div class="closing">
+    <p class="ribbon">Para el Consejo · Mayo 2026</p>
+    <h2>Sin sorpresas para el cliente.<br><em>Sin atajos</em> en cómo lo entregamos.</h2>
+    <p class="pull">
+      Una promesa que solo un incumbente con permanencia puede sostener, en un mercado donde la startup digital es ella misma la sorpresa pendiente. Una promesa que solo un Grupo con motor digital propio puede entregar, en un mercado donde el lote tradicional sin transformación digital ya no satisface al cliente de 2026.
+    </p>
+    <p class="body-text">
+      Seminuevos Plasencia ya es el pilar de rentabilidad más eficiente del Grupo. La apuesta de este documento es que un concepto rector codificado, sostenido por evidencia operativa, ejecutado con disciplina en los cuatro frentes (comunicación, experiencia digital, operación, pitch institucional), convierte la posición actual en la base sobre la que se extiende Experiencia Plasencia Automotriz. La validación empieza con una decisión del Consejo. La evidencia llega en seis meses.
+    </p>
+    <div class="signature">
+      <strong>Dirección de Marketing Corporativo</strong>
+      Grupo Plasencia Automotriz · Mayo 2026
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

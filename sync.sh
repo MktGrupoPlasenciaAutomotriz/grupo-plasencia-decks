@@ -26,7 +26,8 @@ for f in \
   "Driving-Growth-Executive-Summary.html" \
   "Marketplace-Plasencia-Paper-Ejecutivo.html" \
   "El-Patron-Que-Gano-Experiencia-Plasencia.html" \
-  "Discovery-Gerentes-MKT-Brief.html"; do
+  "Discovery-Gerentes-MKT-Brief.html" \
+  "Seminuevos-Sin-Sorpresas-Paper-Ejecutivo.html"; do
   if [ -f "$SRC/01-strategy/$f" ]; then
     cp "$SRC/01-strategy/$f" "$DEST/01-strategy/$f"
     echo "[OK]  $f"
