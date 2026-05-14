@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Motor de Atribución · Documento ejecutivo para el Consejo · Grupo Plasencia</title>
+<title>Motor de Atribución · Resumen ejecutivo actualizado al Consejo · Grupo Plasencia</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800;900&family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet">
@@ -85,7 +85,7 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: #0d1117; f
 
 .anchor-num {
   font-family: 'Montserrat', sans-serif; font-weight: 900;
-  font-size: 64px; line-height: 1; color: #ECC94B; letter-spacing: -2px;
+  font-size: 60px; line-height: 1; color: #ECC94B; letter-spacing: -2px;
 }
 .anchor-label { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #A0AEC0; margin-top: 6px; }
 
@@ -115,18 +115,16 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: #0d1117; f
   border-radius: 10px; padding: 16px;
   display: flex; flex-direction: column;
 }
-.card--pill-gold {
-  background: rgba(236,201,75,0.08); border: 1px solid rgba(236,201,75,0.3);
-  border-radius: 10px; padding: 14px;
-}
-.card--pill-red {
-  background: rgba(200,16,46,0.08); border: 1px solid rgba(200,16,46,0.3);
-  border-radius: 10px; padding: 14px;
-}
 
 .strike-x {
   display: inline-block; width: 22px; height: 22px; border-radius: 50%;
   background: rgba(252,129,129,0.18); color: #FC8181;
+  text-align: center; line-height: 22px; font-weight: 800; font-size: 13px;
+  margin-right: 12px; flex-shrink: 0;
+}
+.check-ok {
+  display: inline-block; width: 22px; height: 22px; border-radius: 50%;
+  background: rgba(72,187,120,0.2); color: #48BB78;
   text-align: center; line-height: 22px; font-weight: 800; font-size: 13px;
   margin-right: 12px; flex-shrink: 0;
 }
@@ -200,6 +198,36 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: #0d1117; f
 .fact-card .name { font-size: 13px; font-weight: 800; color: #1E2740; line-height: 1.3; }
 .fact-card .desc { font-size: 11px; color: #4A5568; line-height: 1.5; }
 
+.funnel-step {
+  display: flex; align-items: center; gap: 16px;
+  padding: 10px 16px;
+  background: rgba(66,153,225,0.06);
+  border-left: 3px solid #4299E1;
+  border-radius: 6px;
+}
+.funnel-step .val { font-family: 'Montserrat',sans-serif; font-weight: 800; font-size: 22px; color: #2B6CB0; min-width: 110px; }
+.funnel-step .lbl { font-size: 12px; color: #2D3748; font-weight: 600; }
+.funnel-step .pct { font-size: 11px; color: #718096; font-weight: 500; margin-left: auto; }
+
+.flow {
+  display: flex; align-items: stretch; gap: 8px;
+  margin-top: 8px;
+}
+.flow .step {
+  flex: 1; background: #fff; border-radius: 6px;
+  padding: 10px 12px; text-align: center;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  display: flex; flex-direction: column; justify-content: center; gap: 4px;
+  border-top: 2px solid #4299E1;
+}
+.flow .step .n { font-family: 'Montserrat',sans-serif; font-weight: 800; font-size: 12px; color: #4299E1; }
+.flow .step .t { font-size: 10.5px; color: #1E2740; font-weight: 700; line-height: 1.25; }
+.flow .step .d { font-size: 9px; color: #718096; line-height: 1.3; }
+.flow .arrow {
+  align-self: center;
+  font-size: 18px; color: #ECC94B; font-weight: 700;
+}
+
 @media print {
   @page { size: 1280px 720px landscape; margin: 0; }
   html, body { overflow: visible; }
@@ -221,14 +249,14 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: #0d1117; f
   <div class="flex-col center-all gap-24" style="flex:1;justify-content:center;padding:0 60px;">
     <img src="../assets/logos/LOGO-GP-Blanco.png" alt="Grupo Plasencia" style="height:72px;opacity:0.85;mix-blend-mode:screen;margin-bottom:4px;">
     <div style="text-align:center;">
-      <div class="t-label t-gold" style="margin-bottom:14px;">Documento ejecutivo para el Consejo Directivo</div>
-      <div class="t-display" style="font-size:60px;line-height:1.05;color:#fff;letter-spacing:-1.2px;">Motor de <span style="color:#ECC94B;font-style:italic;font-family:'Playfair Display',serif;font-weight:800;">Atribución.</span></div>
-      <div style="margin-top:16px;font-size:22px;font-weight:500;color:rgba(247,250,252,0.75);max-width:880px;line-height:1.4;letter-spacing:-0.2px;">Del piloto operativo a la institucionalización como capacidad corporativa del grupo.</div>
+      <div class="t-label t-gold" style="margin-bottom:14px;">Sesión de contexto al Consejo Directivo</div>
+      <div class="t-display" style="font-size:58px;line-height:1.05;color:#fff;letter-spacing:-1.2px;">Motor de <span style="color:#ECC94B;font-style:italic;font-family:'Playfair Display',serif;font-weight:800;">Atribución.</span></div>
+      <div style="margin-top:16px;font-size:22px;font-weight:500;color:rgba(247,250,252,0.78);max-width:900px;line-height:1.4;letter-spacing:-0.2px;">Resumen ejecutivo del planteamiento original, actualizado con la evidencia operativa generada durante el piloto.</div>
     </div>
     <div class="divider-red" style="margin:8px auto;"></div>
     <div style="text-align:center;">
-      <div style="font-size:12px;font-weight:700;letter-spacing:3px;color:#ECC94B;text-transform:uppercase;">Resumen ejecutivo · 11 slides</div>
-      <div style="margin-top:8px;font-size:11px;color:rgba(247,250,252,0.5);letter-spacing:1.5px;">Mayo 2026 · Dirección de Marketing Corporativo · Estructura Minto + SCR + Answer-First</div>
+      <div style="font-size:12px;font-weight:700;letter-spacing:3px;color:#ECC94B;text-transform:uppercase;">12 slides · Mayo 2026</div>
+      <div style="margin-top:8px;font-size:11px;color:rgba(247,250,252,0.5);letter-spacing:1.5px;">Dirección de Marketing Corporativo · Grupo Plasencia Automotriz</div>
     </div>
   </div>
   <div style="position:absolute;bottom:14px;left:0;right:0;text-align:center;">
@@ -236,39 +264,15 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: #0d1117; f
   </div>
 </section>
 
-<!-- ════════ SLIDE 2 · RECOMENDACIÓN (Answer-first) ════════ -->
-<section class="slide slide--dark">
-  <div class="slide-label">02 / Respuesta primero</div>
-  <img src="../assets/logos/LOGO-GP-Blanco.png" class="logo-corner logo-w"><img src="../assets/logos/Logo-GP-Negro.png" class="logo-corner logo-d">
-  <div class="pad-lg flex-col center-h" style="justify-content:center;gap:28px;">
-    <div class="t-label t-gold">La recomendación al Consejo</div>
-    <div class="t-display" style="font-size:34px;color:#fff;line-height:1.3;max-width:1080px;letter-spacing:-0.4px;font-weight:700;">
-      Institucionalizar el Motor de Atribución como <span style="color:#ECC94B;">infraestructura corporativa permanente</span> y activar <span style="color:#ECC94B;">Revenue Operations</span> bajo gobierno único, como condición previa al escalamiento a las ocho marcas del grupo.
-    </div>
-    <div style="font-size:16px;color:rgba(247,250,252,0.78);line-height:1.55;max-width:1040px;font-weight:400;">
-      El piloto demostró en 90 días que la infraestructura funciona y opera con costo marginal. La barrera entre el pipeline ya generado y la conversión en ingreso real no es de tecnología ni de presupuesto. <span style="color:#ECC94B;font-weight:600;">Es de gobierno corporativo.</span> La inversión incremental en los próximos 90 días se mantiene bajo umbrales habituales de aprobación. El costo de no decidir crece mes con mes.
-    </div>
-    <div class="divider-red"></div>
-    <div style="display:flex;gap:32px;margin-top:8px;">
-      <div><div class="anchor-num">$5.61M</div><div class="anchor-label">Pipeline generado<br>en 12 días (MXN)</div></div>
-      <div><div class="anchor-num">$650</div><div class="anchor-label">CPA global<br>MXN/deal</div></div>
-      <div><div class="anchor-num">USD 100</div><div class="anchor-label">Costo mensual<br>de plataforma</div></div>
-      <div><div class="anchor-num" style="color:#FC8181;">0</div><div class="anchor-label">Cierres<br>en la ventana</div></div>
-      <div><div class="anchor-num">5</div><div class="anchor-label">Decisiones<br>binarias</div></div>
-    </div>
-  </div>
-  <div class="slide-footer">Motor de Atribución · Consejo · Mayo 2026</div>
-</section>
-
-<!-- ════════ SLIDE 3 · SITUACIÓN ════════ -->
+<!-- ════════ SLIDE 2 · SITUACIÓN ════════ -->
 <section class="slide slide--light">
-  <div class="slide-label">03 / Situación</div>
+  <div class="slide-label">02 / Situación</div>
   <img src="../assets/logos/LOGO-GP-Blanco.png" class="logo-corner logo-w"><img src="../assets/logos/Logo-GP-Negro.png" class="logo-corner logo-d">
-  <div class="pad-lg flex-col gap-20">
+  <div class="pad-lg flex-col gap-16">
     <div>
       <div class="t-label t-red">§ 01 · Situación</div>
-      <div class="t-accent" style="font-size:36px;font-weight:800;color:#1E2740;letter-spacing:-0.5px;margin-top:6px;line-height:1.15;">El piloto opera con infraestructura propia auditable.</div>
-      <div style="font-size:14px;color:#4A5568;margin-top:8px;max-width:1000px;line-height:1.6;">Tres marcas en producción desde 16 de abril. Stack v2 (Cloudflare Worker, D1, Meta CAPI, GA4 Measurement Protocol) desde 25 de abril. Dashboard multi-canal y conciliación diaria con tres cruces externos desde 12 de mayo.</div>
+      <div class="t-accent" style="font-size:36px;font-weight:800;color:#1E2740;letter-spacing:-0.5px;margin-top:6px;line-height:1.15;">El punto de partida del grupo.</div>
+      <div style="font-size:14px;color:#4A5568;margin-top:8px;max-width:1040px;line-height:1.6;">Grupo Plasencia Automotriz opera ocho marcas OEM más la unidad de Seminuevos, 42 concesionarias en seis ciudades, y una inversión de marketing anual del orden de $73 millones de pesos, equivalente al 0.78% de los ingresos frente a un benchmark sectorial internacional de entre 5% y 10%.</div>
     </div>
     <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;">
       <div class="card" style="border-top:3px solid #C8102E;">
@@ -282,9 +286,9 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: #0d1117; f
         <div style="font-size:11px;color:#4A5568;margin-top:2px;">+10.2% interanual</div>
       </div>
       <div class="card" style="border-top:3px solid #C8102E;">
-        <div style="font-size:9px;font-weight:800;letter-spacing:1.5px;color:#C8102E;text-transform:uppercase;">Concesionarias</div>
-        <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:30px;color:#1E2740;line-height:1.1;letter-spacing:-0.5px;margin-top:4px;">42</div>
-        <div style="font-size:11px;color:#4A5568;margin-top:2px;">En 6 ciudades · 8 marcas OEM + Seminuevos</div>
+        <div style="font-size:9px;font-weight:800;letter-spacing:1.5px;color:#C8102E;text-transform:uppercase;">Influencia digital</div>
+        <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:30px;color:#1E2740;line-height:1.1;letter-spacing:-0.5px;margin-top:4px;">~33%</div>
+        <div style="font-size:11px;color:#4A5568;margin-top:2px;">$4,228M MXN en ventas con touchpoint digital</div>
       </div>
       <div class="card" style="border-top:3px solid #C8102E;">
         <div style="font-size:9px;font-weight:800;letter-spacing:1.5px;color:#C8102E;text-transform:uppercase;">Gasto MKT anual</div>
@@ -292,347 +296,452 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: #0d1117; f
         <div style="font-size:11px;color:#4A5568;margin-top:2px;">MXN · 0.78% sobre ingresos</div>
       </div>
     </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
       <div class="card" style="border-left:3px solid #ECC94B;background:#fffbe6;">
-        <div style="font-size:10px;font-weight:800;letter-spacing:1.5px;color:#997706;text-transform:uppercase;margin-bottom:4px;">Lo que ya construyó el piloto</div>
-        <div style="font-size:12px;color:#2D3748;line-height:1.55;">3 landings con folio canónico, Cloudflare Worker con endpoint único, base D1 con 7 tablas auditables, Meta CAPI y GA4 MP server-side con deduplicación, webhook Meta Lead Gen con HMAC, dashboard multi-canal y conciliación diaria con tres cruces externos.</div>
+        <div style="font-size:10px;font-weight:800;letter-spacing:1.5px;color:#997706;text-transform:uppercase;margin-bottom:4px;">El portafolio</div>
+        <div style="font-size:11.5px;color:#2D3748;line-height:1.6;">Mazda 54.3% del volumen, Hyundai 18.4%, Ford 8.6%, Stellantis 4.4%, Changan 5.1%, GWM 3.5%, GAC 3.4%, Isuzu 2.3%. Sub-marca Seminuevos Plasencia consolidada (3,611 unidades, $1,137M de revenue, $49.6M de utilidad anual). Arrendadora Plasencia y Posventa corporativa como funciones transversales.</div>
       </div>
-      <div class="card" style="border-left:3px solid #48BB78;background:#f0fff4;">
-        <div style="font-size:10px;font-weight:800;letter-spacing:1.5px;color:#276749;text-transform:uppercase;margin-bottom:4px;">Lo que produjo en 12 días post GO-LIVE</div>
-        <div style="font-size:12px;color:#2D3748;line-height:1.55;"><strong style="color:#1E2740;">18 oportunidades</strong> calificadas con cita agendada. <strong style="color:#1E2740;">Pipeline $5.61 millones</strong> de pesos. CPA global $650, CPA Seminuevos $487. Costo de infraestructura acumulado bajo $6 mil pesos. Stack mensual USD 100.</div>
+      <div class="card" style="border-left:3px solid #4299E1;background:#ebf8ff;">
+        <div style="font-size:10px;font-weight:800;letter-spacing:1.5px;color:#2B6CB0;text-transform:uppercase;margin-bottom:4px;">El contexto operativo</div>
+        <div style="font-size:11.5px;color:#2D3748;line-height:1.6;">Hasta marzo de 2026 cada marca contrataba agencia propia con métricas distintas, optimización por clics y formularios, eventos de conversión que en un porcentaje material no llegaban a las plataformas publicitarias, y embudo comercial fragmentado entre hojas de cálculo y CRMs locales. La Dirección de Marketing Corporativo, posición de nueva creación, recibió en marzo el mandato de construir un piloto.</div>
       </div>
     </div>
   </div>
-  <div class="slide-footer">Motor de Atribución · Consejo · Mayo 2026</div>
+  <div class="slide-footer">Motor de Atribución · Resumen ejecutivo · Consejo · Mayo 2026</div>
 </section>
 
-<!-- ════════ SLIDE 4 · COMPLICACIÓN ════════ -->
+<!-- ════════ SLIDE 3 · COMPLICACIÓN ════════ -->
 <section class="slide slide--dark">
-  <div class="slide-label">04 / Complicación</div>
+  <div class="slide-label">03 / Complicación</div>
   <img src="../assets/logos/LOGO-GP-Blanco.png" class="logo-corner logo-w"><img src="../assets/logos/Logo-GP-Negro.png" class="logo-corner logo-d">
   <div class="pad-lg flex-col gap-16">
     <div>
       <div class="t-label t-gold">§ 02 · Complicación</div>
-      <div class="t-display" style="font-size:34px;color:#fff;letter-spacing:-0.5px;margin-top:4px;line-height:1.2;">El piloto reveló que el cuello del grupo <span style="color:#ECC94B;">no está donde tradicionalmente se ha colocado el foco</span>.</div>
-    </div>
-    <div class="card--dark" style="border-left:4px solid #ECC94B;padding:18px 22px;background:rgba(236,201,75,0.06);">
-      <div style="font-size:10px;font-weight:800;letter-spacing:2px;color:#ECC94B;text-transform:uppercase;margin-bottom:6px;">La tensión central</div>
-      <div style="font-size:17px;color:#fff;line-height:1.45;font-weight:500;">La infraestructura de adquisición funciona. <span style="color:#ECC94B;font-weight:700;">El proceso de venta no.</span> De 18 oportunidades agendadas, 33% sin vendedor asignado al cierre, 1 visita realizada, 0 cierres. El dashboard hace visible un problema que antes era estructuralmente invisible.</div>
+      <div class="t-display" style="font-size:34px;color:#fff;letter-spacing:-0.5px;margin-top:4px;line-height:1.2;">La inversión existe. <span style="color:#ECC94B;">La capacidad de medirla y optimizarla, no.</span></div>
+      <div style="font-size:14px;color:rgba(247,250,252,0.72);margin-top:8px;max-width:1080px;line-height:1.6;">Grupo Plasencia destina $73 millones anuales a marketing sin capacidad consolidada de atribuir cada peso al ingreso que produce. El mercado automotriz mexicano se mantiene plano hasta 2027 según proyección AMDA, y los grupos comparables a nivel internacional ya operan con loops de optimización que el grupo aún no tiene.</div>
     </div>
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;flex:1;">
-      <div class="pillar-card" style="border-left-color:#C8102E;">
+      <div class="pillar-card" style="border-left-color:#FC8181;">
         <div class="num" style="color:#FC8181;">01</div>
-        <div class="name">Adquisición no es el problema</div>
-        <div class="desc">CPA Seminuevos <strong style="color:#ECC94B;">$487 MXN</strong> vs CAC histórico grupo $1,206. Conversión sesión a lead 1.42% a 5.52% por marca. Inversión publicitaria total $11,696 MXN.</div>
+        <div class="name">Las plataformas no aprenden</div>
+        <div class="desc">Sin señales de conversión real (visita, compra) enviadas a Meta y Google, el algoritmo optimiza por clics y formularios. Entrega curiosos en lugar de compradores. <strong style="color:#ECC94B;">Cerca del 40% de eventos relevantes no llegaba a las plataformas.</strong></div>
       </div>
       <div class="pillar-card" style="border-left-color:#FC8181;">
         <div class="num" style="color:#FC8181;">02</div>
-        <div class="name">El cuello se desplazó hacia ventas</div>
-        <div class="desc">Cobertura de asignación incompleta, ausencia de seguimiento sistemático, dependencia de procesos manuales en piso. <strong style="color:#fff;">Marketing y ventas operan en silos.</strong> El piloto cuantifica esta condición por primera vez.</div>
+        <div class="name">El embudo está fragmentado</div>
+        <div class="desc">Cada marca opera con agencia propia, sistemas separados y métricas no comparables. <strong style="color:#fff;">La práctica que funciona en una marca no se transfiere</strong> porque no existe sistema operativo común para medirlo o replicarlo.</div>
       </div>
       <div class="pillar-card" style="border-left-color:#ECC94B;">
         <div class="num">03</div>
-        <div class="name">El mercado no espera</div>
-        <div class="desc">Mercado plano hasta 2027 (AMDA). Digital MX 57%, grupo 47%, dealers USA 73%. <strong style="color:#ECC94B;">50% de dealers globales</strong> ya integran señales de conversión. En México la evidencia es marginal.</div>
+        <div class="name">La ventana de primera acción se cierra</div>
+        <div class="desc">Participación digital en gasto publicitario México 57%, grupo en torno a 47%, dealers líderes USA 73%. <strong style="color:#ECC94B;">Aproximadamente 50% de dealers globales</strong> ya integran señales de conversión piso a plataforma. En México la evidencia documentada es marginal.</div>
       </div>
     </div>
     <div style="display:flex;gap:14px;align-items:center;background:rgba(252,129,129,0.08);border:1px solid rgba(252,129,129,0.25);border-radius:8px;padding:12px 18px;">
       <div style="font-size:10px;font-weight:800;letter-spacing:1.5px;color:#FC8181;text-transform:uppercase;flex-shrink:0;">Costo de inacción 12 meses</div>
-      <div style="font-size:12px;color:#CBD5E0;line-height:1.5;"><strong style="color:#fff;">$800K a $1.2M</strong> en comisión externa · <strong style="color:#fff;">16% no recuperable</strong> en IVA sobre pauta digital · <strong style="color:#fff;">$5M+</strong> en eficiencia no capturada · participación cedida a nativos digitales · <strong style="color:#fff;">$5.6M de pipeline</strong> acumulado en riesgo de no convertir.</div>
+      <div style="font-size:12px;color:#CBD5E0;line-height:1.5;"><strong style="color:#fff;">$800K a $1.2M</strong> en comisión externa de medios · <strong style="color:#fff;">16% no recuperable</strong> en IVA sobre pauta digital · <strong style="color:#fff;">$5M+</strong> en eficiencia no capturada · participación cedida progresivamente a competidores nativos digitales en seminuevos.</div>
     </div>
   </div>
-  <div class="slide-footer">Motor de Atribución · Consejo · Mayo 2026</div>
+  <div class="slide-footer">Motor de Atribución · Resumen ejecutivo · Consejo · Mayo 2026</div>
 </section>
 
-<!-- ════════ SLIDE 5 · RESOLUCIÓN — 4 PILARES ════════ -->
+<!-- ════════ SLIDE 4 · OPORTUNIDAD ════════ -->
 <section class="slide slide--darker">
-  <div class="slide-label">05 / Resolución · La tesis</div>
+  <div class="slide-label">04 / Oportunidad</div>
+  <img src="../assets/logos/LOGO-GP-Blanco.png" class="logo-corner logo-w"><img src="../assets/logos/Logo-GP-Negro.png" class="logo-corner logo-d">
+  <div class="pad-lg flex-col center-h gap-24" style="justify-content:center;">
+    <div>
+      <div class="t-label t-gold">§ 03 · Oportunidad</div>
+      <div class="t-display" style="font-size:36px;color:#fff;letter-spacing:-0.5px;margin-top:4px;line-height:1.2;">El tamaño de la oportunidad, cuantificado.</div>
+      <div style="font-size:14px;color:rgba(247,250,252,0.72);margin-top:8px;max-width:1080px;line-height:1.55;">Mover la participación digital del grupo de 33% a 36.3%, una mejora de 3.3 puntos porcentuales, sobre la línea base actual de 29,595 unidades anuales y $12,813 millones de revenue.</div>
+    </div>
+    <div style="background:rgba(236,201,75,0.06);border:1px solid rgba(236,201,75,0.25);border-left:5px solid #ECC94B;border-radius:10px;padding:24px 32px;">
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:32px;">
+        <div>
+          <div style="font-size:10px;font-weight:800;letter-spacing:2px;color:#ECC94B;text-transform:uppercase;">Participación digital</div>
+          <div style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:44px;color:#fff;line-height:1;letter-spacing:-1px;margin-top:6px;">33% → 36.3%</div>
+          <div style="font-size:12px;color:rgba(247,250,252,0.7);margin-top:4px;">+3.3 puntos porcentuales</div>
+        </div>
+        <div>
+          <div style="font-size:10px;font-weight:800;letter-spacing:2px;color:#ECC94B;text-transform:uppercase;">Unidades adicionales</div>
+          <div style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:44px;color:#fff;line-height:1;letter-spacing:-1px;margin-top:6px;">+1,604</div>
+          <div style="font-size:12px;color:rgba(247,250,252,0.7);margin-top:4px;">Sobre 29,595 base anual</div>
+        </div>
+        <div>
+          <div style="font-size:10px;font-weight:800;letter-spacing:2px;color:#ECC94B;text-transform:uppercase;">Ingreso incremental</div>
+          <div style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:44px;color:#fff;line-height:1;letter-spacing:-1px;margin-top:6px;">+$661M</div>
+          <div style="font-size:12px;color:rgba(247,250,252,0.7);margin-top:4px;">MXN al año</div>
+        </div>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;">
+      <div class="funnel-step" style="background:rgba(255,255,255,0.05);border-left-color:#ECC94B;">
+        <div class="val" style="color:#fff;font-size:18px;">Leads</div>
+        <div class="lbl" style="color:#CBD5E0;">53,479</div>
+        <div class="pct" style="color:#A0AEC0;">100%</div>
+      </div>
+      <div class="funnel-step" style="background:rgba(255,255,255,0.05);border-left-color:#ECC94B;">
+        <div class="val" style="color:#fff;font-size:18px;">Contactados</div>
+        <div class="lbl" style="color:#CBD5E0;">34,222</div>
+        <div class="pct" style="color:#A0AEC0;">64%</div>
+      </div>
+      <div class="funnel-step" style="background:rgba(255,255,255,0.05);border-left-color:#ECC94B;">
+        <div class="val" style="color:#fff;font-size:18px;">Visitas</div>
+        <div class="lbl" style="color:#CBD5E0;">5,787</div>
+        <div class="pct" style="color:#A0AEC0;">10.8%</div>
+      </div>
+      <div class="funnel-step" style="background:rgba(255,255,255,0.05);border-left-color:#ECC94B;">
+        <div class="val" style="color:#fff;font-size:18px;">Cerradas</div>
+        <div class="lbl" style="color:#CBD5E0;">2,326</div>
+        <div class="pct" style="color:#A0AEC0;">4.35%</div>
+      </div>
+    </div>
+    <div style="font-size:11px;color:rgba(247,250,252,0.5);text-align:center;letter-spacing:0.5px;">Funnel proxy 4 marcas, ventana agosto a noviembre 2025. Cada punto porcentual ganado en cualquier etapa de conversión representa orden de magnitud comparable al ingreso incremental señalado.</div>
+  </div>
+  <div class="slide-footer">Motor de Atribución · Resumen ejecutivo · Consejo · Mayo 2026</div>
+</section>
+
+<!-- ════════ SLIDE 5 · LA SOLUCIÓN CONCEPTUAL ════════ -->
+<section class="slide slide--light">
+  <div class="slide-label">05 / La solución conceptual</div>
   <img src="../assets/logos/LOGO-GP-Blanco.png" class="logo-corner logo-w"><img src="../assets/logos/Logo-GP-Negro.png" class="logo-corner logo-d">
   <div class="pad-lg flex-col gap-16">
     <div>
-      <div class="t-label t-gold">§ 03 · Resolución</div>
-      <div class="t-display" style="font-size:30px;color:#fff;letter-spacing:-0.4px;margin-top:4px;line-height:1.25;">Cuatro pilares articulan la propuesta.</div>
-      <div style="font-size:14px;color:rgba(247,250,252,0.7);margin-top:6px;max-width:1080px;line-height:1.55;">La decisión que enfrenta el Consejo es de gobierno corporativo, no de presupuesto. La inversión incremental requerida en los próximos 90 días es marginal frente al pipeline ya generado y al retorno proyectado.</div>
+      <div class="t-label t-red">§ 04 · La solución</div>
+      <div class="t-accent" style="font-size:34px;font-weight:800;color:#1E2740;letter-spacing:-0.5px;margin-top:6px;line-height:1.2;">El Motor de Atribución, en una frase.</div>
+      <div style="font-size:14px;color:#4A5568;margin-top:8px;max-width:1080px;line-height:1.6;">Centralizar la medición del embudo y enviar señales de conversión real (cita, visita, compra) a Meta y Google. Las plataformas pasan de optimizar por clics a optimizar por <strong style="color:#1E2740;">compradores reales</strong>. La eficiencia del gasto sube progresivamente y la inversión se vuelve trazable peso a peso.</div>
     </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;flex:1;">
-      <div class="pillar-card">
-        <div class="num">01</div>
-        <div class="name">El Motor como infraestructura corporativa permanente</div>
-        <div class="desc">El stack actual se preserva y se institucionaliza. Worker, base de datos, eventos server-side, dashboard multi-canal y conciliación diaria pasan de activos del piloto a infraestructura corporativa con responsable formal, SLA documentado y línea presupuestal. La capacidad técnica está construida.</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+      <div class="card" style="border-left:3px solid #FC8181;background:#fff5f5;">
+        <div style="font-size:10px;font-weight:800;letter-spacing:1.5px;color:#C8102E;text-transform:uppercase;margin-bottom:6px;">Hoy · Optimización por volumen</div>
+        <div style="font-size:12px;color:#2D3748;line-height:1.6;">Campañas de tipo leadgen. Formularios y WhatsApp. Las plataformas aprenden de quien deja sus datos, no de quien compra. El piso de venta recibe contactos de baja intención y la inversión se ajusta por proxy. <strong style="color:#C8102E;">El algoritmo entrega curiosos.</strong></div>
       </div>
-      <div class="pillar-card">
-        <div class="num">02</div>
-        <div class="name">Revenue Operations como condición previa al escalamiento</div>
-        <div class="desc">Marketing, ventas digitales y datos bajo una sola dirección, con métricas compartidas y trazabilidad oportunidad a cierre. La célula de ventas digitales corporativa asegura cobertura de asignación y SLA sobre cada oportunidad, independientemente de vicios operativos heredados.</div>
+      <div class="card" style="border-left:3px solid #48BB78;background:#f0fff4;">
+        <div style="font-size:10px;font-weight:800;letter-spacing:1.5px;color:#276749;text-transform:uppercase;margin-bottom:6px;">Con Motor · Optimización por calidad</div>
+        <div style="font-size:12px;color:#2D3748;line-height:1.6;">Campañas de conversión. Eventos server-side de visita y compra. Las plataformas aprenden de quien efectivamente compra. <strong style="color:#276749;">El algoritmo entrega prospectos calificados</strong>, el piso recibe oportunidades con contexto, y la inversión es atribuible peso a peso.</div>
       </div>
-      <div class="pillar-card">
-        <div class="num">03</div>
-        <div class="name">Escalamiento cross-brand con gates de cierre</div>
-        <div class="desc">El paso de 3 a 5 a 8 marcas se condiciona a tres métricas mínimas por cohorte: asignación de vendedor superior a 95%, conversión cita a visita superior a 30%, y al menos un cierre atribuido por marca y por mes. Protege al grupo de escalar fragmentación.</div>
+    </div>
+    <div class="flow">
+      <div class="step"><div class="n">01</div><div class="t">Campaña</div><div class="d">Meta / Google conversion web</div></div>
+      <div class="arrow">→</div>
+      <div class="step"><div class="n">02</div><div class="t">Landing</div><div class="d">Captura y folio canónico</div></div>
+      <div class="arrow">→</div>
+      <div class="step"><div class="n">03</div><div class="t">Worker + D1</div><div class="d">Ingesta y persistencia</div></div>
+      <div class="arrow">→</div>
+      <div class="step"><div class="n">04</div><div class="t">Vendedor</div><div class="d">Visita / negociación / compra</div></div>
+      <div class="arrow">→</div>
+      <div class="step"><div class="n">05</div><div class="t">CAPI + MP</div><div class="d">Señal de conversión a plataforma</div></div>
+    </div>
+    <div style="background:#1E2740;border-left:4px solid #ECC94B;border-radius:8px;padding:14px 20px;display:flex;align-items:center;gap:18px;">
+      <div style="font-size:10px;font-weight:800;letter-spacing:2px;color:#ECC94B;text-transform:uppercase;flex-shrink:0;">Loop de aprendizaje</div>
+      <div style="font-size:13px;color:#fff;line-height:1.5;font-weight:500;">Cada cierre atribuido entrena al algoritmo. Cada algoritmo mejor entrenado <span style="color:#ECC94B;font-weight:700;">reduce el CPA</span>. Cada CPA menor <span style="color:#ECC94B;font-weight:700;">multiplica la capacidad de inversión rentable</span>. Sin atribución server-side, este ciclo no existe.</div>
+    </div>
+  </div>
+  <div class="slide-footer">Motor de Atribución · Resumen ejecutivo · Consejo · Mayo 2026</div>
+</section>
+
+<!-- ════════ SLIDE 6 · ESTO YA NO ES TEORÍA ════════ -->
+<section class="slide slide--dark">
+  <div class="slide-label">06 / Lo que se construyó</div>
+  <img src="../assets/logos/LOGO-GP-Blanco.png" class="logo-corner logo-w"><img src="../assets/logos/Logo-GP-Negro.png" class="logo-corner logo-d">
+  <div class="pad-lg flex-col gap-16">
+    <div>
+      <div class="t-label t-gold">§ 05 · Estado actual del piloto</div>
+      <div class="t-display" style="font-size:34px;color:#fff;letter-spacing:-0.5px;margin-top:4px;line-height:1.2;">Esto ya no es propuesta. <span style="color:#ECC94B;">Es infraestructura operando.</span></div>
+      <div style="font-size:14px;color:rgba(247,250,252,0.75);margin-top:8px;max-width:1100px;line-height:1.55;">El Motor de Atribución entró en producción el 16 de abril sobre tres marcas piloto (Seminuevos, Hyundai, Stellantis). El stack actual fue diseñado, construido y migrado de v1 a v2 durante el primer mes de operación, sin presupuesto corporativo adicional, con presupuesto operativo negociado directamente con cada marca.</div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;">
+      <div class="card--dark" style="border-top:3px solid #ECC94B;">
+        <div style="font-size:9px;font-weight:800;letter-spacing:1.5px;color:#ECC94B;text-transform:uppercase;">Tiempo a GO-LIVE</div>
+        <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:34px;color:#fff;line-height:1.1;letter-spacing:-0.5px;margin-top:4px;">4 sem.</div>
+        <div style="font-size:11px;color:#CBD5E0;margin-top:2px;">De mandato a primer landing en producción</div>
       </div>
-      <div class="pillar-card">
-        <div class="num">04</div>
-        <div class="name">Capacidad apalancada por IA como ventaja sostenible</div>
-        <div class="desc">El modelo operativo del piloto entrega capacidades que tradicionalmente requieren células de 5 a 7 personas y plazos de 5 a 7 meses. Comparativa contra propuestas de terceros: <strong style="color:#ECC94B;">230× menos costo, 5 a 7× más rápido.</strong> Esta palanca se institucionaliza como ventaja, no queda como excepción.</div>
+      <div class="card--dark" style="border-top:3px solid #ECC94B;">
+        <div style="font-size:9px;font-weight:800;letter-spacing:1.5px;color:#ECC94B;text-transform:uppercase;">Marcas piloto</div>
+        <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:34px;color:#fff;line-height:1.1;letter-spacing:-0.5px;margin-top:4px;">3</div>
+        <div style="font-size:11px;color:#CBD5E0;margin-top:2px;">Seminuevos, Hyundai, Stellantis</div>
+      </div>
+      <div class="card--dark" style="border-top:3px solid #ECC94B;">
+        <div style="font-size:9px;font-weight:800;letter-spacing:1.5px;color:#ECC94B;text-transform:uppercase;">Costo de plataforma</div>
+        <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:34px;color:#fff;line-height:1.1;letter-spacing:-0.5px;margin-top:4px;">USD 100</div>
+        <div style="font-size:11px;color:#CBD5E0;margin-top:2px;">Mensual. Infraestructura propia y portable</div>
+      </div>
+      <div class="card--dark" style="border-top:3px solid #ECC94B;">
+        <div style="font-size:9px;font-weight:800;letter-spacing:1.5px;color:#ECC94B;text-transform:uppercase;">Eficiencia vs terceros</div>
+        <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:34px;color:#fff;line-height:1.1;letter-spacing:-0.5px;margin-top:4px;">230×</div>
+        <div style="font-size:11px;color:#CBD5E0;margin-top:2px;">Menos costo, 5 a 7× más rápido en entrega</div>
+      </div>
+    </div>
+    <div style="font-size:11px;font-weight:800;letter-spacing:2px;color:#ECC94B;text-transform:uppercase;margin-top:4px;">Trayectoria del stack en producción</div>
+    <div style="display:grid;grid-template-columns:1fr 50px 1fr;gap:14px;align-items:stretch;">
+      <div class="card--dark" style="border-left:3px solid #A0AEC0;">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+          <span style="background:rgba(160,174,192,0.2);color:#A0AEC0;border:1px solid rgba(160,174,192,0.3);padding:2px 8px;border-radius:20px;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;">v1 · 16 abr</span>
+          <span style="font-size:12px;font-weight:700;color:#fff;">Stack inicial</span>
+        </div>
+        <div style="font-size:11.5px;color:#CBD5E0;line-height:1.55;">3 landings GitHub Pages, Zapier (4 zaps), Airtable (12 tablas), CRM kanban en Worker. Funcional pero con dependencia SaaS y costos crecientes a escala. <strong style="color:#fff;">Validó el flujo end to end.</strong></div>
+      </div>
+      <div style="font-size:32px;color:#ECC94B;font-weight:800;display:flex;align-items:center;justify-content:center;">→</div>
+      <div class="card--dark" style="border-left:3px solid #48BB78;">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+          <span style="background:rgba(72,187,120,0.18);color:#68D391;border:1px solid rgba(72,187,120,0.4);padding:2px 8px;border-radius:20px;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;">v2 · 25 abr</span>
+          <span style="font-size:12px;font-weight:700;color:#fff;">Stack consolidado</span>
+        </div>
+        <div style="font-size:11.5px;color:#CBD5E0;line-height:1.55;">3 landings, Cloudflare Worker (endpoint único), D1 (7 tablas auditables), Meta CAPI + GA4 MP server-side, webhook Meta Lead Gen, dashboard ejecutivo, conciliación diaria con 3 cruces externos. <strong style="color:#68D391;">Migración sin downtime, sin dependencia SaaS reemplazable.</strong></div>
       </div>
     </div>
   </div>
-  <div class="slide-footer">Motor de Atribución · Consejo · Mayo 2026</div>
+  <div class="slide-footer">Motor de Atribución · Resumen ejecutivo · Consejo · Mayo 2026</div>
 </section>
 
-<!-- ════════ SLIDE 6 · LO QUE NO ES ════════ -->
+<!-- ════════ SLIDE 7 · CÓMO FUNCIONA — 5 CAPAS ════════ -->
 <section class="slide slide--light">
-  <div class="slide-label">06 / Lo que NO es</div>
+  <div class="slide-label">07 / Cómo funciona</div>
   <img src="../assets/logos/LOGO-GP-Blanco.png" class="logo-corner logo-w"><img src="../assets/logos/Logo-GP-Negro.png" class="logo-corner logo-d">
   <div class="pad-lg flex-col gap-16">
     <div>
-      <div class="t-label t-red">§ 03 · Resolución (cont.)</div>
-      <div class="t-accent" style="font-size:34px;font-weight:800;color:#1E2740;letter-spacing:-0.5px;margin-top:6px;line-height:1.2;">Lo que esta propuesta <em style="color:#C8102E;">no es</em>.</div>
-      <div style="font-size:13px;color:#4A5568;margin-top:6px;max-width:1000px;line-height:1.55;">Cinco precisiones para reducir ambigüedad antes de profundizar en cómo funciona el modelo.</div>
-    </div>
-    <div style="display:flex;flex-direction:column;gap:10px;flex:1;">
-      <div style="display:flex;align-items:flex-start;gap:14px;padding:12px 16px;background:#fff;border-left:3px solid #C8102E;border-radius:6px;box-shadow:0 1px 2px rgba(0,0,0,0.05);">
-        <span class="strike-x">✕</span>
-        <div><div style="font-size:13px;font-weight:700;color:#1E2740;">No es un incremento de presupuesto de marketing.</div><div style="font-size:11px;color:#4A5568;margin-top:2px;line-height:1.5;">La inversión incremental se ubica bajo umbrales habituales de aprobación. No es gastar más. Es decidir cómo se gobierna lo que ya se gasta.</div></div>
-      </div>
-      <div style="display:flex;align-items:flex-start;gap:14px;padding:12px 16px;background:#fff;border-left:3px solid #C8102E;border-radius:6px;box-shadow:0 1px 2px rgba(0,0,0,0.05);">
-        <span class="strike-x">✕</span>
-        <div><div style="font-size:13px;font-weight:700;color:#1E2740;">No es una reorganización masiva ni reducción de plantilla.</div><div style="font-size:11px;color:#4A5568;margin-top:2px;line-height:1.5;">Las concesionarias mantienen autonomía operativa. Se centraliza gobierno de datos, atribución y ventas digitales, no operación comercial local.</div></div>
-      </div>
-      <div style="display:flex;align-items:flex-start;gap:14px;padding:12px 16px;background:#fff;border-left:3px solid #C8102E;border-radius:6px;box-shadow:0 1px 2px rgba(0,0,0,0.05);">
-        <span class="strike-x">✕</span>
-        <div><div style="font-size:13px;font-weight:700;color:#1E2740;">No es sustituir el rol del piso de venta.</div><div style="font-size:11px;color:#4A5568;margin-top:2px;line-height:1.5;">El piso sigue cerrando. Lo que cambia es que recibe oportunidades calificadas con contexto y trazabilidad, no formularios opacos.</div></div>
-      </div>
-      <div style="display:flex;align-items:flex-start;gap:14px;padding:12px 16px;background:#fff;border-left:3px solid #C8102E;border-radius:6px;box-shadow:0 1px 2px rgba(0,0,0,0.05);">
-        <span class="strike-x">✕</span>
-        <div><div style="font-size:13px;font-weight:700;color:#1E2740;">No es dependencia tecnológica de un proveedor externo.</div><div style="font-size:11px;color:#4A5568;margin-top:2px;line-height:1.5;">La infraestructura es propia, auditable y portable. No existe lock-in con consultoras ni con plataformas SaaS de alto costo.</div></div>
-      </div>
-      <div style="display:flex;align-items:flex-start;gap:14px;padding:12px 16px;background:#fff;border-left:3px solid #C8102E;border-radius:6px;box-shadow:0 1px 2px rgba(0,0,0,0.05);">
-        <span class="strike-x">✕</span>
-        <div><div style="font-size:13px;font-weight:700;color:#1E2740;">No es un proyecto de tres meses.</div><div style="font-size:11px;color:#4A5568;margin-top:2px;line-height:1.5;">Es la institucionalización de una capacidad permanente. El piloto fue el costo de prueba. La decisión actual es de adopción.</div></div>
-      </div>
-    </div>
-  </div>
-  <div class="slide-footer">Motor de Atribución · Consejo · Mayo 2026</div>
-</section>
-
-<!-- ════════ SLIDE 7 · EL MODELO ════════ -->
-<section class="slide slide--light">
-  <div class="slide-label">07 / El modelo</div>
-  <img src="../assets/logos/LOGO-GP-Blanco.png" class="logo-corner logo-w"><img src="../assets/logos/Logo-GP-Negro.png" class="logo-corner logo-d">
-  <div class="pad-lg flex-col gap-16">
-    <div>
-      <div class="t-label t-red">§ 04 · El modelo</div>
-      <div class="t-accent" style="font-size:32px;font-weight:800;color:#1E2740;letter-spacing:-0.5px;margin-top:6px;line-height:1.2;">Sistema de cinco capas en ciclo cerrado de optimización.</div>
-      <div style="font-size:13px;color:#4A5568;margin-top:6px;max-width:1080px;line-height:1.55;">El valor económico del Motor está en el ciclo que se completa cuando la plataforma publicitaria recibe la señal de compra real y reoptimiza su modelo de subasta. Sin atribución server-side, este ciclo no existe.</div>
+      <div class="t-label t-red">§ 06 · Arquitectura</div>
+      <div class="t-accent" style="font-size:32px;font-weight:800;color:#1E2740;letter-spacing:-0.5px;margin-top:6px;line-height:1.2;">Cinco capas que operan como sistema cerrado.</div>
+      <div style="font-size:13px;color:#4A5568;margin-top:6px;max-width:1100px;line-height:1.55;">Cada capa cumple una función específica. Todas son auditables en tiempo real. La operación cotidiana del grupo en marketing digital se concentra en estas cinco capas.</div>
     </div>
     <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:12px;flex:1;">
       <div class="layer-card">
         <div class="num">Capa 1</div>
         <div class="name">Captura unificada</div>
-        <div class="desc">3 landings con folio canónico GP-{MARCA}-{AAMMDD}-{HHMMSS} como llave de cruce entre todos los sistemas del grupo.</div>
+        <div class="desc">3 landings con catálogo dinámico. Toda oportunidad recibe un folio canónico que actúa como llave de cruce entre todos los sistemas del grupo.</div>
       </div>
       <div class="layer-card">
         <div class="num">Capa 2</div>
         <div class="name">Ingesta y persistencia</div>
-        <div class="desc">Cloudflare Worker con endpoint único. Base D1 con 7 tablas auditables. Logs persistentes y consulta en tiempo real.</div>
+        <div class="desc">Cloudflare Worker con endpoint único. Base D1 con 7 tablas auditables que registran leads, pipeline, eventos, vendedores, sucursales y auditoría.</div>
       </div>
       <div class="layer-card">
         <div class="num">Capa 3</div>
         <div class="name">Atribución server-side</div>
-        <div class="desc">Meta CAPI + GA4 MP con deduplicación automática. Webhook Meta Lead Gen integrado. Señales de compradores reales, no clics.</div>
+        <div class="desc">Meta CAPI y GA4 Measurement Protocol con deduplicación automática. Webhook de Meta Lead Gen integrado. Señales de compradores reales, no clics.</div>
       </div>
       <div class="layer-card">
         <div class="num">Capa 4</div>
         <div class="name">Operación cross-marca</div>
-        <div class="desc">Un único kanban corporativo de 6 columnas transversal a 3 marcas. Acceso por PIN. SLA y capacidad medibles.</div>
+        <div class="desc">Un único kanban corporativo de 6 columnas, transversal a las marcas. Acceso por PIN con visibilidad acotada. SLA y capacidad medibles.</div>
       </div>
       <div class="layer-card">
         <div class="num">Capa 5</div>
         <div class="name">Dashboard y conciliación</div>
-        <div class="desc">Dashboard multi-canal con corte diario. 3 cruces externos contra base corporativa. Backfill automatizado.</div>
+        <div class="desc">Dashboard multi-canal con corte diario. Conciliación diaria con 3 cruces externos contra base corporativa y backfill automatizado.</div>
       </div>
     </div>
-    <div style="background:#1E2740;border-left:4px solid #ECC94B;border-radius:8px;padding:14px 20px;display:flex;align-items:center;gap:18px;">
-      <div style="font-size:10px;font-weight:800;letter-spacing:2px;color:#ECC94B;text-transform:uppercase;flex-shrink:0;">Mecanismo de valor</div>
-      <div style="font-size:13px;color:#fff;line-height:1.5;font-weight:500;">Cada cierre atribuido entrena al algoritmo. Cada algoritmo mejor entrenado <span style="color:#ECC94B;font-weight:700;">reduce el CPA</span>. Cada CPA menor <span style="color:#ECC94B;font-weight:700;">multiplica la capacidad de inversión rentable</span>. El piloto demostró el ciclo en escala reducida. La institucionalización lo extiende al gasto consolidado del grupo.</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+      <div class="card" style="border-left:3px solid #4299E1;background:#ebf8ff;">
+        <div style="font-size:10px;font-weight:800;letter-spacing:1.5px;color:#2B6CB0;text-transform:uppercase;margin-bottom:4px;">Visualización del dashboard ejecutivo</div>
+        <div style="font-size:11.5px;color:#2D3748;line-height:1.55;">Filtro global por canal (landings / Meta Lead Gen / ambos). KPIs hero. Embudo de marca a sucursal. CPA por marca. Sesgo de asignación. Tabla por vendedor con split cold lead vs cita agendada. Datos del día anterior actualizados al amanecer.</div>
+      </div>
+      <div class="card" style="border-left:3px solid #4299E1;background:#ebf8ff;">
+        <div style="font-size:10px;font-weight:800;letter-spacing:1.5px;color:#2B6CB0;text-transform:uppercase;margin-bottom:4px;">Visualización del kanban operativo</div>
+        <div style="font-size:11.5px;color:#2D3748;line-height:1.55;">Seis columnas (por contactar, cita agendada, visita, negociación, ganada, perdida) transversal a marca. El vendedor mueve la tarjeta. Al mover de cold a cita, el sistema dispara el evento Schedule en CAPI con el identificador del lead. Atribución directa al anuncio y campaña.</div>
+      </div>
     </div>
   </div>
-  <div class="slide-footer">Motor de Atribución · Consejo · Mayo 2026</div>
+  <div class="slide-footer">Motor de Atribución · Resumen ejecutivo · Consejo · Mayo 2026</div>
 </section>
 
-<!-- ════════ SLIDE 8 · ROADMAP ════════ -->
-<section class="slide slide--dark">
-  <div class="slide-label">08 / Roadmap</div>
+<!-- ════════ SLIDE 8 · QUÉ HA PRODUCIDO ════════ -->
+<section class="slide slide--darker">
+  <div class="slide-label">08 / Qué ha producido</div>
   <img src="../assets/logos/LOGO-GP-Blanco.png" class="logo-corner logo-w"><img src="../assets/logos/Logo-GP-Negro.png" class="logo-corner logo-d">
   <div class="pad-lg flex-col gap-16">
     <div>
-      <div class="t-label t-gold">§ 05 · Roadmap 12 meses</div>
-      <div class="t-display" style="font-size:32px;color:#fff;letter-spacing:-0.5px;margin-top:4px;line-height:1.2;">Tres horizontes con gates de evidencia entre fases.</div>
-      <div style="font-size:13px;color:rgba(247,250,252,0.7);margin-top:6px;max-width:1100px;line-height:1.55;">El paso entre horizontes no se ejecuta por calendario. Se ejecuta por verificación de gates. Si una condición no se cumple, el horizonte siguiente no inicia. El Consejo conserva control sobre cada decisión incremental.</div>
+      <div class="t-label t-gold">§ 07 · Evidencia operativa</div>
+      <div class="t-display" style="font-size:34px;color:#fff;letter-spacing:-0.5px;margin-top:4px;line-height:1.2;">Los números del piloto al día 12 post arranque.</div>
+      <div style="font-size:14px;color:rgba(247,250,252,0.75);margin-top:8px;max-width:1100px;line-height:1.55;">Resultados de la primera ventana de medición posterior al GO-LIVE. La captura de leads operó únicamente en Seminuevos durante la mayor parte del periodo. Hyundai y Stellantis pausaron campaña en Meta a partir del 23 de abril por alineación con la oferta del mes y con esta sesión.</div>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;flex:1;">
+    <div style="display:flex;gap:24px;justify-content:center;margin:8px 0;">
+      <div style="text-align:center;"><div class="anchor-num">18</div><div class="anchor-label">Oportunidades<br>con cita agendada</div></div>
+      <div style="text-align:center;"><div class="anchor-num">$5.61M</div><div class="anchor-label">Pipeline acumulado<br>MXN</div></div>
+      <div style="text-align:center;"><div class="anchor-num">$11,696</div><div class="anchor-label">Inversión publicitaria<br>MXN total</div></div>
+      <div style="text-align:center;"><div class="anchor-num">$650</div><div class="anchor-label">CPA global<br>MXN / oportunidad</div></div>
+      <div style="text-align:center;"><div class="anchor-num" style="color:#FC8181;">0</div><div class="anchor-label">Cierres en<br>la ventana</div></div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;">
+      <div class="card--dark" style="border-left:3px solid #48BB78;background:rgba(72,187,120,0.06);">
+        <div style="font-size:9px;font-weight:800;letter-spacing:1.5px;color:#68D391;text-transform:uppercase;">Seminuevos</div>
+        <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:18px;color:#fff;margin-top:4px;">14 oportunidades · $4.32M pipeline</div>
+        <div style="font-size:11px;color:#CBD5E0;margin-top:4px;line-height:1.5;">CPA $487 MXN · gasto Meta $6,808 · conversión sesión a lead 1.42% · campaña activa.</div>
+      </div>
+      <div class="card--dark" style="border-left:3px solid #ECC94B;background:rgba(236,201,75,0.06);">
+        <div style="font-size:9px;font-weight:800;letter-spacing:1.5px;color:#ECC94B;text-transform:uppercase;">Hyundai</div>
+        <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:18px;color:#fff;margin-top:4px;">4 oportunidades · $1.29M pipeline</div>
+        <div style="font-size:11px;color:#CBD5E0;margin-top:4px;line-height:1.5;">CPA $890 MXN · gasto Meta $3,559 · conversión 3.55% · pausada el 23 de abril.</div>
+      </div>
+      <div class="card--dark" style="border-left:3px solid #A0AEC0;background:rgba(160,174,192,0.06);">
+        <div style="font-size:9px;font-weight:800;letter-spacing:1.5px;color:#A0AEC0;text-transform:uppercase;">Stellantis</div>
+        <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:18px;color:#fff;margin-top:4px;">0 oportunidades en piloto · gasto $1,330</div>
+        <div style="font-size:11px;color:#CBD5E0;margin-top:4px;line-height:1.5;">Conversión sesión a lead 5.52% sobre tráfico capturado · pausada 23 de abril. Posteriormente integró 4 leads vía webhook Meta Lead Gen.</div>
+      </div>
+    </div>
+    <div style="background:rgba(66,153,225,0.08);border-left:3px solid #4299E1;border-radius:6px;padding:10px 14px;font-size:11.5px;color:#CBD5E0;line-height:1.5;">
+      <strong style="color:#fff;">Referencia comparativa:</strong> CPA Seminuevos $487 MXN frente al CAC promedio histórico del grupo estimado en <strong style="color:#63B3ED;">$1,206 MXN</strong>. La eficiencia de adquisición es sólida para el contexto del mercado mexicano y valida que el modelo de captura cumple su función.
+    </div>
+  </div>
+  <div class="slide-footer">Motor de Atribución · Resumen ejecutivo · Consejo · Mayo 2026</div>
+</section>
+
+<!-- ════════ SLIDE 9 · OBSERVACIONES DEL PERIODO ════════ -->
+<section class="slide slide--dark">
+  <div class="slide-label">09 / Observaciones del periodo</div>
+  <img src="../assets/logos/LOGO-GP-Blanco.png" class="logo-corner logo-w"><img src="../assets/logos/Logo-GP-Negro.png" class="logo-corner logo-d">
+  <div class="pad-lg flex-col gap-16">
+    <div>
+      <div class="t-label t-gold">§ 08 · Aprendizajes en curso</div>
+      <div class="t-display" style="font-size:34px;color:#fff;letter-spacing:-0.5px;margin-top:4px;line-height:1.2;">Lo que el sistema permite observar <span style="color:#ECC94B;">mientras sigue operando</span>.</div>
+      <div style="font-size:14px;color:rgba(247,250,252,0.75);margin-top:8px;max-width:1100px;line-height:1.55;">El piloto continúa en ejecución. Los siguientes son aprendizajes operativos del periodo de medición inicial. El sistema permite, por primera vez en la historia del grupo, observar en tiempo real condiciones que antes eran difíciles de cuantificar.</div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;flex:1;">
+      <div class="card--dark" style="border-left:4px solid #FC8181;background:rgba(252,129,129,0.06);padding:20px 22px;">
+        <div style="font-size:10px;font-weight:800;letter-spacing:2px;color:#FC8181;text-transform:uppercase;margin-bottom:8px;">Aprendizaje 1 · La adquisición funciona</div>
+        <div style="font-size:14px;color:#fff;line-height:1.55;font-weight:500;margin-bottom:10px;">CPA Seminuevos $487 frente a un CAC promedio histórico estimado del grupo en $1,206. Conversiones sesión a lead consistentes con el contexto del mercado mexicano. La eficiencia de captura es sólida en las tres marcas piloto.</div>
+        <div style="font-size:11.5px;color:#CBD5E0;line-height:1.6;">El sistema genera oportunidades calificadas a un costo significativamente menor que el promedio histórico. La hipótesis original sobre la capacidad técnica del Motor se confirma en el periodo medido.</div>
+      </div>
+      <div class="card--dark" style="border-left:4px solid #ECC94B;background:rgba(236,201,75,0.06);padding:20px 22px;">
+        <div style="font-size:10px;font-weight:800;letter-spacing:2px;color:#ECC94B;text-transform:uppercase;margin-bottom:8px;">Aprendizaje 2 · La conversión a cierre requiere atención</div>
+        <div style="font-size:14px;color:#fff;line-height:1.55;font-weight:500;margin-bottom:10px;">De 18 oportunidades agendadas, 6 estuvieron sin vendedor asignado en el corte, 1 visita realizada, 0 cierres en la ventana inicial. Marketing y ventas operan con métricas, jefes y sistemas distintos.</div>
+        <div style="font-size:11.5px;color:#CBD5E0;line-height:1.6;">Estos datos corresponden al primer mes de operación con campañas activas únicamente en Seminuevos durante la mayor parte del periodo. Son aprendizajes preliminares, no conclusiones cerradas. El piloto continúa y los siguientes cortes ampliarán la lectura.</div>
+      </div>
+    </div>
+    <div style="background:rgba(66,153,225,0.08);border-left:4px solid #4299E1;border-radius:6px;padding:12px 18px;display:flex;align-items:center;gap:18px;">
+      <div style="font-size:11px;font-weight:800;letter-spacing:2px;color:#63B3ED;text-transform:uppercase;flex-shrink:0;">Capacidad institucional nueva</div>
+      <div style="font-size:12.5px;color:#fff;line-height:1.55;">Por primera vez el grupo cuenta con instrumentación corporativa que permite observar, cuantificar y diagnosticar la operación digital cross-marca en tiempo real. El valor inicial está en la visibilidad misma. <strong style="color:#63B3ED;">Las conversaciones operativas que esa visibilidad abre son parte del trabajo en curso.</strong></div>
+    </div>
+  </div>
+  <div class="slide-footer">Motor de Atribución · Resumen ejecutivo · Consejo · Mayo 2026</div>
+</section>
+
+<!-- ════════ SLIDE 10 · HACIA DÓNDE ESCALA ════════ -->
+<section class="slide slide--darker">
+  <div class="slide-label">10 / Hacia dónde escala</div>
+  <img src="../assets/logos/LOGO-GP-Blanco.png" class="logo-corner logo-w"><img src="../assets/logos/Logo-GP-Negro.png" class="logo-corner logo-d">
+  <div class="pad-lg flex-col gap-16">
+    <div>
+      <div class="t-label t-gold">§ 09 · Roadmap 12 meses</div>
+      <div class="t-display" style="font-size:32px;color:#fff;letter-spacing:-0.5px;margin-top:4px;line-height:1.2;">Tres horizontes con gates de evidencia entre fases.</div>
+      <div style="font-size:13px;color:rgba(247,250,252,0.72);margin-top:6px;max-width:1100px;line-height:1.55;">El paso entre horizontes no se ejecuta por calendario. Se ejecuta por verificación de gates medibles desde el dashboard ejecutivo. El Consejo conserva control sobre cada decisión incremental.</div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;">
       <div class="phase-card">
-        <div class="tag">Horizonte 1 · Mes 0–2</div>
-        <div class="name">Consolidación operativa</div>
-        <div class="desc"><strong style="color:#fff;">Qué se hace:</strong> liberación de Landings Lite. Activación formal de la célula de ventas digitales corporativa. Cierre del pipeline acumulado. Designación del responsable de Revenue Operations.</div>
-        <div class="desc"><strong style="color:#fff;">Qué ve el Consejo:</strong> primer reporte de cierres atribuidos al cierre de julio.</div>
-        <div class="desc"><strong style="color:#ECC94B;">Cuesta:</strong> bajo umbral habitual. Operativo y de gobierno.</div>
+        <div class="tag">Horizonte 1 · Mes 0–2 · Consolidación</div>
+        <div class="name">Cerrar el pipeline acumulado y formalizar gobierno</div>
+        <div class="desc">Liberación de Landings Lite. Activación de la célula de ventas digitales corporativa. Designación del responsable de Revenue Operations. Cierre de las primeras oportunidades del pipeline ya generado.</div>
+        <div class="desc"><strong style="color:#ECC94B;">Costo:</strong> bajo umbral habitual de aprobación.</div>
       </div>
       <div class="phase-card h2">
-        <div class="tag">Horizonte 2 · Mes 2–7</div>
-        <div class="name">Escalamiento progresivo</div>
-        <div class="desc"><strong style="color:#fff;">Qué se hace:</strong> incorporación de 2 marcas adicionales (condicional a gates H1). Activación de central de medios corporativa fase 1 con recuperación fiscal de IVA. Integración de crédito digital.</div>
-        <div class="desc"><strong style="color:#fff;">Qué ve el Consejo:</strong> 5 marcas en Motor. Primer reporte consolidado de CAC corporativo.</div>
-        <div class="desc"><strong style="color:#63B3ED;">Cuesta:</strong> definido al cierre H1, condicional.</div>
+        <div class="tag">Horizonte 2 · Mes 2–7 · Escalamiento</div>
+        <div class="name">Cinco marcas, central de medios y crédito digital</div>
+        <div class="desc">Incorporación de 2 marcas adicionales, condicional a gates H1. Central de medios corporativa fase 1 con recuperación fiscal de IVA. Integración de crédito digital. Profesionalización del CRM corporativo.</div>
+        <div class="desc"><strong style="color:#63B3ED;">Costo:</strong> definido al cierre H1, condicional.</div>
       </div>
       <div class="phase-card h3">
-        <div class="tag">Horizonte 3 · Año 2</div>
-        <div class="name">Madurez del modelo</div>
-        <div class="desc"><strong style="color:#fff;">Qué se hace:</strong> 8 marcas en Motor. Programa de lealtad. Medición de CLTV. Originación de crédito digital. Marketplace si análisis paralelo lo valida.</div>
-        <div class="desc"><strong style="color:#fff;">Qué ve el Consejo:</strong> modelo maduro. Potencial CLTV documentado 2.39× sobre valor por cliente actual.</div>
-        <div class="desc"><strong style="color:#68D391;">Cuesta:</strong> caso financiero al cierre H2.</div>
+        <div class="tag">Horizonte 3 · Año 2 · Madurez</div>
+        <div class="name">Ocho marcas, CLTV y posicionamiento</div>
+        <div class="desc">Completar incorporación de las 8 marcas. Programa de lealtad y medición de CLTV cross-marca. Originación de crédito digital propio. Marketplace si el análisis estratégico paralelo lo valida.</div>
+        <div class="desc"><strong style="color:#68D391;">Costo:</strong> caso financiero específico al cierre H2.</div>
       </div>
     </div>
+    <div style="font-size:11px;font-weight:800;letter-spacing:2px;color:#ECC94B;text-transform:uppercase;margin-top:8px;">Gates de evidencia entre Horizonte 1 y Horizonte 2</div>
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;">
       <div class="gate-card">
         <div class="num">95%</div>
         <div class="name">Asignación de vendedor</div>
-        <div class="desc">Tasa superior al 95% sobre oportunidades del trimestre. Cierra brecha del 33% observada en el piloto.</div>
+        <div class="desc">Cobertura superior al 95% sobre oportunidades del trimestre. Cierra la brecha del 33% observada en el piloto.</div>
       </div>
       <div class="gate-card">
         <div class="num">30%</div>
         <div class="name">Conversión cita a visita</div>
-        <div class="desc">Conversión superior al 30%. Prueba operativa de que la célula corporativa cierra el cuello.</div>
+        <div class="desc">Superior al 30%. Prueba operativa de que la célula corporativa cierra el cuello identificado.</div>
       </div>
       <div class="gate-card">
         <div class="num">1+</div>
         <div class="name">Cierre atribuido</div>
-        <div class="desc">Al menos un cierre atribuido por marca y por mes, con trazabilidad lead a venta facturada.</div>
+        <div class="desc">Al menos un cierre por marca y por mes, con trazabilidad lead a venta facturada.</div>
       </div>
     </div>
   </div>
-  <div class="slide-footer">Motor de Atribución · Consejo · Mayo 2026</div>
+  <div class="slide-footer">Motor de Atribución · Resumen ejecutivo · Consejo · Mayo 2026</div>
 </section>
 
-<!-- ════════ SLIDE 9 · CASO FINANCIERO ════════ -->
-<section class="slide slide--light">
-  <div class="slide-label">09 / Caso financiero</div>
-  <img src="../assets/logos/LOGO-GP-Blanco.png" class="logo-corner logo-w"><img src="../assets/logos/Logo-GP-Negro.png" class="logo-corner logo-d">
-  <div class="pad-lg flex-col gap-16">
-    <div>
-      <div class="t-label t-red">§ 06 · El caso financiero</div>
-      <div class="t-accent" style="font-size:34px;font-weight:800;color:#1E2740;letter-spacing:-0.5px;margin-top:6px;line-height:1.2;">Por qué la matemática funciona sobre la base actual.</div>
-    </div>
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;">
-      <div class="fact-card">
-        <div class="label">Baseline anual MKT</div>
-        <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:30px;color:#1E2740;line-height:1.1;letter-spacing:-0.5px;">$73.4M</div>
-        <div class="desc">MXN · pauta $36.3M, plantilla $21.4M, proveedores $15.7M.</div>
-      </div>
-      <div class="fact-card green">
-        <div class="label">Eficiencia validada</div>
-        <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:30px;color:#276749;line-height:1.1;letter-spacing:-0.5px;">230×</div>
-        <div class="desc">Frente a terceros equivalentes. 5 a 7× más rápido en entrega.</div>
-      </div>
-      <div class="fact-card blue">
-        <div class="label">Pipeline en 12 días</div>
-        <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:30px;color:#2B6CB0;line-height:1.1;letter-spacing:-0.5px;">$5.61M</div>
-        <div class="desc">18 oportunidades. CPA global $650. Inversión pauta $11,696.</div>
-      </div>
-      <div class="fact-card">
-        <div class="label">Costo de plataforma</div>
-        <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:30px;color:#1E2740;line-height:1.1;letter-spacing:-0.5px;">USD 100</div>
-        <div class="desc">Mensual. Infraestructura propia, auditable, portable.</div>
-      </div>
-    </div>
-    <div style="background:#1E2740;color:#fff;border-left:5px solid #ECC94B;border-radius:8px;padding:20px 26px;display:flex;flex-direction:column;gap:8px;">
-      <div style="font-size:10px;font-weight:800;letter-spacing:2.5px;color:#ECC94B;text-transform:uppercase;">La métrica decisiva</div>
-      <div class="t-accent" style="font-size:26px;font-weight:800;color:#fff;letter-spacing:-0.4px;line-height:1.25;">Mover la participación digital del grupo de <span style="color:#ECC94B;">33% a 36.3%</span> representa aproximadamente <span style="color:#ECC94B;">+1,604 unidades</span> y <span style="color:#ECC94B;">+$661 millones de pesos</span> de ingreso incremental anual.</div>
-      <div style="font-size:13px;color:rgba(255,255,255,0.78);line-height:1.55;">Sobre la línea base de 29,595 unidades y $12,813M de revenue 2025, una palanca de 3.3 puntos porcentuales en participación digital. Orden de magnitud del retorno sobre una inversión incremental marginal.</div>
-    </div>
-    <div style="display:flex;gap:14px;align-items:center;background:rgba(252,129,129,0.08);border:1px solid rgba(252,129,129,0.25);border-radius:8px;padding:12px 18px;">
-      <div style="font-size:10px;font-weight:800;letter-spacing:1.5px;color:#C8102E;text-transform:uppercase;flex-shrink:0;">Costo de no actuar</div>
-      <div style="font-size:11.5px;color:#2D3748;line-height:1.55;"><strong style="color:#1E2740;">$800K a $1.2M</strong> anuales en comisión externa de medios · <strong style="color:#1E2740;">16% no recuperable</strong> en IVA sobre pauta digital · al menos <strong style="color:#1E2740;">$5M anuales</strong> en eficiencia no capturada · participación cedida en seminuevos · pipeline $5.6M en riesgo.</div>
-    </div>
-  </div>
-  <div class="slide-footer">Motor de Atribución · Consejo · Mayo 2026</div>
-</section>
-
-<!-- ════════ SLIDE 10 · ASK ════════ -->
+<!-- ════════ SLIDE 11 · EL ASK ════════ -->
 <section class="slide slide--dark">
-  <div class="slide-label">10 / El ask</div>
+  <div class="slide-label">11 / El ask</div>
   <img src="../assets/logos/LOGO-GP-Blanco.png" class="logo-corner logo-w"><img src="../assets/logos/Logo-GP-Negro.png" class="logo-corner logo-d">
   <div class="pad-lg flex-col gap-16">
     <div>
-      <div class="t-label t-gold">§ 07 · El ask</div>
-      <div class="t-display" style="font-size:32px;color:#fff;letter-spacing:-0.5px;margin-top:4px;line-height:1.2;">Cinco decisiones binarias.</div>
-      <div style="font-size:13px;color:rgba(247,250,252,0.7);margin-top:6px;max-width:1080px;line-height:1.55;">Cada decisión es binaria, está cuantificada en costo cuando aplica, tiene timeline asociado y consecuencia clara. La primera habilita las siguientes. Horizonte de respuesta: <strong style="color:#ECC94B;">30 días naturales</strong>.</div>
+      <div class="t-label t-gold">§ 10 · Decisiones del Consejo</div>
+      <div class="t-display" style="font-size:32px;color:#fff;letter-spacing:-0.5px;margin-top:4px;line-height:1.2;">Cinco decisiones binarias para resolver en 30 días.</div>
+      <div style="font-size:13px;color:rgba(247,250,252,0.72);margin-top:6px;max-width:1100px;line-height:1.55;">Cada decisión es binaria, está cuantificada en costo cuando aplica y tiene consecuencia clara. La primera habilita las siguientes.</div>
     </div>
     <div style="display:flex;flex-direction:column;gap:10px;flex:1;">
       <div class="ask-card" style="display:grid;grid-template-columns:48px 1fr 140px;gap:14px;align-items:center;">
         <div class="num-ask">01</div>
         <div>
-          <div class="decision">Institucionalización del Motor de Atribución</div>
-          <div class="detail">Conversión a infraestructura corporativa permanente con responsable formal, SLA y línea presupuestal. Habilita continuidad y previene pérdida del pipeline acumulado.</div>
+          <div class="decision">Institucionalizar el Motor de Atribución como infraestructura corporativa permanente</div>
+          <div class="detail">Responsable formal, SLA documentado y línea presupuestal operativa. Asegura continuidad y protege el pipeline acumulado.</div>
         </div>
         <div class="stamp">Sí / No<br><span style="color:#A0AEC0;font-weight:400;text-transform:none;letter-spacing:0;font-size:9px;">USD 100 / mes</span></div>
       </div>
       <div class="ask-card" style="display:grid;grid-template-columns:48px 1fr 140px;gap:14px;align-items:center;">
         <div class="num-ask">02</div>
         <div>
-          <div class="decision">Activación de Revenue Operations y célula de ventas digitales corporativa</div>
-          <div class="detail">Marketing, ventas digitales y datos bajo dirección única. Asegura trazabilidad y cierre del pipeline generado, independientemente de vicios operativos heredados.</div>
+          <div class="decision">Activar Revenue Operations y la célula de ventas digitales corporativa</div>
+          <div class="detail">Marketing, ventas digitales y datos bajo dirección única, con autonomía suficiente para asegurar trazabilidad y cierre del pipeline generado.</div>
         </div>
         <div class="stamp">Sí / No<br><span style="color:#A0AEC0;font-weight:400;text-transform:none;letter-spacing:0;font-size:9px;">Conservador vs pipeline</span></div>
       </div>
       <div class="ask-card" style="display:grid;grid-template-columns:48px 1fr 140px;gap:14px;align-items:center;">
         <div class="num-ask">03</div>
         <div>
-          <div class="decision">Definición del nivel de alcance de la Dirección de Marketing Corporativo</div>
-          <div class="detail">Resolución formal entre la operación actual y el modelo de Centro de Excelencia con gobierno sobre branding, digital, ventas e innovación. Elimina ambigüedad sobre responsabilidades.</div>
+          <div class="decision">Definir el nivel de alcance de la Dirección de Marketing Corporativo</div>
+          <div class="detail">Resolución entre operación actual y modelo de Centro de Excelencia con gobierno sobre branding, digital, ventas e innovación. Elimina ambigüedad sobre responsabilidades.</div>
         </div>
         <div class="stamp">Sí / No<br><span style="color:#A0AEC0;font-weight:400;text-transform:none;letter-spacing:0;font-size:9px;">Función del nivel</span></div>
       </div>
       <div class="ask-card" style="display:grid;grid-template-columns:48px 1fr 140px;gap:14px;align-items:center;">
         <div class="num-ask">04</div>
         <div>
-          <div class="decision">Alineación top down con marcas OEM</div>
-          <div class="detail">Autorización a la Dirección de Marketing Corporativo para conducir la conversación con OEMs con respaldo institucional formal, en lugar de delegarla de forma fragmentada.</div>
+          <div class="decision">Alineación top down con marcas OEM con respaldo institucional</div>
+          <div class="detail">Autorización a la Dirección para conducir la conversación con OEMs y direcciones generales con respaldo formal del Consejo, en lugar de delegarla de forma fragmentada.</div>
         </div>
         <div class="stamp">Sí / No<br><span style="color:#A0AEC0;font-weight:400;text-transform:none;letter-spacing:0;font-size:9px;">Costo nulo</span></div>
       </div>
       <div class="ask-card" style="display:grid;grid-template-columns:48px 1fr 140px;gap:14px;align-items:center;">
         <div class="num-ask">05</div>
         <div>
-          <div class="decision">Pre-aprobación condicional del Horizonte 2</div>
-          <div class="detail">Central de medios corporativa fase 1 y escalamiento a dos marcas adicionales, condicionada a verificación de los tres gates del Horizonte 1. Sin ventana intermedia de re-aprobación.</div>
+          <div class="decision">Pre-aprobar el Horizonte 2 condicionado a gates del Horizonte 1</div>
+          <div class="detail">Central de medios corporativa fase 1 y escalamiento a dos marcas adicionales, contingente a verificación de los tres gates documentados.</div>
         </div>
         <div class="stamp">Sí condicional<br><span style="color:#A0AEC0;font-weight:400;text-transform:none;letter-spacing:0;font-size:9px;">Contingente a gates</span></div>
       </div>
     </div>
   </div>
-  <div class="slide-footer">Motor de Atribución · Consejo · Mayo 2026</div>
+  <div class="slide-footer">Motor de Atribución · Resumen ejecutivo · Consejo · Mayo 2026</div>
 </section>
 
-<!-- ════════ SLIDE 11 · CIERRE ════════ -->
+<!-- ════════ SLIDE 12 · CIERRE ════════ -->
 <section class="slide slide--darker" style="justify-content:center;align-items:center;">
   <img src="../assets/logos/LOGO-GP-Blanco.png" class="logo-corner logo-w"><img src="../assets/logos/Logo-GP-Negro.png" class="logo-corner logo-d">
   <div class="flex-col center-all gap-24" style="flex:1;justify-content:center;padding:0 80px;">
     <div class="t-label t-gold">Cierre</div>
-    <div class="t-display" style="font-size:42px;color:#fff;line-height:1.15;max-width:1080px;letter-spacing:-0.7px;text-align:center;">
-      Del piloto operativo a la <span style="color:#ECC94B;font-style:italic;font-family:'Playfair Display',serif;font-weight:800;">capacidad corporativa</span>.
+    <div class="t-display" style="font-size:40px;color:#fff;line-height:1.15;max-width:1080px;letter-spacing:-0.7px;text-align:center;">
+      Del planteamiento inicial a la <span style="color:#ECC94B;font-style:italic;font-family:'Playfair Display',serif;font-weight:800;">evidencia operativa</span>.
     </div>
     <div class="divider-red" style="margin:0 auto;"></div>
-    <div style="font-size:18px;font-weight:500;color:rgba(247,250,252,0.85);max-width:1000px;line-height:1.55;text-align:center;letter-spacing:-0.2px;">
-      La infraestructura existe. Los resultados están auditados. El costo de continuidad es marginal. El Consejo Directivo recibe una propuesta sustentada en evidencia operativa generada por el propio grupo, en un horizonte de 90 días, con un modelo de gates de evidencia que protege cada decisión incremental.
+    <div style="font-size:18px;font-weight:500;color:rgba(247,250,252,0.85);max-width:1020px;line-height:1.55;text-align:center;letter-spacing:-0.2px;">
+      El Motor de Atribución pasó de ser una propuesta presentada al inicio del mandato a una infraestructura operativa con resultados auditables en 90 días. El sistema permite, por primera vez en la historia del grupo, medir, optimizar y diagnosticar la inversión publicitaria peso a peso, y revelar condiciones estructurales que antes eran invisibles.
     </div>
     <div style="font-size:20px;font-weight:600;color:#ECC94B;line-height:1.4;max-width:980px;text-align:center;font-style:italic;font-family:'Playfair Display',serif;">
-      La pregunta no es si la atribución debe institucionalizarse. Es si el grupo asegura ahora la continuidad de una capacidad que ya está creando valor.
+      La decisión que el Consejo enfrenta no es si la atribución debe institucionalizarse. Es si el grupo asegura ahora la continuidad de una capacidad que ya está creando valor y abre la conversación de gobierno que el piloto puso sobre la mesa.
     </div>
-    <div style="margin-top:20px;text-align:center;">
-      <div style="font-size:11px;font-weight:700;letter-spacing:3px;color:rgba(247,250,252,0.5);text-transform:uppercase;">Cinco decisiones · 30 días para resolver</div>
-      <div style="margin-top:8px;font-size:10px;color:rgba(247,250,252,0.4);letter-spacing:1.5px;">Documento de marco contextual A4 disponible como anexo · Strategy Definition completa</div>
+    <div style="margin-top:14px;text-align:center;">
+      <div style="font-size:11px;font-weight:700;letter-spacing:3px;color:rgba(247,250,252,0.55);text-transform:uppercase;">Cinco decisiones · 30 días para resolver</div>
+      <div style="margin-top:8px;font-size:10px;color:rgba(247,250,252,0.4);letter-spacing:1.5px;">Documento de marco contextual A4 disponible como anexo con la Strategy Definition completa.</div>
     </div>
   </div>
   <div style="position:absolute;bottom:14px;left:0;right:0;text-align:center;">
