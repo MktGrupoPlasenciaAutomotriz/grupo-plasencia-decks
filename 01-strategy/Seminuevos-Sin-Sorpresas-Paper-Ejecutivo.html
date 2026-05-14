@@ -667,6 +667,38 @@
     font-style: normal;
     font-weight: 700;
   }
+  .ad-eval {
+    background: var(--g100);
+    padding: 2.5mm 3.5mm;
+    margin-top: 2mm;
+    border-left: 2px solid var(--gp-red);
+    font-size: 7.5pt;
+    color: var(--g600);
+    line-height: 1.45;
+  }
+  .ad-eval .eval-title {
+    font-family: var(--sans);
+    font-size: 7pt;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    color: var(--gp-red);
+    text-transform: uppercase;
+    margin-bottom: 1.5mm;
+  }
+  .ad-eval .eval-row {
+    display: grid;
+    grid-template-columns: 18mm 1fr;
+    gap: 2mm;
+    margin-bottom: 0.8mm;
+    font-size: 7.5pt;
+  }
+  .ad-eval .eval-label {
+    font-weight: 700;
+    color: var(--gp-navy);
+    font-size: 7pt;
+  }
+  .ad-eval .eval-content { color: var(--g600); }
+  .ad-eval .eval-content strong { color: var(--gp-navy); font-weight: 700; }
 
   /* ============ HYPOTHESIS BLOCK ============ */
   .hypothesis {
@@ -1773,26 +1805,34 @@
 
   <div class="ads-intro">
     <p>Andromeda es el motor de retrieval de Meta Ads 2026. No segmenta por intereses; analiza el creativo con visión por computadora y le sirve el ad a la audiencia que mejor empata con lo que la máquina “ve” en la pieza. <strong>El creativo ES el targeting.</strong> Cada concepto produce un Entity ID semántico distinto para que Andromeda los lea como retrievals separados, no como cosméticos del mismo ad.</p>
-    <p><strong>Set v4.1 (greenfield, 14-may-2026):</strong> 6 conceptos hero en 9:16 (Stories + Reels), producidos con MCP image-gen. Los seis comunican explícitamente <strong>marca (Seminuevos Plasencia) + producto (auto seminuevo) + un atributo específico</strong>: identidad institucional, asesor humano, inspección técnica, proceso digital, auto certificado y cercanía/red. 4 listos para difundir (H01, H02, H04, H06). 2 condicionales hasta firma de Jose Reyes en lista de claims (H03, H05). Match Score promedio del set: 88/100. Cero modelo de auto identificable como héroe en hero · cero logo OEM · cero precio en hero · disclaimer legal universal apuntando al sitio.</p>
+    <p><strong>Set v4.2 (greenfield, 14-may-2026):</strong> 6 conceptos hero en 9:16 (Stories + Reels), producidos con MCP image-gen. Los seis comunican explícitamente <strong>marca (Seminuevos Plasencia) + producto (auto seminuevo) + un atributo específico</strong>: identidad institucional, asesor humano, inspección técnica, proceso digital, auto certificado y cercanía/red. 4 listos para difundir (H01, H02, H04, H06). 2 condicionales hasta firma de Jose Reyes en lista de claims (H03, H05). Cero modelo de auto identificable como héroe · cero logo OEM · cero precio en hero · disclaimer legal universal.</p>
+    <p><strong>Evaluación de cada ad · 4 capas Andromeda (canónicas de la skill):</strong> <strong>(1) Avatar Andromeda</strong> — qué “ve” la máquina (objetos, texto, colores, emociones) y el Entity ID que estima. <strong>(2) Buyer Persona</strong> — a quién debería llegar según estrategia. <strong>(3) Match Score</strong> — alineación capa 1 ↔ capa 2 (0–100, gate Andromeda ≥70). <strong>(4) Human Comprehension</strong> — el ad pasado por ojo de un humano del target: ¿se entiende hook, oferta y CTA en 3 segundos? ¿qué fricción cognitiva tiene? ¿qué sesgos (Cialdini · Fogg · System 1) opera? Las 4 capas se reportan abajo por concepto.</p>
   </div>
 
   <div class="ad-concept">
-    <div class="ad-visual"><img src="../assets/v4-ads/H01_marca-seminuevos-plasencia.png" alt="H01 Marca Seminuevos Plasencia · tipografía editorial con auto silueta de fondo"></div>
+    <div class="ad-visual"><img src="../assets/v4-ads/H01_marca-seminuevos-plasencia.png" alt="H01 Marca Seminuevos Plasencia · El catálogo de · tipografía editorial con auto silueta"></div>
     <div class="ad-meta">
       <div class="ad-meta-header">
         <span class="ad-id">H01</span>
-        <h4>Marca Seminuevos Plasencia</h4>
+        <h4>El catálogo de Seminuevos Plasencia</h4>
         <span class="ad-status-tag">Listo</span>
       </div>
       <div class="ad-entity-id">Entity ID: institutional brand identity · typography-led · Match Score 88</div>
-      <p class="ad-brief">Composición editorial institucional. Tipografía SEMINUEVOS + “Plasencia” (Playfair italic gold) domina la pieza. Auto silueta atmosférica de fondo. <strong>“75 años vendiendo autos. Sin Sorpresas.”</strong> Concepto puro de identidad de marca: quiénes somos, dónde, desde cuándo. No vende un auto; vende la marca que vende autos.</p>
+      <p class="ad-brief">Composición editorial institucional. Eyebrow gold <em>“EL CATÁLOGO DE”</em> + “SEMINUEVOS / Plasencia.” + “GUADALAJARA · DESDE 1947 · 75 años vendiendo autos. Sin Sorpresas.” Auto silueta atmosférica de fondo. Brand awareness pero con el “qué” explícito desde el primer vistazo (catálogo de seminuevos), no solo el “quién”.</p>
       <div class="ad-copy-block">
         <h5>Copy Meta Ads</h5>
-        <p><strong>Primario:</strong> Hace 75 años que Plasencia vende autos en Guadalajara. Tu próximo seminuevo te espera. Sin sorpresas.</p>
+        <p><strong>Primario:</strong> Hace 75 años que Plasencia vende autos en Guadalajara. Conoce el catálogo de seminuevos certificados. Sin sorpresas.</p>
         <p><strong>Headline:</strong> Seminuevos Plasencia. Desde 1947.</p>
         <p><strong>Description:</strong> Conoce el catálogo →</p>
       </div>
       <p class="ad-meta-foot"><strong>Persona objetivo:</strong> alto-trust institucional · <strong>Status:</strong> listo para difundir.</p>
+      <div class="ad-eval">
+        <div class="eval-title">Evaluación 4 capas Andromeda</div>
+        <div class="eval-row"><span class="eval-label">Avatar</span><span class="eval-content">Tipografía editorial dominante, paleta navy + oro, auto silueta. Andromeda lo lee como <strong>institutional brand · catalog · heritage</strong>.</span></div>
+        <div class="eval-row"><span class="eval-label">Persona</span><span class="eval-content">Comprador alto-trust 35–55, busca respaldo institucional antes de oferta.</span></div>
+        <div class="eval-row"><span class="eval-label">Match</span><span class="eval-content"><strong>88/100</strong> · gate Andromeda ≥70 aprobado.</span></div>
+        <div class="eval-row"><span class="eval-label">Human</span><span class="eval-content"><strong>3-sec test:</strong> hook (Plasencia gigante) en 1s · qué se vende (catálogo de seminuevos) en 2s · ancla institucional (1947, 75 años) en 3s. Sesgos: <em>autoridad</em> (Cialdini), permanencia, System 1 inmediato. Fricción ahora baja gracias al eyebrow “EL CATÁLOGO DE”.</span></div>
+      </div>
     </div>
   </div>
 
@@ -1801,18 +1841,25 @@
     <div class="ad-meta">
       <div class="ad-meta-header">
         <span class="ad-id">H02</span>
-        <h4>Catálogo → registro → asesor en &lt;2h</h4>
+        <h4>Regístrate · asesor te contacta en &lt;2h</h4>
         <span class="ad-status-tag">Listo</span>
       </div>
-      <div class="ad-entity-id">Entity ID: branded sequential flow · advisor follow-up · Match Score 89</div>
-      <p class="ad-brief">Asesora real con escudo Plasencia visible. <strong>“SEMINUEVOS PLASENCIA · Conoce el catálogo. Regístrate. Un asesor te contacta. EN MENOS DE 2 HORAS.”</strong> Comunica el flujo completo del cliente: explora el catálogo en línea → se registra por el auto que le interesa → un asesor real lo contacta en menos de 2 horas. No promete compra inmediata, promete el primer contacto humano del proceso.</p>
+      <div class="ad-entity-id">Entity ID: branded human follow-up · low cognitive load · Match Score 90</div>
+      <p class="ad-brief">Asesora real con escudo Plasencia. Texto simplificado a 3 líneas: <strong>“SEMINUEVOS PLASENCIA · Regístrate. · Un asesor te contacta en menos de 2 horas.”</strong> Versión anterior tenía 4 líneas (incluía “Conoce el catálogo”) que aumentaba la carga cognitiva en scroll. El flujo del catálogo se cuenta en el copy del ad, no en la imagen.</p>
       <div class="ad-copy-block">
         <h5>Copy Meta Ads</h5>
         <p><strong>Primario:</strong> Conoce el catálogo de Seminuevos Plasencia, regístrate por el auto que te interesa, y un asesor real te contacta por WhatsApp en menos de 2 horas. Sin bots. Sin presión.</p>
-        <p><strong>Headline:</strong> Catálogo → registro → asesor en &lt;2h</p>
-        <p><strong>Description:</strong> Explora el catálogo →</p>
+        <p><strong>Headline:</strong> Asesor real en menos de 2 horas</p>
+        <p><strong>Description:</strong> Regístrate ahora →</p>
       </div>
-      <p class="ad-meta-foot"><strong>Persona objetivo:</strong> mindset que valora trato humano + claridad del proceso · <strong>Status:</strong> listo. Pendiente identificar asesora real con permiso de imagen antes de producción final.</p>
+      <p class="ad-meta-foot"><strong>Persona objetivo:</strong> mindset que valora trato humano · <strong>Status:</strong> listo. Pendiente identificar asesora real con permiso de imagen antes de producción final.</p>
+      <div class="ad-eval">
+        <div class="eval-title">Evaluación 4 capas Andromeda</div>
+        <div class="eval-row"><span class="eval-label">Avatar</span><span class="eval-content">Mujer profesional sonriente con escudo Plasencia + smartphone + showroom. Andromeda lee <strong>human service · friendly · branded retail</strong>.</span></div>
+        <div class="eval-row"><span class="eval-label">Persona</span><span class="eval-content">Comprador que valora trato humano vs marketplace anónimo. 30–55.</span></div>
+        <div class="eval-row"><span class="eval-label">Match</span><span class="eval-content"><strong>90/100</strong> · gate aprobado.</span></div>
+        <div class="eval-row"><span class="eval-label">Human</span><span class="eval-content"><strong>3-sec test:</strong> cara sonriente en 0.5s · “Regístrate” como verbo de acción en 1.5s · SLA específico (&lt;2h) en 3s. Sesgos: <em>confianza</em> (cara humana), <em>especificidad</em> (Cialdini · 2h cuantificado), <em>reciprocidad</em> (te contactamos nosotros). Versión anterior tenía 4 líneas; ahora 3, fricción reducida.</span></div>
+      </div>
     </div>
   </div>
 
@@ -1833,6 +1880,13 @@
         <p><strong>Description:</strong> Conoce el proceso →</p>
       </div>
       <p class="ad-meta-foot"><strong>Status:</strong> producido pero <strong>NO se difunde</strong> hasta firma de Jose Reyes en lista de claims operativos sostenidos.</p>
+      <div class="ad-eval">
+        <div class="eval-title">Evaluación 4 capas Andromeda</div>
+        <div class="eval-row"><span class="eval-label">Avatar</span><span class="eval-content">Técnico uniformado + capó abierto + checklist físico + número “150”. Andromeda lee <strong>technical inspection · verification · mechanical trust</strong>.</span></div>
+        <div class="eval-row"><span class="eval-label">Persona</span><span class="eval-content">Comprador racional/analítico, escéptico de “está bien” sin evidencia.</span></div>
+        <div class="eval-row"><span class="eval-label">Match</span><span class="eval-content"><strong>89/100</strong> · gate aprobado.</span></div>
+        <div class="eval-row"><span class="eval-label">Human</span><span class="eval-content"><strong>3-sec test:</strong> número “150” como ancla cognitiva en 1s · técnico = verificación en 2s · “Cada seminuevo, antes de salir al lote” elimina la duda en 3s. Sesgos: <em>autoridad técnica</em>, <em>consistencia</em> (cada seminuevo, no algunos), <em>escasez</em> (si falla, no se vende). Fricción baja, claim verificable.</span></div>
+      </div>
     </div>
   </div>
 </section>
@@ -1858,6 +1912,13 @@
         <p><strong>Description:</strong> Te llamamos en &lt;2h →</p>
       </div>
       <p class="ad-meta-foot"><strong>Persona objetivo:</strong> mindset digital + primer-comprador · <strong>Status:</strong> listo. El ad NO promete compra ni cita cerrada en 2h; promete contacto del asesor en &lt;2h.</p>
+      <div class="ad-eval">
+        <div class="eval-title">Evaluación 4 capas Andromeda</div>
+        <div class="eval-row"><span class="eval-label">Avatar</span><span class="eval-content">Dos pantallas de smartphone secuenciales (form + WhatsApp). Andromeda lee <strong>digital process · mobile UX · branded fast response</strong>.</span></div>
+        <div class="eval-row"><span class="eval-label">Persona</span><span class="eval-content">Mindset digital tipo Kavak / MercadoLibre. 25–40.</span></div>
+        <div class="eval-row"><span class="eval-label">Match</span><span class="eval-content"><strong>84/100</strong> · gate aprobado.</span></div>
+        <div class="eval-row"><span class="eval-label">Human</span><span class="eval-content"><strong>3-sec test:</strong> dos smartphones reconocibles en 1s · UIs (form + WhatsApp) universales en 2s · flujo “yo lleno → ellos me contactan” auto-explicado en 3s. Sesgos: <em>Fogg</em> (habilidad alta · 30 seg), <em>reciprocidad</em> (te contactamos), <em>escasez de fricción</em> (sin filas, sin presión). Fricción muy baja.</span></div>
+      </div>
     </div>
   </div>
 
@@ -1878,26 +1939,40 @@
         <p><strong>Description:</strong> Conoce el catálogo →</p>
       </div>
       <p class="ad-meta-foot"><strong>Status:</strong> producido pero <strong>NO se difunde</strong> hasta firma de Jose Reyes en lista de claims operativos sostenidos.</p>
+      <div class="ad-eval">
+        <div class="eval-title">Evaluación 4 capas Andromeda</div>
+        <div class="eval-row"><span class="eval-label">Avatar</span><span class="eval-content">Sedán como héroe + 3 badges metálicas doradas (inspección · garantía · factura). Andromeda lee <strong>hero car · certified badges · premium retail</strong>.</span></div>
+        <div class="eval-row"><span class="eval-label">Persona</span><span class="eval-content">Comprador con miedo a equivocarse con la calidad/legales del seminuevo. 35–55.</span></div>
+        <div class="eval-row"><span class="eval-label">Match</span><span class="eval-content"><strong>90/100</strong> · gate aprobado.</span></div>
+        <div class="eval-row"><span class="eval-label">Human</span><span class="eval-content"><strong>3-sec test:</strong> auto en showroom en 0.5s · 3 medallas doradas en 1.5s · “Tu auto certificado · Sin sorpresas” cierra en 3s. Sesgos: <em>autoridad</em> (sellos institucionales), <em>social proof implícito</em>, <em>risk reversal triple</em>. Leve disonancia: el auto se ve “como nuevo”, mitigada por la palabra “certificado” + “seminuevo” en copy.</span></div>
+      </div>
     </div>
   </div>
 
   <div class="ad-concept">
-    <div class="ad-visual"><img src="../assets/v4-ads/H06_te-tenemos-cerca.png" alt="H06 Te tenemos cerca · mapa GDL con 8 sucursales etiquetadas"></div>
+    <div class="ad-visual"><img src="../assets/v4-ads/H06_te-tenemos-cerca.png" alt="H06 Te tenemos cerca · mapa GDL con 8 sucursales etiquetadas + 150 autos"></div>
     <div class="ad-meta">
       <div class="ad-meta-header">
         <span class="ad-id">H06</span>
-        <h4>Te tenemos cerca · red de sucursales</h4>
+        <h4>Te tenemos cerca · +150 autos · 8 sucursales</h4>
         <span class="ad-status-tag">Listo</span>
       </div>
-      <div class="ad-entity-id">Entity ID: branded proximity · convenience network · Match Score 86</div>
-      <p class="ad-brief">Mapa editorial de GDL con 8 pins teardrop dorados y labels visibles: López Mateos, Bugambilias, M. Acueducto, M. Américas, M. Galerías, M. González Gallo, M. Plasencia, M. Santa Anita. <strong>Ángulo de conveniencia, no de volumen</strong>: “SEMINUEVOS PLASENCIA · Te tenemos cerca · 8 sucursales en Guadalajara · TU AUTO, EN LA SUCURSAL MÁS CERCA DE CASA.” El músculo de la red se comunica como cercanía.</p>
+      <div class="ad-entity-id">Entity ID: branded proximity · product + muscle + benefit · Match Score 88</div>
+      <p class="ad-brief">Mapa editorial de GDL con 8 pins teardrop dorados y labels visibles. <strong>Tres hooks combinados</strong>: producto (+150 autos), músculo (8 sucursales) y beneficio (cerca de casa). Texto: <strong>“SEMINUEVOS PLASENCIA · Te tenemos cerca · +150 autos · 8 sucursales en GDL · TU SEMINUEVO, CERCA DE CASA.”</strong> Versión anterior usaba solo “8 sucursales” como ancla; ahora agrega producto y beneficio para que el ad funcione standalone, sin asumir contexto del catálogo previo.</p>
       <div class="ad-copy-block">
         <h5>Copy Meta Ads</h5>
         <p><strong>Primario:</strong> Tu seminuevo Plasencia, en la sucursal más cerca de casa. 8 ubicaciones en Guadalajara. Más de 150 autos certificados.</p>
-        <p><strong>Headline:</strong> Te tenemos cerca. 8 sucursales GDL.</p>
+        <p><strong>Headline:</strong> +150 autos. 8 sucursales GDL.</p>
         <p><strong>Description:</strong> Filtra por ubicación →</p>
       </div>
-      <p class="ad-meta-foot"><strong>Persona objetivo:</strong> cualquier mindset que valore proximidad · <strong>Status:</strong> listo.</p>
+      <p class="ad-meta-foot"><strong>Persona objetivo:</strong> cualquier mindset que valore proximidad · <strong>Status:</strong> listo. Conteo en rangos defensivos (+150) para evitar refresh por movimientos del feed.</p>
+      <div class="ad-eval">
+        <div class="eval-title">Evaluación 4 capas Andromeda</div>
+        <div class="eval-row"><span class="eval-label">Avatar</span><span class="eval-content">Mapa cartográfico de GDL con pins prominentes + labels. Andromeda lee <strong>functional location map · inventory · branded network</strong>.</span></div>
+        <div class="eval-row"><span class="eval-label">Persona</span><span class="eval-content">GDL local que valora proximidad. Cualquier mindset.</span></div>
+        <div class="eval-row"><span class="eval-label">Match</span><span class="eval-content"><strong>88/100</strong> · gate aprobado.</span></div>
+        <div class="eval-row"><span class="eval-label">Human</span><span class="eval-content"><strong>3-sec test:</strong> mapa de GDL reconocible inmediatamente (System 1) · pins + labels escaneables · ahora con producto (+150 autos) + músculo (8 sucursales) + beneficio (cerca) en una sola línea. Sesgos: <em>disponibilidad</em> (siempre hay una cerca), <em>conveniencia Fogg</em> (habilidad alta), <em>familiaridad</em> (mi ciudad). Versión anterior asumía contexto del catálogo; ahora funciona standalone.</span></div>
+      </div>
     </div>
   </div>
 
