@@ -559,7 +559,7 @@
   }
   .ad-visual {
     width: 100%;
-    background: var(--gp-navy);
+    background: var(--g100);
     overflow: hidden;
     border: 1px solid var(--g300);
   }
@@ -1096,6 +1096,62 @@
     font-weight: 700;
   }
 
+  /* ============ TABLE TACTIC (§7) ============ */
+  table.table-tactic {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 3mm;
+    font-size: 9pt;
+    page-break-inside: avoid;
+  }
+  table.table-tactic thead th {
+    background: var(--g100);
+    color: var(--gp-navy);
+    font-weight: 700;
+    text-align: left;
+    padding: 2.5mm 3mm;
+    font-size: 8.5pt;
+    letter-spacing: 0.3px;
+    border-bottom: 2px solid var(--gp-navy);
+  }
+  table.table-tactic tbody td {
+    padding: 2.5mm 3mm;
+    border-bottom: 1px solid var(--g100);
+    vertical-align: top;
+    color: var(--g600);
+    line-height: 1.5;
+  }
+  table.table-tactic tbody td:first-child {
+    font-weight: 700;
+    color: var(--gp-navy);
+  }
+  table.table-tactic tbody td strong { color: var(--gp-navy); }
+
+  /* ============ BULLETS NARRATIVE (§7) ============ */
+  .bullets-narrative {
+    margin-top: 3mm;
+    margin-bottom: 4mm;
+  }
+  .bullets-narrative h4 {
+    font-family: var(--sans);
+    font-size: 10.5pt;
+    font-weight: 700;
+    color: var(--gp-navy);
+    margin: 5mm 0 1.5mm 0;
+    padding-bottom: 1mm;
+    border-bottom: 1px solid var(--g100);
+  }
+  .bullets-narrative h4:first-child { margin-top: 0; }
+  .bullets-narrative h4 strong { color: var(--gp-red); font-weight: 700; }
+  .bullets-narrative p {
+    font-size: 9.5pt;
+    line-height: 1.6;
+    color: var(--g600);
+    margin-bottom: 2mm;
+  }
+  .bullets-narrative p em { color: var(--gp-navy); font-style: normal; font-weight: 600; }
+  .bullets-narrative p strong { color: var(--gp-navy); }
+
   /* ============ KILLER ============ */
   .killer {
     background: var(--gp-navy);
@@ -1327,7 +1383,7 @@
   <div class="hypothesis">
     <span class="label">Capítulo del piloto Motor de Atribución MVP · informativo para directores y gerentes de marca y gerentes de ventas</span>
     <h3>Capítulo marca-negocio del piloto Motor de Atribución MVP aplicado a Seminuevos como caso canónico, con “Sin Sorpresas” como concepto rector del capítulo.</h3>
-    <p>El piloto Motor de Atribución MVP de Grupo Plasencia está LIVE desde el 16 de abril de 2026. Seminuevos es el caso canónico (sub-marca propia sin restricciones OEM, ~70% del volumen del piloto). Este Strategy Paper documenta el capítulo marca-negocio del piloto: qué concepto rector aplica, cómo se está comunicando Seminuevos, qué métricas se prueban. <strong>Para detalle técnico del piloto</strong> (cómo opera la landing, el pipeline, el CRM, los eventos de tracking), ver los documentos del piloto referenciados en §1. <strong>“Sin Sorpresas”</strong> codifica la promesa que captura simultáneamente al mindset tradicional y al digital, sostenida en activos reales que solo un incumbente con permanencia puede ofrecer: 75 años, red multi-sucursal GDL, financiera, postventa, motor digital propio. <strong>Esto es “marketing al marketing”: informativo, no pedido de aprobación.</strong> La campaña sube cuando termina la producción. Es un piloto: se prueba, se mide, y si funciona se evalúa cómo escalar a Hyundai, Stellantis y marcas-OEM.</p>
+    <p>El piloto Motor de Atribución MVP de Grupo Plasencia está LIVE desde el 16 de abril de 2026. Seminuevos es el caso canónico (sub-marca propia sin restricciones OEM, ~70% del volumen del piloto). Este Strategy Paper documenta el capítulo marca-negocio del piloto: qué concepto rector aplica, cómo se está comunicando Seminuevos, qué métricas se prueban. <strong>Para detalle técnico del piloto</strong> (cómo opera la landing, el pipeline, el CRM, los eventos de tracking), ver los documentos del piloto referenciados en §1. <strong>“Sin Sorpresas”</strong> codifica la promesa que captura simultáneamente al mindset tradicional y al digital, sostenida en activos reales que solo un incumbente con permanencia puede ofrecer: 75 años, red multi-sucursal GDL, financiera, postventa, motor digital propio. <strong>La operación táctica corre en dos superficies:</strong> Meta Ads bajo Andromeda (push · §6) y Google Search Always-On (pull · §7), sirviendo el mismo concepto rector en momentos distintos del journey. <strong>Esto es “marketing al marketing”: informativo, no pedido de aprobación.</strong> La campaña sube cuando termina la producción. Es un piloto: se prueba, se mide, y si funciona se evalúa cómo escalar a Hyundai, Stellantis y marcas-OEM.</p>
   </div>
 
   <div class="method-note">
@@ -1335,7 +1391,7 @@
     <h3>Esto es un Answer-First sustentado en direccional observable, no en investigación primaria con usuarios.</h3>
     <p>El documento se construyó usando un Answer-First clásico: la recomendación arriba, la argumentación abajo. La argumentación se apoya en cuatro fuentes: <strong>(1)</strong> direccionales del piloto digital (5,396 sessions, funnel observable, cierre digital vs tradicional 39%/70%); <strong>(2)</strong> perfil del cliente inferido del brief de abril 2026 y del juicio operativo del director; <strong>(3)</strong> activos verificables del negocio (75 años, 3 sucursales, financiera, postventa, red OEM, motor digital propio); <strong>(4)</strong> evidencia global automotive 2020–2025 documentada en El Patrón Que Ganó.</p>
     <p><strong>El método canónico recomendado</strong> para llegar a un concepto rector de marca-negocio es: investigación primaria con usuarios reales (entrevistas de trabajo profundo de compra <em>—lo que en marketing se conoce como Jobs-to-be-Done o JTBD—</em>, entrevistas de cambio o <em>switch interviews</em>, observación de comportamiento de compra) → síntesis de motivos profundos y mindsets → validación de hipótesis contra el research → concepto rector. <strong>Ese research no se hizo aquí.</strong> Las hipótesis sobre cómo piensan los dos mindsets de comprador son razonadas y razonables, pero <strong>no están confirmadas con voz de cliente</strong>.</p>
-    <p><strong>Implicación:</strong> “Sin Sorpresas” se adopta como apuesta direccional sustentada con evidencia contextual. La investigación con usuario queda como <strong>deuda metodológica explícita</strong>, recomendada antes de comprometer comunicación externa a escala o transferencia del concepto a marcas OEM. Documentada en §6 (Fase 1) y §8 (Riesgo 7).</p>
+    <p><strong>Implicación:</strong> “Sin Sorpresas” se adopta como apuesta direccional sustentada con evidencia contextual. La investigación con usuario queda como <strong>deuda metodológica explícita</strong>, recomendada antes de comprometer comunicación externa a escala o transferencia del concepto a marcas OEM. Documentada en §8 (Fase 1) y §10 (Riesgo 7).</p>
   </div>
 
   <h2 class="section-h2">Tabla de contenido</h2>
@@ -1368,23 +1424,28 @@
     </div>
     <div class="toc-item">
       <span class="toc-num">06</span>
-      <span class="toc-title">Capítulo táctico · Always-On Meta Ads bajo Andromeda<span class="toc-sub">Seis conceptos hero del set v4 con visual, copy completo, Entity ID y Match Score. Lo que estamos circulando en Meta.</span></span>
+      <span class="toc-title">Capítulo táctico · Always-On Meta Ads bajo Andromeda<span class="toc-sub">Seis conceptos hero del set v4 con visual, copy completo, Entity ID y reporte 4 capas. Lo que estamos circulando en Meta (push).</span></span>
       <span class="toc-page">p. 10–11</span>
     </div>
     <div class="toc-item">
       <span class="toc-num">07</span>
-      <span class="toc-title">Roadmap de adopción<span class="toc-sub">Cinco fases de implementación con responsables, gates y entregables.</span></span>
-      <span class="toc-page">p. 12</span>
+      <span class="toc-title">Capítulo táctico · Always-On Google Search (Brand + Categoría)<span class="toc-sub">Una campaña Search Always-On en producción desde abril. Las 13 keywords con impresiones, los tres buckets de intent observado y el estado actual (tracking, cobertura, copy).</span></span>
+      <span class="toc-page">p. 12–13</span>
     </div>
     <div class="toc-item">
       <span class="toc-num">08</span>
-      <span class="toc-title">El caso · criterios de éxito<span class="toc-sub">Métricas cualitativas, cuantitativas y killer metric. La apuesta vale lo que entrega en 6 a 12 meses.</span></span>
-      <span class="toc-page">p. 13</span>
+      <span class="toc-title">Roadmap de adopción<span class="toc-sub">Cinco fases de implementación con responsables, gates y entregables.</span></span>
+      <span class="toc-page">p. 14</span>
     </div>
     <div class="toc-item">
       <span class="toc-num">09</span>
+      <span class="toc-title">El caso · criterios de éxito<span class="toc-sub">Métricas cualitativas, cuantitativas y killer metric. La apuesta vale lo que entrega en 6 a 12 meses.</span></span>
+      <span class="toc-page">p. 15</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-num">10</span>
       <span class="toc-title">Estado del piloto y riesgos<span class="toc-sub">Qué estamos haciendo (informativo, no requiere aprobación) · siete riesgos enumerados con mitigación.</span></span>
-      <span class="toc-page">p. 14</span>
+      <span class="toc-page">p. 16</span>
     </div>
   </div>
 </section>
@@ -1978,9 +2039,92 @@
   </div>
 
   <p class="small" style="margin-top:5mm;">Estructura Power 1: Core 75% del budget con H01, H02, H04, H06 (los 4 listos) + Sandbox 25% para H03 y H05 cuando se firmen los claims, más conceptos nuevos que se generen. Sin Retargeting separado (Andromeda lo cubre en ASC). Los 6 comunican explícitamente <strong>marca + producto + atributo</strong>: Seminuevos Plasencia + auto seminuevo + (identidad / asesor / inspección / proceso / auto certificado / cercanía). Auditoría de la cuenta Meta SEM es deuda Fase 0 antes de gastar.</p>
+
+  <p class="small" style="margin-top:4mm; padding-top:3mm; border-top:1px solid var(--g100);"><strong>Meta no opera solo.</strong> En paralelo corre Google Search Always-On (§7) capturando la demanda en el momento que decide. Misma promesa, dos superficies: Meta empuja antes de que el cliente nos busque; Search recoge cuando ya nos está buscando.</p>
 </section>
 
-<!-- ============ PAGE 12: ROADMAP (antes p10) ============ -->
+<!-- ============ PAGE 12: §7 CAPÍTULO TÁCTICO · ALWAYS-ON GOOGLE SEARCH ============ -->
+<section class="page">
+  <h1 class="section-title"><span class="num">§7 · Capítulo táctico · Always-On Google Search (Brand + Categoría)</span>Cómo Search complementa Meta apalancando la demanda que ya existe.</h1>
+
+  <span class="section-flag blue">Producción · Mayo 2026 · Datos del 28-abr a 13-may</span>
+
+  <div class="ads-intro">
+    <p><strong>Meta empuja, Search recoge.</strong> Meta Ads (§6) crea conciencia y mueve a la gente que no nos estaba buscando todavía; Google Search captura la demanda que ya existe en el momento que decide. Ambos sirven el mismo concepto rector — <em>Sin Sorpresas</em> — pero operan en momentos distintos del journey.</p>
+    <p><strong>Lo que hay en producción:</strong> una campaña Search Always-On — <em>Leads-Search-Aon</em> — corriendo desde fines de abril con presupuesto de aprendizaje. Estrategia de oferta <em>Maximize Conversions</em> en periodo de aprendizaje. Dos ad groups: <em>Seminuevos</em> (categoría, donde vive el tráfico) y <em>Bran_terms</em> (brand defensiva, sin búsquedas en el período).</p>
+  </div>
+
+  <div class="stat-strip">
+    <div class="s"><div class="big">$425</div><div class="lbl">Presupuesto diario MXN · ~$12,750/mes</div></div>
+    <div class="s"><div class="big">30</div><div class="lbl">Clics totales · 193 impresiones</div></div>
+    <div class="s"><div class="big">15.54%</div><div class="lbl">CTR promedio · CPC MXN $6.97</div></div>
+    <div class="s"><div class="big">13</div><div class="lbl">Keywords con impresiones (de 48 activas)</div></div>
+  </div>
+
+  <h2 class="section-h2">Las 13 keywords con impresiones</h2>
+
+  <p class="lead">De las 48 keywords activas, solo 13 recibieron impresiones en el período 28-abr a 13-may. El resto está armado pero aún no entra en subasta. Ordenadas por clics, con su tipo de concordancia.</p>
+
+  <table class="table-tactic">
+    <thead><tr><th>Keyword</th><th>Match</th><th>Clics</th><th>Impr.</th><th>CTR</th><th>CPC prom.</th><th>Costo MXN</th></tr></thead>
+    <tbody>
+      <tr><td><em>"seminuevos"</em></td><td>Phrase</td><td>10</td><td>67</td><td>14.93%</td><td>$8.30</td><td>$83.02</td></tr>
+      <tr><td><em>seminuevos guadalajara</em></td><td>Broad</td><td>4</td><td>29</td><td>13.79%</td><td>$7.84</td><td>$31.35</td></tr>
+      <tr><td><em>[seminuevos plasencia]</em></td><td>Exact</td><td>3</td><td>10</td><td>30.00%</td><td>$3.26</td><td>$9.79</td></tr>
+      <tr><td><em>seminuevos</em></td><td>Broad</td><td>2</td><td>30</td><td>6.67%</td><td>$6.32</td><td>$12.63</td></tr>
+      <tr><td><em>ford seminuevos</em></td><td>Broad</td><td>2</td><td>6</td><td>33.33%</td><td>$9.85</td><td>$19.69</td></tr>
+      <tr><td><em>autos seminuevos de agencia</em></td><td>Broad</td><td>2</td><td>7</td><td>28.57%</td><td>$6.63</td><td>$13.26</td></tr>
+      <tr><td><em>autos seminuevos</em></td><td>Broad</td><td>1</td><td>2</td><td>50.00%</td><td>$6.33</td><td>$6.33</td></tr>
+      <tr><td><em>agencias de autos</em></td><td>Broad</td><td>1</td><td>8</td><td>12.50%</td><td>$9.65</td><td>$9.65</td></tr>
+      <tr><td><em>honda seminuevos</em></td><td>Broad</td><td>1</td><td>2</td><td>50.00%</td><td>$3.89</td><td>$3.89</td></tr>
+      <tr><td><em>jeep seminuevos</em></td><td>Broad</td><td>1</td><td>2</td><td>50.00%</td><td>$8.50</td><td>$8.50</td></tr>
+      <tr><td><em>vehiculos seminuevos</em></td><td>Broad</td><td>0</td><td>9</td><td>0.00%</td><td>—</td><td>$0.00</td></tr>
+      <tr><td><em>autos seminuevos chevrolet</em></td><td>Broad</td><td>0</td><td>5</td><td>0.00%</td><td>—</td><td>$0.00</td></tr>
+      <tr><td><em>financiamiento de autos seminuevos</em></td><td>Broad</td><td>0</td><td>1</td><td>0.00%</td><td>—</td><td>$0.00</td></tr>
+    </tbody>
+  </table>
+
+  <p class="small" style="margin-top:4mm;"><strong>Lectura:</strong> el activo de marca en search es <em>"Seminuevos Plasencia"</em>, no <em>"Plasencia"</em> sola — el único brand exact que tracciona (CTR 30%) lleva producto + apellido. Las marcas OEM en categoría (<em>ford</em>, <em>honda</em>, <em>jeep</em>, <em>chevrolet</em>) ya entran con CTR alto, validando que el comprador piensa por marca de auto antes que por dealer. El ad group <em>Bran_terms</em> (4 keywords de marca corporativa) no aparece — la marca corporativa Plasencia, por sí sola, no recibe búsquedas.</p>
+</section>
+
+<!-- ============ PAGE 13: §7 PARTE 2 — Intent observado + estado ============ -->
+<section class="page">
+  <h1 class="section-title"><span class="num">§7 · Parte 2</span>Qué intent disparó las impresiones · estado actual.</h1>
+
+  <h2 class="section-h2">Tres lecturas del intent observado</h2>
+
+  <p class="lead">Las keywords con impresiones (la tabla anterior) se agrupan en tres familias. Cada familia revela un comportamiento del comprador Seminuevos en Guadalajara — observable, no inferido.</p>
+
+  <div class="bullets-narrative">
+    <h4>1 · Brand de la sub-marca <strong>(Seminuevos Plasencia)</strong></h4>
+    <p><em>"seminuevos"</em> (10 clics · 67 impr) y <em>[seminuevos plasencia]</em> (3 clics · CTR 30%) son los dos términos brand con mejor performance. Quien busca con producto + apellido convierte a clic. La marca corporativa <em>Plasencia</em> sola (el ad group <em>Bran_terms</em>) no recibió búsquedas en el período. <strong>El activo de marca en search es la sub-marca, no la corporativa.</strong></p>
+
+    <h4>2 · Categoría amplia y por marca OEM <strong>(el comprador piensa por marca de auto)</strong></h4>
+    <p><em>seminuevos</em> broad (30 impr) · <em>vehiculos seminuevos</em> (9 impr) · <em>autos seminuevos chevrolet</em> (5 impr) · <em>ford seminuevos</em> (CTR 33%) · <em>honda seminuevos</em> (CTR 50%) · <em>jeep seminuevos</em> (CTR 50%). El comprador entra a Google buscando la marca del auto, no el dealer. Plasencia Seminuevos es agencia multi-marca: cuando aparece en estas búsquedas, el ad necesita comunicar que tenemos esa marca, certificada.</p>
+
+    <h4>3 · Geo modifier <strong>(el comprador inmediato en GDL)</strong></h4>
+    <p><em>seminuevos guadalajara</em> broad (29 impr, CTR 13.79%, 4 clics) es la tercera keyword con más tráfico. Combina categoría + ubicación — comprador con decisión activa en plaza. La red multi-sucursal en GDL es activo de búsqueda directo.</p>
+  </div>
+
+  <h2 class="section-h2">Estado actual de la campaña</h2>
+
+  <p class="lead">Esta sección es referencia: describe lo que hay y lo que está pendiente, para que el área lo sepa. No es un plan ni pide aprobación.</p>
+
+  <table class="table-tactic">
+    <thead><tr><th>Tema</th><th>Estado</th><th>Lectura</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Tracking de conversiones</strong></td><td>Sin señal · 30 clics, 0 conv</td><td>Maximize Conversions opera sin retroalimentación. Los leads de la landing aún no se importan como conversión a Google Ads.</td></tr>
+      <tr><td><strong>Cobertura de keywords</strong></td><td>13 de 48 con impresiones</td><td>El 73% de las keywords activas (35 de 48) no entra en subasta todavía. La cobertura efectiva es chica y se concentra en términos genéricos + brand sub-marca + 3 marcas OEM (Ford, Honda, Jeep).</td></tr>
+      <tr><td><strong>Match types</strong></td><td>1 phrase · 4 exact · 39 broad</td><td>89% broad. Combinado con tracking apagado, el broad abre cobertura amplia sin distinguir queries valiosos. El CTR promedio alto (15.54%) convive con queries de 0% CTR.</td></tr>
+      <tr><td><strong>Ad group <em>Bran_terms</em></strong></td><td>4 keywords · 0 tráfico · typo en el nombre</td><td>La marca corporativa Plasencia, por sí sola, no recibe búsquedas. El activo de marca en search es <em>Seminuevos Plasencia</em> (producto + apellido).</td></tr>
+      <tr><td><strong>Copy de los ads de Search</strong></td><td>No auditado contra los 6 principios (§4)</td><td>Las 6 piezas Andromeda del §6 son visuales (Meta). El text ads de Search es otra superficie y aún no se cruzó contra el concepto rector.</td></tr>
+    </tbody>
+  </table>
+
+  <p class="small" style="margin-top:5mm;">El budget de MXN $425/día opera como aprendizaje. Las decisiones operativas sobre estos puntos viven en la cadencia del piloto descrita en §8 (Fase 2) y no en este documento.</p>
+</section>
+
+<!-- ============ PAGE 14: ROADMAP (antes p10) ============ -->
 <section class="page">
   <h1 class="section-title"><span class="num">§8 · Roadmap de adopción</span>Cinco fases con responsables y gates.</h1>
 
@@ -2025,11 +2169,12 @@
             <li>Revisión de copy de landing lite contra los 6 principios</li>
             <li>Ajustes al H1, paso 3 de Cómo Funciona, trust bar</li>
             <li>Audit de copy en WhatsApp Business y respuestas automáticas</li>
+            <li><strong>Google Search:</strong> cerrar tracking de conversiones (importar evento Lead), audit del copy de text ads contra los 6 principios, y revisar la estructura de ad groups según el intent observado en §7</li>
           </ul>
         </div>
         <div class="phase-cell">
           <h5>Gate de salida</h5>
-          <p>Primer lote de comunicación externa con voz “Sin Sorpresas” en producción. Métricas baseline registradas.</p>
+          <p>Primer lote de comunicación externa con voz “Sin Sorpresas” en producción en Meta y Search. Métricas baseline registradas en ambos canales.</p>
         </div>
       </div>
     </div>
@@ -2058,7 +2203,7 @@
     <div class="phase">
       <span class="phase-tag">Fase 4 · Q3 2026 · Condicional</span>
       <h4>Extensión condicional a marcas OEM del ecosistema</h4>
-      <p class="timeline">Líder: Pepe Morales + Chucho Porras · Solo si las Fases 1-3 muestran resultados contra §7</p>
+      <p class="timeline">Líder: Pepe Morales + Chucho Porras · Solo si las Fases 1-3 muestran resultados contra §9</p>
       <div class="phase-grid">
         <div class="phase-cell">
           <h5>Qué hacemos</h5>
@@ -2083,7 +2228,7 @@
         <div class="phase-cell">
           <h5>Qué hacemos</h5>
           <ul>
-            <li>Revisión trimestral de métricas contra targets de §7</li>
+            <li>Revisión trimestral de métricas contra targets de §9</li>
             <li>Revisión anual del concepto rector (no se cambia sin evidencia robusta)</li>
             <li>Documentación de hallazgos, aprendizajes y ajustes en addenda</li>
           </ul>
@@ -2100,7 +2245,7 @@
 
 <!-- ============ PAGE 11: CASO FINANCIERO Y MÉTRICAS ============ -->
 <section class="page">
-  <h1 class="section-title"><span class="num">§8 · El caso · Criterios de éxito</span>Cómo sabremos que el concepto funcionó.</h1>
+  <h1 class="section-title"><span class="num">§9 · El caso · Criterios de éxito</span>Cómo sabremos que el concepto funcionó.</h1>
 
   <span class="section-flag amber">Métricas que importan</span>
 
@@ -2144,6 +2289,8 @@
       <tr><td><strong>Uso correcto del CRM · oportunidad movida a la etapa correcta en &lt;24h con campos completos</strong></td><td>por medir post-lite</td><td class="target">≥70%</td><td class="target">≥90%</td></tr>
       <tr><td>Conversión Sessions → Lead (landing lite)</td><td>0.9% pre-lite · target lite ≥2.5%</td><td class="target">≥3.5%</td><td class="target">≥4.5%</td></tr>
       <tr><td>EMQ Pixel + CAPI</td><td>por verificar</td><td class="target">≥7.5</td><td class="target">≥8.5</td></tr>
+      <tr><td><strong>Google Ads · señal de conversión cableada</strong> (§7)</td><td>sin señal · 0 conv reportadas</td><td class="target">100% cableado · conv. ≥ leads landing</td><td class="target">mantenido</td></tr>
+      <tr><td><strong>Google Ads · cobertura de KW con impresiones</strong></td><td>13 de 48 (27%)</td><td class="target">≥60%</td><td class="target">≥80%</td></tr>
       <tr><td>Tasa de calificación cold → cita</td><td>por medir post-lite</td><td class="target">≥20%</td><td class="target">≥30%</td></tr>
       <tr><td>Cierre cita → factura (digital)</td><td>39% (Q4 2025)</td><td class="target">≥45%</td><td class="target">≥55%</td></tr>
     </tbody>
@@ -2171,7 +2318,7 @@
 
 <!-- ============ PAGE 12: ASK + RIESGOS ============ -->
 <section class="page">
-  <h1 class="section-title"><span class="num">§9 · Estado del piloto y riesgos</span>Qué estamos haciendo · siete riesgos enumerados.</h1>
+  <h1 class="section-title"><span class="num">§10 · Estado del piloto y riesgos</span>Qué estamos haciendo · ocho riesgos enumerados.</h1>
 
   <span class="section-flag">Informativo · no requiere aprobación</span>
 
@@ -2197,7 +2344,7 @@
     <li>
       <div>
         <h4>El piloto se prueba. Si funciona, se evalúa cómo escalar a marcas-OEM.</h4>
-        <p>Sin Sorpresas opera como caso en Seminuevos. Si las métricas de §7 confirman el modelo (cualitativas y cuantitativas, incluida adopción del vendedor), se conversa con los gerentes de marca OEM (Verónica HYU · Berenice + Juliet STL · Jose Reyes Ford) sobre adaptar el concepto a sus marcas. Conversación condicional, sujeta a evidencia.</p>
+        <p>Sin Sorpresas opera como caso en Seminuevos. Si las métricas de §9 confirman el modelo (cualitativas y cuantitativas, incluida adopción del vendedor), se conversa con los gerentes de marca OEM (Verónica HYU · Berenice + Juliet STL · Jose Reyes Ford) sobre adaptar el concepto a sus marcas. Conversación condicional, sujeta a evidencia.</p>
       </div>
       <div class="ask-decision">Condicional<span>Sujeto a evidencia</span></div>
     </li>
@@ -2270,6 +2417,17 @@
       <div class="risk-side">
         <h5>Mitigación</h5>
         <p>Seminuevos es sub-marca propia sin restricciones OEM. La adopción en OEM es opcional, no requisito. El concepto se sostiene aunque solo opere en Seminuevos.</p>
+      </div>
+    </div>
+
+    <div class="risk">
+      <div class="risk-side">
+        <h5>Riesgo · Media severidad</h5>
+        <p><strong>Google Search opera sin señal de conversión</strong> (§7). Maximize Conversions optimiza sin retroalimentación; el budget de aprendizaje se gasta sin distinguir queries valiosos de irrelevantes. Riesgo de pagar tráfico que no convierte mientras dure el gap.</p>
+      </div>
+      <div class="risk-side">
+        <h5>Mitigación</h5>
+        <p>Cerrar el cableado de conversiones (importar evento <em>Lead</em> de landing o GA4) como entregable de Fase 2 (§8). Mientras tanto el budget se mantiene en aprendizaje y no se escala. El gate de Fase 2 condiciona la entrada a Fase 3 a baseline registrado en ambos canales (Meta y Search).</p>
       </div>
     </div>
 
