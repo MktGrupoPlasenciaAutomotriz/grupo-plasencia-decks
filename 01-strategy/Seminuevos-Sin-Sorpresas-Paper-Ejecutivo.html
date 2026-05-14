@@ -441,6 +441,55 @@
     font-size: 17pt;
   }
 
+  /* ============ REF CALLOUT (apuntador a docs del piloto) ============ */
+  .ref-callout {
+    background: rgba(66, 153, 225, 0.05);
+    border: 1px solid rgba(66, 153, 225, 0.25);
+    border-left: 4px solid var(--blue);
+    padding: 5mm 6mm;
+    margin: 4mm 0;
+    page-break-inside: avoid;
+  }
+  .ref-callout .label {
+    display: block;
+    font-family: var(--sans);
+    font-size: 8.5pt;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    color: var(--deep-blue);
+    text-transform: uppercase;
+    margin-bottom: 3mm;
+  }
+  .ref-callout p {
+    font-size: 9pt;
+    color: var(--g600);
+    line-height: 1.55;
+    margin-bottom: 2mm;
+  }
+  .ref-callout ul {
+    list-style: none;
+    padding: 0;
+    margin: 1mm 0 0 0;
+  }
+  .ref-callout ul li {
+    font-size: 9pt;
+    color: var(--g600);
+    padding: 1mm 0 1mm 5mm;
+    position: relative;
+    line-height: 1.5;
+  }
+  .ref-callout ul li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--blue);
+    font-weight: bold;
+  }
+  .ref-callout ul li strong {
+    color: var(--gp-navy);
+    font-weight: 700;
+  }
+
   /* ============ METHOD NOTE (deuda metodológica) ============ */
   .method-note {
     background: rgba(214, 158, 46, 0.05);
@@ -1063,7 +1112,7 @@
     <div>
       <div class="cover-mark">Piloto Motor de Atribución MVP<span>Capítulo marca-negocio · Mayo 2026</span></div>
 
-      <p class="cover-eyebrow">Para Directores y Gerentes involucrados</p>
+      <p class="cover-eyebrow">Para Directores y Gerentes de marca · Gerentes de Ventas</p>
       <h1 class="cover-title">Seminuevos<br><em>Plasencia.</em></h1>
       <p class="cover-title-after">Capítulo marca-negocio del piloto Motor de Atribución MVP.</p>
 
@@ -1085,7 +1134,7 @@
       <div class="cover-meta">
         <div class="cover-meta-block">
           <strong>Audiencia</strong>
-          Pepe Morales · Jonathan Medina · Jose Reyes · Gerentes de Marca involucrados
+          Directores de marca · Gerentes de marca · Gerentes de Ventas
         </div>
         <div class="cover-meta-block" style="text-align:right;">
           <strong>Mayo 2026</strong>
@@ -1103,9 +1152,9 @@
   <p class="lead">Este documento sigue una estructura clásica de Strategy Definition: <strong>Situación → Complicación → Resolución → Modelo → Bajadas Tonales → Roadmap → Caso → Ask</strong>. La recomendación vive abajo. La argumentación, en las siguientes páginas.</p>
 
   <div class="hypothesis">
-    <span class="label">Capítulo del piloto Motor de Atribución MVP · informativo para directores y gerentes</span>
+    <span class="label">Capítulo del piloto Motor de Atribución MVP · informativo para directores y gerentes de marca y gerentes de ventas</span>
     <h3>Capítulo marca-negocio del piloto Motor de Atribución MVP aplicado a Seminuevos como caso canónico, con “Sin Sorpresas” como concepto rector del capítulo.</h3>
-    <p>El piloto Motor de Atribución MVP está LIVE desde el 16 de abril de 2026: 3 landings + Cloudflare Worker + D1 + Meta CAPI + GA4 server-side + CRM kanban + dashboard. Seminuevos es el caso canónico (sub-marca propia, sin restricciones OEM, ~70% del volumen del piloto). Este Strategy Paper documenta el capítulo marca-negocio del piloto: cómo se está comunicando Seminuevos durante esta fase, qué concepto rector aplica, qué métricas se prueban. <strong>“Sin Sorpresas”</strong> codifica la promesa que captura simultáneamente al mindset tradicional y al digital, sostenida en activos reales que solo un incumbente con permanencia puede ofrecer: 75 años, red multi-sucursal GDL, financiera, postventa, motor digital propio. <strong>Esto es “marketing al marketing”: informativo, no pedido de aprobación.</strong> La campaña sube cuando termina la producción. Es un piloto: se prueba, se mide, y si funciona se evalúa cómo escalar a Hyundai, Stellantis y marcas-OEM.</p>
+    <p>El piloto Motor de Atribución MVP de Grupo Plasencia está LIVE desde el 16 de abril de 2026. Seminuevos es el caso canónico (sub-marca propia sin restricciones OEM, ~70% del volumen del piloto). Este Strategy Paper documenta el capítulo marca-negocio del piloto: qué concepto rector aplica, cómo se está comunicando Seminuevos, qué métricas se prueban. <strong>Para detalle técnico del piloto</strong> (cómo opera la landing, el pipeline, el CRM, los eventos de tracking), ver los documentos del piloto referenciados en §1. <strong>“Sin Sorpresas”</strong> codifica la promesa que captura simultáneamente al mindset tradicional y al digital, sostenida en activos reales que solo un incumbente con permanencia puede ofrecer: 75 años, red multi-sucursal GDL, financiera, postventa, motor digital propio. <strong>Esto es “marketing al marketing”: informativo, no pedido de aprobación.</strong> La campaña sube cuando termina la producción. Es un piloto: se prueba, se mide, y si funciona se evalúa cómo escalar a Hyundai, Stellantis y marcas-OEM.</p>
   </div>
 
   <div class="method-note">
@@ -1166,7 +1215,20 @@
 <section class="page">
   <h1 class="section-title"><span class="num">§1 · Situación</span>Seminuevos en el piloto Motor de Atribución MVP.</h1>
 
-  <p class="lead">El <strong>piloto Motor de Atribución MVP</strong> de Grupo Plasencia está en operación desde el 16 de abril de 2026. Es el sistema digital propio que mide, optimiza y atribuye la inversión de marketing extremo a extremo (landing + Worker + D1 + CAPI + GA4 server-side + CRM kanban + dashboard). <strong>Seminuevos opera como caso canónico</strong> del piloto por cuatro razones: es sub-marca propia (sin restricciones OEM), tiene catálogo dinámico, concentra el mayor volumen de tráfico (~70% del piloto), y aporta el 33.4% de la utilidad del Grupo con el 12.2% del volumen. Hyundai y Stellantis operan como clones del modelo (mismo stack técnico, distinta marca). Este Strategy Paper documenta el capítulo marca-negocio de Seminuevos dentro del piloto: tres realidades simultáneas conviven hoy.</p>
+  <p class="lead">El <strong>piloto Motor de Atribución MVP</strong> de Grupo Plasencia está en operación desde el 16 de abril de 2026. <strong>Seminuevos opera como caso canónico</strong> del piloto por cuatro razones: es sub-marca propia (sin restricciones OEM), tiene catálogo dinámico, concentra el mayor volumen de tráfico (~70% del piloto), y aporta el 33.4% de la utilidad del Grupo con el 12.2% del volumen. Hyundai y Stellantis operan como clones del modelo. Este Strategy Paper documenta el capítulo marca-negocio de Seminuevos dentro del piloto, no la arquitectura técnica del piloto en sí.</p>
+
+  <div class="ref-callout">
+    <span class="label">Para detalle del piloto (no incluido aquí)</span>
+    <p>Cómo funciona la landing, el pipeline, el CRM, los eventos de tracking, la conciliación y el dashboard se documentan en estos cuatro artefactos del piloto. Este paper asume ese contexto y se concentra en el capítulo marca-negocio:</p>
+    <ul>
+      <li><strong>Motor-Atribucion-Consejo-Deck.html</strong> — Sesión de contexto al Consejo · resumen ejecutivo del piloto</li>
+      <li><strong>Motor-Atribucion-Piloto-Deck.html</strong> — Reporte del Piloto al Consejo · 15 slides de show-and-tell</li>
+      <li><strong>Motor-Atribucion-Consejo-Paper-Ejecutivo.html</strong> — Strategy Paper del piloto completo · Minto + SCR + Answer-First</li>
+      <li><strong>Motor-de-Atribucion-MVP-Playbook-Operativo.html</strong> — Playbook operacional · cómo se ejecuta día a día</li>
+    </ul>
+  </div>
+
+  <p class="lead">Tres realidades simultáneas conviven en Seminuevos hoy.</p>
 
   <div class="stat-strip">
     <div class="s"><div class="big">3,611</div><div class="lbl">Unidades vendidas 2025</div></div>
@@ -1875,7 +1937,7 @@
 <!-- ============ CLOSING ============ -->
 <section class="page">
   <div class="closing">
-    <p class="ribbon">Estrategia de Marca-Negocio · Para Directores y Gerentes · Mayo 2026</p>
+    <p class="ribbon">Capítulo del piloto · Para Directores y Gerentes de marca · Gerentes de Ventas · Mayo 2026</p>
     <h2>Sin sorpresas para el cliente.<br><em>Sin atajos</em> en cómo lo entregamos.</h2>
     <p class="pull">
       Una promesa que solo un incumbente con permanencia puede sostener, en un mercado donde la startup digital es ella misma la sorpresa pendiente. Una promesa que solo un Grupo con motor digital propio puede entregar, en un mercado donde el lote tradicional sin transformación digital ya no satisface al cliente de 2026.
