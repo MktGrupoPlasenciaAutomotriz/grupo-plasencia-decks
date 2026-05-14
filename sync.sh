@@ -46,6 +46,10 @@ cp "$SRC/assets/logos/"*.png "$DEST/assets/logos/" 2>/dev/null && echo "[OK]  as
 mkdir -p "$DEST/assets/screenshots"
 cp "$SRC/assets/screenshots/"*.png "$DEST/assets/screenshots/" 2>/dev/null && echo "[OK]  assets/screenshots/*.png" || echo "[SKIP] screenshots"
 
+# Creativos v4 Meta Ads (Seminuevos Sin Sorpresas)
+mkdir -p "$DEST/assets/v4-ads"
+cp "$SRC/assets/v4-ads/"*.png "$DEST/assets/v4-ads/" 2>/dev/null && echo "[OK]  assets/v4-ads/*.png" || echo "[SKIP] v4-ads"
+
 # Sistema MAP (índice navegable + pillars + workflow del CLAUDE.md de docs)
 # Para que cualquier Claude (claude.ai web, otra Mac, otra IA) pueda
 # entender la estructura documental del proyecto sin acceso al repo privado.

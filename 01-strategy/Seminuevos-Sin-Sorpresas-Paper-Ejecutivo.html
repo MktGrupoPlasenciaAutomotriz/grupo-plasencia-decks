@@ -527,6 +527,147 @@
   .method-note p:last-child { margin-bottom: 0; }
   .method-note p strong { color: var(--gp-navy); }
 
+  /* ============ ADS GRID (§6 Capítulo táctico) ============ */
+  .ads-intro {
+    background: rgba(66, 153, 225, 0.04);
+    border-left: 3px solid var(--blue);
+    padding: 5mm 6mm;
+    margin: 4mm 0 6mm 0;
+  }
+  .ads-intro p {
+    font-size: 9.5pt;
+    color: var(--g600);
+    line-height: 1.6;
+    margin: 0 0 2mm 0;
+  }
+  .ads-intro p:last-child { margin-bottom: 0; }
+  .ads-intro p strong { color: var(--gp-navy); }
+
+  .ad-concept {
+    display: grid;
+    grid-template-columns: 48mm 1fr;
+    gap: 6mm;
+    margin-bottom: 6mm;
+    page-break-inside: avoid;
+    padding-bottom: 5mm;
+    border-bottom: 1px dotted var(--g300);
+  }
+  .ad-concept:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+  .ad-visual {
+    width: 100%;
+    background: var(--gp-navy);
+    overflow: hidden;
+    border: 1px solid var(--g300);
+  }
+  .ad-visual img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .ad-meta {
+    display: flex;
+    flex-direction: column;
+  }
+  .ad-meta-header {
+    display: flex;
+    align-items: baseline;
+    gap: 4mm;
+    margin-bottom: 2mm;
+  }
+  .ad-meta-header .ad-id {
+    font-family: var(--serif);
+    font-weight: 900;
+    font-size: 18pt;
+    color: var(--sem-gold);
+    letter-spacing: -1px;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+  .ad-meta-header h4 {
+    font-size: 13pt;
+    font-weight: 800;
+    color: var(--gp-navy);
+    letter-spacing: -0.3px;
+    margin: 0;
+    flex: 1;
+  }
+  .ad-status-tag {
+    display: inline-block;
+    font-family: var(--sans);
+    font-size: 7.5pt;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 1mm 3mm;
+    border-radius: 3px;
+    background: rgba(72, 187, 120, 0.12);
+    color: var(--deep-green);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .ad-status-tag.conditional {
+    background: rgba(214, 158, 46, 0.14);
+    color: var(--amber);
+  }
+  .ad-entity-id {
+    font-family: var(--sans);
+    font-size: 7.5pt;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: var(--g500);
+    text-transform: uppercase;
+    margin-bottom: 2mm;
+  }
+  .ad-brief {
+    font-size: 9pt;
+    color: var(--g600);
+    line-height: 1.5;
+    margin-bottom: 3mm;
+  }
+  .ad-brief strong { color: var(--gp-navy); }
+  .ad-copy-block {
+    background: var(--g100);
+    padding: 3mm 4mm;
+    border-left: 2px solid var(--gp-navy);
+    margin-bottom: 2mm;
+  }
+  .ad-copy-block h5 {
+    font-family: var(--sans);
+    font-size: 7.5pt;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    color: var(--gp-red);
+    text-transform: uppercase;
+    margin-bottom: 1.5mm;
+  }
+  .ad-copy-block p {
+    font-size: 8.5pt;
+    color: var(--gp-slate);
+    line-height: 1.45;
+    margin: 0 0 1.5mm 0;
+  }
+  .ad-copy-block p:last-child { margin-bottom: 0; }
+  .ad-copy-block p strong {
+    color: var(--gp-navy);
+    font-weight: 700;
+  }
+  .ad-meta-foot {
+    font-size: 8pt;
+    color: var(--g500);
+    margin-top: auto;
+    padding-top: 2mm;
+    font-style: italic;
+  }
+  .ad-meta-foot strong {
+    color: var(--gp-navy);
+    font-style: normal;
+    font-weight: 700;
+  }
+
   /* ============ HYPOTHESIS BLOCK ============ */
   .hypothesis {
     background: var(--g100);
@@ -1195,18 +1336,23 @@
     </div>
     <div class="toc-item">
       <span class="toc-num">06</span>
-      <span class="toc-title">Roadmap de adopción<span class="toc-sub">Cinco fases de implementación con responsables, gates y entregables.</span></span>
-      <span class="toc-page">p. 10</span>
+      <span class="toc-title">Capítulo táctico · Always-On Meta Ads bajo Andromeda<span class="toc-sub">Seis conceptos hero del set v4 con visual, copy completo, Entity ID y Match Score. Lo que estamos circulando en Meta.</span></span>
+      <span class="toc-page">p. 10–11</span>
     </div>
     <div class="toc-item">
       <span class="toc-num">07</span>
-      <span class="toc-title">El caso · criterios de éxito<span class="toc-sub">Métricas cualitativas, cuantitativas y killer metric. La apuesta vale lo que entrega en 6 a 12 meses.</span></span>
-      <span class="toc-page">p. 11</span>
+      <span class="toc-title">Roadmap de adopción<span class="toc-sub">Cinco fases de implementación con responsables, gates y entregables.</span></span>
+      <span class="toc-page">p. 12</span>
     </div>
     <div class="toc-item">
       <span class="toc-num">08</span>
+      <span class="toc-title">El caso · criterios de éxito<span class="toc-sub">Métricas cualitativas, cuantitativas y killer metric. La apuesta vale lo que entrega en 6 a 12 meses.</span></span>
+      <span class="toc-page">p. 13</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-num">09</span>
       <span class="toc-title">Estado del piloto y riesgos<span class="toc-sub">Qué estamos haciendo (informativo, no requiere aprobación) · siete riesgos enumerados con mitigación.</span></span>
-      <span class="toc-page">p. 12</span>
+      <span class="toc-page">p. 14</span>
     </div>
   </div>
 </section>
@@ -1619,9 +1765,148 @@
   </div>
 </section>
 
-<!-- ============ PAGE 10: ROADMAP ============ -->
+<!-- ============ PAGE 10: §6 CAPÍTULO TÁCTICO · ALWAYS-ON META ADS (parte 1) ============ -->
 <section class="page">
-  <h1 class="section-title"><span class="num">§6 · Roadmap de adopción</span>Cinco fases con responsables y gates.</h1>
+  <h1 class="section-title"><span class="num">§6 · Capítulo táctico · Always-On Meta Ads bajo Andromeda</span>Los seis conceptos hero del set v4. Lo que estamos circulando.</h1>
+
+  <span class="section-flag blue">Producción v4 · Mayo 2026</span>
+
+  <div class="ads-intro">
+    <p>Andromeda es el motor de retrieval de Meta Ads 2026. No segmenta por intereses; analiza el creativo con visión por computadora y le sirve el ad a la audiencia que mejor empata con lo que la máquina “ve” en la pieza. <strong>El creativo ES el targeting.</strong> Por eso el set v4 no muestra autos como héroe ni precios gigantes: muestra permanencia institucional, asesores humanos, documentos legales, mapas de la red. Cada concepto produce un Entity ID semántico distinto para que Andromeda los lea como retrievals separados, no como cosméticos del mismo ad.</p>
+    <p><strong>Set v4 (greenfield, 14-may-2026):</strong> 6 conceptos hero en 9:16 (Stories + Reels), producidos con MCP image-gen. 4 listos para difundir (H01, H02, H04, H06). 2 condicionales hasta firma de Jose Reyes en lista de claims (H03, H05). Match Score promedio del set: 86.3/100. Cero auto identificable como héroe · cero logo OEM · cero precio en hero · disclaimer legal universal apuntando al sitio. Detalle completo en <em>Seminuevos-Estrategia-Andromeda-v4-Working.md</em>.</p>
+  </div>
+
+  <div class="ad-concept">
+    <div class="ad-visual"><img src="../assets/v4-ads/H01_linaje-institucional.png" alt="H01 Linaje institucional · mapa GDL con 8 pins"></div>
+    <div class="ad-meta">
+      <div class="ad-meta-header">
+        <span class="ad-id">H01</span>
+        <h4>Linaje institucional</h4>
+        <span class="ad-status-tag">Listo</span>
+      </div>
+      <div class="ad-entity-id">Entity ID: editorial heritage map · Match Score 87</div>
+      <p class="ad-brief">Mapa editorial estilizado de Guadalajara metropolitana con anillo periférico + 8 pins dorados con estrella. Lectura institucional: <strong>75 años, 8 ubicaciones, una línea de negocio</strong>. Atrae mindset alto-trust (Persona 1 + Persona 3) sin caer en lenguaje de ganga.</p>
+      <div class="ad-copy-block">
+        <h5>Copy Meta Ads</h5>
+        <p><strong>Primario:</strong> Hace 75 años que Grupo Plasencia opera con seminuevos certificados. Hoy con 8 ubicaciones en Guadalajara, la misma promesa.</p>
+        <p><strong>Headline:</strong> 75 años · 8 ubicaciones · GDL</p>
+        <p><strong>Description:</strong> Conoce la red →</p>
+      </div>
+      <p class="ad-meta-foot"><strong>Persona objetivo:</strong> tradicional institucional · <strong>Status:</strong> listo para difundir cuando termine la producción.</p>
+    </div>
+  </div>
+
+  <div class="ad-concept">
+    <div class="ad-visual"><img src="../assets/v4-ads/H02_asesor-con-cara.png" alt="H02 Asesor con cara · asesora real en showroom"></div>
+    <div class="ad-meta">
+      <div class="ad-meta-header">
+        <span class="ad-id">H02</span>
+        <h4>Asesor con cara</h4>
+        <span class="ad-status-tag">Listo</span>
+      </div>
+      <div class="ad-entity-id">Entity ID: human service / professional consultative · Match Score 90</div>
+      <p class="ad-brief">Asesora real en showroom Plasencia, uniforme navy con escudo, smartphone en mano, sonrisa profesional. <strong>Diferenciador frente a marketplace anónimo</strong>: una persona con cara y nombre se compromete con el SLA de menos de dos horas.</p>
+      <div class="ad-copy-block">
+        <h5>Copy Meta Ads</h5>
+        <p><strong>Primario:</strong> Daniela te llama por WhatsApp antes de que llegues al lote. Sin bots. Sin presión. Con nombre, cara y respuestas.</p>
+        <p><strong>Headline:</strong> Tu asesor te llama en &lt;2 horas</p>
+        <p><strong>Description:</strong> Regístrate en 30 seg. →</p>
+      </div>
+      <p class="ad-meta-foot"><strong>Persona objetivo:</strong> tradicional + primer-comprador · <strong>Status:</strong> listo para difundir. Pendiente identificar asesora real con permiso de imagen antes de producción final.</p>
+    </div>
+  </div>
+
+  <div class="ad-concept">
+    <div class="ad-visual"><img src="../assets/v4-ads/H03_inspeccion-150-puntos.png" alt="H03 Inspección 150 puntos · técnico Plasencia revisando capó abierto"></div>
+    <div class="ad-meta">
+      <div class="ad-meta-header">
+        <span class="ad-id">H03</span>
+        <h4>Inspección visible · 150 puntos</h4>
+        <span class="ad-status-tag conditional">Condicional · firma JR</span>
+      </div>
+      <div class="ad-entity-id">Entity ID: technical inspection / verification · Match Score 88</div>
+      <p class="ad-brief">Técnico Plasencia uniformado revisando capó abierto con checklist físico y linterna. <strong>Risk reversal mecánico verificable</strong>: el cliente puede pedir el reporte. Atrae al comprador racional/analítico (Persona 1) que necesita evidencia operativa antes de confiar.</p>
+      <div class="ad-copy-block">
+        <h5>Copy Meta Ads</h5>
+        <p><strong>Primario:</strong> Antes de que un auto salga al lote, pasa por 150 puntos de inspección. Si algo falla, no se vende. Sin sorpresas mecánicas.</p>
+        <p><strong>Headline:</strong> 150 puntos antes de venderlo</p>
+        <p><strong>Description:</strong> Conoce el proceso →</p>
+      </div>
+      <p class="ad-meta-foot"><strong>Status:</strong> producido pero <strong>NO se difunde</strong> hasta firma de Jose Reyes en lista de claims operativos sostenidos (Acuerdo del marco rector).</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PAGE 11: §6 CAPÍTULO TÁCTICO · ALWAYS-ON META ADS (parte 2) ============ -->
+<section class="page">
+  <h1 class="section-title"><span class="num">§6 · Capítulo táctico · Parte 2</span>Conceptos hero H04 a H06.</h1>
+
+  <div class="ad-concept">
+    <div class="ad-visual"><img src="../assets/v4-ads/H04_proceso-lite.png" alt="H04 Proceso lite · split-screen smartphone form y WhatsApp"></div>
+    <div class="ad-meta">
+      <div class="ad-meta-header">
+        <span class="ad-id">H04</span>
+        <h4>Proceso lite demostrado</h4>
+        <span class="ad-status-tag">Listo</span>
+      </div>
+      <div class="ad-entity-id">Entity ID: digital process / mobile UX / fast response · Match Score 82</div>
+      <p class="ad-brief">Split-screen vertical: arriba smartphone con form lite de 3 campos, abajo conversación WhatsApp con asesor real con timestamp “1h 23min”. <strong>Aterriza el SLA en pantalla</strong>: 30 segundos para registrarte, menos de dos horas para que te llamen. El más fuerte para mindset digital tipo Kavak / MercadoLibre.</p>
+      <div class="ad-copy-block">
+        <h5>Copy Meta Ads</h5>
+        <p><strong>Primario:</strong> 30 segundos para registrarte. Menos de 2 horas para que Daniela te llame por WhatsApp. Cero filas, cero presión, cero sorpresas.</p>
+        <p><strong>Headline:</strong> Sin filas. Sin sorpresas.</p>
+        <p><strong>Description:</strong> Regístrate ahora →</p>
+      </div>
+      <p class="ad-meta-foot"><strong>Persona objetivo:</strong> digital + primer-comprador · <strong>Status:</strong> listo para difundir.</p>
+    </div>
+  </div>
+
+  <div class="ad-concept">
+    <div class="ad-visual"><img src="../assets/v4-ads/H05_documentos-en-mano.png" alt="H05 Documentos en mano · factura original, inspección, garantía"></div>
+    <div class="ad-meta">
+      <div class="ad-meta-header">
+        <span class="ad-id">H05</span>
+        <h4>Documentos en mano</h4>
+        <span class="ad-status-tag conditional">Condicional · firma JR</span>
+      </div>
+      <div class="ad-entity-id">Entity ID: documentation / legal trust / risk reversal · Match Score 86</div>
+      <p class="ad-brief">Close-up overhead de manos sosteniendo factura original, reporte de inspección y certificado de garantía sobre escritorio de madera. <strong>Risk reversal documental</strong>: tinta, papel, firmas. Codifica directamente el job “no equivocarme con el papel” del comprador de Persona 1.</p>
+      <div class="ad-copy-block">
+        <h5>Copy Meta Ads</h5>
+        <p><strong>Primario:</strong> Factura original verificada. Garantía de 1 año escrita. Inspección de 150 puntos. Lo que ves es lo que recibes.</p>
+        <p><strong>Headline:</strong> Lo que ves es lo que recibes.</p>
+        <p><strong>Description:</strong> Tu auto certificado →</p>
+      </div>
+      <p class="ad-meta-foot"><strong>Status:</strong> producido pero <strong>NO se difunde</strong> hasta firma de Jose Reyes en lista de claims operativos sostenidos.</p>
+    </div>
+  </div>
+
+  <div class="ad-concept">
+    <div class="ad-visual"><img src="../assets/v4-ads/H06_lote-fisico-vivo.png" alt="H06 Red de ubicaciones · mapa GDL contemporáneo con 8 pins teardrop y labels"></div>
+    <div class="ad-meta">
+      <div class="ad-meta-header">
+        <span class="ad-id">H06</span>
+        <h4>Red de ubicaciones</h4>
+        <span class="ad-status-tag">Listo</span>
+      </div>
+      <div class="ad-entity-id">Entity ID: functional location map / inventory listing · Match Score 85</div>
+      <p class="ad-brief">Mapa funcional contemporáneo de GDL con 8 pins teardrop dorados grandes y labels visibles de cada sucursal: López Mateos, Bugambilias, M. Acueducto, M. Américas, M. Galerías, M. González Gallo, M. Plasencia, M. Santa Anita. <strong>Inventario distribuido visible</strong>: el cliente identifica la sucursal más cerca antes de registrarse.</p>
+      <div class="ad-copy-block">
+        <h5>Copy Meta Ads</h5>
+        <p><strong>Primario:</strong> Más de 150 seminuevos certificados en 8 sucursales de Guadalajara. Encuentra el tuyo en la ubicación más cerca de casa.</p>
+        <p><strong>Headline:</strong> +150 autos. 8 sucursales GDL.</p>
+        <p><strong>Description:</strong> Filtra por ubicación →</p>
+      </div>
+      <p class="ad-meta-foot"><strong>Persona objetivo:</strong> cualquier mindset que valore proximidad · <strong>Status:</strong> listo para difundir. Conteo en rangos defensivos (+150 autos) para evitar refresh por movimientos del feed.</p>
+    </div>
+  </div>
+
+  <p class="small" style="margin-top:5mm;">Estructura Power 1: Core 75% del budget con H01, H02, H04, H06 (los listos) + Sandbox 25% para H03, H05 cuando se firmen los claims, más conceptos nuevos que se generen. Sin Retargeting separado (Andromeda lo cubre en ASC). Auditoría de la cuenta Meta SEM es deuda Fase 0 antes de gastar.</p>
+</section>
+
+<!-- ============ PAGE 12: ROADMAP (antes p10) ============ -->
+<section class="page">
+  <h1 class="section-title"><span class="num">§7 · Roadmap de adopción</span>Cinco fases con responsables y gates.</h1>
 
   <span class="section-flag green">Cómo se aterriza</span>
 
@@ -1739,7 +2024,7 @@
 
 <!-- ============ PAGE 11: CASO FINANCIERO Y MÉTRICAS ============ -->
 <section class="page">
-  <h1 class="section-title"><span class="num">§7 · El caso · Criterios de éxito</span>Cómo sabremos que el concepto funcionó.</h1>
+  <h1 class="section-title"><span class="num">§8 · El caso · Criterios de éxito</span>Cómo sabremos que el concepto funcionó.</h1>
 
   <span class="section-flag amber">Métricas que importan</span>
 
@@ -1811,7 +2096,7 @@
 
 <!-- ============ PAGE 12: ASK + RIESGOS ============ -->
 <section class="page">
-  <h1 class="section-title"><span class="num">§8 · Estado del piloto y riesgos</span>Qué estamos haciendo · siete riesgos enumerados.</h1>
+  <h1 class="section-title"><span class="num">§9 · Estado del piloto y riesgos</span>Qué estamos haciendo · siete riesgos enumerados.</h1>
 
   <span class="section-flag">Informativo · no requiere aprobación</span>
 
