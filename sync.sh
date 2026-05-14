@@ -20,6 +20,7 @@ echo ""
 mkdir -p "$DEST/01-strategy"
 for f in \
   "Motor-Atribucion-Piloto-Deck.html" \
+  "Motor-Atribucion-Consejo-Paper-Ejecutivo.html" \
   "Centro-Excelencia-MKT-Consejo-Deck.html" \
   "Motor-de-Atribucion-MVP-Playbook-Operativo.html" \
   "Driving-Growth-Deck.html" \

@@ -1,0 +1,1466 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Motor de Atribución de Grupo Plasencia · Documento ejecutivo para el Consejo Directivo</title>
+<meta name="description" content="Documento ejecutivo del Motor de Atribución de Grupo Plasencia para el Consejo Directivo. Estructura Minto + SCR + Answer-First. Mayo 2026.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@500;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gp-red: #C8102E;
+    --gp-navy: #1E2740;
+    --gp-slate: #2D3748;
+    --green: #48BB78;
+    --deep-green: #276749;
+    --blue: #4299E1;
+    --deep-blue: #2B6CB0;
+    --amber: #D69E2E;
+    --gold: #ECC94B;
+    --bg: #F0F4F8;
+    --paper: #FFFFFF;
+    --near-white: #F7FAFC;
+    --g100: #EDF2F7;
+    --g300: #CBD5E0;
+    --g400: #A0AEC0;
+    --g500: #718096;
+    --g600: #4A5568;
+    --text: #2D3748;
+    --serif: 'Playfair Display', Georgia, serif;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html, body { background:var(--bg); }
+  body {
+    font-family: var(--sans);
+    color: var(--text);
+    line-height: 1.55;
+    font-size: 10pt;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  @page {
+    size: A4;
+    margin: 18mm 18mm 22mm 18mm;
+    @bottom-right {
+      content: counter(page);
+      font-family: 'Inter', sans-serif;
+      font-size: 9pt;
+      color: #718096;
+    }
+    @bottom-left {
+      content: "Confidencial · Grupo Plasencia · Dirección de Marketing Corporativo";
+      font-family: 'Inter', sans-serif;
+      font-size: 8pt;
+      color: #A0AEC0;
+    }
+    @top-right {
+      content: "Motor de Atribución · Documento ejecutivo para el Consejo";
+      font-family: 'Inter', sans-serif;
+      font-size: 8pt;
+      color: #A0AEC0;
+    }
+  }
+  @page :first { @top-right { content: ""; } @bottom-right { content: ""; } @bottom-left { content: ""; } }
+  @page cover { margin: 0; }
+
+  .page {
+    background: var(--paper);
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0 auto 8mm auto;
+    padding: 18mm 18mm 22mm 18mm;
+    position: relative;
+    page-break-after: always;
+    box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 4px 24px rgba(30,39,64,.08);
+  }
+  .page:last-child { page-break-after: auto; }
+
+  /* ============ COVER ============ */
+  .cover {
+    background: var(--gp-navy);
+    color: var(--near-white);
+    padding: 0;
+    page: cover;
+  }
+  .cover-inner {
+    padding: 36mm 22mm 24mm 22mm;
+    min-height: 297mm;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background:
+      radial-gradient(ellipse at 100% 0%, rgba(236,201,75,0.12) 0%, transparent 55%),
+      radial-gradient(ellipse at 0% 100%, rgba(200,16,46,0.10) 0%, transparent 55%),
+      var(--gp-navy);
+    position: relative;
+  }
+  .cover-inner::before {
+    content: "";
+    position: absolute;
+    top: 24mm; left: 22mm;
+    width: 64mm; height: 1px;
+    background: var(--gold);
+  }
+  .cover-mark {
+    font-family: var(--sans);
+    font-weight: 700;
+    font-size: 11pt;
+    letter-spacing: 4px;
+    color: var(--gold);
+    text-transform: uppercase;
+  }
+  .cover-mark span { display:block; font-weight:400; color:rgba(255,255,255,0.55); margin-top:4px; letter-spacing:1px; font-size:9pt; }
+  .cover-eyebrow {
+    font-family: var(--sans);
+    font-size: 10pt;
+    font-weight: 700;
+    letter-spacing: 5px;
+    color: var(--gp-red);
+    text-transform: uppercase;
+    margin-top: 14mm;
+  }
+  .cover-title {
+    font-family: var(--serif);
+    font-weight: 800;
+    font-size: 50pt;
+    line-height: 1.02;
+    letter-spacing: -1.8px;
+    margin-top: 6mm;
+    color: var(--near-white);
+  }
+  .cover-title em { font-style: italic; color: var(--gold); font-weight: 700; }
+  .cover-subtitle {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-style: italic;
+    font-size: 17pt;
+    color: var(--gold);
+    margin-top: 8mm;
+    letter-spacing: -0.3px;
+    line-height: 1.3;
+  }
+  .cover-pull {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-style: italic;
+    font-size: 12pt;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.5;
+    border-left: 3px solid var(--gp-red);
+    padding-left: 8mm;
+    margin-top: 16mm;
+    max-width: 150mm;
+  }
+  .cover-pull cite {
+    display: block;
+    font-style: normal;
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 9pt;
+    letter-spacing: 1.5px;
+    color: var(--gp-red);
+    margin-top: 6mm;
+    text-transform: uppercase;
+  }
+  .cover-tags { display:flex; gap:6mm; margin-top: 14mm; flex-wrap:wrap; }
+  .cover-tag {
+    font-family: var(--sans);
+    font-size: 9pt;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: rgba(255,255,255,0.85);
+    border: 1px solid rgba(255,255,255,0.25);
+    padding: 4px 10px;
+    border-radius: 999px;
+    text-transform: uppercase;
+  }
+  .cover-tag.accent { color: var(--gold); border-color: rgba(236,201,75,0.4); }
+  .cover-tag.urgent { color: var(--gp-red); border-color: rgba(200,16,46,0.4); }
+  .cover-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 16mm;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    padding-top: 8mm;
+  }
+  .cover-meta-block { font-size: 9pt; color: rgba(255,255,255,0.65); line-height: 1.7; }
+  .cover-meta-block strong { display:block; color: var(--near-white); font-weight: 700; font-size: 10pt; letter-spacing: .5px; }
+
+  /* ============ TOC ============ */
+  .toc { margin-top: 6mm; }
+  .toc-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 3mm 0;
+    border-bottom: 1px dotted var(--g300);
+    font-size: 10.5pt;
+  }
+  .toc-num {
+    font-family: var(--serif);
+    font-weight: 800;
+    font-size: 13pt;
+    color: var(--gp-red);
+    width: 14mm;
+    flex-shrink: 0;
+  }
+  .toc-title {
+    flex: 1;
+    color: var(--gp-navy);
+    font-weight: 700;
+    padding-right: 4mm;
+  }
+  .toc-sub { display: block; font-size: 9pt; color: var(--g500); font-weight: 400; margin-top: 1mm; }
+  .toc-page {
+    color: var(--g500);
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 11pt;
+    flex-shrink: 0;
+  }
+
+  /* ============ TYPOGRAPHY ============ */
+  h1.section-title {
+    font-family: var(--serif);
+    font-weight: 800;
+    font-size: 30pt;
+    line-height: 1.05;
+    letter-spacing: -1px;
+    color: var(--gp-navy);
+    border-top: 3px solid var(--gp-red);
+    padding-top: 6mm;
+    margin-bottom: 6mm;
+  }
+  h1.section-title .num {
+    display: block;
+    font-family: var(--sans);
+    font-weight: 700;
+    font-size: 9pt;
+    letter-spacing: 4px;
+    color: var(--gp-red);
+    text-transform: uppercase;
+    margin-bottom: 4mm;
+  }
+  h2.section-h2 {
+    font-size: 15pt;
+    font-weight: 800;
+    color: var(--gp-navy);
+    margin-top: 8mm;
+    margin-bottom: 3mm;
+    line-height: 1.2;
+  }
+  h3.section-h3 {
+    font-size: 12pt;
+    font-weight: 700;
+    color: var(--gp-navy);
+    margin-top: 5mm;
+    margin-bottom: 2mm;
+  }
+  p { margin: 0 0 3mm 0; }
+  strong { font-weight: 700; color: var(--gp-navy); }
+  em { font-style: italic; }
+
+  .lead { font-size: 11pt; line-height: 1.65; color: var(--g600); margin-bottom: 4mm; }
+  .lead strong { color: var(--gp-navy); }
+  .small { font-size: 8.5pt; color: var(--g500); }
+
+  .section-flag {
+    display: inline-block;
+    font-family: var(--sans);
+    font-size: 8pt;
+    font-weight: 800;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 4px;
+    background: rgba(200, 16, 46, 0.08);
+    color: var(--gp-red);
+    margin-bottom: 4mm;
+  }
+  .section-flag.blue { background: rgba(66, 153, 225, 0.08); color: var(--deep-blue); }
+  .section-flag.green { background: rgba(72, 187, 120, 0.1); color: var(--deep-green); }
+  .section-flag.amber { background: rgba(214, 158, 46, 0.1); color: var(--amber); }
+  .section-flag.gold { background: rgba(236, 201, 75, 0.18); color: #997706; }
+
+  /* ============ STAT STRIP ============ */
+  .stat-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4mm;
+    margin: 4mm 0 6mm 0;
+  }
+  .stat-strip .s {
+    background: var(--paper);
+    border: 1px solid var(--g100);
+    border-top: 3px solid var(--gp-navy);
+    padding: 4mm 4mm;
+    text-align: left;
+  }
+  .stat-strip .s .big {
+    font-family: var(--serif);
+    font-weight: 900;
+    font-size: 22pt;
+    color: var(--gp-navy);
+    line-height: 1;
+    margin-bottom: 1mm;
+    letter-spacing: -0.5px;
+  }
+  .stat-strip .s .lbl {
+    font-size: 8pt;
+    color: var(--g500);
+    line-height: 1.3;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+  }
+  .stat-strip.three { grid-template-columns: repeat(3, 1fr); }
+
+  /* ============ DRIVERS / TENSIONS ============ */
+  .drivers {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4mm;
+    margin-top: 4mm;
+  }
+  .driver {
+    background: var(--paper);
+    border: 1px solid var(--g100);
+    border-left: 4px solid var(--gp-red);
+    padding: 5mm 6mm;
+    page-break-inside: avoid;
+  }
+  .driver .driver-num {
+    font-family: var(--serif);
+    font-weight: 900;
+    font-size: 36pt;
+    color: var(--gp-red);
+    line-height: 1;
+    float: left;
+    margin: -2mm 4mm 0 0;
+  }
+  .driver h3 {
+    font-size: 12pt;
+    font-weight: 800;
+    color: var(--gp-navy);
+    margin-bottom: 2mm;
+    line-height: 1.25;
+    overflow: hidden;
+  }
+  .driver p {
+    font-size: 9.5pt;
+    color: var(--g600);
+    line-height: 1.55;
+    overflow: hidden;
+    margin-bottom: 0;
+  }
+  .driver p strong { color: var(--gp-navy); }
+
+  /* ============ STATEMENT ============ */
+  .statement {
+    background: var(--gp-navy);
+    color: var(--near-white);
+    padding: 14mm 14mm;
+    margin: 6mm 0 8mm 0;
+    border-left: 5px solid var(--gold);
+    page-break-inside: avoid;
+    position: relative;
+  }
+  .statement::before {
+    content: "\201C";
+    position: absolute;
+    top: 4mm;
+    right: 12mm;
+    font-family: var(--serif);
+    font-size: 88pt;
+    color: rgba(236,201,75,0.18);
+    line-height: 1;
+    font-weight: 900;
+  }
+  .statement .label {
+    font-family: var(--sans);
+    font-size: 9pt;
+    font-weight: 800;
+    letter-spacing: 3px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 4mm;
+    display: block;
+  }
+  .statement .text {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 500;
+    font-size: 17pt;
+    line-height: 1.45;
+    color: var(--near-white);
+    letter-spacing: -0.3px;
+  }
+  .statement .text strong {
+    color: var(--gold);
+    font-weight: 700;
+    font-style: normal;
+    font-family: var(--sans);
+    font-size: 16pt;
+  }
+
+  /* ============ HYPOTHESIS BLOCK ============ */
+  .hypothesis {
+    background: var(--g100);
+    border-left: 4px solid var(--gp-navy);
+    padding: 6mm 7mm;
+    margin: 4mm 0;
+  }
+  .hypothesis .label {
+    display: block;
+    font-family: var(--sans);
+    font-size: 9pt;
+    font-weight: 800;
+    letter-spacing: 3px;
+    color: var(--gp-red);
+    text-transform: uppercase;
+    margin-bottom: 3mm;
+  }
+  .hypothesis h3 {
+    font-family: var(--serif);
+    font-weight: 800;
+    font-size: 17pt;
+    color: var(--gp-navy);
+    line-height: 1.25;
+    letter-spacing: -0.5px;
+    margin-bottom: 3mm;
+  }
+  .hypothesis p {
+    font-size: 11pt;
+    color: var(--g600);
+    line-height: 1.6;
+    margin-bottom: 0;
+  }
+
+  /* ============ PILLARS ============ */
+  .pillars {
+    list-style: none;
+    margin: 4mm 0;
+    counter-reset: attr;
+  }
+  .pillars li {
+    display: grid;
+    grid-template-columns: 14mm 1fr;
+    gap: 4mm;
+    padding: 4mm 0;
+    border-bottom: 1px dotted var(--g300);
+    page-break-inside: avoid;
+  }
+  .pillars li:last-child { border-bottom: none; }
+  .pillars li::before {
+    counter-increment: attr;
+    content: counter(attr);
+    font-family: var(--serif);
+    font-weight: 900;
+    font-size: 24pt;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .pillars h4 {
+    font-size: 11pt;
+    font-weight: 800;
+    color: var(--gp-navy);
+    margin: 0 0 1mm 0;
+    line-height: 1.25;
+  }
+  .pillars p {
+    font-size: 9.5pt;
+    color: var(--g600);
+    margin: 0;
+    line-height: 1.55;
+  }
+
+  /* ============ NOT BLOCK ============ */
+  .not-block {
+    background: rgba(200, 16, 46, 0.04);
+    border: 1px solid rgba(200, 16, 46, 0.2);
+    border-left: 4px solid var(--gp-red);
+    padding: 5mm 6mm;
+    margin: 5mm 0;
+  }
+  .not-block .label {
+    display: block;
+    font-family: var(--sans);
+    font-size: 9pt;
+    font-weight: 800;
+    letter-spacing: 3px;
+    color: var(--gp-red);
+    text-transform: uppercase;
+    margin-bottom: 3mm;
+  }
+  .not-block h3 {
+    font-family: var(--serif);
+    font-weight: 800;
+    font-size: 14pt;
+    color: var(--gp-navy);
+    margin-bottom: 3mm;
+    line-height: 1.25;
+  }
+  .not-block ul { list-style: none; padding: 0; }
+  .not-block ul li {
+    font-size: 9.5pt;
+    color: var(--g600);
+    padding: 1.5mm 0 1.5mm 6mm;
+    position: relative;
+    line-height: 1.5;
+  }
+  .not-block ul li::before {
+    content: "\2715";
+    position: absolute;
+    left: 0;
+    color: var(--gp-red);
+    font-weight: bold;
+  }
+  .not-block ul li strong { color: var(--gp-slate); }
+
+  /* ============ MODEL LAYERS ============ */
+  .layers {
+    list-style: none;
+    margin: 4mm 0;
+    counter-reset: layer;
+  }
+  .layers li {
+    display: grid;
+    grid-template-columns: 22mm 1fr;
+    gap: 4mm;
+    padding: 5mm 0;
+    border-bottom: 1px solid var(--g100);
+    page-break-inside: avoid;
+  }
+  .layers li:last-child { border-bottom: none; }
+  .layers li .layer-tag {
+    counter-increment: layer;
+    font-family: var(--sans);
+    font-size: 8pt;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: var(--gp-red);
+    text-transform: uppercase;
+  }
+  .layers li .layer-tag::before {
+    content: "Capa " counter(layer);
+    display: block;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 22pt;
+    font-weight: 800;
+    color: var(--gp-navy);
+    letter-spacing: -0.5px;
+    margin-bottom: 1mm;
+  }
+  .layers h4 {
+    font-size: 12pt;
+    font-weight: 800;
+    color: var(--gp-navy);
+    margin: 0 0 2mm 0;
+    line-height: 1.25;
+  }
+  .layers p {
+    font-size: 9.5pt;
+    color: var(--g600);
+    margin: 0;
+    line-height: 1.55;
+  }
+  .layers p strong { color: var(--gp-navy); }
+
+  /* ============ EVIDENCE STRIP ============ */
+  .evidence {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4mm;
+    margin: 5mm 0;
+  }
+  .ev {
+    background: var(--paper);
+    border: 1px solid var(--g100);
+    border-top: 3px solid var(--gp-red);
+    padding: 5mm;
+    page-break-inside: avoid;
+  }
+  .ev:nth-child(2) { border-top-color: var(--blue); }
+  .ev:nth-child(3) { border-top-color: var(--green); }
+  .ev .ev-num {
+    font-family: var(--serif);
+    font-weight: 900;
+    font-size: 9pt;
+    color: var(--gp-red);
+    letter-spacing: 2px;
+    margin-bottom: 2mm;
+  }
+  .ev:nth-child(2) .ev-num { color: var(--blue); }
+  .ev:nth-child(3) .ev-num { color: var(--deep-green); }
+  .ev h4 {
+    font-size: 10.5pt;
+    font-weight: 800;
+    color: var(--gp-navy);
+    margin-bottom: 2mm;
+    line-height: 1.25;
+  }
+  .ev p {
+    font-size: 9pt;
+    color: var(--g600);
+    line-height: 1.5;
+    margin: 0;
+  }
+  .ev p strong { color: var(--gp-navy); }
+
+  /* ============ URGENCY ============ */
+  .urgency {
+    background: linear-gradient(135deg, rgba(200,16,46,0.06) 0%, rgba(214,158,46,0.04) 100%);
+    border-left: 5px solid var(--gp-red);
+    padding: 7mm 8mm;
+    margin: 5mm 0;
+    page-break-inside: avoid;
+  }
+  .urgency .label {
+    display: block;
+    font-family: var(--sans);
+    font-size: 9pt;
+    font-weight: 800;
+    letter-spacing: 3px;
+    color: var(--gp-red);
+    text-transform: uppercase;
+    margin-bottom: 3mm;
+  }
+  .urgency h3 {
+    font-family: var(--serif);
+    font-weight: 800;
+    font-size: 19pt;
+    color: var(--gp-navy);
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+    margin-bottom: 3mm;
+  }
+  .urgency p {
+    font-size: 10.5pt;
+    color: var(--g600);
+    line-height: 1.6;
+    margin-bottom: 0;
+  }
+
+  /* ============ ROADMAP PHASES ============ */
+  .phases { margin-top: 4mm; }
+  .phase {
+    background: var(--paper);
+    border: 1px solid var(--g100);
+    padding: 5mm 6mm;
+    margin-bottom: 4mm;
+    border-left: 4px solid var(--gold);
+    page-break-inside: avoid;
+  }
+  .phase:nth-child(2) { border-left-color: var(--blue); }
+  .phase:nth-child(3) { border-left-color: var(--green); }
+  .phase .phase-tag {
+    display: inline-block;
+    font-family: var(--sans);
+    font-size: 8pt;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gp-navy);
+    margin-bottom: 2mm;
+  }
+  .phase h4 {
+    font-size: 12pt;
+    font-weight: 800;
+    color: var(--gp-navy);
+    text-transform: none;
+    letter-spacing: 0;
+    margin: 0 0 3mm 0;
+  }
+  .phase-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4mm;
+    margin-top: 3mm;
+  }
+  .phase-cell h5 {
+    font-family: var(--sans);
+    font-size: 8pt;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    color: var(--gp-red);
+    text-transform: uppercase;
+    margin-bottom: 1mm;
+  }
+  .phase-cell ul { list-style: none; padding: 0; }
+  .phase-cell ul li {
+    font-size: 9pt;
+    color: var(--g600);
+    padding: 0.8mm 0 0.8mm 5mm;
+    position: relative;
+    line-height: 1.45;
+  }
+  .phase-cell ul li::before {
+    content: "\25B8";
+    position: absolute;
+    left: 0;
+    color: var(--gp-red);
+    font-weight: bold;
+  }
+  .phase-cell p { font-size: 9pt; color: var(--g600); margin: 0; line-height: 1.45; }
+
+  /* ============ FINANCIAL ============ */
+  .financial {
+    background: var(--paper);
+    border: 1px solid var(--g100);
+    margin-top: 4mm;
+    page-break-inside: avoid;
+  }
+  .financial-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .fin-cell {
+    padding: 6mm;
+    border-right: 1px solid var(--g100);
+    border-bottom: 1px solid var(--g100);
+  }
+  .fin-cell:nth-child(even) { border-right: none; }
+  .fin-cell:nth-last-child(-n+2) { border-bottom: none; }
+  .fin-cell .label {
+    font-size: 8pt;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: var(--g500);
+    text-transform: uppercase;
+    margin-bottom: 2mm;
+  }
+  .fin-cell .value {
+    font-family: var(--serif);
+    font-weight: 900;
+    font-size: 24pt;
+    color: var(--gp-navy);
+    line-height: 1;
+    letter-spacing: -0.5px;
+    margin-bottom: 1mm;
+  }
+  .fin-cell .value.gold { color: #997706; }
+  .fin-cell .value.green { color: var(--deep-green); }
+  .fin-cell .value.red { color: var(--gp-red); }
+  .fin-cell p {
+    font-size: 9pt;
+    color: var(--g600);
+    line-height: 1.45;
+    margin: 0;
+  }
+
+  .killer {
+    background: var(--gp-navy);
+    color: var(--near-white);
+    padding: 8mm 10mm;
+    margin-top: 5mm;
+    border-left: 4px solid var(--gold);
+    page-break-inside: avoid;
+  }
+  .killer .label {
+    font-size: 9pt;
+    font-weight: 800;
+    letter-spacing: 3px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 2mm;
+    display: block;
+  }
+  .killer h3 {
+    font-family: var(--serif);
+    font-weight: 800;
+    font-size: 18pt;
+    color: var(--near-white);
+    margin-bottom: 2mm;
+    line-height: 1.25;
+  }
+  .killer p {
+    font-size: 10.5pt;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.55;
+    margin-bottom: 0;
+  }
+  .killer strong { color: var(--gold); }
+
+  /* ============ ASKS ============ */
+  .asks {
+    list-style: none;
+    counter-reset: ask;
+    margin-top: 4mm;
+  }
+  .asks li {
+    display: grid;
+    grid-template-columns: 14mm 1fr 30mm;
+    gap: 4mm;
+    padding: 4mm 0;
+    border-bottom: 1px solid var(--g100);
+    page-break-inside: avoid;
+    align-items: start;
+  }
+  .asks li::before {
+    counter-increment: ask;
+    content: counter(ask);
+    font-family: var(--serif);
+    font-weight: 900;
+    font-size: 28pt;
+    color: var(--gp-red);
+    line-height: 1;
+  }
+  .asks h4 {
+    font-size: 11pt;
+    font-weight: 800;
+    color: var(--gp-navy);
+    margin: 0 0 1mm 0;
+    text-transform: none;
+    letter-spacing: 0;
+  }
+  .asks p {
+    font-size: 9pt;
+    color: var(--g600);
+    margin: 0;
+    line-height: 1.5;
+  }
+  .ask-decision {
+    text-align: right;
+    font-family: var(--sans);
+    font-size: 9pt;
+    font-weight: 700;
+    color: var(--gp-red);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    line-height: 1.4;
+  }
+  .ask-decision span { display: block; font-weight: 400; color: var(--g500); font-size: 8pt; text-transform: none; letter-spacing: 0; margin-top: 1mm; }
+
+  /* ============ CLOSING ============ */
+  .closing {
+    background: var(--gp-navy);
+    color: var(--near-white);
+    padding: 30mm 22mm;
+    margin: -18mm;
+    margin-top: 16mm;
+    min-height: 230mm;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    background:
+      radial-gradient(ellipse at 50% 0%, rgba(236,201,75,0.12) 0%, transparent 60%),
+      radial-gradient(ellipse at 50% 100%, rgba(200,16,46,0.10) 0%, transparent 60%),
+      var(--gp-navy);
+  }
+  .closing .ribbon {
+    font-family: var(--sans);
+    font-size: 9pt;
+    font-weight: 700;
+    letter-spacing: 5px;
+    color: var(--gp-red);
+    text-transform: uppercase;
+    margin-bottom: 12mm;
+  }
+  .closing h2 {
+    font-family: var(--serif);
+    font-weight: 800;
+    font-size: 36pt;
+    color: var(--near-white);
+    margin-bottom: 8mm;
+    line-height: 1.05;
+    letter-spacing: -1px;
+  }
+  .closing h2 em { font-style: italic; color: var(--gold); font-weight: 700; }
+  .closing .pull {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 13pt;
+    color: var(--gold);
+    line-height: 1.5;
+    max-width: 150mm;
+    margin: 0 auto 10mm auto;
+  }
+  .closing .body-text {
+    font-size: 11pt;
+    color: rgba(255,255,255,0.78);
+    max-width: 150mm;
+    margin: 0 auto;
+    line-height: 1.65;
+  }
+  .closing .signature {
+    margin-top: 14mm;
+    font-size: 9pt;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 1.5px;
+  }
+  .closing .signature strong { color: var(--gold); display: block; font-size: 11pt; letter-spacing: 2.5px; margin-bottom: 1mm; }
+
+  @media print {
+    body { background: white; }
+    .page { box-shadow: none; margin: 0; padding: 0; }
+    .cover { padding: 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ COVER ============ -->
+<section class="page cover">
+  <div class="cover-inner">
+    <div>
+      <div class="cover-mark">Grupo Plasencia<span>Documento ejecutivo para el Consejo · Mayo 2026</span></div>
+
+      <p class="cover-eyebrow">Para el Consejo Directivo</p>
+      <h1 class="cover-title">Motor de <em>Atribución.</em></h1>
+      <p class="cover-subtitle">Del piloto operativo a la institucionalización como capacidad corporativa del grupo.</p>
+
+      <p class="cover-pull">
+        Este documento sintetiza el estado del piloto, la evidencia operativa generada en 90 días, el modelo institucional propuesto, el roadmap de 12 meses y las cinco decisiones binarias que el Consejo Directivo debe resolver para asegurar continuidad y escalamiento.
+        <cite>Estructura Minto · SCR · Answer-First</cite>
+      </p>
+
+      <div class="cover-tags">
+        <span class="cover-tag">Strategy Definition</span>
+        <span class="cover-tag accent">Evidencia Operativa</span>
+        <span class="cover-tag urgent">Decisión del Consejo</span>
+      </div>
+    </div>
+
+    <div>
+      <div class="cover-meta">
+        <div class="cover-meta-block">
+          <strong>Audiencia</strong>
+          Consejo Directivo · Dirección General · Directores de Marca
+        </div>
+        <div class="cover-meta-block" style="text-align:right;">
+          <strong>Mayo 2026</strong>
+          Versión 1.0 · 13 páginas
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PAGE 2: TOC + ANSWER-FIRST ============ -->
+<section class="page">
+  <h1 class="section-title"><span class="num">Contenido y respuesta primero</span>La recomendación, en una página.</h1>
+
+  <p class="lead">El documento sigue una estructura clásica de Strategy Definition: <strong>Situación, Complicación, Resolución, Modelo, Roadmap, Caso Financiero y Ask</strong>. La respuesta vive abajo. La argumentación, en las siguientes páginas.</p>
+
+  <div class="hypothesis">
+    <span class="label">Recomendación al Consejo</span>
+    <h3>Institucionalizar el Motor de Atribución como infraestructura corporativa permanente y activar Revenue Operations bajo gobierno único como condición previa al escalamiento a las ocho marcas del grupo.</h3>
+    <p>El piloto demostró en 90 días que la infraestructura de atribución funciona y opera con costo marginal. La barrera entre el pipeline ya generado y la conversión en ingreso real no es de tecnología ni de presupuesto. Es de gobierno corporativo. La inversión incremental requerida en los próximos 90 días se mantiene por debajo de los umbrales habituales de aprobación; el costo de no decidir crece mes con mes.</p>
+  </div>
+
+  <h2 class="section-h2">Tabla de contenido</h2>
+
+  <div class="toc">
+    <div class="toc-item">
+      <span class="toc-num">01</span>
+      <span class="toc-title">Situación<span class="toc-sub">El punto de partida operativo: piloto vivo en tres marcas, infraestructura propia auditable.</span></span>
+      <span class="toc-page">p. 3</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-num">02</span>
+      <span class="toc-title">Complicación<span class="toc-sub">La tensión central: el piloto reveló que el cuello del grupo no está en marketing.</span></span>
+      <span class="toc-page">p. 4</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-num">03</span>
+      <span class="toc-title">Resolución · La tesis<span class="toc-sub">Cuatro pilares y lo que esta estrategia no es.</span></span>
+      <span class="toc-page">p. 5–6</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-num">04</span>
+      <span class="toc-title">El modelo · cómo funciona<span class="toc-sub">Sistema de cinco capas que opera como ciclo cerrado de optimización.</span></span>
+      <span class="toc-page">p. 7–8</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-num">05</span>
+      <span class="toc-title">El roadmap · 12 meses<span class="toc-sub">Tres horizontes con gates de evidencia entre fases.</span></span>
+      <span class="toc-page">p. 9–10</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-num">06</span>
+      <span class="toc-title">El caso financiero<span class="toc-sub">Línea base, eficiencia validada y costo de no actuar.</span></span>
+      <span class="toc-page">p. 11</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-num">07</span>
+      <span class="toc-title">El ask · cinco decisiones binarias<span class="toc-sub">Lo que el Consejo necesita resolver.</span></span>
+      <span class="toc-page">p. 12</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-num">08</span>
+      <span class="toc-title">Cierre<span class="toc-sub">La pregunta abierta al Consejo.</span></span>
+      <span class="toc-page">p. 13</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PAGE 3: SITUACIÓN ============ -->
+<section class="page">
+  <span class="section-flag">§ 01 · Situación</span>
+  <h1 class="section-title"><span class="num">El punto de partida</span>Grupo Plasencia opera un piloto en producción con infraestructura propia auditable.</h1>
+
+  <p class="lead">Antes de proponer cambio, conviene establecer la realidad operativa sobre la cual se sostiene toda la argumentación posterior. Nada de esta sección es controversial. Es lo que el Consejo puede verificar en cualquier momento mediante el dashboard ejecutivo.</p>
+
+  <div class="stat-strip">
+    <div class="s">
+      <div class="big">$12,813M</div>
+      <div class="lbl">Revenue 2025 MXN<br>+9.5% interanual</div>
+    </div>
+    <div class="s">
+      <div class="big">29,595</div>
+      <div class="lbl">Unidades 2025<br>+10.2% interanual</div>
+    </div>
+    <div class="s">
+      <div class="big">42</div>
+      <div class="lbl">Concesionarias<br>en 6 ciudades</div>
+    </div>
+    <div class="s">
+      <div class="big">$73.4M</div>
+      <div class="lbl">Gasto MKT anual MXN<br>0.78% sobre ingresos</div>
+    </div>
+  </div>
+
+  <h2 class="section-h2">El portafolio</h2>
+  <p>Grupo Plasencia opera <strong>8 marcas OEM</strong> (Mazda 54.3% del volumen, Hyundai 18.4%, Ford 8.6%, Stellantis 4.4%, Changan 5.1%, GWM 3.5%, GAC 3.4%, Isuzu 2.3%) más una sub-marca propia consolidada, <strong>Seminuevos Plasencia</strong> (3,611 unidades 2025, $1,137M de revenue, $49.6M de utilidad anual). Adicionalmente opera <strong>Arrendadora Plasencia</strong> y una función transversal de <strong>Posventa corporativa</strong>. La estructura organizacional incluye Consejo Corporativo, Dirección General, Finanzas, Tecnología, Jurídico, Talento, Auditoría, y la nueva Dirección de Marketing Corporativo creada en 2026.</p>
+
+  <h2 class="section-h2">El piloto operando</h2>
+  <p>Desde abril 2026 está vivo el <strong>Motor de Atribución MVP</strong> en tres unidades de negocio (Seminuevos, Hyundai, Stellantis), con presupuesto operativo negociado directamente con cada marca y sin asignación corporativa adicional. La infraestructura en producción incluye:</p>
+
+  <ul style="list-style: none; padding: 0; margin: 3mm 0 4mm 0;">
+    <li style="font-size: 9.5pt; color: var(--g600); padding: 1.2mm 0 1.2mm 6mm; position: relative; line-height: 1.5;"><span style="position:absolute;left:0;color:var(--gp-red);font-weight:bold;">▸</span> Tres landings dedicadas en GitHub Pages con captura unificada y catálogo dinámico, con pivote a formato simplificado en fase de liberación.</li>
+    <li style="font-size: 9.5pt; color: var(--g600); padding: 1.2mm 0 1.2mm 6mm; position: relative; line-height: 1.5;"><span style="position:absolute;left:0;color:var(--gp-red);font-weight:bold;">▸</span> Cloudflare Worker con endpoint único de ingesta y base de datos D1 con siete tablas auditables.</li>
+    <li style="font-size: 9.5pt; color: var(--g600); padding: 1.2mm 0 1.2mm 6mm; position: relative; line-height: 1.5;"><span style="position:absolute;left:0;color:var(--gp-red);font-weight:bold;">▸</span> Eventos server-side a Meta Conversions API y GA4 Measurement Protocol con deduplicación automática.</li>
+    <li style="font-size: 9.5pt; color: var(--g600); padding: 1.2mm 0 1.2mm 6mm; position: relative; line-height: 1.5;"><span style="position:absolute;left:0;color:var(--gp-red);font-weight:bold;">▸</span> Webhook de Meta Lead Gen con verificación criptográfica y cron de respaldo cada dos minutos.</li>
+    <li style="font-size: 9.5pt; color: var(--g600); padding: 1.2mm 0 1.2mm 6mm; position: relative; line-height: 1.5;"><span style="position:absolute;left:0;color:var(--gp-red);font-weight:bold;">▸</span> Dashboard ejecutivo multi-canal con corte diario, cinco fuentes externas reconciliadas y SLA validado.</li>
+    <li style="font-size: 9.5pt; color: var(--g600); padding: 1.2mm 0 1.2mm 6mm; position: relative; line-height: 1.5;"><span style="position:absolute;left:0;color:var(--gp-red);font-weight:bold;">▸</span> Conciliación diaria con tres cruces externos contra base de datos corporativa, con backfill automatizado.</li>
+  </ul>
+
+  <h2 class="section-h2">Lo que produjo el piloto en su primera ventana de medición</h2>
+  <p>En los primeros 12 días de operación posteriores al GO-LIVE el piloto generó <strong>18 oportunidades calificadas con cita agendada</strong>, un pipeline acumulado de <strong>$5.61 millones de pesos</strong> y un costo por adquisición global de <strong>$650 pesos</strong>. El costo de infraestructura acumulado se ubica por debajo de <strong>$6 mil pesos</strong> y el costo operativo del stack es inferior a <strong>USD 100 mensuales</strong>. Esta es la evidencia base sobre la que se construye la propuesta.</p>
+</section>
+
+<!-- ============ PAGE 4: COMPLICACIÓN ============ -->
+<section class="page">
+  <span class="section-flag">§ 02 · Complicación</span>
+  <h1 class="section-title"><span class="num">La tensión central</span>El piloto reveló que el cuello del grupo no está donde tradicionalmente se ha colocado el foco.</h1>
+
+  <p class="lead">La pregunta que el Consejo enfrenta no es si Grupo Plasencia debe medir mejor su inversión de marketing. Esa decisión ya se tomó implícitamente al autorizar el piloto y los resultados la respaldaron. La pregunta es <strong>qué hacer con el hallazgo que el piloto produjo</strong>, y ese hallazgo es incómodo.</p>
+
+  <div class="statement">
+    <span class="label">La tensión central</span>
+    <p class="text">El piloto demostró que la infraestructura de adquisición funciona y opera con eficiencia notable. Pero también reveló que <strong>el cuello operativo no está en marketing</strong>. De 18 oportunidades calificadas con cita agendada, 33% no tenían vendedor asignado al cierre del corte, solamente una se materializó en visita física y ninguna se cerró durante la ventana de medición. El dashboard hace ahora visible un problema que antes era estructuralmente invisible.</p>
+  </div>
+
+  <h2 class="section-h2">Tres hechos sustentan la tensión</h2>
+
+  <div class="evidence">
+    <div class="ev">
+      <div class="ev-num">— Hecho 1 —</div>
+      <h4>La eficiencia de adquisición no es el problema</h4>
+      <p>El CPA de <strong>$487 MXN</strong> en Seminuevos durante el primer mes se ubica significativamente por debajo del CAC promedio histórico del grupo, estimado en $1,206 MXN. Hyundai registró $890. La conversión sesión a lead alcanza 1.42% en Seminuevos, 3.55% en Hyundai y 5.52% en Stellantis. La inversión publicitaria total durante la ventana fue de $11,696 MXN.</p>
+    </div>
+    <div class="ev">
+      <div class="ev-num">— Hecho 2 —</div>
+      <h4>El cuello se desplazó hacia el proceso de venta</h4>
+      <p>El piloto no produjo el problema. Lo hizo visible. <strong>Cobertura de asignación incompleta</strong>, ausencia de seguimiento sistemático y dependencia de procesos manuales en piso son síntomas de una arquitectura organizacional donde marketing entrega prospectos pero no existe gobierno corporativo sobre cómo esos prospectos se convierten. El piloto cuantifica esta condición por primera vez.</p>
+    </div>
+    <div class="ev">
+      <div class="ev-num">— Hecho 3 —</div>
+      <h4>El mercado no espera y la ventana se cierra</h4>
+      <p>La proyección AMDA mantiene el mercado mexicano plano hasta 2027. La participación digital en gasto publicitario en México alcanza 57%; el grupo opera en torno a 47%; los concesionarios líderes en Estados Unidos están en 73%. Aproximadamente <strong>50% de los dealers a nivel global ya integran señales de conversión</strong> de piso a plataforma; en México la evidencia es marginal.</p>
+    </div>
+  </div>
+
+  <h2 class="section-h2">Costo de inacción cuantificado, horizonte 12 meses</h2>
+  <p>Mientras el Consejo no decida, el grupo continúa absorbiendo: <strong>(1)</strong> fuga de comisión en compra de medios externa del orden de <strong>$800 mil a $1.2 millones de pesos</strong> anuales; <strong>(2)</strong> aproximadamente <strong>16% del gasto en pauta digital no recuperable</strong> por esquema fiscal subóptimo; <strong>(3)</strong> al menos <strong>$5 millones de pesos anuales</strong> en eficiencia no capturada por optimización data-driven sobre la inversión actual; <strong>(4)</strong> participación de mercado en seminuevos que jugadores nativos digitales continúan capturando mientras el grupo no consolida su producto digital propio; <strong>(5)</strong> pipeline acumulado de $5.6 millones de pesos en riesgo de no convertirse por ausencia de gobierno sobre ventas digitales.</p>
+
+  <h2 class="section-h2">Por qué los enfoques previos no resolvieron esto</h2>
+  <p>El grupo ha contratado consultorías y agencias durante años. La consultoría estratégica de septiembre 2025 a enero 2026 validó correctamente el diagnóstico de fragmentación pero ejecutó solamente 4 de 20 proyectos comprometidos, todos administrativos. La conclusión no es que el diagnóstico fuera incorrecto. La conclusión es que <strong>sin modelo operativo, sin perfiles correctos y sin gobierno corporativo sobre marketing y ventas digitales, el mejor plan estratégico no se ejecuta</strong>. El piloto del Motor demostró que con el modelo operativo correcto se entrega en 4 semanas lo que con el modelo anterior tomaba 6 meses o más.</p>
+</section>
+
+<!-- ============ PAGE 5: RESOLUCIÓN ============ -->
+<section class="page">
+  <span class="section-flag green">§ 03 · Resolución</span>
+  <h1 class="section-title"><span class="num">La tesis</span>Cuatro pilares articulan la propuesta.</h1>
+
+  <div class="hypothesis">
+    <span class="label">Governing thought</span>
+    <h3>Convertir el Motor de Atribución de iniciativa piloto a capacidad corporativa permanente, condicionando ese paso a una decisión estructural previa sobre cómo se gobiernan ventas digitales en el grupo.</h3>
+    <p>La inversión incremental requerida en los próximos 90 días es marginal frente al pipeline ya generado y al retorno proyectado. El costo de no decidir es asimétrico y crece mes con mes. La decisión que enfrenta el Consejo es de gobierno corporativo, no de presupuesto.</p>
+  </div>
+
+  <h2 class="section-h2">Los cuatro pilares</h2>
+
+  <ol class="pillars">
+    <li>
+      <div>
+        <h4>El Motor de Atribución como infraestructura corporativa permanente</h4>
+        <p>El stack actual se preserva y se institucionaliza. El Worker, la base de datos, los eventos server-side, el dashboard multi-canal y la conciliación diaria pasan de ser activos del piloto a infraestructura corporativa con responsable formal, SLA documentado y línea presupuestal operativa. La capacidad técnica está construida. Lo que falta es la decisión de adoptarla formalmente.</p>
+      </div>
+    </li>
+    <li>
+      <div>
+        <h4>Revenue Operations como condición previa al escalamiento</h4>
+        <p>Marketing, ventas digitales y datos operan bajo una sola dirección, con métricas compartidas y trazabilidad de oportunidad a cierre. Sin esta decisión estructural, agregar marcas al Motor amplifica el problema de conversión observado. La célula de ventas digitales corporativa, propuesta como mecanismo operativo, asegura cobertura de asignación y SLA de seguimiento sobre cada oportunidad generada, independientemente de los vicios operativos heredados en cada concesionaria.</p>
+      </div>
+    </li>
+    <li>
+      <div>
+        <h4>Escalamiento progresivo cross-brand con gates de cierre</h4>
+        <p>El paso de 3 a 5 a 8 marcas se condiciona a la verificación de tres métricas mínimas en cada cohorte: tasa de asignación de vendedor superior al 95%, conversión de cita a visita superior al 30%, y al menos un cierre atribuido por marca y por mes. Esta lógica protege al grupo de escalar fragmentación. Cada marca incorporada llega ya con el modelo operativo correcto.</p>
+      </div>
+    </li>
+    <li>
+      <div>
+        <h4>Capacidad apalancada por inteligencia artificial como ventaja sostenible</h4>
+        <p>El modelo operativo del piloto demostró que un perfil correctamente calibrado, con asistencia de IA generativa, entrega capacidades que tradicionalmente requieren células de 5 a 7 personas y plazos de 5 a 7 meses. La comparativa con propuestas de terceros para alcance equivalente ubica la diferencia en aproximadamente <strong>230 veces en costo</strong> y entre <strong>5 y 7 veces en velocidad</strong> de entrega. Esta palanca debe institucionalizarse como ventaja sostenible, no quedar como excepción del piloto.</p>
+      </div>
+    </li>
+  </ol>
+</section>
+
+<!-- ============ PAGE 6: LO QUE NO ES ============ -->
+<section class="page">
+  <span class="section-flag">§ 03 · Resolución (cont.)</span>
+  <h1 class="section-title"><span class="num">Lo que esta estrategia no es</span>Lo que el Consejo no debe interpretar de esta propuesta.</h1>
+
+  <p class="lead">Toda transformación estratégica activa preocupaciones legítimas. Por eso esta sección anticipa lo que la propuesta <strong>no es</strong>, antes de profundizar en cómo funciona. Reducir ambigüedad temprano facilita la decisión.</p>
+
+  <div class="not-block">
+    <span class="label">Lo que esta estrategia no es</span>
+    <h3>Cinco precisiones para evitar lecturas equivocadas.</h3>
+    <ul>
+      <li><strong>No es un incremento de presupuesto de marketing.</strong> La inversión incremental requerida en los próximos 90 días se ubica por debajo de los umbrales habituales de aprobación del Consejo. El argumento no es gastar más. Es decidir cómo se gobierna lo que ya se gasta.</li>
+      <li><strong>No es una reorganización masiva ni implica reducción de plantilla.</strong> Las concesionarias mantienen autonomía operativa. Lo que se centraliza es el gobierno de datos, atribución y ventas digitales, no la operación comercial local.</li>
+      <li><strong>No es sustituir el rol del piso de venta.</strong> El piso sigue cerrando. Lo que cambia es que recibe oportunidades calificadas con contexto y trazabilidad, no formularios opacos.</li>
+      <li><strong>No es dependencia tecnológica de un proveedor externo.</strong> La infraestructura es propia, auditable y portable. No existe lock-in con consultoras ni con plataformas SaaS de alto costo.</li>
+      <li><strong>No es un proyecto de tres meses.</strong> Es la institucionalización de una capacidad permanente. El piloto fue el costo de prueba. La decisión actual es de adopción.</li>
+    </ul>
+  </div>
+
+  <h2 class="section-h2">Cómo encaja con iniciativas corporativas paralelas</h2>
+  <p>El Motor de Atribución es la <strong>capa de medición y atribución</strong> sobre la que se apoyan otras iniciativas estratégicas en curso, entre ellas la arquitectura de marca Experiencia Plasencia Automotriz y el rediseño del concepto rector de Seminuevos. Las decisiones que el Consejo tome sobre esta propuesta no comprometen ni adelantan el debate sobre marca corporativa. Habilitan que cualquier decisión posterior sobre marca, plataforma o crédito digital encuentre infraestructura de medición lista y datos confiables como punto de partida. Esta secuencia respeta el orden natural de la transformación, primero el sistema operativo de datos, después la narrativa de marca y el modelo comercial.</p>
+
+  <div class="urgency">
+    <span class="label">Lo que decide la fecha</span>
+    <h3>El piloto opera. La pregunta es si el grupo escala lo que ya funciona o lo deja como demostración.</h3>
+    <p>Cada mes que el Motor opera sin gobierno corporativo formal, el grupo absorbe el costo de inacción cuantificado en la sección anterior y mantiene en riesgo el pipeline ya generado. La aprobación de esta propuesta no detiene ningún proceso del grupo. La no aprobación no preserva el statu quo. Lo deteriora.</p>
+  </div>
+</section>
+
+<!-- ============ PAGE 7: MODELO ============ -->
+<section class="page">
+  <span class="section-flag blue">§ 04 · El modelo</span>
+  <h1 class="section-title"><span class="num">Cómo funciona</span>El Motor opera como sistema de cinco capas en ciclo cerrado.</h1>
+
+  <p class="lead">El Motor de Atribución no es una herramienta aislada. Es un sistema de cinco capas que opera como ciclo cerrado de optimización entre adquisición, conversión y plataformas publicitarias. Cada capa cumple una función específica y todas son auditables en tiempo real.</p>
+
+  <ol class="layers">
+    <li>
+      <div class="layer-tag">Captura unificada</div>
+      <div>
+        <h4>Tres landings, un folio canónico</h4>
+        <p>Una landing por unidad de negocio, con catálogo dinámico y formulario único de captura. Toda oportunidad recibe un folio canónico con formato <strong>GP-{MARCA}-{AAMMDD}-{HHMMSS}</strong> que actúa como llave de cruce entre todos los sistemas del grupo. El pivote a formato simplificado (Landings Lite) en fase de liberación busca optimizar la conversión sesión a lead manteniendo la calidad de captura.</p>
+      </div>
+    </li>
+    <li>
+      <div class="layer-tag">Ingesta y persistencia</div>
+      <div>
+        <h4>Cloudflare Worker y base de datos D1, auditables en tiempo real</h4>
+        <p>El Worker recibe cada lead por endpoint único, normaliza, deduplica y persiste en una base D1 con <strong>siete tablas relacionales</strong> que registran leads, pipeline, eventos, vendedores, sucursales, auditoría e ingesta. Todo es consultable en tiempo real y respaldado por logs persistentes.</p>
+      </div>
+    </li>
+    <li>
+      <div class="layer-tag">Atribución server-side</div>
+      <div>
+        <h4>Señales de compra a Meta y Google con deduplicación automática</h4>
+        <p>Cada evento relevante (cita, visita, compra) se envía simultáneamente a <strong>Meta Conversions API y GA4 Measurement Protocol</strong>, con deduplicación automática contra los eventos del Pixel. Las plataformas reciben, por primera vez en la historia del grupo, señales de compradores reales en lugar de únicamente clics o formularios. Adicionalmente, el webhook de Meta Lead Gen captura prospectos generados directamente en el ecosistema de Meta y los integra al mismo flujo de medición.</p>
+      </div>
+    </li>
+    <li>
+      <div class="layer-tag">Operación cross-marca</div>
+      <div>
+        <h4>Un único CRM kanban corporativo de seis columnas</h4>
+        <p>Un solo kanban (por contactar, cita agendada, visita, negociación, ganada, perdida) opera transversal a las marcas piloto. El vendedor recibe acceso por PIN con visibilidad acotada a su universo. El sistema distingue fecha de registro y fecha de cita, lo que permite medir SLA de respuesta y predecir capacidad operativa.</p>
+      </div>
+    </li>
+    <li>
+      <div class="layer-tag">Dashboard y conciliación</div>
+      <div>
+        <h4>Fuente de verdad operativa con tres cruces externos</h4>
+        <p>Dashboard multi-canal con corte diario, filtro global por canal (landings, Meta Lead Gen, ambos), KPIs hero, embudo, CPA por marca, sesgo de asignación y tabla por vendedor. La conciliación diaria cruza tres fuentes externas contra la base corporativa y genera reporte automático con secciones accionables y comandos de backfill listos.</p>
+      </div>
+    </li>
+  </ol>
+</section>
+
+<!-- ============ PAGE 8: CICLO DE VALOR ============ -->
+<section class="page">
+  <span class="section-flag blue">§ 04 · El modelo (cont.)</span>
+  <h1 class="section-title"><span class="num">El ciclo de valor</span>Cada cierre atribuido entrena al algoritmo y reduce el costo del siguiente.</h1>
+
+  <p class="lead">El valor económico del Motor no está en cada capa de forma aislada. Está en el ciclo que se completa cuando la plataforma publicitaria recibe la señal de compra real y reoptimiza su modelo de subasta para buscar perfiles equivalentes. Este es el mecanismo central que sin atribución server-side no existe.</p>
+
+  <div class="statement">
+    <span class="label">El mecanismo de generación de valor</span>
+    <p class="text">Cada cierre atribuido entrena al algoritmo. Cada algoritmo mejor entrenado <strong>reduce el costo por adquisición</strong>. Cada CPA menor multiplica la capacidad de inversión rentable. El piloto demostró este ciclo en escala reducida. La institucionalización lo extiende al gasto consolidado del grupo.</p>
+  </div>
+
+  <h2 class="section-h2">Lo que cambia para el frente de venta</h2>
+  <p>El vendedor digital corporativo, bajo gobierno de Revenue Operations, recibe cada oportunidad con contexto enriquecido: marca de interés, vehículo, enganche proyectado, fecha y sucursal preferida. Su rol no es prospectar, es cerrar. La célula corporativa absorbe la operación digital en marcas donde la concesionaria no tiene capacidad o presenta vicios estructurales heredados, y opera bajo SLA medibles. Esta separación protege la integridad del Motor sin invadir la operación comercial de cada concesionaria.</p>
+
+  <h2 class="section-h2">Lo que se observa cuando el sistema diagnostica</h2>
+  <p>Durante la primera quincena de mayo el piloto registró una caída relevante en volumen de leads de Seminuevos respecto al baseline de la segunda quincena de abril. La verificación extremo a extremo confirmó cero fugas de infraestructura, con la conciliación diaria cerrando al 100%. El cuello se ubicó upstream y corresponde a calidad de tráfico o pauta. <strong>El sistema permitió diagnosticar la causa con precisión y dimensionar la respuesta operativa</strong>. Este nivel de visibilidad no existía en el grupo antes del piloto y es, en sí mismo, un activo institucional.</p>
+
+  <h2 class="section-h2">Cómo opera Meta Lead Gen integrado al Motor</h2>
+  <p>El webhook de Meta Lead Gen capturó <strong>ocho leads reales</strong> recuperados (cuatro de Stellantis y cuatro de Hyundai) en los primeros días de operación, con asignación round-robin server-side a vendedores reales. La etapa "Por contactar" se agregó al kanban para diferenciar cold leads de Meta (color ámbar) de oportunidades agendadas en landings (azul). Cuando el vendedor mueve un cold lead a cita confirmada, el sistema dispara automáticamente el evento Schedule en Conversions API con el identificador del lead de Meta, lo que asegura atribución directa al anuncio y a la campaña sin depender de cookies de tercera parte.</p>
+</section>
+
+<!-- ============ PAGE 9: ROADMAP ============ -->
+<section class="page">
+  <span class="section-flag blue">§ 05 · Roadmap</span>
+  <h1 class="section-title"><span class="num">Cómo se construye</span>Tres horizontes con gates de evidencia entre fases.</h1>
+
+  <p class="lead">El plan se ejecuta en tres horizontes con phase gates entre cada uno. Cada horizonte tiene <strong>cuatro elementos</strong>: qué se hace, qué cambia, qué ve el Consejo y qué cuesta. La transición a la siguiente fase se condiciona a la verificación de los gates de la anterior. El Consejo conserva el control sobre cada decisión de continuidad.</p>
+
+  <div class="phases">
+    <div class="phase">
+      <span class="phase-tag">Horizonte 1 · Mes 0–2 · Consolidación operativa</span>
+      <h4>Cerrar el pipeline acumulado y formalizar el gobierno</h4>
+      <div class="phase-grid">
+        <div class="phase-cell">
+          <h5>Qué se hace</h5>
+          <ul>
+            <li>Liberación de Landings Lite a producción en las tres marcas piloto.</li>
+            <li>Aprobación formal de la célula de ventas digitales corporativa.</li>
+            <li>Cierre de las primeras oportunidades del pipeline acumulado.</li>
+            <li>Designación del responsable formal de Revenue Operations.</li>
+          </ul>
+        </div>
+        <div class="phase-cell">
+          <h5>Qué cambia · Qué ve el Consejo · Qué cuesta</h5>
+          <p><strong>Cambia:</strong> el grupo opera con métricas compartidas marketing y ventas y kanban corporativo sobre tres marcas. <strong>Ve:</strong> primer reporte de cierres atribuidos al cierre de julio. <strong>Cuesta:</strong> por debajo del umbral habitual de aprobación; principalmente operativo y de gobierno.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="phase">
+      <span class="phase-tag">Horizonte 2 · Mes 2–7 · Escalamiento progresivo</span>
+      <h4>Cinco marcas en Motor, esquema fiscal optimizado y crédito digital</h4>
+      <div class="phase-grid">
+        <div class="phase-cell">
+          <h5>Qué se hace</h5>
+          <ul>
+            <li>Incorporación de dos marcas adicionales al Motor, condicionada a gates del Horizonte 1.</li>
+            <li>Activación de central de medios corporativa fase 1 con recuperación fiscal de IVA.</li>
+            <li>Integración de capacidad de crédito digital al flujo de captura.</li>
+            <li>Profesionalización del CRM corporativo y absorción de pipelines dispersos.</li>
+          </ul>
+        </div>
+        <div class="phase-cell">
+          <h5>Qué cambia · Qué ve el Consejo · Qué cuesta</h5>
+          <p><strong>Cambia:</strong> cinco marcas operan bajo Motor. La inversión publicitaria del grupo opera con esquema fiscal optimizado. <strong>Ve:</strong> primer reporte consolidado de CAC corporativo y caso financiero actualizado con datos reales. <strong>Cuesta:</strong> definido al cierre del Horizonte 1, condicional.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="phase">
+      <span class="phase-tag">Horizonte 3 · Año 2 · Madurez del modelo</span>
+      <h4>Ocho marcas, medición de CLTV y posicionamiento de primer entrante</h4>
+      <div class="phase-grid">
+        <div class="phase-cell">
+          <h5>Qué se hace</h5>
+          <ul>
+            <li>Completar incorporación de las 8 marcas al Motor.</li>
+            <li>Lanzar programa de lealtad y medición de CLTV cross-marca.</li>
+            <li>Originar crédito digital propio.</li>
+            <li>Consolidar capacidad de marketplace si el análisis estratégico paralelo lo valida.</li>
+          </ul>
+        </div>
+        <div class="phase-cell">
+          <h5>Qué cambia · Qué ve el Consejo · Qué cuesta</h5>
+          <p><strong>Cambia:</strong> Grupo Plasencia opera como retailer unificado con motor digital propio, modelo replicado de grupos automotrices internacionales líderes 2024 a 2026. <strong>Ve:</strong> modelo maduro y potencial de CLTV documentado de 2.39 veces sobre el valor por cliente actual. <strong>Cuesta:</strong> caso financiero específico al cierre del Horizonte 2.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PAGE 10: GATES DE EVIDENCIA ============ -->
+<section class="page">
+  <span class="section-flag blue">§ 05 · Roadmap (cont.)</span>
+  <h1 class="section-title"><span class="num">Gates de evidencia</span>Cómo se controla el escalamiento sin comprometer al Consejo.</h1>
+
+  <p class="lead">El paso entre horizontes no se ejecuta por calendario, se ejecuta por verificación de gates. Cada gate define una condición operativa medible. Si la condición no se cumple, el horizonte siguiente no inicia. Esta lógica reduce el riesgo de escalar fragmentación y mantiene al Consejo en control de cada decisión incremental.</p>
+
+  <h2 class="section-h2">Gate del Horizonte 1 al Horizonte 2</h2>
+
+  <div class="evidence">
+    <div class="ev">
+      <div class="ev-num">— Gate 1 —</div>
+      <h4>Asignación de vendedor</h4>
+      <p>Tasa de asignación superior al <strong>95%</strong> sobre todas las oportunidades generadas en el trimestre. Cierra la brecha del 33% observada en el piloto inicial.</p>
+    </div>
+    <div class="ev">
+      <div class="ev-num">— Gate 2 —</div>
+      <h4>Conversión cita a visita</h4>
+      <p>Conversión superior al <strong>30%</strong> de citas agendadas a visitas físicas. Es la prueba operativa de que la célula corporativa cierra el cuello identificado.</p>
+    </div>
+    <div class="ev">
+      <div class="ev-num">— Gate 3 —</div>
+      <h4>Cierre atribuido</h4>
+      <p>Al menos <strong>un cierre atribuido por marca y por mes</strong>, con trazabilidad completa lead a venta facturada. Es la validación del ciclo completo.</p>
+    </div>
+  </div>
+
+  <h2 class="section-h2">Gate del Horizonte 2 al Horizonte 3</h2>
+  <p>El paso al Horizonte 3 requiere tres condiciones adicionales sobre las anteriores. <strong>(1)</strong> Las cinco marcas operando bajo Motor mantienen los tres gates del Horizonte 1 durante dos trimestres consecutivos. <strong>(2)</strong> La central de medios corporativa fase 1 demuestra ahorro fiscal verificable sobre la inversión digital del grupo. <strong>(3)</strong> El primer reporte consolidado de CAC corporativo muestra reducción medible respecto al baseline histórico del grupo.</p>
+
+  <h2 class="section-h2">Qué pasa si un gate no se cumple</h2>
+  <p>La no verificación de cualquier gate no detiene la operación. Detiene el escalamiento. El grupo continúa operando el horizonte vigente con foco en cerrar la brecha específica que el gate identificó. Esta lógica protege al Consejo de aprobaciones que comprometen recursos sobre supuestos no verificados, y al mismo tiempo preserva continuidad operativa. La función de cada gate es separar la pregunta <em>"¿debemos seguir escalando?"</em> de la pregunta <em>"¿debemos seguir operando?"</em>. La primera se responde con evidencia. La segunda ya está respondida por el piloto.</p>
+
+  <div class="urgency">
+    <span class="label">Cómo se reporta al Consejo</span>
+    <h3>El dashboard ejecutivo se convierte en la fuente única de verificación de gates.</h3>
+    <p>Cada gate es una métrica visible en el dashboard ejecutivo con corte diario. El Consejo accede a la verificación en tiempo real sin depender de reportes intermedios. Esta arquitectura elimina la asimetría informativa entre Consejo y operación, una de las causas estructurales del fracaso de iniciativas previas.</p>
+  </div>
+</section>
+
+<!-- ============ PAGE 11: CASO FINANCIERO ============ -->
+<section class="page">
+  <span class="section-flag green">§ 06 · El caso financiero</span>
+  <h1 class="section-title"><span class="num">Inversión y retorno</span>Por qué la matemática funciona sobre la base actual.</h1>
+
+  <p class="lead">El caso financiero responde una pregunta simple: ¿es defendible esta inversión sobre la base de gasto actual? La respuesta es sí, y se sostiene en cuatro hechos auditables: el baseline actual, la eficiencia operativa ya validada, la métrica decisiva documentada y el costo de no actuar cuantificado.</p>
+
+  <div class="financial">
+    <div class="financial-grid">
+      <div class="fin-cell">
+        <div class="label">Baseline anual de marketing</div>
+        <div class="value">$73.4M</div>
+        <p>Pauta publicitaria $36.3M (49%), plantilla 61 personas $21.4M (29%), 14 proveedores externos $15.7M (22%). Mexicanos pesos anuales.</p>
+      </div>
+      <div class="fin-cell">
+        <div class="label">Eficiencia validada del Motor</div>
+        <div class="value green">230×</div>
+        <p>Diferencia frente a propuesta equivalente de terceros (consultora más agencia integrada). Velocidad de entrega entre 5 y 7 veces superior.</p>
+      </div>
+      <div class="fin-cell">
+        <div class="label">Pipeline generado en 12 días</div>
+        <div class="value gold">$5.61M</div>
+        <p>18 oportunidades calificadas con cita agendada, CPA global $650 MXN, CPA Seminuevos $487. Inversión publicitaria total $11,696 MXN.</p>
+      </div>
+      <div class="fin-cell">
+        <div class="label">Costo mensual de plataforma</div>
+        <div class="value">USD 100</div>
+        <p>Stack actual en producción. Infraestructura propia, auditable y portable. Sin lock-in con proveedores externos.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="killer">
+    <span class="label">La métrica decisiva</span>
+    <h3>Mover la participación digital del grupo de 33% a 36.3% representa aproximadamente 1,604 unidades adicionales y $661 millones de pesos de ingreso incremental anual.</h3>
+    <p>Sobre la línea base de 29,595 unidades anuales y $12,813 millones de pesos de revenue 2025, la palanca de atribución institucionalizada habilita un movimiento de <strong>3.3 puntos porcentuales</strong> en participación digital. Este es el orden de magnitud del retorno potencial sobre una inversión incremental que se mantiene en órdenes de magnitud inferiores.</p>
+  </div>
+
+  <h2 class="section-h2">Costo de no actuar</h2>
+  <p>Tres costos cuantificables si la iniciativa no se aprueba: <strong>(1)</strong> aproximadamente <strong>$800 mil a $1.2 millones de pesos</strong> anuales en comisión de compra de medios externa; <strong>(2)</strong> aproximadamente <strong>16% del gasto en pauta digital no recuperable</strong> por esquema fiscal subóptimo; <strong>(3)</strong> al menos <strong>$5 millones de pesos anuales</strong> en eficiencia no capturada por optimización data-driven sobre la inversión actual. Adicionalmente, participación progresiva de mercado en seminuevos cedida a competidores nativos digitales, y pipeline acumulado de $5.6 millones en riesgo. La inversión incremental requerida en el Horizonte 1 es marginal frente a cualquiera de estos costos individuales.</p>
+
+  <h2 class="section-h2">El caso de la Fase 1 específicamente</h2>
+  <p>El Horizonte 1 tiene <strong>costo operativo bajo y predominantemente de gobierno</strong>: la infraestructura ya existe, los recursos técnicos están instalados, la inversión incremental se concentra en la formalización de la célula de ventas digitales corporativa. El Consejo aprueba la institucionalización, el grupo recupera dinero del pipeline acumulado antes de gastar el siguiente peso. Es el quick win que destraba el resto del roadmap.</p>
+</section>
+
+<!-- ============ PAGE 12: ASK ============ -->
+<section class="page">
+  <span class="section-flag">§ 07 · El ask</span>
+  <h1 class="section-title"><span class="num">Cinco decisiones</span>Lo que el Consejo necesita resolver.</h1>
+
+  <p class="lead">Cada decisión es <strong>binaria</strong>, está cuantificada en costo cuando aplica, tiene timeline asociado y consecuencia clara. La estructura sigue un orden secuencial: la primera decisión habilita las siguientes. Horizonte de respuesta: <strong>30 días naturales</strong> a partir de la presentación.</p>
+
+  <ol class="asks">
+    <li>
+      <div>
+        <h4>Institucionalización del Motor de Atribución</h4>
+        <p>Aprobar la conversión del Motor de iniciativa piloto a infraestructura corporativa permanente, con responsable formal asignado, SLA documentado y línea presupuestal operativa. Habilita continuidad y previene la pérdida del pipeline acumulado.</p>
+      </div>
+      <div class="ask-decision">
+        Sí / No<br>
+        <span>Costo: marginal, USD 100 mensuales de plataforma más gobierno.</span>
+      </div>
+    </li>
+    <li>
+      <div>
+        <h4>Activación de Revenue Operations y célula de ventas digitales corporativa</h4>
+        <p>Aprobar la creación formal de Revenue Operations bajo dirección única, con la célula de ventas digitales corporativa como mecanismo operativo y autonomía suficiente para asegurar trazabilidad sobre las oportunidades generadas por el Motor, independientemente de los vicios operativos heredados en concesionarias.</p>
+      </div>
+      <div class="ask-decision">
+        Sí / No<br>
+        <span>Costo: definido en modelo de compensación de la célula. Conservador frente al pipeline en riesgo.</span>
+      </div>
+    </li>
+    <li>
+      <div>
+        <h4>Definición del nivel de alcance de la Dirección de Marketing Corporativo</h4>
+        <p>Resolver formalmente el alcance de la posición entre las opciones planteadas, desde la operación actual sin Revenue Operations hasta el modelo de Centro de Excelencia con gobierno sobre branding, digital, ventas e innovación. Elimina ambigüedad sobre responsabilidades y compensación.</p>
+      </div>
+      <div class="ask-decision">
+        Sí / No<br>
+        <span>Costo: función del nivel elegido. El costo de no decidir es operacionalmente material.</span>
+      </div>
+    </li>
+    <li>
+      <div>
+        <h4>Alineación top down con marcas OEM</h4>
+        <p>Autorizar a la Dirección de Marketing Corporativo a conducir la conversación con marcas OEM y direcciones generales de cada concesionaria con respaldo institucional formal, en lugar de delegarla a la operación de cada marca de forma fragmentada.</p>
+      </div>
+      <div class="ask-decision">
+        Sí / No<br>
+        <span>Costo: nulo en términos presupuestales. Habilita velocidad de adopción.</span>
+      </div>
+    </li>
+    <li>
+      <div>
+        <h4>Pre-aprobación condicional del Horizonte 2</h4>
+        <p>Pre-aprobación de central de medios corporativa fase 1 y escalamiento a dos marcas adicionales, condicionada a la verificación de los tres gates del Horizonte 1. Asegura continuidad operativa sin ventana intermedia de re-aprobación.</p>
+      </div>
+      <div class="ask-decision">
+        Sí condicional<br>
+        <span>Aprobación contingente a gates documentados.</span>
+      </div>
+    </li>
+  </ol>
+
+  <h2 class="section-h2">Qué ocurre en los próximos 30 días si las decisiones se aprueban</h2>
+  <p>Aprobada la primera decisión, durante la <strong>semana 1</strong> se libera Landings Lite a producción en las tres marcas piloto. Durante las <strong>semanas 2 y 3</strong> se activa formalmente la célula de ventas digitales corporativa con cobertura sobre el pipeline acumulado. Al cierre del <strong>primer mes</strong> se produce el primer reporte de cierres atribuidos sobre el pipeline pre-existente. Se inicia conversación institucional con las marcas OEM candidatas al Horizonte 2 con respaldo del Consejo. Al cierre del <strong>trimestre</strong> se entrega al Consejo el caso financiero actualizado con datos reales del horizonte ejecutado.</p>
+</section>
+
+<!-- ============ PAGE 13: CIERRE ============ -->
+<section class="page" style="padding: 0;">
+  <div class="closing">
+    <p class="ribbon">— Documento de cierre —</p>
+
+    <h2>Del piloto operativo a la <em>capacidad corporativa</em>.</h2>
+
+    <p class="pull">"El piloto del Motor de Atribución no fue una demostración. Fue la prueba operativa de que Grupo Plasencia puede operar a velocidad de mercado cuando el modelo organizacional lo permite. La decisión que enfrenta el Consejo no es sobre tecnología ni sobre presupuesto. Es sobre gobierno."</p>
+
+    <p class="body-text">
+      La infraestructura existe, los resultados están auditados y el costo de continuidad es marginal. El Consejo Directivo recibe una propuesta sustentada en evidencia operativa generada por el propio grupo, en un horizonte de 90 días, con costos verificables y un modelo de gates de evidencia que protege cada decisión incremental. La pregunta al Consejo no es si la atribución debe institucionalizarse. Es si el grupo asegura ahora la continuidad de una capacidad que ya está creando valor, o permite que se diluya por ausencia de decisión formal. <strong>Las cinco decisiones binarias están a 30 días de resolverse.</strong>
+    </p>
+
+    <div class="signature">
+      <strong>Motor de Atribución de Grupo Plasencia</strong>
+      Documento ejecutivo · Dirección de Marketing Corporativo · Mayo 2026
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
