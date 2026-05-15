@@ -527,7 +527,7 @@
   .method-note p:last-child { margin-bottom: 0; }
   .method-note p strong { color: var(--gp-navy); }
 
-  /* ============ ADS GRID (§6 Capítulo táctico) ============ */
+  /* ============ ADS GRID (§7 Capítulo táctico) ============ */
   .ads-intro {
     background: rgba(66, 153, 225, 0.04);
     border-left: 3px solid var(--blue);
@@ -731,6 +731,40 @@
     color: var(--g600);
     line-height: 1.6;
     margin-bottom: 0;
+  }
+
+  /* ============ PVP LAYERS (§3 propuesta de valor · 3 capas) ============ */
+  .pvp-layers {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 4mm;
+    margin: 4mm 0;
+  }
+  .pvp-layer {
+    background: var(--g100);
+    border-top: 3px solid var(--sem-gold);
+    padding: 5mm;
+  }
+  .pvp-layer .pvp-label {
+    display: block;
+    font-family: var(--sans);
+    font-size: 8pt;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: var(--gp-red);
+    text-transform: uppercase;
+    margin-bottom: 3mm;
+    line-height: 1.3;
+  }
+  .pvp-layer .pvp-text {
+    font-size: 10pt;
+    color: var(--g700);
+    line-height: 1.55;
+    margin: 0;
+  }
+  .pvp-layer .pvp-text strong {
+    color: var(--gp-navy);
+    font-weight: 700;
   }
 
   /* ============ PILLARS / PROMESAS ============ */
@@ -1096,7 +1130,7 @@
     font-weight: 700;
   }
 
-  /* ============ TABLE TACTIC (§7) ============ */
+  /* ============ TABLE TACTIC (§8) ============ */
   table.table-tactic {
     width: 100%;
     border-collapse: collapse;
@@ -1127,7 +1161,7 @@
   }
   table.table-tactic tbody td strong { color: var(--gp-navy); }
 
-  /* ============ BULLETS NARRATIVE (§7) ============ */
+  /* ============ BULLETS NARRATIVE (§8) ============ */
   .bullets-narrative {
     margin-top: 3mm;
     margin-bottom: 4mm;
@@ -1378,12 +1412,12 @@
 <section class="page">
   <h1 class="section-title"><span class="num">La respuesta primero</span>La narrativa en una página.</h1>
 
-  <p class="lead">Este documento sigue una estructura clásica de Strategy Definition: <strong>Situación → Complicación → Resolución → Modelo → Bajadas Tonales → Roadmap → Caso → Ask</strong>. La recomendación vive abajo. La argumentación, en las siguientes páginas.</p>
+  <p class="lead">Este documento sigue una estructura clásica de Strategy Definition: <strong>Situación → Complicación → Propuesta de valor → Concepto rector → Modelo → Bajadas tonales → Táctica → Roadmap → Caso → Riesgos</strong>. La recomendación vive abajo. La argumentación, en las siguientes páginas. La <strong>propuesta de valor</strong> (§3) es el posicionamiento estratégico foundational; el <strong>concepto rector</strong> "Sin Sorpresas" (§4) es su compresión creativa, no su origen.</p>
 
   <div class="hypothesis">
     <span class="label">Capítulo del piloto Motor de Atribución MVP · informativo para directores y gerentes de marca y gerentes de ventas</span>
-    <h3>Capítulo marca-negocio del piloto Motor de Atribución MVP aplicado a Seminuevos como caso canónico, con “Sin Sorpresas” como concepto rector del capítulo.</h3>
-    <p>El piloto Motor de Atribución MVP de Grupo Plasencia está LIVE desde el 16 de abril de 2026. Seminuevos es el caso canónico (sub-marca propia sin restricciones OEM, ~70% del volumen del piloto). Este Strategy Paper documenta el capítulo marca-negocio del piloto: qué concepto rector aplica, cómo se está comunicando Seminuevos, qué métricas se prueban. <strong>Para detalle técnico del piloto</strong> (cómo opera la landing, el pipeline, el CRM, los eventos de tracking), ver los documentos del piloto referenciados en §1. <strong>“Sin Sorpresas”</strong> codifica la promesa que captura simultáneamente al mindset tradicional y al digital, sostenida en activos reales que solo un incumbente con permanencia puede ofrecer: 75 años, red multi-sucursal GDL, financiera, postventa, motor digital propio. <strong>La operación táctica corre en dos superficies:</strong> Meta Ads bajo Andromeda (push · §6) y Google Search Always-On (pull · §7), sirviendo el mismo concepto rector en momentos distintos del journey. <strong>Esto es “marketing al marketing”: informativo, no pedido de aprobación.</strong> La campaña sube cuando termina la producción. Es un piloto: se prueba, se mide, y si funciona se evalúa cómo escalar a Hyundai, Stellantis y marcas-OEM.</p>
+    <h3>Capítulo marca-negocio del piloto Motor de Atribución MVP aplicado a Seminuevos como caso canónico, con una propuesta de valor formal y “Sin Sorpresas” como concepto rector derivado.</h3>
+    <p>El piloto Motor de Atribución MVP de Grupo Plasencia está LIVE desde el 16 de abril de 2026. Seminuevos es el caso canónico (sub-marca propia sin restricciones OEM, ~70% del volumen del piloto). Este Strategy Paper documenta el capítulo marca-negocio del piloto: <strong>la propuesta de valor estratégica</strong> (§3 — qué entrega Plasencia, a quién, por qué importa y por qué es defendible), <strong>el concepto rector creativo</strong> derivado de esa propuesta (§4 — “Sin Sorpresas” como compresión memorable, transferible y operacional), el modelo que lo sostiene, las bajadas tonales, la táctica en dos superficies y las métricas. <strong>Para detalle técnico del piloto</strong> (cómo opera la landing, el pipeline, el CRM, los eventos de tracking), ver los documentos del piloto referenciados en §1. <strong>La propuesta de valor</strong> captura el job profundo de los dos mindsets de comprador (protección contra el arrepentimiento) y se sostiene en activos reales que solo un incumbente con permanencia puede ofrecer: 75 años, red multi-sucursal GDL, financiera, postventa multi-marca, motor digital propio. <strong>La operación táctica corre en dos superficies:</strong> Meta Ads bajo Andromeda (push · §7) y Google Search Always-On (pull · §8), sirviendo el mismo concepto rector en momentos distintos del journey. <strong>Esto es “marketing al marketing”: informativo, no pedido de aprobación.</strong> La campaña sube cuando termina la producción. Es un piloto: se prueba, se mide, y si funciona se evalúa cómo escalar a Hyundai, Stellantis y marcas-OEM.</p>
   </div>
 
   <div class="method-note">
@@ -1391,7 +1425,7 @@
     <h3>Esto es un Answer-First sustentado en direccional observable, no en investigación primaria con usuarios.</h3>
     <p>El documento se construyó usando un Answer-First clásico: la recomendación arriba, la argumentación abajo. La argumentación se apoya en cuatro fuentes: <strong>(1)</strong> direccionales del piloto digital (5,396 sessions, funnel observable, cierre digital vs tradicional 39%/70%); <strong>(2)</strong> perfil del cliente inferido del brief de abril 2026 y del juicio operativo del director; <strong>(3)</strong> activos verificables del negocio (75 años, 3 sucursales, financiera, postventa, red OEM, motor digital propio); <strong>(4)</strong> evidencia global automotive 2020–2025 documentada en El Patrón Que Ganó.</p>
     <p><strong>El método canónico recomendado</strong> para llegar a un concepto rector de marca-negocio es: investigación primaria con usuarios reales (entrevistas de trabajo profundo de compra <em>—lo que en marketing se conoce como Jobs-to-be-Done o JTBD—</em>, entrevistas de cambio o <em>switch interviews</em>, observación de comportamiento de compra) → síntesis de motivos profundos y mindsets → validación de hipótesis contra el research → concepto rector. <strong>Ese research no se hizo aquí.</strong> Las hipótesis sobre cómo piensan los dos mindsets de comprador son razonadas y razonables, pero <strong>no están confirmadas con voz de cliente</strong>.</p>
-    <p><strong>Implicación:</strong> “Sin Sorpresas” se adopta como apuesta direccional sustentada con evidencia contextual. La investigación con usuario queda como <strong>deuda metodológica explícita</strong>, recomendada antes de comprometer comunicación externa a escala o transferencia del concepto a marcas OEM. Documentada en §8 (Fase 1) y §10 (Riesgo 7).</p>
+    <p><strong>Implicación:</strong> “Sin Sorpresas” se adopta como apuesta direccional sustentada con evidencia contextual. La investigación con usuario queda como <strong>deuda metodológica explícita</strong>, recomendada antes de comprometer comunicación externa a escala o transferencia del concepto a marcas OEM. Documentada en §9 (Fase 1) y §11 (Riesgo 7).</p>
   </div>
 
   <h2 class="section-h2">Tabla de contenido</h2>
@@ -1409,43 +1443,48 @@
     </div>
     <div class="toc-item">
       <span class="toc-num">03</span>
-      <span class="toc-title">Governing thought · El concepto rector · La propuesta de valor<span class="toc-sub">Sin Sorpresas como governing thought · propuesta de valor en tres capas (formal, operativa, conversacional) · cuatro sub-promesas y lo que NO es el concepto.</span></span>
-      <span class="toc-page">p. 5</span>
+      <span class="toc-title">La propuesta de valor<span class="toc-sub">El posicionamiento estratégico foundational: cliente, oferta, derecho a ganar, formulación formal Geoff-Moore y tres capas de bajada según audiencia.</span></span>
+      <span class="toc-page">p. 5–6</span>
     </div>
     <div class="toc-item">
       <span class="toc-num">04</span>
-      <span class="toc-title">El modelo · cómo funciona<span class="toc-sub">Trabajo profundo de compra compartido, activos que sostienen, defensibilidad vs competencia y los seis principios derivados.</span></span>
-      <span class="toc-page">p. 6–7</span>
+      <span class="toc-title">El concepto rector<span class="toc-sub">Sin Sorpresas como compresión creativa de la propuesta de valor: cuatro sub-promesas operativas y cinco fronteras (lo que NO es el concepto).</span></span>
+      <span class="toc-page">p. 7</span>
     </div>
     <div class="toc-item">
       <span class="toc-num">05</span>
-      <span class="toc-title">Bajadas tonales<span class="toc-sub">Cómo se traduce el concepto en comunicación externa, experiencia digital, vendedores y pitch institucional.</span></span>
+      <span class="toc-title">El modelo · cómo funciona<span class="toc-sub">Trabajo profundo de compra compartido, activos que sostienen, defensibilidad vs competencia y los seis principios derivados.</span></span>
       <span class="toc-page">p. 8–9</span>
     </div>
     <div class="toc-item">
       <span class="toc-num">06</span>
-      <span class="toc-title">Capítulo táctico · Always-On Meta Ads bajo Andromeda<span class="toc-sub">Seis conceptos hero del set v4 con visual, copy completo, Entity ID y reporte 4 capas. Lo que estamos circulando en Meta (push).</span></span>
+      <span class="toc-title">Bajadas tonales<span class="toc-sub">Cómo se traduce el concepto en comunicación externa, experiencia digital, vendedores y pitch institucional.</span></span>
       <span class="toc-page">p. 10–11</span>
     </div>
     <div class="toc-item">
       <span class="toc-num">07</span>
-      <span class="toc-title">Capítulo táctico · Always-On Google Search (Brand + Categoría)<span class="toc-sub">Una campaña Search Always-On en producción desde abril. Las 13 keywords con impresiones, los tres buckets de intent observado y el estado actual (tracking, cobertura, copy).</span></span>
+      <span class="toc-title">Capítulo táctico · Always-On Meta Ads bajo Andromeda<span class="toc-sub">Seis conceptos hero del set v4 con visual, copy completo, Entity ID y reporte 4 capas. Lo que estamos circulando en Meta (push).</span></span>
       <span class="toc-page">p. 12–13</span>
     </div>
     <div class="toc-item">
       <span class="toc-num">08</span>
-      <span class="toc-title">Roadmap de adopción<span class="toc-sub">Cinco fases de implementación con responsables, gates y entregables.</span></span>
-      <span class="toc-page">p. 14</span>
+      <span class="toc-title">Capítulo táctico · Always-On Google Search (Brand + Categoría)<span class="toc-sub">Una campaña Search Always-On en producción desde abril. Las 13 keywords con impresiones, los tres buckets de intent observado y el estado actual (tracking, cobertura, copy).</span></span>
+      <span class="toc-page">p. 14–15</span>
     </div>
     <div class="toc-item">
       <span class="toc-num">09</span>
-      <span class="toc-title">El caso · criterios de éxito<span class="toc-sub">Métricas cualitativas, cuantitativas y killer metric. La apuesta vale lo que entrega en 6 a 12 meses.</span></span>
-      <span class="toc-page">p. 15</span>
+      <span class="toc-title">Roadmap de adopción<span class="toc-sub">Cinco fases de implementación con responsables, gates y entregables.</span></span>
+      <span class="toc-page">p. 16</span>
     </div>
     <div class="toc-item">
       <span class="toc-num">10</span>
-      <span class="toc-title">Estado del piloto y riesgos<span class="toc-sub">Qué estamos haciendo (informativo, no requiere aprobación) · siete riesgos enumerados con mitigación.</span></span>
-      <span class="toc-page">p. 16</span>
+      <span class="toc-title">El caso · criterios de éxito<span class="toc-sub">Métricas cualitativas, cuantitativas y killer metric. La apuesta vale lo que entrega en 6 a 12 meses.</span></span>
+      <span class="toc-page">p. 17</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-num">11</span>
+      <span class="toc-title">Estado del piloto y riesgos<span class="toc-sub">Qué estamos haciendo (informativo, no requiere aprobación) · ocho riesgos enumerados con mitigación.</span></span>
+      <span class="toc-page">p. 18</span>
     </div>
   </div>
 </section>
@@ -1529,41 +1568,115 @@
   <p class="small">Fuentes: <em>El-Patron-Que-Gano-Experiencia-Plasencia.html</em> §Anti-patrón digital · <em>KO-Estrategico.md</em> §Análisis competitivo · <em>4Q Seminuevos.xlsx</em> via KO-Estrategico §Q4 2025.</p>
 </section>
 
-<!-- ============ PAGE 5: RESOLUCIÓN ============ -->
+<!-- ============ PAGE 5: §3 PROPUESTA DE VALOR ============ -->
 <section class="page">
-  <h1 class="section-title"><span class="num">§3 · Governing thought · El concepto rector y la propuesta de valor</span>Sin Sorpresas como governing thought · la propuesta de valor en tres capas · las cuatro sub-promesas operativas.</h1>
+  <h1 class="section-title"><span class="num">§3 · La propuesta de valor</span>El posicionamiento estratégico del que se desprende todo lo demás.</h1>
 
-  <span class="section-flag gold">Governing thought</span>
+  <span class="section-flag gold">Propuesta de valor</span>
+
+  <p class="lead">La propuesta de valor es la respuesta a cuatro preguntas estratégicas: <strong>a quién servimos, qué le ofrecemos, por qué importa, y por qué nadie más puede sostenerla igual</strong>. De ella se desprende todo lo demás: el concepto rector que la articula creativamente (§4), el modelo que la sostiene operativamente (§5), las bajadas tonales que la transmiten (§6) y la táctica que la ejecuta en Meta y Search (§7 y §8). Cambiar la propuesta de valor obliga a recablear todo el stack. Confirmarla y precisarla es el trabajo estratégico de este capítulo.</p>
+
+  <h2 class="section-h2">1 · El cliente y el trabajo profundo de compra</h2>
+  <p>Comprador adulto en Guadalajara que decide una compra de <strong>$200K a $1M</strong>. La compra es la segunda decisión financiera más grande después de la vivienda. El stake emocional es desproporcionado al stake económico: lo que el cliente teme verdaderamente no es pagar de más, es <strong>equivocarse</strong>. Equivocarse significa descubrir mañana algo que el vendedor no contó hoy.</p>
+  <p>Dos mindsets dominantes coexisten en el mercado y se manifiestan como antagonistas, pero contratan el mismo trabajo profundo: <strong>el mindset tradicional</strong> busca respaldo institucional como prueba de no-error (operación con permanencia, marca con historia, red postventa visible); <strong>el mindset digital</strong> busca transparencia informacional como prueba de no-error (catálogo accesible, reviews verificables, proceso sin letra chiquita). Ambos contratan <strong>protección contra el arrepentimiento</strong> — solo cambian el mecanismo por el que se sienten protegidos.</p>
+
+  <h2 class="section-h2">2 · La oferta</h2>
+  <p>Seminuevos Plasencia ofrece auto seminuevo certificado con <strong>cuatro componentes inseparables</strong>: el auto (inspección de 150 puntos, factura original verificada, historial documentado), el precio (publicado y respetado, condiciones financieras transparentes, sin reasignación al cerrar), el proceso (vendedor con nombre, SLA &lt;2h, kanban CRM trazable end-to-end) y la postventa (garantía escrita, red multi-marca con continuidad institucional). La oferta no es solo el auto — es <strong>el conjunto integrado</strong>. Romper cualquiera de los cuatro componentes rompe la oferta.</p>
+
+  <h2 class="section-h2">3 · El derecho a ganar (defensibilidad estructural)</h2>
+  <p>La oferta solo es creíble si quien la respalda tiene <strong>activos materiales en dos dominios simultáneos</strong>: institucional (permanencia comprobada, red física, postventa propia, financiera, gente con historia) y digital (motor de medición y atribución propio, capacidad de iterar). La promesa cae plana si quien la hace no tiene los dos.</p>
+
+  <table class="compare">
+    <thead>
+      <tr>
+        <th>Competidor</th>
+        <th>Activos institucionales</th>
+        <th>Activos digitales</th>
+        <th>Puede sostener la oferta</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Particular · Facebook Marketplace</td>
+        <td><span class="no">Ninguno</span></td>
+        <td><span class="no">Ninguno</span></td>
+        <td><span class="no">No</span></td>
+      </tr>
+      <tr>
+        <td>Lote tradicional sin transformación</td>
+        <td><span class="partial">Parcial</span></td>
+        <td><span class="no">No</span></td>
+        <td><span class="partial">Sostiene el auto, no el proceso</span></td>
+      </tr>
+      <tr>
+        <td>Kavak · MercadoLibre · digital-only</td>
+        <td><span class="no">Operación reciente, capital externo, sin red postventa comparable</span></td>
+        <td><span class="yes">Sí</span></td>
+        <td><span class="partial">Sostiene el proceso, no la permanencia</span></td>
+      </tr>
+      <tr class="us">
+        <td>Seminuevos Plasencia</td>
+        <td><strong>75 años · 8 sucursales GDL · financiera · postventa multi-marca</strong></td>
+        <td><strong>Motor de Atribución MVP operativo</strong></td>
+        <td><strong>Sí, completa</strong></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p class="small" style="margin-top:4mm;"><strong>Plasencia es el único competidor en GDL con activos verificables en ambos dominios.</strong> Esa intersección — institucional × digital — es el derecho a ganar y la defensa estratégica de la propuesta.</p>
+</section>
+
+<!-- ============ PAGE 5B: §3 PROPUESTA FORMAL + BRIDGE AL CONCEPTO RECTOR ============ -->
+<section class="page">
+  <h1 class="section-title"><span class="num">§3 · Parte 2</span>La propuesta formal · el puente al concepto rector.</h1>
+
+  <h2 class="section-h2">4 · La propuesta de valor formal</h2>
 
   <div class="hypothesis" style="border-left-color: var(--sem-gold);">
-    <span class="label">Concepto rector</span>
+    <span class="label">Posicionamiento estratégico · Seminuevos Plasencia 2026–2027</span>
+    <h3>Para el comprador en Guadalajara que decide una compra de $200K a $1M y busca no equivocarse en una decisión de alto stake emocional, <strong>Seminuevos Plasencia entrega un seminuevo certificado multi-marca con respaldo institucional de 75 años y proceso digital transparente end-to-end</strong>, garantizando coincidencia total entre lo prometido en el catálogo y lo entregado en el lote, en el precio, en el proceso comercial y en la postventa. A diferencia del particular (sin respaldo verificable) y del digital-only (sin permanencia comprobada), esta promesa la sostienen activos materiales en ambos dominios: red postventa multi-marca con historia y motor digital propio en operación medible.</h3>
+    <p><strong>Lectura ejecutiva.</strong> La propuesta articula tres palancas que rara vez conviven en un solo competidor: <em>(1)</em> la permanencia institucional como reductor de riesgo percibido — el cliente sabe que si algo sale mal mañana, la operación seguirá existiendo y el respaldo seguirá vigente; <em>(2)</em> la transparencia digital como reductor de fricción informacional — el cliente accede al catálogo, al financiamiento y al proceso sin tener que confiar en lo que dice el vendedor; <em>(3)</em> la coincidencia operacional entre los dos como criterio de calidad — lo que dice el catálogo es lo que dice el vendedor es lo que entrega el lote. La propuesta es defendible <strong>solamente</strong> porque las tres palancas viven materialmente en la operación.</p>
+  </div>
+
+  <h2 class="section-h2">5 · La propuesta para tres audiencias</h2>
+  <p class="lead">La propuesta formal vive en lenguaje estratégico. Para que el stack opere, se traduce en tres registros sin perder el significado.</p>
+
+  <div class="pvp-layers">
+    <div class="pvp-layer">
+      <span class="pvp-label">Capa formal · Consejo · dirección · OEM · inversionistas</span>
+      <p class="pvp-text">Posicionamiento completo arriba. Para conversación estratégica, due diligence, transferencia a marcas OEM. Énfasis en la defensibilidad estructural.</p>
+    </div>
+    <div class="pvp-layer">
+      <span class="pvp-label">Capa operativa · vendedor · gerente · equipo digital y CRM</span>
+      <p class="pvp-text"><strong>Vendemos seminuevos sin sorpresas — en el auto, en el precio, en el proceso y en la postventa. Si una decisión rompe alguna de las cuatro, rompe el contrato.</strong> La propuesta no se ejecuta en el ad ni en el catálogo: se ejecuta en cada interacción del vendedor con el cliente.</p>
+    </div>
+    <div class="pvp-layer">
+      <span class="pvp-label">Capa conversacional · cliente final · landing · ads · piso</span>
+      <p class="pvp-text"><strong>En Plasencia, lo que ves es lo que recibes. 75 años respaldándolo.</strong> Variantes válidas: “Seminuevos sin sorpresas. Hace 75 años así.” · “Tu seminuevo Plasencia, exactamente como te lo describimos.” Tono: confianza serena, sin pirotecnia.</p>
+    </div>
+  </div>
+
+  <h2 class="section-h2">6 · Del posicionamiento al concepto rector</h2>
+  <p>La propuesta de valor define <strong>qué</strong> entrega Plasencia y <strong>por qué</strong> es defendible. Lo que falta es comprimirla en una idea memorable, transferible y ejecutable que opere como brújula creativa de cada pieza, cada conversación y cada decisión operativa. Ese es el trabajo del <strong>concepto rector</strong>.</p>
+  <p>El concepto rector toma las cuatro coincidencias de la propuesta (auto, precio, proceso, postventa) y las comprime en una idea-fuerza única que el comprador reconoce sin esfuerzo y el equipo interno puede aplicar como criterio de decisión. Esa idea es <strong>“Sin Sorpresas”</strong> y se desarrolla a fondo en §4: por qué resuelve el job profundo de los dos mindsets, cómo se desagrega en cuatro sub-promesas verificables, y qué fronteras tiene para no diluirse.</p>
+</section>
+
+<!-- ============ PAGE 6: §4 CONCEPTO RECTOR · DERIVADO DE LA PROPUESTA DE VALOR ============ -->
+<section class="page">
+  <h1 class="section-title"><span class="num">§4 · El concepto rector</span>Sin Sorpresas como compresión creativa de la propuesta de valor.</h1>
+
+  <span class="section-flag gold">Concepto rector</span>
+
+  <p class="lead">El concepto rector es la traducción creativa del posicionamiento estratégico (§3) a una idea-fuerza memorable, transferible y operacional. No es una decisión de copy ni de campaña: es la <strong>regla maestra</strong> que rige cómo se vende, atiende, entrega y respalda. Una vez fijado, condiciona cada bajada tonal (§6), cada concepto hero (§7), cada palabra clave en Search (§8) y cada interacción del vendedor.</p>
+
+  <div class="hypothesis" style="border-left-color: var(--sem-gold);">
+    <span class="label">Concepto rector · derivado de la propuesta de valor</span>
     <h3>Seminuevos Plasencia entrega autos cuya compra no tiene sorpresas. Lo que ves es lo que recibes. Lo que prometemos lo entregamos. Lo que pagas es lo que vale. Hace 75 años que opera así.</h3>
-    <p>“Sin Sorpresas” codifica el trabajo emocional que ambos mindsets contratan (protección contra el arrepentimiento), expresándolo de una forma que ambos reconocen como valiosa. No es slogan, es promesa operacional. No es disrupción, es continuidad con elevación. Y es defendible solamente porque los activos institucionales del Grupo más el motor digital propio la sostienen materialmente.</p>
+    <p>“Sin Sorpresas” codifica las cuatro coincidencias de la propuesta de valor (§3) en una idea-fuerza que <strong>ambos mindsets de comprador reconocen sin traducción</strong>: el tradicional lo lee como continuidad institucional (“75 años así”); el digital lo lee como transparencia verificable (“lo que ves es lo que recibes”). No es slogan, es <strong>promesa operacional</strong>. No es disrupción, es <strong>continuidad con elevación</strong>. Y es defendible solamente porque los activos institucionales del Grupo más el motor digital propio la sostienen materialmente (defensibilidad documentada en §3).</p>
   </div>
 
-  <h2 class="section-h2">La propuesta de valor</h2>
-  <p class="lead">El concepto rector vive internamente. La propuesta de valor es la traducción al lenguaje del cliente, vendedor y stakeholder, en tres capas según audiencia. Cada capa dice lo mismo; cambia el registro.</p>
-
-  <div class="hypothesis" style="border-left-color: var(--sem-gold); margin-bottom: 4mm;">
-    <span class="label">Capa 1 · Formal (Consejo, dirección general, OEM, inversionistas)</span>
-    <h3>Para el comprador en Guadalajara que decide una compra de $200K a $1M y busca no equivocarse, Seminuevos Plasencia es el distribuidor multi-marca cuya promesa “Sin Sorpresas” garantiza que el auto, el precio, el proceso y la postventa coinciden con lo prometido. A diferencia del particular (sin respaldo) y del digital-only (sin permanencia comprobada), esta promesa la sostienen 75 años de red postventa institucional más motor digital propio en operación.</h3>
-    <p>Lectura: el cliente contrata <strong>protección contra el arrepentimiento</strong>. La promesa solo es defendible para el actor que tiene activos en los dos dominios (institucional y digital). Plasencia es el único en GDL con ambos.</p>
-  </div>
-
-  <div class="hypothesis" style="border-left-color: var(--sem-gold); margin-bottom: 4mm;">
-    <span class="label">Capa 2 · Operativa (vendedor, gerente de sucursal, equipo CRM, equipo digital)</span>
-    <h3>Vendemos seminuevos sin sorpresas — en el auto, en el precio, en el proceso y en la postventa. Cualquier decisión operativa que rompa una de las cuatro promesas rompe el contrato. Y si el contrato se rompe, el cliente lo cuenta — y la promesa pierde peso para el siguiente.</h3>
-    <p>Lectura: la propuesta de valor no se ejecuta en el ad ni en el catálogo; se ejecuta en cada interacción del vendedor con el cliente. El criterio de calidad es uno solo: <strong>¿lo que prometimos coincide con lo que entregamos?</strong> Las cuatro sub-promesas operativas (siguiente sección) son el desglose accionable de este criterio.</p>
-  </div>
-
-  <div class="hypothesis" style="border-left-color: var(--sem-gold);">
-    <span class="label">Capa 3 · Conversacional (cliente final, landing, ads, vendedor en piso)</span>
-    <h3>En Plasencia, lo que ves es lo que recibes. 75 años respaldándolo.</h3>
-    <p>Lectura: en copy externo y en pitch breve. Funciona tanto para el cliente tradicional (asume institucionalidad) como para el digital (asume transparencia verificable). Variantes válidas: “Seminuevos sin sorpresas. Hace 75 años así.” / “Tu seminuevo Plasencia, exactamente como te lo describimos.” Tono: confianza serena, sin pirotecnia. La piedra angular del copy externo descrito en §5 y materializado en los seis conceptos hero de §6.</p>
-  </div>
-
-  <h2 class="section-h2">Cuatro sub-promesas (las pilares operativas)</h2>
-  <p class="lead">La propuesta de valor se desagrega en cuatro promesas componentes, cada una con evidencia operativa que la hace verificable. Cada sub-promesa es una <strong>línea de fractura</strong> potencial: si se rompe, se rompe la propuesta de valor entera.</p>
+  <h2 class="section-h2">Cuatro sub-promesas (los pilares operativos)</h2>
+  <p class="lead">El concepto rector se desagrega en cuatro promesas componentes, cada una con evidencia operativa que la hace verificable. Cada sub-promesa es una <strong>línea de fractura</strong> potencial: si se rompe una, se rompe la propuesta de valor entera. Las cuatro son <strong>condiciones simultáneas</strong>, no opciones.</p>
 
   <ol class="pillars">
     <li>
@@ -1603,7 +1716,7 @@
       <li><strong>No es slogan.</strong> Puede usarse como copy externo, pero el concepto rige decisiones internas. Un eslogan cambia cada campaña; el concepto rector no.</li>
       <li><strong>No es disclaimer.</strong> No es la línea legal abajo del ad. Es la regla de cómo se vende, atiende, entrega y respalda.</li>
       <li><strong>No es promesa de precio bajo.</strong> Es promesa de precio correcto. Un cliente puede pagar lo justo y sentir que la decisión fue correcta porque no hubo sorpresas.</li>
-      <li><strong>No es promesa anti-competencia.</strong> No menciona Kavak, MercadoLibre ni Facebook Marketplace. La diferenciación se infiere por contraste implícito.</li>
+      <li><strong>No es promesa anti-competencia.</strong> No menciona Kavak, MercadoLibre ni Facebook Marketplace. La diferenciación se infiere por contraste implícito desde la defensibilidad de §3.</li>
       <li><strong>No es promesa de cero defectos.</strong> Es promesa de cero secretos. Un seminuevo tiene historia, y la honestidad sobre esa historia es parte de la entrega.</li>
     </ul>
   </div>
@@ -1611,7 +1724,7 @@
 
 <!-- ============ PAGE 6: MODELO · TRABAJO PROFUNDO DE COMPRA + DEFENSIBILIDAD ============ -->
 <section class="page">
-  <h1 class="section-title"><span class="num">§4 · El modelo · Parte 1</span>El trabajo profundo de compra compartido y la defensibilidad estructural.</h1>
+  <h1 class="section-title"><span class="num">§5 · El modelo · Parte 1</span>El trabajo profundo de compra compartido y la defensibilidad estructural.</h1>
 
   <span class="section-flag blue">Lo que el cliente contrata al comprar</span>
 
@@ -1688,7 +1801,7 @@
 
 <!-- ============ PAGE 7: MODELO · 6 PRINCIPIOS ============ -->
 <section class="page">
-  <h1 class="section-title"><span class="num">§4 · El modelo · Parte 2</span>Los seis principios derivados.</h1>
+  <h1 class="section-title"><span class="num">§5 · El modelo · Parte 2</span>Los seis principios derivados.</h1>
 
   <span class="section-flag amber">Reglas operativas</span>
 
@@ -1737,7 +1850,7 @@
 
 <!-- ============ PAGE 8: BAJADAS TONALES 1-2 ============ -->
 <section class="page">
-  <h1 class="section-title"><span class="num">§5 · Bajadas tonales · Parte 1</span>Comunicación externa y experiencia digital.</h1>
+  <h1 class="section-title"><span class="num">§6 · Bajadas tonales · Parte 1</span>Comunicación externa y experiencia digital.</h1>
 
   <span class="section-flag blue">Cómo se escucha el concepto</span>
 
@@ -1811,7 +1924,7 @@
 
 <!-- ============ PAGE 9: BAJADAS TONALES 3-4 ============ -->
 <section class="page">
-  <h1 class="section-title"><span class="num">§5 · Bajadas tonales · Parte 2</span>Operación comercial y pitch institucional.</h1>
+  <h1 class="section-title"><span class="num">§6 · Bajadas tonales · Parte 2</span>Operación comercial y pitch institucional.</h1>
 
   <div class="bajadas">
 
@@ -1872,16 +1985,16 @@
       </div>
       <div class="copy-sample">
         <strong>One-pager subproducto</strong>
-        Cuando este documento se valide internamente, se produce un one-pager extraído de §1 a §4 para Consejo. Título sugerido: “Posicionamiento Seminuevos Plasencia 2026-2027: Sin Sorpresas”.
+        Cuando este documento se valide internamente, se produce un one-pager extraído de §1 a §5 para Consejo. Título sugerido: “Posicionamiento Seminuevos Plasencia 2026-2027: Sin Sorpresas”.
       </div>
     </div>
 
   </div>
 </section>
 
-<!-- ============ PAGE 10: §6 CAPÍTULO TÁCTICO · ALWAYS-ON META ADS (parte 1) ============ -->
+<!-- ============ PAGE 10: §7 CAPÍTULO TÁCTICO · ALWAYS-ON META ADS (parte 1) ============ -->
 <section class="page">
-  <h1 class="section-title"><span class="num">§6 · Capítulo táctico · Always-On Meta Ads bajo Andromeda</span>Los seis conceptos hero del set v4.1. Lo que estamos circulando.</h1>
+  <h1 class="section-title"><span class="num">§7 · Capítulo táctico · Always-On Meta Ads bajo Andromeda</span>Los seis conceptos hero del set v4.1. Lo que estamos circulando.</h1>
 
   <span class="section-flag blue">Producción v4.1 · Mayo 2026</span>
 
@@ -1974,9 +2087,9 @@
   </div>
 </section>
 
-<!-- ============ PAGE 11: §6 CAPÍTULO TÁCTICO · ALWAYS-ON META ADS (parte 2) ============ -->
+<!-- ============ PAGE 11: §7 CAPÍTULO TÁCTICO · ALWAYS-ON META ADS (parte 2) ============ -->
 <section class="page">
-  <h1 class="section-title"><span class="num">§6 · Capítulo táctico · Parte 2</span>Conceptos hero H04 a H06.</h1>
+  <h1 class="section-title"><span class="num">§7 · Capítulo táctico · Parte 2</span>Conceptos hero H04 a H06.</h1>
 
   <div class="ad-concept">
     <div class="ad-visual"><img src="../assets/v4-ads/H04_compra-tu-seminuevo.png" alt="H04 Tu seminuevo Plasencia sin filas · split-screen form y WhatsApp Daniela"></div>
@@ -2061,17 +2174,17 @@
 
   <p class="small" style="margin-top:5mm;">Estructura Power 1: Core 75% del budget con H01, H02, H04, H06 (los 4 listos) + Sandbox 25% para H03 y H05 cuando se firmen los claims, más conceptos nuevos que se generen. Sin Retargeting separado (Andromeda lo cubre en ASC). Los 6 comunican explícitamente <strong>marca + producto + atributo</strong>: Seminuevos Plasencia + auto seminuevo + (identidad / asesor / inspección / proceso / auto certificado / cercanía). Auditoría de la cuenta Meta SEM es deuda Fase 0 antes de gastar.</p>
 
-  <p class="small" style="margin-top:4mm; padding-top:3mm; border-top:1px solid var(--g100);"><strong>Meta no opera solo.</strong> En paralelo corre Google Search Always-On (§7) capturando la demanda en el momento que decide. Misma promesa, dos superficies: Meta empuja antes de que el cliente nos busque; Search recoge cuando ya nos está buscando.</p>
+  <p class="small" style="margin-top:4mm; padding-top:3mm; border-top:1px solid var(--g100);"><strong>Meta no opera solo.</strong> En paralelo corre Google Search Always-On (§8) capturando la demanda en el momento que decide. Misma promesa, dos superficies: Meta empuja antes de que el cliente nos busque; Search recoge cuando ya nos está buscando.</p>
 </section>
 
-<!-- ============ PAGE 12: §7 CAPÍTULO TÁCTICO · ALWAYS-ON GOOGLE SEARCH ============ -->
+<!-- ============ PAGE 12: §8 CAPÍTULO TÁCTICO · ALWAYS-ON GOOGLE SEARCH ============ -->
 <section class="page">
-  <h1 class="section-title"><span class="num">§7 · Capítulo táctico · Always-On Google Search (Brand + Categoría)</span>Cómo Search complementa Meta apalancando la demanda que ya existe.</h1>
+  <h1 class="section-title"><span class="num">§8 · Capítulo táctico · Always-On Google Search (Brand + Categoría)</span>Cómo Search complementa Meta apalancando la demanda que ya existe.</h1>
 
   <span class="section-flag blue">Producción · Mayo 2026 · Datos del 28-abr a 13-may</span>
 
   <div class="ads-intro">
-    <p><strong>Meta empuja, Search recoge.</strong> Meta Ads (§6) crea conciencia y mueve a la gente que no nos estaba buscando todavía; Google Search captura la demanda que ya existe en el momento que decide. Ambos sirven el mismo concepto rector — <em>Sin Sorpresas</em> — pero operan en momentos distintos del journey.</p>
+    <p><strong>Meta empuja, Search recoge.</strong> Meta Ads (§7) crea conciencia y mueve a la gente que no nos estaba buscando todavía; Google Search captura la demanda que ya existe en el momento que decide. Ambos sirven el mismo concepto rector — <em>Sin Sorpresas</em> — pero operan en momentos distintos del journey.</p>
     <p><strong>Lo que hay en producción:</strong> una campaña Search Always-On — <em>Leads-Search-Aon</em> — corriendo desde fines de abril con presupuesto de aprendizaje. Estrategia de oferta <em>Maximize Conversions</em> en periodo de aprendizaje. Dos ad groups: <em>Seminuevos</em> (categoría, donde vive el tráfico) y <em>Bran_terms</em> (brand defensiva, sin búsquedas en el período).</p>
   </div>
 
@@ -2108,9 +2221,9 @@
   <p class="small" style="margin-top:4mm;"><strong>Lectura:</strong> el activo de marca en search es <em>"Seminuevos Plasencia"</em>, no <em>"Plasencia"</em> sola — el único brand exact que tracciona (CTR 30%) lleva producto + apellido. Las marcas OEM en categoría (<em>ford</em>, <em>honda</em>, <em>jeep</em>, <em>chevrolet</em>) ya entran con CTR alto, validando que el comprador piensa por marca de auto antes que por dealer. El ad group <em>Bran_terms</em> (4 keywords de marca corporativa) no aparece — la marca corporativa Plasencia, por sí sola, no recibe búsquedas.</p>
 </section>
 
-<!-- ============ PAGE 13: §7 PARTE 2 — Intent observado + estado ============ -->
+<!-- ============ PAGE 13: §8 PARTE 2 — Intent observado + estado ============ -->
 <section class="page">
-  <h1 class="section-title"><span class="num">§7 · Parte 2</span>Qué intent disparó las impresiones · estado actual.</h1>
+  <h1 class="section-title"><span class="num">§8 · Parte 2</span>Qué intent disparó las impresiones · estado actual.</h1>
 
   <h2 class="section-h2">Tres lecturas del intent observado</h2>
 
@@ -2138,16 +2251,16 @@
       <tr><td><strong>Cobertura de keywords</strong></td><td>13 de 48 con impresiones</td><td>El 73% de las keywords activas (35 de 48) no entra en subasta todavía. La cobertura efectiva es chica y se concentra en términos genéricos + brand sub-marca + 3 marcas OEM (Ford, Honda, Jeep).</td></tr>
       <tr><td><strong>Match types</strong></td><td>1 phrase · 4 exact · 39 broad</td><td>89% broad. Combinado con tracking apagado, el broad abre cobertura amplia sin distinguir queries valiosos. El CTR promedio alto (15.54%) convive con queries de 0% CTR.</td></tr>
       <tr><td><strong>Ad group <em>Bran_terms</em></strong></td><td>4 keywords · 0 tráfico · typo en el nombre</td><td>La marca corporativa Plasencia, por sí sola, no recibe búsquedas. El activo de marca en search es <em>Seminuevos Plasencia</em> (producto + apellido).</td></tr>
-      <tr><td><strong>Copy de los ads de Search</strong></td><td>No auditado contra los 6 principios (§4)</td><td>Las 6 piezas Andromeda del §6 son visuales (Meta). El text ads de Search es otra superficie y aún no se cruzó contra el concepto rector.</td></tr>
+      <tr><td><strong>Copy de los ads de Search</strong></td><td>No auditado contra los 6 principios (§5)</td><td>Las 6 piezas Andromeda del §7 son visuales (Meta). El text ads de Search es otra superficie y aún no se cruzó contra el concepto rector.</td></tr>
     </tbody>
   </table>
 
-  <p class="small" style="margin-top:5mm;">El budget de MXN $425/día opera como aprendizaje. Las decisiones operativas sobre estos puntos viven en la cadencia del piloto descrita en §8 (Fase 2) y no en este documento.</p>
+  <p class="small" style="margin-top:5mm;">El budget de MXN $425/día opera como aprendizaje. Las decisiones operativas sobre estos puntos viven en la cadencia del piloto descrita en §9 (Fase 2) y no en este documento.</p>
 </section>
 
 <!-- ============ PAGE 14: ROADMAP (antes p10) ============ -->
 <section class="page">
-  <h1 class="section-title"><span class="num">§8 · Roadmap de adopción</span>Cinco fases con responsables y gates.</h1>
+  <h1 class="section-title"><span class="num">§9 · Roadmap de adopción</span>Cinco fases con responsables y gates.</h1>
 
   <span class="section-flag green">Cómo se aterriza</span>
 
@@ -2190,7 +2303,7 @@
             <li>Revisión de copy de landing lite contra los 6 principios</li>
             <li>Ajustes al H1, paso 3 de Cómo Funciona, trust bar</li>
             <li>Audit de copy en WhatsApp Business y respuestas automáticas</li>
-            <li><strong>Google Search:</strong> cerrar tracking de conversiones (importar evento Lead), audit del copy de text ads contra los 6 principios, y revisar la estructura de ad groups según el intent observado en §7</li>
+            <li><strong>Google Search:</strong> cerrar tracking de conversiones (importar evento Lead), audit del copy de text ads contra los 6 principios, y revisar la estructura de ad groups según el intent observado en §8</li>
           </ul>
         </div>
         <div class="phase-cell">
@@ -2224,7 +2337,7 @@
     <div class="phase">
       <span class="phase-tag">Fase 4 · Q3 2026 · Condicional</span>
       <h4>Extensión condicional a marcas OEM del ecosistema</h4>
-      <p class="timeline">Líder: Pepe Morales + Chucho Porras · Solo si las Fases 1-3 muestran resultados contra §9</p>
+      <p class="timeline">Líder: Pepe Morales + Chucho Porras · Solo si las Fases 1-3 muestran resultados contra §10</p>
       <div class="phase-grid">
         <div class="phase-cell">
           <h5>Qué hacemos</h5>
@@ -2249,7 +2362,7 @@
         <div class="phase-cell">
           <h5>Qué hacemos</h5>
           <ul>
-            <li>Revisión trimestral de métricas contra targets de §9</li>
+            <li>Revisión trimestral de métricas contra targets de §10</li>
             <li>Revisión anual del concepto rector (no se cambia sin evidencia robusta)</li>
             <li>Documentación de hallazgos, aprendizajes y ajustes en addenda</li>
           </ul>
@@ -2266,7 +2379,7 @@
 
 <!-- ============ PAGE 11: CASO FINANCIERO Y MÉTRICAS ============ -->
 <section class="page">
-  <h1 class="section-title"><span class="num">§9 · El caso · Criterios de éxito</span>Cómo sabremos que el concepto funcionó.</h1>
+  <h1 class="section-title"><span class="num">§10 · El caso · Criterios de éxito</span>Cómo sabremos que el concepto funcionó.</h1>
 
   <span class="section-flag amber">Métricas que importan</span>
 
@@ -2310,7 +2423,7 @@
       <tr><td><strong>Uso correcto del CRM · oportunidad movida a la etapa correcta en &lt;24h con campos completos</strong></td><td>por medir post-lite</td><td class="target">≥70%</td><td class="target">≥90%</td></tr>
       <tr><td>Conversión Sessions → Lead (landing lite)</td><td>0.9% pre-lite · target lite ≥2.5%</td><td class="target">≥3.5%</td><td class="target">≥4.5%</td></tr>
       <tr><td>EMQ Pixel + CAPI</td><td>por verificar</td><td class="target">≥7.5</td><td class="target">≥8.5</td></tr>
-      <tr><td><strong>Google Ads · señal de conversión cableada</strong> (§7)</td><td>sin señal · 0 conv reportadas</td><td class="target">100% cableado · conv. ≥ leads landing</td><td class="target">mantenido</td></tr>
+      <tr><td><strong>Google Ads · señal de conversión cableada</strong> (§8)</td><td>sin señal · 0 conv reportadas</td><td class="target">100% cableado · conv. ≥ leads landing</td><td class="target">mantenido</td></tr>
       <tr><td><strong>Google Ads · cobertura de KW con impresiones</strong></td><td>13 de 48 (27%)</td><td class="target">≥60%</td><td class="target">≥80%</td></tr>
       <tr><td>Tasa de calificación cold → cita</td><td>por medir post-lite</td><td class="target">≥20%</td><td class="target">≥30%</td></tr>
       <tr><td>Cierre cita → factura (digital)</td><td>39% (Q4 2025)</td><td class="target">≥45%</td><td class="target">≥55%</td></tr>
@@ -2339,7 +2452,7 @@
 
 <!-- ============ PAGE 12: ASK + RIESGOS ============ -->
 <section class="page">
-  <h1 class="section-title"><span class="num">§10 · Estado del piloto y riesgos</span>Qué estamos haciendo · ocho riesgos enumerados.</h1>
+  <h1 class="section-title"><span class="num">§11 · Estado del piloto y riesgos</span>Qué estamos haciendo · ocho riesgos enumerados.</h1>
 
   <span class="section-flag">Informativo · no requiere aprobación</span>
 
@@ -2365,7 +2478,7 @@
     <li>
       <div>
         <h4>El piloto se prueba. Si funciona, se evalúa cómo escalar a marcas-OEM.</h4>
-        <p>Sin Sorpresas opera como caso en Seminuevos. Si las métricas de §9 confirman el modelo (cualitativas y cuantitativas, incluida adopción del vendedor), se conversa con los gerentes de marca OEM (Verónica HYU · Berenice + Juliet STL · Jose Reyes Ford) sobre adaptar el concepto a sus marcas. Conversación condicional, sujeta a evidencia.</p>
+        <p>Sin Sorpresas opera como caso en Seminuevos. Si las métricas de §10 confirman el modelo (cualitativas y cuantitativas, incluida adopción del vendedor), se conversa con los gerentes de marca OEM (Verónica HYU · Berenice + Juliet STL · Jose Reyes Ford) sobre adaptar el concepto a sus marcas. Conversación condicional, sujeta a evidencia.</p>
       </div>
       <div class="ask-decision">Condicional<span>Sujeto a evidencia</span></div>
     </li>
@@ -2444,11 +2557,11 @@
     <div class="risk">
       <div class="risk-side">
         <h5>Riesgo · Media severidad</h5>
-        <p><strong>Google Search opera sin señal de conversión</strong> (§7). Maximize Conversions optimiza sin retroalimentación; el budget de aprendizaje se gasta sin distinguir queries valiosos de irrelevantes. Riesgo de pagar tráfico que no convierte mientras dure el gap.</p>
+        <p><strong>Google Search opera sin señal de conversión</strong> (§8). Maximize Conversions optimiza sin retroalimentación; el budget de aprendizaje se gasta sin distinguir queries valiosos de irrelevantes. Riesgo de pagar tráfico que no convierte mientras dure el gap.</p>
       </div>
       <div class="risk-side">
         <h5>Mitigación</h5>
-        <p>Cerrar el cableado de conversiones (importar evento <em>Lead</em> de landing o GA4) como entregable de Fase 2 (§8). Mientras tanto el budget se mantiene en aprendizaje y no se escala. El gate de Fase 2 condiciona la entrada a Fase 3 a baseline registrado en ambos canales (Meta y Search).</p>
+        <p>Cerrar el cableado de conversiones (importar evento <em>Lead</em> de landing o GA4) como entregable de Fase 2 (§9). Mientras tanto el budget se mantiene en aprendizaje y no se escala. El gate de Fase 2 condiciona la entrada a Fase 3 a baseline registrado en ambos canales (Meta y Search).</p>
       </div>
     </div>
 
