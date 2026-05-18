@@ -87,7 +87,7 @@
   }
   .page:last-child { page-break-after: auto; }
 
-  /* ============ COVER ============ */
+  /* ============ COVER (estandar Seminuevos, puramente tipografico) ============ */
   .cover {
     background: var(--gp-navy);
     color: var(--near-white);
@@ -95,139 +95,210 @@
     page: cover;
   }
   .cover-inner {
-    padding: 22mm 22mm 18mm 22mm;
-    height: 297mm;
+    padding: 24mm 22mm 22mm 22mm;
+    min-height: 297mm;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     background:
-      radial-gradient(ellipse at 100% 0%, rgba(142, 191, 36, 0.18) 0%, transparent 55%),
-      radial-gradient(ellipse at 0% 100%, rgba(45, 101, 72, 0.22) 0%, transparent 55%),
+      radial-gradient(ellipse at 100% 0%, rgba(142, 191, 36, 0.16) 0%, transparent 55%),
+      radial-gradient(ellipse at 0% 100%, rgba(200, 16, 46, 0.10) 0%, transparent 55%),
       var(--gp-navy);
     position: relative;
-    overflow: hidden;
+  }
+  .cover-inner::before {
+    content: "";
+    position: absolute;
+    top: 24mm; left: 22mm;
+    width: 64mm; height: 1px;
+    background: var(--aut-lime);
+  }
+  .cover-mark {
+    font-family: var(--sans);
+    font-weight: 700;
+    font-size: 11pt;
+    letter-spacing: 4px;
+    color: var(--aut-lime);
+    text-transform: uppercase;
+  }
+  .cover-mark span {
+    display: block;
+    font-weight: 400;
+    color: rgba(255,255,255,0.55);
+    margin-top: 4px;
+    letter-spacing: 1px;
+    font-size: 9pt;
   }
   .cover-eyebrow {
     font-family: var(--sans);
-    font-size: 8.5pt;
-    font-weight: 600;
-    letter-spacing: 0.25em;
+    font-size: 10pt;
+    font-weight: 700;
+    letter-spacing: 5px;
+    color: var(--gp-red);
     text-transform: uppercase;
-    color: var(--aut-lime);
-    margin-bottom: 10mm;
+    margin-top: 14mm;
   }
   .cover-title {
     font-family: var(--display);
-    font-size: 30pt;
     font-weight: 800;
-    line-height: 1.1;
-    letter-spacing: -0.02em;
+    font-size: 64pt;
+    line-height: 0.96;
+    letter-spacing: -2px;
+    margin-top: 8mm;
     color: var(--near-white);
-    margin-bottom: 6mm;
-    text-transform: none;
   }
   .cover-title em {
     font-style: normal;
     color: var(--aut-lime);
     font-weight: 800;
-    display: block;
-    font-size: 26pt;
-    margin-top: 2mm;
   }
-  .cover-logos {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 14mm;
-    margin-bottom: 14mm;
-    padding-bottom: 5mm;
-    border-bottom: 1px solid rgba(255,255,255,0.12);
-  }
-  .cover-logos .logo-block {
-    display: flex;
-    flex-direction: column;
-    gap: 2mm;
-  }
-  .cover-logos .logo-label {
-    font-size: 7pt;
-    font-weight: 700;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: rgba(247,250,252,0.55);
-  }
-  .cover-logos img {
-    height: 11mm;
-    width: auto;
-    filter: brightness(0) invert(1);
-    opacity: 0.95;
-  }
-  .cover-logos .arrow-sep {
-    font-size: 10pt;
-    color: var(--aut-lime);
-    font-weight: 700;
-    letter-spacing: 0.15em;
-    align-self: center;
-  }
-  .cover-sub {
+  .cover-title-after {
     font-family: var(--sans);
-    font-size: 11pt;
-    font-weight: 400;
-    line-height: 1.5;
-    color: #CBD5E0;
-    max-width: 145mm;
-    margin-bottom: 8mm;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 13pt;
+    color: rgba(255,255,255,0.65);
+    margin-top: 4mm;
+    letter-spacing: -0.2px;
   }
-  .cover-meta-grid {
-    display: grid;
-    grid-template-columns: 1.1fr 1fr;
-    gap: 8mm;
-    margin-top: auto;
-    padding-top: 6mm;
-  }
-  .cover-meta-block {
-    border-top: 1px solid rgba(142, 191, 36, 0.4);
-    padding-top: 3mm;
-  }
-  .cover-meta-label {
-    font-size: 7.5pt;
+  .cover-rector {
+    font-family: var(--sans);
     font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
+    font-size: 12pt;
     color: var(--aut-lime);
-    margin-bottom: 1.5mm;
+    margin-top: 14mm;
+    line-height: 1.4;
+    border-top: 1px solid rgba(142,191,36,0.3);
+    padding-top: 6mm;
+    max-width: 150mm;
   }
-  .cover-meta-value {
-    font-size: 8.5pt;
-    color: var(--near-white);
-    line-height: 1.45;
+  .cover-rector strong {
+    font-family: var(--sans);
+    font-weight: 700;
+    font-size: 9pt;
+    letter-spacing: 3px;
+    color: rgba(142,191,36,0.65);
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 3mm;
   }
-  .cover-meta-value strong { color: var(--near-white); }
-  .cover-footer {
-    border-top: 1px solid rgba(255,255,255,0.15);
-    padding-top: 3mm;
+  .cover-pull {
+    font-family: var(--sans);
+    font-weight: 400;
+    font-size: 11pt;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.6;
+    border-left: 3px solid var(--gp-red);
+    padding-left: 8mm;
+    margin-top: 12mm;
+    max-width: 152mm;
+  }
+  .cover-pull cite {
+    display: block;
+    font-style: normal;
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 9pt;
+    letter-spacing: 1.5px;
+    color: var(--gp-red);
     margin-top: 6mm;
+    text-transform: uppercase;
+  }
+  .cover-tags { display: flex; gap: 6mm; margin-top: 12mm; flex-wrap: wrap; }
+  .cover-tag {
+    font-family: var(--sans);
+    font-size: 9pt;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: rgba(255,255,255,0.85);
+    border: 1px solid rgba(255,255,255,0.25);
+    padding: 4px 10px;
+    border-radius: 999px;
+    text-transform: uppercase;
+  }
+  .cover-tag.accent { color: var(--aut-lime); border-color: rgba(142,191,36,0.4); }
+  .cover-tag.urgent { color: var(--gp-red); border-color: rgba(200,16,46,0.4); }
+  .cover-meta {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    font-size: 7.5pt;
-    color: #A0AEC0;
+    align-items: flex-end;
+    margin-top: 14mm;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    padding-top: 8mm;
   }
-  .cover-footer .brand {
-    display: inline-flex;
-    align-items: center;
-    gap: 6mm;
+  .cover-meta-block { font-size: 9pt; color: rgba(255,255,255,0.65); line-height: 1.7; }
+  .cover-meta-block strong {
+    display: block;
+    color: var(--near-white);
+    font-weight: 700;
+    font-size: 10pt;
+    letter-spacing: .5px;
   }
-  .cover-autolease-mark {
-    display: inline-block;
-    padding: 2mm 4mm;
-    background: rgba(142, 191, 36, 0.18);
-    border: 1px solid rgba(142, 191, 36, 0.45);
-    border-radius: 2mm;
-    color: var(--aut-lime);
-    font-size: 8pt;
-    font-weight: 600;
-    letter-spacing: 0.1em;
+
+  /* ============ CLOSING (estandar Seminuevos) ============ */
+  .closing {
+    background: var(--gp-navy);
+    color: var(--near-white);
+    padding: 30mm 22mm;
+    margin: -18mm;
+    margin-top: 16mm;
+    min-height: 230mm;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    background:
+      radial-gradient(ellipse at 50% 0%, rgba(142,191,36,0.16) 0%, transparent 60%),
+      radial-gradient(ellipse at 50% 100%, rgba(200,16,46,0.10) 0%, transparent 60%),
+      var(--gp-navy);
+  }
+  .closing .ribbon {
+    font-family: var(--sans);
+    font-size: 9pt;
+    font-weight: 700;
+    letter-spacing: 5px;
+    color: var(--gp-red);
     text-transform: uppercase;
+    margin-bottom: 12mm;
+  }
+  .closing h2 {
+    font-family: var(--display);
+    font-weight: 800;
+    font-size: 38pt;
+    color: var(--near-white);
+    margin-bottom: 8mm;
+    line-height: 1.05;
+    letter-spacing: -1px;
+  }
+  .closing h2 em { font-style: normal; color: var(--aut-lime); font-weight: 800; }
+  .closing .pull {
+    font-family: var(--sans);
+    font-style: italic;
+    font-size: 13pt;
+    color: var(--aut-lime);
+    line-height: 1.55;
+    max-width: 150mm;
+    margin: 0 auto 10mm auto;
+  }
+  .closing .body-text {
+    font-size: 11pt;
+    color: rgba(255,255,255,0.78);
+    max-width: 150mm;
+    margin: 0 auto;
+    line-height: 1.65;
+  }
+  .closing .signature {
+    margin-top: 14mm;
+    font-size: 9pt;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 1.5px;
+  }
+  .closing .signature strong {
+    color: var(--aut-lime);
+    display: block;
+    font-size: 11pt;
+    letter-spacing: 2.5px;
+    margin-bottom: 1mm;
   }
 
   /* ============ TIPOGRAFÍA ============ */
@@ -633,45 +704,41 @@
 <section class="page cover">
   <div class="cover-inner">
     <div>
-      <div class="cover-logos">
-        <div class="logo-block">
-          <div class="logo-label">Producido por</div>
-          <img src="../assets/logos/LOGO-GP-Blanco.png" alt="Grupo Plasencia Automotriz">
-        </div>
-        <div class="arrow-sep">→ Para</div>
-        <div class="logo-block">
-          <div class="logo-label">Cliente interno</div>
-          <img src="../assets/logos/autolease/autolease-blanco.png" alt="GP Autolease">
-        </div>
-      </div>
+      <div class="cover-mark">Dirección de Marketing Corporativo · Grupo Plasencia<span>Capa estratégica · Cliente interno: GP Autolease · Mayo 2026</span></div>
 
-      <div class="cover-eyebrow">Dirección de Marketing Corporativo · Grupo Plasencia · 2026</div>
-      <h1 class="cover-title">GP Autolease<em>Definición Estratégica de la Línea de Negocio</em></h1>
-      <p class="cover-sub">Paper estratégico construido con disciplina Strategy Definition (Minto Pyramid · SCR · Answer-First) para enmarcar la línea de arrendamiento puro del grupo, validar su Product-Market Fit con piloto controlado y habilitar el Go-to-Market formal hacia el crecimiento regional sostenido.</p>
-    </div>
+      <p class="cover-eyebrow">Definición Estratégica de la Línea de Negocio</p>
+      <h1 class="cover-title">GP <em>Autolease.</em></h1>
+      <p class="cover-title-after">Arrendamiento puro multimarca · GP Drive, S.A. de C.V.</p>
 
-    <div class="cover-meta-grid">
-      <div class="cover-meta-block">
-        <div class="cover-meta-label">Audiencia</div>
-        <div class="cover-meta-value"><strong>Nicolás Plasencia</strong><br>Director General Grupo Plasencia<br>Owner de la línea de negocio<br><br><strong>Sergio Barroso</strong><br>Director de la línea<br>GP Autolease<br><br><strong>Óscar Lara</strong><br>Gerencia Comercial<br>GP Autolease</div>
-      </div>
-      <div class="cover-meta-block">
-        <div class="cover-meta-label">Autor</div>
-        <div class="cover-meta-value"><strong>Chucho Porras</strong><br>Director de Marketing<br>Corporativo<br>Grupo Plasencia</div>
-        <div class="cover-meta-label" style="margin-top: 8mm;">Versión</div>
-        <div class="cover-meta-value">v0.9 · Mayo 2026<br>Cuerpo completo<br>Pendiente alineación con stakeholders</div>
-        <div class="cover-meta-label" style="margin-top: 8mm;">Línea de Negocio</div>
-        <div class="cover-meta-value">GP Drive, S.A. de C.V.<br>marca comercial: GP Autolease<br>Arrendamiento puro multimarca</div>
+      <p class="cover-rector"><strong>Propósito del documento</strong>Estructurar la línea con marco estratégico explícito, validar Product-Market Fit con piloto controlado y habilitar el Go-to-Market formal con disciplina de inversión proporcional a evidencia.</p>
+
+      <p class="cover-pull">
+        La línea ya está operando: ~200 contratos activos, AOV 36% superior al canal tradicional del grupo, cobertura en 6 ciudades de Occidente y Bajío Sur. Lo que no ha tenido oportunidad de construir, por estar dedicada a operar, es la estructura estratégica explícita que permite escalar con disciplina: qué es exactamente, para quién, qué promete, cómo crece, cómo mide su éxito. Este Foundational llena ese vacío sin interrumpir la operación.
+        <cite>Resumen del documento</cite>
+      </p>
+
+      <div class="cover-tags">
+        <span class="cover-tag">Strategy Definition</span>
+        <span class="cover-tag accent">Capa estratégica</span>
+        <span class="cover-tag urgent">v0.9 · Pendiente alineación</span>
       </div>
     </div>
 
-    <div class="cover-footer">
-      <div class="brand">
-        <span style="font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; font-size: 9pt;">Grupo Plasencia</span>
-        <span>·</span>
-        <span>Documento confidencial</span>
+    <div>
+      <div class="cover-meta">
+        <div class="cover-meta-block">
+          <strong>Audiencia</strong>
+          Nicolás Plasencia · Director General y owner de la línea<br>
+          Sergio Barroso · Director de la línea GP Autolease<br>
+          Óscar Lara · Gerencia Comercial GP Autolease
+        </div>
+        <div class="cover-meta-block" style="text-align: right;">
+          <strong>Mayo 2026 · v0.9</strong>
+          Dirección de Marketing Corporativo<br>
+          Chucho Porras<br>
+          Documento confidencial
+        </div>
       </div>
-      <div class="cover-autolease-mark">Cliente interno: GP Autolease</div>
     </div>
   </div>
 </section>
@@ -1680,16 +1747,23 @@
   </div>
 
   <p>A partir del mes 2 ya se opera con la cancha en construcción. En el mes 4 se inicia el Piloto controlado en paralelo. <strong>En el mes 12 se llega al gate de decisión Etapa 1 → Etapa 2 con evidencia documentada.</strong></p>
+</section>
 
-  <div class="signature-block">
-    <p><strong>Fin del documento.</strong></p>
-    <p>Esta Definición Estratégica es la fuente única de verdad de la línea GP Autolease. De ella se derivan presentaciones, planes tácticos, decisiones de inversión y comunicaciones. No se debate sobre lo que dice este documento sin actualizarlo.</p>
-    <p style="margin-top: 8mm;">
-      <strong>Versión:</strong> v0.9 · 2026-05-18 · Markdown source en <code>grupo-plasencia-docs/01-strategy/Autolease-Definicion-Estrategica-Linea-Negocio.md</code>
+<!-- ============ CLOSING ============ -->
+<section class="page">
+  <div class="closing">
+    <p class="ribbon">Definición Estratégica · Línea de Negocio · Mayo 2026</p>
+    <h2>Una línea que ya genera valor.<br><em>Un marco</em> que la prepara para escalar.</h2>
+    <p class="pull">
+      GP Autolease no necesita reinventarse. Necesita la estructura estratégica que la operación, dedicada a operar, no ha tenido oportunidad de construir. Este Foundational es esa estructura.
     </p>
-    <p>
-      <strong>Próximo paso:</strong> validación interna por Dirección de Marketing → presentación a stakeholders en Fase 3 del proyecto → ratificación de la tesis → ejecución de Etapa 0.
+    <p class="body-text">
+      La línea ya captura un cliente premium con AOV 36% superior al canal tradicional, opera con disciplina crediticia y cuenta con activos únicos del grupo Plasencia (agencias multimarca, proximidad regional, bundle visible, velocidad operativa) que ningún competidor nacional puede replicar. Lo que sigue es ratificar este marco con los tres tomadores de decisión, construir habilitadores estratégicos sin interrumpir la operación actual, validar Product-Market Fit con piloto controlado, y solo entonces escalar el Go-to-Market formal — con inversión proporcional a evidencia, no a apuestas.
     </p>
+    <div class="signature">
+      <strong>Dirección de Marketing Corporativo</strong>
+      Grupo Plasencia Automotriz · Cliente interno: GP Autolease · Mayo 2026
+    </div>
   </div>
 </section>
 
