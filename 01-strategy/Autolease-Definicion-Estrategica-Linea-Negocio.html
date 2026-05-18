@@ -6,7 +6,7 @@
 <meta name="description" content="Definición Estratégica de la línea de negocio GP Autolease de Grupo Plasencia. Paper construido con disciplina Strategy Definition (Minto + SCR + Answer-First). Audiencia: Dirección General, Dirección de la Línea, Gerencia Comercial.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@500;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet">
 <style>
   :root {
     /* GP corporativo */
@@ -35,7 +35,7 @@
     --g600: #4A5568;
     --g700: #2D3748;
     --text: #2D3748;
-    --serif: 'Playfair Display', Georgia, serif;
+    --display: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
     --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   }
 
@@ -116,18 +116,51 @@
     margin-bottom: 20mm;
   }
   .cover-title {
-    font-family: var(--serif);
-    font-size: 42pt;
+    font-family: var(--display);
+    font-size: 36pt;
     font-weight: 800;
-    line-height: 1.05;
+    line-height: 1.08;
     letter-spacing: -0.02em;
     color: var(--near-white);
     margin-bottom: 8mm;
+    text-transform: none;
   }
   .cover-title em {
-    font-style: italic;
+    font-style: normal;
+    color: var(--aut-lime);
+    font-weight: 800;
+    display: block;
+  }
+  .cover-logos {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24mm;
+    padding-bottom: 6mm;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+  }
+  .cover-logos .logo-block {
+    display: flex;
+    flex-direction: column;
+    gap: 2mm;
+  }
+  .cover-logos .logo-label {
+    font-size: 7.5pt;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(247,250,252,0.55);
+  }
+  .cover-logos img {
+    height: 14mm;
+    mix-blend-mode: screen;
+    opacity: 0.95;
+  }
+  .cover-logos .arrow-sep {
+    font-size: 11pt;
     color: var(--aut-lime);
     font-weight: 700;
+    letter-spacing: 0.15em;
   }
   .cover-sub {
     font-family: var(--sans);
@@ -192,7 +225,7 @@
 
   /* ============ TIPOGRAFÍA ============ */
   h1.section-title {
-    font-family: var(--serif);
+    font-family: var(--display);
     font-size: 22pt;
     font-weight: 700;
     line-height: 1.15;
@@ -214,7 +247,7 @@
   }
 
   h2.sub {
-    font-family: var(--serif);
+    font-family: var(--display);
     font-size: 14pt;
     font-weight: 700;
     color: var(--gp-navy);
@@ -265,7 +298,7 @@
     padding: 8mm 9mm;
     margin: 6mm 0;
     border-radius: 2mm;
-    font-family: var(--serif);
+    font-family: var(--display);
     font-size: 13pt;
     line-height: 1.4;
     font-weight: 500;
@@ -367,7 +400,7 @@
     margin-bottom: 1mm;
   }
   .kpi .value {
-    font-family: var(--serif);
+    font-family: var(--display);
     font-size: 18pt;
     font-weight: 800;
     color: var(--aut-green);
@@ -395,7 +428,7 @@
     margin-bottom: 1mm;
   }
   .stage-card .stage-title {
-    font-family: var(--serif);
+    font-family: var(--display);
     font-size: 14pt;
     font-weight: 700;
     color: var(--gp-navy);
@@ -427,7 +460,7 @@
     margin-bottom: 1mm;
   }
   .ask-card .ask-q {
-    font-family: var(--serif);
+    font-family: var(--display);
     font-size: 12pt;
     font-weight: 700;
     color: var(--gp-navy);
@@ -501,7 +534,7 @@
     font-size: 11pt;
   }
   .pilar .title {
-    font-family: var(--serif);
+    font-family: var(--display);
     font-size: 13pt;
     font-weight: 700;
     color: var(--gp-navy);
@@ -592,26 +625,34 @@
 <section class="page cover">
   <div class="cover-inner">
     <div>
+      <div class="cover-logos">
+        <div class="logo-block">
+          <div class="logo-label">Producido por</div>
+          <img src="../assets/logos/LOGO-GP-Blanco.png" alt="Grupo Plasencia Automotriz">
+        </div>
+        <div class="arrow-sep">→ Para</div>
+        <div class="logo-block">
+          <div class="logo-label">Cliente interno</div>
+          <img src="../assets/logos/autolease/autolease-blanco.png" alt="GP Autolease">
+        </div>
+      </div>
+
       <div class="cover-eyebrow">Dirección de Marketing Corporativo · Grupo Plasencia · 2026</div>
-      <h1 class="cover-title">GP Autolease<br><em>Definición Estratégica</em><br>de la Línea de Negocio</h1>
+      <h1 class="cover-title">GP Autolease<em>Definición Estratégica de la Línea de Negocio</em></h1>
       <p class="cover-sub">Paper estratégico construido con disciplina Strategy Definition (Minto Pyramid · SCR · Answer-First) para enmarcar la línea de arrendamiento puro del grupo, validar su Product-Market Fit con piloto controlado y habilitar el Go-to-Market formal hacia el crecimiento regional sostenido.</p>
     </div>
 
     <div class="cover-meta-grid">
       <div class="cover-meta-block">
         <div class="cover-meta-label">Audiencia</div>
-        <div class="cover-meta-value">Nicolás Plasencia<br>Sergio Barroso<br>Óscar Lara</div>
+        <div class="cover-meta-value"><strong>Nicolás Plasencia</strong><br>Director General Grupo Plasencia<br>Owner de la línea de negocio<br><br><strong>Sergio Barroso</strong><br>Director de la línea<br>GP Autolease<br><br><strong>Óscar Lara</strong><br>Gerencia Comercial<br>GP Autolease</div>
       </div>
       <div class="cover-meta-block">
         <div class="cover-meta-label">Autor</div>
-        <div class="cover-meta-value">Chucho Porras<br>Director de Marketing Corporativo<br>Grupo Plasencia</div>
-      </div>
-      <div class="cover-meta-block">
-        <div class="cover-meta-label">Versión</div>
+        <div class="cover-meta-value"><strong>Chucho Porras</strong><br>Director de Marketing<br>Corporativo<br>Grupo Plasencia</div>
+        <div class="cover-meta-label" style="margin-top: 8mm;">Versión</div>
         <div class="cover-meta-value">v0.9 · Mayo 2026<br>Cuerpo completo<br>Pendiente alineación con stakeholders</div>
-      </div>
-      <div class="cover-meta-block">
-        <div class="cover-meta-label">Línea de Negocio</div>
+        <div class="cover-meta-label" style="margin-top: 8mm;">Línea de Negocio</div>
         <div class="cover-meta-value">GP Drive, S.A. de C.V.<br>marca comercial: GP Autolease<br>Arrendamiento puro multimarca</div>
       </div>
     </div>
@@ -703,7 +744,7 @@
       <div class="unit">por unidad</div>
     </div>
   </div>
-  <p style="text-align: center; font-family: var(--serif); font-size: 13pt; color: var(--aut-green); font-weight: 700; margin-top: 4mm;">+36% por unidad</p>
+  <p style="text-align: center; font-family: var(--display); font-size: 13pt; color: var(--aut-green); font-weight: 700; margin-top: 4mm;">+36% por unidad</p>
   <p style="text-align: center; font-size: 9.5pt; color: var(--g600); margin-bottom: 5mm;">La línea ya captura cliente de mayor valor estructural que el canal estándar.<br>La pregunta no es si existe demanda; es si la línea se estructura para sostenerla y multiplicarla.</p>
 
   <h4 class="label">Lo que se decide en este documento</h4>
