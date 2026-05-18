@@ -1,0 +1,1575 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>GP Autolease — Definición Estratégica de la Línea de Negocio</title>
+<meta name="description" content="Definición Estratégica de la línea de negocio GP Autolease de Grupo Plasencia. Paper construido con disciplina Strategy Definition (Minto + SCR + Answer-First). Audiencia: Dirección General, Dirección de la Línea, Gerencia Comercial.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@500;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    /* GP corporativo */
+    --gp-red: #C8102E;
+    --gp-navy: #1E2740;
+    --gp-slate: #2D3748;
+    --gp-black: #1A1A1A;
+    /* Acentos Autolease */
+    --aut-green: #2D6548;
+    --aut-lime: #8EBF24;
+    --aut-ink: #1D1D1B;
+    /* Sistema */
+    --blue: #4299E1;
+    --green: #48BB78;
+    --amber: #D69E2E;
+    --gold: #ECC94B;
+    --red: #E53E3E;
+    --bg: #F0F4F8;
+    --paper: #FFFFFF;
+    --near-white: #F7FAFC;
+    --g100: #EDF2F7;
+    --g200: #E2E8F0;
+    --g300: #CBD5E0;
+    --g400: #A0AEC0;
+    --g500: #718096;
+    --g600: #4A5568;
+    --g700: #2D3748;
+    --text: #2D3748;
+    --serif: 'Playfair Display', Georgia, serif;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { background: var(--bg); }
+  body {
+    font-family: var(--sans);
+    color: var(--text);
+    line-height: 1.55;
+    font-size: 10pt;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  @page {
+    size: A4;
+    margin: 18mm 18mm 22mm 18mm;
+    @bottom-right {
+      content: counter(page);
+      font-family: 'Inter', sans-serif;
+      font-size: 9pt;
+      color: #718096;
+    }
+    @bottom-left {
+      content: "Confidencial · Grupo Plasencia · Dirección de Marketing Corporativo";
+      font-family: 'Inter', sans-serif;
+      font-size: 8pt;
+      color: #A0AEC0;
+    }
+    @top-right {
+      content: "GP Autolease · Definición Estratégica de la Línea de Negocio";
+      font-family: 'Inter', sans-serif;
+      font-size: 8pt;
+      color: #A0AEC0;
+    }
+  }
+  @page :first { @top-right { content: ""; } @bottom-right { content: ""; } @bottom-left { content: ""; } }
+  @page cover { margin: 0; }
+
+  .page {
+    background: var(--paper);
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0 auto 8mm auto;
+    padding: 18mm 18mm 22mm 18mm;
+    position: relative;
+    page-break-after: always;
+    box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 4px 24px rgba(30,39,64,.08);
+  }
+  .page:last-child { page-break-after: auto; }
+
+  /* ============ COVER ============ */
+  .cover {
+    background: var(--gp-navy);
+    color: var(--near-white);
+    padding: 0;
+    page: cover;
+  }
+  .cover-inner {
+    padding: 36mm 22mm 24mm 22mm;
+    min-height: 297mm;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background:
+      radial-gradient(ellipse at 100% 0%, rgba(142, 191, 36, 0.18) 0%, transparent 55%),
+      radial-gradient(ellipse at 0% 100%, rgba(45, 101, 72, 0.22) 0%, transparent 55%),
+      var(--gp-navy);
+    position: relative;
+  }
+  .cover-eyebrow {
+    font-family: var(--sans);
+    font-size: 9pt;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--aut-lime);
+    margin-bottom: 20mm;
+  }
+  .cover-title {
+    font-family: var(--serif);
+    font-size: 42pt;
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--near-white);
+    margin-bottom: 8mm;
+  }
+  .cover-title em {
+    font-style: italic;
+    color: var(--aut-lime);
+    font-weight: 700;
+  }
+  .cover-sub {
+    font-family: var(--sans);
+    font-size: 13pt;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #CBD5E0;
+    max-width: 140mm;
+    margin-bottom: 12mm;
+  }
+  .cover-meta-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10mm;
+    margin-top: auto;
+    padding-top: 30mm;
+  }
+  .cover-meta-block {
+    border-top: 1px solid rgba(142, 191, 36, 0.4);
+    padding-top: 4mm;
+  }
+  .cover-meta-label {
+    font-size: 8pt;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--aut-lime);
+    margin-bottom: 2mm;
+  }
+  .cover-meta-value {
+    font-size: 10pt;
+    color: var(--near-white);
+    line-height: 1.4;
+  }
+  .cover-footer {
+    border-top: 1px solid rgba(255,255,255,0.15);
+    padding-top: 4mm;
+    margin-top: 14mm;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 8pt;
+    color: #A0AEC0;
+  }
+  .cover-footer .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 6mm;
+  }
+  .cover-autolease-mark {
+    display: inline-block;
+    padding: 2mm 4mm;
+    background: rgba(142, 191, 36, 0.18);
+    border: 1px solid rgba(142, 191, 36, 0.45);
+    border-radius: 2mm;
+    color: var(--aut-lime);
+    font-size: 8pt;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  /* ============ TIPOGRAFÍA ============ */
+  h1.section-title {
+    font-family: var(--serif);
+    font-size: 22pt;
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    color: var(--gp-navy);
+    margin-bottom: 8mm;
+    padding-bottom: 4mm;
+    border-bottom: 2px solid var(--gp-navy);
+  }
+  h1.section-title .num {
+    display: block;
+    font-family: var(--sans);
+    font-size: 9pt;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gp-red);
+    margin-bottom: 2mm;
+  }
+
+  h2.sub {
+    font-family: var(--serif);
+    font-size: 14pt;
+    font-weight: 700;
+    color: var(--gp-navy);
+    margin-top: 6mm;
+    margin-bottom: 3mm;
+    letter-spacing: -0.005em;
+  }
+  h3.sub-sub {
+    font-family: var(--sans);
+    font-size: 11pt;
+    font-weight: 700;
+    color: var(--gp-slate);
+    margin-top: 4mm;
+    margin-bottom: 2mm;
+  }
+  h4.label {
+    font-family: var(--sans);
+    font-size: 9pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--gp-red);
+    margin-top: 4mm;
+    margin-bottom: 2mm;
+  }
+  p { margin-bottom: 3mm; }
+  p strong { color: var(--gp-navy); font-weight: 700; }
+  p em { color: var(--gp-slate); font-style: italic; }
+
+  ul, ol { margin: 2mm 0 4mm 6mm; }
+  li { margin-bottom: 1.5mm; }
+
+  /* ============ COMPONENTES ============ */
+  .answer-first {
+    background: linear-gradient(135deg, #F9FAFB 0%, #F0F4F8 100%);
+    border-left: 4px solid var(--aut-lime);
+    padding: 7mm 8mm;
+    margin: 6mm 0;
+    border-radius: 0 3mm 3mm 0;
+  }
+  .answer-first p { margin-bottom: 2.5mm; font-size: 10pt; line-height: 1.55; }
+  .answer-first p strong { color: var(--aut-green); }
+  .answer-first p:last-child { margin-bottom: 0; }
+
+  .governing-thought {
+    background: var(--gp-navy);
+    color: var(--near-white);
+    padding: 8mm 9mm;
+    margin: 6mm 0;
+    border-radius: 2mm;
+    font-family: var(--serif);
+    font-size: 13pt;
+    line-height: 1.4;
+    font-weight: 500;
+    font-style: italic;
+    border-left: 5px solid var(--aut-lime);
+  }
+  .governing-thought strong {
+    font-style: normal;
+    font-weight: 700;
+    color: var(--aut-lime);
+  }
+
+  .callout {
+    background: #FFFBEB;
+    border-left: 4px solid var(--amber);
+    padding: 5mm 6mm;
+    margin: 4mm 0;
+    border-radius: 0 2mm 2mm 0;
+    font-size: 9.5pt;
+  }
+  .callout.lime {
+    background: rgba(142, 191, 36, 0.08);
+    border-left-color: var(--aut-lime);
+  }
+  .callout.green {
+    background: rgba(72, 187, 120, 0.08);
+    border-left-color: var(--green);
+  }
+  .callout.red {
+    background: rgba(229, 62, 62, 0.06);
+    border-left-color: var(--red);
+  }
+  .callout strong { color: var(--gp-navy); }
+
+  .pill {
+    display: inline-block;
+    padding: 1mm 3mm;
+    background: var(--g100);
+    color: var(--gp-slate);
+    border-radius: 99px;
+    font-size: 8pt;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-right: 2mm;
+  }
+  .pill.lime { background: var(--aut-lime); color: white; }
+  .pill.green { background: var(--aut-green); color: white; }
+  .pill.navy { background: var(--gp-navy); color: white; }
+  .pill.red { background: var(--gp-red); color: white; }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 4mm 0;
+    font-size: 9pt;
+  }
+  th {
+    background: var(--gp-navy);
+    color: var(--near-white);
+    text-align: left;
+    padding: 2.5mm 3mm;
+    font-weight: 700;
+    font-size: 8.5pt;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  td {
+    padding: 2.5mm 3mm;
+    border-bottom: 1px solid var(--g200);
+    vertical-align: top;
+    font-size: 9pt;
+    line-height: 1.45;
+  }
+  tr:nth-child(even) td { background: #FAFCFE; }
+  td strong { color: var(--gp-navy); }
+
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4mm;
+    margin: 4mm 0;
+  }
+  .kpi-grid.two { grid-template-columns: repeat(2, 1fr); }
+  .kpi-grid.four { grid-template-columns: repeat(4, 1fr); }
+  .kpi {
+    background: var(--near-white);
+    border: 1px solid var(--g200);
+    border-left: 3px solid var(--aut-lime);
+    padding: 4mm;
+    border-radius: 1.5mm;
+  }
+  .kpi .label {
+    font-size: 7.5pt;
+    font-weight: 600;
+    color: var(--g500);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 1mm;
+  }
+  .kpi .value {
+    font-family: var(--serif);
+    font-size: 18pt;
+    font-weight: 800;
+    color: var(--aut-green);
+    line-height: 1.1;
+  }
+  .kpi .unit { font-size: 9pt; color: var(--g500); font-weight: 600; margin-top: 1mm; }
+
+  .stage-card {
+    background: var(--near-white);
+    border: 1px solid var(--g200);
+    border-radius: 2mm;
+    padding: 5mm 6mm;
+    margin: 4mm 0;
+    position: relative;
+  }
+  .stage-card.stage-0 { border-top: 4px solid var(--blue); }
+  .stage-card.stage-1 { border-top: 4px solid var(--aut-lime); }
+  .stage-card.stage-2 { border-top: 4px solid var(--aut-green); }
+  .stage-card .stage-label {
+    font-size: 8pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--gp-red);
+    margin-bottom: 1mm;
+  }
+  .stage-card .stage-title {
+    font-family: var(--serif);
+    font-size: 14pt;
+    font-weight: 700;
+    color: var(--gp-navy);
+    margin-bottom: 1mm;
+  }
+  .stage-card .stage-purpose {
+    font-style: italic;
+    color: var(--g600);
+    margin-bottom: 3mm;
+    font-size: 9.5pt;
+  }
+
+  .ask-card {
+    background: var(--near-white);
+    border: 1px solid var(--g200);
+    border-left: 5px solid var(--gp-red);
+    padding: 5mm 6mm;
+    margin: 4mm 0;
+    border-radius: 0 2mm 2mm 0;
+  }
+  .ask-card.conditional { border-left-color: var(--amber); }
+  .ask-card.immediate { border-left-color: var(--red); }
+  .ask-card .ask-num {
+    font-size: 8pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--gp-red);
+    margin-bottom: 1mm;
+  }
+  .ask-card .ask-q {
+    font-family: var(--serif);
+    font-size: 12pt;
+    font-weight: 700;
+    color: var(--gp-navy);
+    margin-bottom: 3mm;
+    line-height: 1.3;
+  }
+  .ask-card .ask-meta {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3mm;
+    margin-top: 3mm;
+    padding-top: 3mm;
+    border-top: 1px solid var(--g200);
+    font-size: 8.5pt;
+  }
+  .ask-card .ask-meta .label {
+    font-size: 7.5pt;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--g500);
+    margin-bottom: 1mm;
+    font-weight: 600;
+  }
+
+  .toc {
+    background: #FAFCFE;
+    border-left: 4px solid var(--gp-navy);
+    padding: 6mm 7mm;
+    margin: 6mm 0;
+  }
+  .toc-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5mm 0;
+    border-bottom: 1px dotted var(--g300);
+    font-size: 9.5pt;
+  }
+  .toc-item:last-child { border-bottom: none; }
+  .toc-item .label { font-weight: 600; color: var(--gp-navy); }
+  .toc-item .desc { color: var(--g600); flex: 1; padding-left: 5mm; }
+
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, var(--g300) 50%, transparent 100%);
+    margin: 6mm 0;
+  }
+
+  .pilar-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4mm;
+    margin: 4mm 0;
+  }
+  .pilar {
+    background: var(--near-white);
+    border-left: 5px solid var(--aut-green);
+    padding: 5mm 6mm;
+    border-radius: 0 2mm 2mm 0;
+  }
+  .pilar .num {
+    display: inline-block;
+    width: 8mm;
+    height: 8mm;
+    background: var(--aut-green);
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 8mm;
+    font-weight: 700;
+    margin-right: 3mm;
+    font-size: 11pt;
+  }
+  .pilar .title {
+    font-family: var(--serif);
+    font-size: 13pt;
+    font-weight: 700;
+    color: var(--gp-navy);
+    margin-bottom: 2mm;
+    display: flex;
+    align-items: center;
+  }
+  .pilar .defn {
+    font-style: italic;
+    color: var(--g700);
+    margin-bottom: 2.5mm;
+    font-size: 9.5pt;
+  }
+
+  .ascii-flow {
+    background: #0E1929;
+    color: #CBD5E0;
+    font-family: 'SF Mono', Menlo, Consolas, monospace;
+    font-size: 7.5pt;
+    line-height: 1.4;
+    padding: 5mm 6mm;
+    border-radius: 2mm;
+    white-space: pre;
+    overflow-x: auto;
+    margin: 4mm 0;
+  }
+  .ascii-flow .h { color: var(--aut-lime); font-weight: 700; }
+
+  blockquote {
+    border-left: 3px solid var(--aut-lime);
+    padding: 2mm 5mm;
+    margin: 4mm 0;
+    color: var(--g600);
+    font-style: italic;
+    font-size: 9.5pt;
+  }
+
+  .autolease-mark {
+    display: inline-flex;
+    align-items: center;
+    gap: 2mm;
+    background: rgba(45, 101, 72, 0.08);
+    border: 1px solid rgba(45, 101, 72, 0.25);
+    padding: 1.5mm 3mm;
+    border-radius: 99px;
+    color: var(--aut-green);
+    font-size: 8pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .autolease-mark img { height: 12px; }
+
+  .num-circle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 6mm;
+    height: 6mm;
+    background: var(--gp-red);
+    color: white;
+    border-radius: 50%;
+    font-size: 9pt;
+    font-weight: 700;
+    margin-right: 2mm;
+  }
+
+  .signature-block {
+    margin-top: 12mm;
+    padding-top: 5mm;
+    border-top: 1px solid var(--g200);
+    font-size: 8.5pt;
+    color: var(--g600);
+  }
+  .signature-block strong { color: var(--gp-navy); }
+
+  /* Avoid orphan headers */
+  h2.sub, h3.sub-sub, h4.label { page-break-after: avoid; }
+  table, .stage-card, .ask-card, .pilar { page-break-inside: avoid; }
+
+</style>
+</head>
+<body>
+
+<!-- ============================================================ -->
+<!--                          COVER                               -->
+<!-- ============================================================ -->
+<section class="page cover">
+  <div class="cover-inner">
+    <div>
+      <div class="cover-eyebrow">Dirección de Marketing Corporativo · Grupo Plasencia · 2026</div>
+      <h1 class="cover-title">GP Autolease<br><em>Definición Estratégica</em><br>de la Línea de Negocio</h1>
+      <p class="cover-sub">Paper estratégico construido con disciplina Strategy Definition (Minto Pyramid · SCR · Answer-First) para enmarcar la línea de arrendamiento puro del grupo, validar su Product-Market Fit con piloto controlado y habilitar el Go-to-Market formal hacia el crecimiento regional sostenido.</p>
+    </div>
+
+    <div class="cover-meta-grid">
+      <div class="cover-meta-block">
+        <div class="cover-meta-label">Audiencia</div>
+        <div class="cover-meta-value">Nicolás Plasencia<br>Sergio Barroso<br>Óscar Lara</div>
+      </div>
+      <div class="cover-meta-block">
+        <div class="cover-meta-label">Autor</div>
+        <div class="cover-meta-value">Chucho Porras<br>Director de Marketing Corporativo<br>Grupo Plasencia</div>
+      </div>
+      <div class="cover-meta-block">
+        <div class="cover-meta-label">Versión</div>
+        <div class="cover-meta-value">v0.9 · Mayo 2026<br>Cuerpo completo<br>Pendiente alineación con stakeholders</div>
+      </div>
+      <div class="cover-meta-block">
+        <div class="cover-meta-label">Línea de Negocio</div>
+        <div class="cover-meta-value">GP Drive, S.A. de C.V.<br>marca comercial: GP Autolease<br>Arrendamiento puro multimarca</div>
+      </div>
+    </div>
+
+    <div class="cover-footer">
+      <div class="brand">
+        <span style="font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; font-size: 9pt;">Grupo Plasencia</span>
+        <span>·</span>
+        <span>Documento confidencial</span>
+      </div>
+      <div class="cover-autolease-mark">Cliente interno: GP Autolease</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!--                       PREFACIO                               -->
+<!-- ============================================================ -->
+<section class="page">
+  <h1 class="section-title"><span class="num">Prefacio</span>Para qué este documento</h1>
+
+  <p>Este documento define la estrategia de la línea de negocio <strong>GP Autolease</strong> de Grupo Plasencia. Fue construido por la Dirección de Marketing Corporativo a lo largo de un proceso de diagnóstico, investigación de mercado y estructuración estratégica que cubrió siete bloques de trabajo. Está dirigido a los tres tomadores de decisión de la línea: el Director General de Grupo Plasencia y owner de la línea (Nicolás Plasencia), el Director de la línea de negocio (Sergio Barroso) y la Gerencia Comercial (Óscar Lara).</p>
+
+  <h2 class="sub">Por qué existe este documento</h2>
+  <p>La línea GP Autolease tiene años de operación, genera ingresos, atiende clientes con producto definido, y cuenta con cartera vigente de aproximadamente 200 contratos. Lo que no ha tenido oportunidad de construir, por estar dedicada a operar, es la <strong>estructura estratégica explícita</strong> que permite escalar la línea con disciplina: qué es exactamente, para quién, qué promete, cómo crece, cómo mide su éxito y qué decisiones requiere de su grupo.</p>
+  <p>Este documento llena ese vacío. No es crítica a la operación. No es auditoría del equipo. Es la construcción, por primera vez de manera formal, del <strong>panorama estratégico de la línea</strong>, para que cuando llegue el momento de crecer, la decisión de inversión esté sustentada y la ejecución esté lista.</p>
+
+  <h2 class="sub">Cómo se construyó</h2>
+  <ul>
+    <li>Diagnóstico interno con cifras operativas y proceso comercial completo capturados en sesión con el Director de la línea.</li>
+    <li>Auditoría del prototipo digital deployed en <code>gpautolease.com</code> y de su lógica de cálculo.</li>
+    <li>Mapeo del marco legal y regulatorio aplicable (LFPIORPI, LISR, LFPDPPP).</li>
+    <li>Procesamiento del checklist documental real (PFAE y Persona Moral) y de los Avisos de Identificación firmados por el cliente.</li>
+    <li>Mapeo del hand-off operativo con Moffin (proveedor de scoring crediticio) y con Biensea (broker de seguros propio).</li>
+    <li>Deep Research del mercado de arrendamiento puro en México con 63 fuentes citadas.</li>
+    <li>Análisis comparativo profundizado de dos casos espejo nacionales: TIP México (paraguas Engen Capital) y Arrendadora Afirme.</li>
+  </ul>
+
+  <h2 class="sub">Cómo leerlo</h2>
+  <p>El documento sigue la estructura canónica de Strategy Definition. El <strong>Answer-First</strong> que sigue (§0) sintetiza toda la propuesta en una página: si el lector solo tiene cinco minutos, esa página es lo que necesita. El resto del documento desempaca el argumento en profundidad.</p>
+
+  <table>
+    <thead>
+      <tr><th style="width: 30%">Stakeholder</th><th>Recorrido recomendado</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Nicolás Plasencia</strong><br><em>Director General y owner</em></td><td>§0 Answer-First → §3 Resolución → §6 Caso Financiero → §7 El Ask</td></tr>
+      <tr><td><strong>Sergio Barroso</strong><br><em>Director de la línea</em></td><td>§0 → §1 Situación → §2 Complicación → §3 Resolución → §4 El Modelo → §5 El Roadmap</td></tr>
+      <tr><td><strong>Óscar Lara</strong><br><em>Gerencia Comercial</em></td><td>§0 → §1 Situación → §4 El Modelo (especialmente §4.3, §4.4, §4.6) → §5 El Roadmap</td></tr>
+      <tr><td>Quien retoma sin contexto</td><td>Documento completo en orden secuencial</td></tr>
+    </tbody>
+  </table>
+
+  <h2 class="sub">Cómo se itera este documento</h2>
+  <p>Este Foundational es punto de partida estructurado, no producto cerrado. Dos rondas de validación están explícitamente programadas:</p>
+  <ol>
+    <li><strong>Alineación con stakeholders</strong> (Fase 3 del proyecto). Sesiones dedicadas con Sergio, Óscar y Nicolás para ratificar, corregir o ampliar la tesis con la perspectiva operativa que cada uno aporta.</li>
+    <li><strong>Validación con cliente real</strong> (Etapa 1 del Roadmap, ver §5). Encuesta Sean Ellis, entrevistas cualitativas, tasa de renovación, NPS sistemático. Esta ronda es la prueba dura de Product-Market Fit.</li>
+  </ol>
+  <p>Si cualquiera de esas dos rondas modifica la tesis, el documento se actualiza explícitamente y se versiona. No se mantiene una "versión correcta" silenciosa.</p>
+</section>
+
+<!-- ============================================================ -->
+<!--                §0 — ANSWER FIRST                             -->
+<!-- ============================================================ -->
+<section class="page">
+  <h1 class="section-title"><span class="num">§0 · La respuesta primero</span>Toda la propuesta en una página</h1>
+
+  <div class="answer-first">
+    <p><strong>Qué proponemos.</strong> Posicionar a GP Autolease como la <strong>arrendadora regional multimarca de Occidente y Bajío Sur, especializada en optimización fiscal honesta para profesionistas independientes (PFAE) y empresas pequeñas a medianas (PM)</strong>, apalancando los activos únicos del grupo Plasencia (agencias multimarca, proximidad regional, bundle visible y velocidad operativa) para capturar el white space competitivo que ningún jugador nacional ocupa hoy.</p>
+
+    <p><strong>Por qué importa ahora.</strong> El mercado de arrendamiento puro de autos en México creció 24.4% año contra año en 2025, cuatro veces más rápido que el crédito tradicional. La penetración mexicana es de apenas 4.5% frente a 24.7% en Estados Unidos. Ningún jugador nacional cubre con autoridad el segmento PFAE + Pyme pequeña en Occidente y Bajío Sur: los corporativos atienden cuentas grandes, las cautivas OEM están atadas a una sola marca, las fintech digitales no tienen red física. GP Autolease tiene los cuatro activos que se necesitan para tomar ese espacio.</p>
+
+    <p><strong>Qué cuesta.</strong> Entre 5 y 9 millones de pesos en el bienio, distribuidos en tres etapas con gates explícitos. Etapa 0 (Habilitadores): 1.6 a 2.5 millones. Etapa 1 (Piloto controlado): 750 mil a 1.5 millones. Etapa 2 (GTM formal): 2.3 a 4.3 millones al año. Etapa 2 solo se ejecuta si Etapa 1 valida PMF.</p>
+
+    <p><strong>Qué retorna.</strong> Si el plan se ejecuta con disciplina, la línea pasa de 200 a entre 500 y 700 contratos sostenidos al cierre del mes 24, con cartera colocada entre 230 y 330 millones de pesos (2.7x a 3.9x el baseline actual de 85 millones), manteniendo IMOR menor a 3.5%, tasa de renovación mayor a 40% y NPS sostenido mayor a 50.</p>
+  </div>
+
+  <h4 class="label">Killer Metric</h4>
+  <div class="kpi-grid two">
+    <div class="kpi">
+      <div class="label">AOV GP Autolease</div>
+      <div class="value">$600,000</div>
+      <div class="unit">por contrato</div>
+    </div>
+    <div class="kpi">
+      <div class="label">AOV venta tradicional grupo</div>
+      <div class="value">$440,000</div>
+      <div class="unit">por unidad</div>
+    </div>
+  </div>
+  <p style="text-align: center; font-family: var(--serif); font-size: 13pt; color: var(--aut-green); font-weight: 700; margin-top: 4mm;">+36% por unidad</p>
+  <p style="text-align: center; font-size: 9.5pt; color: var(--g600); margin-bottom: 5mm;">La línea ya captura cliente de mayor valor estructural que el canal estándar.<br>La pregunta no es si existe demanda; es si la línea se estructura para sostenerla y multiplicarla.</p>
+
+  <h4 class="label">Lo que se decide en este documento</h4>
+  <p>Cuatro decisiones binarias del Director General, descritas con detalle en §7:</p>
+  <ol>
+    <li>Aprobar Etapa 0 Habilitadores.</li>
+    <li>Aprobar diseño del Piloto controlado de Etapa 1.</li>
+    <li>Acordar que Etapa 2 GTM formal depende explícitamente del resultado del Piloto.</li>
+    <li>Autorizar la corrección inmediata de los claims fiscales actuales del sitio público.</li>
+  </ol>
+
+  <h4 class="label">Lo que NO se está pidiendo</h4>
+  <p style="font-size: 9.5pt;">No se pide aprobar un lanzamiento masivo de marketing. No se pide expandir la línea fuera de las seis ciudades del grupo. No se pide cambiar la naturaleza del producto. No se pide reemplazar al equipo actual de la línea. No se pide decidir un concepto rector publicitario.</p>
+
+  <div class="callout lime" style="margin-top: 6mm;">
+    <strong>En una línea:</strong> Estructurar GP Autolease, validar PMF con disciplina de piloto controlado, y solo entonces escalar Go-to-Market formal — con inversión proporcional a evidencia, no a apuestas.
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!--                §1 — SITUACIÓN                                -->
+<!-- ============================================================ -->
+<section class="page">
+  <h1 class="section-title"><span class="num">§1 · Situación</span>La línea de negocio existe, opera y genera valor</h1>
+
+  <p>GP Autolease es la línea de negocio de <strong>arrendamiento puro de autos</strong> de Grupo Plasencia. Opera comercialmente bajo la marca GP Autolease y firma contratos con clientes a través de la sociedad <strong>GP Drive, S.A. de C.V.</strong> Tiene más de una década de presencia en el mercado, atiende clientes activos y mantiene cartera vigente. Esta sección establece el punto de partida con cifras y hechos verificables.</p>
+
+  <h2 class="sub">1.1 La línea hoy en una página</h2>
+  <table>
+    <thead><tr><th style="width: 40%">Dimensión</th><th>Estado</th></tr></thead>
+    <tbody>
+      <tr><td>Naturaleza</td><td>Arrendamiento puro de autos. Sociedad mercantil no regulada.</td></tr>
+      <tr><td>Entidad legal</td><td><strong>GP Drive, S.A. de C.V.</strong></td></tr>
+      <tr><td>Marca comercial</td><td>GP Autolease</td></tr>
+      <tr><td>Cobertura geográfica</td><td>Seis ciudades: <strong>Guadalajara · Colima · Tepic · Manzanillo · Puerto Vallarta · San Luis Potosí</strong></td></tr>
+      <tr><td>Cliente objetivo</td><td>PFAE · Profesionistas independientes · Todo tipo de PM · PM RESICO</td></tr>
+      <tr><td>Cliente que NO aplica</td><td>PF RESICO · PF sin actividad empresarial</td></tr>
+      <tr><td>Producto único</td><td>Arrendamiento puro a 12, 24, 36 y 48 meses. Pago inicial 20-70%. Comisión apertura. Seguro incluido.</td></tr>
+      <tr><td>Marca dominante en cartera</td><td><strong>Ford</strong> como caballito de batalla por ticket alto</td></tr>
+      <tr><td>Contratos activos</td><td>~200</td></tr>
+      <tr><td>Cartera total</td><td>~$142 millones de pesos</td></tr>
+      <tr><td>Cartera colocada</td><td>~$85 millones de pesos</td></tr>
+      <tr><td>AOV por contrato</td><td><strong>~$600,000</strong></td></tr>
+      <tr><td>AOV venta tradicional grupo</td><td>$440,000 (referencia)</td></tr>
+      <tr><td>Diferencial AOV</td><td><strong>+36% por unidad</strong></td></tr>
+    </tbody>
+  </table>
+
+  <h2 class="sub">1.2 El producto canónico</h2>
+  <p>GP Autolease ofrece un producto único: arrendamiento puro, sin opción de compra contractual obligatoria. Las condiciones canónicas son plazos de 12, 24, 36 y 48 meses, pago inicial entre 20% y 70%, comisión por apertura aplicable, seguro incluido vía Biensea, GPS instalado al momento de entrega, placas tramitadas por GP Autolease.</p>
+
+  <p><strong>Tres salidas al final del contrato:</strong></p>
+  <ol>
+    <li><strong>Renovar</strong> por un modelo nuevo con un nuevo pago inicial.</li>
+    <li><strong>Comprar</strong> el vehículo a un valor residual previamente acordado.</li>
+    <li><strong>Devolver</strong> el vehículo sin penalización adicional.</li>
+  </ol>
+
+  <div class="callout">
+    <strong>Nota técnica.</strong> La opción de compra al residual se ofrece como salida comercial post-contractual, no como obligación contractual desde el inicio. Esta condición preserva la naturaleza de "arrendamiento puro" frente a "arrendamiento financiero" (regulado por SHCP). La validación de que el contrato vigente preserva esta naturaleza es uno de los pendientes con asesoría jurídica del grupo.
+  </div>
+
+  <h2 class="sub">1.3 El cliente que opera hoy</h2>
+  <div class="kpi-grid two">
+    <div class="kpi">
+      <div class="label">Segmento Primario</div>
+      <div class="value" style="font-size: 13pt;">PFAE</div>
+      <div class="unit">Profesionistas independientes — ingreso anual relevante &gt;$700k</div>
+    </div>
+    <div class="kpi">
+      <div class="label">Segmento Secundario</div>
+      <div class="value" style="font-size: 13pt;">Pyme PM</div>
+      <div class="unit">Flotilla 3-30 vehículos · incluye PM RESICO</div>
+    </div>
+  </div>
+
+  <h2 class="sub">1.4 La geografía es restricción operativa</h2>
+  <p>GP Autolease opera estrictamente en seis ciudades, todas con presencia de agencias del grupo. La razón es operativa: la entrega del vehículo, el mantenimiento durante el contrato, la atención de siniestros y la recepción al final del plazo dependen físicamente de las agencias del grupo. Sin agencia en una plaza, no hay producto entregable.</p>
+  <p>Esta restricción coincide con un hallazgo del análisis competitivo: las arrendadoras corporativas grandes (Element Fleet, TIP México, Arrendadora Banorte) concentran su atención en CDMX, Estado de México, Guadalajara y Monterrey, dejando subatendidas las plazas costeras y de menor escala. <strong>Para GP Autolease, la cobertura natural del grupo coincide con el espacio competitivo más vacío.</strong></p>
+</section>
+
+<section class="page">
+  <h2 class="sub">1.5 El proceso comercial end-to-end</h2>
+  <p>GP Autolease opera un proceso comercial de 15 pasos documentado por primera vez en sesión exploratoria con el Director de la línea.</p>
+
+  <div class="ascii-flow">
+<span class="h">Fase 1 — Conversión (días 0-1)</span>
+   1. Lead recibido con calculadora correlacionada a un coche específico
+   2. Agenda cita para ver el vehículo presencialmente
+
+<span class="h">Fase 2 — Cotización y crédito (días 1-3, SLA &lt;48h)</span>
+   3. Cotización formal — incluye seguro vía Biensea
+   4. Inicio de solicitud en plataforma Moffin:
+        Buró de crédito · Verificación judicial · Listas negras
+        → Resultado: preautorización o rechazo
+   5. Si autorizado: envío de checklist documental (18-21 docs)
+   6. Autorización del área de crédito — SLA ≤24 horas
+        Notificación al cliente por correo + carta para pago inicial
+        Orden de compra interna para facturación
+
+<span class="h">Fase 3 — Contratación (días 3-7)</span>
+   7. Elaboración del contrato de arrendamiento
+   8. Cita con el cliente para firma presencial
+
+<span class="h">Fase 4 — Entrega (días 7-14)</span>
+   9.  Tramitación de placas
+   10. Programación de entrega
+   11. Instalación del GPS
+   12. Confirmación de fecha de entrega al cliente
+   13. Emisión del seguro previo a la entrega
+   14. Carta de salida interna
+
+<span class="h">Fase 5 — Liquidación interna (día 30+)</span>
+   15. Pago a la agencia por el vehículo (30 días post-entrega)
+  </div>
+
+  <h2 class="sub">1.6 Stack operativo y proveedores críticos</h2>
+  <table>
+    <thead><tr><th>Componente</th><th>Función</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Biensea</strong></td><td>Broker de seguros — emite pólizas (contacto: Erik Cerón). Genera revenue stream adicional.</td></tr>
+      <tr><td><strong>Moffin</strong></td><td>Scoring crediticio (Buró + judicial + listas negras + biometría + KYC). <em>Bureau-of-record</em> crediticio operando por encargo.</td></tr>
+      <tr><td><strong>Agencias del grupo</strong></td><td>Entrega física + mantenimiento + recepción en devolución. Sin agencia ≠ sin cobertura.</td></tr>
+      <tr><td><strong>Backend cotizador</strong></td><td><code>backend.gpautolease.com</code> — sistema propio del grupo.</td></tr>
+    </tbody>
+  </table>
+
+  <h2 class="sub">1.7 La línea ya está corriendo</h2>
+  <p><strong>GP Autolease es una línea de negocio activa</strong> con producto definido, cobertura geográfica clara, cliente identificado, proceso comercial operando, stack tecnológico funcional, marca registrada, métricas medibles y cartera vigente. No estamos diseñando algo nuevo. Estamos estructurando lo que ya existe y lo que ya genera ingresos.</p>
+  <p>Lo que viene en §2 Complicación no es una crítica a esta operación. Es la articulación honesta de las piezas que la línea no ha tenido oportunidad de construir porque ha estado dedicada a operar. Esas piezas, una vez construidas, son las que permiten escalar con confianza.</p>
+</section>
+
+<!-- ============================================================ -->
+<!--                §2 — COMPLICACIÓN                             -->
+<!-- ============================================================ -->
+<section class="page">
+  <h1 class="section-title"><span class="num">§2 · Complicación</span>Por qué hace falta estructurar ahora</h1>
+
+  <h2 class="sub">2.1 La tensión central</h2>
+  <p>GP Autolease ha operado durante años generando ingresos y acumulando experiencia institucional. Lo que la línea no ha tenido oportunidad de construir, por estar dedicada a operar, son las piezas que permiten <strong>escalar con disciplina</strong>: posicionamiento explícito, propuesta de valor articulada, mesa de control humana, métricas instrumentadas, coherencia entre canales digitales y operación, y compliance documental al día. Mientras tanto, la ventana de mercado para arrendamiento puro en México se está abriendo aceleradamente.</p>
+
+  <div class="governing-thought">
+    <strong>La tensión es clara:</strong> GP Autolease tiene un producto que ya funciona en una categoría que está acelerando, pero no tiene la cancha operativa para capturar el crecimiento sin asumir riesgo material.
+  </div>
+
+  <p>Salir sin construir habilitadores no es ir más rápido. Es ir más lejos antes de saber si el camino que se tomó es el correcto.</p>
+
+  <h2 class="sub">2.2 Los siete síntomas concretos del diagnóstico</h2>
+
+  <h3 class="sub-sub"><span class="num-circle">1</span>Cinco fuentes con cuatro listas de plazos distintas</h3>
+  <table style="font-size: 8.5pt;">
+    <tbody>
+      <tr><td>Director de la línea</td><td>12, 24, 36 y 48 meses</td></tr>
+      <tr><td>Sitio actual <code>gpautolease.com</code></td><td>12, 24 y 48 meses</td></tr>
+      <tr><td>Prototipo rediseñado</td><td>24, 36, 48 y 60 meses</td></tr>
+      <tr><td>Formulario operativo en Moffin</td><td>12, 18, 24, 36 y 48 meses</td></tr>
+    </tbody>
+  </table>
+  <p>Ningún cliente que recorra los canales tendrá certeza de cuál es la lista verdadera del producto.</p>
+
+  <h3 class="sub-sub"><span class="num-circle">2</span>Claims fiscales sin sustento legal</h3>
+  <p>El prototipo afirma públicamente <em>"Deduce el 100%, cero tope, cero límite de inversión"</em>. La LISR Art. 28 fr. XIII limita la deducción del cliente a <strong>$200 diarios</strong> (combustión) o <strong>$285 diarios</strong> (eléctrico/híbrido). Para un auto Ford de $580,000 con mensualidad de $14,428 = $474 diarios, el cliente <strong>solo deduce el 42% del pago</strong>, no el 100%. La promesa pública contradice directamente la ley vigente.</p>
+
+  <h3 class="sub-sub"><span class="num-circle">3</span>Prototipo digital desalineado con la oferta real</h3>
+  <p>Veinte inconsistencias documentadas entre el prototipo deployed y la oferta operativa: rangos de pago inicial que no coinciden, comisión por apertura ausente del desglose, cotizador permite a Persona Física sin actividad empresarial, calculadora comparativa devuelve "Ahorras 0 pesos vs crédito" por inconsistencia matemática.</p>
+
+  <h3 class="sub-sub"><span class="num-circle">4</span>Documentación oficial con referente legal obsoleto</h3>
+  <p>Los Avisos de Identificación que el cliente firma con cada contrato referencian <em>"tres mil doscientas diez veces el Salario Mínimo Diario Vigente en el Distrito Federal"</em>. Esta referencia legal fue sustituida por la <strong>UMA en 2016</strong>. El "Distrito Federal" pasó a "Ciudad de México" por la misma reforma. <strong>Diez años de obsolescencia documental.</strong></p>
+
+  <h3 class="sub-sub"><span class="num-circle">5</span>Ausencia de research validado con cliente real</h3>
+  <p>El perfil del cliente que opera GP Autolease es razonable y consistente con lo que la operación observa. Pero <strong>no se han hecho entrevistas, encuestas ni estudios sistemáticos</strong> con clientes reales. Las suposiciones probablemente son cercanas a la realidad, pero <strong>nadie las ha probado</strong>.</p>
+
+  <h3 class="sub-sub"><span class="num-circle">6</span>El hand-off entre el sitio público y Moffin no fue diseñado</h3>
+  <p>El cliente atraviesa <strong>dos experiencias distintas que nadie diseñó en conjunto</strong>: vitrina informativa con calculadora y narrativa de marca, después formulario transaccional con campos densos y captura de CIEC del SAT.</p>
+
+  <h3 class="sub-sub"><span class="num-circle">7</span>No existe documento que defina la línea a nivel estratégico</h3>
+  <p>Si se les pide a los tres stakeholders principales que escriban "qué es GP Autolease, para quién existe, qué promete, a dónde va", las respuestas no coincidirán al 100%. No porque alguno esté equivocado, sino porque <strong>nunca se ha escrito</strong>. Este es la causa raíz que reproduce las otras seis. <em>Este documento es la respuesta.</em></p>
+</section>
+
+<section class="page">
+  <h2 class="sub">2.3 El costo de no actuar</h2>
+  <table>
+    <thead><tr><th>Costo</th><th>Cuantificación</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Re-trabajo de inversiones en escalamiento prematuro</strong></td><td>Entre 30% y 50% sobre cualquier gasto de marketing y producto hecho sin Foundational.</td></tr>
+      <tr><td><strong>Exposición legal y de credibilidad por claims fiscales</strong></td><td>Cada PFAE que detecta la inexactitud con su contador se va silenciosamente. Comunicación al mercado profesional es altamente conectada.</td></tr>
+      <tr><td><strong>Saturación operativa al escalar sin mesa de control</strong></td><td>Si el volumen mensual se triplica sin mesa, el SLA de 48 horas se rompe. ~20% de leads adicionales se pierden por desatención.</td></tr>
+      <tr><td><strong>Costo de oportunidad frente a competidores</strong></td><td>TIP crece con disciplina, Afirme acelera con relanzamientos, las cautivas siguen presionando con marca.</td></tr>
+      <tr><td><strong>Presentación a Dirección General sin sustento</strong></td><td>Cada ciclo de regreso retrasa la activación entre 6 y 12 semanas.</td></tr>
+      <tr><td><strong>Costo de la ventana Mundial 2026 + nearshoring</strong></td><td>AMAVe anticipa hasta 30% de crecimiento en demanda 2026. Quien capture demanda con producto, mensaje y operación claros define posición competitiva regional por años.</td></tr>
+    </tbody>
+  </table>
+
+  <h2 class="sub">2.4 Por qué este momento</h2>
+  <div class="kpi-grid">
+    <div class="kpi">
+      <div class="label">Ventana 1</div>
+      <div class="value" style="font-size: 13pt;">Aceleración</div>
+      <div class="unit">Mercado +24.4% YoY 2025<br>Penetración 4.5% vs 24.7% USA</div>
+    </div>
+    <div class="kpi">
+      <div class="label">Ventana 2</div>
+      <div class="value" style="font-size: 13pt;">Capacidad</div>
+      <div class="unit">Dirección MKT disponible<br>Disciplina de método activa</div>
+    </div>
+    <div class="kpi">
+      <div class="label">Ventana 3</div>
+      <div class="value" style="font-size: 13pt;">Mundial</div>
+      <div class="unit">+30% demanda proyectada 2026<br>+ Nearshoring acelerando</div>
+    </div>
+  </div>
+  <p>Quien capture demanda en 2026 con producto, mensaje y operación claros, define posición competitiva regional por los próximos años. Quien llegue después paga más caro por menos.</p>
+</section>
+
+<!-- ============================================================ -->
+<!--            §3 — RESOLUCIÓN (TESIS ESTRATÉGICA)              -->
+<!-- ============================================================ -->
+<section class="page">
+  <h1 class="section-title"><span class="num">§3 · Resolución</span>Tesis Estratégica</h1>
+
+  <h2 class="sub">3.1 Cómo está construida esta tesis</h2>
+  <div class="callout lime">
+    La tesis está formulada como <strong>answer-first sustentada con la investigación</strong>. No es hipótesis preliminar abierta — es propuesta concreta construida cruzando todo lo que sabemos hoy. Y no es palabra final: tiene dos rondas de validación pendientes (alineación con stakeholders en Fase 3 + research con cliente real en Etapa 1 Piloto).
+  </div>
+
+  <h2 class="sub">3.2 La propuesta — Governing Thought</h2>
+
+  <div class="governing-thought">
+    Posicionar a GP Autolease como la <strong>arrendadora regional multimarca de Occidente y Bajío Sur especializada en optimización fiscal honesta</strong> para profesionistas independientes y empresas pequeñas a medianas, apalancando los activos únicos del grupo Plasencia — <strong>agencias multimarca, proximidad regional, bundle visible y velocidad operativa</strong> — para capturar el white space competitivo que ningún jugador nacional ocupa hoy.
+  </div>
+
+  <p>Esta es la frase que gobierna toda la estrategia. Si una decisión, una campaña o una inversión no se alinea con esta frase, no es parte del plan.</p>
+
+  <h2 class="sub">3.3 Los cuatro pilares estratégicos</h2>
+
+  <div class="pilar-grid">
+    <div class="pilar">
+      <div class="title"><span class="num">1</span>Multimarca con red física propia</div>
+      <div class="defn">GP Autolease ofrece la libertad de elegir entre múltiples marcas dentro de un solo contrato, con la garantía operativa de entregar, mantener y recibir el vehículo en las agencias propias del grupo Plasencia.</div>
+      <p style="font-size: 9pt;"><strong>Por qué es defendible:</strong> ninguna financiera cautiva de marca puede ofrecer multimarca por diseño. Ninguna fintech digital tiene red física propia. Las corporativas grandes no atienden el segmento Pyme pequeña ni PFAE.</p>
+    </div>
+    <div class="pilar">
+      <div class="title"><span class="num">2</span>Optimización fiscal honesta</div>
+      <div class="defn">Presentamos al cliente la matemática real de su deducción dentro de los topes y reglas vigentes de la LISR, calculada con sus números — sin promesas exageradas y sin sorpresas para su contador.</div>
+      <p style="font-size: 9pt;"><strong>Por qué es defendible:</strong> el mercado está saturado de claims fiscales imprecisos. La honestidad fiscal explícita es ventaja diferencial porque el contador del cliente la puede confirmar.</p>
+    </div>
+    <div class="pilar">
+      <div class="title"><span class="num">3</span>Proximidad regional con velocidad operativa</div>
+      <div class="defn">Cercanía física en las seis ciudades donde el grupo opera, con SLA de aprobación menor a 48 horas y ciclo lead-a-entrega menor a 10 días, sostenido por una mesa de control humana dedicada.</div>
+      <p style="font-size: 9pt;"><strong>Por qué es defendible:</strong> Banorte Empresas tarda 7-15 días. Las cautivas 5-10 días. Las fintechs son rápidas pero sin presencia física regional.</p>
+    </div>
+    <div class="pilar">
+      <div class="title"><span class="num">4</span>Bundle visible y real</div>
+      <div class="defn">Arrendamiento + seguro Biensea + mantenimiento en agencias del grupo + asesoría fiscal embebida + auto sustituto en siniestro mayor a 5 días, todo visible al cliente desde la primera conversación.</div>
+      <p style="font-size: 9pt;"><strong>Por qué es defendible:</strong> ninguna cautiva OEM puede armar este bundle (sin broker ni multimarca). Ninguna fintech (sin agencias). Las corporativas no atienden Pyme pequeña con esta dedicación.</p>
+    </div>
+  </div>
+</section>
+
+<section class="page">
+  <h2 class="sub">3.4 Cómo los cuatro pilares funcionan como sistema</h2>
+  <p>Los pilares no son cuatro iniciativas independientes — son <strong>un sistema interconectado</strong> donde cada pilar refuerza a los otros.</p>
+
+  <div class="ascii-flow">
+                <span class="h">Multimarca con red física</span>
+                (Pilar 1)
+                       │
+                       │ habilita
+                       ▼
+     <span class="h">Proximidad regional</span>      <span class="h">Bundle visible</span>
+     <span class="h">+ velocidad</span>          ───────  <span class="h">y real</span>
+     (Pilar 3)                       (Pilar 4)
+                  │
+                  │ se validan con el contador
+                  ▼
+             <span class="h">Optimización fiscal honesta</span>
+                  (Pilar 2)
+                  │
+                  │ cierra credibilidad
+                  ▼
+           <span class="h">Cliente PFAE / Pyme convencido</span>
+  </div>
+
+  <p><strong>Esa es la razón por la cual ningún competidor actual ocupa este espacio.</strong> Element y los corporativos tienen multimarca pero no proximidad regional Pyme. Las cautivas OEM tienen proximidad regional pero no multimarca. Las fintechs tienen velocidad pero no red física. <strong>Solo el grupo Plasencia tiene los cuatro activos disponibles.</strong> La pregunta no es si se puede capturar el espacio. La pregunta es si la línea se estructura para capturarlo.</p>
+
+  <h2 class="sub">3.5 Estado de Product-Market Fit</h2>
+  <div class="callout">
+    La tesis plantea cuatro pilares defendibles a partir de la investigación, pero <strong>no implica que el Product-Market Fit esté validado</strong>. PMF, en sentido estricto, requiere evidencia empírica con cliente real. GP Autolease opera con 200 contratos en cartera y cifras razonables, pero <strong>no ha medido sistemáticamente qué tan bien resuelve el problema del cliente desde la perspectiva del cliente</strong>.
+  </div>
+
+  <h4 class="label">Señales tempranas (no prueba de PMF)</h4>
+  <table style="font-size: 8.5pt;">
+    <tbody>
+      <tr><td>AOV +36% sobre canal tradicional del grupo</td><td>Cliente que arrienda es de mayor valor</td></tr>
+      <tr><td>200 contratos sin marketing digital deliberado</td><td>Existe demanda orgánica capturable</td></tr>
+      <tr><td>$85M de pesos colocados</td><td>Producto resuelve problema real</td></tr>
+      <tr><td>Sector +24.4% YoY 2025</td><td>Viento a favor en categoría</td></tr>
+      <tr><td>Casos espejo MX validan arquetipo (TIP, Afirme)</td><td>Modelo funciona en operadores comparables</td></tr>
+    </tbody>
+  </table>
+
+  <h4 class="label">Plan explícito de validación de PMF (Etapa 1 del Roadmap)</h4>
+  <ol style="font-size: 9.5pt;">
+    <li><strong>Encuesta Sean Ellis</strong> al cohorte de 25-40 contratos del piloto. Umbral PMF: ≥40% responde "muy decepcionado".</li>
+    <li><strong>Entrevistas cualitativas</strong> con 15-20 clientes firmados + 10-15 leads no cerrados.</li>
+    <li><strong>Tasa de renovación</strong> al cierre de los primeros cohortes (proxy duro de PMF).</li>
+    <li><strong>NPS, CSAT, CES</strong> instrumentados continuamente desde el inicio del piloto.</li>
+  </ol>
+
+  <h2 class="sub">3.6 Lo que esta estrategia NO es</h2>
+  <p>Una estrategia explícita también define qué <strong>no</strong> va a hacer:</p>
+  <ul style="font-size: 9.5pt;">
+    <li><strong>No es marketplace digital</strong> tipo Pazz, Klubo, FinBe. Anti-patrones documentados (Cazoo, Vroom, Carvana).</li>
+    <li><strong>No compite con Element Fleet ni TIP en cuentas corporativas grandes</strong> (25+ unidades).</li>
+    <li><strong>No es marca standalone separada del grupo</strong> — al contrario, apalanca al grupo.</li>
+    <li><strong>No es producto con opción de compra contractual</strong> (sería arrendamiento financiero regulado).</li>
+    <li><strong>No es expansión nacional inmediata</strong> — solo las 6 ciudades del grupo.</li>
+    <li><strong>No es lanzamiento masivo en 2026</strong> — el plan es piloto controlado, no paid masivo.</li>
+    <li><strong>No sustituye al equipo actual</strong> — la mesa de control es función adicional articuladora.</li>
+    <li><strong>No es concepto rector ni slogan</strong> — eso se construye post-validación.</li>
+  </ul>
+</section>
+
+<!-- ============================================================ -->
+<!--                §4 — EL MODELO                                -->
+<!-- ============================================================ -->
+<section class="page">
+  <h1 class="section-title"><span class="num">§4 · El Modelo</span>Cómo funciona la línea cuando se opera con disciplina</h1>
+
+  <h2 class="sub">4.1 Mercado y entorno competitivo</h2>
+
+  <div class="kpi-grid">
+    <div class="kpi">
+      <div class="label">Mercado MX 2024</div>
+      <div class="value">$6,020<span style="font-size: 11pt;">M USD</span></div>
+      <div class="unit">CAGR 8.5% a 2033 (IMARC)</div>
+    </div>
+    <div class="kpi">
+      <div class="label">Crecimiento YoY 2025</div>
+      <div class="value">+24.4%</div>
+      <div class="unit">4x crédito tradicional (AMDA-AMAVe)</div>
+    </div>
+    <div class="kpi">
+      <div class="label">Penetración MX vs USA</div>
+      <div class="value">4.5%</div>
+      <div class="unit">vs 24.7% USA · 26.1% Alemania</div>
+    </div>
+  </div>
+
+  <h3 class="sub-sub">Las cuatro categorías de competidores</h3>
+  <table>
+    <thead><tr><th>Categoría</th><th>Ejemplos</th><th>Relación con GP Autolease</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Corporativos B2B</strong></td><td>Element Fleet, TIP México, Arrendadora Banorte, BBVA Leasing</td><td>No son competidores directos: atienden 25+ unidades por cuenta</td></tr>
+      <tr><td><strong>Cautivas OEM</strong></td><td>Ford Credit, VW FS, Toyota FS, Mazda, Hyundai, Stellantis, GM, BMW, Mercedes</td><td>Limitación estructural: cada una solo financia su propia marca</td></tr>
+      <tr><td><strong>Fintech digital</strong></td><td>Pazz, Klubo, Pilotea, FinBe ABC, Kavak Capital</td><td>Sin red física propia. Anti-patrón global validado (Cazoo, Vroom)</td></tr>
+      <tr><td><strong>Regionales locales</strong></td><td>Dalton (GDL), Arrendamex (Bajío), Leasy (GDL)</td><td>Competencia parcial en GDL. Ausente en plazas costeras y SLP</td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="sub-sub">Dos casos espejo MX que GP Autolease debe estudiar</h3>
+  <div class="kpi-grid two">
+    <div class="kpi">
+      <div class="label">TIP México (Engen)</div>
+      <div class="value" style="font-size: 14pt;">$27,791<span style="font-size: 10pt;">M</span></div>
+      <div class="unit">Cartera total · IMOR puro 0.2% · 32 años · 19 ciudades</div>
+    </div>
+    <div class="kpi">
+      <div class="label">Arrendadora Afirme</div>
+      <div class="value" style="font-size: 14pt;">+60.79%</div>
+      <div class="unit">YoY 2024 · Cartera $1,901M · Foco Norte-Bajío</div>
+    </div>
+  </div>
+
+  <div class="callout lime">
+    <strong>El white space defendible:</strong> ningún jugador nacional ocupa el posicionamiento "arrendadora regional respaldada por grupo automotor multimarca, con foco PFAE y Pyme pequeña-mediana, en Occidente y Bajío Sur, con bundle visible". Esa convergencia (cancha geográfica del grupo + segmento desatendido + capacidad multimarca + respaldo de 75 años) define la oportunidad estratégica central de la línea.
+  </div>
+
+  <h3 class="sub-sub">Cinco verticales prioritarios identificados</h3>
+  <ol>
+    <li><strong>Médicos especialistas</strong> en GDL, SLP, Colima, Tepic.</li>
+    <li><strong>Pyme de logística última milla</strong> con flotilla 3-15 unidades.</li>
+    <li><strong>Despachos profesionales B2B</strong> (legales, contables, consultoría, ingeniería).</li>
+    <li><strong>Agentes inmobiliarios y promotores</strong> en Puerto Vallarta y Manzanillo.</li>
+    <li><strong>Constructoras regionales</strong> en SLP (nearshoring).</li>
+  </ol>
+</section>
+
+<section class="page">
+  <h2 class="sub">4.2 Service Blueprint — Cómo se entrega el servicio</h2>
+  <p>El modelo operativo de GP Autolease usa la herramienta de Service Blueprint: separa lo que el cliente ve (frontstage), lo que la organización hace sin que el cliente lo vea (backstage), y los hand-offs donde típicamente se rompen los procesos.</p>
+
+  <h3 class="sub-sub">Frontstage y backstage cruzados</h3>
+  <table>
+    <thead><tr><th>Frontstage (lo que vive el cliente)</th><th>Backstage (lo que hace GP Autolease)</th></tr></thead>
+    <tbody>
+      <tr><td>Cliente cotiza en el sitio</td><td>Sistema graba lead, genera folio, asigna asesor</td></tr>
+      <tr><td>Cliente firma autorización de buró</td><td>Moffin ejecuta consulta + verificación judicial + listas negras + scoring</td></tr>
+      <tr><td>Cliente sube documentos</td><td>Mesa de control valida cada documento, dialoga con cliente</td></tr>
+      <tr><td>Cliente recibe aprobación</td><td>Área de crédito revisa decisión Moffin, ejerce override humano si aplica</td></tr>
+      <tr><td>Cliente firma contrato</td><td>Contrato generado con cláusulas vigentes, conservación 10 años (LFPIORPI)</td></tr>
+      <tr><td>Cliente recibe el auto</td><td>Agencia del grupo tramita placas, instala GPS, coordina seguro con Biensea</td></tr>
+      <tr><td>Cliente cierra contrato</td><td>Renueva, devuelve o ejerce opción de compra. Vehículo va a seminuevos del grupo si aplica.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout red">
+    <strong>Hand-off Moffin como pieza crítica:</strong> el cliente atraviesa dos experiencias distintas (sitio público + formulario Moffin) que no fueron diseñadas en conjunto. Moffin es <strong>bureau-of-record crediticio</strong>, no solo proveedor de UX. La instrumentación de la conversión en el hand-off no existe hoy.
+  </div>
+
+  <h2 class="sub">4.3 Experiencia del cliente — Customer Journey</h2>
+  <div class="callout">
+    <strong>Nota de honestidad:</strong> el journey está construido a partir de proceso operativo, hallazgos del Deep Research, audit del prototipo y benchmarks. <strong>No está validado con clientes reales de GP Autolease.</strong> Su validación formal es output explícito de la Etapa 1 Piloto.
+  </div>
+
+  <h3 class="sub-sub">Las siete etapas del viaje del cliente PFAE</h3>
+  <table style="font-size: 8.5pt;">
+    <thead><tr><th>Etapa</th><th>Momento de la verdad</th></tr></thead>
+    <tbody>
+      <tr><td><strong>1 · Detonante</strong> (15-45 días antes)</td><td>Entiende que arrendamiento permite deducir + acreditar IVA</td></tr>
+      <tr><td><strong>2 · Investigación</strong> (10-20 días)</td><td>Encuentra sitio que muestra matemática fiscal real, no promesas vagas</td></tr>
+      <tr><td><strong>3 · Cotización</strong> (1-3 días)</td><td>Mensualidad razonable, deducción coherente, plazos que le funcionan</td></tr>
+      <tr><td><strong>4 · Solicitud formal</strong> (3-5 días)</td><td>Hand-off del sitio a Moffin se siente como continuación natural</td></tr>
+      <tr><td><strong>5 · Aprobación y contratación</strong> (3-7 días)</td><td>Aprobación dentro del SLA de 48 horas comprometido</td></tr>
+      <tr><td><strong>6 · Entrega y uso</strong> (contrato completo)</td><td>Primer mantenimiento programado fluido en agencia del grupo</td></tr>
+      <tr><td><strong>7 · Cierre del contrato</strong> (90 días antes del fin)</td><td>Calidad de la propuesta de renovación</td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="sub-sub">Métricas de satisfacción a instrumentar</h3>
+  <div class="kpi-grid four">
+    <div class="kpi"><div class="label">NPS</div><div class="value" style="font-size: 13pt;">&gt;50</div><div class="unit">PMF señal positiva</div></div>
+    <div class="kpi"><div class="label">CSAT</div><div class="value" style="font-size: 13pt;">&gt;4.2/5</div><div class="unit">Post-touchpoint</div></div>
+    <div class="kpi"><div class="label">CES</div><div class="value" style="font-size: 13pt;">&gt;4.0/5</div><div class="unit">Post-fricción</div></div>
+    <div class="kpi"><div class="label">HEART</div><div class="value" style="font-size: 13pt;">Trim.</div><div class="unit">Cuadro de mando</div></div>
+  </div>
+</section>
+
+<section class="page">
+  <h2 class="sub">4.4 Adquisición de cliente y growth levers</h2>
+
+  <h3 class="sub-sub">Cómo se captura cliente hoy</h3>
+  <p>GP Autolease opera con ~200 contratos <strong>sin estrategia digital de adquisición sistemática</strong>. Esto se explica por tres mecanismos orgánicos: cross-sell con agencias del grupo (parcial, sin protocolo formal), referidos profesionales (alto, no medido), búsqueda orgánica y walk-in (menor, sin instrumentación).</p>
+
+  <h3 class="sub-sub">Mix recomendado de canales — PFAE vs PM</h3>
+  <table>
+    <thead><tr><th>Tipo de canal</th><th>PFAE</th><th>PM</th></tr></thead>
+    <tbody>
+      <tr><td><strong>On-line con atribución</strong></td><td>85%</td><td>60%</td></tr>
+      <tr><td><strong>Off-line con atribución dura</strong></td><td>15%</td><td>40% (relacional)</td></tr>
+      <tr><td><strong>Off-line sin atribución</strong></td><td>Excluido</td><td>Excluido</td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="sub-sub">Siete palancas de crecimiento priorizadas</h3>
+  <table style="font-size: 8.5pt;">
+    <thead><tr><th>#</th><th>Growth lever</th><th>Costo</th><th>Velocidad</th><th>Defensibilidad</th><th>Prioridad</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td><strong>Cross-sell con agencias del grupo</strong></td><td>Bajo</td><td>Media</td><td>Alta</td><td><span class="pill green">Máxima</span></td></tr>
+      <tr><td>2</td><td><strong>Referidos PFAE-contador formalizados</strong></td><td>Bajo</td><td>Baja</td><td>Alta</td><td><span class="pill green">Máxima</span></td></tr>
+      <tr><td>3</td><td><strong>Partnerships con contadores</strong></td><td>Bajo-medio</td><td>Media</td><td>Alta</td><td><span class="pill green">Máxima</span></td></tr>
+      <tr><td>4</td><td>Paid digital Meta + LinkedIn</td><td>Medio-alto</td><td>Alta</td><td>Baja</td><td><span class="pill lime">Alta</span></td></tr>
+      <tr><td>5</td><td>SEO + contenido fiscal técnico</td><td>Medio</td><td>Baja</td><td>Alta</td><td><span class="pill lime">Alta</span></td></tr>
+      <tr><td>6</td><td><strong>Retention con campaña de renovación</strong></td><td>Bajo</td><td>Continuo</td><td>Muy alta</td><td><span class="pill green">Máxima</span></td></tr>
+      <tr><td>7</td><td><strong>Bundles fiscales verticales</strong></td><td>Medio</td><td>Media</td><td>Alta</td><td><span class="pill green">Máxima</span></td></tr>
+    </tbody>
+  </table>
+
+  <h2 class="sub">4.5 Métricas — Sistema de 5 niveles</h2>
+
+  <div class="governing-thought" style="font-size: 12pt;">
+    <strong>North Star Metric:</strong> Contratos activos × Tasa de renovación, manteniendo IMOR menor a 3.5%.
+  </div>
+  <p style="font-size: 9.5pt;">Combina volumen + lealtad + calidad. El equipo focalizado solo en volumen infla cartera con clientes que se vuelven morosos. El equipo focalizado solo en calidad restringe demasiado y no crece. La combinación obliga a equilibrio.</p>
+
+  <h3 class="sub-sub">Los 5 niveles del sistema de medición</h3>
+  <table style="font-size: 8.5pt;">
+    <thead><tr><th>Nivel</th><th>Métrica</th><th>Propósito</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>North Star Metric</td><td>Anclaje ejecutivo único — lo que mueve todo el equipo</td></tr>
+      <tr><td>2</td><td>OKRs trimestrales</td><td>Cadencia ejecutiva de acción</td></tr>
+      <tr><td>3</td><td>OMTM por etapa</td><td>Foco operativo cambiante</td></tr>
+      <tr><td>4</td><td>Funnel AAARRR</td><td>Mapa de adquisición y retención</td></tr>
+      <tr><td>5</td><td>NPS / CSAT / CES / HEART</td><td>Indicadores de calidad de servicio</td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="sub-sub">OMTM por etapa</h3>
+  <table style="font-size: 8.5pt;">
+    <tbody>
+      <tr><td><strong>Etapa 0 — Habilitadores</strong></td><td>Tiempo lead-a-entrega medido en días</td></tr>
+      <tr><td><strong>Etapa 1 — Piloto</strong></td><td>Sean Ellis del cohorte + tasa de renovación</td></tr>
+      <tr><td><strong>Etapa 2 — GTM formal</strong></td><td>Ratio LTV/CAC por canal</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="page">
+  <h2 class="sub">4.6 La mesa de control — Pieza central de la operación</h2>
+
+  <div class="callout lime">
+    <strong>Unidad operativa centralizada de 2 a 3 personas dedicadas full-time</strong> cuya única misión es coordinar el flujo end-to-end del cliente, monitorear cada solicitud activa, intervenir cuando algo se atasca y mantener el SLA público comprometido. <strong>No es equipo comercial adicional, no es soporte tradicional, no es mesa de cobranza. Es el sistema nervioso central de la operación.</strong>
+  </div>
+
+  <h3 class="sub-sub">Las siete funciones de la mesa de control</h3>
+  <ol style="font-size: 9.5pt;">
+    <li><strong>Recepción y validación inicial de leads.</strong> Cada lead pasa por la mesa antes de ir al asesor. Valida que sea target, captura información mínima, asigna asesor.</li>
+    <li><strong>Pre-filtrado antes del hand-off a Moffin.</strong> Reduce costo de scoring en solicitudes sin viabilidad razonable.</li>
+    <li><strong>Monitoreo de cada solicitud con SLA explícito.</strong> Si una solicitud lleva &gt;24h sin avance, la mesa interviene.</li>
+    <li><strong>Comité humano de revisión de rechazos automatizados.</strong> Requisito LFPDPPP 2025 — no opcional.</li>
+    <li><strong>Tracking del ciclo lead-a-entrega.</strong> Reporte semanal de desviaciones de SLA.</li>
+    <li><strong>Atención post-entrega.</strong> Encuesta NPS, validación de seguro y GPS, programación de primer mantenimiento.</li>
+    <li><strong>Campaña de renovación 90 días antes del cierre.</strong> Motor de la métrica de tasa de renovación.</li>
+  </ol>
+
+  <div class="callout red">
+    <strong>Por qué es habilitador no-negociable de Etapa 0:</strong> sin mesa de control, escalar volumen rompe el SLA antes de que el equipo lo sepa. La pieza no puede construirse después de saturar la operación. <strong>Si se decide no construirla, el resto del Foundational pierde sustento.</strong>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!--                §5 — EL ROADMAP                               -->
+<!-- ============================================================ -->
+<section class="page">
+  <h1 class="section-title"><span class="num">§5 · El Roadmap</span>Tres etapas operativas con gates explícitos</h1>
+
+  <p>El roadmap tiene <strong>tres etapas secuenciales con gates de decisión entre cada una</strong>, y <strong>cuatro carriles que avanzan en paralelo dentro de cada etapa</strong>: producto, experiencia del cliente, canales, operación interna. Ningún carril avanza a la siguiente etapa hasta que cierra los compromisos de la actual.</p>
+
+  <div class="stage-card stage-0">
+    <div class="stage-label">Etapa 0 · Meses 1 a 6</div>
+    <div class="stage-title">Habilitadores</div>
+    <div class="stage-purpose">Construir la cancha operativa antes de buscar volumen incremental.</div>
+
+    <h4 class="label">Qué hacemos</h4>
+    <ol style="font-size: 9pt;">
+      <li>Constituir la <strong>mesa de control</strong> con 2-3 personas dedicadas.</li>
+      <li>Iterar el <strong>prototipo digital</strong> corrigiendo los 7 hallazgos críticos del audit.</li>
+      <li>Cerrar <strong>compliance legal</strong> (Avisos ID a UMA, Aviso de Privacidad, contrato).</li>
+      <li>Instrumentar <strong>métricas end-to-end</strong> (GA4 + dashboard + NPS/CSAT/CES).</li>
+      <li>Formalizar el <strong>bundle real visible</strong> al cliente.</li>
+    </ol>
+
+    <h4 class="label">Inversión estimada</h4>
+    <p style="font-size: 9pt;"><strong>1.6 a 2.5 millones de pesos en 6 meses.</strong></p>
+
+    <h4 class="label">Lo que NO se hace</h4>
+    <p style="font-size: 9pt;">Cero paid digital. Cero expansión geográfica. Cero modificación del producto canónico. Cero comunicación masiva al mercado.</p>
+  </div>
+
+  <div class="stage-card stage-1">
+    <div class="stage-label">Etapa 1 · Meses 4 a 12 (traslapado)</div>
+    <div class="stage-title">Piloto de mercado controlado</div>
+    <div class="stage-purpose">Validar Product-Market Fit con volumen acotado, en verticales seleccionados, con métricas semanales y entrevistas cualitativas.</div>
+
+    <h4 class="label">Qué hacemos</h4>
+    <ol style="font-size: 9pt;">
+      <li>Seleccionar <strong>2-3 verticales prioritarios</strong> × <strong>2-3 ciudades</strong> de las 6 de cancha.</li>
+      <li>Activar <strong>paid digital controlado</strong> ($150-300k por trimestre).</li>
+      <li>Iniciar <strong>partnerships con contadores</strong> en plazas del piloto.</li>
+      <li>Aplicar <strong>sistema de medición de PMF</strong> (Sean Ellis + entrevistas + renovación).</li>
+      <li>Operar el <strong>comité de gate Etapa 1 → Etapa 2</strong> al cierre del mes 12.</li>
+    </ol>
+
+    <h4 class="label">Inversión estimada</h4>
+    <p style="font-size: 9pt;"><strong>750 mil a 1.5 millones de pesos en 6-9 meses.</strong> Proporcional a evidencia.</p>
+
+    <h4 class="label">Dos rutas al final del gate</h4>
+    <p style="font-size: 9pt;"><strong>Si PMF se valida:</strong> Etapa 2. <strong>Si no se valida:</strong> ajustar tesis y ejecutar segundo cohorte. Costo de iterar piloto es órdenes de magnitud menor que escalar sin PMF.</p>
+  </div>
+
+  <div class="stage-card stage-2">
+    <div class="stage-label">Etapa 2 · Meses 13 a 24+</div>
+    <div class="stage-title">Go-to-Market formal</div>
+    <div class="stage-purpose">Escalar lo que el piloto demostró que funciona. Solo se ejecuta con PMF validado.</div>
+
+    <h4 class="label">Qué hacemos</h4>
+    <ol style="font-size: 9pt;">
+      <li>Escalar <strong>paid digital</strong> en verticales y ciudades validadas ($1.5-3M/año).</li>
+      <li>Expandir gradualmente a las 6 ciudades del grupo.</li>
+      <li>Activar <strong>SEO + contenido fiscal técnico</strong> (horizonte 12+ meses).</li>
+      <li>Comunicar formalmente los <strong>bundles fiscales verticales</strong>.</li>
+      <li>Expandir mesa de control (de 3 a 5 personas si el volumen lo requiere).</li>
+    </ol>
+
+    <h4 class="label">Inversión estimada</h4>
+    <p style="font-size: 9pt;"><strong>2.3 a 4.3 millones de pesos al año.</strong> Escalada con evidencia.</p>
+
+    <h4 class="label">Meta al mes 24</h4>
+    <p style="font-size: 9pt;">Cartera <strong>$230-330M</strong> · <strong>500-700 contratos</strong> · IMOR &lt;3.5% · Renovación &gt;40% · NPS &gt;50.</p>
+  </div>
+</section>
+
+<section class="page">
+  <h2 class="sub">5.4 Los gates de decisión entre etapas</h2>
+
+  <h3 class="sub-sub">Gate A · Cierre Etapa 0 → Inicio Etapa 1 (mes 6)</h3>
+  <p style="font-size: 9.5pt;">Mesa de control operando con métricas reportadas. Prototipo iterado en producción. Avisos ID actualizados firmados. Aviso de Privacidad publicado. Métricas instrumentadas y reportándose semanalmente. <strong>Si los criterios no se cumplen, se extiende Etapa 0.</strong></p>
+
+  <h3 class="sub-sub">Gate B · Cierre Etapa 1 → Inicio Etapa 2 (mes 12) <span class="pill red">decisión crítica</span></h3>
+  <table style="font-size: 8.5pt;">
+    <thead><tr><th>Criterio</th><th>Umbral</th></tr></thead>
+    <tbody>
+      <tr><td>Encuesta Sean Ellis al cohorte</td><td>≥40% "muy decepcionado"</td></tr>
+      <tr><td>NPS sostenido</td><td>&gt;50 durante 3 meses</td></tr>
+      <tr><td>Tasa de renovación</td><td>&gt;40%</td></tr>
+      <tr><td>Pilares confirmados en entrevistas</td><td>≥3 de los 4 pilares decisivos</td></tr>
+      <tr><td>IMOR sostenido</td><td>&lt;3.5% durante piloto</td></tr>
+      <tr><td>Ratio LTV/CAC</td><td>&gt;3x</td></tr>
+    </tbody>
+  </table>
+  <div class="callout">
+    <strong>La decisión del Gate B es la más importante del proyecto.</strong> Es donde el plan responde a la pregunta de si esto va a funcionar. Esa pregunta no se decide con opinión — se decide con la evidencia documentada del piloto.
+  </div>
+
+  <h3 class="sub-sub">Gate C · Cierre Etapa 2 → Etapa 3 (mes 24+)</h3>
+  <p style="font-size: 9.5pt;">Fuera del scope formal del Foundational. Esbozo: con cartera $230-330M, IMOR sostenido, renovación &gt;40%, se evalúan tres decisiones de largo plazo: (1) expansión geográfica más allá de las 6 ciudades, (2) decisión sobre Moffin (coexistir / sustituir parcial / sustituir total), (3) expansión vertical a EcoLeasing (EV/HEV).</p>
+
+  <h2 class="sub">5.5 Cómo se valida PMF en cada etapa</h2>
+  <table>
+    <thead><tr><th>Etapa</th><th>Qué aporta a la validación de PMF</th></tr></thead>
+    <tbody>
+      <tr><td>Etapa 0 — Habilitadores</td><td>Instrumentación que permitirá medir PMF en Etapa 1.</td></tr>
+      <tr><td>Etapa 1 — Piloto controlado</td><td>Validación cuantitativa (Sean Ellis, NPS, renovación) + cualitativa (entrevistas). Gate de PMF formal.</td></tr>
+      <tr><td>Etapa 2 — GTM formal</td><td>Confirmación de que el PMF detectado escala a mayor volumen sin perder calidad.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout red">
+    <strong>El error de método más común</strong> es declarar PMF en Etapa 0 (basado en señales orgánicas pre-existentes) y saltar a Etapa 2 sin validación formal. Ese atajo produce los re-trabajos del 30-50%. La disciplina del piloto controlado es el mecanismo para evitar ese error.
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!--                §6 — CASO FINANCIERO                          -->
+<!-- ============================================================ -->
+<section class="page">
+  <h1 class="section-title"><span class="num">§6 · El Caso Financiero</span>Por qué económicamente conviene actuar</h1>
+
+  <h2 class="sub">6.1 Baseline actual confirmado</h2>
+  <div class="kpi-grid four">
+    <div class="kpi">
+      <div class="label">Contratos</div>
+      <div class="value">~200</div>
+      <div class="unit">activos en cartera</div>
+    </div>
+    <div class="kpi">
+      <div class="label">Cartera Total</div>
+      <div class="value">$142<span style="font-size: 11pt;">M</span></div>
+      <div class="unit">capacidad reportada</div>
+    </div>
+    <div class="kpi">
+      <div class="label">Cartera Colocada</div>
+      <div class="value">$85<span style="font-size: 11pt;">M</span></div>
+      <div class="unit">activamente colocada</div>
+    </div>
+    <div class="kpi">
+      <div class="label">AOV</div>
+      <div class="value">$600<span style="font-size: 11pt;">k</span></div>
+      <div class="unit">por contrato</div>
+    </div>
+  </div>
+
+  <h2 class="sub">6.2 El killer metric</h2>
+  <div class="governing-thought">
+    Un contrato firmado en GP Autolease genera un valor por transacción <strong>36% mayor que una venta tradicional</strong> de auto en una agencia del grupo Plasencia.
+  </div>
+  <p>AOV GP Autolease $600,000 vs AOV venta tradicional $440,000. Esta cifra no es opinión, es comparación directa. Implicaciones:</p>
+  <ol>
+    <li>El cliente que arrienda con GP Autolease es <strong>estructuralmente distinto</strong> al que compra. Tiene ingreso mayor, ticket más alto, sofisticación fiscal.</li>
+    <li>La línea ya está capturando un cliente de mayor valor que la operación tradicional, <strong>sin marketing dedicado</strong>.</li>
+    <li>Cada contrato adicional vale 36% más que un cliente del canal tradicional. Si la línea triplica su volumen, genera valor equivalente a <strong>816 ventas tradicionales</strong>.</li>
+    <li>Si la línea creciera al ritmo demostrado por <strong>Afirme en 2024 (+60.79% YoY)</strong>, llegaría a $137M en 12 meses solo de crecimiento orgánico bien dirigido.</li>
+  </ol>
+
+  <h2 class="sub">6.3 Inversión requerida por etapa</h2>
+  <table>
+    <thead><tr><th>Periodo</th><th>Inversión estimada</th><th>Naturaleza</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Etapa 0 — Habilitadores</strong> (meses 1-6)</td><td>$1.6 a $2.5M</td><td>Construcción de cancha + plantilla mesa de control</td></tr>
+      <tr><td><strong>Etapa 1 — Piloto controlado</strong> (meses 4-12)</td><td>$750k a $1.5M</td><td>Marketing controlado + partnerships + research</td></tr>
+      <tr><td><strong>Etapa 2 — GTM formal</strong> (meses 13-24+)</td><td>$2.3 a $4.3M / año</td><td>Marketing escalado + expansión mesa</td></tr>
+      <tr><td colspan="2"><strong>Total bienio</strong></td><td><strong>$5.2 a $9.2 millones de pesos</strong></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="page">
+  <h2 class="sub">6.4 La trayectoria proyectada — milestones, no escenarios</h2>
+
+  <div class="stage-card stage-0">
+    <div class="stage-label">Mile 1 · Mes 6</div>
+    <div class="stage-title">Cancha lista</div>
+    <p style="font-size: 9pt;">Mesa de control operando. Sitio rediseñado con claims corregidos. Compliance cerrado. Métricas instrumentadas. Bundle visible.</p>
+    <p style="font-size: 9pt;"><strong>Inversión acumulada:</strong> $1.6-2.5M</p>
+  </div>
+
+  <div class="stage-card stage-1">
+    <div class="stage-label">Mile 2 · Mes 12</div>
+    <div class="stage-title">Piloto validado</div>
+    <p style="font-size: 9pt;">25-40 contratos del cohorte. Sean Ellis aplicado. 10 entrevistas cualitativas sintetizadas. CAC por vertical cuantificado. <strong>Decisión binaria gate Etapa 1 → 2 documentada.</strong></p>
+    <p style="font-size: 9pt;"><strong>Cartera proyectada:</strong> ~230-250 contratos · ~$100-110M colocados. <strong>Inversión acumulada:</strong> $2.2-3.7M</p>
+  </div>
+
+  <div class="stage-card stage-2">
+    <div class="stage-label">Mile 3 · Mes 24</div>
+    <div class="stage-title">Posición competitiva regional</div>
+    <p style="font-size: 9pt;">Expansión geográfica progresiva en las 6 ciudades. Growth levers activados. Posicionamiento reconocido en el segmento target.</p>
+    <p style="font-size: 9pt;"><strong>Cartera proyectada:</strong> 500-700 contratos · <strong>$230-330M colocados</strong> (2.7x-3.9x baseline) · IMOR &lt;3.5% · Renovación &gt;40% · NPS &gt;50</p>
+  </div>
+
+  <h2 class="sub">6.5 El costo de no actuar</h2>
+  <table style="font-size: 8.5pt;">
+    <thead><tr><th>Costo</th><th>Cuantificación</th></tr></thead>
+    <tbody>
+      <tr><td>Re-trabajo en escalamiento prematuro</td><td>30-50% sobre inversiones sin Foundational</td></tr>
+      <tr><td>Exposición legal por claims fiscales</td><td>Acumulable mientras el sitio no se corrija</td></tr>
+      <tr><td>Saturación operativa sin mesa de control</td><td>~20% de leads adicionales perdidos por desatención</td></tr>
+      <tr><td>Costo de oportunidad vs TIP / Afirme</td><td>Cada mes sin posicionamiento es mes ganado por la competencia</td></tr>
+      <tr><td>Ventana Mundial 2026 + nearshoring</td><td>Hasta 30% de crecimiento proyectado para 2026</td></tr>
+    </tbody>
+  </table>
+  <p><strong>El costo de no actuar, sumado conservadoramente, equivale a la mitad o más de la inversión total del plan.</strong> No hacer nada cuesta tanto como hacerlo, sin obtener el upside.</p>
+
+  <h2 class="sub">6.6 La pregunta financiera que el documento contesta</h2>
+  <div class="callout lime">
+    <p>Si la Dirección General preguntara <em>"¿Por qué debería invertir entre 5 y 9 millones de pesos en estructurar y escalar GP Autolease en los próximos 24 meses?"</em>, el caso responde con tres argumentos cruzados:</p>
+    <ol>
+      <li><strong>La línea ya captura un cliente premium</strong> (AOV +36%). No estamos creando demanda, estamos formalizando captura.</li>
+      <li><strong>El crecimiento proyectado es matemáticamente conservador.</strong> Un par regional (Afirme) creció 60% en un año tras relanzamiento. Proyectamos 2.7x-3.9x cartera colocada en 24 meses.</li>
+      <li><strong>El costo de no actuar es aproximadamente equivalente al costo de actuar.</strong> Hacer el plan no es gasto adicional — es <strong>redirigir gasto que de cualquier modo se va a hacer</strong> hacia donde sí produce retorno.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!--                §7 — EL ASK                                   -->
+<!-- ============================================================ -->
+<section class="page">
+  <h1 class="section-title"><span class="num">§7 · El Ask</span>Las decisiones que se necesitan</h1>
+
+  <p>Esta sección presenta las decisiones que se requieren para que la estrategia se ejecute. Cada decisión está formulada como pregunta binaria, con timeline explícito, costo cuantificado, y consecuencias claras.</p>
+
+  <div class="callout">
+    <strong>Importante:</strong> este documento no pide al Director General autorizar el presupuesto operativo exacto trimestre a trimestre. Pide autorización conceptual del plan estratégico y del modelo de tres etapas con gates de decisión.
+  </div>
+
+  <div class="ask-card">
+    <div class="ask-num">Decisión 1</div>
+    <div class="ask-q">¿Se autoriza construir la cancha operativa de GP Autolease durante los próximos seis meses (Etapa 0 Habilitadores), antes de buscar volumen incremental de marketing?</div>
+    <p style="font-size: 9pt;"><strong>Qué incluye:</strong> mesa de control con 2-3 personas dedicadas · iteración del prototipo digital · compliance legal · instrumentación de métricas · formalización del bundle real.</p>
+    <p style="font-size: 9pt;"><strong>Si la respuesta es SÍ:</strong> la línea construye la cancha que le permite escalar sin romper SLA. El equipo comercial sigue operando sin interrupción durante los 6 meses.</p>
+    <p style="font-size: 9pt;"><strong>Si la respuesta es NO:</strong> cualquier intento posterior de escalar genera re-trabajo del 30-50%. La línea mantiene exposición a observaciones por claims fiscales contradictorios con LISR.</p>
+    <div class="ask-meta">
+      <div><div class="label">Costo</div><strong>$1.6 - 2.5M en 6 meses</strong></div>
+      <div><div class="label">Timeline</div>Dos semanas</div>
+      <div><div class="label">Quién decide</div>Nicolás Plasencia</div>
+    </div>
+  </div>
+
+  <div class="ask-card">
+    <div class="ask-num">Decisión 2</div>
+    <div class="ask-q">¿Se autoriza, en paralelo a los habilitadores, el diseño y ejecución del Piloto controlado en 2-3 verticales × 2-3 ciudades (meses 4-12) para validar PMF con métricas y entrevistas formales?</div>
+    <p style="font-size: 9pt;"><strong>Qué incluye:</strong> selección de verticales y ciudades · paid digital controlado · partnerships con contadores locales · aplicación del sistema de medición PMF · comité de gate al cierre del mes 12.</p>
+    <p style="font-size: 9pt;"><strong>Si la respuesta es SÍ:</strong> al mes 12, GP Autolease tiene evidencia empírica sobre si los 4 pilares resuenan con el cliente real, qué CAC opera por vertical, qué tasa de conversión tiene el funnel.</p>
+    <p style="font-size: 9pt;"><strong>Si la respuesta es NO:</strong> la línea construye habilitadores pero no genera ningún dato nuevo sobre el cliente. Toda decisión posterior se tomaría con la información actual.</p>
+    <div class="ask-meta">
+      <div><div class="label">Costo</div><strong>$750k - 1.5M en 6-9 meses</strong></div>
+      <div><div class="label">Timeline</div>Dos semanas</div>
+      <div><div class="label">Quién decide</div>Nicolás + consulta Sergio</div>
+    </div>
+  </div>
+</section>
+
+<section class="page">
+  <div class="ask-card conditional">
+    <div class="ask-num">Decisión 3 · Condicional</div>
+    <div class="ask-q">¿Se acuerda formalmente que la decisión de avanzar a Etapa 2 ($2.3-4.3M/año) no se aprueba en este documento, sino que queda condicionada a los resultados documentados del Piloto al cierre del mes 12?</div>
+    <p style="font-size: 9pt;"><strong>Qué incluye:</strong> acuerdo explícito de que el gate del mes 12 es decisión binaria con criterios cuantificables · acuerdo de que si no se cumplen, no se avanza automáticamente · canalización de cualquier presión por "salir asap" hacia el piloto, no hacia paid masivo.</p>
+    <p style="font-size: 9pt;"><strong>Si la respuesta es SÍ:</strong> la línea opera con disciplina de validación. La inversión más grande del plan (Etapa 2) se ejecuta solo con evidencia. Riesgo estructural mitigado.</p>
+    <p style="font-size: 9pt;"><strong>Si la respuesta es NO:</strong> el plan sigue siendo ejecutable pero pierde su mecanismo de control de riesgo más importante. Aumenta probabilidad de re-trabajo del 30-50%.</p>
+    <div class="ask-meta">
+      <div><div class="label">Costo</div><strong>$0 (decisión de método)</strong></div>
+      <div><div class="label">Timeline</div>Dos semanas</div>
+      <div><div class="label">Quién decide</div>Nicolás Plasencia</div>
+    </div>
+  </div>
+
+  <div class="ask-card immediate">
+    <div class="ask-num">Decisión 4 · Inmediata</div>
+    <div class="ask-q">¿Se autoriza la corrección inmediata, dentro de los próximos 30 días, de los claims fiscales actualmente publicados en gpautolease.com que contradicen la LISR Art. 28 fr. XIII?</div>
+    <p style="font-size: 9pt;"><strong>Qué incluye:</strong> reescritura de "Deduce el 100%, cero tope" sustituyéndolo por la fórmula honesta · corrección de la calculadora comparativa con tope LISR aplicado. Es la única acción del plan que toca el prototipo antes de Etapa 0.</p>
+    <p style="font-size: 9pt;"><strong>Si la respuesta es SÍ:</strong> en 30 días, el sitio deja de exponerse a observaciones del SAT y de perder PFAE que detectan la inexactitud con su contador.</p>
+    <p style="font-size: 9pt;"><strong>Si la respuesta es NO:</strong> cada día adicional con los claims actuales es día adicional de exposición legal y fuga silenciosa de PFAE atentos.</p>
+    <div class="ask-meta">
+      <div><div class="label">Costo</div><strong>$30k - 60k</strong></div>
+      <div><div class="label">Timeline</div><strong>Inmediata (30 días)</strong></div>
+      <div><div class="label">Quién decide</div>Nicolás o Sergio</div>
+    </div>
+  </div>
+
+  <h2 class="sub">Tabla resumen del Ask</h2>
+  <table style="font-size: 8.5pt;">
+    <thead><tr><th>#</th><th>Decisión</th><th>Costo</th><th>Timeline</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Aprobar Etapa 0 Habilitadores</td><td>$1.6-2.5M / 6m</td><td>2 semanas</td></tr>
+      <tr><td>2</td><td>Aprobar diseño del Piloto Etapa 1</td><td>$750k-1.5M / 6-9m</td><td>2 semanas</td></tr>
+      <tr><td>3</td><td>Gate condicional Etapa 1 → 2</td><td>$0 método</td><td>2 semanas</td></tr>
+      <tr><td>4</td><td>Corrección de claims fiscales</td><td>$30-60k</td><td><strong>Inmediata</strong></td></tr>
+      <tr><td colspan="2"><strong>Compromiso total autorizado primeros 12 meses</strong></td><td colspan="2"><strong>$2.4 - 4.1 millones de pesos</strong></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="page">
+  <h2 class="sub">Qué pasa en los próximos 30 días si se aprueba todo hoy</h2>
+
+  <div class="stage-card stage-0">
+    <div class="stage-label">Semana 1</div>
+    <ul style="font-size: 9pt;">
+      <li>Comunicación interna al equipo de la línea de las decisiones aprobadas.</li>
+      <li>Inicio del proceso de reclutamiento de la mesa de control (2-3 personas).</li>
+      <li>Brief a asesoría jurídica del grupo para Avisos ID + Aviso de Privacidad + revisión contrato.</li>
+      <li>Brief al equipo digital para corrección inmediata de claims fiscales.</li>
+    </ul>
+  </div>
+
+  <div class="stage-card stage-0">
+    <div class="stage-label">Semana 2</div>
+    <ul style="font-size: 9pt;">
+      <li>Corrección de los claims fiscales del sitio en producción.</li>
+      <li>Diseño del documento operativo de la mesa de control.</li>
+      <li>Reuniones de coordinación con área de crédito y con Moffin.</li>
+    </ul>
+  </div>
+
+  <div class="stage-card stage-0">
+    <div class="stage-label">Semana 3</div>
+    <ul style="font-size: 9pt;">
+      <li>Inicio formal de iteración del prototipo digital.</li>
+      <li>Selección preliminar de los 2-3 verticales y 2-3 ciudades del Piloto.</li>
+      <li>Brief al equipo de analítica para arquitectura de instrumentación.</li>
+    </ul>
+  </div>
+
+  <div class="stage-card stage-0">
+    <div class="stage-label">Semana 4</div>
+    <ul style="font-size: 9pt;">
+      <li>Mesa de control con dotación inicial — onboarding ejecutado.</li>
+      <li>Avisos ID con texto actualizado revisados con jurídico.</li>
+      <li>Primer reporte semanal de métricas baseline al equipo.</li>
+    </ul>
+  </div>
+
+  <p>A partir del mes 2 ya se opera con la cancha en construcción. En el mes 4 se inicia el Piloto controlado en paralelo. <strong>En el mes 12 se llega al gate de decisión Etapa 1 → Etapa 2 con evidencia documentada.</strong></p>
+
+  <div class="signature-block">
+    <p><strong>Fin del documento.</strong></p>
+    <p>Esta Definición Estratégica es la fuente única de verdad de la línea GP Autolease. De ella se derivan presentaciones, planes tácticos, decisiones de inversión y comunicaciones. No se debate sobre lo que dice este documento sin actualizarlo.</p>
+    <p style="margin-top: 8mm;">
+      <strong>Versión:</strong> v0.9 · 2026-05-18 · Markdown source en <code>grupo-plasencia-docs/01-strategy/Autolease-Definicion-Estrategica-Linea-Negocio.md</code>
+    </p>
+    <p>
+      <strong>Próximo paso:</strong> validación interna por Dirección de Marketing → presentación a stakeholders en Fase 3 del proyecto → ratificación de la tesis → ejecución de Etapa 0.
+    </p>
+  </div>
+</section>
+
+</body>
+</html>
