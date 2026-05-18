@@ -95,8 +95,8 @@
     page: cover;
   }
   .cover-inner {
-    padding: 36mm 22mm 24mm 22mm;
-    min-height: 297mm;
+    padding: 22mm 22mm 18mm 22mm;
+    height: 297mm;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -105,24 +105,25 @@
       radial-gradient(ellipse at 0% 100%, rgba(45, 101, 72, 0.22) 0%, transparent 55%),
       var(--gp-navy);
     position: relative;
+    overflow: hidden;
   }
   .cover-eyebrow {
     font-family: var(--sans);
-    font-size: 9pt;
+    font-size: 8.5pt;
     font-weight: 600;
     letter-spacing: 0.25em;
     text-transform: uppercase;
     color: var(--aut-lime);
-    margin-bottom: 20mm;
+    margin-bottom: 10mm;
   }
   .cover-title {
     font-family: var(--display);
-    font-size: 36pt;
+    font-size: 30pt;
     font-weight: 800;
-    line-height: 1.08;
+    line-height: 1.1;
     letter-spacing: -0.02em;
     color: var(--near-white);
-    margin-bottom: 8mm;
+    margin-bottom: 6mm;
     text-transform: none;
   }
   .cover-title em {
@@ -130,13 +131,16 @@
     color: var(--aut-lime);
     font-weight: 800;
     display: block;
+    font-size: 26pt;
+    margin-top: 2mm;
   }
   .cover-logos {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    margin-bottom: 24mm;
-    padding-bottom: 6mm;
+    justify-content: flex-start;
+    gap: 14mm;
+    margin-bottom: 14mm;
+    padding-bottom: 5mm;
     border-bottom: 1px solid rgba(255,255,255,0.12);
   }
   .cover-logos .logo-block {
@@ -145,64 +149,67 @@
     gap: 2mm;
   }
   .cover-logos .logo-label {
-    font-size: 7.5pt;
+    font-size: 7pt;
     font-weight: 700;
     letter-spacing: 0.18em;
     text-transform: uppercase;
     color: rgba(247,250,252,0.55);
   }
   .cover-logos img {
-    height: 14mm;
-    mix-blend-mode: screen;
+    height: 11mm;
+    width: auto;
+    filter: brightness(0) invert(1);
     opacity: 0.95;
   }
   .cover-logos .arrow-sep {
-    font-size: 11pt;
+    font-size: 10pt;
     color: var(--aut-lime);
     font-weight: 700;
     letter-spacing: 0.15em;
+    align-self: center;
   }
   .cover-sub {
     font-family: var(--sans);
-    font-size: 13pt;
+    font-size: 11pt;
     font-weight: 400;
     line-height: 1.5;
     color: #CBD5E0;
-    max-width: 140mm;
-    margin-bottom: 12mm;
+    max-width: 145mm;
+    margin-bottom: 8mm;
   }
   .cover-meta-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10mm;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 8mm;
     margin-top: auto;
-    padding-top: 30mm;
+    padding-top: 6mm;
   }
   .cover-meta-block {
     border-top: 1px solid rgba(142, 191, 36, 0.4);
-    padding-top: 4mm;
+    padding-top: 3mm;
   }
   .cover-meta-label {
-    font-size: 8pt;
+    font-size: 7.5pt;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.15em;
     color: var(--aut-lime);
-    margin-bottom: 2mm;
+    margin-bottom: 1.5mm;
   }
   .cover-meta-value {
-    font-size: 10pt;
+    font-size: 8.5pt;
     color: var(--near-white);
-    line-height: 1.4;
+    line-height: 1.45;
   }
+  .cover-meta-value strong { color: var(--near-white); }
   .cover-footer {
     border-top: 1px solid rgba(255,255,255,0.15);
-    padding-top: 4mm;
-    margin-top: 14mm;
+    padding-top: 3mm;
+    margin-top: 6mm;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 8pt;
+    font-size: 7.5pt;
     color: #A0AEC0;
   }
   .cover-footer .brand {
@@ -284,11 +291,11 @@
   .answer-first {
     background: linear-gradient(135deg, #F9FAFB 0%, #F0F4F8 100%);
     border-left: 4px solid var(--aut-lime);
-    padding: 7mm 8mm;
-    margin: 6mm 0;
+    padding: 5mm 7mm;
+    margin: 4mm 0;
     border-radius: 0 3mm 3mm 0;
   }
-  .answer-first p { margin-bottom: 2.5mm; font-size: 10pt; line-height: 1.55; }
+  .answer-first p { margin-bottom: 2mm; font-size: 9.5pt; line-height: 1.5; }
   .answer-first p strong { color: var(--aut-green); }
   .answer-first p:last-child { margin-bottom: 0; }
 
@@ -388,25 +395,26 @@
     background: var(--near-white);
     border: 1px solid var(--g200);
     border-left: 3px solid var(--aut-lime);
-    padding: 4mm;
+    padding: 3.5mm 4mm;
     border-radius: 1.5mm;
   }
   .kpi .label {
-    font-size: 7.5pt;
-    font-weight: 600;
+    font-size: 7pt;
+    font-weight: 700;
     color: var(--g500);
     text-transform: uppercase;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.1em;
     margin-bottom: 1mm;
   }
   .kpi .value {
     font-family: var(--display);
-    font-size: 18pt;
+    font-size: 16pt;
     font-weight: 800;
     color: var(--aut-green);
-    line-height: 1.1;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
   }
-  .kpi .unit { font-size: 9pt; color: var(--g500); font-weight: 600; margin-top: 1mm; }
+  .kpi .unit { font-size: 8pt; color: var(--g500); font-weight: 500; margin-top: 1mm; line-height: 1.3; }
 
   .stage-card {
     background: var(--near-white);
@@ -753,11 +761,11 @@
     <li>Aprobar Etapa 0 Habilitadores.</li>
     <li>Aprobar diseño del Piloto controlado de Etapa 1.</li>
     <li>Acordar que Etapa 2 GTM formal depende explícitamente del resultado del Piloto.</li>
-    <li>Autorizar la corrección inmediata de los claims fiscales actuales del sitio público.</li>
+    <li>Acordar de método: el prototipo conceptual de la Dirección de MKT es muestra exploratoria, no compromiso de diseño; su destino se define post-Foundational.</li>
   </ol>
 
   <h4 class="label">Lo que NO se está pidiendo</h4>
-  <p style="font-size: 9.5pt;">No se pide aprobar un lanzamiento masivo de marketing. No se pide expandir la línea fuera de las seis ciudades del grupo. No se pide cambiar la naturaleza del producto. No se pide reemplazar al equipo actual de la línea. No se pide decidir un concepto rector publicitario.</p>
+  <p style="font-size: 9.5pt;">No se pide parar la operación actual (la línea sigue corriendo en <code>gpautolease.com</code> + flujos Moffin). No se pide aprobar un lanzamiento masivo de marketing. No se pide expandir la línea fuera de las seis ciudades del grupo. No se pide cambiar la naturaleza del producto. No se pide reemplazar al equipo actual de la línea. No se pide decidir un concepto rector publicitario. No se pide comprometerse a iterar el prototipo conceptual.</p>
 
   <div class="callout lime" style="margin-top: 6mm;">
     <strong>En una línea:</strong> Estructurar GP Autolease, validar PMF con disciplina de piloto controlado, y solo entonces escalar Go-to-Market formal — con inversión proporcional a evidencia, no a apuestas.
@@ -905,11 +913,11 @@
   </table>
   <p>Ningún cliente que recorra los canales tendrá certeza de cuál es la lista verdadera del producto.</p>
 
-  <h3 class="sub-sub"><span class="num-circle">2</span>Claims fiscales sin sustento legal</h3>
-  <p>El prototipo afirma públicamente <em>"Deduce el 100%, cero tope, cero límite de inversión"</em>. La LISR Art. 28 fr. XIII limita la deducción del cliente a <strong>$200 diarios</strong> (combustión) o <strong>$285 diarios</strong> (eléctrico/híbrido). Para un auto Ford de $580,000 con mensualidad de $14,428 = $474 diarios, el cliente <strong>solo deduce el 42% del pago</strong>, no el 100%. La promesa pública contradice directamente la ley vigente.</p>
+  <h3 class="sub-sub"><span class="num-circle">2</span>Sin formulación fiscal canónica, cualquier pieza tiende a sobreprometer</h3>
+  <p>Al explorar el ángulo fiscal de la línea construyendo un prototipo conceptual desde la Dirección de Marketing Corporativo (como muestra de la propuesta que podría hacérsele al cliente), aparecieron claims agresivos del tipo <em>"Deduce el 100%, cero tope, cero límite de inversión"</em>. La LISR Art. 28 fr. XIII limita la deducción del cliente a <strong>$200 diarios</strong> (combustión) o <strong>$285 diarios</strong> (eléctrico/híbrido). Para un auto de $580,000 con mensualidad de $14,428 = $474 diarios, el cliente <strong>solo deduce el 42% del pago</strong>. El prototipo conceptual no es el problema (es ejercicio exploratorio de la Dirección de MKT, no pieza operativa). El síntoma real es que <strong>la línea no tiene una formulación fiscal canónica honesta</strong>, y sin ella cualquier pieza (oficial, conceptual, presente o futura) tiende a sobreprometer. La oportunidad del Foundational es cerrar esa formulación canónica para que toda comunicación futura se construya sobre la misma base.</p>
 
-  <h3 class="sub-sub"><span class="num-circle">3</span>Prototipo digital desalineado con la oferta real</h3>
-  <p>Veinte inconsistencias documentadas entre el prototipo deployed y la oferta operativa: rangos de pago inicial que no coinciden, comisión por apertura ausente del desglose, cotizador permite a Persona Física sin actividad empresarial, calculadora comparativa devuelve "Ahorras 0 pesos vs crédito" por inconsistencia matemática.</p>
+  <h3 class="sub-sub"><span class="num-circle">3</span>Las piezas digitales de la línea reflejan interpretaciones distintas porque no hay marco que las gobierne</h3>
+  <p>Hoy coexisten al menos tres piezas digitales que tocan al cliente de Autolease: el sitio oficial <code>gpautolease.com</code> (la "carretera actual" de la línea), los formularios operativos en <code>forms.moffin.mx/gp-autolease/...</code> donde se procesa la solicitud real, y el prototipo conceptual de la Dirección de Marketing Corporativo (muestra de cómo podría ser una versión rediseñada). Cada una refleja una interpretación distinta del producto en plazos, condiciones y narrativa. Esto no es falla de ninguna pieza individual — es consecuencia natural de que <strong>no hay marco rector que las gobierne</strong>. El Foundational es ese marco. Una vez definido, cada pieza (la que opera hoy y las que vengan después) puede alinearse a él, no a interpretaciones individuales.</p>
 
   <h3 class="sub-sub"><span class="num-circle">4</span>Documentación oficial con referente legal obsoleto</h3>
   <p>Los Avisos de Identificación que el cliente firma con cada contrato referencian <em>"tres mil doscientas diez veces el Salario Mínimo Diario Vigente en el Distrito Federal"</em>. Esta referencia legal fue sustituida por la <strong>UMA en 2016</strong>. El "Distrito Federal" pasó a "Ciudad de México" por la misma reforma. <strong>Diez años de obsolescencia documental.</strong></p>
@@ -1281,7 +1289,7 @@
     <h4 class="label">Qué hacemos</h4>
     <ol style="font-size: 9pt;">
       <li>Constituir la <strong>mesa de control</strong> con 2-3 personas dedicadas.</li>
-      <li>Iterar el <strong>prototipo digital</strong> corrigiendo los 7 hallazgos críticos del audit.</li>
+      <li>Cerrar la <strong>formulación canónica del producto</strong> (incluida la formulación fiscal honesta) para que toda pieza futura — oficial o conceptual — se construya sobre la misma base.</li>
       <li>Cerrar <strong>compliance legal</strong> (Avisos ID a UMA, Aviso de Privacidad, contrato).</li>
       <li>Instrumentar <strong>métricas end-to-end</strong> (GA4 + dashboard + NPS/CSAT/CES).</li>
       <li>Formalizar el <strong>bundle real visible</strong> al cliente.</li>
@@ -1291,7 +1299,7 @@
     <p style="font-size: 9pt;"><strong>1.6 a 2.5 millones de pesos en 6 meses.</strong></p>
 
     <h4 class="label">Lo que NO se hace</h4>
-    <p style="font-size: 9pt;">Cero paid digital. Cero expansión geográfica. Cero modificación del producto canónico. Cero comunicación masiva al mercado.</p>
+    <p style="font-size: 9pt;">Cero paid digital. Cero expansión geográfica. Cero modificación del producto canónico. Cero comunicación masiva al mercado. <strong>Cero compromiso con iterar el prototipo conceptual durante esta etapa</strong> — esa decisión vive después, una vez ratificado el Foundational con stakeholders. El sitio oficial <code>gpautolease.com</code> y los flujos Moffin siguen siendo la carretera operativa.</p>
   </div>
 
   <div class="stage-card stage-1">
@@ -1460,7 +1468,7 @@
     <thead><tr><th>Costo</th><th>Cuantificación</th></tr></thead>
     <tbody>
       <tr><td>Re-trabajo en escalamiento prematuro</td><td>30-50% sobre inversiones sin Foundational</td></tr>
-      <tr><td>Exposición legal por claims fiscales</td><td>Acumulable mientras el sitio no se corrija</td></tr>
+      <tr><td>Construir piezas sin marco rector</td><td>Más prototipos, más sitios, más campañas con interpretaciones inconsistentes que confunden internamente y al cliente</td></tr>
       <tr><td>Saturación operativa sin mesa de control</td><td>~20% de leads adicionales perdidos por desatención</td></tr>
       <tr><td>Costo de oportunidad vs TIP / Afirme</td><td>Cada mes sin posicionamiento es mes ganado por la competencia</td></tr>
       <tr><td>Ventana Mundial 2026 + nearshoring</td><td>Hasta 30% de crecimiento proyectado para 2026</td></tr>
@@ -1532,16 +1540,16 @@
     </div>
   </div>
 
-  <div class="ask-card immediate">
-    <div class="ask-num">Decisión 4 · Inmediata</div>
-    <div class="ask-q">¿Se autoriza la corrección inmediata, dentro de los próximos 30 días, de los claims fiscales actualmente publicados en gpautolease.com que contradicen la LISR Art. 28 fr. XIII?</div>
-    <p style="font-size: 9pt;"><strong>Qué incluye:</strong> reescritura de "Deduce el 100%, cero tope" sustituyéndolo por la fórmula honesta · corrección de la calculadora comparativa con tope LISR aplicado. Es la única acción del plan que toca el prototipo antes de Etapa 0.</p>
-    <p style="font-size: 9pt;"><strong>Si la respuesta es SÍ:</strong> en 30 días, el sitio deja de exponerse a observaciones del SAT y de perder PFAE que detectan la inexactitud con su contador.</p>
-    <p style="font-size: 9pt;"><strong>Si la respuesta es NO:</strong> cada día adicional con los claims actuales es día adicional de exposición legal y fuga silenciosa de PFAE atentos.</p>
+  <div class="ask-card conditional">
+    <div class="ask-num">Decisión 4 · De método</div>
+    <div class="ask-q">¿Se acuerda que el prototipo conceptual de la Dirección de Marketing Corporativo es insumo de Etapa 0 — no pieza operativa a corregir ni compromiso de diseño — y que su destino (iterar, descartar o mantener como referencia) se define una vez ratificado el Foundational?</div>
+    <p style="font-size: 9pt;"><strong>Qué incluye:</strong> acuerdo formal de que el prototipo conceptual fue ejercicio exploratorio para mostrar cómo podría ser una versión rediseñada de la línea, no es la solución oficial · acuerdo de que la operación actual (sitio <code>gpautolease.com</code> + formularios Moffin) sigue siendo la "carretera oficial" durante Etapa 0 sin interrupción · acuerdo de que la iteración del prototipo (o su descarte) es decisión post-ratificación del Foundational, no de este documento.</p>
+    <p style="font-size: 9pt;"><strong>Si la respuesta es SÍ:</strong> queda claro el rol del prototipo (muestra conceptual, no compromiso). La operación actual sigue corriendo sin interrupción. La decisión sobre iterar / descartar / mantener se toma con calma post-Foundational, en alineación con stakeholders.</p>
+    <p style="font-size: 9pt;"><strong>Si la respuesta es NO:</strong> se mantendría la confusión actual de tratar al prototipo conceptual como pieza operativa que necesita estar alineada, lo que distrae del trabajo real (estructurar la línea con marco rector).</p>
     <div class="ask-meta">
-      <div><div class="label">Costo</div><strong>$30k - 60k</strong></div>
-      <div><div class="label">Timeline</div><strong>Inmediata (30 días)</strong></div>
-      <div><div class="label">Quién decide</div>Nicolás o Sergio</div>
+      <div><div class="label">Costo</div><strong>$0 (decisión de método)</strong></div>
+      <div><div class="label">Timeline</div>Dos semanas</div>
+      <div><div class="label">Quién decide</div>Nicolás Plasencia</div>
     </div>
   </div>
 
@@ -1552,8 +1560,8 @@
       <tr><td>1</td><td>Aprobar Etapa 0 Habilitadores</td><td>$1.6-2.5M / 6m</td><td>2 semanas</td></tr>
       <tr><td>2</td><td>Aprobar diseño del Piloto Etapa 1</td><td>$750k-1.5M / 6-9m</td><td>2 semanas</td></tr>
       <tr><td>3</td><td>Gate condicional Etapa 1 → 2</td><td>$0 método</td><td>2 semanas</td></tr>
-      <tr><td>4</td><td>Corrección de claims fiscales</td><td>$30-60k</td><td><strong>Inmediata</strong></td></tr>
-      <tr><td colspan="2"><strong>Compromiso total autorizado primeros 12 meses</strong></td><td colspan="2"><strong>$2.4 - 4.1 millones de pesos</strong></td></tr>
+      <tr><td>4</td><td>Acuerdo de método sobre rol del prototipo conceptual</td><td>$0 método</td><td>2 semanas</td></tr>
+      <tr><td colspan="2"><strong>Compromiso total autorizado primeros 12 meses</strong></td><td colspan="2"><strong>$2.35 - 4.0 millones de pesos</strong></td></tr>
     </tbody>
   </table>
 </section>
@@ -1567,16 +1575,16 @@
       <li>Comunicación interna al equipo de la línea de las decisiones aprobadas.</li>
       <li>Inicio del proceso de reclutamiento de la mesa de control (2-3 personas).</li>
       <li>Brief a asesoría jurídica del grupo para Avisos ID + Aviso de Privacidad + revisión contrato.</li>
-      <li>Brief al equipo digital para corrección inmediata de claims fiscales.</li>
+      <li>Documentación del rol del prototipo conceptual (muestra de la Dirección de MKT, no pieza operativa) y comunicación al equipo.</li>
     </ul>
   </div>
 
   <div class="stage-card stage-0">
     <div class="stage-label">Semana 2</div>
     <ul style="font-size: 9pt;">
-      <li>Corrección de los claims fiscales del sitio en producción.</li>
       <li>Diseño del documento operativo de la mesa de control.</li>
       <li>Reuniones de coordinación con área de crédito y con Moffin.</li>
+      <li>Definición de la formulación fiscal canónica honesta — base para toda comunicación futura de la línea.</li>
     </ul>
   </div>
 
