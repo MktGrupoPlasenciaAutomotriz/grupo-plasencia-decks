@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>GP Autolease — Research Readout</title>
+<meta name="description" content="Research Readout del proyecto GP Autolease. Síntesis ejecutiva de lo que la investigación encontró sobre mercado, competencia, casos espejo, cliente y marco regulatorio. Documento hermano del Foundational.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gp-red: #C8102E;
+    --gp-navy: #1E2740;
+    --gp-slate: #2D3748;
+    --gp-black: #1A1A1A;
+    --aut-green: #2D6548;
+    --aut-lime: #8EBF24;
+    --aut-ink: #1D1D1B;
+    --blue: #4299E1;
+    --green: #48BB78;
+    --amber: #D69E2E;
+    --gold: #ECC94B;
+    --red: #E53E3E;
+    --bg: #F0F4F8;
+    --paper: #FFFFFF;
+    --near-white: #F7FAFC;
+    --g100: #EDF2F7;
+    --g200: #E2E8F0;
+    --g300: #CBD5E0;
+    --g400: #A0AEC0;
+    --g500: #718096;
+    --g600: #4A5568;
+    --g700: #2D3748;
+    --text: #2D3748;
+    --display: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { background: var(--bg); }
+  body {
+    font-family: var(--sans);
+    color: var(--text);
+    line-height: 1.55;
+    font-size: 10pt;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  @page {
+    size: A4;
+    margin: 18mm 18mm 22mm 18mm;
+    @bottom-right { content: counter(page); font-family: 'Inter', sans-serif; font-size: 9pt; color: #718096; }
+    @bottom-left { content: "Confidencial · Grupo Plasencia · Dirección de Marketing Corporativo"; font-family: 'Inter', sans-serif; font-size: 8pt; color: #A0AEC0; }
+    @top-right { content: "GP Autolease · Research Readout"; font-family: 'Inter', sans-serif; font-size: 8pt; color: #A0AEC0; }
+  }
+  @page :first { @top-right { content: ""; } @bottom-right { content: ""; } @bottom-left { content: ""; } }
+  @page cover { margin: 0; }
+  .page {
+    background: var(--paper);
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0 auto 8mm auto;
+    padding: 18mm 18mm 22mm 18mm;
+    position: relative;
+    page-break-after: always;
+    box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 4px 24px rgba(30,39,64,.08);
+  }
+  .page:last-child { page-break-after: auto; }
+
+  /* COVER */
+  .cover { background: var(--gp-navy); color: var(--near-white); padding: 0; page: cover; }
+  .cover-inner {
+    padding: 24mm 22mm 22mm 22mm;
+    min-height: 297mm;
+    display: flex; flex-direction: column; justify-content: space-between;
+    background:
+      radial-gradient(ellipse at 100% 0%, rgba(142, 191, 36, 0.16) 0%, transparent 55%),
+      radial-gradient(ellipse at 0% 100%, rgba(66, 153, 225, 0.10) 0%, transparent 55%),
+      var(--gp-navy);
+    position: relative;
+  }
+  .cover-inner::before {
+    content: "";
+    position: absolute;
+    top: 24mm; left: 22mm;
+    width: 64mm; height: 1px;
+    background: var(--aut-lime);
+  }
+  .cover-mark {
+    font-family: var(--sans); font-weight: 700; font-size: 11pt;
+    letter-spacing: 4px; color: var(--aut-lime); text-transform: uppercase;
+  }
+  .cover-mark span {
+    display: block; font-weight: 400; color: rgba(255,255,255,0.55);
+    margin-top: 4px; letter-spacing: 1px; font-size: 9pt;
+  }
+  .cover-eyebrow {
+    font-family: var(--sans); font-size: 10pt; font-weight: 700;
+    letter-spacing: 5px; color: var(--blue); text-transform: uppercase; margin-top: 14mm;
+  }
+  .cover-title {
+    font-family: var(--display); font-weight: 800; font-size: 60pt;
+    line-height: 0.96; letter-spacing: -2px; margin-top: 8mm; color: var(--near-white);
+  }
+  .cover-title em { font-style: normal; color: var(--aut-lime); font-weight: 800; }
+  .cover-title-after {
+    font-family: var(--sans); font-style: italic; font-weight: 500;
+    font-size: 13pt; color: rgba(255,255,255,0.65); margin-top: 4mm;
+  }
+  .cover-rector {
+    font-family: var(--sans); font-weight: 600; font-size: 12pt;
+    color: var(--aut-lime); margin-top: 14mm; line-height: 1.4;
+    border-top: 1px solid rgba(142,191,36,0.3); padding-top: 6mm; max-width: 150mm;
+  }
+  .cover-rector strong {
+    font-family: var(--sans); font-weight: 700; font-size: 9pt;
+    letter-spacing: 3px; color: rgba(142,191,36,0.65);
+    text-transform: uppercase; display: block; margin-bottom: 3mm;
+  }
+  .cover-tags { display: flex; gap: 6mm; margin-top: 12mm; flex-wrap: wrap; }
+  .cover-tag {
+    font-family: var(--sans); font-size: 9pt; font-weight: 600; letter-spacing: 1px;
+    color: rgba(255,255,255,0.85); border: 1px solid rgba(255,255,255,0.25);
+    padding: 4px 10px; border-radius: 999px; text-transform: uppercase;
+  }
+  .cover-tag.accent { color: var(--aut-lime); border-color: rgba(142,191,36,0.4); }
+  .cover-tag.info { color: var(--blue); border-color: rgba(66,153,225,0.4); }
+  .cover-meta {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    margin-top: 14mm; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 8mm;
+  }
+  .cover-meta-block { font-size: 9pt; color: rgba(255,255,255,0.65); line-height: 1.7; }
+  .cover-meta-block strong { display: block; color: var(--near-white); font-weight: 700; font-size: 10pt; }
+
+  /* CLOSING */
+  .closing {
+    background: var(--gp-navy); color: var(--near-white);
+    padding: 30mm 22mm; margin: -18mm; margin-top: 16mm;
+    min-height: 230mm; display: flex; flex-direction: column;
+    justify-content: center; text-align: center;
+    background:
+      radial-gradient(ellipse at 50% 0%, rgba(142,191,36,0.16) 0%, transparent 60%),
+      radial-gradient(ellipse at 50% 100%, rgba(66,153,225,0.10) 0%, transparent 60%),
+      var(--gp-navy);
+  }
+  .closing .ribbon { font-family: var(--sans); font-size: 9pt; font-weight: 700; letter-spacing: 5px; color: var(--blue); text-transform: uppercase; margin-bottom: 12mm; }
+  .closing h2 { font-family: var(--display); font-weight: 800; font-size: 34pt; color: var(--near-white); margin-bottom: 8mm; line-height: 1.08; letter-spacing: -1px; }
+  .closing h2 em { font-style: normal; color: var(--aut-lime); font-weight: 800; }
+  .closing .pull { font-family: var(--sans); font-style: italic; font-size: 13pt; color: var(--aut-lime); line-height: 1.55; max-width: 150mm; margin: 0 auto 10mm auto; }
+  .closing .body-text { font-size: 11pt; color: rgba(255,255,255,0.78); max-width: 150mm; margin: 0 auto; line-height: 1.65; }
+  .closing .signature { margin-top: 14mm; font-size: 9pt; color: rgba(255,255,255,0.5); letter-spacing: 1.5px; }
+  .closing .signature strong { color: var(--aut-lime); display: block; font-size: 11pt; letter-spacing: 2.5px; margin-bottom: 1mm; }
+
+  /* TIPOGRAFÍA */
+  h1.section-title {
+    font-family: var(--display); font-size: 22pt; font-weight: 700; line-height: 1.15;
+    letter-spacing: -0.015em; color: var(--gp-navy); margin-bottom: 8mm;
+    padding-bottom: 4mm; border-bottom: 2px solid var(--gp-navy);
+  }
+  h1.section-title .num {
+    display: block; font-family: var(--sans); font-size: 9pt; font-weight: 600;
+    letter-spacing: 0.25em; text-transform: uppercase; color: var(--blue); margin-bottom: 2mm;
+  }
+  h2.sub { font-family: var(--display); font-size: 14pt; font-weight: 700; color: var(--gp-navy); margin-top: 6mm; margin-bottom: 3mm; letter-spacing: -0.005em; }
+  h3.sub-sub { font-family: var(--sans); font-size: 11pt; font-weight: 700; color: var(--gp-slate); margin-top: 4mm; margin-bottom: 2mm; }
+  h4.label { font-family: var(--sans); font-size: 9pt; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--blue); margin-top: 4mm; margin-bottom: 2mm; }
+  p { margin-bottom: 3mm; }
+  p strong { color: var(--gp-navy); font-weight: 700; }
+  p em { color: var(--gp-slate); font-style: italic; }
+  ul, ol { margin: 2mm 0 4mm 6mm; }
+  li { margin-bottom: 1.5mm; }
+
+  /* COMPONENTES */
+  .answer-first { background: linear-gradient(135deg, #F9FAFB 0%, #F0F4F8 100%); border-left: 4px solid var(--blue); padding: 5mm 7mm; margin: 4mm 0; border-radius: 0 3mm 3mm 0; }
+  .answer-first p { margin-bottom: 2mm; font-size: 9.5pt; line-height: 1.5; }
+  .answer-first p strong { color: var(--gp-navy); }
+  .answer-first p:last-child { margin-bottom: 0; }
+  .governing-thought { background: var(--gp-navy); color: var(--near-white); padding: 8mm 9mm; margin: 6mm 0; border-radius: 2mm; font-family: var(--display); font-size: 13pt; line-height: 1.4; font-weight: 500; font-style: italic; border-left: 5px solid var(--blue); }
+  .governing-thought strong { font-style: normal; font-weight: 700; color: var(--aut-lime); }
+
+  .callout { background: #FFFBEB; border-left: 4px solid var(--amber); padding: 5mm 6mm; margin: 4mm 0; border-radius: 0 2mm 2mm 0; font-size: 9.5pt; }
+  .callout.blue { background: rgba(66,153,225,0.06); border-left-color: var(--blue); }
+  .callout.lime { background: rgba(142, 191, 36, 0.08); border-left-color: var(--aut-lime); }
+  .callout.green { background: rgba(72, 187, 120, 0.08); border-left-color: var(--green); }
+  .callout.red { background: rgba(229, 62, 62, 0.06); border-left-color: var(--red); }
+  .callout strong { color: var(--gp-navy); }
+
+  .pill { display: inline-block; padding: 1mm 3mm; background: var(--g100); color: var(--gp-slate); border-radius: 99px; font-size: 8pt; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; margin-right: 2mm; }
+  .pill.lime { background: var(--aut-lime); color: white; }
+  .pill.green { background: var(--aut-green); color: white; }
+  .pill.navy { background: var(--gp-navy); color: white; }
+  .pill.red { background: var(--gp-red); color: white; }
+  .pill.blue { background: var(--blue); color: white; }
+
+  table { width: 100%; border-collapse: collapse; margin: 4mm 0; font-size: 9pt; }
+  th { background: var(--gp-navy); color: var(--near-white); text-align: left; padding: 2.5mm 3mm; font-weight: 700; font-size: 8.5pt; text-transform: uppercase; letter-spacing: 0.05em; }
+  td { padding: 2.5mm 3mm; border-bottom: 1px solid var(--g200); vertical-align: top; font-size: 9pt; line-height: 1.45; }
+  tr:nth-child(even) td { background: #FAFCFE; }
+  td strong { color: var(--gp-navy); }
+
+  .kpi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4mm; margin: 4mm 0; }
+  .kpi-grid.two { grid-template-columns: repeat(2, 1fr); }
+  .kpi-grid.four { grid-template-columns: repeat(4, 1fr); }
+  .kpi { background: var(--near-white); border: 1px solid var(--g200); border-left: 3px solid var(--blue); padding: 3.5mm 4mm; border-radius: 1.5mm; }
+  .kpi .label { font-size: 7pt; font-weight: 700; color: var(--g500); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1mm; }
+  .kpi .value { font-family: var(--display); font-size: 16pt; font-weight: 800; color: var(--gp-navy); line-height: 1.05; letter-spacing: -0.01em; }
+  .kpi .unit { font-size: 8pt; color: var(--g500); font-weight: 500; margin-top: 1mm; line-height: 1.3; }
+
+  .case-card { background: var(--near-white); border: 1px solid var(--g200); border-top: 4px solid var(--aut-green); padding: 5mm 6mm; margin: 4mm 0; border-radius: 0 0 2mm 2mm; }
+  .case-card.global { border-top-color: var(--blue); }
+  .case-card.antipatron { border-top-color: var(--red); }
+  .case-card .case-label { font-size: 8pt; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--blue); margin-bottom: 1mm; }
+  .case-card .case-title { font-family: var(--display); font-size: 14pt; font-weight: 700; color: var(--gp-navy); margin-bottom: 2mm; }
+
+  .signature-block { margin-top: 12mm; padding-top: 5mm; border-top: 1px solid var(--g200); font-size: 8.5pt; color: var(--g600); }
+  .signature-block strong { color: var(--gp-navy); }
+  blockquote { border-left: 3px solid var(--blue); padding: 2mm 5mm; margin: 4mm 0; color: var(--g600); font-style: italic; font-size: 9.5pt; }
+
+  .source { font-size: 7.5pt; color: var(--g500); font-style: italic; margin-top: -2mm; margin-bottom: 4mm; }
+
+  h2.sub, h3.sub-sub, h4.label { page-break-after: avoid; }
+  table, .case-card { page-break-inside: avoid; }
+</style>
+</head>
+<body>
+
+<!-- ============ COVER ============ -->
+<section class="page cover">
+  <div class="cover-inner">
+    <div>
+      <div class="cover-mark">Dirección de Marketing Corporativo · Grupo Plasencia<span>Capa estratégica · Cliente interno: GP Autolease · Mayo 2026</span></div>
+
+      <p class="cover-eyebrow">Research Readout</p>
+      <h1 class="cover-title">¿Qué encontramos<br><em>en la investigación?</em></h1>
+      <p class="cover-title-after">Síntesis ejecutiva del Deep Research que sustenta la tesis del Foundational.</p>
+
+      <div class="cover-rector">
+        <strong>Para qué sirve este documento</strong>
+        Documenta lo que la investigación encontró sobre mercado, competencia, casos espejo, cliente y marco regulatorio. Es el insumo descriptivo del que se deriva la tesis estratégica del Foundational. Lee este paper si quieres entender <em>de dónde salen los números</em>; lee el Foundational si quieres entender <em>qué proponemos hacer con ellos</em>.
+      </div>
+
+      <div class="cover-tags">
+        <span class="cover-tag info">Descriptivo</span>
+        <span class="cover-tag accent">63 fuentes citadas</span>
+        <span class="cover-tag">9 secciones · A4</span>
+      </div>
+    </div>
+
+    <div class="cover-meta">
+      <div class="cover-meta-block">
+        <strong>Audiencia</strong>
+        Stakeholders del proyecto<br>
+        Equipos que retomen el contexto
+      </div>
+      <div class="cover-meta-block">
+        <strong>Hermano de</strong>
+        Definición Estratégica<br>
+        de la Línea de Negocio
+      </div>
+      <div class="cover-meta-block">
+        <strong>Versión</strong>
+        v1.0 · Mayo 2026<br>
+        Dirección MKT Corporativo
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ §1 — PREGUNTA Y MÉTODO ============ -->
+<section class="page">
+  <h1 class="section-title"><span class="num">§1 · Pregunta y método</span>Qué se investigó y cómo</h1>
+
+  <h2 class="sub">1.1 La pregunta de investigación</h2>
+  <p>La Dirección de Marketing Corporativo recibió un encargo de la Dirección General: <strong>estructurar estratégicamente a GP Autolease antes de su lanzamiento comercial</strong>, dado que es una nueva línea de negocio del grupo (arrendamiento puro de autos, multimarca, regional) que tiene marca, sociedad (GP Drive S.A. de C.V.), producto definido, sitio publicado, proveedores contratados y equipo asignado, pero <em>no tiene marco estratégico explícito</em>.</p>
+
+  <p>Para construir ese marco con sustento, se ejecutó una investigación con dos preguntas centrales:</p>
+
+  <div class="answer-first">
+    <p><strong>P1 — Mercado y posicionamiento.</strong> ¿Qué tan grande, dinámico y competitivo es el mercado mexicano de arrendamiento puro? ¿Dónde están los espacios subatendidos que una arrendadora regional multimarca podría ocupar?</p>
+    <p><strong>P2 — Cliente y producto.</strong> ¿Quién es realmente el cliente del arrendamiento puro en el segmento PFAE y Pyme pequeña? ¿Cómo decide? ¿Qué le importa? ¿Qué marco regulatorio aplica y cómo limita o habilita la propuesta?</p>
+  </div>
+
+  <h2 class="sub">1.2 Método</h2>
+  <p>La investigación combinó <strong>seis bloques de trabajo</strong> ejecutados entre abril y mayo de 2026:</p>
+
+  <table>
+    <thead><tr><th>Bloque</th><th>Qué se hizo</th><th>Output</th></tr></thead>
+    <tbody>
+      <tr><td>1 · Diagnóstico interno</td><td>Sesión exploratoria con el Director de la línea + procesamiento del xlsx oficial de producto y checklist documental</td><td>Estado actual de la línea (producto, proceso de 15 pasos, stack operativo, premisa cuantitativa Año 1)</td></tr>
+      <tr><td>2 · Audit del prototipo</td><td>Auditoría visual y de lógica de cálculo del sitio <code>gpautolease.com</code> + del prototipo rediseñado</td><td>20 hallazgos clasificados por severidad, incluida la inconsistencia de plazos entre fuentes</td></tr>
+      <tr><td>3 · Deep Research de mercado</td><td>Investigación documental sistemática sobre mercado MX, competencia, drivers de crecimiento, anti-patrones globales</td><td>63 fuentes citadas, mapa competitivo, white space identificado</td></tr>
+      <tr><td>4 · Casos espejo nacionales</td><td>Profundización pedagógica de TIP México (paraguas Engen Capital) y Arrendadora Afirme como pares regionales del arquetipo de GP</td><td>Trayectorias, métricas comparables, lecciones</td></tr>
+      <tr><td>5 · Marco legal regulatorio</td><td>Mapeo de LFPIORPI, LISR Art. 28 fr. XIII, LFPDPPP 2025, UMA, SIC y régimen de sociedad mercantil no regulada</td><td>Marco regulatorio aplicable + 2 hallazgos críticos de compliance</td></tr>
+      <tr><td>6 · Síntesis</td><td>Cruce de los cinco bloques anteriores para producir el Foundational y este Readout</td><td>Definición Estratégica + Research Readout</td></tr>
+    </tbody>
+  </table>
+
+  <h2 class="sub">1.3 Lo que esta investigación NO es</h2>
+  <ul>
+    <li><strong>No es research con cliente real.</strong> Toda la investigación es secundaria (fuentes públicas, casos públicos, documentación regulatoria) o interna (sesiones con el equipo, audit del prototipo). <em>Hablar con clientes reales del segmento target es output explícito del Piloto Etapa 1 del Roadmap.</em></li>
+    <li><strong>No es estudio cuantitativo estadísticamente representativo.</strong> Es síntesis descriptiva sustentada con fuentes citadas y casos comparables, no muestra controlada.</li>
+    <li><strong>No reemplaza al área financiera del grupo</strong> para validación de unit economics ni a la asesoría jurídica para revisión contractual fina. Identifica los temas; el cierre técnico-financiero queda en las áreas competentes.</li>
+  </ul>
+</section>
+
+<!-- ============ §2 — MERCADO ============ -->
+<section class="page">
+  <h1 class="section-title"><span class="num">§2 · Mercado mexicano</span>El arrendamiento puro está acelerando</h1>
+
+  <div class="kpi-grid">
+    <div class="kpi">
+      <div class="label">Tamaño 2024</div>
+      <div class="value">$6,020<span style="font-size: 11pt;">M USD</span></div>
+      <div class="unit">CAGR 8.5% proyectado al 2033 (IMARC)</div>
+    </div>
+    <div class="kpi">
+      <div class="label">Crecimiento YoY 2025</div>
+      <div class="value">+24.4%</div>
+      <div class="unit">Compras nuevas para arrendamiento (AMDA-AMAVe)</div>
+    </div>
+    <div class="kpi">
+      <div class="label">Flota AMAVe</div>
+      <div class="value">368,088</div>
+      <div class="unit">unidades · +14.1% YoY (El Financiero, feb 2026)</div>
+    </div>
+  </div>
+
+  <h2 class="sub">2.1 El sector crece cuatro veces más rápido que el crédito tradicional</h2>
+  <p>Las compras de unidades nuevas destinadas a arrendamiento crecieron <strong>24.4% año contra año en 2025</strong>, una tasa cuatro veces superior al crecimiento del crédito tradicional de auto en el mismo periodo. La penetración del arrendamiento puro pasó de representar <strong>3.6% de las ventas totales de vehículos nuevos en 2024 a 4.5% en 2025</strong>.</p>
+  <p class="source">Fuente: AMDA-AMAVe, reporte febrero 2026. Cita pública en El Financiero, 9 de febrero de 2026.</p>
+
+  <h2 class="sub">2.2 La penetración mexicana sigue muy por debajo de referencias internacionales</h2>
+  <table>
+    <thead><tr><th>Mercado</th><th>Penetración de arrendamiento puro</th><th>Lectura</th></tr></thead>
+    <tbody>
+      <tr><td>México (1T 2025)</td><td><strong>4.5%</strong> de ventas de vehículos nuevos</td><td>Espacio estructural amplio para crecer</td></tr>
+      <tr><td>Estados Unidos (1T 2025)</td><td><strong>24.7%</strong> de ventas de vehículos nuevos</td><td>Referencia natural por geografía e integración económica</td></tr>
+      <tr><td>Alemania (2024)</td><td><strong>26.1%</strong> del total de inversión en equipo financiada vía leasing</td><td>Referencia europea más desarrollada</td></tr>
+    </tbody>
+  </table>
+  <p>La brecha frente a Estados Unidos es directa de leer: <strong>el mercado mexicano podría multiplicarse 5x sin alcanzar la madurez del benchmark más cercano</strong>. La pregunta no es si hay espacio, sino quién lo captura y a qué ritmo.</p>
+
+  <h2 class="sub">2.3 Tres drivers estructurales sostienen la aceleración</h2>
+  <ol>
+    <li><strong>Profesionalización fiscal del PFAE mexicano.</strong> Más profesionistas independientes operan formalmente bajo régimen 612 ante el SAT, lo que los hace candidatos naturales para deducir y acreditar el IVA del arrendamiento de auto.</li>
+    <li><strong>Demanda creciente de electrificación con palanca fiscal aumentada.</strong> El tope de deducción de la LISR Art. 28 fr. XIII es $200 diarios para combustión vs $285 diarios para eléctrico/híbrido — diferencial estructural que favorece arrendar vehículos electrificados.</li>
+    <li><strong>Nearshoring concentrado en plazas del Bajío.</strong> SLP, Aguascalientes, Querétaro y Guanajuato concentran la inversión productiva relocalizada, y demandan flotas administradas para operaciones de logística, supply chain y servicios B2B.</li>
+  </ol>
+
+  <h2 class="sub">2.4 Aceleradores temporales — Mundial 2026</h2>
+  <div class="callout blue">
+    <strong>Ventana de demanda 2026.</strong> La AMAVe anticipa que la demanda de vehículos ligeros podría crecer hasta <strong>30% en 2026 impulsada por turismo y Copa Mundial FIFA</strong>. Las plazas costeras (Vallarta, Manzanillo) y el Bajío (SLP) son sub-beneficiarios directos por flujo turístico, hospitality y logística asociada. Es ventana con fecha de caducidad: la actividad se concentra entre junio y julio de 2026.
+  </div>
+  <p class="source">Fuente: Liliana Anaya, directora general AMAVe, declaración a Info-Transportes 2025.</p>
+</section>
+
+<!-- ============ §3 — COMPETENCIA Y WHITE SPACE ============ -->
+<section class="page">
+  <h1 class="section-title"><span class="num">§3 · Competencia y white space</span>Cuatro arquetipos y un cuadrante vacío</h1>
+
+  <p>El mercado mexicano de arrendamiento puro se reparte hoy entre cuatro arquetipos de jugador, cada uno con perfil de cliente y propuesta distintos. La investigación mapeó los referentes principales por arquetipo para identificar el cuadrante competitivo más vacío.</p>
+
+  <h2 class="sub">3.1 Los cuatro arquetipos del mercado</h2>
+
+  <table>
+    <thead><tr><th>Arquetipo</th><th>Referentes</th><th>Cliente típico</th><th>Cobertura</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Corporativos grandes</strong></td><td>Element Fleet, TIP México, Arrendadora Banorte, BBVA Leasing</td><td>Cuentas 25-50+ unidades. Pyme grande y corporativo.</td><td>CDMX, EDOMEX, GDL, MTY principalmente</td></tr>
+      <tr><td><strong>Cautivas OEM</strong></td><td>Toyota Financial, VW Leasing, GM Financial, Ford Credit</td><td>Cliente atado a la marca cautiva</td><td>Nacional pero monomarca</td></tr>
+      <tr><td><strong>Fintechs / 100% digital</strong></td><td>Pazz, Klubo, FinBe ABC</td><td>Cliente urbano joven con apetito digital</td><td>Nacional digital, sin red física</td></tr>
+      <tr><td><strong>Regionales en grupo financiero</strong></td><td>Arrendadora Afirme</td><td>Pyme regional + cliente vinculado al grupo</td><td>Geografía del grupo de pertenencia</td></tr>
+    </tbody>
+  </table>
+
+  <h2 class="sub">3.2 Tamaño de los referentes principales</h2>
+  <div class="kpi-grid">
+    <div class="kpi">
+      <div class="label">Element Fleet MX</div>
+      <div class="value">~140k</div>
+      <div class="unit">unidades · ~$5,800M USD acumulados (T21, 2025)</div>
+    </div>
+    <div class="kpi">
+      <div class="label">TIP México (Engen)</div>
+      <div class="value">$27,791<span style="font-size: 11pt;">M MXN</span></div>
+      <div class="unit">cartera total 2T 2025 · 32 años · 19 ciudades</div>
+    </div>
+    <div class="kpi">
+      <div class="label">Arrendadora Banorte</div>
+      <div class="value">$41,113<span style="font-size: 11pt;">M MXN</span></div>
+      <div class="unit">cartera 2T 2023</div>
+    </div>
+  </div>
+
+  <h2 class="sub">3.3 El white space identificado</h2>
+  <p>Cruzar arquetipos con segmento de cliente y geografía expone un cuadrante competitivo subatendido en el mercado mexicano:</p>
+
+  <div class="callout lime">
+    <strong>El cuadrante PFAE + Pyme pequeña (3-30 unidades) en Occidente y Bajío Sur de México no tiene un operador con autoridad clara hoy.</strong> Los corporativos no lo atienden con dedicación (su mínimo operativo es 25-50 unidades y su geografía está concentrada en CDMX/EDOMEX/MTY). Las cautivas no pueden ofrecer multimarca por diseño. Las fintechs no tienen red física en estas plazas. Las regionales en grupo financiero más cercanas (Afirme) tienen presencia parcial pero no foco específico en el segmento.
+  </div>
+
+  <h2 class="sub">3.4 Cinco verticales prioritarios identificados</h2>
+  <p>Dentro del cuadrante, la investigación identificó cinco verticales con afinidad estructural a la propuesta de arrendamiento multimarca regional:</p>
+  <ol>
+    <li><strong>Médicos especialistas</strong> en GDL, SLP, Colima y Tepic — PFAE con ingreso alto, decisión propia, validan con su contador.</li>
+    <li><strong>Pyme de logística de última milla</strong> con flotilla 3-15 unidades — necesidad operativa de flota administrada.</li>
+    <li><strong>Despachos profesionales B2B</strong> (legales, contables, consultoría, ingeniería) — sofisticación fiscal alta.</li>
+    <li><strong>Agentes inmobiliarios y promotores</strong> en Puerto Vallarta y Manzanillo — uso intensivo del auto como herramienta de trabajo.</li>
+    <li><strong>Constructoras regionales</strong> en SLP impulsadas por nearshoring — demanda en aceleración.</li>
+  </ol>
+
+  <h2 class="sub">3.5 SLA y velocidad por arquetipo — referencias</h2>
+  <table>
+    <thead><tr><th>Arquetipo</th><th>SLA típico aprobación</th><th>Fuente</th></tr></thead>
+    <tbody>
+      <tr><td>Banorte Empresas</td><td>7 a 15 días para perfiles comparables</td><td>Reporte público de procesos comerciales del banco</td></tr>
+      <tr><td>Cautivas OEM</td><td>5 a 10 días estándar</td><td>Benchmark sectorial documentado</td></tr>
+      <tr><td>Fintechs digitales</td><td>24 a 72 horas para perfiles que pasan scoring automático</td><td>Sitios públicos de Pazz, Klubo, FinBe</td></tr>
+      <tr><td><strong>GP Autolease (compromiso de la línea)</strong></td><td><strong>Menor a 48 horas</strong> para aprobación del arrendamiento</td><td>Compromiso público del sitio <code>gpautolease.com</code></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ============ §4 — CASOS ESPEJO ============ -->
+<section class="page">
+  <h1 class="section-title"><span class="num">§4 · Casos espejo</span>Dos nacionales + un global validan el arquetipo</h1>
+
+  <p>La investigación profundizó en tres casos que sirven de referencia directa para la trayectoria de GP Autolease: dos nacionales del mismo sector y geografía (TIP México y Arrendadora Afirme) y un caso global que valida la combinación específica "financiera cautiva multimarca con red de agencias propia" (Lithia & Driveway en Estados Unidos).</p>
+
+  <div class="case-card">
+    <div class="case-label">Caso espejo nacional #1</div>
+    <div class="case-title">TIP México · paraguas Engen Capital</div>
+    <p><strong>Qué es:</strong> Arrendadora mexicana del paraguas Engen Capital con 32 años de operación. Multimarca, presencia en 19 ciudades, foco en flotas medianas y grandes.</p>
+    <p><strong>Métricas relevantes:</strong> cartera total de aproximadamente <strong>$27,791 millones de pesos</strong> al 2T 2025. <strong>IMOR en arrendamiento puro de 0.2%</strong> — uno de los más bajos del sector mexicano, indicador de disciplina crediticia ejemplar. Calificación crediticia AA-/M (PCR Verum).</p>
+    <p><strong>Movimiento estratégico relevante (2021):</strong> lanzó <strong>EcoLeasing</strong>, producto especializado para capturar la palanca fiscal de vehículos eléctricos e híbridos (tope de deducción $285 diarios vs $200 combustión). Adelantarse al cambio de comportamiento del segmento profesional fue lectura correcta del mercado.</p>
+    <p><strong>Lección directa para GP:</strong> el arrendamiento puro disciplinado y multimarca puede sostener IMOR muy bajo si la línea instrumenta scoring y mesa de control desde el día uno. La especialización por palanca fiscal (electrificados) es jugada de producto válida cuando la regulación cambia los incentivos.</p>
+  </div>
+
+  <div class="case-card">
+    <div class="case-label">Caso espejo nacional #2</div>
+    <div class="case-title">Arrendadora Afirme</div>
+    <p><strong>Qué es:</strong> Arrendadora regional dentro de grupo financiero Afirme. Geografía concentrada en el norte y noreste de México. Calificación HR A+/HR1.</p>
+    <p><strong>Métricas relevantes:</strong> cartera total $1,182 millones al cierre 2023 → <strong>$1,901 millones al cierre 2024</strong> (+60.79% YoY). IMOR nominal 1.7% / IMOR ajustado 3.3%. Es la curva de crecimiento más rápida documentada en un par regional dentro de grupo en años recientes.</p>
+    <p><strong>Qué disparó el crecimiento:</strong> <strong>relanzamiento explícito en 2023</strong> con marco estratégico cerrado antes de la inversión en marketing y expansión. No fue crecimiento orgánico inercial, fue resultado de estructurar la propuesta antes de escalar.</p>
+    <p><strong>Lección directa para GP:</strong> es exactamente el patrón que el Foundational propone — estructurar antes de escalar. La trayectoria proyectada de GP Autolease a 24 meses (2.7x a 3.9x cartera colocada desde la premisa Año 1) está debajo de la curva que Afirme demostró en un solo año. No es ambición desbocada, es trayectoria probada por un par regional.</p>
+  </div>
+
+  <div class="case-card global">
+    <div class="case-label">Caso espejo global</div>
+    <div class="case-title">Lithia & Driveway · Driveway Finance Corporation (USA)</div>
+    <p><strong>Qué es:</strong> Lithia Motors es uno de los grupos automotores multimarca más grandes de Estados Unidos. Driveway Finance Corporation (DFC) es su financiera cautiva propia, lanzada como parte de la estrategia de integración vertical del grupo.</p>
+    <p><strong>Métricas relevantes:</strong> cartera de <strong>USD 3,900 millones</strong> al cierre de su sexto año de operación, con rentabilidad operativa positiva. Sostiene el patrón "financiera cautiva multimarca con red de agencias propia" — exactamente el arquetipo que GP Autolease replica para el mercado mexicano regional.</p>
+    <p><strong>Lección directa para GP:</strong> la combinación específica de "multimarca + financiera/arrendadora cautiva + red de agencias propia" funciona a escala con rentabilidad. Lo que en GP es la combinación de Plasencia (agencias del grupo) + GP Autolease (línea de arrendamiento) + GP Drive (sociedad) es estructuralmente lo que Lithia + DFC ya demostró.</p>
+  </div>
+</section>
+
+<!-- ============ §5 — ANTI-PATRONES ============ -->
+<section class="page">
+  <h1 class="section-title"><span class="num">§5 · Anti-patrones</span>El leasing 100% digital sin red física no escala con rentabilidad</h1>
+
+  <p>La investigación documentó tres casos globales que fallaron explícitamente por forzar un modelo 100% digital en una categoría que requiere intervención física. Los tres operaron en geografías y momentos distintos pero comparten el mismo error estructural.</p>
+
+  <div class="case-card antipatron">
+    <div class="case-label">Anti-patrón #1</div>
+    <div class="case-title">Cazoo (Reino Unido)</div>
+    <p><strong>Qué pasó:</strong> Plataforma de venta y leasing de autos usados 100% digital. Listada en NYSE en 2021 con valuación pico de ~$8,000M USD. Quiebra y liquidación de activos en 2024.</p>
+    <p><strong>Por qué falló:</strong> el journey real del cliente de auto (especialmente en leasing) requiere ver y firmar físicamente. Cazoo intentó forzar todo a digital + entrega a domicilio, lo que generó tasas de devolución, fricciones logísticas y costos de adquisición insostenibles.</p>
+  </div>
+
+  <div class="case-card antipatron">
+    <div class="case-label">Anti-patrón #2</div>
+    <div class="case-title">Vroom (Estados Unidos)</div>
+    <p><strong>Qué pasó:</strong> Plataforma similar a Cazoo en Estados Unidos. Listada en NASDAQ en 2020. Cerró operaciones de e-commerce de autos en 2024 tras acumular pérdidas estructurales.</p>
+    <p><strong>Por qué falló:</strong> mismo patrón. Sin red física propia, los costos logísticos y de servicio post-venta superaron el margen del producto.</p>
+  </div>
+
+  <div class="case-card antipatron">
+    <div class="case-label">Anti-patrón #3</div>
+    <div class="case-title">Carvana (Estados Unidos)</div>
+    <p><strong>Qué pasó:</strong> El más conocido del segmento. Llegó a valuación de ~$50,000M USD en 2021. Casi quiebra en 2022, sobrevivió tras restructuración financiera profunda y giro hacia integración con red de agencias propias.</p>
+    <p><strong>Por qué casi falló:</strong> mismo error estructural. La sobrevivencia llegó cuando incorporó red física propia para entrega, inspección y servicio.</p>
+  </div>
+
+  <h2 class="sub">5.1 La lección estructural</h2>
+  <div class="callout red">
+    <strong>El leasing de auto no es categoría e-commerce.</strong> Es categoría phygital por naturaleza: el cliente investiga digital pero valida físicamente el auto antes de firmar 12-48 meses de compromiso con un activo de medio millón de pesos. Tres jugadores que intentaron forzar el journey a 100% digital perdieron capital significativo. <strong>La red física propia del grupo Plasencia no es fricción a digitalizar — es ventaja estructural a explotar.</strong>
+  </div>
+</section>
+
+<!-- ============ §6 — CLIENTE ============ -->
+<section class="page">
+  <h1 class="section-title"><span class="num">§6 · Cliente</span>PFAE y Pyme pequeña — qué encontramos</h1>
+
+  <div class="callout">
+    <strong>Nota de honestidad de método.</strong> Esta sección sintetiza lo que la investigación encontró sobre el comportamiento típico del cliente PFAE y Pyme pequeña <em>según fuentes secundarias</em> (research sectorial publicado por Cultura Comercial, Mundo Ejecutivo, Floty 2024-2025; benchmarks de proveedores de scoring; reportes de cámaras profesionales). <strong>No hay entrevistas ni encuestas con clientes reales de GP Autolease todavía</strong> — esa validación es output explícito del Piloto Etapa 1.
+  </div>
+
+  <h2 class="sub">6.1 Segmento primario — Persona Física con Actividad Empresarial (PFAE)</h2>
+  <p><strong>Quién es:</strong> profesionista independiente registrado ante el SAT bajo régimen 612 (Personas Físicas con Actividades Empresariales y Profesionales). Médicos especialistas, despachos jurídicos y contables, consultores, agentes inmobiliarios, arquitectos, ingenieros independientes, fisioterapeutas, psicólogos privados, entre otros.</p>
+
+  <p><strong>Perfil de ingreso relevante para el producto:</strong> arriba de <strong>$700,000 pesos anuales</strong> como umbral conservador (para que la mensualidad del arrendamiento no exceda el 30% del ingreso disponible). El segmento más fuerte económicamente del PFAE arranca alrededor de $1.2M anuales.</p>
+
+  <p><strong>Cómo decide:</strong> investigación documentada por Cultura Comercial y Mundo Ejecutivo (2024-2025) muestra que el proceso típico de decisión del PFAE para arrendamiento profesional pasa obligatoriamente por consulta con su <strong>contador</strong> antes de firmar. El contador es <em>influencer de la decisión</em>, no solo validador post-firma. Esto tiene tres implicaciones:</p>
+  <ul>
+    <li>La propuesta debe poder presentarse de forma que el contador la valide en lugar de cuestionarla. Claims fiscales agresivos (tipo "deduce el 100%") destruyen credibilidad cuando el contador detecta inexactitud.</li>
+    <li>El partnership con despachos contables locales y el material formal "Llévalo a tu contador" son palancas de adquisición de alto leverage.</li>
+    <li>El segmento es <strong>altamente conectado profesionalmente</strong>: cada cliente firmado habla con su contador y con 3-5 pares. Un cliente bien atendido se vuelve canal de adquisición pasivo; un cliente mal atendido se vuelve referencia negativa rápida.</li>
+  </ul>
+
+  <p><strong>Qué le importa al decidir:</strong> deducibilidad fiscal real (no promesa), flujo de caja sin descapitalización, certeza de aprobación rápida, claridad de qué incluye el bundle, garantía de servicio post-entrega.</p>
+
+  <h2 class="sub">6.2 Segmento secundario — Persona Moral con flotilla pequeña a mediana</h2>
+  <p><strong>Quién es:</strong> Pyme con flotilla de 3 a 30 vehículos. Sectores típicos: logística de última milla, distribución de bienes de consumo, servicios profesionales B2B, construcción regional, agroindustria, salud privada. <strong>Aplica Persona Moral bajo régimen general y bajo régimen RESICO Moral</strong>.</p>
+
+  <p><strong>Cómo decide:</strong> a través de Representante Legal con aval cuando se requiere. El ciclo de cierre es más largo que el PFAE (típicamente 2-4 semanas más). La documentación es más exigente: estados financieros internos firmados por contador, acta constitutiva, poderes notariales.</p>
+
+  <p><strong>Qué le importa:</strong> velocidad y proximidad reportadas sistemáticamente como criterios decisivos de elección de proveedor (Deep Research §3.4). Bundle real (no promesas), respaldo de marca con historia regional, capacidad de atender siniestros con auto sustituto.</p>
+
+  <h2 class="sub">6.3 Quién NO entra al producto</h2>
+  <p>Por la matemática fiscal estructural del arrendamiento puro, dos segmentos no aplican:</p>
+  <ul>
+    <li><strong>Persona Física RESICO</strong> (régimen 626). Beneficio fiscal del arrendamiento no se materializa bajo este régimen.</li>
+    <li><strong>Persona Física sin actividad empresarial</strong> (consumidor asalariado puro). No tiene cómo deducir la renta ni acreditar el IVA.</li>
+  </ul>
+  <p>En ambos casos, el cliente termina pagando más caro que si comprara o financiara tradicionalmente. Identificarlos al inicio del flujo y reorientarlos a otra oferta del grupo (financiamiento de marca tradicional) es eficiencia operativa y servicio al cliente.</p>
+</section>
+
+<!-- ============ §7 — MARCO LEGAL ============ -->
+<section class="page">
+  <h1 class="section-title"><span class="num">§7 · Marco regulatorio</span>Tres marcos aplicables + dos hallazgos críticos</h1>
+
+  <p>La investigación mapeó el marco legal aplicable a GP Drive S.A. de C.V. como sociedad mercantil que ejecuta arrendamiento puro de autos. Tres marcos son no-negociables; dos hallazgos del audit del prototipo y de la documentación oficial son materia de corrección antes del lanzamiento.</p>
+
+  <h2 class="sub">7.1 Los tres marcos aplicables</h2>
+  <table>
+    <thead><tr><th>Marco</th><th>Qué aplica</th><th>Implicación operativa</th></tr></thead>
+    <tbody>
+      <tr><td><strong>LFPIORPI (Ley Antilavado)</strong></td><td>Actividad vulnerable bajo Art. 17 fr. VIII para arrendamiento de vehículos terrestres por encima de <strong>3,000 UMA (~$352,000 MXN en 2026)</strong>. Casi todo contrato cae bajo identificación obligatoria.</td><td>Aviso de Identificación firmado por el cliente · Identificación del Beneficiario Controlador · Restricción de pago en efectivo · Conservación de expediente 10 años</td></tr>
+      <tr><td><strong>LISR Art. 28 fr. XIII</strong></td><td>Tope de deducción <strong>del cliente</strong> del arrendamiento de auto: <strong>$200 diarios</strong> para combustión, <strong>$285 diarios</strong> para eléctrico/híbrido. <strong>Excepción explícita aplicable a la arrendadora:</strong> GP Drive como arrendadora deduce el 100% del costo del auto sin tope.</td><td>Define el ángulo fiscal real del cliente y la captura estructural del beneficio fiscal por parte de GP Drive</td></tr>
+      <tr><td><strong>LFPDPPP (Ley de Datos Personales)</strong></td><td>Aplicable plena. Versión 2025-2026 incluye <strong>derecho de oposición a decisiones automatizadas</strong> — relevante porque Moffin ejecuta scoring algorítmico.</td><td>Aviso de Privacidad obligatorio · Derechos ARCO operativos · Revisión humana de decisiones automatizadas como derecho del cliente, no opcional</td></tr>
+    </tbody>
+  </table>
+
+  <h2 class="sub">7.2 Régimen de sociedad — claridad regulatoria importante</h2>
+  <div class="callout green">
+    <strong>GP Drive S.A. de C.V. opera como sociedad mercantil no regulada por CNBV ni CONDUSEF.</strong> Esto es por diseño y es ventaja operativa: la línea no tiene los requisitos de capitalización, reporte y supervisión que sí aplican a financieras reguladas. La condición que preserva esta naturaleza es que el producto sea estrictamente <em>arrendamiento puro</em>, sin opción de compra contractual obligatoria al final. La opción de compra al residual se ofrece como salida comercial post-contractual, no como obligación.
+  </div>
+
+  <h2 class="sub">7.3 Dos hallazgos críticos de compliance que toca cerrar antes de lanzar</h2>
+
+  <div class="case-card antipatron">
+    <div class="case-label">Hallazgo crítico #1 · Documentación oficial con referente legal obsoleto</div>
+    <div class="case-title">Avisos de Identificación referencian "SMDF" en lugar de UMA</div>
+    <p>Los Avisos de Identificación que el cliente firmaría con cada contrato (parte del cumplimiento obligatorio de LFPIORPI) hoy hacen referencia a <em>"tres mil doscientas diez veces el Salario Mínimo Diario Vigente en el Distrito Federal"</em> como umbral para restricción de pago en efectivo.</p>
+    <p><strong>El problema:</strong> esta referencia legal fue sustituida por la Unidad de Medida y Actualización (UMA) mediante reforma constitucional publicada el <strong>27 de enero de 2016</strong>. La figura "Distrito Federal" pasó a "Ciudad de México" por la misma reforma. <strong>El documento que el cliente firmaría tiene referente legal obsoleto desde hace diez años.</strong></p>
+    <p><strong>Riesgo:</strong> cláusula impugnable. Cada contrato firmado bajo esa redacción acumula vulnerabilidad. Corrección con asesoría jurídica del grupo es entregable de Etapa 0.</p>
+  </div>
+
+  <div class="case-card antipatron">
+    <div class="case-label">Hallazgo crítico #2 · Claims fiscales que contradicen la LISR</div>
+    <div class="case-title">"Deduce el 100%, cero tope" en piezas exploratorias</div>
+    <p>Al explorar el ángulo fiscal de la línea, aparecieron claims agresivos del tipo <em>"Deduce el 100%, cero tope, cero límite de inversión"</em>. La realidad de la LISR Art. 28 fr. XIII es distinta: el cliente está topado a $200 o $285 diarios.</p>
+    <p><strong>Ejemplo de cálculo real:</strong> auto de $580,000 con mensualidad de $14,428 equivale a $474 diarios. Bajo el tope de $200 diarios para combustión, el cliente <strong>solo deduce el 42% del pago</strong>, no el 100%.</p>
+    <p><strong>Riesgo:</strong> el contador del cliente PFAE detecta la inexactitud al primer cálculo. La pérdida de credibilidad es estructural — y el segmento es altamente conectado, así que el daño se propaga rápido. La formulación fiscal canónica honesta es entregable de Etapa 0.</p>
+  </div>
+</section>
+
+<!-- ============ §8 — HALLAZGOS QUE SOSTIENEN LOS 4 PILARES ============ -->
+<section class="page">
+  <h1 class="section-title"><span class="num">§8 · Síntesis</span>Cómo la investigación sustenta los cuatro pilares del Foundational</h1>
+
+  <p>La tesis estratégica del Foundational se construye sobre cuatro pilares. Esta sección documenta qué hallazgo de la investigación sostiene a cada uno.</p>
+
+  <table>
+    <thead><tr><th>Pilar (Foundational §3.3)</th><th>Hallazgo del research que lo sustenta</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>Pilar 1 · Multimarca con red física propia</strong></td>
+        <td>Anti-patrones globales (Cazoo, Vroom, Carvana) demuestran que el 100% digital sin red física no escala con rentabilidad. Caso espejo Lithia + DFC valida la combinación "multimarca + financiera cautiva + red propia" a USD 3,900M de cartera. Ninguna fintech mexicana tiene red física en las 6 ciudades del grupo; ninguna cautiva OEM es multimarca por diseño.</td>
+      </tr>
+      <tr>
+        <td><strong>Pilar 2 · Optimización fiscal honesta</strong></td>
+        <td>Deep Research sectorial documenta que el PFAE valida obligatoriamente con su contador. Claims agresivos del tipo "deduce el 100%" contradicen LISR Art. 28 fr. XIII (tope $200/$285 diarios). Diferenciación por honestidad fiscal explícita es palanca confirmada en el segmento. GP Drive se beneficia adicionalmente de la excepción del Art. 28 (arrendadora deduce 100% sin tope).</td>
+      </tr>
+      <tr>
+        <td><strong>Pilar 3 · Proximidad regional con velocidad operativa</strong></td>
+        <td>Banorte Empresas reporta SLA de 7-15 días; cautivas OEM 5-10 días. GP Autolease compromete públicamente menor a 48 horas. El segmento Pyme pequeña reporta sistemáticamente velocidad y proximidad como criterios decisivos. Corporativos no atienden Pyme pequeña en geografía costera y bajío sur.</td>
+      </tr>
+      <tr>
+        <td><strong>Pilar 4 · Bundle visible y real</strong></td>
+        <td>El sector reporta cross-sell de seguro bundled por encima del 80% como estándar. GP Autolease tiene contratado a Biensea (broker propio) que emite póliza antes de la entrega del vehículo. Cautivas OEM no tienen broker propio multimarca; fintechs no tienen mantenimiento físico. Bundle integrado es defendible por estructura del grupo.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2 class="sub">8.1 La premisa cuantitativa de Año 1 — benchmark sectorial</h2>
+  <p>La Dirección de la línea ha fijado para Año 1 una premisa de validación de <strong>~200 contratos, ~$142M cartera total, ~$85M colocado, AOV ~$600k</strong>. Los benchmarks sectoriales relevantes para interpretarla:</p>
+  <table>
+    <thead><tr><th>Métrica</th><th>Banda sector MX</th><th>Premisa GP Año 1</th><th>Lectura</th></tr></thead>
+    <tbody>
+      <tr><td>AOV por contrato</td><td>$350,000 a $700,000</td><td>~$600,000</td><td>Alto en banda — consistente con segmento PFAE+Pyme con sofisticación fiscal</td></tr>
+      <tr><td>IMOR arrendamiento puro</td><td>0.2% a 5.3% (TIP a sector amplio)</td><td>Banda esperada 1.5% a 3.5%</td><td>Sostenible si la disciplina crediticia se instrumenta desde el día uno</td></tr>
+      <tr><td>Cross-sell seguro</td><td>&gt;80% bundled estándar</td><td>Estructura permite &gt;85%</td><td>Bundle Biensea ya contratado favorece la cifra</td></tr>
+      <tr><td>Comisión apertura</td><td>2.0% a 2.5%</td><td>Estructuralmente similar</td><td>Dentro de banda sectorial</td></tr>
+    </tbody>
+  </table>
+
+  <p>La trayectoria a 24 meses que el Foundational proyecta (2.7x a 3.9x cartera colocada desde la premisa Año 1) <strong>está debajo de la curva</strong> demostrada por Arrendadora Afirme entre 2023 y 2024 (+60.79% YoY en cartera). No es ambición desbocada, es trayectoria probada por un par regional.</p>
+</section>
+
+<!-- ============ §9 — LIMITACIONES ============ -->
+<section class="page">
+  <h1 class="section-title"><span class="num">§9 · Limitaciones</span>Qué este research NO resuelve y qué falta validar</h1>
+
+  <p>Documentar honestamente las limitaciones de la investigación es parte del método. Esta sección lista qué quedó fuera del alcance y qué se debe validar antes o durante el Piloto Etapa 1.</p>
+
+  <h2 class="sub">9.1 Qué este research NO resolvió</h2>
+  <ul>
+    <li><strong>No habló con clientes reales de GP Autolease.</strong> Toda la investigación sobre cliente PFAE y Pyme se basó en fuentes secundarias. La voz directa del cliente target es output explícito del Piloto.</li>
+    <li><strong>No corrió encuesta Sean Ellis</strong> ni ningún instrumento formal de medición de PMF. PMF se medirá con el cohorte del Piloto (umbral: ≥40% de "muy decepcionados" si no pudieran seguir usando GP Autolease).</li>
+    <li><strong>No validó unit economics</strong> contra la operación de GP Drive. La validación financiera fina (costo de fondeo, margen por contrato, distribución exacta de revenue streams, CAC implícito) queda con el área financiera del grupo.</li>
+    <li><strong>No mapeó competencia local cuadra por cuadra</strong> en las 6 ciudades de operación. El benchmark fue sectorial y nacional; el mapeo competitivo hiperlocal por ciudad y vertical es trabajo de Etapa 0/1.</li>
+    <li><strong>No revisó contrato vigente con asesoría jurídica</strong>. La revisión legal del contrato (que preserve la naturaleza de arrendamiento puro vs financiero) es entregable explícito de Etapa 0.</li>
+  </ul>
+
+  <h2 class="sub">9.2 Hipótesis del Foundational que el Piloto debe validar</h2>
+  <table>
+    <thead><tr><th>Hipótesis</th><th>Cómo se valida en Etapa 1</th></tr></thead>
+    <tbody>
+      <tr><td>El AOV objetivo de $600k es realista en el segmento PFAE+Pyme</td><td>AOV observado en los primeros 25-40 contratos del Piloto</td></tr>
+      <tr><td>La honestidad fiscal explícita es ventaja diferencial decisiva</td><td>Entrevistas cualitativas con 15-20 clientes firmados — qué pilar fue decisivo en cierre</td></tr>
+      <tr><td>La proximidad regional importa más que el precio en este segmento</td><td>Encuesta post-firma + análisis de drivers de elección</td></tr>
+      <tr><td>El bundle visible (seguro + mantenimiento + asesoría fiscal + auto sustituto) impacta NPS</td><td>NPS por cohorte segmentado por uso real del bundle</td></tr>
+      <tr><td>El cross-sell con agencias del grupo es la palanca de adquisición más efectiva</td><td>CAC por canal medido en el Piloto — comparar paid vs cross-sell vs referidos</td></tr>
+      <tr><td>La tasa de renovación al cierre del contrato será &gt;40%</td><td>Proxy duro de PMF — se mide al cierre de los primeros cohortes que alcancen el fin de plazo</td></tr>
+    </tbody>
+  </table>
+
+  <h2 class="sub">9.3 Documentación de soporte (vive en el repositorio privado)</h2>
+  <ul>
+    <li><code>01-strategy/Autolease-Deep-Research-Mercado-y-Competencia.md</code> — Investigación documental completa con 63 fuentes citadas</li>
+    <li><code>01-strategy/Autolease-Casos-Espejo-MX-TIP-y-Afirme.md</code> — Profundización pedagógica de los dos casos espejo nacionales</li>
+    <li><code>03-tech/Autolease-Marco-Legal-Regulatorio.md</code> — Detalle del marco LFPIORPI + LISR + LFPDPPP + UMA</li>
+    <li><code>03-tech/Autolease-Prototipo-Auditoria-Visual-y-Calc.md</code> — Auditoría del prototipo con 20 hallazgos por severidad</li>
+    <li><code>03-tech/Autolease-Checklist-Documental-y-Solicitud.md</code> — Procesamiento del xlsx oficial con checklists PFAE y PM</li>
+    <li><code>01-strategy/Autolease-Estado-Actual-Linea-Negocio.md</code> — Estado actual de la línea (producto, proceso de 15 pasos, stack)</li>
+    <li><code>05-stakeholders/Minuta-Autolease-Sergio-Barroso.md</code> — Captura literal de la sesión exploratoria con el Director de la línea</li>
+  </ul>
+
+  <div class="signature-block">
+    <p><strong>Cómo se actualiza este Readout.</strong> Es documento descriptivo, no estratégico — debería tener pocos cambios. Se actualiza si: (a) aparecen fuentes nuevas relevantes para el sector mexicano, (b) los casos espejo reportan nuevas cifras que cambian la lectura, o (c) la regulación cambia (especialmente LFPDPPP, LISR o LFPIORPI). El Piloto Etapa 1 producirá un <em>Readout v2</em> con datos primarios de cliente real.</p>
+  </div>
+</section>
+
+<!-- ============ CLOSING ============ -->
+<section class="page">
+  <div class="closing">
+    <p class="ribbon">Research Readout · GP Autolease · Mayo 2026</p>
+    <h2>Lo que la investigación encontró<br>sostiene <em>la tesis</em> del Foundational.</h2>
+    <p class="pull">
+      Sector acelerando, white space identificado, casos espejo nacionales que demuestran la trayectoria, anti-patrones globales que advierten contra el camino fácil, marco regulatorio claro y dos hallazgos críticos de compliance que cerrar antes del lanzamiento.
+    </p>
+    <p class="body-text">
+      Este Readout es el insumo descriptivo del que se deriva la tesis estratégica. Para entender qué proponemos hacer con estos hallazgos, leer la Definición Estratégica de la Línea de Negocio. Para entender qué falta validar con cliente real antes de escalar inversión, leer §9 de este documento — la voz del cliente es output explícito del Piloto Etapa 1.
+    </p>
+    <div class="signature">
+      <strong>Dirección de Marketing Corporativo</strong>
+      Grupo Plasencia Automotriz · Cliente interno: GP Autolease · Mayo 2026
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
