@@ -31,7 +31,8 @@ for f in \
   "Discovery-Gerentes-MKT-Brief.html" \
   "Seminuevos-Sin-Sorpresas-Paper-Ejecutivo.html" \
   "Autolease-Definicion-Estrategica-Linea-Negocio.html" \
-  "Autolease-Research-Readout.html"; do
+  "Autolease-Research-Readout.html" \
+  "Vambe-Integration-Status-Memo.html"; do
   if [ -f "$SRC/01-strategy/$f" ]; then
     cp "$SRC/01-strategy/$f" "$DEST/01-strategy/$f"
     echo "[OK]  $f"

@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Vambe — Integration Status Memo · Grupo Plasencia Automotriz</title>
+<meta name="description" content="Status técnico-ejecutivo de la integración CRM Plasencia ↔ Vambe (Fase 1 LIVE). Estado actual, decisiones tomadas y validaciones pendientes para alinear Fase 2.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Playfair+Display:wght@500;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gp-red: #C8102E;
+    --gp-navy: #1E2740;
+    --green: #48BB78;
+    --deep-green: #276749;
+    --blue: #4299E1;
+    --deep-blue: #2B6CB0;
+    --amber: #D69E2E;
+    --gold: #ECC94B;
+    --bg: #F0F4F8;
+    --paper: #FFFFFF;
+    --near-white: #F7FAFC;
+    --g100: #EDF2F7;
+    --g200: #E2E8F0;
+    --g300: #CBD5E0;
+    --g400: #A0AEC0;
+    --g500: #718096;
+    --g600: #4A5568;
+    --text: #2D3748;
+    --serif: 'Playfair Display', Georgia, serif;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --mono: 'JetBrains Mono', 'SF Mono', Menlo, monospace;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { background: var(--bg); }
+  body { font-family: var(--sans); color: var(--text); line-height: 1.5; font-size: 9.5pt; -webkit-font-smoothing: antialiased; }
+  @page { size: A4; margin: 0; }
+
+  .page {
+    background: var(--paper);
+    width: 210mm;
+    height: 297mm;
+    margin: 0 auto 8mm auto;
+    padding: 14mm 15mm 16mm 15mm;
+    position: relative;
+    page-break-after: always;
+    box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 4px 24px rgba(30,39,64,.08);
+    overflow: hidden;
+  }
+  .page:last-child { page-break-after: auto; }
+
+  .page-header-text {
+    position: absolute; top: 7mm; left: 15mm;
+    font-family: var(--sans); font-size: 7.5pt; color: var(--g400); letter-spacing: 0.2px;
+  }
+  .page-footer-left {
+    position: absolute; bottom: 9mm; left: 15mm;
+    font-family: var(--sans); font-size: 7pt; color: var(--g400); letter-spacing: 0.2px;
+  }
+  .page-number {
+    position: absolute; bottom: 9mm; right: 15mm;
+    font-family: var(--sans); font-size: 8.5pt; color: var(--g500); font-weight: 500;
+  }
+
+  /* COVER */
+  .cover { background: var(--gp-navy); color: var(--near-white); padding: 0; height: 297mm; display: flex; }
+  .cover-inner {
+    padding: 26mm 22mm 20mm 22mm; flex: 1; box-sizing: border-box;
+    display: flex; flex-direction: column; justify-content: space-between;
+    background:
+      radial-gradient(ellipse at 100% 0%, rgba(236,201,75,0.12) 0%, transparent 55%),
+      radial-gradient(ellipse at 0% 100%, rgba(200,16,46,0.10) 0%, transparent 55%),
+      var(--gp-navy);
+    position: relative;
+  }
+  .cover-mark { font-family: var(--sans); font-weight: 700; font-size: 10.5pt; letter-spacing: 4px; color: var(--gold); text-transform: uppercase; }
+  .cover-mark span { display: block; font-weight: 400; color: rgba(255,255,255,0.55); margin-top: 4px; letter-spacing: 1px; font-size: 8.5pt; }
+  .cover-eyebrow { font-family: var(--sans); font-size: 9.5pt; font-weight: 700; letter-spacing: 5px; color: var(--gp-red); text-transform: uppercase; margin-top: 12mm; }
+  .cover-title { font-family: var(--serif); font-weight: 800; font-size: 42pt; line-height: 1.04; letter-spacing: -1.5px; margin-top: 5mm; color: var(--near-white); }
+  .cover-title em { font-style: italic; color: var(--gold); font-weight: 700; }
+  .cover-subtitle { font-family: var(--serif); font-weight: 500; font-style: italic; font-size: 14pt; color: var(--gold); margin-top: 6mm; letter-spacing: -0.3px; line-height: 1.35; }
+  .cover-pull { font-family: var(--serif); font-weight: 500; font-style: italic; font-size: 11pt; color: rgba(255,255,255,0.85); line-height: 1.55; border-left: 3px solid var(--gp-red); padding-left: 7mm; margin-top: 10mm; max-width: 150mm; }
+  .cover-pull cite { display: block; font-style: normal; font-family: var(--sans); font-weight: 600; font-size: 8.5pt; letter-spacing: 1.5px; color: var(--gp-red); margin-top: 5mm; text-transform: uppercase; }
+  .cover-tags { display: flex; gap: 5mm; margin-top: 9mm; flex-wrap: wrap; }
+  .cover-tag { font-family: var(--sans); font-size: 8.5pt; font-weight: 600; letter-spacing: 1px; color: rgba(255,255,255,0.85); border: 1px solid rgba(255,255,255,0.25); padding: 3px 9px; border-radius: 999px; text-transform: uppercase; }
+  .cover-tag.accent { color: var(--gold); border-color: rgba(236,201,75,0.4); }
+  .cover-meta { display: flex; justify-content: space-between; align-items: flex-end; margin-top: 11mm; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 6mm; }
+  .cover-meta-block { font-size: 8.5pt; color: rgba(255,255,255,0.65); line-height: 1.6; }
+  .cover-meta-block strong { display: block; color: var(--near-white); font-weight: 700; font-size: 9.5pt; letter-spacing: .5px; }
+
+  /* TYPOGRAPHY */
+  h1.section-title {
+    font-family: var(--serif); font-weight: 800; font-size: 22pt; line-height: 1.08; letter-spacing: -1px;
+    color: var(--gp-navy); border-top: 3px solid var(--gp-red); padding-top: 4mm; margin-top: 0; margin-bottom: 4mm;
+  }
+  h1.section-title .num { display: block; font-family: var(--sans); font-weight: 700; font-size: 8.5pt; letter-spacing: 4px; color: var(--gp-red); text-transform: uppercase; margin-bottom: 3mm; }
+  h2.section-h2 { font-size: 12pt; font-weight: 800; color: var(--gp-navy); margin-top: 5mm; margin-bottom: 2mm; line-height: 1.25; font-family: var(--sans); }
+  h3.section-h3 { font-size: 10.5pt; font-weight: 700; color: var(--gp-navy); margin-top: 3mm; margin-bottom: 1.5mm; font-family: var(--sans); }
+  p { margin: 0 0 2.2mm 0; }
+  strong { font-weight: 700; color: var(--gp-navy); }
+  em { font-style: italic; }
+  .lead { font-size: 10pt; line-height: 1.6; color: var(--g600); margin-bottom: 3mm; }
+  .lead strong { color: var(--gp-navy); }
+  .small { font-size: 8pt; color: var(--g500); }
+
+  /* TABLE */
+  table.simple { width: 100%; border-collapse: collapse; margin: 3mm 0; font-size: 9pt; }
+  table.simple th { background: var(--gp-navy); color: var(--near-white); text-align: left; padding: 2.5mm 3.5mm; font-weight: 700; font-family: var(--sans); font-size: 8.5pt; letter-spacing: 0.5px; }
+  table.simple td { padding: 2.5mm 3.5mm; border-bottom: 1px solid var(--g200); color: var(--g600); line-height: 1.45; vertical-align: top; }
+  table.simple tr:nth-child(even) td { background: var(--g100); }
+  table.simple td strong { color: var(--gp-navy); }
+  table.simple td code { font-family: var(--mono); font-size: 8pt; color: var(--gp-navy); background: var(--g100); padding: 1px 4px; border-radius: 3px; }
+  table.simple tr:nth-child(even) td code { background: var(--paper); }
+  table.simple td.num-cell { font-family: var(--serif); font-weight: 800; font-size: 11pt; color: var(--gp-red); width: 7mm; text-align: center; }
+
+  /* CALLOUT */
+  .callout { background: var(--g100); border-left: 4px solid var(--gp-navy); padding: 4mm 5mm; margin: 3mm 0; page-break-inside: avoid; }
+  .callout.gold { border-left-color: var(--gold); background: rgba(236,201,75,0.08); }
+  .callout.red { border-left-color: var(--gp-red); background: rgba(200,16,46,0.05); }
+  .callout.blue { border-left-color: var(--blue); background: rgba(66,153,225,0.05); }
+  .callout.green { border-left-color: var(--green); background: rgba(72,187,120,0.05); }
+  .callout .label { display: block; font-family: var(--sans); font-size: 8pt; font-weight: 800; letter-spacing: 2px; color: var(--gp-navy); text-transform: uppercase; margin-bottom: 2.5mm; }
+  .callout.gold .label { color: #997706; }
+  .callout.red .label { color: var(--gp-red); }
+  .callout.blue .label { color: var(--deep-blue); }
+  .callout.green .label { color: var(--deep-green); }
+  .callout .text { font-size: 9.5pt; color: var(--g600); line-height: 1.55; }
+  .callout .text strong { color: var(--gp-navy); }
+
+  /* PILLS */
+  .pill { display: inline-block; font-family: var(--sans); font-size: 7.5pt; font-weight: 800; letter-spacing: 1.5px; padding: 2px 7px; border-radius: 4px; text-transform: uppercase; vertical-align: middle; }
+  .pill.live { background: rgba(72,187,120,0.15); color: var(--deep-green); }
+  .pill.pending { background: rgba(214,158,46,0.15); color: var(--amber); }
+  .pill.future { background: rgba(66,153,225,0.15); color: var(--deep-blue); }
+
+  /* ARCHITECTURE DIAGRAM */
+  .arch { margin: 4mm 0 3mm 0; display: flex; flex-direction: column; align-items: center; gap: 0; }
+  .arch-node { background: var(--paper); border: 1.5px solid var(--g300); border-radius: 5px; padding: 3mm 5mm; width: 100%; max-width: 130mm; text-align: center; font-family: var(--sans); page-break-inside: avoid; }
+  .arch-node.primary { border-color: var(--gp-navy); background: var(--gp-navy); color: var(--near-white); }
+  .arch-node.primary .arch-title { color: var(--near-white); }
+  .arch-node.primary .arch-meta { color: rgba(255,255,255,0.7); }
+  .arch-node.accent { border-color: var(--gp-red); border-left-width: 5px; background: rgba(200,16,46,0.04); }
+  .arch-node.accent .arch-title { color: var(--gp-red); }
+  .arch-node.vambe { border-color: var(--gold); border-left-width: 5px; background: rgba(236,201,75,0.07); }
+  .arch-node.vambe .arch-title { color: #997706; }
+  .arch-title { font-weight: 800; font-size: 9.5pt; color: var(--gp-navy); margin-bottom: 0.5mm; }
+  .arch-meta { font-size: 7.8pt; color: var(--g500); font-weight: 500; line-height: 1.4; }
+  .arch-arrow { width: 2px; background: var(--g300); height: 4mm; position: relative; }
+  .arch-arrow::after { content: ""; position: absolute; bottom: -1px; left: 50%; transform: translateX(-50%) rotate(45deg); width: 5px; height: 5px; border-right: 2px solid var(--g300); border-bottom: 2px solid var(--g300); }
+  .arch-arrow-label { font-family: var(--mono); font-size: 7pt; color: var(--g500); background: var(--paper); padding: 1mm 2.5mm; margin: 1.5mm 0; border: 1px dashed var(--g300); border-radius: 3px; }
+
+  /* CODE BLOCK */
+  pre.code { background: var(--gp-navy); color: var(--near-white); font-family: var(--mono); font-size: 7.5pt; line-height: 1.5; padding: 4mm 5mm; border-radius: 4px; margin: 3mm 0; page-break-inside: avoid; white-space: pre-wrap; word-break: break-all; }
+  pre.code .k { color: var(--gold); }
+  pre.code .s { color: #9AE6B4; }
+  pre.code .n { color: #FBD38D; }
+  pre.code .c { color: var(--g400); font-style: italic; }
+
+  /* ROADMAP CARDS */
+  .timeline { display: grid; grid-template-columns: repeat(2, 1fr); gap: 3.5mm; margin: 4mm 0; }
+  .ts { background: var(--paper); border: 1px solid var(--g200); border-top: 3px solid var(--gp-navy); padding: 4mm 4.5mm; page-break-inside: avoid; }
+  .ts.red { border-top-color: var(--gp-red); }
+  .ts.gold { border-top-color: var(--gold); }
+  .ts.blue { border-top-color: var(--blue); }
+  .ts.green { border-top-color: var(--green); }
+  .ts .step { font-family: var(--sans); font-size: 7.5pt; font-weight: 800; letter-spacing: 2px; color: var(--gp-red); text-transform: uppercase; margin-bottom: 1.5mm; }
+  .ts.gold .step { color: #997706; }
+  .ts.blue .step { color: var(--deep-blue); }
+  .ts.green .step { color: var(--deep-green); }
+  .ts h4 { font-family: var(--sans); font-size: 10pt; font-weight: 800; color: var(--gp-navy); margin-bottom: 1.5mm; line-height: 1.25; }
+  .ts p { font-size: 8.5pt; color: var(--g600); line-height: 1.45; margin-bottom: 0; }
+
+  /* STATEMENT */
+  .statement { background: var(--gp-navy); color: var(--near-white); padding: 8mm 10mm; margin: 5mm 0 5mm 0; border-left: 5px solid var(--gold); page-break-inside: avoid; position: relative; }
+  .statement::before { content: "“"; position: absolute; top: 3mm; right: 9mm; font-family: var(--serif); font-size: 60pt; color: rgba(236,201,75,0.18); line-height: 1; font-weight: 900; }
+  .statement .label { font-family: var(--sans); font-size: 8pt; font-weight: 800; letter-spacing: 3px; color: var(--gold); text-transform: uppercase; margin-bottom: 3mm; display: block; }
+  .statement .text { font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 12.5pt; line-height: 1.4; color: var(--near-white); letter-spacing: -0.3px; }
+  .statement .text strong { color: var(--gold); font-weight: 700; font-style: normal; font-family: var(--sans); font-size: 11.5pt; }
+
+  /* QUESTIONS */
+  .q-group { margin: 3mm 0; }
+  .q-group-title { font-family: var(--sans); font-size: 9pt; font-weight: 800; color: var(--gp-navy); text-transform: uppercase; letter-spacing: 1.5px; margin: 3.5mm 0 2mm 0; padding-bottom: 1mm; border-bottom: 1.5px solid var(--gp-red); }
+  .q { display: flex; gap: 3.5mm; padding: 2mm 0; border-bottom: 1px dotted var(--g300); align-items: flex-start; }
+  .q:last-child { border-bottom: none; }
+  .q .q-num { font-family: var(--serif); font-weight: 800; font-size: 13pt; color: var(--gp-red); line-height: 1; flex-shrink: 0; width: 8mm; text-align: right; padding-top: 0.5mm; }
+  .q .q-copy { font-size: 9.5pt; color: var(--g600); line-height: 1.5; flex: 1; }
+  .q .q-copy strong { color: var(--gp-navy); }
+  .q .q-copy code { font-family: var(--mono); font-size: 8.5pt; color: var(--gp-navy); background: var(--g100); padding: 1px 4px; border-radius: 3px; }
+  .q .q-copy ul { list-style: none; padding: 0; margin: 1mm 0 0 0; }
+  .q .q-copy ul li { padding: 0.6mm 0 0.6mm 5mm; position: relative; font-size: 9pt; color: var(--g600); line-height: 1.45; }
+  .q .q-copy ul li::before { content: "—"; position: absolute; left: 0; color: var(--gp-red); font-weight: 700; }
+
+  /* SIGNATURE */
+  .signature { margin-top: 10mm; padding-top: 6mm; border-top: 2px solid var(--gp-navy); display: flex; justify-content: space-between; align-items: flex-end; }
+  .sig-name { font-family: var(--serif); font-style: italic; font-size: 16pt; color: var(--gp-navy); font-weight: 700; line-height: 1; }
+  .sig-name span { display: block; font-family: var(--sans); font-style: normal; font-weight: 700; font-size: 8pt; color: var(--g500); letter-spacing: 2px; text-transform: uppercase; margin-top: 3mm; line-height: 1.4; }
+  .sig-stamp { text-align: right; font-size: 8pt; color: var(--g500); line-height: 1.5; }
+  .sig-stamp strong { display: block; color: var(--gp-navy); font-size: 8.5pt; letter-spacing: 0.5px; }
+
+  ul.clean { list-style: none; padding: 0; margin: 2mm 0; }
+  ul.clean li { padding: 1.5mm 0 1.5mm 7mm; position: relative; font-size: 9.5pt; line-height: 1.5; color: var(--g600); }
+  ul.clean li::before { content: ""; position: absolute; left: 0; top: 4.5mm; width: 4mm; height: 1px; background: var(--gp-red); }
+  ul.clean li strong { color: var(--gp-navy); }
+
+  @media print { .page { box-shadow: none; margin: 0; } body { background: var(--paper); } }
+</style>
+</head>
+<body>
+
+<!-- ====== PAGE 1 — COVER ====== -->
+<div class="page cover">
+  <div class="cover-inner">
+    <div>
+      <div class="cover-mark">Grupo Plasencia<span>Automotriz · Dirección de Marketing Digital</span></div>
+      <div class="cover-eyebrow">Integration Status Memo</div>
+      <h1 class="cover-title">Vambe — <em>handoff</em><br>WhatsApp + IA</h1>
+      <div class="cover-subtitle">Estado de la integración Fase 1, decisiones tomadas y validaciones pendientes para alinear Fase 2.</div>
+      <div class="cover-pull">
+        Cada lead capturado por el formulario web de Seminuevos en López Mateos o Bugámbilias entra ahora al asistente IA <em>Perfilador</em> de Vambe antes de que el vendedor humano tome la conversación. Este documento es la fotografía técnica y ejecutiva de la integración al cierre de Fase 1.
+        <cite>Marketing Digital · Grupo Plasencia</cite>
+      </div>
+      <div class="cover-tags">
+        <span class="cover-tag accent">Fase 1 · LIVE</span>
+        <span class="cover-tag">Seminuevos · LM · Bugámbilias</span>
+        <span class="cover-tag">Sync manual · Webhook Fase 2</span>
+      </div>
+    </div>
+    <div class="cover-meta">
+      <div class="cover-meta-block"><strong>De</strong>Grupo Plasencia Automotriz<br>Dirección de Marketing Digital</div>
+      <div class="cover-meta-block"><strong>Para</strong>Vambe — Equipo de implementación</div>
+      <div class="cover-meta-block"><strong>Fecha</strong>19 de mayo de 2026<br>Versión 1.0</div>
+    </div>
+  </div>
+</div>
+
+<!-- ====== PAGE 2 — Contexto + Scope ====== -->
+<div class="page">
+  <div class="page-header-text">Vambe — Integration Status Memo · Grupo Plasencia Automotriz</div>
+  <div class="page-footer-left">Confidencial · uso interno alineado con proveedor</div>
+  <div class="page-number">02</div>
+
+  <h1 class="section-title"><span class="num">§1 · Contexto</span>Por qué Vambe encaja en el stack</h1>
+
+  <p class="lead">Grupo Plasencia Automotriz opera 8 sucursales en Guadalajara y vende seminuevos certificados bajo la marca <strong>Seminuevos Plasencia</strong>. Estamos en pleno piloto del <strong>Motor de Atribución MVP</strong>: un stack propio que centraliza los leads del canal digital y los conecta al kanban del vendedor.</p>
+
+  <p>Integramos Vambe en este stack para resolver dos cosas concretas:</p>
+
+  <ul class="clean">
+    <li><strong>Cumplir la regla de las 24 horas de WhatsApp</strong> al primer contacto, usando plantillas oficiales aprobadas por Meta.</li>
+    <li><strong>Aprovechar el asistente IA</strong> &laquo;Perfilador&raquo; para levantar presupuesto, plazo y vehículo de interés del prospecto antes de que el vendedor humano entre.</li>
+  </ul>
+
+  <p>Esta es la primera vez que conectamos un canal de IA conversacional al CRM, y queremos hacerlo con rigor: scope acotado, log de auditoría, sin riesgo al flujo principal del lead.</p>
+
+  <h1 class="section-title" style="margin-top:7mm;"><span class="num">§2 · Estado actual <span class="pill live">Fase 1 LIVE</span></span>Scope acotado y filtro de entrada</h1>
+
+  <p class="lead">El handoff CRM → Vambe está <strong>en producción desde el 19 de mayo de 2026</strong>. Cada lead que cumple el filtro se dispara a Vambe inmediatamente después del registro en el CRM.</p>
+
+  <table class="simple">
+    <thead><tr><th style="width:32%">Dimensión</th><th>Filtro</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Marca</strong></td><td>Seminuevos únicamente</td></tr>
+      <tr><td><strong>Origen del lead</strong></td><td>Formulario web de la landing piloto (<code>seminuevos.grupoplasencia.com</code>)</td></tr>
+      <tr><td><strong>Sucursal</strong></td><td>López Mateos y Bugámbilias — las únicas con inventario activo en Vambe hoy</td></tr>
+      <tr><td><strong>Plantilla</strong></td><td><code>seguimiento_lead_interesado</code> (MARKETING, 1 variable = nombre)</td></tr>
+      <tr><td><strong>Sincronía CRM ↔ Vambe</strong></td><td>Manual en Fase 1 — el vendedor replica el avance del pipeline Vambe en el kanban CRM</td></tr>
+    </tbody>
+  </table>
+
+  <p class="small">Cualquier lead fuera de este filtro pasa por el CRM sin tocar Vambe.</p>
+</div>
+
+<!-- ====== PAGE 3 — Componentes + Mapping ====== -->
+<div class="page">
+  <div class="page-header-text">Vambe — Integration Status Memo · Grupo Plasencia Automotriz</div>
+  <div class="page-footer-left">Confidencial · uso interno alineado con proveedor</div>
+  <div class="page-number">03</div>
+
+  <h1 class="section-title"><span class="num">§2 · Estado actual (cont.)</span>Componentes deployados y mapping</h1>
+
+  <h2 class="section-h2">Componentes</h2>
+
+  <table class="simple">
+    <thead><tr><th style="width:34%">Pieza</th><th>Descripción</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Cloudflare Worker <code>crm-plasencia</code></strong></td><td>Función <code>dispatchToVambe()</code> invocada post-registro del lead. Versión <code>66d8d55b…05eb3d5a835</code></td></tr>
+      <tr><td><strong>Tabla D1 <code>vambe_dispatch_log</code></strong></td><td>Audita cada intento: request enviado, respuesta de Vambe, status HTTP, latencia, errores</td></tr>
+      <tr><td><strong>Secret <code>VAMBE_API_KEY</code></strong></td><td>Configurado en Cloudflare Workers, fuera del repositorio de código</td></tr>
+      <tr><td><strong>Endpoint usado</strong></td><td><code>POST https://api.vambe.me/v1/whatsapp/message/send-template</code></td></tr>
+    </tbody>
+  </table>
+
+  <h2 class="section-h2">Mapping de canales por sucursal</h2>
+
+  <table class="simple">
+    <thead><tr><th>Sucursal</th><th><code>from_phone_number</code></th><th><code>stage_id</code> (Perfilamiento)</th><th>Channel ID</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Bugámbilias</strong></td><td><code>523314105552</code></td><td><code>6c7da133-…-c42b71</code></td><td>43740</td></tr>
+      <tr><td><strong>López Mateos</strong></td><td><code>523312703429</code></td><td><code>86ff882d-…-5336fb0</code></td><td>46658</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout green">
+    <span class="label">Principio rector</span>
+    <div class="text"><strong>Vambe complementa, no condiciona.</strong> Toda la arquitectura está diseñada para que un eventual outage de Vambe nunca afecte el flujo principal del lead: D1 + CAPI + GA4 + kanban del vendedor siempre quedan committed antes de que el handoff a Vambe ocurra. Esto es deliberado y no negociable.</div>
+  </div>
+</div>
+
+<!-- ====== PAGE 4 — Arquitectura diagrama ====== -->
+<div class="page">
+  <div class="page-header-text">Vambe — Integration Status Memo · Grupo Plasencia Automotriz</div>
+  <div class="page-footer-left">Confidencial · uso interno alineado con proveedor</div>
+  <div class="page-number">04</div>
+
+  <h1 class="section-title"><span class="num">§3 · Arquitectura</span>Cómo viaja el lead del form a la IA</h1>
+
+  <p class="lead">El handoff a Vambe se ejecuta en background (<code>ctx.waitUntil</code>) <strong>después</strong> de que el lead ya quedó committed en D1 + CAPI + GA4. Si Vambe se cae, el flujo principal del CRM no se afecta.</p>
+
+  <div class="arch">
+    <div class="arch-node accent">
+      <div class="arch-title">Form web Seminuevos</div>
+      <div class="arch-meta">seminuevos.grupoplasencia.com · captura datos del prospecto</div>
+    </div>
+    <div class="arch-arrow"></div>
+    <div class="arch-arrow-label">POST /api/lead/seminuevos</div>
+    <div class="arch-node primary">
+      <div class="arch-title">Cloudflare Worker · crm-plasencia</div>
+      <div class="arch-meta">INSERT D1 (atomic) · Meta CAPI Lead · GA4 Measurement Protocol</div>
+    </div>
+    <div class="arch-arrow"></div>
+    <div class="arch-arrow-label">ctx.waitUntil — no bloquea response al cliente</div>
+    <div class="arch-node">
+      <div class="arch-title">dispatchToVambe()</div>
+      <div class="arch-meta">Filtros: marca=seminuevos · fuente=LANDING PAGE · sucursal ∈ {LM, Bug}<br>Construye payload + INSERT en vambe_dispatch_log</div>
+    </div>
+    <div class="arch-arrow"></div>
+    <div class="arch-arrow-label">POST api.vambe.me/v1/whatsapp/message/send-template</div>
+    <div class="arch-node vambe">
+      <div class="arch-title">Vambe</div>
+      <div class="arch-meta">Upsert contacto (dedup teléfono) · inserta en etapa &quot;Perfilamiento&quot; · envía WhatsApp con seguimiento_lead_interesado</div>
+    </div>
+    <div class="arch-arrow"></div>
+    <div class="arch-node accent">
+      <div class="arch-title">Cliente recibe WhatsApp → IA Perfilador toma la conversación</div>
+      <div class="arch-meta">Vendedor humano replica avance del pipeline Vambe en kanban CRM (manual, Fase 1)</div>
+    </div>
+  </div>
+</div>
+
+<!-- ====== PAGE 5 — Payload + metadata ====== -->
+<div class="page">
+  <div class="page-header-text">Vambe — Integration Status Memo · Grupo Plasencia Automotriz</div>
+  <div class="page-footer-left">Confidencial · uso interno alineado con proveedor</div>
+  <div class="page-number">05</div>
+
+  <h1 class="section-title"><span class="num">§3 · Arquitectura (cont.)</span>Payload que enviamos a Vambe</h1>
+
+  <p class="lead">El payload incluye los campos requeridos por la API + un objeto <code>metadata</code> rico con nuestro folio único e IDs internos del CRM para correlación.</p>
+
+<pre class="code">{
+  <span class="k">"phone"</span>: <span class="s">"521 + 10 dígitos del prospecto"</span>,
+  <span class="k">"contact_name"</span>: <span class="s">"Nombre + Apellidos"</span>,
+  <span class="k">"from_phone_number"</span>: <span class="s">"523314105552 | 523312703429"</span>,
+  <span class="k">"template_name"</span>: <span class="s">"seguimiento_lead_interesado"</span>,
+  <span class="k">"variables"</span>: [<span class="s">"Nombre del prospecto"</span>],
+  <span class="k">"stage_id"</span>: <span class="s">"&lt;stage_id por sucursal&gt;"</span>,
+  <span class="k">"metadata"</span>: {
+    <span class="k">"folio"</span>: <span class="s">"GP-SEM-YYMMDD-HHMMSS"</span>,
+    <span class="k">"marca"</span>: <span class="s">"seminuevos"</span>,
+    <span class="k">"sucursal"</span>: <span class="s">"Lopez Mateos | Bugambilias"</span>,
+    <span class="k">"vehiculo"</span>: <span class="s">"MAZDA CX-5 GRAND TOURING 2021"</span>,
+    <span class="k">"valor_pipeline"</span>: <span class="n">425000</span>,
+    <span class="k">"fuente"</span>: <span class="s">"LANDING PAGE"</span>,
+    <span class="k">"utm_source"</span>: <span class="s">"fb"</span>, <span class="k">"utm_medium"</span>: <span class="s">"paid"</span>,
+    <span class="k">"utm_campaign"</span>: <span class="s">"..."</span>,
+    <span class="k">"fbclid"</span>: <span class="s">"..."</span>, <span class="k">"gclid"</span>: null,
+    <span class="k">"crm_lead_id"</span>: <span class="n">412</span>, <span class="k">"crm_pipeline_id"</span>: <span class="n">419</span>
+  }
+}</pre>
+
+  <div class="callout blue">
+    <span class="label">Para qué sirve el metadata</span>
+    <div class="text">Incluimos nuestro <strong>folio único + UTMs + IDs internos del CRM</strong> en el payload para que ustedes puedan correlacionar contacto Vambe ↔ lead CRM sin ambigüedad cuando llegue Fase 2 (webhook bidireccional). El folio es nuestro <em>join key</em> universal — cada lead lleva uno único por marca + sucursal + timestamp.</div>
+  </div>
+</div>
+
+<!-- ====== PAGE 6 — Decisiones ====== -->
+<div class="page">
+  <div class="page-header-text">Vambe — Integration Status Memo · Grupo Plasencia Automotriz</div>
+  <div class="page-footer-left">Confidencial · uso interno alineado con proveedor</div>
+  <div class="page-number">06</div>
+
+  <h1 class="section-title"><span class="num">§4 · Decisiones que tomamos</span>Queremos su validación</h1>
+
+  <p class="lead">Estas son las elecciones de implementación de Fase 1. Las exponemos abiertamente para que ustedes puedan corregirnos si algún supuesto está mal o si hay mejores prácticas que no aplicamos.</p>
+
+  <table class="simple">
+    <thead><tr><th style="width:5%">#</th><th style="width:28%">Decisión</th><th style="width:37%">Razonamiento</th><th>Pedimos validar</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="num-cell">1</td>
+        <td><strong>Plantilla <code>seguimiento_lead_interesado</code></strong> (no crear nueva)</td>
+        <td>Es la única MARKETING con 1 variable y sin sucursal hardcoded en el copy — sirve para LM y Bug</td>
+        <td>Que es la elección correcta para primer contacto de lead nuevo de form web</td>
+      </tr>
+      <tr>
+        <td class="num-cell">2</td>
+        <td><strong>Solo el nombre</strong> en <code>variables[0]</code>, no el nombre completo</td>
+        <td>Más cercano en el mensaje conversacional</td>
+        <td>Confirmar</td>
+      </tr>
+      <tr>
+        <td class="num-cell">3</td>
+        <td><strong>Sync CRM ↔ Vambe manual</strong> en Fase 1</td>
+        <td>Validar volumen y calidad de la IA antes de automatizar el webhook bidireccional</td>
+        <td>OK — Fase 2 cierra este gap</td>
+      </tr>
+      <tr>
+        <td class="num-cell">4</td>
+        <td><code>ctx.waitUntil</code> <strong>no bloqueante</strong></td>
+        <td>Vambe es downstream. El registro CRM/CAPI/GA4 ya está committed cuando se llama a Vambe</td>
+        <td>OK</td>
+      </tr>
+      <tr>
+        <td class="num-cell">5</td>
+        <td><strong>Try/catch defensivo</strong> en el dispatch</td>
+        <td>Si Vambe regresa error, el lead ya está en CRM — nunca dejamos que un fallo de Vambe afecte el lead</td>
+        <td>OK</td>
+      </tr>
+      <tr>
+        <td class="num-cell">6</td>
+        <td><strong>Sin retry automático</strong> en 5xx hoy</td>
+        <td>Asumimos estabilidad alta. Agregaremos backoff si vemos errores recurrentes en producción</td>
+        <td>Confirmar SLA esperado</td>
+      </tr>
+      <tr>
+        <td class="num-cell">7</td>
+        <td><strong>LM usa plantillas Bugámbilias</strong></td>
+        <td>El PDF del canal LM lo indica como práctica vigente; la plantilla no menciona sucursal en el copy</td>
+        <td>Confirmar si queda permanente o si recomiendan plantillas LM-específicas</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ====== PAGE 7 — Preguntas 1-6 ====== -->
+<div class="page">
+  <div class="page-header-text">Vambe — Integration Status Memo · Grupo Plasencia Automotriz</div>
+  <div class="page-footer-left">Confidencial · uso interno alineado con proveedor</div>
+  <div class="page-number">07</div>
+
+  <h1 class="section-title"><span class="num">§5 · Validaciones pendientes</span>12 preguntas concretas para Vambe</h1>
+
+  <p class="lead">Numeradas para que sea fácil responderlas en línea. El cierre de estas preguntas nos permite operar Fase 1 con tranquilidad y planear Fase 2.</p>
+
+  <div class="q-group">
+    <div class="q-group-title">5.1 · Plantillas</div>
+    <div class="q">
+      <div class="q-num">1</div>
+      <div class="q-copy">¿Confirman que <code>seguimiento_lead_interesado</code> (MARKETING, 1 variable) es la plantilla correcta para <strong>primer contacto de lead nuevo capturado por formulario web</strong>? Si no, ¿cuál recomiendan?</div>
+    </div>
+    <div class="q">
+      <div class="q-num">2</div>
+      <div class="q-copy">¿Queda permanente que López Mateos use las plantillas Bugámbilias, o recomiendan <strong>crear plantillas LM-específicas</strong> antes de escalar volumen?</div>
+    </div>
+    <div class="q">
+      <div class="q-num">3</div>
+      <div class="q-copy">Cuando un prospecto no responde al primer mensaje, ¿quién dispara <code>seguimiento_24h_*</code> y <code>seguimiento_3dias_*</code>? ¿La IA Perfilador, un cron de Vambe, o nosotros vía API?</div>
+    </div>
+  </div>
+
+  <div class="q-group">
+    <div class="q-group-title">5.2 · Webhook bidireccional <span style="font-weight:600;color:var(--g500);font-size:8pt;letter-spacing:1px;">(crítico para Fase 2)</span></div>
+    <div class="q">
+      <div class="q-num">4</div>
+      <div class="q-copy">
+        ¿Vambe expone webhook saliente cuando un contacto cambia de etapa en su pipeline? Si sí:
+        <ul>
+          <li>¿Qué eventos están disponibles? (creación, cambio de etapa, mensaje entrante/saliente, asignación, cierre)</li>
+          <li>¿Cuál es el shape del payload?</li>
+          <li>¿Cómo se autentica el callback? (HMAC, token compartido, IP allowlist)</li>
+        </ul>
+      </div>
+    </div>
+    <div class="q">
+      <div class="q-num">5</div>
+      <div class="q-copy">¿Cómo mapean conceptualmente sus etapas a nuestro kanban? <strong>Nuestras etapas:</strong> <code>Por contactar</code> · <code>Recontactar</code> · <code>Cita Agendada</code> · <code>Visita</code> · <code>Negociando</code> · <code>Ganada</code> · <code>Perdida</code>.</div>
+    </div>
+  </div>
+
+  <div class="q-group">
+    <div class="q-group-title">5.3 · Catálogo e inventario</div>
+    <div class="q">
+      <div class="q-num">6</div>
+      <div class="q-copy">
+        ¿Vambe tiene el inventario activo de LM y Bug sincronizado con su IA? Si la IA recomienda autos al prospecto:
+        <ul>
+          <li>Si leen de nuestro feed Maxipublica o de <code>seminuevos.grupoplasencia.com</code>, ¿con qué frecuencia se actualiza?</li>
+          <li>Si tienen su propio catálogo, ¿cómo evitamos drift entre lo que la IA promete y lo que existe físicamente?</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ====== PAGE 8 — Preguntas 7-12 + statement ====== -->
+<div class="page">
+  <div class="page-header-text">Vambe — Integration Status Memo · Grupo Plasencia Automotriz</div>
+  <div class="page-footer-left">Confidencial · uso interno alineado con proveedor</div>
+  <div class="page-number">08</div>
+
+  <div class="q-group">
+    <div class="q-group-title">5.4 · Asignación de asesores</div>
+    <div class="q">
+      <div class="q-num">7</div>
+      <div class="q-copy">
+        El endpoint acepta <code>agent_id</code> opcional. ¿Cuándo conviene usarlo?
+        <ul>
+          <li>Si lo enviamos, ¿el ticket queda asignado al agente o solo lo recibe como notificación?</li>
+          <li>¿Tienen mapeo &quot;vendedor humano → <code>agent_id</code>&quot; que podamos consumir?</li>
+          <li>Hoy hacemos round-robin server-side para Seminuevos. ¿Mantenemos la asignación de nuestro lado y se la pasamos vía <code>agent_id</code>, o Vambe tiene su propia lógica?</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="q-group">
+    <div class="q-group-title">5.5 · Rate limits, SLA y sandbox</div>
+    <div class="q">
+      <div class="q-num">8</div>
+      <div class="q-copy">¿Cuál es el <strong>rate limit del endpoint <code>send-template</code></strong>? Si Seminuevos crece a 200 leads/día por sucursal, ¿se sostiene?</div>
+    </div>
+    <div class="q">
+      <div class="q-num">9</div>
+      <div class="q-copy">¿Qué <strong>uptime</strong> garantizan? ¿Tienen status page pública o canal de aviso de incidentes?</div>
+    </div>
+    <div class="q">
+      <div class="q-num">10</div>
+      <div class="q-copy">¿Hay <strong>ambiente sandbox</strong> para QA sin gastar plantillas reales?</div>
+    </div>
+  </div>
+
+  <div class="q-group">
+    <div class="q-group-title">5.6 · Reporting y métricas</div>
+    <div class="q">
+      <div class="q-num">11</div>
+      <div class="q-copy">¿Tienen dashboard nativo con <strong>métricas conversacionales</strong> (lead recibido → respuesta → agente humano → cita)? ¿O esperan que lo construyamos del lado nuestro consumiendo su API?</div>
+    </div>
+    <div class="q">
+      <div class="q-num">12</div>
+      <div class="q-copy">¿Exponen API para extraer <strong>histórico de conversaciones / etapas / mensajes</strong>? Lo necesitaríamos para calcular conversión Vambe → cita real en nuestro dashboard ejecutivo.</div>
+    </div>
+  </div>
+
+  <div class="statement">
+    <span class="label">Lo que más nos importa</span>
+    <div class="text">Las preguntas <strong>4, 5 y 11–12</strong> son las que abren camino a Fase 2. Si nos pueden priorizar la respuesta a estas cuatro, podemos cerrar el roadmap técnico antes de fin de mes.</div>
+  </div>
+</div>
+
+<!-- ====== PAGE 9 — Roadmap Fase 2 + 3 ====== -->
+<div class="page">
+  <div class="page-header-text">Vambe — Integration Status Memo · Grupo Plasencia Automotriz</div>
+  <div class="page-footer-left">Confidencial · uso interno alineado con proveedor</div>
+  <div class="page-number">09</div>
+
+  <h1 class="section-title"><span class="num">§6 · Roadmap Fase 2 <span class="pill future">Próximo</span></span>Sincronía bidireccional automática</h1>
+
+  <p class="lead">Cuando cierren las preguntas 4-5 y 11-12, queremos llegar a este estado:</p>
+
+  <div class="timeline">
+    <div class="ts blue">
+      <div class="step">F2.1</div>
+      <h4>Webhook Vambe → CRM</h4>
+      <p>Cuando un contacto cambia de etapa en Vambe (ej. Perfilamiento → Calificado, IA agenda cita), el Worker recibe el evento y mueve el lead en el kanban CRM automáticamente.</p>
+    </div>
+    <div class="ts blue">
+      <div class="step">F2.2</div>
+      <h4>CAPI Schedule automático</h4>
+      <p>Cuando Vambe agende, el Worker disparará <code>Schedule</code> server-side a Meta con <code>lead_id</code> correspondiente para que la plataforma atribuya la conversión a la campaña que originó el lead.</p>
+    </div>
+    <div class="ts blue">
+      <div class="step">F2.3</div>
+      <h4>Dedup robusto</h4>
+      <p>Si el vendedor también movió manualmente el lead en el kanban, el webhook no crea evento duplicado (idempotencia análoga a la que ya usamos para Meta Lead Gen).</p>
+    </div>
+    <div class="ts blue">
+      <div class="step">F2.4</div>
+      <h4>Métricas en dashboard</h4>
+      <p>Conversión Vambe (lead enviado → respondió en 24h → IA escaló a humano → cita real) integrada al dashboard CRM Plasencia.</p>
+    </div>
+  </div>
+
+  <h1 class="section-title" style="margin-top:6mm;"><span class="num">§7 · Roadmap Fase 3 <span class="pill future">Visión</span></span>Cobertura completa</h1>
+
+  <div class="timeline">
+    <div class="ts gold">
+      <div class="step">F3.1</div>
+      <h4>Sucursales Seminuevos</h4>
+      <p>Sumar Bugatti, González Gallo, Galerías, Santa Anita conforme Vambe abra canales con inventario para cada una.</p>
+    </div>
+    <div class="ts gold">
+      <div class="step">F3.2</div>
+      <h4>Marcas Hyundai y Stellantis</h4>
+      <p>Hoy operan con Meta Lead Gen. Requerirá disparador adicional desde <code>handleMetaLeadgenWebhook</code> con plantillas Hyundai- y Stellantis-específicas que respeten branding OEM.</p>
+    </div>
+    <div class="ts gold">
+      <div class="step">F3.3</div>
+      <h4>Otros canales</h4>
+      <p>SMS y email transaccional vía Vambe, si los tienen disponibles en su plataforma.</p>
+    </div>
+    <div class="ts gold">
+      <div class="step">F3.4</div>
+      <h4>Atribución cerrada</h4>
+      <p>CAPI <code>Purchase</code> y <code>Visit</code> con <code>lead_id</code> propagado desde Vambe — atribución end-to-end de campaña Meta → conversación IA → cita → visita → venta.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ====== PAGE 10 — Métricas + Qué esperamos + Cierre ====== -->
+<div class="page">
+  <div class="page-header-text">Vambe — Integration Status Memo · Grupo Plasencia Automotriz</div>
+  <div class="page-footer-left">Confidencial · uso interno alineado con proveedor</div>
+  <div class="page-number">10</div>
+
+  <h1 class="section-title"><span class="num">§8 · Métricas a observar</span>Primeras 4 semanas en producción</h1>
+
+  <table class="simple">
+    <thead><tr><th style="width:36%">Métrica</th><th style="width:32%">Origen</th><th>Objetivo</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Dispatches enviados / día</strong></td><td><code>vambe_dispatch_log</code></td><td>Volumen de tráfico</td></tr>
+      <tr><td><strong>Distribución de <code>status</code></strong></td><td><code>vambe_dispatch_log</code></td><td>Confiabilidad API + correctitud de filtros</td></tr>
+      <tr><td><strong>Latencia P50 / P95 end-to-end</strong></td><td><code>latency_ms</code></td><td>Asegurar que la API responde rápido</td></tr>
+      <tr><td><strong>Errores 4xx específicos</strong></td><td><code>response_text</code></td><td>Detectar payloads inválidos</td></tr>
+      <tr><td><strong>Lead → respondió en 24h</strong></td><td>A definir (preg. 5.6)</td><td>Calidad del touchpoint inicial</td></tr>
+      <tr><td><strong>Respondió → IA escaló → cita real</strong></td><td>A definir (preg. 5.6)</td><td>Valor real del handoff IA → humano</td></tr>
+    </tbody>
+  </table>
+
+  <p class="small">Compartimos estos números semanalmente con su equipo durante las primeras 4 semanas para iterar conjuntamente.</p>
+
+  <h1 class="section-title" style="margin-top:6mm;"><span class="num">§9 · Próximos pasos</span>Qué esperamos de Vambe</h1>
+
+  <table class="simple">
+    <thead><tr><th>Acción</th><th style="width:18%">Quién</th><th style="width:30%">Cuándo</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Responder las 12 preguntas de §5</strong></td><td>Vambe</td><td>Idealmente en <strong>2 semanas</strong></td></tr>
+      <tr><td><strong>Confirmar integration pattern (§3) y decisiones (§4)</strong></td><td>Vambe</td><td>Lo mismo</td></tr>
+      <tr><td><strong>Documentación de webhooks salientes</strong></td><td>Vambe</td><td>Antes de iniciar Fase 2</td></tr>
+      <tr><td><strong>Punto de contacto técnico estable</strong></td><td>Vambe</td><td>Nombre + email/WhatsApp</td></tr>
+    </tbody>
+  </table>
+
+  <h2 class="section-h2">Compromisos de Grupo Plasencia</h2>
+
+  <ul class="clean">
+    <li>Monitoreo semanal del <code>vambe_dispatch_log</code> con reporte de status + latency + error rate.</li>
+    <li>Reporte de métricas (§8) compartido cada semana las primeras 4 semanas.</li>
+    <li>Implementación de Fase 2 dentro de 4 semanas desde el cierre de las preguntas críticas (4, 5, 11, 12).</li>
+  </ul>
+
+  <div class="signature">
+    <div class="sig-name">Grupo Plasencia Automotriz<span>Dirección de Marketing Digital · Motor de Atribución MVP</span></div>
+    <div class="sig-stamp"><strong>Versión 1.0</strong>19 de mayo de 2026<br>Próxima actualización: cierre QA Fase 1</div>
+  </div>
+</div>
+
+</body>
+</html>
