@@ -451,10 +451,15 @@
 
   <h1 class="section-title"><span class="num">§5 · Validaciones pendientes</span>12 preguntas concretas para Vambe</h1>
 
-  <p class="lead">Numeradas para que sea fácil responderlas en línea. El cierre de estas preguntas nos permite operar Fase 1 con tranquilidad y planear Fase 2.</p>
+  <p class="lead">Numeradas para que sea fácil responderlas en línea. Las agrupamos por prioridad: <strong>Fase 1 (bloqueantes — necesitamos cerrarlas)</strong> y <strong>Fase 2 (planeación — sin urgencia)</strong>.</p>
+
+  <div class="callout red" style="margin-bottom:3mm;">
+    <span class="label">Prioridad 1 · cierre de Fase 1</span>
+    <div class="text">Las preguntas <strong>1, 2, 3, 6, 7, 8, 9, 10, 11, 12</strong> son las que necesitamos cerrar para que Fase 1 quede operando sin pendientes. Las preguntas <strong>4 y 5</strong> (webhook bidireccional) son <strong>Fase 2</strong> y pueden responderse más adelante — no bloquean nuestra operación actual.</div>
+  </div>
 
   <div class="q-group">
-    <div class="q-group-title">5.1 · Plantillas</div>
+    <div class="q-group-title">5.1 · Plantillas <span style="font-weight:600;color:var(--gp-red);font-size:8pt;letter-spacing:1px;">— Fase 1</span></div>
     <div class="q">
       <div class="q-num">1</div>
       <div class="q-copy">¿Confirman que <code>seguimiento_lead_interesado</code> (MARKETING, 1 variable) es la plantilla correcta para <strong>primer contacto de lead nuevo capturado por formulario web</strong>? Si no, ¿cuál recomiendan?</div>
@@ -470,7 +475,8 @@
   </div>
 
   <div class="q-group">
-    <div class="q-group-title">5.2 · Webhook bidireccional <span style="font-weight:600;color:var(--g500);font-size:8pt;letter-spacing:1px;">(crítico para Fase 2)</span></div>
+    <div class="q-group-title">5.2 · Webhook bidireccional <span style="font-weight:600;color:var(--deep-blue);font-size:8pt;letter-spacing:1px;">— Fase 2, no bloqueante</span></div>
+    <p class="small" style="margin:1mm 0 2mm 0;font-style:italic;color:var(--g500);">Planteadas para planear Fase 2. Su respuesta puede esperar.</p>
     <div class="q">
       <div class="q-num">4</div>
       <div class="q-copy">
@@ -489,14 +495,16 @@
   </div>
 
   <div class="q-group">
-    <div class="q-group-title">5.3 · Catálogo e inventario</div>
+    <div class="q-group-title">5.3 · Catálogo e inventario <span style="font-weight:600;color:var(--gp-red);font-size:8pt;letter-spacing:1px;">— Fase 1</span></div>
+    <p class="small" style="margin:1mm 0 2mm 0;color:var(--g600);">Entendemos que <strong>Vambe lee directamente nuestro feed Maxipublica</strong> (mismo origen que la landing piloto) y que la actualización es <strong>aproximadamente horaria</strong>. Sobre esa base, las preguntas son de validación + edge cases.</p>
     <div class="q">
       <div class="q-num">6</div>
       <div class="q-copy">
-        ¿Vambe tiene el inventario activo de LM y Bug sincronizado con su IA? Si la IA recomienda autos al prospecto:
+        <strong>Confirmación + edge cases del feed:</strong>
         <ul>
-          <li>Si leen de nuestro feed Maxipublica o de <code>seminuevos.grupoplasencia.com</code>, ¿con qué frecuencia se actualiza?</li>
-          <li>Si tienen su propio catálogo, ¿cómo evitamos drift entre lo que la IA promete y lo que existe físicamente?</li>
+          <li>¿Confirman que el origen del catálogo en Vambe es el feed <strong>Maxipublica</strong> de Grupo Plasencia y que el refresh es <strong>horario</strong>?</li>
+          <li>Si un auto sale del feed (vendido, retirado por Maxipublica) entre dos refreshes, ¿hay riesgo de que la IA Perfilador lo recomiende durante esa ventana? ¿Cómo lo manejan internamente?</li>
+          <li>¿Podemos ver desde su consola la marca de tiempo del último refresh + conteo de unidades activas para LM y Bug? Sirve para reconciliar contra nuestro D1 si alguna vez hay drift.</li>
         </ul>
       </div>
     </div>
@@ -510,7 +518,7 @@
   <div class="page-number">08</div>
 
   <div class="q-group">
-    <div class="q-group-title">5.4 · Asignación de asesores</div>
+    <div class="q-group-title">5.4 · Asignación de asesores <span style="font-weight:600;color:var(--gp-red);font-size:8pt;letter-spacing:1px;">— Fase 1</span></div>
     <div class="q">
       <div class="q-num">7</div>
       <div class="q-copy">
@@ -525,7 +533,7 @@
   </div>
 
   <div class="q-group">
-    <div class="q-group-title">5.5 · Rate limits, SLA y sandbox</div>
+    <div class="q-group-title">5.5 · Rate limits, SLA y sandbox <span style="font-weight:600;color:var(--gp-red);font-size:8pt;letter-spacing:1px;">— Fase 1</span></div>
     <div class="q">
       <div class="q-num">8</div>
       <div class="q-copy">¿Cuál es el <strong>rate limit del endpoint <code>send-template</code></strong>? Si Seminuevos crece a 200 leads/día por sucursal, ¿se sostiene?</div>
@@ -541,7 +549,7 @@
   </div>
 
   <div class="q-group">
-    <div class="q-group-title">5.6 · Reporting y métricas</div>
+    <div class="q-group-title">5.6 · Reporting y métricas <span style="font-weight:600;color:var(--gp-red);font-size:8pt;letter-spacing:1px;">— Fase 1</span></div>
     <div class="q">
       <div class="q-num">11</div>
       <div class="q-copy">¿Tienen dashboard nativo con <strong>métricas conversacionales</strong> (lead recibido → respuesta → agente humano → cita)? ¿O esperan que lo construyamos del lado nuestro consumiendo su API?</div>
@@ -554,7 +562,7 @@
 
   <div class="statement">
     <span class="label">Lo que más nos importa</span>
-    <div class="text">Las preguntas <strong>4, 5 y 11–12</strong> son las que abren camino a Fase 2. Si nos pueden priorizar la respuesta a estas cuatro, podemos cerrar el roadmap técnico antes de fin de mes.</div>
+    <div class="text">Queremos <strong>cerrar Fase 1 lo antes posible</strong>. Las preguntas de los bloques 5.1, 5.3, 5.4, 5.5 y 5.6 son las que nos permiten dejar Fase 1 100% operando sin pendientes. Las preguntas <strong>4 y 5</strong> (webhook bidireccional) son <strong>Fase 2</strong> — pueden esperar.</div>
   </div>
 </div>
 
@@ -617,13 +625,15 @@
   </div>
 </div>
 
-<!-- ====== PAGE 10 — Métricas + Qué esperamos + Cierre ====== -->
+<!-- ====== PAGE 10 — Métricas ====== -->
 <div class="page">
   <div class="page-header-text">Vambe — Integration Status Memo · Grupo Plasencia Automotriz</div>
   <div class="page-footer-left">Confidencial · uso interno alineado con proveedor</div>
   <div class="page-number">10</div>
 
   <h1 class="section-title"><span class="num">§8 · Métricas a observar</span>Primeras 4 semanas en producción</h1>
+
+  <p class="lead">Estas son las métricas que vamos a observar del lado nuestro durante el primer mes en producción. Las compartiremos semanalmente con su equipo para iterar conjuntamente.</p>
 
   <table class="simple">
     <thead><tr><th style="width:36%">Métrica</th><th style="width:32%">Origen</th><th>Objetivo</th></tr></thead>
@@ -632,32 +642,50 @@
       <tr><td><strong>Distribución de <code>status</code></strong></td><td><code>vambe_dispatch_log</code></td><td>Confiabilidad API + correctitud de filtros</td></tr>
       <tr><td><strong>Latencia P50 / P95 end-to-end</strong></td><td><code>latency_ms</code></td><td>Asegurar que la API responde rápido</td></tr>
       <tr><td><strong>Errores 4xx específicos</strong></td><td><code>response_text</code></td><td>Detectar payloads inválidos</td></tr>
-      <tr><td><strong>Lead → respondió en 24h</strong></td><td>A definir (preg. 5.6)</td><td>Calidad del touchpoint inicial</td></tr>
-      <tr><td><strong>Respondió → IA escaló → cita real</strong></td><td>A definir (preg. 5.6)</td><td>Valor real del handoff IA → humano</td></tr>
+      <tr><td><strong>Lead → respondió en 24h</strong></td><td>A definir con pregunta 11-12</td><td>Calidad del touchpoint inicial</td></tr>
+      <tr><td><strong>Respondió → IA escaló → cita real</strong></td><td>A definir con pregunta 11-12</td><td>Valor real del handoff IA → humano</td></tr>
     </tbody>
   </table>
 
-  <p class="small">Compartimos estos números semanalmente con su equipo durante las primeras 4 semanas para iterar conjuntamente.</p>
+  <div class="callout blue" style="margin-top:5mm;">
+    <span class="label">Compromisos Grupo Plasencia</span>
+    <div class="text">Monitoreo semanal del <code>vambe_dispatch_log</code> con reporte de status, latencia y error rate. Reporte de métricas (§8) compartido cada semana durante las primeras 4 semanas. Escalamiento de incidentes 5xx persistentes con evidencia completa (log + folio + timestamp + response).</div>
+  </div>
+</div>
 
-  <h1 class="section-title" style="margin-top:6mm;"><span class="num">§9 · Próximos pasos</span>Qué esperamos de Vambe</h1>
+<!-- ====== PAGE 11 — Próximos pasos + Cierre ====== -->
+<div class="page">
+  <div class="page-header-text">Vambe — Integration Status Memo · Grupo Plasencia Automotriz</div>
+  <div class="page-footer-left">Confidencial · uso interno alineado con proveedor</div>
+  <div class="page-number">11</div>
+
+  <h1 class="section-title"><span class="num">§9 · Próximos pasos</span>Qué esperamos de Vambe</h1>
+
+  <p style="margin-bottom:2mm;">El foco inmediato es <strong>cerrar Fase 1 lo antes posible</strong>. Fase 2 viene después, sin urgencia.</p>
+
+  <h3 class="section-h3" style="color:var(--gp-red);margin-top:3mm;">Prioridad 1 — cierre de Fase 1 <span style="font-weight:500;color:var(--g500);font-size:9pt;">(próximos 7-10 días idealmente)</span></h3>
 
   <table class="simple">
-    <thead><tr><th>Acción</th><th style="width:18%">Quién</th><th style="width:30%">Cuándo</th></tr></thead>
+    <thead><tr><th>Acción</th><th style="width:14%">Quién</th></tr></thead>
     <tbody>
-      <tr><td><strong>Responder las 12 preguntas de §5</strong></td><td>Vambe</td><td>Idealmente en <strong>2 semanas</strong></td></tr>
-      <tr><td><strong>Confirmar integration pattern (§3) y decisiones (§4)</strong></td><td>Vambe</td><td>Lo mismo</td></tr>
-      <tr><td><strong>Documentación de webhooks salientes</strong></td><td>Vambe</td><td>Antes de iniciar Fase 2</td></tr>
-      <tr><td><strong>Punto de contacto técnico estable</strong></td><td>Vambe</td><td>Nombre + email/WhatsApp</td></tr>
+      <tr><td>Responder preguntas <strong>1, 2, 3</strong> (plantillas y cadencia de seguimiento)</td><td>Vambe</td></tr>
+      <tr><td>Responder pregunta <strong>6</strong> (validación origen feed Maxipublica + edge cases)</td><td>Vambe</td></tr>
+      <tr><td>Responder pregunta <strong>7</strong> (uso de <code>agent_id</code> / asignación de asesores)</td><td>Vambe</td></tr>
+      <tr><td>Responder preguntas <strong>8, 9, 10</strong> (rate limits, SLA, sandbox)</td><td>Vambe</td></tr>
+      <tr><td>Responder preguntas <strong>11, 12</strong> (reporting y API histórico)</td><td>Vambe</td></tr>
+      <tr><td>Confirmar integration pattern (§3) y decisiones (§4)</td><td>Vambe</td></tr>
+      <tr><td>Punto de contacto técnico estable (nombre + email/WhatsApp)</td><td>Vambe</td></tr>
     </tbody>
   </table>
 
-  <h2 class="section-h2">Compromisos de Grupo Plasencia</h2>
+  <h3 class="section-h3" style="color:var(--deep-blue);margin-top:4mm;">Prioridad 2 — planeación Fase 2 <span style="font-weight:500;color:var(--g500);font-size:9pt;">(sin urgencia)</span></h3>
 
-  <ul class="clean">
-    <li>Monitoreo semanal del <code>vambe_dispatch_log</code> con reporte de status + latency + error rate.</li>
-    <li>Reporte de métricas (§8) compartido cada semana las primeras 4 semanas.</li>
-    <li>Implementación de Fase 2 dentro de 4 semanas desde el cierre de las preguntas críticas (4, 5, 11, 12).</li>
-  </ul>
+  <table class="simple">
+    <thead><tr><th>Acción</th><th style="width:14%">Quién</th></tr></thead>
+    <tbody>
+      <tr><td>Responder preguntas <strong>4 y 5</strong> + compartir documentación técnica de webhooks salientes</td><td>Vambe</td></tr>
+    </tbody>
+  </table>
 
   <div class="signature">
     <div class="sig-name">Grupo Plasencia Automotriz<span>Dirección de Marketing Digital · Motor de Atribución MVP</span></div>
