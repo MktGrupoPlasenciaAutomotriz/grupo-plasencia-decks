@@ -228,12 +228,36 @@
     <div class="cover-meta">
       <div class="cover-meta-block"><strong>De</strong>Grupo Plasencia Automotriz<br>Dirección de Marketing Digital</div>
       <div class="cover-meta-block"><strong>Para</strong>Vambe — Equipo de implementación</div>
-      <div class="cover-meta-block"><strong>Fecha</strong>19 de mayo de 2026<br>Versión 1.0</div>
+      <div class="cover-meta-block"><strong>Fecha</strong>20 de mayo de 2026<br>Versión 1.2</div>
     </div>
   </div>
 </div>
 
-<!-- ====== PAGE 2 — Contexto + Scope ====== -->
+<!-- ====== PAGE 2 — Resumen v1.2 + Bloqueador (NUEVA) ====== -->
+<div class="page">
+  <div class="page-header-text">Vambe — Integration Status Memo v1.2 · Grupo Plasencia Automotriz</div>
+  <div class="page-footer-left">Confidencial · uso interno alineado con proveedor</div>
+  <div class="page-number">02</div>
+
+  <h1 class="section-title"><span class="num">v1.0 &rarr; v1.2 &middot; Resumen ejecutivo</span>Lo que cambi&oacute; en las &uacute;ltimas 24h</h1>
+
+  <p class="lead">Despu&eacute;s de 24h iterando la integraci&oacute;n, identificamos un <strong>bloqueador cr&iacute;tico de delivery</strong> que necesita atenci&oacute;n de su equipo. Resumen en 5 puntos:</p>
+
+  <ol style="font-size:10pt;line-height:1.55;color:var(--g600);padding-left:20px;">
+    <li style="margin-bottom:3mm;"><strong>Templates outbound MARKETING (<code>contacto_formulario_auto_especifico</code> y similares) NO se entregan f&iacute;sicamente al destinatario</strong> en el canal Bug 43740, aunque Vambe responde HTTP 201 + <code>aiContactId</code>. El receptor confirma visualmente NO haber recibido WhatsApp.</li>
+    <li style="margin-bottom:3mm;">El campo <code>status=read</code> que expone su MCP <code>get-contact-conversation</code> parece <strong>incluir acciones manuales de operadores en consola Vambe</strong> adem&aacute;s de callbacks reales de Meta. NO es confiable como confirmaci&oacute;n de delivery.</li>
+    <li style="margin-bottom:3mm;"><strong>0 de 14 dispatches templates outbound a destinatarios reales fueron confirmados como recibidos</strong>. Los 4 con <code>status=read</code> en Vambe fueron desmentidos por el due&ntilde;o del cel (Chucho Porras), incluido el reenv&iacute;o manual del 20-may 17:21 que su equipo ejecut&oacute;.</li>
+    <li style="margin-bottom:3mm;">Creamos una plantilla UTILITY <code>confirmacion_formulario_seminuevos</code> que est&aacute; <strong>PENDING aprobaci&oacute;n Meta</strong>. Es la siguiente v&iacute;a t&eacute;cnica que vamos a probar.</li>
+    <li style="margin-bottom:3mm;">El endpoint del PDF original (<code>/v1/whatsapp/message/send-template</code>) <strong>NO existe en producci&oacute;n</strong>: responde HTML 200 gen&eacute;rico. El correcto, identificado v&iacute;a OpenAPI spec, es <code>POST /api/public/ticket/open/whatsapp/{channelId}</code> con shape distinto.</li>
+  </ol>
+
+  <div class="statement">
+    <span class="label">Lo que necesitamos de su equipo</span>
+    <div class="text">Respuesta a las preguntas <strong>13&ndash;19</strong> de la &sect;5.0 (BLOQUEADOR). Espec&iacute;ficamente: <strong>(a)</strong> &iquest;por qu&eacute; el canal Bug 43740 no entrega templates outbound a cold contacts? <strong>(b)</strong> &iquest;c&oacute;mo distinguir el <code>read</code> real de Meta del <code>read</code> manual de consola? <strong>(c)</strong> &iquest;pueden acelerar la aprobaci&oacute;n de la UTILITY que creamos hoy?</div>
+  </div>
+</div>
+
+<!-- ====== PAGE 3 — Contexto + Scope ====== -->
 <div class="page">
   <div class="page-header-text">Vambe — Integration Status Memo · Grupo Plasencia Automotriz</div>
   <div class="page-footer-left">Confidencial · uso interno alineado con proveedor</div>
@@ -252,9 +276,9 @@
 
   <p>Esta es la primera vez que conectamos un canal de IA conversacional al CRM, y queremos hacerlo con rigor: scope acotado, log de auditoría, sin riesgo al flujo principal del lead.</p>
 
-  <h1 class="section-title" style="margin-top:7mm;"><span class="num">§2 · Estado actual <span class="pill live">Fase 1 LIVE</span></span>Scope acotado y filtro de entrada</h1>
+  <h1 class="section-title" style="margin-top:7mm;"><span class="num">§2 · Estado actual <span class="pill pending">Bloqueado · delivery</span></span>Técnicamente operativo, entrega física bloqueada</h1>
 
-  <p class="lead">El handoff CRM → Vambe está <strong>en producción desde el 19 de mayo de 2026</strong>. Cada lead que cumple el filtro se dispara a Vambe inmediatamente después del registro en el CRM.</p>
+  <p class="lead">El handoff CRM → Vambe est&aacute; <strong>t&eacute;cnicamente operando desde el 20 de mayo</strong>: cada lead genera dispatch con HTTP 201, aiContactId asignado, ticket abierto, plantilla registrada en conversaci&oacute;n. <strong>PERO ning&uacute;n WhatsApp ha llegado f&iacute;sicamente al destinatario</strong>. Ver &sect;5.0 (bloqueador con preguntas 13-19 para destrabar con su equipo).</p>
 
   <table class="simple">
     <thead><tr><th style="width:32%">Dimensión</th><th>Filtro</th></tr></thead>
@@ -449,14 +473,57 @@
   <div class="page-footer-left">Confidencial · uso interno alineado con proveedor</div>
   <div class="page-number">07</div>
 
-  <h1 class="section-title"><span class="num">§5 · Validaciones pendientes</span>12 preguntas concretas para Vambe</h1>
+  <h1 class="section-title"><span class="num">§5 · Validaciones pendientes</span>19 preguntas concretas para Vambe (v1.2)</h1>
 
-  <p class="lead">Numeradas para que sea fácil responderlas en línea. Las agrupamos por prioridad: <strong>Fase 1 (bloqueantes — necesitamos cerrarlas)</strong> y <strong>Fase 2 (planeación — sin urgencia)</strong>.</p>
+  <p class="lead">Numeradas para que sea fácil responderlas en línea. <strong>Prioridad nueva v1.2:</strong> preguntas <strong>13&ndash;19</strong> son el bloqueador de delivery (&sect;5.0). El resto se mantienen del v1.0.</p>
 
   <div class="callout red" style="margin-bottom:3mm;">
-    <span class="label">Prioridad 1 · cierre de Fase 1</span>
-    <div class="text">Las preguntas <strong>1, 2, 3, 6, 7, 8, 9, 10, 11, 12</strong> son las que necesitamos cerrar para que Fase 1 quede operando sin pendientes. Las preguntas <strong>4 y 5</strong> (webhook bidireccional) son <strong>Fase 2</strong> y pueden responderse más adelante — no bloquean nuestra operación actual.</div>
+    <span class="label">BLOQUEADOR cr&iacute;tico v1.2 &middot; preguntas 13-19</span>
+    <div class="text">Las preguntas <strong>13&ndash;19</strong> en la pr&oacute;xima p&aacute;gina son las que necesitamos cerrar para destrabar el delivery f&iacute;sico. Lo dem&aacute;s (1-12) sigue v&aacute;lido pero secundario hasta resolver el bloqueador.</div>
   </div>
+
+  <div class="q-group">
+    <div class="q-group-title">5.0 &middot; BLOQUEADOR de delivery (preguntas 13-19) <span style="font-weight:600;color:var(--gp-red);font-size:8pt;letter-spacing:1px;">&mdash; URGENTE</span></div>
+    <p class="small" style="margin:1mm 0 2mm 0;color:var(--g600);">Evidencia: dispatches HTTP 201 + aiContactId + ticket creado + plantilla registrada en conversaci&oacute;n &rarr; <strong>destinatarios NUNCA reciben en WhatsApp</strong>. 0 de 14 entregas confirmadas. <code>status=read</code> en su MCP mezcla callbacks Meta con acciones manuales de operadores.</p>
+    <div class="q">
+      <div class="q-num">13</div>
+      <div class="q-copy">&iquest;Cu&aacute;l es la <strong>pol&iacute;tica exacta del canal Bug 43740</strong> (phone 5213314105552, status CONNECTED, quality GREEN) para enviar <code>type=template</code> outbound a contactos sin historial previo? &iquest;Se pueden enviar templates MARKETING APPROVED a cold contacts o hay restricci&oacute;n Meta-side?</div>
+    </div>
+    <div class="q">
+      <div class="q-num">14</div>
+      <div class="q-copy">&iquest;C&oacute;mo distinguir en su API entre un <code>status=read</code> <strong>real (callback Meta)</strong> y un <code>status=read</code> causado por un <strong>operador abriendo la conversaci&oacute;n en consola Vambe</strong>? Es cr&iacute;tico &mdash; hoy no podemos confiar en ese campo para auditar delivery.</div>
+    </div>
+    <div class="q">
+      <div class="q-num">15</div>
+      <div class="q-copy">&iquest;Existe un campo o evento de su API que reporte el <strong>delivery_status real de Meta desacoplado de acciones manuales</strong> de consola? Algo equivalente a un <code>message.status.updated</code> passthrough.</div>
+    </div>
+    <div class="q">
+      <div class="q-num">16</div>
+      <div class="q-copy">&iquest;Por qu&eacute; nuestros dispatches (curl directo y desde Worker) resultan en <code>status=failed</code> mientras que la operaci&oacute;n cotidiana de Plasencia (Meta Ads Click-to-WA) s&iacute; entrega? Hip&oacute;tesis: customer-initiated vs business-initiated &mdash; pero queremos su confirmaci&oacute;n.</div>
+    </div>
+    <div class="q">
+      <div class="q-num">17</div>
+      <div class="q-copy">&iquest;Hay alguna <strong>configuraci&oacute;n del canal/workspace/asistente</strong> que est&eacute; limitando outbound de templates a cold contacts? Por ejemplo: opt-in registry vac&iacute;o, messaging tier, marketing limits acumulados.</div>
+    </div>
+    <div class="q">
+      <div class="q-num">18</div>
+      <div class="q-copy">Creamos hoy v&iacute;a MCP la plantilla UTILITY <code>confirmacion_formulario_seminuevos</code> (id <code>7910e12e-...</code>, 2 vars: nombre + auto), <strong>PENDING aprobaci&oacute;n Meta</strong>. &iquest;Pueden <strong>acelerar el review</strong>? El copy es transaccional (confirma recepci&oacute;n del form + anuncia pr&oacute;ximo contacto).</div>
+    </div>
+    <div class="q">
+      <div class="q-num">19</div>
+      <div class="q-copy">Si la UTILITY se aprueba: &iquest;<strong>la categor&iacute;a UTILITY es suficiente</strong> para que Meta entregue al primer contacto sin opt-in marketing previo, o sigue habiendo restricciones del lado de la cuenta WABA que necesitemos resolver?</div>
+    </div>
+  </div>
+</div>
+
+<!-- ====== Continuaci&oacute;n &sect;5 &mdash; preguntas originales 1-12 ====== -->
+<div class="page">
+  <div class="page-header-text">Vambe — Integration Status Memo v1.2 · Grupo Plasencia Automotriz</div>
+  <div class="page-footer-left">Confidencial · uso interno alineado con proveedor</div>
+  <div class="page-number">08b</div>
+
+  <h2 class="section-h2" style="margin-top:0;">&sect;5 (cont.) &middot; Preguntas originales 1&ndash;12 (v1.0)</h2>
+  <p class="small" style="margin-bottom:3mm;">Se mantienen v&aacute;lidas pero son secundarias hasta resolver el bloqueador de delivery (&sect;5.0 / preguntas 13-19).</p>
 
   <div class="q-group">
     <div class="q-group-title">5.1 · Plantillas <span style="font-weight:600;color:var(--gp-red);font-size:8pt;letter-spacing:1px;">— Fase 1</span></div>
@@ -689,7 +756,7 @@
 
   <div class="signature">
     <div class="sig-name">Grupo Plasencia Automotriz<span>Dirección de Marketing Digital · Motor de Atribución MVP</span></div>
-    <div class="sig-stamp"><strong>Versión 1.0</strong>19 de mayo de 2026<br>Próxima actualización: cierre QA Fase 1</div>
+    <div class="sig-stamp"><strong>Versi&oacute;n 1.2</strong>20 de mayo de 2026<br>Pr&oacute;xima actualizaci&oacute;n: respuesta de Vambe a &sect;5.0</div>
   </div>
 </div>
 
