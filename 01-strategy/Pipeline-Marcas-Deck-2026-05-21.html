@@ -65,7 +65,7 @@ html, body { width:100%; height:100%; overflow:hidden; background:#0d1117; font-
 
 /* ==== COVER ==== */
 .cover-inner {
-  padding: 56px 78px;
+  padding: 34px 64px 30px 64px;
   flex:1; display:flex; flex-direction:column; justify-content:space-between;
   background:
     radial-gradient(ellipse at 100% 0%, rgba(236,201,75,.14) 0%, transparent 55%),
@@ -73,26 +73,26 @@ html, body { width:100%; height:100%; overflow:hidden; background:#0d1117; font-
     var(--gp-navy);
   position:relative;
 }
-.cover-inner::before { content:""; position:absolute; top:42px; left:78px; width:170px; height:1px; background: var(--gold); }
-.cover-mark { font-family:var(--sans); font-weight:700; font-size:11pt; letter-spacing:4px; color: var(--gold); text-transform:uppercase; }
-.cover-mark span { display:block; font-weight:400; color: rgba(255,255,255,.55); margin-top:4px; letter-spacing:1px; font-size:9pt; }
-.cover-eyebrow { font-family:var(--sans); font-size:10pt; font-weight:700; letter-spacing:5px; color: var(--gp-red); text-transform:uppercase; margin-top:28px; }
-.cover-title { font-family:var(--serif); font-weight:800; font-size:52pt; line-height:1.02; letter-spacing:-1.8px; margin-top:14px; color: var(--near-white); max-width:980px; }
+.cover-inner::before { content:""; position:absolute; top:30px; left:64px; width:150px; height:1px; background: var(--gold); }
+.cover-mark { font-family:var(--sans); font-weight:700; font-size:10pt; letter-spacing:3.5px; color: var(--gold); text-transform:uppercase; }
+.cover-mark span { display:block; font-weight:400; color: rgba(255,255,255,.55); margin-top:3px; letter-spacing:1px; font-size:8.5pt; }
+.cover-eyebrow { font-family:var(--sans); font-size:9.5pt; font-weight:700; letter-spacing:4.5px; color: var(--gp-red); text-transform:uppercase; margin-top:16px; }
+.cover-title { font-family:var(--serif); font-weight:800; font-size:40pt; line-height:1.02; letter-spacing:-1.4px; margin-top:8px; color: var(--near-white); max-width:980px; }
 .cover-title em { font-style:italic; color: var(--gold); font-weight:700; }
-.cover-subtitle { font-family:var(--serif); font-weight:500; font-style:italic; font-size:17pt; color: var(--gold); margin-top:16px; letter-spacing:-.2px; line-height:1.3; max-width:880px; }
-.cover-pull { font-family:var(--serif); font-weight:500; font-style:italic; font-size:13pt; color: rgba(255,255,255,.85); line-height:1.55; border-left: 3px solid var(--gp-red); padding-left: 22px; margin-top: 28px; max-width: 760px; }
-.cover-tags { display:flex; gap:12px; margin-top:24px; flex-wrap:wrap; }
-.cover-tag { font-family:var(--sans); font-size:9pt; font-weight:600; letter-spacing:1px; color: rgba(255,255,255,.85); border: 1px solid rgba(255,255,255,.25); padding: 4px 12px; border-radius: 999px; text-transform:uppercase; }
+.cover-subtitle { font-family:var(--serif); font-weight:500; font-style:italic; font-size:14pt; color: var(--gold); margin-top:8px; letter-spacing:-.2px; line-height:1.3; max-width:880px; }
+.cover-pull { font-family:var(--serif); font-weight:500; font-style:italic; font-size:10.5pt; color: rgba(255,255,255,.85); line-height:1.5; border-left: 3px solid var(--gp-red); padding-left: 16px; margin-top: 14px; max-width: 940px; }
+.cover-tags { display:flex; gap:10px; margin-top:12px; flex-wrap:wrap; }
+.cover-tag { font-family:var(--sans); font-size:8.5pt; font-weight:600; letter-spacing:1px; color: rgba(255,255,255,.85); border: 1px solid rgba(255,255,255,.25); padding: 3px 11px; border-radius: 999px; text-transform:uppercase; }
 .cover-tag.accent { color: var(--gold); border-color: rgba(236,201,75,.4); }
 .cover-tag.urgent { color: var(--gp-red); border-color: rgba(200,16,46,.4); }
-.cover-meta { display:flex; justify-content:space-between; align-items:flex-end; border-top: 1px solid rgba(255,255,255,.15); padding-top:18px; }
-.cover-meta-block { font-size:9pt; color: rgba(255,255,255,.65); line-height:1.7; font-family: var(--sans); }
-.cover-meta-block strong { display:block; color: var(--near-white); font-weight:700; font-size:10pt; letter-spacing:.5px; }
+.cover-meta { display:flex; justify-content:space-between; align-items:flex-end; border-top: 1px solid rgba(255,255,255,.15); padding-top:12px; }
+.cover-meta-block { font-size:8.5pt; color: rgba(255,255,255,.65); line-height:1.6; font-family: var(--sans); }
+.cover-meta-block strong { display:block; color: var(--near-white); font-weight:700; font-size:9.5pt; letter-spacing:.5px; }
 
-.cover-kpis { display:flex; gap:14px; margin-top:18px; }
-.cov-kpi { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.18); border-radius:8px; padding: 16px 22px; flex:1; }
-.cov-kpi-label { font-family:var(--sans); font-size:9pt; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color: rgba(255,255,255,.6); margin-bottom: 4px; }
-.cov-kpi-value { font-family:var(--serif); font-weight:800; font-size:38pt; line-height:1; letter-spacing:-1px; color: var(--gold); }
+.cover-kpis { display:flex; gap:12px; margin-top:14px; }
+.cov-kpi { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.18); border-radius:8px; padding: 12px 18px; flex:1; }
+.cov-kpi-label { font-family:var(--sans); font-size:8.5pt; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color: rgba(255,255,255,.6); margin-bottom: 3px; }
+.cov-kpi-value { font-family:var(--serif); font-weight:800; font-size:30pt; line-height:1; letter-spacing:-.8px; color: var(--gold); }
 .cov-kpi-value em { font-style: italic; }
 .cov-kpi.semin .cov-kpi-value { color: var(--gold); }
 .cov-kpi.hyu .cov-kpi-value { color: var(--blue); }
@@ -100,7 +100,7 @@ html, body { width:100%; height:100%; overflow:hidden; background:#0d1117; font-
 .cov-kpi-sub { font-family:var(--sans); font-size:9.5pt; color: rgba(255,255,255,.7); margin-top: 6px; }
 
 /* ==== CONTENT SLIDES (paper-style) ==== */
-.content { padding: 36px 56px 30px 56px; flex:1; display:flex; flex-direction:column; gap: 14px; position:relative; }
+.content { padding: 34px 52px 26px 52px; flex:1; display:flex; flex-direction:column; gap: 11px; position:relative; }
 .content::before {
   content:""; position:absolute; top:36px; left:56px; width:48px; height:3px; background: var(--gp-red); border-radius:2px;
 }
@@ -237,7 +237,7 @@ table.comp .bad  { color: var(--gp-red); font-weight: 600; }
       <div class="cover-subtitle">Marketing, oportunidades, funnel y conversiones por línea de negocio del Motor de Atribución MVP.</div>
 
       <div class="cover-pull">
-        Estado vivo del pipeline al 21 de mayo de 2026. Las cifras cambian con cada movimiento del vendedor en el kanban. Las fuentes son D1, Meta Ads API y Google Ads GAQL. La estructura sigue la jerarquía estándar de costos: <em>CPL plataforma → CPA oportunidad → Costo por Cita → Costo por Visita → CAC</em>.
+        Estado vivo del pipeline al 21 de mayo de 2026. Las tres marcas operan bajo modelos distintos: <em>Seminuevos</em> es catálogo unificado multimarca del grupo, sin restricciones OEM y con landing única <em>seminuevos.grupoplasencia.com</em>; <em>Hyundai</em> y <em>Stellantis</em> son marcas OEM con restricciones de pauta que llevaron a migrar de landings a Meta Lead Forms. La estructura sigue la jerarquía estándar de costos: <em>CPL plataforma → CPA oportunidad → Costo por Cita → Costo por Visita → CAC</em>.
       </div>
 
       <div class="cover-kpis">
@@ -293,9 +293,9 @@ table.comp .bad  { color: var(--gp-red); font-weight: 600; }
 
     <div class="header-row">
       <div class="left">
-        <div class="t-eyebrow gold" style="color: var(--amber);">Seminuevos · Lote Otero · 8 sucursales</div>
-        <h1>Multimarca · <em>sin restricciones OEM</em></h1>
-        <div class="lede">Sin marca-OEM por encima, opera como vehículo unificado <em>"Seminuevos Plasencia"</em>. Pauta continua en Meta (web form) y Google Search. Única marca con una venta cerrada al corte.</div>
+        <div class="t-eyebrow gold" style="color: var(--amber);">Seminuevos Plasencia · 8 ubicaciones en Guadalajara</div>
+        <h1>Catálogo <em>unificado</em> · multi-sucursal GDL</h1>
+        <div class="lede">Producto del grupo (no OEM): catálogo multimarca de las 8 sucursales GDL desde landing única <em>seminuevos.grupoplasencia.com</em>. Sin restricciones de fabricante, pauta continua en Meta web form + Google Search. Única marca con venta cerrada al corte.</div>
       </div>
       <div class="right">
         <div class="hero-num">70</div>
@@ -354,11 +354,11 @@ table.comp .bad  { color: var(--gp-red); font-weight: 600; }
         <div class="kpi-sub">1 venta $289K OMODA O5 · last-click Meta SeminuevosPlasencia_Core · López Mateos · vendedor José Ayala · lead-to-cash 15 días</div>
       </div>
       <div class="section-card" style="flex:1;">
-        <div class="section-title">Top sucursales · oportunidades</div>
+        <div class="section-title">8 sucursales GDL · oportunidades cohort</div>
         <div class="bar-row"><div class="lbl">López Mateos</div><div class="bar"><div class="bar-fill fill-gold" style="width:100%"></div></div><div class="n">20</div></div>
         <div class="bar-row"><div class="lbl">Mazda Américas</div><div class="bar"><div class="bar-fill fill-gold" style="width:70%"></div></div><div class="n">14</div></div>
         <div class="bar-row"><div class="lbl">Mazda Santa Anita</div><div class="bar"><div class="bar-fill fill-gold" style="width:50%"></div></div><div class="n">10</div></div>
-        <div class="bar-row"><div class="lbl">Otras 5 sucursales</div><div class="bar"><div class="bar-fill fill-muted" style="width:65%"></div></div><div class="n">26</div></div>
+        <div class="bar-row"><div class="lbl">Otras 5 sucursales del grupo</div><div class="bar"><div class="bar-fill fill-muted" style="width:65%"></div></div><div class="n">26</div></div>
       </div>
     </div>
 
@@ -377,9 +377,9 @@ table.comp .bad  { color: var(--gp-red); font-weight: 600; }
 
     <div class="header-row">
       <div class="left">
-        <div class="t-eyebrow" style="color: var(--blue);">Hyundai · Plasencia GDL + Santa Anita</div>
-        <h1>Migración a <em>Meta Lead Ads</em></h1>
-        <div class="lede">Pauta pausada cerca de 13 días (24-abr a 6-may) para migrar de landings web a Meta Lead Forms, evitando restricciones de la marca OEM en URLs externas. Volumen recuperado en mayo bajo el nuevo formato.</div>
+        <div class="t-eyebrow" style="color: var(--blue);">Hyundai · 2 agencias OEM en GDL · Plasencia + Santa Anita</div>
+        <h1>Migración a <em>Meta Lead Forms</em></h1>
+        <div class="lede">Marca OEM con restricciones de Hyundai Motor sobre pauta a URLs externas. Pauta pausada 13 días (24-abr a 6-may) para migrar de landings propias a Meta Lead Forms (captura nativa dentro de Meta, sin redirigir al fabricante). Volumen recuperado en mayo bajo el nuevo formato.</div>
       </div>
       <div class="right">
         <div class="hero-num">126</div>
@@ -460,9 +460,9 @@ table.comp .bad  { color: var(--gp-red); font-weight: 600; }
 
     <div class="header-row">
       <div class="left">
-        <div class="t-eyebrow">Stellantis · RAM · Jeep · Peugeot · Dodge · Fiat</div>
+        <div class="t-eyebrow">Stellantis · 2 agencias OEM en GDL · 5 sub-marcas</div>
         <h1>Mejor <em>eficiencia</em> del piloto</h1>
-        <div class="lede">Migración OEM idéntica a Hyundai (pausa 13d, switch a Meta Lead Forms). Lidera en CPL Meta y CPA, con 7.4 oportunidades por día activo. Pipeline aún joven, sin cierres todavía.</div>
+        <div class="lede">Marca OEM (RAM · Jeep · Peugeot · Dodge · Fiat) con misma restricción de pauta a URLs externas que Hyundai. Pausa 13d (24-abr→6-may) para migrar a Meta Lead Forms. Lidera en CPL Meta ($77) y CPA ($83) del piloto con 7.4 oportunidades por día activo. Pipeline joven, sin cierres todavía.</div>
       </div>
       <div class="right">
         <div class="hero-num">134</div>
@@ -542,10 +542,10 @@ table.comp .bad  { color: var(--gp-red); font-weight: 600; }
   <div class="content">
 
     <div>
-      <div class="t-eyebrow">Las 3 marcas en una sola vista</div>
-      <h1 class="t-title-serif" style="font-size:30pt; margin-top:6px;">Una sola vista: <em>marketing, funnel y pérdidas</em></h1>
-      <div class="lede" style="font-family:var(--sans); font-size:10.5pt; color: var(--g600); line-height:1.5; margin-top:6px; max-width:1080px;">
-        Estado vivo del pipeline al 21-may-2026. <strong>Días</strong> = solo días con impresiones (no calendario). <strong>CPL</strong> = spend / conversiones que reporta la plataforma. <strong>CPA</strong> = spend / oportunidades creadas en D1 (concepto HubSpot, todo deal sin importar etapa inicial). <strong>CAC</strong> = spend / Ganadas.
+      <div class="t-eyebrow">Las 3 marcas del piloto en una sola vista</div>
+      <h1 class="t-title-serif" style="font-size:30pt; margin-top:6px;">Dos modelos operativos · <em>una sola vista</em></h1>
+      <div class="lede" style="font-family:var(--sans); font-size:10.5pt; color: var(--g600); line-height:1.5; margin-top:6px; max-width:1100px;">
+        Seminuevos opera como <em>catálogo unificado del grupo</em> (8 sucursales GDL, sin restricciones OEM, pauta web form + Search). Hyundai y Stellantis son <em>marcas OEM</em> (2 agencias cada una, migración forzada de landings a Meta Lead Forms por restricción del fabricante). Métricas estandarizadas: <strong>CPL</strong> = spend/conv plataforma · <strong>CPA</strong> = spend/oportunidades D1 (HubSpot) · <strong>CAC</strong> = spend/Ganadas. Días = solo días con impresiones, no calendario.
       </div>
     </div>
 
