@@ -52,7 +52,7 @@ html, body { width:100%; height:100%; overflow:hidden; background:#0d1117; font-
 
 .t-eyebrow { font-family:var(--sans); font-size:10pt; font-weight:700; letter-spacing:4px; text-transform:uppercase; color: var(--gp-red); }
 .t-eyebrow.gold { color: var(--amber); }
-.t-title-serif { font-family:var(--serif); font-weight:800; line-height:1.05; letter-spacing:-1px; color: var(--gp-navy); }
+.t-title-serif { font-family:var(--serif); font-weight:800; line-height:1.18; letter-spacing:-.8px; color: var(--gp-navy); }
 .t-title-serif em { font-style:italic; color: var(--gp-red); font-weight:700; }
 
 .divider-line { height:1px; background: var(--gold); }
@@ -73,7 +73,7 @@ html, body { width:100%; height:100%; overflow:hidden; background:#0d1117; font-
 .cover-mark span { display:block; font-weight:400; color: rgba(255,255,255,.55); margin-top:3px; letter-spacing:1px; font-size:8.5pt; }
 .cover-rule { width:120px; height:1px; background: var(--gold); margin: 10px 0 0 0; }
 .cover-eyebrow { font-family:var(--sans); font-size:9.5pt; font-weight:700; letter-spacing:4.5px; color: var(--gp-red); text-transform:uppercase; margin-top:12px; }
-.cover-title { font-family:var(--serif); font-weight:800; font-size:40pt; line-height:1.02; letter-spacing:-1.4px; margin-top:6px; color: var(--near-white); max-width:980px; }
+.cover-title { font-family:var(--serif); font-weight:800; font-size:38pt; line-height:1.22; letter-spacing:-1.3px; margin-top:4px; color: var(--near-white); max-width:980px; padding-bottom: 4px; }
 .cover-title em { font-style:italic; color: var(--gold); font-weight:700; }
 .cover-subtitle { font-family:var(--serif); font-weight:500; font-style:italic; font-size:13.5pt; color: var(--gold); margin-top:8px; letter-spacing:-.2px; line-height:1.3; max-width:920px; }
 .cover-pull { font-family:var(--serif); font-weight:500; font-style:italic; font-size:11pt; color: rgba(255,255,255,.88); line-height:1.5; border-left: 3px solid var(--gp-red); padding-left: 16px; margin-top: 14px; max-width: 970px; }
@@ -88,7 +88,7 @@ html, body { width:100%; height:100%; overflow:hidden; background:#0d1117; font-
 .cover-kpis { display:flex; gap:12px; margin-top:14px; }
 .cov-kpi { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.18); border-radius:8px; padding: 12px 18px; flex:1; }
 .cov-kpi-label { font-family:var(--sans); font-size:8.5pt; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color: rgba(255,255,255,.6); margin-bottom: 3px; }
-.cov-kpi-value { font-family:var(--serif); font-weight:800; font-size:30pt; line-height:1; letter-spacing:-.8px; color: var(--gold); }
+.cov-kpi-value { font-family:var(--serif); font-weight:800; font-size:28pt; line-height:1.15; letter-spacing:-.8px; color: var(--gold); }
 .cov-kpi.semin .cov-kpi-value { color: var(--gold); }
 .cov-kpi.hyu .cov-kpi-value { color: var(--blue); }
 .cov-kpi.stl .cov-kpi-value { color: var(--gp-red); }
@@ -109,7 +109,7 @@ html, body { width:100%; height:100%; overflow:hidden; background:#0d1117; font-
 
 .header-row { display:flex; align-items:flex-end; justify-content:space-between; margin-top: 14px; }
 .header-row .left { flex:1; }
-.header-row h1 { font-family:var(--serif); font-weight:800; font-size:28pt; line-height:1.05; letter-spacing:-.7px; color: var(--gp-navy); }
+.header-row h1 { font-family:var(--serif); font-weight:800; font-size:26pt; line-height:1.22; letter-spacing:-.6px; color: var(--gp-navy); padding-bottom: 3px; }
 .header-row h1 em { font-style:italic; color: var(--gp-red); font-weight:700; }
 .slide.semin .header-row h1 em { color: var(--amber); }
 .slide.hyu .header-row h1 em { color: var(--blue); }
@@ -117,7 +117,7 @@ html, body { width:100%; height:100%; overflow:hidden; background:#0d1117; font-
 .header-row .lede { font-family:var(--sans); font-size:10pt; color: var(--g600); line-height:1.5; margin-top: 6px; max-width: 720px; }
 .header-row .lede strong { color: var(--gp-slate); }
 .header-row .right { text-align:right; padding-left: 24px; }
-.hero-num { font-family:var(--serif); font-weight:900; font-size:58pt; line-height:.9; letter-spacing:-2px; }
+.hero-num { font-family:var(--serif); font-weight:900; font-size:48pt; line-height:1.25; letter-spacing:-1.6px; padding-bottom: 4px; }
 .slide.semin .hero-num { color: var(--amber); }
 .slide.hyu .hero-num { color: var(--blue); }
 .slide.stl .hero-num { color: var(--gp-red); }
@@ -129,13 +129,13 @@ html, body { width:100%; height:100%; overflow:hidden; background:#0d1117; font-
 
 /* ==== Funnel ==== */
 .funnel { display:grid; grid-template-columns: repeat(4, 1fr) auto; gap:8px; }
-.funnel-step { background: var(--paper); border: 1px solid var(--g200); border-radius: 8px; padding: 12px 14px; position:relative; box-shadow: 0 1px 2px rgba(30,39,64,.04); }
+.funnel-step { background: var(--paper); border: 1px solid var(--g200); border-radius: 8px; padding: 12px 12px; position:relative; box-shadow: 0 1px 2px rgba(30,39,64,.04); min-width: 0; }
 .funnel-step::after { content:'→'; position:absolute; right:-10px; top:50%; transform:translateY(-50%); color: var(--g400); font-size:13px; z-index:2; }
 .funnel-step:nth-child(4)::after { display:none; }
 .funnel-step.perdida { background: rgba(200,16,46,.04); border-color: rgba(200,16,46,.25); }
 .funnel-step.perdida::after { display:none; }
 .funnel-stage { font-family:var(--sans); font-size:8.5pt; font-weight:700; letter-spacing:1.2px; text-transform:uppercase; color: var(--g500); }
-.funnel-n { font-family:var(--serif); font-weight:800; font-size:26pt; line-height:1; color: var(--gp-navy); margin-top: 4px; }
+.funnel-n { font-family:var(--serif); font-weight:800; font-size:24pt; line-height:1.15; color: var(--gp-navy); margin-top: 2px; }
 .funnel-n.perd { color: var(--gp-red); }
 .funnel-conv { font-family:var(--sans); font-size:8.5pt; color: var(--g500); margin-top: 6px; line-height:1.4; }
 .funnel-step .accent-bar { position:absolute; top:0; left:0; right:0; height:2px; background: var(--gold); border-radius: 8px 8px 0 0; }
@@ -152,7 +152,7 @@ html, body { width:100%; height:100%; overflow:hidden; background:#0d1117; font-
 .kpi.win { background: rgba(72,187,120,.06); border-color: rgba(72,187,120,.4); }
 .kpi.win::before { content:""; position:absolute; left:0; top:0; bottom:0; width:3px; background: var(--green); border-radius: 6px 0 0 6px; }
 .kpi-label { font-family:var(--sans); font-size:8.5pt; font-weight:700; letter-spacing:1.2px; text-transform:uppercase; color: var(--g500); }
-.kpi-value { font-family:var(--serif); font-weight:800; font-size:21pt; color: var(--gp-navy); line-height:1; margin-top: 5px; letter-spacing:-.5px; }
+.kpi-value { font-family:var(--serif); font-weight:800; font-size:20pt; color: var(--gp-navy); line-height:1.15; margin-top: 3px; letter-spacing:-.4px; }
 .kpi-value.gold { color: var(--amber); }
 .kpi-value.blue { color: var(--blue); }
 .kpi-value.red  { color: var(--gp-red); }
@@ -202,8 +202,8 @@ table.comp .good { color: var(--deep-green); font-weight: 700; }
 table.comp .bad  { color: var(--gp-red); font-weight: 600; }
 
 /* ==== Anexo Ventas slide ==== */
-.anexo-hero { display:grid; grid-template-columns: auto 1fr; gap: 18px; align-items:center; background: var(--paper); border: 1px solid var(--g200); border-radius: 8px; padding: 10px 18px; box-shadow: 0 1px 2px rgba(30,39,64,.04); }
-.anexo-hero-num { font-family:var(--serif); font-weight:900; font-size:42pt; line-height:.9; letter-spacing:-1.5px; color: var(--amber); }
+.anexo-hero { display:grid; grid-template-columns: auto 1fr; gap: 18px; align-items:center; background: var(--paper); border: 1px solid var(--g200); border-radius: 8px; padding: 6px 18px; box-shadow: 0 1px 2px rgba(30,39,64,.04); }
+.anexo-hero-num { font-family:var(--serif); font-weight:900; font-size:36pt; line-height:1.22; letter-spacing:-1.2px; color: var(--amber); padding-bottom: 3px; }
 .anexo-hero-label { font-family:var(--sans); font-size:8pt; font-weight:700; letter-spacing:1.3px; text-transform:uppercase; color: var(--g500); }
 .anexo-hero h2 { font-family:var(--serif); font-weight:800; font-size:16pt; color: var(--gp-navy); line-height:1.1; margin-top: 2px; letter-spacing:-.4px; }
 .anexo-hero h2 em { font-style:italic; color: var(--amber); font-weight:700; }
