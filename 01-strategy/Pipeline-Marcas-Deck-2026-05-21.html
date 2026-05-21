@@ -3,135 +3,220 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pipeline Snapshot · Las 3 marcas del piloto · 2026-05-21 · Grupo Plasencia</title>
+<title>Pipeline Snapshot · Las 3 marcas del piloto · 2026-05-21 · Grupo Plasencia Automotriz</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800;900&family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@500;700;800;900&family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet">
 <style>
-*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-html, body { width: 100%; height: 100%; overflow: hidden; background: #0d1117; font-family: 'Inter', system-ui, sans-serif; }
-
-.deck { width: 100vw; height: 100vh; position: relative; }
-.slide {
- overflow: hidden; position: absolute; top: 0; left: 0;
- width: 1280px; height: 720px; transform-origin: top left;
- opacity: 0; visibility: hidden;
- transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
- display: flex; flex-direction: column;
+:root {
+  /* GP corporate tokens — espejo del paper A4 */
+  --gp-red: #C8102E;
+  --gp-navy: #1E2740;
+  --gp-slate: #2D3748;
+  --green: #48BB78;
+  --deep-green: #276749;
+  --blue: #4299E1;
+  --deep-blue: #2B6CB0;
+  --amber: #D69E2E;
+  --gold: #ECC94B;
+  --bg: #F0F4F8;
+  --paper: #FFFFFF;
+  --near-white: #F7FAFC;
+  --g100: #EDF2F7;
+  --g200: #E2E8F0;
+  --g300: #CBD5E0;
+  --g400: #A0AEC0;
+  --g500: #718096;
+  --g600: #4A5568;
+  --text: #2D3748;
+  --serif: 'Playfair Display', Georgia, serif;
+  --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
-.slide.active { opacity: 1; visibility: visible; }
-.slide.enter { animation: slideIn 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
-@keyframes slideIn { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { width:100%; height:100%; overflow:hidden; background:#0d1117; font-family:var(--sans); -webkit-font-smoothing:antialiased; }
 
-#progress { opacity: 0.5; position: fixed; top: 0; left: 0; height: 2px; background: #ECC94B; z-index: 9999; transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
-#counter { position: fixed; bottom: 16px; right: 24px; font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.5); z-index: 9999; letter-spacing: 0.5px; }
+.deck { width:100vw; height:100vh; position:relative; }
+.slide {
+  overflow:hidden; position:absolute; top:0; left:0;
+  width:1280px; height:720px; transform-origin:top left;
+  opacity:0; visibility:hidden;
+  transition: opacity .6s cubic-bezier(.4,0,.2,1);
+  display:flex; flex-direction:column;
+  background: var(--bg); color: var(--text);
+  box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 12px 40px rgba(30,39,64,.12);
+}
+.slide.active { opacity:1; visibility:visible; }
+.slide.cover { background: var(--gp-navy); color: var(--near-white); }
 
-.slide--darker { background: #0F1A2E; color: #F7FAFC; }
+#progress { opacity:.6; position:fixed; top:0; left:0; height:2px; background: var(--gold); z-index:9999; transition: width .4s cubic-bezier(.4,0,.2,1); }
+#counter { position:fixed; bottom:14px; right:22px; font-size:12px; font-weight:500; color: rgba(255,255,255,.5); z-index:9999; letter-spacing:.5px; font-family: var(--sans); }
 
-.t-display { font-family: 'Montserrat', sans-serif; font-weight: 800; }
-.t-accent { font-family: 'Playfair Display', Georgia, serif; }
-.t-gold { color: #ECC94B; }
-.t-blue { color: #4299E1; }
-.t-red { color: #FC8181; }
-.t-green { color: #48BB78; }
-.t-amber { color: #F6AD55; }
-.t-white { color: #F7FAFC; }
-.t-muted { color: #A0AEC0; }
-.t-label { font-size: 9px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }
+/* ==== Common typography ==== */
+.t-eyebrow { font-family:var(--sans); font-size:10pt; font-weight:700; letter-spacing:4px; text-transform:uppercase; color: var(--gp-red); }
+.t-eyebrow.gold { color: var(--gold); }
+.t-eyebrow.muted { color: var(--g500); letter-spacing:2.5px; font-size:9pt; }
+.t-title-serif { font-family:var(--serif); font-weight:800; line-height:1.05; letter-spacing:-1px; color: var(--gp-navy); }
+.t-title-serif em { font-style:italic; color: var(--gp-red); font-weight:700; }
+.t-meta { font-family:var(--sans); font-size:9pt; color: var(--g500); letter-spacing:.6px; }
+.t-section-num { font-family:var(--serif); font-weight:800; font-size:13pt; color: var(--gp-red); }
+.t-pull { font-family:var(--serif); font-style:italic; font-weight:500; color: var(--gp-slate); line-height:1.45; }
 
-.pad { padding: 36px 52px; flex: 1; display: flex; flex-direction: column; }
-.flex { display: flex; } .flex-col { display: flex; flex-direction: column; }
-.gap-6 { gap: 6px; } .gap-8 { gap: 8px; } .gap-10 { gap: 10px; } .gap-12 { gap: 12px; }
-.gap-14 { gap: 14px; } .gap-16 { gap: 16px; } .gap-20 { gap: 20px; } .gap-24 { gap: 24px; }
-.center-v { align-items: center; } .center-h { justify-content: center; }
-.center-all { align-items: center; justify-content: center; text-align: center; }
-.flex-1 { flex: 1; }
+.divider-line { width:64mm; height:1px; background: var(--gold); }
 
-.divider { width: 56px; height: 3px; border-radius: 2px; }
-.div-gold { background: #ECC94B; } .div-blue { background: #4299E1; } .div-red { background: #C8102E; }
+/* ==== COVER ==== */
+.cover-inner {
+  padding: 56px 78px;
+  flex:1; display:flex; flex-direction:column; justify-content:space-between;
+  background:
+    radial-gradient(ellipse at 100% 0%, rgba(236,201,75,.14) 0%, transparent 55%),
+    radial-gradient(ellipse at 0% 100%, rgba(200,16,46,.12) 0%, transparent 55%),
+    var(--gp-navy);
+  position:relative;
+}
+.cover-inner::before { content:""; position:absolute; top:42px; left:78px; width:170px; height:1px; background: var(--gold); }
+.cover-mark { font-family:var(--sans); font-weight:700; font-size:11pt; letter-spacing:4px; color: var(--gold); text-transform:uppercase; }
+.cover-mark span { display:block; font-weight:400; color: rgba(255,255,255,.55); margin-top:4px; letter-spacing:1px; font-size:9pt; }
+.cover-eyebrow { font-family:var(--sans); font-size:10pt; font-weight:700; letter-spacing:5px; color: var(--gp-red); text-transform:uppercase; margin-top:28px; }
+.cover-title { font-family:var(--serif); font-weight:800; font-size:52pt; line-height:1.02; letter-spacing:-1.8px; margin-top:14px; color: var(--near-white); max-width:980px; }
+.cover-title em { font-style:italic; color: var(--gold); font-weight:700; }
+.cover-subtitle { font-family:var(--serif); font-weight:500; font-style:italic; font-size:17pt; color: var(--gold); margin-top:16px; letter-spacing:-.2px; line-height:1.3; max-width:880px; }
+.cover-pull { font-family:var(--serif); font-weight:500; font-style:italic; font-size:13pt; color: rgba(255,255,255,.85); line-height:1.55; border-left: 3px solid var(--gp-red); padding-left: 22px; margin-top: 28px; max-width: 760px; }
+.cover-tags { display:flex; gap:12px; margin-top:24px; flex-wrap:wrap; }
+.cover-tag { font-family:var(--sans); font-size:9pt; font-weight:600; letter-spacing:1px; color: rgba(255,255,255,.85); border: 1px solid rgba(255,255,255,.25); padding: 4px 12px; border-radius: 999px; text-transform:uppercase; }
+.cover-tag.accent { color: var(--gold); border-color: rgba(236,201,75,.4); }
+.cover-tag.urgent { color: var(--gp-red); border-color: rgba(200,16,46,.4); }
+.cover-meta { display:flex; justify-content:space-between; align-items:flex-end; border-top: 1px solid rgba(255,255,255,.15); padding-top:18px; }
+.cover-meta-block { font-size:9pt; color: rgba(255,255,255,.65); line-height:1.7; font-family: var(--sans); }
+.cover-meta-block strong { display:block; color: var(--near-white); font-weight:700; font-size:10pt; letter-spacing:.5px; }
 
-.slide-label { position: absolute; top: 22px; left: 52px; font-size: 9px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; opacity: 0.4; color: #F7FAFC; }
-.slide-footer { position: absolute; bottom: 14px; left: 52px; right: 52px; font-size: 8px; letter-spacing: 0.8px; opacity: 0.4; text-transform: uppercase; color: #F7FAFC; display: flex; justify-content: space-between; }
+.cover-kpis { display:flex; gap:14px; margin-top:18px; }
+.cov-kpi { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.18); border-radius:8px; padding: 16px 22px; flex:1; }
+.cov-kpi-label { font-family:var(--sans); font-size:9pt; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color: rgba(255,255,255,.6); margin-bottom: 4px; }
+.cov-kpi-value { font-family:var(--serif); font-weight:800; font-size:38pt; line-height:1; letter-spacing:-1px; color: var(--gold); }
+.cov-kpi-value em { font-style: italic; }
+.cov-kpi.semin .cov-kpi-value { color: var(--gold); }
+.cov-kpi.hyu .cov-kpi-value { color: var(--blue); }
+.cov-kpi.stl .cov-kpi-value { color: var(--gp-red); }
+.cov-kpi-sub { font-family:var(--sans); font-size:9.5pt; color: rgba(255,255,255,.7); margin-top: 6px; }
 
-/* Hero */
-.hero-num { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 82px; line-height: 0.9; letter-spacing: -2.5px; }
-.hero-sublabel { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #A0AEC0; margin-top: 6px; }
+/* ==== CONTENT SLIDES (paper-style) ==== */
+.content { padding: 36px 56px 30px 56px; flex:1; display:flex; flex-direction:column; gap: 14px; position:relative; }
+.content::before {
+  content:""; position:absolute; top:36px; left:56px; width:48px; height:3px; background: var(--gp-red); border-radius:2px;
+}
+.slide.semin .content::before { background: var(--gold); }
+.slide.hyu .content::before { background: var(--blue); }
+.slide.stl .content::before { background: var(--gp-red); }
+.slide.comp .content::before { background: var(--gp-navy); }
 
-/* Funnel */
-.funnel { display: grid; grid-template-columns: repeat(4, 1fr) auto; gap: 8px; align-items: stretch; }
-.funnel-step { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.14); border-radius: 10px; padding: 12px 14px; position: relative; min-height: 92px; }
-.funnel-step::after { content: '→'; position: absolute; right: -10px; top: 50%; transform: translateY(-50%); color: rgba(255,255,255,0.3); font-size: 13px; z-index: 2; }
-.funnel-step:nth-child(4)::after { display: none; }
-.funnel-step.perdida { background: rgba(252,129,129,0.06); border-color: rgba(252,129,129,0.3); }
-.funnel-step.perdida::after { display: none; }
-.funnel-stage { font-size: 9px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: #A0AEC0; margin-bottom: 4px; }
-.funnel-n { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 28px; line-height: 1; color: #F7FAFC; }
-.funnel-n.perd { color: #FC8181; }
-.funnel-conv { font-size: 9.5px; color: #A0AEC0; margin-top: 4px; line-height: 1.35; }
+.header-row { display:flex; align-items:flex-end; justify-content:space-between; margin-top: 14px; }
+.header-row .left { flex:1; }
+.header-row .h-eyebrow { margin-bottom: 4px; }
+.header-row h1 { font-family:var(--serif); font-weight:800; font-size:30pt; line-height:1.05; letter-spacing:-.8px; color: var(--gp-navy); }
+.header-row h1 em { font-style:italic; color: var(--gp-red); font-weight:700; }
+.slide.semin .header-row h1 em { color: var(--amber); }
+.slide.hyu .header-row h1 em { color: var(--blue); }
+.slide.stl .header-row h1 em { color: var(--gp-red); }
+.header-row .lede { font-family:var(--sans); font-size:10.5pt; color: var(--g600); line-height:1.5; margin-top: 6px; max-width: 660px; }
+.header-row .right { text-align:right; padding-left: 24px; }
+.hero-num { font-family:var(--serif); font-weight:900; font-size:64pt; line-height:.9; letter-spacing:-2.5px; }
+.slide.semin .hero-num { color: var(--amber); }
+.slide.hyu .hero-num { color: var(--blue); }
+.slide.stl .hero-num { color: var(--gp-red); }
+.hero-sublabel { font-family:var(--sans); font-size:9pt; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color: var(--g500); margin-top: 4px; }
 
-/* KPI cards · marketing structure */
-.kpi-block { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
-.kpi { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 11px 13px; min-height: 78px; }
-.kpi.featured { background: rgba(236,201,75,0.08); border-color: rgba(236,201,75,0.4); }
-.kpi.win { background: rgba(72,187,120,0.08); border-color: rgba(72,187,120,0.4); }
-.kpi-label { font-size: 8.5px; font-weight: 700; letter-spacing: 1.3px; text-transform: uppercase; color: #A0AEC0; }
-.kpi-value { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 22px; color: #F7FAFC; line-height: 1; margin-top: 6px; letter-spacing: -0.3px; }
-.kpi-value.gold { color: #ECC94B; } .kpi-value.blue { color: #4299E1; } .kpi-value.red { color: #FC8181; }
-.kpi-value.green { color: #48BB78; } .kpi-value.muted { color: #4A5568; }
-.kpi-sub { font-size: 9.5px; color: #A0AEC0; margin-top: 4px; line-height: 1.35; }
+hr.fancy { border:0; border-top: 1px solid var(--g300); margin: 2px 0; }
 
-/* Section */
-.section-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 14px 16px; }
-.section-title { font-size: 9.5px; font-weight: 700; letter-spacing: 1.8px; text-transform: uppercase; color: #A0AEC0; margin-bottom: 10px; }
+/* ==== Funnel ==== */
+.funnel { display:grid; grid-template-columns: repeat(4, 1fr) auto; gap:8px; }
+.funnel-step { background: var(--paper); border: 1px solid var(--g200); border-radius: 8px; padding: 12px 14px; position:relative; box-shadow: 0 1px 2px rgba(30,39,64,.04); }
+.funnel-step::after { content:'→'; position:absolute; right:-10px; top:50%; transform:translateY(-50%); color: var(--g400); font-size:13px; z-index:2; }
+.funnel-step:nth-child(4)::after { display:none; }
+.funnel-step.perdida { background: rgba(200,16,46,.04); border-color: rgba(200,16,46,.25); }
+.funnel-step.perdida::after { display:none; }
+.funnel-stage { font-family:var(--sans); font-size:8.5pt; font-weight:700; letter-spacing:1.2px; text-transform:uppercase; color: var(--g500); }
+.funnel-n { font-family:var(--serif); font-weight:800; font-size:26pt; line-height:1; color: var(--gp-navy); margin-top: 4px; }
+.funnel-n.perd { color: var(--gp-red); }
+.funnel-conv { font-family:var(--sans); font-size:8.5pt; color: var(--g500); margin-top: 6px; line-height:1.4; }
+.funnel-step .accent-bar { position:absolute; top:0; left:0; right:0; height:2px; background: var(--gold); border-radius: 8px 8px 0 0; }
+.slide.semin .funnel-step .accent-bar { background: var(--amber); }
+.slide.hyu .funnel-step .accent-bar { background: var(--blue); }
+.slide.stl .funnel-step .accent-bar { background: var(--gp-red); }
+.funnel-step.perdida .accent-bar { background: var(--gp-red); }
 
-/* Bar list */
-.bar-row { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; font-size: 11px; }
+/* ==== KPI cards · paper style ==== */
+.kpi-block { display:grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.kpi { background: var(--paper); border: 1px solid var(--g200); border-radius: 6px; padding: 12px 14px; min-height: 78px; box-shadow: 0 1px 2px rgba(30,39,64,.03); position:relative; }
+.kpi.featured { background: rgba(236,201,75,.06); border-color: rgba(236,201,75,.45); }
+.kpi.featured::before { content:""; position:absolute; left:0; top:0; bottom:0; width:3px; background: var(--gold); border-radius: 6px 0 0 6px; }
+.kpi.win { background: rgba(72,187,120,.06); border-color: rgba(72,187,120,.4); }
+.kpi.win::before { content:""; position:absolute; left:0; top:0; bottom:0; width:3px; background: var(--green); border-radius: 6px 0 0 6px; }
+.kpi-label { font-family:var(--sans); font-size:8.5pt; font-weight:700; letter-spacing:1.2px; text-transform:uppercase; color: var(--g500); }
+.kpi-value { font-family:var(--serif); font-weight:800; font-size:22pt; color: var(--gp-navy); line-height:1; margin-top: 5px; letter-spacing:-.5px; }
+.kpi-value.gold { color: var(--amber); }
+.kpi-value.blue { color: var(--blue); }
+.kpi-value.red  { color: var(--gp-red); }
+.kpi-value.green{ color: var(--deep-green); }
+.kpi-value.muted{ color: var(--g400); }
+.kpi-sub { font-family:var(--sans); font-size:9pt; color: var(--g500); margin-top: 6px; line-height:1.45; }
+
+/* ==== Section card / bars ==== */
+.section-card { background: var(--paper); border: 1px solid var(--g200); border-radius: 6px; padding: 12px 14px; box-shadow: 0 1px 2px rgba(30,39,64,.03); }
+.section-title { font-family:var(--sans); font-size:8.5pt; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color: var(--g500); margin-bottom: 10px; }
+.bar-row { display:flex; align-items:center; gap:10px; margin-bottom: 6px; font-family: var(--sans); }
 .bar-row:last-child { margin-bottom: 0; }
-.bar-row .lbl { flex: 0 0 130px; color: #E2E8F0; font-size: 10px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.bar-row .bar { flex: 1; height: 7px; background: rgba(255,255,255,0.08); border-radius: 4px; overflow: hidden; }
-.bar-row .bar-fill { height: 100%; border-radius: 4px; }
-.bar-row .n { flex: 0 0 32px; text-align: right; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 11px; color: #F7FAFC; }
-.fill-gold { background: #ECC94B; } .fill-blue { background: #4299E1; } .fill-red { background: #FC8181; }
-.fill-green { background: #48BB78; } .fill-amber { background: #F6AD55; } .fill-muted { background: #4A5568; }
+.bar-row .lbl { flex:0 0 130px; color: var(--gp-slate); font-size: 9.5pt; white-space: nowrap; overflow:hidden; text-overflow: ellipsis; }
+.bar-row .bar { flex:1; height:7px; background: var(--g100); border-radius: 4px; overflow:hidden; }
+.bar-row .bar-fill { height:100%; border-radius: 4px; }
+.bar-row .n { flex:0 0 32px; text-align:right; font-family:var(--serif); font-weight:700; font-size:11pt; color: var(--gp-navy); }
+.fill-gold { background: var(--gold); }
+.fill-amber{ background: var(--amber); }
+.fill-blue { background: var(--blue); }
+.fill-red  { background: var(--gp-red); }
+.fill-green{ background: var(--green); }
+.fill-muted{ background: var(--g400); }
 
-/* Note cards */
-.note-card { background: rgba(255,255,255,0.04); border-left: 3px solid #ECC94B; border-radius: 5px; padding: 8px 12px; font-size: 10.5px; color: #CBD5E0; line-height: 1.5; }
-.note-card.blue { border-left-color: #4299E1; }
-.note-card.amber { border-left-color: #F6AD55; }
-.note-card.green { border-left-color: #48BB78; }
-.note-card.red { border-left-color: #FC8181; }
-.note-tag { font-size: 8.5px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #ECC94B; margin-right: 6px; }
-.note-card.blue .note-tag { color: #4299E1; }
-.note-card.amber .note-tag { color: #F6AD55; }
-.note-card.green .note-tag { color: #48BB78; }
-.note-card.red .note-tag { color: #FC8181; }
+/* ==== Note cards ==== */
+.note { background: var(--paper); border-left: 3px solid var(--gold); border-radius: 4px; padding: 8px 14px; font-family: var(--sans); font-size: 9.5pt; color: var(--gp-slate); line-height: 1.5; box-shadow: 0 1px 1px rgba(30,39,64,.03); }
+.note.blue { border-left-color: var(--blue); }
+.note.amber { border-left-color: var(--amber); }
+.note.green { border-left-color: var(--green); }
+.note.red { border-left-color: var(--gp-red); }
+.note-tag { font-family:var(--sans); font-size:8pt; font-weight:700; letter-spacing:1px; text-transform:uppercase; color: var(--gold); margin-right:6px; }
+.note.blue .note-tag { color: var(--blue); }
+.note.amber .note-tag { color: var(--amber); }
+.note.green .note-tag { color: var(--deep-green); }
+.note.red .note-tag { color: var(--gp-red); }
 
-/* Comparative table */
-table.comp { width: 100%; border-collapse: collapse; font-size: 11.5px; }
-table.comp th { text-align: left; padding: 9px 10px; font-weight: 700; font-size: 9px; letter-spacing: 1.2px; text-transform: uppercase; color: #A0AEC0; border-bottom: 1px solid rgba(255,255,255,0.15); }
-table.comp th.num, table.comp td.num { text-align: right; }
-table.comp td { padding: 10px; border-bottom: 1px solid rgba(255,255,255,0.07); color: #E2E8F0; vertical-align: middle; line-height: 1.4; }
-table.comp td.brand { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 12px; }
-table.comp .brand.semin { color: #ECC94B; }
-table.comp .brand.hyu { color: #4299E1; }
-table.comp .brand.stl { color: #FC8181; }
+/* ==== Comparative table ==== */
+table.comp { width:100%; border-collapse:collapse; font-family:var(--sans); font-size:10pt; background: var(--paper); border: 1px solid var(--g200); border-radius: 6px; overflow: hidden; box-shadow: 0 1px 2px rgba(30,39,64,.03); }
+table.comp th { text-align:left; padding: 10px 12px; font-weight:700; font-size:8.5pt; letter-spacing:1.2px; text-transform:uppercase; color: var(--g500); border-bottom: 1px solid var(--g200); background: var(--g100); }
+table.comp th.num, table.comp td.num { text-align:right; }
+table.comp td { padding: 11px 12px; border-bottom: 1px solid var(--g200); color: var(--gp-slate); vertical-align:middle; line-height:1.4; }
+table.comp td.brand { font-family:var(--serif); font-weight:800; font-size:11.5pt; letter-spacing:-.2px; }
+table.comp .brand.semin { color: var(--amber); }
+table.comp .brand.hyu { color: var(--blue); }
+table.comp .brand.stl { color: var(--gp-red); }
 table.comp tr:last-child td { border-bottom: none; }
+table.comp .good { color: var(--deep-green); font-weight: 700; }
+table.comp .bad  { color: var(--gp-red); font-weight: 600; }
 
-/* Cover-only big-kpis */
-.cov-kpi { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; padding: 18px 22px; text-align: center; min-width: 200px; }
-.cov-kpi-label { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #A0AEC0; margin-bottom: 8px; }
-.cov-kpi-value { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 42px; line-height: 1; letter-spacing: -1px; }
-.cov-kpi-sub { font-size: 11px; color: #A0AEC0; margin-top: 6px; }
-.cov-kpi.semin .cov-kpi-value { color: #ECC94B; }
-.cov-kpi.hyu .cov-kpi-value { color: #4299E1; }
-.cov-kpi.stl .cov-kpi-value { color: #FC8181; }
+/* ==== Footer of slides ==== */
+.slide-footer { position:absolute; bottom: 12px; left: 56px; right: 56px; display:flex; justify-content:space-between; font-family: var(--sans); font-size: 8pt; letter-spacing:.8px; color: var(--g400); text-transform: uppercase; border-top: 1px solid var(--g200); padding-top: 8px; }
+.slide.cover .slide-footer { display:none; }
+.slide-label { position:absolute; top: 16px; right: 56px; font-family:var(--sans); font-size: 8pt; letter-spacing: 1.8px; text-transform: uppercase; color: var(--g400); }
+.slide.cover .slide-label { display:none; }
+
+/* Page chip number top-left */
+.page-chip { position:absolute; top: 18px; left: 56px; font-family:var(--serif); font-weight: 800; font-size: 11pt; color: var(--gp-red); letter-spacing:-.3px; }
+.slide.cover .page-chip { display:none; }
 
 @media print {
- @page { size: 1280px 720px landscape; margin: 0; }
- html, body { overflow: visible; }
- .slide { position: relative !important; opacity: 1 !important; visibility: visible !important; transform: none !important; left: auto !important; top: auto !important; page-break-after: always; }
- .slide:last-child { page-break-after: avoid; }
- #progress, #counter { display: none; }
+  @page { size: 1280px 720px landscape; margin: 0; }
+  html, body { overflow:visible; background:#fff; }
+  .slide { position:relative !important; opacity:1 !important; visibility:visible !important; transform:none !important; left:auto !important; top:auto !important; page-break-after: always; box-shadow:none; }
+  .slide:last-child { page-break-after: avoid; }
+  #progress, #counter { display:none; }
 }
 </style>
 </head>
@@ -143,388 +228,407 @@ table.comp tr:last-child td { border-bottom: none; }
 <div class="deck" id="deck">
 
 <!-- SLIDE 1 — COVER -->
-<section class="slide slide--darker active" data-slide="cover">
- <div class="slide-label">Grupo Plasencia Automotriz · Motor de Atribución MVP · Marketing Corporativo</div>
- <div class="pad center-all flex-1 gap-20">
-  <div class="t-label t-gold">Pipeline Snapshot · 2026-05-21</div>
-  <h1 class="t-display t-white" style="font-size:54px;line-height:1.05;letter-spacing:-1.5px;max-width:900px;text-align:center;">
-   Las 3 marcas del piloto en una sola vista
-  </h1>
-  <div class="divider div-gold"></div>
-  <p style="font-size:13px;color:#A0AEC0;max-width:780px;text-align:center;line-height:1.6;">
-   Marketing, oportunidades, funnel y conversiones por línea de negocio. <strong style="color:#ECC94B;">Estado vivo del pipeline al 21-may-2026</strong>: las cifras cambian con cada movimiento del vendedor en el kanban. Fuentes directas: D1 <code style="color:#ECC94B;">crm-plasencia-db</code> + Meta Ads API + Google Ads GAQL. Métricas estructuradas por capas — CPL (plataforma) → CPA (oportunidades) → Costo por Cita → Costo por Visita → CAC (compra).
-  </p>
-  <div class="flex gap-14" style="margin-top:18px;">
-   <div class="cov-kpi semin"><div class="cov-kpi-label">Seminuevos</div><div class="cov-kpi-value">70</div><div class="cov-kpi-sub">oportunidades · 38d pauta</div></div>
-   <div class="cov-kpi hyu"><div class="cov-kpi-label">Hyundai</div><div class="cov-kpi-value">126</div><div class="cov-kpi-sub">oportunidades · 21d pauta</div></div>
-   <div class="cov-kpi stl"><div class="cov-kpi-label">Stellantis</div><div class="cov-kpi-value">134</div><div class="cov-kpi-sub">oportunidades · 18d pauta</div></div>
+<section class="slide cover active" data-slide="cover">
+  <div class="cover-inner">
+    <div>
+      <div class="cover-mark">Grupo Plasencia Automotriz<span>Dirección de Marketing Corporativo</span></div>
+      <div class="cover-eyebrow">Pipeline Snapshot · Mayo 2026</div>
+      <h1 class="cover-title">Las 3 marcas del piloto<br>en una sola <em>vista</em>.</h1>
+      <div class="cover-subtitle">Marketing, oportunidades, funnel y conversiones por línea de negocio del Motor de Atribución MVP.</div>
+
+      <div class="cover-pull">
+        Estado vivo del pipeline al 21 de mayo de 2026. Las cifras cambian con cada movimiento del vendedor en el kanban. Las fuentes son D1, Meta Ads API y Google Ads GAQL. La estructura sigue la jerarquía estándar de costos: <em>CPL plataforma → CPA oportunidad → Costo por Cita → Costo por Visita → CAC</em>.
+      </div>
+
+      <div class="cover-kpis">
+        <div class="cov-kpi semin">
+          <div class="cov-kpi-label">Seminuevos</div>
+          <div class="cov-kpi-value">70</div>
+          <div class="cov-kpi-sub">oportunidades · 38 días de pauta · 1 venta cerrada</div>
+        </div>
+        <div class="cov-kpi hyu">
+          <div class="cov-kpi-label">Hyundai</div>
+          <div class="cov-kpi-value">126</div>
+          <div class="cov-kpi-sub">oportunidades · 21 días de pauta · 0 ventas</div>
+        </div>
+        <div class="cov-kpi stl">
+          <div class="cov-kpi-label">Stellantis</div>
+          <div class="cov-kpi-value">134</div>
+          <div class="cov-kpi-sub">oportunidades · 18 días de pauta · 0 ventas</div>
+        </div>
+      </div>
+
+      <div class="cover-tags">
+        <span class="cover-tag accent">Estado vivo</span>
+        <span class="cover-tag">D1 + Meta + Google</span>
+        <span class="cover-tag">Concepto HubSpot</span>
+        <span class="cover-tag urgent">Confidencial</span>
+      </div>
+    </div>
+
+    <div class="cover-meta">
+      <div class="cover-meta-block">
+        <strong>Jesús Pérez Porras</strong>
+        Director de Marketing Corporativo
+      </div>
+      <div class="cover-meta-block" style="text-align:right;">
+        <strong>21 de mayo de 2026</strong>
+        Motor de Atribución MVP · Piloto LIVE
+      </div>
+    </div>
   </div>
-  <p style="font-size:11px;color:#718096;max-width:780px;text-align:center;line-height:1.55;margin-top:10px;">
-   <strong style="color:#A0AEC0;">Días de pauta</strong> = días con impresiones &gt; 0 (no días calendario). Hyundai y Stellantis tuvieron pausa de ~13 días para migrar de landings web a Meta Lead Ads, evitando restricciones de marca OEM. Seminuevos no es marca OEM, opera como vehículo unificado "Seminuevos Plasencia" sin esa fricción.
-  </p>
- </div>
- <div class="slide-footer">
-  <span>Director de Marketing Corporativo: Jesús Pérez Porras</span>
-  <span>Fuentes: D1 + Meta Ads + Google Ads · Corte 2026-05-21</span>
- </div>
 </section>
 
 <!-- SLIDE 2 — SEMINUEVOS -->
-<section class="slide slide--darker" data-slide="seminuevos">
- <div class="slide-label">Marca 1 / 3 · Seminuevos Plasencia</div>
- <div class="pad gap-16">
+<section class="slide semin" data-slide="seminuevos">
+  <div class="slide-label">Marca 1 / 3</div>
+  <div class="page-chip">01</div>
+  <div class="content">
 
-  <div class="flex gap-24 center-v">
-   <div class="flex-col gap-4" style="flex:1;">
-    <div class="t-label t-gold">Seminuevos · Lote Otero · 8 sucursales activas</div>
-    <h2 class="t-display t-white" style="font-size:30px;letter-spacing:-0.8px;">Multimarca · sin restricciones OEM</h2>
-    <div style="font-size:11.5px;color:#A0AEC0;line-height:1.5;max-width:640px;">Sin marca-OEM por encima → opera como vehículo unificado <em>"Seminuevos Plasencia"</em>. Pauta continua en Meta (web form) + Google Search. <strong style="color:#ECC94B;">Única marca con cierre cerrado</strong> a la fecha.</div>
-   </div>
-   <div class="flex-col" style="text-align:right;">
-    <div class="hero-num t-gold">70</div>
-    <div class="hero-sublabel">oportunidades · 38d pauta</div>
-   </div>
+    <div class="header-row">
+      <div class="left">
+        <div class="t-eyebrow gold" style="color: var(--amber);">Seminuevos · Lote Otero · 8 sucursales</div>
+        <h1>Multimarca · <em>sin restricciones OEM</em></h1>
+        <div class="lede">Sin marca-OEM por encima, opera como vehículo unificado <em>"Seminuevos Plasencia"</em>. Pauta continua en Meta (web form) y Google Search. Única marca con una venta cerrada al corte.</div>
+      </div>
+      <div class="right">
+        <div class="hero-num">70</div>
+        <div class="hero-sublabel">oportunidades · 38d pauta</div>
+      </div>
+    </div>
+
+    <div class="funnel">
+      <div class="funnel-step"><div class="accent-bar"></div><div class="funnel-stage">Oportunidad</div><div class="funnel-n">70</div><div class="funnel-conv">universo · entrada al pipeline</div></div>
+      <div class="funnel-step"><div class="accent-bar"></div><div class="funnel-stage">Cita Agendada</div><div class="funnel-n">33</div><div class="funnel-conv">47% pasó por aquí</div></div>
+      <div class="funnel-step"><div class="accent-bar"></div><div class="funnel-stage">Visita Realizada</div><div class="funnel-n">6</div><div class="funnel-conv">9% llegó a piso</div></div>
+      <div class="funnel-step"><div class="accent-bar"></div><div class="funnel-stage">Ganada</div><div class="funnel-n">1</div><div class="funnel-conv">1.4% · $289K OMODA O5</div></div>
+      <div class="funnel-step perdida"><div class="accent-bar"></div><div class="funnel-stage">Perdida</div><div class="funnel-n perd">30</div><div class="funnel-conv">43% del universo</div></div>
+    </div>
+
+    <div class="kpi-block">
+      <div class="kpi">
+        <div class="kpi-label">Spend Meta · 38d</div>
+        <div class="kpi-value gold">$18,418</div>
+        <div class="kpi-sub">SeminuevosPlasencia_Core · 50 conv plataforma · CPL Meta $368</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">Spend Google · 9d activos</div>
+        <div class="kpi-value gold">$4,244</div>
+        <div class="kpi-sub">Leads-Search-Aon · 18 conv plataforma · CPL Google $236</div>
+      </div>
+      <div class="kpi featured">
+        <div class="kpi-label">Spend total piloto</div>
+        <div class="kpi-value gold">$22,662</div>
+        <div class="kpi-sub">Meta + Google blended</div>
+      </div>
+    </div>
+
+    <div class="kpi-block">
+      <div class="kpi featured">
+        <div class="kpi-label">CPA · Oportunidad (D1)</div>
+        <div class="kpi-value gold">$324</div>
+        <div class="kpi-sub">$22,662 / 70 oportunidades · concepto HubSpot</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">Costo por Cita Agendada</div>
+        <div class="kpi-value">$687</div>
+        <div class="kpi-sub">$22,662 / 33 citas · downstream del CPA</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">Costo por Visita</div>
+        <div class="kpi-value">$3,777</div>
+        <div class="kpi-sub">$22,662 / 6 visitas a piso</div>
+      </div>
+    </div>
+
+    <div class="flex" style="display:flex; gap:10px;">
+      <div class="kpi win" style="flex:1.15;">
+        <div class="kpi-label">CAC · Compra Ganada</div>
+        <div class="kpi-value green">$18,418 · ROAS 15.7×</div>
+        <div class="kpi-sub">1 venta $289K OMODA O5 · last-click Meta SeminuevosPlasencia_Core · López Mateos · vendedor José Ayala · lead-to-cash 15 días</div>
+      </div>
+      <div class="section-card" style="flex:1;">
+        <div class="section-title">Top sucursales · oportunidades</div>
+        <div class="bar-row"><div class="lbl">López Mateos</div><div class="bar"><div class="bar-fill fill-gold" style="width:100%"></div></div><div class="n">20</div></div>
+        <div class="bar-row"><div class="lbl">Mazda Américas</div><div class="bar"><div class="bar-fill fill-gold" style="width:70%"></div></div><div class="n">14</div></div>
+        <div class="bar-row"><div class="lbl">Mazda Santa Anita</div><div class="bar"><div class="bar-fill fill-gold" style="width:50%"></div></div><div class="n">10</div></div>
+        <div class="bar-row"><div class="lbl">Otras 5 sucursales</div><div class="bar"><div class="bar-fill fill-muted" style="width:65%"></div></div><div class="n">26</div></div>
+      </div>
+    </div>
+
   </div>
-
-  <div class="divider div-gold"></div>
-
-  <!-- Funnel con Perdidas separada -->
-  <div class="funnel">
-   <div class="funnel-step"><div class="funnel-stage">Oportunidad</div><div class="funnel-n">70</div><div class="funnel-conv">universo · entrada al pipeline</div></div>
-   <div class="funnel-step"><div class="funnel-stage">Cita Agendada</div><div class="funnel-n">33</div><div class="funnel-conv">47% pasó por aquí</div></div>
-   <div class="funnel-step"><div class="funnel-stage">Visita Realizada</div><div class="funnel-n">6</div><div class="funnel-conv">9% llegó a piso</div></div>
-   <div class="funnel-step"><div class="funnel-stage">Ganada</div><div class="funnel-n">1</div><div class="funnel-conv">1.4% · $289K OMODA O5</div></div>
-   <div class="funnel-step perdida"><div class="funnel-stage">Perdida</div><div class="funnel-n perd">30</div><div class="funnel-conv">43% del universo</div></div>
+  <div class="slide-footer">
+    <span>D1 · Meta Ads 315070902163858 (13-abr→20-may) · Google Ads 5268940609 GAQL (21-abr→20-may)</span>
+    <span>Jesús Pérez Porras · 21-may-2026</span>
   </div>
-
-  <!-- KPIs marketing estructurados: CPL (plataforma) → CPA → Costo Cita/Visita → CAC -->
-  <div class="kpi-block">
-   <div class="kpi">
-    <div class="kpi-label">Spend Meta · 38d</div>
-    <div class="kpi-value gold">$18,418</div>
-    <div class="kpi-sub">SeminuevosPlasencia_Core · 50 conv plataforma · CPL Meta $368</div>
-   </div>
-   <div class="kpi">
-    <div class="kpi-label">Spend Google · 9d activos</div>
-    <div class="kpi-value gold">$4,244</div>
-    <div class="kpi-sub">Leads-Search-Aon · 18 conv plataforma · CPL Google $236</div>
-   </div>
-   <div class="kpi featured">
-    <div class="kpi-label">Spend Total Periodo</div>
-    <div class="kpi-value gold">$22,662</div>
-    <div class="kpi-sub">Meta + Google blended del piloto</div>
-   </div>
-  </div>
-
-  <div class="kpi-block">
-   <div class="kpi">
-    <div class="kpi-label">CPA · Oportunidad (D1)</div>
-    <div class="kpi-value gold">$324</div>
-    <div class="kpi-sub">$22,662 / 70 oportunidades · concepto HubSpot</div>
-   </div>
-   <div class="kpi">
-    <div class="kpi-label">Costo por Cita Agendada</div>
-    <div class="kpi-value">$687</div>
-    <div class="kpi-sub">$22,662 / 33 citas · downstream del CPA</div>
-   </div>
-   <div class="kpi">
-    <div class="kpi-label">Costo por Visita</div>
-    <div class="kpi-value">$3,777</div>
-    <div class="kpi-sub">$22,662 / 6 visitas a piso</div>
-   </div>
-  </div>
-
-  <!-- CAC + sucursales -->
-  <div class="flex gap-12">
-   <div class="kpi win" style="flex:1.1;">
-    <div class="kpi-label">CAC · Compra Ganada</div>
-    <div class="kpi-value green">$18,418 · ROAS 15.7×</div>
-    <div class="kpi-sub">1 venta $289K OMODA O5 · atribución last-click Meta SeminuevosPlasencia_Core · López Mateos · vendedor José Ayala · lead-to-cash 15 días</div>
-   </div>
-   <div class="section-card" style="flex:1;">
-    <div class="section-title">Top sucursales · oportunidades</div>
-    <div class="bar-row"><div class="lbl">López Mateos</div><div class="bar"><div class="bar-fill fill-gold" style="width:100%"></div></div><div class="n">20</div></div>
-    <div class="bar-row"><div class="lbl">Mazda Américas</div><div class="bar"><div class="bar-fill fill-gold" style="width:70%"></div></div><div class="n">14</div></div>
-    <div class="bar-row"><div class="lbl">Mazda Santa Anita</div><div class="bar"><div class="bar-fill fill-gold" style="width:50%"></div></div><div class="n">10</div></div>
-    <div class="bar-row"><div class="lbl">Otras 5 sucursales</div><div class="bar"><div class="bar-fill fill-muted" style="width:65%"></div></div><div class="n">26</div></div>
-   </div>
-  </div>
-
- </div>
- <div class="slide-footer">
-  <span>D1 al 21-may · Meta Ads cuenta 315070902163858 (13-abr→20-may) · Google Ads cuenta 5268940609 GAQL (21-abr→20-may)</span>
-  <span>Jesús Pérez Porras</span>
- </div>
 </section>
 
 <!-- SLIDE 3 — HYUNDAI -->
-<section class="slide slide--darker" data-slide="hyundai">
- <div class="slide-label">Marca 2 / 3 · Hyundai</div>
- <div class="pad gap-16">
+<section class="slide hyu" data-slide="hyundai">
+  <div class="slide-label">Marca 2 / 3</div>
+  <div class="page-chip">02</div>
+  <div class="content">
 
-  <div class="flex gap-24 center-v">
-   <div class="flex-col gap-4" style="flex:1;">
-    <div class="t-label t-blue">Hyundai · Plasencia GDL + Santa Anita</div>
-    <h2 class="t-display t-white" style="font-size:30px;letter-spacing:-0.8px;">Migración a Meta Lead Ads</h2>
-    <div style="font-size:11.5px;color:#A0AEC0;line-height:1.5;max-width:640px;">Pauta pausada ~13 días (24-abr a 6-may) para migrar de landings web a Meta Lead Forms, evitando restricciones de la marca OEM Hyundai en URLs externas. Volumen recuperado en mayo.</div>
-   </div>
-   <div class="flex-col" style="text-align:right;">
-    <div class="hero-num t-blue">126</div>
-    <div class="hero-sublabel">oportunidades · 21d pauta</div>
-   </div>
+    <div class="header-row">
+      <div class="left">
+        <div class="t-eyebrow" style="color: var(--blue);">Hyundai · Plasencia GDL + Santa Anita</div>
+        <h1>Migración a <em>Meta Lead Ads</em></h1>
+        <div class="lede">Pauta pausada cerca de 13 días (24-abr a 6-may) para migrar de landings web a Meta Lead Forms, evitando restricciones de la marca OEM en URLs externas. Volumen recuperado en mayo bajo el nuevo formato.</div>
+      </div>
+      <div class="right">
+        <div class="hero-num">126</div>
+        <div class="hero-sublabel">oportunidades · 21d pauta</div>
+      </div>
+    </div>
+
+    <div class="funnel">
+      <div class="funnel-step"><div class="accent-bar"></div><div class="funnel-stage">Oportunidad</div><div class="funnel-n">126</div><div class="funnel-conv">universo · 6.0 opp/día activo</div></div>
+      <div class="funnel-step"><div class="accent-bar"></div><div class="funnel-stage">Cita Agendada</div><div class="funnel-n">19</div><div class="funnel-conv">15% pasó por aquí</div></div>
+      <div class="funnel-step"><div class="accent-bar"></div><div class="funnel-stage">Visita Realizada</div><div class="funnel-n">1</div><div class="funnel-conv">0.8% llegó a piso</div></div>
+      <div class="funnel-step"><div class="accent-bar"></div><div class="funnel-stage">Ganada</div><div class="funnel-n">0</div><div class="funnel-conv">primera por venir</div></div>
+      <div class="funnel-step perdida"><div class="accent-bar"></div><div class="funnel-stage">Perdida</div><div class="funnel-n perd">2</div><div class="funnel-conv">1.6% del universo</div></div>
+    </div>
+
+    <div class="kpi-block">
+      <div class="kpi">
+        <div class="kpi-label">Spend Meta · 21d activos</div>
+        <div class="kpi-value blue">$12,268</div>
+        <div class="kpi-sub">CTR 3.63% · CPC $2.41 · 140 conv plataforma</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">CPL Meta · plataforma</div>
+        <div class="kpi-value blue">$87.63</div>
+        <div class="kpi-sub">spend / leads que cuenta Meta (140) · 121 entraron a D1</div>
+      </div>
+      <div class="kpi featured">
+        <div class="kpi-label">CPA · Oportunidad (D1)</div>
+        <div class="kpi-value blue">$97.36</div>
+        <div class="kpi-sub">$12,268 / 126 oportunidades · concepto HubSpot</div>
+      </div>
+    </div>
+
+    <div class="kpi-block">
+      <div class="kpi">
+        <div class="kpi-label">Costo por Cita Agendada</div>
+        <div class="kpi-value">$646</div>
+        <div class="kpi-sub">$12,268 / 19 citas · downstream del CPA</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">Costo por Visita</div>
+        <div class="kpi-value">$12,268</div>
+        <div class="kpi-sub">n=1 · cifra inestable por muestra mínima</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">CAC · ROAS</div>
+        <div class="kpi-value muted">—</div>
+        <div class="kpi-sub">0 compras todavía · pipeline en fase de calificación</div>
+      </div>
+    </div>
+
+    <div style="display:flex; gap:10px;">
+      <div class="section-card" style="flex:1.3;">
+        <div class="section-title">Etapa actual del pipeline (snapshot vivo)</div>
+        <div class="bar-row"><div class="lbl">Por contactar</div><div class="bar"><div class="bar-fill fill-blue" style="width:100%"></div></div><div class="n">109</div></div>
+        <div class="bar-row"><div class="lbl">Cita Agendada</div><div class="bar"><div class="bar-fill fill-amber" style="width:12%"></div></div><div class="n">13</div></div>
+        <div class="bar-row"><div class="lbl">Perdida · V. Realizada · Recontactar</div><div class="bar"><div class="bar-fill fill-muted" style="width:4%"></div></div><div class="n">4</div></div>
+      </div>
+      <div class="section-card" style="flex:1;">
+        <div class="section-title">Sucursal · 2 ubicaciones</div>
+        <div class="bar-row"><div class="lbl">Plasencia GDL (LM)</div><div class="bar"><div class="bar-fill fill-blue" style="width:100%"></div></div><div class="n">97</div></div>
+        <div class="bar-row"><div class="lbl">Santa Anita</div><div class="bar"><div class="bar-fill fill-blue" style="width:29%"></div></div><div class="n">28</div></div>
+      </div>
+    </div>
+
   </div>
-
-  <div class="divider div-blue"></div>
-
-  <div class="funnel">
-   <div class="funnel-step"><div class="funnel-stage">Oportunidad</div><div class="funnel-n">126</div><div class="funnel-conv">universo · 6.0 opp/día activo</div></div>
-   <div class="funnel-step"><div class="funnel-stage">Cita Agendada</div><div class="funnel-n">19</div><div class="funnel-conv">15% pasó por aquí</div></div>
-   <div class="funnel-step"><div class="funnel-stage">Visita Realizada</div><div class="funnel-n">1</div><div class="funnel-conv">0.8% llegó a piso</div></div>
-   <div class="funnel-step"><div class="funnel-stage">Ganada</div><div class="funnel-n">0</div><div class="funnel-conv">primera por venir</div></div>
-   <div class="funnel-step perdida"><div class="funnel-stage">Perdida</div><div class="funnel-n perd">2</div><div class="funnel-conv">1.6% del universo</div></div>
+  <div class="slide-footer">
+    <span>D1 · Meta Ads 882830331470969 · 21 días con impresiones (pauta pausada 24-abr→6-may por migración OEM)</span>
+    <span>Jesús Pérez Porras · 21-may-2026</span>
   </div>
-
-  <div class="kpi-block">
-   <div class="kpi">
-    <div class="kpi-label">Spend Meta · 21d activos</div>
-    <div class="kpi-value blue">$12,268</div>
-    <div class="kpi-sub">CTR 3.63% · CPC $2.41 · 140 conv plataforma</div>
-   </div>
-   <div class="kpi">
-    <div class="kpi-label">CPL Meta · plataforma</div>
-    <div class="kpi-value blue">$87.63</div>
-    <div class="kpi-sub">spend / leads que cuenta Meta (140) · 121 entraron a D1</div>
-   </div>
-   <div class="kpi featured">
-    <div class="kpi-label">CPA · Oportunidad (D1)</div>
-    <div class="kpi-value blue">$97.36</div>
-    <div class="kpi-sub">$12,268 / 126 oportunidades · concepto HubSpot</div>
-   </div>
-  </div>
-
-  <div class="kpi-block">
-   <div class="kpi">
-    <div class="kpi-label">Costo por Cita Agendada</div>
-    <div class="kpi-value">$646</div>
-    <div class="kpi-sub">$12,268 / 19 citas · downstream del CPA</div>
-   </div>
-   <div class="kpi">
-    <div class="kpi-label">Costo por Visita</div>
-    <div class="kpi-value">$12,268</div>
-    <div class="kpi-sub">n=1 · cifra inestable por muestra mínima</div>
-   </div>
-   <div class="kpi">
-    <div class="kpi-label">CAC · ROAS</div>
-    <div class="kpi-value muted">—</div>
-    <div class="kpi-sub">0 compras todavía · pipeline en fase de calificación</div>
-   </div>
-  </div>
-
-  <div class="flex gap-12">
-   <div class="section-card" style="flex:1.3;">
-    <div class="section-title">Etapa actual del pipeline (snapshot vivo)</div>
-    <div class="bar-row"><div class="lbl">Por contactar</div><div class="bar"><div class="bar-fill fill-blue" style="width:100%"></div></div><div class="n">109</div></div>
-    <div class="bar-row"><div class="lbl">Cita Agendada</div><div class="bar"><div class="bar-fill fill-amber" style="width:12%"></div></div><div class="n">13</div></div>
-    <div class="bar-row"><div class="lbl">Perdida · V. Realizada · Recontactar</div><div class="bar"><div class="bar-fill fill-muted" style="width:4%"></div></div><div class="n">4</div></div>
-   </div>
-   <div class="section-card" style="flex:1;">
-    <div class="section-title">Sucursal · 2 ubicaciones</div>
-    <div class="bar-row"><div class="lbl">Plasencia GDL (LM)</div><div class="bar"><div class="bar-fill fill-blue" style="width:100%"></div></div><div class="n">97</div></div>
-    <div class="bar-row"><div class="lbl">Santa Anita</div><div class="bar"><div class="bar-fill fill-blue" style="width:29%"></div></div><div class="n">28</div></div>
-   </div>
-  </div>
-
- </div>
- <div class="slide-footer">
-  <span>D1 al 21-may · Meta Ads cuenta 882830331470969 · 21 días con impresiones (pauta pausada 24-abr→6-may por migración OEM)</span>
-  <span>Jesús Pérez Porras</span>
- </div>
 </section>
 
 <!-- SLIDE 4 — STELLANTIS -->
-<section class="slide slide--darker" data-slide="stellantis">
- <div class="slide-label">Marca 3 / 3 · Stellantis</div>
- <div class="pad gap-16">
+<section class="slide stl" data-slide="stellantis">
+  <div class="slide-label">Marca 3 / 3</div>
+  <div class="page-chip">03</div>
+  <div class="content">
 
-  <div class="flex gap-24 center-v">
-   <div class="flex-col gap-4" style="flex:1;">
-    <div class="t-label t-red">Stellantis · RAM · Jeep · Peugeot · Dodge · Fiat</div>
-    <h2 class="t-display t-white" style="font-size:30px;letter-spacing:-0.8px;">Mejor eficiencia del piloto</h2>
-    <div style="font-size:11.5px;color:#A0AEC0;line-height:1.5;max-width:640px;">Migración OEM idéntica a Hyundai (pausa ~13d, switch a Meta Lead Forms). <strong style="color:#FC8181;">CPL Meta y CPA más bajos del piloto</strong>: $77 y $83 respectivamente. 7.4 oportunidades por día activo.</div>
-   </div>
-   <div class="flex-col" style="text-align:right;">
-    <div class="hero-num t-red">134</div>
-    <div class="hero-sublabel">oportunidades · 18d pauta</div>
-   </div>
+    <div class="header-row">
+      <div class="left">
+        <div class="t-eyebrow">Stellantis · RAM · Jeep · Peugeot · Dodge · Fiat</div>
+        <h1>Mejor <em>eficiencia</em> del piloto</h1>
+        <div class="lede">Migración OEM idéntica a Hyundai (pausa 13d, switch a Meta Lead Forms). Lidera en CPL Meta y CPA, con 7.4 oportunidades por día activo. Pipeline aún joven, sin cierres todavía.</div>
+      </div>
+      <div class="right">
+        <div class="hero-num">134</div>
+        <div class="hero-sublabel">oportunidades · 18d pauta</div>
+      </div>
+    </div>
+
+    <div class="funnel">
+      <div class="funnel-step"><div class="accent-bar"></div><div class="funnel-stage">Oportunidad</div><div class="funnel-n">134</div><div class="funnel-conv">universo · 7.4 opp/día activo</div></div>
+      <div class="funnel-step"><div class="accent-bar"></div><div class="funnel-stage">Cita Agendada</div><div class="funnel-n">19</div><div class="funnel-conv">14% pasó por aquí</div></div>
+      <div class="funnel-step"><div class="accent-bar"></div><div class="funnel-stage">Visita Realizada</div><div class="funnel-n">1</div><div class="funnel-conv">0.7% llegó a piso</div></div>
+      <div class="funnel-step"><div class="accent-bar"></div><div class="funnel-stage">Ganada</div><div class="funnel-n">0</div><div class="funnel-conv">primera por venir</div></div>
+      <div class="funnel-step perdida"><div class="accent-bar"></div><div class="funnel-stage">Perdida</div><div class="funnel-n perd">23</div><div class="funnel-conv">17% del universo</div></div>
+    </div>
+
+    <div class="kpi-block">
+      <div class="kpi">
+        <div class="kpi-label">Spend Meta · 18d activos</div>
+        <div class="kpi-value red">$11,185</div>
+        <div class="kpi-sub">CTR 3.42% · CPC $1.34 · 145 conv plataforma</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">CPL Meta · plataforma</div>
+        <div class="kpi-value red">$77.14</div>
+        <div class="kpi-sub">spend / leads que cuenta Meta (145) · 132 entraron a D1</div>
+      </div>
+      <div class="kpi featured">
+        <div class="kpi-label">CPA · Oportunidad (D1)</div>
+        <div class="kpi-value red">$83.47</div>
+        <div class="kpi-sub">$11,185 / 134 oportunidades · concepto HubSpot</div>
+      </div>
+    </div>
+
+    <div class="kpi-block">
+      <div class="kpi">
+        <div class="kpi-label">Costo por Cita Agendada</div>
+        <div class="kpi-value">$589</div>
+        <div class="kpi-sub">$11,185 / 19 citas · downstream del CPA</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">Costo por Visita</div>
+        <div class="kpi-value">$11,185</div>
+        <div class="kpi-sub">n=1 · cifra inestable por muestra mínima</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">CAC · ROAS</div>
+        <div class="kpi-value muted">—</div>
+        <div class="kpi-sub">0 compras · pipeline más joven (12d con leads)</div>
+      </div>
+    </div>
+
+    <div style="display:flex; gap:10px;">
+      <div class="section-card" style="flex:1.3;">
+        <div class="section-title">Etapa actual del pipeline (snapshot vivo)</div>
+        <div class="bar-row"><div class="lbl">Recontactar</div><div class="bar"><div class="bar-fill fill-amber" style="width:100%"></div></div><div class="n">65</div></div>
+        <div class="bar-row"><div class="lbl">Por contactar</div><div class="bar"><div class="bar-fill fill-red" style="width:58%"></div></div><div class="n">38</div></div>
+        <div class="bar-row"><div class="lbl">Cita Agendada</div><div class="bar"><div class="bar-fill fill-green" style="width:12%"></div></div><div class="n">8</div></div>
+      </div>
+      <div class="section-card" style="flex:1;">
+        <div class="section-title">Sucursal · 2 ubicaciones</div>
+        <div class="bar-row"><div class="lbl">Plasencia (Mariano Otero)</div><div class="bar"><div class="bar-fill fill-red" style="width:100%"></div></div><div class="n">112</div></div>
+        <div class="bar-row"><div class="lbl">Santa Anita</div><div class="bar"><div class="bar-fill fill-red" style="width:19%"></div></div><div class="n">21</div></div>
+      </div>
+    </div>
+
   </div>
-
-  <div class="divider div-red"></div>
-
-  <div class="funnel">
-   <div class="funnel-step"><div class="funnel-stage">Oportunidad</div><div class="funnel-n">134</div><div class="funnel-conv">universo · 7.4 opp/día activo</div></div>
-   <div class="funnel-step"><div class="funnel-stage">Cita Agendada</div><div class="funnel-n">19</div><div class="funnel-conv">14% pasó por aquí</div></div>
-   <div class="funnel-step"><div class="funnel-stage">Visita Realizada</div><div class="funnel-n">1</div><div class="funnel-conv">0.7% llegó a piso</div></div>
-   <div class="funnel-step"><div class="funnel-stage">Ganada</div><div class="funnel-n">0</div><div class="funnel-conv">primera por venir</div></div>
-   <div class="funnel-step perdida"><div class="funnel-stage">Perdida</div><div class="funnel-n perd">23</div><div class="funnel-conv">17% del universo</div></div>
+  <div class="slide-footer">
+    <span>D1 · Meta Ads 1434165342081795 · 18 días con impresiones (pauta pausada 24-abr→6-may por migración OEM)</span>
+    <span>Jesús Pérez Porras · 21-may-2026</span>
   </div>
-
-  <div class="kpi-block">
-   <div class="kpi">
-    <div class="kpi-label">Spend Meta · 18d activos</div>
-    <div class="kpi-value red">$11,185</div>
-    <div class="kpi-sub">CTR 3.42% · CPC $1.34 · 145 conv plataforma</div>
-   </div>
-   <div class="kpi">
-    <div class="kpi-label">CPL Meta · plataforma</div>
-    <div class="kpi-value red">$77.14</div>
-    <div class="kpi-sub">spend / leads que cuenta Meta (145) · 132 entraron a D1</div>
-   </div>
-   <div class="kpi featured">
-    <div class="kpi-label">CPA · Oportunidad (D1)</div>
-    <div class="kpi-value red">$83.47</div>
-    <div class="kpi-sub">$11,185 / 134 oportunidades · concepto HubSpot</div>
-   </div>
-  </div>
-
-  <div class="kpi-block">
-   <div class="kpi">
-    <div class="kpi-label">Costo por Cita Agendada</div>
-    <div class="kpi-value">$589</div>
-    <div class="kpi-sub">$11,185 / 19 citas · downstream del CPA</div>
-   </div>
-   <div class="kpi">
-    <div class="kpi-label">Costo por Visita</div>
-    <div class="kpi-value">$11,185</div>
-    <div class="kpi-sub">n=1 · cifra inestable por muestra mínima</div>
-   </div>
-   <div class="kpi">
-    <div class="kpi-label">CAC · ROAS</div>
-    <div class="kpi-value muted">—</div>
-    <div class="kpi-sub">0 compras · pipeline más joven (12d con leads)</div>
-   </div>
-  </div>
-
-  <div class="flex gap-12">
-   <div class="section-card" style="flex:1.3;">
-    <div class="section-title">Etapa actual del pipeline (snapshot vivo)</div>
-    <div class="bar-row"><div class="lbl">Recontactar</div><div class="bar"><div class="bar-fill fill-amber" style="width:100%"></div></div><div class="n">65</div></div>
-    <div class="bar-row"><div class="lbl">Por contactar</div><div class="bar"><div class="bar-fill fill-red" style="width:58%"></div></div><div class="n">38</div></div>
-    <div class="bar-row"><div class="lbl">Cita Agendada</div><div class="bar"><div class="bar-fill fill-green" style="width:12%"></div></div><div class="n">8</div></div>
-   </div>
-   <div class="section-card" style="flex:1;">
-    <div class="section-title">Sucursal · 2 ubicaciones</div>
-    <div class="bar-row"><div class="lbl">Plasencia (Mariano Otero)</div><div class="bar"><div class="bar-fill fill-red" style="width:100%"></div></div><div class="n">112</div></div>
-    <div class="bar-row"><div class="lbl">Santa Anita</div><div class="bar"><div class="bar-fill fill-red" style="width:19%"></div></div><div class="n">21</div></div>
-   </div>
-  </div>
-
- </div>
- <div class="slide-footer">
-  <span>D1 al 21-may · Meta Ads cuenta 1434165342081795 · 18 días con impresiones (pauta pausada 24-abr→6-may por migración OEM)</span>
-  <span>Jesús Pérez Porras</span>
- </div>
 </section>
 
-<!-- SLIDE 5 — COMPARATIVO LADO A LADO (con Perdidas en la vista) -->
-<section class="slide slide--darker" data-slide="comparativo">
- <div class="slide-label">Resumen comparativo · Las 3 marcas en una sola vista</div>
- <div class="pad gap-16">
+<!-- SLIDE 5 — COMPARATIVO -->
+<section class="slide comp" data-slide="comparativo">
+  <div class="slide-label">Resumen comparativo</div>
+  <div class="page-chip">04</div>
+  <div class="content">
 
-  <div class="flex-col gap-6">
-   <div class="t-label t-gold">Comparativo</div>
-   <h2 class="t-display t-white" style="font-size:30px;letter-spacing:-0.8px;">Una sola vista: marketing + funnel + perdidas</h2>
-   <div style="font-size:11px;color:#A0AEC0;line-height:1.5;">Estado vivo del pipeline al 21-may-2026 · <strong style="color:#A0AEC0;">Días = solo días con impresiones</strong> (no calendario) · <strong style="color:#A0AEC0;">CPL</strong> = spend / conv plataforma · <strong style="color:#A0AEC0;">CPA</strong> = spend / oportunidades D1 (concepto HubSpot, todo deal creado sin importar etapa inicial) · <strong style="color:#A0AEC0;">CAC</strong> = spend / Ganada.</div>
+    <div>
+      <div class="t-eyebrow">Las 3 marcas en una sola vista</div>
+      <h1 class="t-title-serif" style="font-size:30pt; margin-top:6px;">Una sola vista: <em>marketing, funnel y pérdidas</em></h1>
+      <div class="lede" style="font-family:var(--sans); font-size:10.5pt; color: var(--g600); line-height:1.5; margin-top:6px; max-width:1080px;">
+        Estado vivo del pipeline al 21-may-2026. <strong>Días</strong> = solo días con impresiones (no calendario). <strong>CPL</strong> = spend / conversiones que reporta la plataforma. <strong>CPA</strong> = spend / oportunidades creadas en D1 (concepto HubSpot, todo deal sin importar etapa inicial). <strong>CAC</strong> = spend / Ganadas.
+      </div>
+    </div>
+
+    <table class="comp">
+      <thead>
+        <tr>
+          <th>Marca</th>
+          <th class="num">Días pauta</th>
+          <th class="num">Spend</th>
+          <th class="num">CPL plataforma</th>
+          <th class="num">Oportunidades</th>
+          <th class="num">CPA</th>
+          <th class="num">Cita Agend.</th>
+          <th class="num">Visita</th>
+          <th class="num">Ganada</th>
+          <th class="num">Perdida</th>
+          <th class="num">CAC</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="brand semin">Seminuevos</td>
+          <td class="num">38</td>
+          <td class="num">$22,662</td>
+          <td class="num">Meta $368<br>Google $236</td>
+          <td class="num">70</td>
+          <td class="num">$324</td>
+          <td class="num">33</td>
+          <td class="num">6</td>
+          <td class="num good">1 · $289K</td>
+          <td class="num bad">30</td>
+          <td class="num good">$18,418<br>ROAS 15.7×</td>
+        </tr>
+        <tr>
+          <td class="brand hyu">Hyundai</td>
+          <td class="num">21</td>
+          <td class="num">$12,268</td>
+          <td class="num">Meta $87.63</td>
+          <td class="num">126</td>
+          <td class="num">$97.36</td>
+          <td class="num">19</td>
+          <td class="num">1</td>
+          <td class="num">0</td>
+          <td class="num bad">2</td>
+          <td class="num">—</td>
+        </tr>
+        <tr>
+          <td class="brand stl">Stellantis</td>
+          <td class="num">18</td>
+          <td class="num">$11,185</td>
+          <td class="num good">Meta $77.14</td>
+          <td class="num">134</td>
+          <td class="num good">$83.47</td>
+          <td class="num">19</td>
+          <td class="num">1</td>
+          <td class="num">0</td>
+          <td class="num bad">23</td>
+          <td class="num">—</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div style="display:flex; flex-direction:column; gap:8px; margin-top:4px;">
+      <div class="note green">
+        <span class="note-tag">Eficiencia</span>
+        <strong>Stellantis lidera todas las métricas de costo:</strong> CPL Meta $77 (vs $87 HYU), CPA $83 (vs $97 HYU). 7.4 opp/día activo vs 6.0 HYU. Stellantis valida la hipótesis de Meta Lead Ads más rápido que Hyundai con setup técnico idéntico. Hipótesis: catálogo Stellantis (5 sub-marcas) genera más curiosidad por anuncio que Hyundai monomarca.
+      </div>
+
+      <div class="note">
+        <span class="note-tag">Conversión real</span>
+        <strong>Seminuevos es la única con ROAS verificable:</strong> $289K cerrado contra $18,418 spend Meta atribuido = 15.7× ROAS. Las 5 visitas no-ganadas siguen como potencial revenue. HYU y STL están calientes en la parte alta del funnel: 109 + 38 = 147 oportunidades sin trabajar entre ambas.
+      </div>
+
+      <div class="note amber">
+        <span class="note-tag">Pérdidas</span>
+        <strong>Stellantis lleva 23 perdidas vs Hyundai 2,</strong> con setup idéntico y menos tiempo. La diferencia no es calidad del lead: en STL los vendedores cierran activamente las perdidas; en HYU se quedan en Por contactar. Es un gap de proceso de cierre, no de demanda. Vale auditar el flujo de cierre HYU antes de escalar.
+      </div>
+
+      <div class="note red">
+        <span class="note-tag">Pendiente</span>
+        <strong>Costo por Visita y CAC siguen inestables en HYU y STL</strong> (n=1 visita cada uno, 0 compras). Métricas no confiables hasta tener cohort de 10+ visitas y 3-5 compras por marca. No interpretar como tendencia todavía.
+      </div>
+    </div>
+
   </div>
-
-  <table class="comp">
-   <thead>
-    <tr>
-     <th>Marca</th>
-     <th class="num">Días pauta</th>
-     <th class="num">Spend</th>
-     <th class="num">CPL plataforma</th>
-     <th class="num">Oportunidades</th>
-     <th class="num">CPA</th>
-     <th class="num">Cita Agend.</th>
-     <th class="num">Visita</th>
-     <th class="num">Ganada</th>
-     <th class="num">Perdida</th>
-     <th class="num">CAC</th>
-    </tr>
-   </thead>
-   <tbody>
-    <tr>
-     <td class="brand semin">Seminuevos</td>
-     <td class="num">38</td>
-     <td class="num">$22,662</td>
-     <td class="num">Meta $368<br>Google $236</td>
-     <td class="num">70</td>
-     <td class="num">$324</td>
-     <td class="num">33</td>
-     <td class="num">6</td>
-     <td class="num"><strong style="color:#48BB78;">1 · $289K</strong></td>
-     <td class="num"><span style="color:#FC8181;">30</span></td>
-     <td class="num"><strong style="color:#48BB78;">$18,418<br>ROAS 15.7×</strong></td>
-    </tr>
-    <tr>
-     <td class="brand hyu">Hyundai</td>
-     <td class="num">21</td>
-     <td class="num">$12,268</td>
-     <td class="num">Meta $87.63</td>
-     <td class="num">126</td>
-     <td class="num">$97.36</td>
-     <td class="num">19</td>
-     <td class="num">1</td>
-     <td class="num">0</td>
-     <td class="num"><span style="color:#FC8181;">2</span></td>
-     <td class="num">—</td>
-    </tr>
-    <tr>
-     <td class="brand stl">Stellantis</td>
-     <td class="num">18</td>
-     <td class="num">$11,185</td>
-     <td class="num"><strong style="color:#48BB78;">Meta $77.14</strong></td>
-     <td class="num">134</td>
-     <td class="num"><strong style="color:#48BB78;">$83.47</strong></td>
-     <td class="num">19</td>
-     <td class="num">1</td>
-     <td class="num">0</td>
-     <td class="num"><span style="color:#FC8181;">23</span></td>
-     <td class="num">—</td>
-    </tr>
-   </tbody>
-  </table>
-
-  <!-- Takeaways estratégicos -->
-  <div class="flex-col gap-8">
-   <div class="t-label t-gold" style="margin-top:4px;">Takeaways estratégicos</div>
-
-   <div class="note-card green">
-    <span class="note-tag">Eficiencia</span>
-    <strong>Stellantis lidera todas las métricas de costo:</strong> CPL Meta $77 (vs $87 HYU), CPA $83 (vs $97 HYU). 7.4 opp/día activo vs 6.0 HYU. Stellantis está validando la hipótesis de Meta Lead Ads más rápido que Hyundai con setup técnico idéntico. Hipótesis: catálogo Stellantis (5 sub-marcas) genera más curiosidad por anuncio que Hyundai monomarca.
-   </div>
-
-   <div class="note-card">
-    <span class="note-tag">Conversión real</span>
-    <strong>Seminuevos es la única con ROAS verificable</strong>: $289K cerrado contra $18,418 spend Meta atribuido = 15.7× ROAS. Las 5 visitas no-ganadas todavía valen como potencial revenue. HYU y STL siguen calientes en la parte alta del funnel (109 + 38 = 147 oportunidades sin trabajar entre ambas).
-   </div>
-
-   <div class="note-card amber">
-    <span class="note-tag">Pérdidas</span>
-    <strong>Stellantis lleva 23 perdidas vs Hyundai 2</strong>, en menos tiempo y con setup idéntico. Diferencia clave: en STL los vendedores están <em>marcando</em> las perdidas activamente; en HYU se quedan en Por contactar. No es que HYU pierda menos — es que el dato no se está cerrando. Vale auditar el flujo de cierre en HYU.
-   </div>
-
-   <div class="note-card red">
-    <span class="note-tag">Pendiente</span>
-    <strong>Costo por Visita inestable en HYU/STL</strong> (n=1 cada uno). Métrica no confiable hasta tener cohort de 10+ visitas. Misma cautela para CAC: hasta tener 3-5 compras cerradas por marca, no se interpreta como tendencia.
-   </div>
+  <div class="slide-footer">
+    <span>Fuentes: D1 crm-plasencia-db · Meta Ads cuentas 315070902163858/882830331470969/1434165342081795 · Google Ads 5268940609 GAQL</span>
+    <span>Jesús Pérez Porras · Director MKT Corporativo</span>
   </div>
-
- </div>
- <div class="slide-footer">
-  <span>Fuentes: D1 crm-plasencia-db · Meta Ads cuentas 315070902163858/882830331470969/1434165342081795 · Google Ads 5268940609 GAQL</span>
-  <span>Director MKT Corporativo · Jesús Pérez Porras · 2026-05-21</span>
- </div>
 </section>
 
 </div>
@@ -536,27 +640,27 @@ const progress = document.getElementById('progress');
 const counter = document.getElementById('counter');
 
 function show(i) {
- if (i < 0 || i >= slides.length) return;
- slides[idx].classList.remove('active', 'enter');
- idx = i;
- slides[idx].classList.add('active', 'enter');
- progress.style.width = ((idx + 1) / slides.length * 100) + '%';
- counter.textContent = (idx + 1) + ' / ' + slides.length;
+  if (i < 0 || i >= slides.length) return;
+  slides[idx].classList.remove('active');
+  idx = i;
+  slides[idx].classList.add('active');
+  progress.style.width = ((idx + 1) / slides.length * 100) + '%';
+  counter.textContent = (idx + 1) + ' / ' + slides.length;
 }
 
 document.addEventListener('keydown', (e) => {
- if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') { e.preventDefault(); show(idx + 1); }
- else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); show(idx - 1); }
- else if (e.key === 'Home') { e.preventDefault(); show(0); }
- else if (e.key === 'End') { e.preventDefault(); show(slides.length - 1); }
+  if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') { e.preventDefault(); show(idx + 1); }
+  else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); show(idx - 1); }
+  else if (e.key === 'Home') { e.preventDefault(); show(0); }
+  else if (e.key === 'End') { e.preventDefault(); show(slides.length - 1); }
 });
 
 function scaleSlides() {
- const baseW = 1280, baseH = 720;
- const scale = Math.min(window.innerWidth / baseW, window.innerHeight / baseH);
- const tx = (window.innerWidth - baseW * scale) / 2;
- const ty = (window.innerHeight - baseH * scale) / 2;
- slides.forEach(s => { s.style.transform = `translate(${tx}px, ${ty}px) scale(${scale})`; });
+  const baseW = 1280, baseH = 720;
+  const scale = Math.min(window.innerWidth / baseW, window.innerHeight / baseH);
+  const tx = (window.innerWidth - baseW * scale) / 2;
+  const ty = (window.innerHeight - baseH * scale) / 2;
+  slides.forEach(s => { s.style.transform = `translate(${tx}px, ${ty}px) scale(${scale})`; });
 }
 window.addEventListener('resize', scaleSlides);
 scaleSlides();
