@@ -138,7 +138,7 @@ table.comp tr:last-child td { border-bottom: none; }
   </h1>
   <div class="divider div-gold"></div>
   <p class="t-body t-muted" style="max-width:760px;text-align:center;">
-   Estado vivo del piloto al corte del 21 de mayo de 2026. Marketing, citas, conversiones y siguiente paso operativo por cada línea de negocio. Datos directos de D1 <code style="color:#ECC94B;">crm-plasencia-db</code>, Meta Ads y Google Ads.
+   Estado del pipeline al corte del 21 de mayo de 2026. Marketing, oportunidades, conversiones y siguiente paso operativo por cada línea de negocio. <strong style="color:#ECC94B;">Los datos reflejan el estado vivo del pipeline al día de hoy</strong>, no un acumulado estático: cualquier movimiento de los vendedores en el kanban posterior a esta hora cambia las cifras. Fuentes: D1 <code style="color:#ECC94B;">crm-plasencia-db</code> + Meta Ads API + Google Ads GAQL.
   </p>
   <div class="flex gap-16" style="margin-top:24px;">
    <div class="kpi" style="min-width:160px;text-align:center;"><div class="kpi-label">Seminuevos</div><div class="kpi-value t-gold">78</div><div class="kpi-sub">citas lifetime</div></div>
@@ -170,12 +170,12 @@ table.comp tr:last-child td { border-bottom: none; }
 
   <div class="divider div-gold"></div>
 
-  <!-- Funnel -->
+  <!-- Funnel cohort lifetime · oportunidades creadas que avanzaron a cada etapa -->
   <div class="funnel">
-   <div class="funnel-step"><div class="funnel-stage">Cita</div><div class="funnel-n">70</div><div class="funnel-conv">baseline (excluye 8 TEST)</div></div>
-   <div class="funnel-step"><div class="funnel-stage">Agendada</div><div class="funnel-n">2</div><div class="funnel-conv">2.9% del baseline</div></div>
-   <div class="funnel-step"><div class="funnel-stage">Visita</div><div class="funnel-n">6</div><div class="funnel-conv">8.6% del baseline</div></div>
-   <div class="funnel-step"><div class="funnel-stage">Compra</div><div class="funnel-n">1</div><div class="funnel-conv">1.4% · $289K OMODA O5 · López Mateos</div></div>
+   <div class="funnel-step"><div class="funnel-stage">Oportunidad</div><div class="funnel-n">70</div><div class="funnel-conv">universo · excluye 8 TEST</div></div>
+   <div class="funnel-step"><div class="funnel-stage">Cita Agendada</div><div class="funnel-n">33</div><div class="funnel-conv">47% pasó por esta etapa</div></div>
+   <div class="funnel-step"><div class="funnel-stage">Visita Realizada</div><div class="funnel-n">6</div><div class="funnel-conv">8.6% llegó a piso</div></div>
+   <div class="funnel-step"><div class="funnel-stage">Ganada</div><div class="funnel-n">1</div><div class="funnel-conv">1.4% · $289K OMODA O5 · López Mateos</div></div>
   </div>
 
   <!-- KPIs marketing + pipeline -->
@@ -183,22 +183,22 @@ table.comp tr:last-child td { border-bottom: none; }
    <div class="kpi flex-1">
     <div class="kpi-label">Spend Meta Ads (38d piloto)</div>
     <div class="kpi-value t-gold">$18,418</div>
-    <div class="kpi-sub">SeminuevosPlasencia_Core · 50 leads · CPL $368 · CTR 5.96%</div>
+    <div class="kpi-sub">SeminuevosPlasencia_Core · CTR 5.96% · CPC $0.78</div>
    </div>
    <div class="kpi flex-1">
     <div class="kpi-label">Spend Google Ads (30d)</div>
     <div class="kpi-value t-gold">$4,244</div>
-    <div class="kpi-sub">Leads-Search-Aon · 18 conv · CPL $236 · Search IS 15.5%</div>
+    <div class="kpi-sub">Leads-Search-Aon · Search IS 15.5% · Budget Lost 66.2%</div>
    </div>
    <div class="kpi flex-1">
-    <div class="kpi-label">CAC (1 compra)</div>
-    <div class="kpi-value t-green">$18,418</div>
-    <div class="kpi-sub">atribución last-click: Meta Ads campaign SeminuevosPlasencia_Core</div>
+    <div class="kpi-label">CPA (oportunidades)</div>
+    <div class="kpi-value t-gold">$324</div>
+    <div class="kpi-sub">$22,662 spend total / 70 oportunidades en D1</div>
    </div>
    <div class="kpi flex-1">
-    <div class="kpi-label">ROAS estimado</div>
-    <div class="kpi-value t-green">15.7×</div>
-    <div class="kpi-sub">$289K ticket / $18,418 spend Meta · n=1 venta</div>
+    <div class="kpi-label">CAC · ROAS</div>
+    <div class="kpi-value t-green">$18,418 · 15.7×</div>
+    <div class="kpi-sub">1 compra $289K · atribución last-click Meta Ads</div>
    </div>
   </div>
 
@@ -257,10 +257,10 @@ table.comp tr:last-child td { border-bottom: none; }
   <div class="divider div-blue"></div>
 
   <div class="funnel">
-   <div class="funnel-step"><div class="funnel-stage">Cita</div><div class="funnel-n">126</div><div class="funnel-conv">100% baseline</div></div>
-   <div class="funnel-step"><div class="funnel-stage">Agendada</div><div class="funnel-n">14</div><div class="funnel-conv">11.1% del baseline</div></div>
-   <div class="funnel-step"><div class="funnel-stage">Visita</div><div class="funnel-n">1</div><div class="funnel-conv">0.8% del baseline</div></div>
-   <div class="funnel-step"><div class="funnel-stage">Compra</div><div class="funnel-n">0</div><div class="funnel-conv">primera por venir</div></div>
+   <div class="funnel-step"><div class="funnel-stage">Oportunidad</div><div class="funnel-n">126</div><div class="funnel-conv">universo · entra "Por contactar"</div></div>
+   <div class="funnel-step"><div class="funnel-stage">Cita Agendada</div><div class="funnel-n">19</div><div class="funnel-conv">15.1% pasó por esta etapa</div></div>
+   <div class="funnel-step"><div class="funnel-stage">Visita Realizada</div><div class="funnel-n">1</div><div class="funnel-conv">0.8% llegó a piso</div></div>
+   <div class="funnel-step"><div class="funnel-stage">Ganada</div><div class="funnel-n">0</div><div class="funnel-conv">primera por venir</div></div>
   </div>
 
   <div class="flex gap-16">
@@ -270,19 +270,19 @@ table.comp tr:last-child td { border-bottom: none; }
     <div class="kpi-sub">MXN · 44 días · CTR 3.63% · CPC $2.41</div>
    </div>
    <div class="kpi flex-1">
-    <div class="kpi-label">CPL Meta</div>
-    <div class="kpi-value t-blue">$87.63</div>
-    <div class="kpi-sub">140 leads contados por Meta · 121 entraron a D1 (87%)</div>
+    <div class="kpi-label">CPA (oportunidades)</div>
+    <div class="kpi-value t-blue">$97.36</div>
+    <div class="kpi-sub">$12,268 / 126 oportunidades creadas en D1</div>
    </div>
    <div class="kpi flex-1">
-    <div class="kpi-label">CAC implícito</div>
+    <div class="kpi-label">CAC</div>
     <div class="kpi-value t-muted">—</div>
     <div class="kpi-sub">0 compras todavía · pipeline joven</div>
    </div>
    <div class="kpi flex-1">
     <div class="kpi-label">Spend Google Ads</div>
     <div class="kpi-value t-muted">$0</div>
-    <div class="kpi-sub">no hay pauta Search activa hoy</div>
+    <div class="kpi-sub">sin pauta Search activa hoy</div>
    </div>
   </div>
 
@@ -337,10 +337,10 @@ table.comp tr:last-child td { border-bottom: none; }
   <div class="divider div-red"></div>
 
   <div class="funnel">
-   <div class="funnel-step"><div class="funnel-stage">Cita</div><div class="funnel-n">134</div><div class="funnel-conv">100% baseline</div></div>
-   <div class="funnel-step"><div class="funnel-stage">Agendada</div><div class="funnel-n">8</div><div class="funnel-conv">6.0% del baseline</div></div>
-   <div class="funnel-step"><div class="funnel-stage">Visita</div><div class="funnel-n">1</div><div class="funnel-conv">0.7% del baseline</div></div>
-   <div class="funnel-step"><div class="funnel-stage">Compra</div><div class="funnel-n">0</div><div class="funnel-conv">primera por venir</div></div>
+   <div class="funnel-step"><div class="funnel-stage">Oportunidad</div><div class="funnel-n">134</div><div class="funnel-conv">universo · entra "Por contactar"</div></div>
+   <div class="funnel-step"><div class="funnel-stage">Cita Agendada</div><div class="funnel-n">19</div><div class="funnel-conv">14.2% pasó por esta etapa</div></div>
+   <div class="funnel-step"><div class="funnel-stage">Visita Realizada</div><div class="funnel-n">1</div><div class="funnel-conv">0.7% llegó a piso</div></div>
+   <div class="funnel-step"><div class="funnel-stage">Ganada</div><div class="funnel-n">0</div><div class="funnel-conv">primera por venir</div></div>
   </div>
 
   <div class="flex gap-16">
@@ -350,19 +350,19 @@ table.comp tr:last-child td { border-bottom: none; }
     <div class="kpi-sub">MXN · 32 días · CTR 3.42% · CPC $1.34</div>
    </div>
    <div class="kpi flex-1">
-    <div class="kpi-label">CPL Meta</div>
-    <div class="kpi-value t-red">$77.14</div>
-    <div class="kpi-sub">145 leads Meta · 132 entraron a D1 (91%)</div>
+    <div class="kpi-label">CPA (oportunidades)</div>
+    <div class="kpi-value t-red">$83.47</div>
+    <div class="kpi-sub">$11,185 / 134 oportunidades creadas en D1</div>
    </div>
    <div class="kpi flex-1">
-    <div class="kpi-label">CAC implícito</div>
+    <div class="kpi-label">CAC</div>
     <div class="kpi-value t-muted">—</div>
     <div class="kpi-sub">0 compras todavía · pipeline aún joven (12d)</div>
    </div>
    <div class="kpi flex-1">
     <div class="kpi-label">Spend Google Ads</div>
     <div class="kpi-value t-muted">$0</div>
-    <div class="kpi-sub">no hay pauta Search activa hoy</div>
+    <div class="kpi-sub">sin pauta Search activa hoy</div>
    </div>
   </div>
 
@@ -402,21 +402,21 @@ table.comp tr:last-child td { border-bottom: none; }
   <div class="flex-col gap-8">
    <div class="t-label t-gold">Comparativo</div>
    <h2 class="t-display t-white" style="font-size:36px;letter-spacing:-1px;">Las 3 marcas en una sola vista</h2>
-   <div class="t-small t-muted">Datos lifetime al 21-may-2026 · spend en MXN · sin compras todavía en HYU y STL</div>
+   <div class="t-small t-muted">Estado del pipeline al 21-may-2026 (vivo, cambia con cada movimiento del vendedor) · spend en MXN · oportunidad = lead/cita en concepto HubSpot, universo de entrada al pipeline · CPA = spend / oportunidades</div>
   </div>
 
   <table class="comp">
    <thead>
     <tr>
      <th>Marca</th>
-     <th class="num">Días activos</th>
-     <th class="num">Citas</th>
-     <th class="num">Citas/día</th>
+     <th class="num">Días</th>
+     <th class="num">Oportunidades</th>
+     <th class="num">Opp/día</th>
      <th class="num">Spend</th>
-     <th class="num">CPL</th>
-     <th class="num">Agendadas</th>
-     <th class="num">Visitas</th>
-     <th class="num">Compras</th>
+     <th class="num">CPA</th>
+     <th class="num">Cita Agendada</th>
+     <th class="num">Visita</th>
+     <th class="num">Ganada</th>
      <th class="num">Canal dominante</th>
     </tr>
    </thead>
@@ -428,7 +428,7 @@ table.comp tr:last-child td { border-bottom: none; }
      <td class="num">2.0</td>
      <td class="num">$22,662</td>
      <td class="num">$324</td>
-     <td class="num">2</td>
+     <td class="num">33</td>
      <td class="num">6</td>
      <td class="num"><strong style="color:#48BB78;">1 · $289K</strong></td>
      <td class="num">Meta + Google</td>
@@ -439,8 +439,8 @@ table.comp tr:last-child td { border-bottom: none; }
      <td class="num">126</td>
      <td class="num">3.9</td>
      <td class="num">$12,268</td>
-     <td class="num">$87.63</td>
-     <td class="num">14</td>
+     <td class="num">$97.36</td>
+     <td class="num">19</td>
      <td class="num">1</td>
      <td class="num">0</td>
      <td class="num">Meta Lead Ads</td>
@@ -451,8 +451,8 @@ table.comp tr:last-child td { border-bottom: none; }
      <td class="num">134</td>
      <td class="num"><strong style="color:#48BB78;">11.1</strong></td>
      <td class="num">$11,185</td>
-     <td class="num"><strong style="color:#48BB78;">$77.14</strong></td>
-     <td class="num">8</td>
+     <td class="num"><strong style="color:#48BB78;">$83.47</strong></td>
+     <td class="num">19</td>
      <td class="num">1</td>
      <td class="num">0</td>
      <td class="num">Meta Lead Ads</td>
@@ -466,7 +466,7 @@ table.comp tr:last-child td { border-bottom: none; }
 
    <div class="note-card green">
     <span class="note-tag">Velocidad</span>
-    <strong>Stellantis genera ~3× el volumen diario de Hyundai con presupuesto similar.</strong> CPL más bajo del piloto ($77 vs $87 HYU). La pauta Meta de Stellantis está siendo significativamente más eficiente. Vale la pena entender qué creativos/audiencias están detrás antes de escalar.
+    <strong>Stellantis genera ~3× el volumen diario de Hyundai con presupuesto similar.</strong> CPA más bajo del piloto: $83.47 vs $97.36 Hyundai. La pauta Meta de Stellantis está siendo significativamente más eficiente. Vale la pena entender qué creativos/audiencias están detrás antes de escalar.
    </div>
 
    <div class="note-card">
