@@ -201,6 +201,32 @@ table.comp tr:last-child td { border-bottom: none; }
 table.comp .good { color: var(--deep-green); font-weight: 700; }
 table.comp .bad  { color: var(--gp-red); font-weight: 600; }
 
+/* ==== Anexo Ventas slide ==== */
+.anexo-hero { display:grid; grid-template-columns: auto 1fr; gap: 18px; align-items:center; background: var(--paper); border: 1px solid var(--g200); border-radius: 8px; padding: 10px 18px; box-shadow: 0 1px 2px rgba(30,39,64,.04); }
+.anexo-hero-num { font-family:var(--serif); font-weight:900; font-size:42pt; line-height:.9; letter-spacing:-1.5px; color: var(--amber); }
+.anexo-hero-label { font-family:var(--sans); font-size:8pt; font-weight:700; letter-spacing:1.3px; text-transform:uppercase; color: var(--g500); }
+.anexo-hero h2 { font-family:var(--serif); font-weight:800; font-size:16pt; color: var(--gp-navy); line-height:1.1; margin-top: 2px; letter-spacing:-.4px; }
+.anexo-hero h2 em { font-style:italic; color: var(--amber); font-weight:700; }
+.anexo-hero .ctx { font-family:var(--sans); font-size:9.5pt; color: var(--g600); margin-top: 4px; line-height:1.45; max-width: 820px; }
+table.sucursal-tbl { width:100%; border-collapse:collapse; font-family:var(--sans); font-size:9.5pt; background: var(--paper); border: 1px solid var(--g200); border-radius: 6px; overflow: hidden; box-shadow: 0 1px 2px rgba(30,39,64,.03); }
+table.sucursal-tbl th { text-align:left; padding: 6px 10px; font-weight:700; font-size:8pt; letter-spacing:1.1px; text-transform:uppercase; color: var(--g500); border-bottom: 1px solid var(--g200); background: var(--g100); }
+table.sucursal-tbl th.num, table.sucursal-tbl td.num { text-align:right; }
+table.sucursal-tbl th.center, table.sucursal-tbl td.center { text-align:center; }
+table.sucursal-tbl td { padding: 5.5px 10px; border-bottom: 1px solid var(--g200); color: var(--gp-slate); vertical-align:middle; line-height:1.35; }
+table.sucursal-tbl td.sucursal { font-family:var(--serif); font-weight:700; font-size:10pt; color: var(--gp-navy); }
+table.sucursal-tbl td.active { font-family:var(--serif); font-weight:800; font-size:11pt; color: var(--amber); }
+table.sucursal-tbl tr.total td { background: rgba(214,158,46,.07); border-top: 2px solid var(--amber); border-bottom: none; font-weight:700; color: var(--gp-navy); padding: 7px 10px; }
+table.sucursal-tbl tr.total td.active { font-size:12pt; }
+table.sucursal-tbl td.zero { color: var(--g400); }
+table.sucursal-tbl td.win { color: var(--deep-green); font-weight: 700; }
+table.sucursal-tbl td.bad { color: var(--gp-red); }
+
+.equipo-row { display:grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
+.equipo-card { background: var(--paper); border: 1px solid var(--g200); border-radius: 6px; padding: 8px 12px; box-shadow: 0 1px 2px rgba(30,39,64,.03); }
+.equipo-card .lab { font-family:var(--sans); font-size:7.5pt; font-weight:700; letter-spacing:1.2px; text-transform:uppercase; color: var(--g500); }
+.equipo-card .v { font-family:var(--serif); font-weight:800; font-size:14pt; color: var(--gp-navy); line-height:1; margin-top: 2px; letter-spacing:-.3px; }
+.equipo-card .desc { font-family:var(--sans); font-size:8pt; color: var(--g500); margin-top: 2px; line-height:1.3; }
+
 /* ==== Closing slide ==== */
 .cierre-grid { display:grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
 .cierre-col { background: var(--paper); border: 1px solid var(--g200); border-radius: 8px; padding: 14px 16px; box-shadow: 0 1px 2px rgba(30,39,64,.03); }
@@ -703,6 +729,155 @@ table.comp .bad  { color: var(--gp-red); font-weight: 600; }
   </div>
   <div class="slide-footer">
     <span>Resumen ejecutivo al 21-may-2026 · Decisiones para semana 6 del piloto</span>
+    <span class="gp-mini"><span class="dot"></span>Grupo Plasencia · Dirección MKT Corporativo</span>
+  </div>
+</section>
+
+<!-- SLIDE 7 — ANEXO · EQUIPOS DE VENTA SEMINUEVOS -->
+<section class="slide semin" data-slide="anexo-ventas">
+  <div class="slide-label">Anexo · Equipos de venta Seminuevos</div>
+  <div class="page-chip">A1</div>
+  <div class="content">
+
+    <div>
+      <div class="t-eyebrow gold">Anexo para equipos de venta · Seminuevos</div>
+      <h1 class="t-title-serif" style="font-size:22pt; margin-top:4px;">Cómo están <em>parados hoy</em> en cada sucursal</h1>
+    </div>
+
+    <div class="anexo-hero">
+      <div>
+        <div class="anexo-hero-num">41</div>
+        <div class="anexo-hero-label">Oportunidades activas en GDL</div>
+      </div>
+      <div>
+        <h2><em>8 sucursales</em> · 41 clientes esperando movimiento</h2>
+        <div class="ctx">Pipeline activo = clientes desde "Por contactar" hasta "Negociación", sin perdidas ni ganadas. De los 70 interesados desde el inicio del piloto, <strong>41 siguen vivos</strong>. La meta de la semana es mover cada uno a la siguiente etapa o cerrar como pérdida si no avanza.</div>
+      </div>
+    </div>
+
+    <table class="sucursal-tbl">
+      <thead>
+        <tr>
+          <th>Sucursal</th>
+          <th class="center">Por contactar</th>
+          <th class="center">Recontactar</th>
+          <th class="center">Cita Agendada</th>
+          <th class="center">Activas total</th>
+          <th class="center">Ganadas</th>
+          <th class="center">Perdidas</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="sucursal">Mazda Américas</td>
+          <td class="num">9</td>
+          <td class="num">1</td>
+          <td class="num zero">0</td>
+          <td class="num active">10</td>
+          <td class="num zero">0</td>
+          <td class="num bad">4</td>
+        </tr>
+        <tr>
+          <td class="sucursal">López Mateos</td>
+          <td class="num">2</td>
+          <td class="num">4</td>
+          <td class="num">1</td>
+          <td class="num active">7</td>
+          <td class="num win">1</td>
+          <td class="num bad">11</td>
+        </tr>
+        <tr>
+          <td class="sucursal">Mazda Santa Anita</td>
+          <td class="num">6</td>
+          <td class="num">1</td>
+          <td class="num zero">0</td>
+          <td class="num active">7</td>
+          <td class="num zero">0</td>
+          <td class="num bad">3</td>
+        </tr>
+        <tr>
+          <td class="sucursal">Mazda Galerías</td>
+          <td class="num">5</td>
+          <td class="num zero">0</td>
+          <td class="num zero">0</td>
+          <td class="num active">5</td>
+          <td class="num zero">0</td>
+          <td class="num bad">5</td>
+        </tr>
+        <tr>
+          <td class="sucursal">Mazda González Gallo</td>
+          <td class="num">3</td>
+          <td class="num">1</td>
+          <td class="num zero">0</td>
+          <td class="num active">4</td>
+          <td class="num zero">0</td>
+          <td class="num bad">1</td>
+        </tr>
+        <tr>
+          <td class="sucursal">Mazda Acueducto</td>
+          <td class="num">3</td>
+          <td class="num zero">0</td>
+          <td class="num zero">0</td>
+          <td class="num active">3</td>
+          <td class="num zero">0</td>
+          <td class="num bad">1</td>
+        </tr>
+        <tr>
+          <td class="sucursal">Mazda Plasencia</td>
+          <td class="num zero">0</td>
+          <td class="num">3</td>
+          <td class="num zero">0</td>
+          <td class="num active">3</td>
+          <td class="num zero">0</td>
+          <td class="num bad">5</td>
+        </tr>
+        <tr>
+          <td class="sucursal">Bugámbilias</td>
+          <td class="num">2</td>
+          <td class="num zero">0</td>
+          <td class="num zero">0</td>
+          <td class="num active">2</td>
+          <td class="num zero">0</td>
+          <td class="num zero">0</td>
+        </tr>
+        <tr class="total">
+          <td class="sucursal">TOTAL GDL · 8 sucursales</td>
+          <td class="num">30</td>
+          <td class="num">10</td>
+          <td class="num">1</td>
+          <td class="num active">41</td>
+          <td class="num win">1</td>
+          <td class="num bad">30</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="equipo-row">
+      <div class="equipo-card">
+        <div class="lab">Lo más urgente</div>
+        <div class="v">30 clientes</div>
+        <div class="desc">En "Por contactar" esperan primer contacto. SLA: llamar el mismo día que entró el registro. Concentrados en Mazda Américas (9), Santa Anita (6) y Galerías (5).</div>
+      </div>
+      <div class="equipo-card">
+        <div class="lab">Pendiente de seguimiento</div>
+        <div class="v">10 clientes</div>
+        <div class="desc">En "Recontactar" porque no hubo respuesta la primera vez. Concentrados en López Mateos (4) y Mazda Plasencia (3). Definir si avanzan o cierran como pérdida esta semana.</div>
+      </div>
+      <div class="equipo-card">
+        <div class="lab">Lista para visita</div>
+        <div class="v">1 cliente</div>
+        <div class="desc">Cita agendada confirmada en López Mateos. Verificar 24h antes para asegurar que llega al piso.</div>
+      </div>
+    </div>
+
+    <div class="note green" style="font-size:9pt; padding:6px 12px;">
+      <span class="note-tag">Cierre del periodo</span>
+      <strong>1 venta cerrada (OMODA O5 · $289K · López Mateos)</strong> contra 30 perdidas desde el inicio del piloto. El modelo funciona cuando el seguimiento es disciplinado. Las sucursales con perdidas altas (López Mateos 11, Galerías 5, Plasencia 5) son donde está la mayor oportunidad de mejorar tasa de cierre.
+    </div>
+
+  </div>
+  <div class="slide-footer">
+    <span>Pipeline Seminuevos al 21-may-2026 · Estado vivo · Cambia con cada movimiento del vendedor</span>
     <span class="gp-mini"><span class="dot"></span>Grupo Plasencia · Dirección MKT Corporativo</span>
   </div>
 </section>
