@@ -129,15 +129,16 @@ html, body { width:100%; height:100%; overflow:hidden; background:#0d1117; font-
 
 /* ==== Funnel ==== */
 .funnel { display:grid; grid-template-columns: repeat(4, 1fr) auto; gap:8px; }
-.funnel-step { background: var(--paper); border: 1px solid var(--g200); border-radius: 8px; padding: 12px 12px; position:relative; box-shadow: 0 1px 2px rgba(30,39,64,.04); min-width: 0; }
+.funnel-step { background: var(--paper); border: 1px solid var(--g200); border-radius: 8px; padding: 10px 12px; position:relative; box-shadow: 0 1px 2px rgba(30,39,64,.04); min-width: 0; }
 .funnel-step::after { content:'→'; position:absolute; right:-10px; top:50%; transform:translateY(-50%); color: var(--g400); font-size:13px; z-index:2; }
 .funnel-step:nth-child(4)::after { display:none; }
 .funnel-step.perdida { background: rgba(200,16,46,.04); border-color: rgba(200,16,46,.25); }
 .funnel-step.perdida::after { display:none; }
 .funnel-stage { font-family:var(--sans); font-size:8.5pt; font-weight:700; letter-spacing:1.2px; text-transform:uppercase; color: var(--g500); }
-.funnel-n { font-family:var(--serif); font-weight:800; font-size:24pt; line-height:1.15; color: var(--gp-navy); margin-top: 2px; }
+.funnel-n { font-family:var(--serif); font-weight:800; font-size:22pt; line-height:1.15; color: var(--gp-navy); margin-top: 2px; }
 .funnel-n.perd { color: var(--gp-red); }
-.funnel-conv { font-family:var(--sans); font-size:8.5pt; color: var(--g500); margin-top: 6px; line-height:1.4; }
+.funnel-conv { font-family:var(--sans); font-size:8pt; color: var(--g500); margin-top: 4px; line-height:1.3; }
+.funnel-conv strong { color: var(--gp-navy); font-weight:700; }
 .funnel-step .accent-bar { position:absolute; top:0; left:0; right:0; height:2px; background: var(--gold); border-radius: 8px 8px 0 0; }
 .slide.semin .funnel-step .accent-bar { background: var(--amber); }
 .slide.hyu .funnel-step .accent-bar { background: var(--blue); }
@@ -352,11 +353,11 @@ table.sucursal-tbl td.bad { color: var(--gp-red); }
     </div>
 
     <div class="funnel">
-      <div class="funnel-step"><div class="accent-bar"></div><div class="funnel-stage">Interesado</div><div class="funnel-n">70</div><div class="funnel-conv">entró al pipeline</div></div>
-      <div class="funnel-step"><div class="accent-bar"></div><div class="funnel-stage">Cita Agendada</div><div class="funnel-n">33</div><div class="funnel-conv">47% pasó por aquí</div></div>
-      <div class="funnel-step"><div class="accent-bar"></div><div class="funnel-stage">Visita Realizada</div><div class="funnel-n">6</div><div class="funnel-conv">9% llegó a piso</div></div>
-      <div class="funnel-step"><div class="accent-bar"></div><div class="funnel-stage">Ganada</div><div class="funnel-n">1</div><div class="funnel-conv">1.4% · $289K OMODA O5</div></div>
-      <div class="funnel-step perdida"><div class="accent-bar"></div><div class="funnel-stage">Perdida</div><div class="funnel-n perd">30</div><div class="funnel-conv">43% del universo</div></div>
+      <div class="funnel-step"><div class="accent-bar"></div><div class="funnel-stage">Interesado</div><div class="funnel-n">70</div><div class="funnel-conv">universo · 100%</div></div>
+      <div class="funnel-step"><div class="accent-bar"></div><div class="funnel-stage">Cita Agendada</div><div class="funnel-n">33</div><div class="funnel-conv"><strong>47%</strong> del universo<br>47% pasó del interesado</div></div>
+      <div class="funnel-step"><div class="accent-bar"></div><div class="funnel-stage">Visita Realizada</div><div class="funnel-n">6</div><div class="funnel-conv"><strong>9%</strong> del universo<br>18% pasó de cita</div></div>
+      <div class="funnel-step"><div class="accent-bar"></div><div class="funnel-stage">Ganada</div><div class="funnel-n">1</div><div class="funnel-conv"><strong>1.4%</strong> del universo<br>17% pasó de visita · $289K</div></div>
+      <div class="funnel-step perdida"><div class="accent-bar"></div><div class="funnel-stage">Perdida</div><div class="funnel-n perd">30</div><div class="funnel-conv"><strong>43%</strong> del universo</div></div>
     </div>
 
     <div class="kpi-block">
@@ -437,11 +438,11 @@ table.sucursal-tbl td.bad { color: var(--gp-red); }
     </div>
 
     <div class="funnel">
-      <div class="funnel-step"><div class="accent-bar"></div><div class="funnel-stage">Interesado</div><div class="funnel-n">126</div><div class="funnel-conv">universo · 6.0 por día activo</div></div>
-      <div class="funnel-step"><div class="accent-bar"></div><div class="funnel-stage">Cita Agendada</div><div class="funnel-n">19</div><div class="funnel-conv">15% pasó por aquí</div></div>
-      <div class="funnel-step"><div class="accent-bar"></div><div class="funnel-stage">Visita Realizada</div><div class="funnel-n">1</div><div class="funnel-conv">0.8% llegó a piso</div></div>
-      <div class="funnel-step"><div class="accent-bar"></div><div class="funnel-stage">Ganada</div><div class="funnel-n">0</div><div class="funnel-conv">primera por venir</div></div>
-      <div class="funnel-step perdida"><div class="accent-bar"></div><div class="funnel-stage">Perdida</div><div class="funnel-n perd">2</div><div class="funnel-conv">1.6% del universo</div></div>
+      <div class="funnel-step"><div class="accent-bar"></div><div class="funnel-stage">Interesado</div><div class="funnel-n">126</div><div class="funnel-conv">universo · 6.0/día activo</div></div>
+      <div class="funnel-step"><div class="accent-bar"></div><div class="funnel-stage">Cita Agendada</div><div class="funnel-n">19</div><div class="funnel-conv"><strong>15%</strong> del universo<br>15% pasó del interesado</div></div>
+      <div class="funnel-step"><div class="accent-bar"></div><div class="funnel-stage">Visita Realizada</div><div class="funnel-n">1</div><div class="funnel-conv"><strong>0.8%</strong> del universo<br>5% pasó de cita</div></div>
+      <div class="funnel-step"><div class="accent-bar"></div><div class="funnel-stage">Ganada</div><div class="funnel-n">0</div><div class="funnel-conv"><strong>0%</strong> · primera por venir</div></div>
+      <div class="funnel-step perdida"><div class="accent-bar"></div><div class="funnel-stage">Perdida</div><div class="funnel-n perd">2</div><div class="funnel-conv"><strong>1.6%</strong> del universo</div></div>
     </div>
 
     <div class="kpi-block">
@@ -521,11 +522,11 @@ table.sucursal-tbl td.bad { color: var(--gp-red); }
     </div>
 
     <div class="funnel">
-      <div class="funnel-step"><div class="accent-bar"></div><div class="funnel-stage">Interesado</div><div class="funnel-n">134</div><div class="funnel-conv">universo · 7.4 por día activo</div></div>
-      <div class="funnel-step"><div class="accent-bar"></div><div class="funnel-stage">Cita Agendada</div><div class="funnel-n">19</div><div class="funnel-conv">14% pasó por aquí</div></div>
-      <div class="funnel-step"><div class="accent-bar"></div><div class="funnel-stage">Visita Realizada</div><div class="funnel-n">1</div><div class="funnel-conv">0.7% llegó a piso</div></div>
-      <div class="funnel-step"><div class="accent-bar"></div><div class="funnel-stage">Ganada</div><div class="funnel-n">0</div><div class="funnel-conv">primera por venir</div></div>
-      <div class="funnel-step perdida"><div class="accent-bar"></div><div class="funnel-stage">Perdida</div><div class="funnel-n perd">23</div><div class="funnel-conv">17% del universo</div></div>
+      <div class="funnel-step"><div class="accent-bar"></div><div class="funnel-stage">Interesado</div><div class="funnel-n">134</div><div class="funnel-conv">universo · 7.4/día activo</div></div>
+      <div class="funnel-step"><div class="accent-bar"></div><div class="funnel-stage">Cita Agendada</div><div class="funnel-n">19</div><div class="funnel-conv"><strong>14%</strong> del universo<br>14% pasó del interesado</div></div>
+      <div class="funnel-step"><div class="accent-bar"></div><div class="funnel-stage">Visita Realizada</div><div class="funnel-n">1</div><div class="funnel-conv"><strong>0.7%</strong> del universo<br>5% pasó de cita</div></div>
+      <div class="funnel-step"><div class="accent-bar"></div><div class="funnel-stage">Ganada</div><div class="funnel-n">0</div><div class="funnel-conv"><strong>0%</strong> · primera por venir</div></div>
+      <div class="funnel-step perdida"><div class="accent-bar"></div><div class="funnel-stage">Perdida</div><div class="funnel-n perd">23</div><div class="funnel-conv"><strong>17%</strong> del universo</div></div>
     </div>
 
     <div class="kpi-block">
@@ -594,8 +595,8 @@ table.sucursal-tbl td.bad { color: var(--gp-red); }
     <div>
       <div class="t-eyebrow">Las 3 marcas del piloto en una sola vista</div>
       <h1 class="t-title-serif" style="font-size:28pt; margin-top:6px;">Dos modelos operativos · <em>una sola vista</em></h1>
-      <div class="lede" style="font-family:var(--sans); font-size:10pt; color: var(--g600); line-height:1.5; margin-top:6px; max-width:1100px;">
-        <strong>Seminuevos</strong> optimiza <em>calidad</em>: anuncios + landing afinados, formulario web profundo, menos volumen pero mejor lead. <strong>Hyundai</strong> y <strong>Stellantis</strong> persiguen <em>volumen</em> dentro de la restricción OEM: formularios Meta nativos, sin landing propia, más leads pero más fríos. Métricas: <strong>CPL</strong> = costo por lead que reporta cada plataforma. <strong>CPA</strong> = costo por interesado que entró a nuestro pipeline. <strong>CAC</strong> = costo por venta cerrada. Días = solo con impresiones.
+      <div class="lede" style="font-family:var(--sans); font-size:10pt; color: var(--g600); line-height:1.5; margin-top:6px; max-width:1180px;">
+        <strong>Seminuevos</strong> optimiza <em>calidad</em>: anuncios + landing afinados, formulario web profundo, menos volumen pero mejor lead. <strong>Hyundai</strong> y <strong>Stellantis</strong> persiguen <em>volumen</em> dentro de la restricción OEM: formularios Meta nativos, sin landing propia. <strong>CPL</strong> = costo por lead que entra al pipeline desde cada plataforma. <strong>CPA</strong> = costo por interesado total. <strong>CAC</strong> = costo por venta cerrada. <strong>Conv</strong> = % del paso anterior. Días = solo con impresiones.
       </div>
     </div>
 
@@ -604,15 +605,16 @@ table.sucursal-tbl td.bad { color: var(--gp-red); }
         <tr>
           <th>Marca</th>
           <th class="num">Enfoque</th>
-          <th class="num">Días pauta</th>
+          <th class="num">Días</th>
           <th class="num">Spend</th>
-          <th class="num">CPL plataforma</th>
+          <th class="num">CPL pauta</th>
           <th class="num">Interesados</th>
           <th class="num">CPA</th>
-          <th class="num">Cita Agend.</th>
+          <th class="num">Cita</th>
           <th class="num">Visita</th>
           <th class="num">Ganada</th>
           <th class="num">Perdida</th>
+          <th class="num">Conv funnel<br>Cita / Visita / Ganada</th>
           <th class="num">CAC</th>
         </tr>
       </thead>
@@ -629,6 +631,7 @@ table.sucursal-tbl td.bad { color: var(--gp-red); }
           <td class="num">6</td>
           <td class="num good">1 · $289K</td>
           <td class="num bad">30</td>
+          <td class="num good">47% / 18% / 17%<br><span style="font-size:8.5pt; color: var(--g500);">univ: 47% / 9% / 1.4%</span></td>
           <td class="num good">$18,418<br>ROAS 15.7×</td>
         </tr>
         <tr>
@@ -643,6 +646,7 @@ table.sucursal-tbl td.bad { color: var(--gp-red); }
           <td class="num">1</td>
           <td class="num">0</td>
           <td class="num bad">2</td>
+          <td class="num">15% / 5% / 0%<br><span style="font-size:8.5pt; color: var(--g500);">univ: 15% / 0.8% / 0%</span></td>
           <td class="num">—</td>
         </tr>
         <tr>
@@ -657,6 +661,7 @@ table.sucursal-tbl td.bad { color: var(--gp-red); }
           <td class="num">1</td>
           <td class="num">0</td>
           <td class="num bad">23</td>
+          <td class="num">14% / 5% / 0%<br><span style="font-size:8.5pt; color: var(--g500);">univ: 14% / 0.7% / 0%</span></td>
           <td class="num">—</td>
         </tr>
       </tbody>
