@@ -44,6 +44,13 @@ Vas a crear un documento nuevo. Pregunta:
 
 8. ¿Es contexto del proyecto (KO, glosario, anexo)?
    → SI: 00-context/ (este repo)
+   → NO: continua
+
+9. ¿Es un proyecto paralelo al piloto del Motor de Atribución (encargo corporativo distinto, ej. convenios, líneas de negocio nuevas como Autolease, proyectos de socios/familia Plasencia)?
+   → SI: 06-corporate-projects/<Nombre-Proyecto>/ (este repo).
+        Material crudo (audios WA, capturas, PDFs reenviados) vive local en
+        ~/Documents/Grupo Plasencia/Proyectos Corporativos/<Nombre>/inbox/
+        — NO se versiona.
    → NO: pregunta a Chucho donde va.
 ```
 

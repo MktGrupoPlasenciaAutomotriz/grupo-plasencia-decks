@@ -41,6 +41,22 @@ for f in \
   fi
 done
 
+# Proyectos corporativos paralelos al piloto (06-corporate-projects/)
+# Convencion: source vive en 06-corporate-projects/<Proyecto>/NN-archivo.html
+# Destino: 01-strategy/<Nombre-Plano>.html (manera consistente con el resto del repo publico)
+copy_corporate() {
+  local src_path="$1"
+  local dest_name="$2"
+  if [ -f "$SRC/$src_path" ]; then
+    cp "$SRC/$src_path" "$DEST/01-strategy/$dest_name"
+    echo "[OK]  06-corporate-projects -> $dest_name"
+  else
+    echo "[SKIP] $src_path (no existe en source)"
+  fi
+}
+
+copy_corporate "06-corporate-projects/Convenio-Sindicato-Jalisco/06-propuesta-ejecutiva.html" "Convenio-Plasencia-FSESEJ-Propuesta-Ejecutiva.html"
+
 # Logos
 mkdir -p "$DEST/assets/logos"
 cp "$SRC/assets/logos/"*.png "$DEST/assets/logos/" 2>/dev/null && echo "[OK]  assets/logos/*.png" || echo "[SKIP] logos"
