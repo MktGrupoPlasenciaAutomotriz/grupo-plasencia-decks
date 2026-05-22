@@ -675,6 +675,131 @@
   }
   .signature-block strong { color: var(--gp-navy); }
 
+  /* ============ SERVICE BLUEPRINT TABLE ============ */
+  .blueprint {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 4mm 0;
+    font-size: 7.5pt;
+    line-height: 1.35;
+  }
+  .blueprint th, .blueprint td {
+    border: 1px solid var(--g200);
+    padding: 2mm;
+    vertical-align: top;
+    text-align: left;
+  }
+  .blueprint th.lane {
+    background: var(--gp-navy);
+    color: var(--near-white);
+    font-family: var(--sans);
+    font-weight: 700;
+    font-size: 7.5pt;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    width: 26mm;
+  }
+  .blueprint th.step {
+    background: var(--g100);
+    color: var(--gp-navy);
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 8.5pt;
+    text-align: center;
+  }
+  .blueprint th.step .step-num {
+    display: block;
+    font-family: var(--sans);
+    font-size: 7pt;
+    color: var(--gp-red);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 1mm;
+    font-weight: 700;
+  }
+  .blueprint .lane-evidence { background: rgba(124,58,237,0.04); }
+  .blueprint .lane-customer { background: rgba(251,198,69,0.06); }
+  .blueprint .lane-frontstage { background: rgba(72,187,120,0.04); }
+  .blueprint .lane-backstage { background: rgba(66,153,225,0.04); }
+  .blueprint .lane-support { background: var(--g100); }
+  .blueprint .lane-time td, .blueprint .lane-fail td, .blueprint .lane-mot td {
+    font-size: 7pt;
+    color: var(--g600);
+  }
+  .blueprint .lane-time .lane-label, .blueprint .lane-fail .lane-label, .blueprint .lane-mot .lane-label {
+    background: var(--g700);
+    color: var(--near-white);
+    font-size: 7pt;
+  }
+  .blueprint .fail { color: var(--gp-red); font-weight: 700; }
+  .blueprint .mot { color: var(--fsesej-deep); font-weight: 700; }
+  .blueprint .line-interaction td, .blueprint .line-visibility td, .blueprint .line-internal td {
+    background: var(--gp-navy);
+    color: var(--fsesej-gold);
+    font-family: var(--sans);
+    font-size: 6.5pt;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 1mm 2mm;
+    text-align: center;
+  }
+
+  /* ============ KILLER METRIC HERO ============ */
+  .killer-metric {
+    background: linear-gradient(135deg, var(--gp-navy) 0%, var(--gp-navy-deep, #141B30) 100%);
+    color: var(--near-white);
+    padding: 8mm 9mm;
+    margin: 5mm 0;
+    border-radius: 2mm;
+    text-align: center;
+    border-left: 5px solid var(--fsesej-gold);
+  }
+  .killer-metric .label {
+    font-family: var(--sans);
+    font-size: 8pt;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    color: var(--fsesej-gold);
+    text-transform: uppercase;
+    margin-bottom: 3mm;
+  }
+  .killer-metric .figure {
+    font-family: var(--display);
+    font-weight: 800;
+    font-size: 42pt;
+    line-height: 1;
+    color: var(--near-white);
+    letter-spacing: -2px;
+    margin-bottom: 3mm;
+  }
+  .killer-metric .figure em {
+    font-style: normal;
+    color: var(--fsesej-gold);
+  }
+  .killer-metric .desc {
+    font-family: var(--sans);
+    font-size: 10pt;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.55;
+    max-width: 145mm;
+    margin: 0 auto;
+  }
+
+  /* ============ NOT-THIS BOX ============ */
+  .not-this {
+    background: #FEF5F5;
+    border-left: 4px solid var(--gp-red);
+    padding: 4mm 6mm;
+    margin: 4mm 0;
+    border-radius: 0 2mm 2mm 0;
+    font-size: 9pt;
+    line-height: 1.55;
+  }
+  .not-this strong { color: var(--gp-red); }
+  .not-this ul { margin: 2mm 0 0 5mm; }
+  .not-this li { margin-bottom: 1mm; }
+
   /* Avoid orphan headers */
   h2.sub, h3.sub-sub, h4.label { page-break-after: avoid; }
   table, .stage-card, .ask-card, .pilar { page-break-inside: avoid; }
@@ -693,7 +818,7 @@
 
       <p class="cover-eyebrow">Propuesta de Convenio Comercial</p>
 
-      <h1 class="cover-title">Familia FSESEJ + Plasencia.<br><em>Movilidad para servir a Jalisco.</em></h1>
+      <h1 class="cover-title">Familia FSESEJ. <em>Movilidad para servir a Jalisco.</em></h1>
 
       <p class="cover-title-after">Convenio de colaboración comercial entre el Grupo Plasencia Automotriz y la Federación de Sindicatos de Empleados al Servicio de los Poderes del Estado, Municipios y Organismos Públicos Descentralizados en el Estado de Jalisco.</p>
 
@@ -813,8 +938,17 @@
     <li>Aprobar la difusión institucional del convenio a los 104 sindicatos miembros y la designación de delegados de convenio por cada sindicato.</li>
   </ol>
 
-  <h4 class="label">Lo que NO se está pidiendo</h4>
-  <p style="font-size: 9.5pt;">No se pide a FSESEJ aportar capital. No se pide modificar la relación entre FSESEJ e IPEJAL. No se pide restringir la libertad del afiliado de comprar donde prefiera. No se pide cobrar al afiliado una cuota adicional. No se pide convertir a FSESEJ en operador comercial. El rol de FSESEJ es el que ya ejerce: gestión gremial, autoridad política, difusión institucional.</p>
+  <div class="not-this">
+    <strong>Lo que este convenio NO es:</strong>
+    <ul>
+      <li>NO requiere aporte de capital de FSESEJ.</li>
+      <li>NO modifica la relación de FSESEJ con IPEJAL ni con sus sindicatos miembros.</li>
+      <li>NO restringe la libertad del afiliado de comprar donde prefiera.</li>
+      <li>NO cobra al afiliado una cuota adicional por participar.</li>
+      <li>NO convierte a FSESEJ en operador comercial: su rol sigue siendo gestión gremial y autoridad política.</li>
+      <li>NO es un convenio de descuento plano: es alianza estructural medible con KPIs auditables.</li>
+    </ul>
+  </div>
 
   <div class="callout gold" style="margin-top: 6mm;">
     <strong>En una línea:</strong> formalizar la alianza Plasencia ↔ FSESEJ con un convenio medible, transparente y sostenible, que entrega valor real a los afiliados sin costo para la federación.
@@ -1039,44 +1173,93 @@
 <section class="page">
   <h1 class="section-title"><span class="num">§6 · Operación</span>Del lead al embajador en cinco pasos</h1>
 
-  <p>El proceso del afiliado, en cinco pasos visibles, con sistemas de soporte invisibles que aseguran trazabilidad mensual.</p>
+  <p>Persona: <strong>servidor público FSESEJ estatal con crédito IPEJAL aprobado</strong>. Escenario: adquisición de su primer auto del convenio (caso base). Las cinco fases del journey, atravesadas por las cinco swim lanes del blueprint, exponen toda la maquinaria operativa, no solo lo visible.</p>
 
-  <div class="stage-card stage-0">
-    <div class="stage-label">Paso 1</div>
-    <div class="stage-title">Difusión institucional</div>
-    <div class="stage-purpose">FSESEJ y los sindicatos miembros activan canales gremiales</div>
-    <p>Banner en sede sindical, evento, mensaje WhatsApp del delegado, asamblea, posts en grupos gremiales, materiales en sede FSESEJ central, landing dedicada <code>plasencia-fsesej.grupoplasencia.com</code>. Plan de eventos sindicales mensuales con presencia de Plasencia.</p>
-  </div>
+  <h2 class="sub">6.1 Service Blueprint — Persona, Estado IPEJAL · Compra Auto Híbrido</h2>
 
-  <div class="stage-card stage-1">
-    <div class="stage-label">Paso 2</div>
-    <div class="stage-title">Contacto con identificación FSESEJ desde el primer toque</div>
-    <div class="stage-purpose">El afiliado se identifica como tal y recibe respuesta en menos de 2 horas hábiles</div>
-    <p>Form web, WhatsApp, llamada o walk-in. En todos los canales el afiliado declara su pertenencia a FSESEJ o presenta credencial sindical / recibo de nómina. Asesor FSESEJ Especialista contacta dentro de 2 horas hábiles.</p>
-  </div>
+  <table class="blueprint">
+    <thead>
+      <tr>
+        <th class="lane">Swim Lane</th>
+        <th class="step"><span class="step-num">Fase 1</span>Difusión</th>
+        <th class="step"><span class="step-num">Fase 2</span>Contacto</th>
+        <th class="step"><span class="step-num">Fase 3</span>Verificación</th>
+        <th class="step"><span class="step-num">Fase 4</span>Compra</th>
+        <th class="step"><span class="step-num">Fase 5</span>Embajador</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="lane-evidence">
+        <td class="lane-label" style="background: var(--ipejal-violet); color: white; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">Evidencia</td>
+        <td>Banner en sede sindical, post WhatsApp de delegado, asamblea, landing dedicada</td>
+        <td>Form web pre-llenado, mensaje WA inicial, llamada del asesor</td>
+        <td>Folio FSESEJ-{sind}-{n}, comprobante de elegibilidad por correo</td>
+        <td>Cotización co-branded, contrato IPEJAL, llaves + kit de bienvenida</td>
+        <td>Encuesta NPS, invitación a evento embajador, kit comunicacional</td>
+      </tr>
+      <tr class="lane-customer">
+        <td class="lane-label" style="background: var(--fsesej-deep); color: white; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">Acción del afiliado</td>
+        <td>Ve el banner, lee el post, comparte con cónyuge</td>
+        <td>Llena form / contacta WA / camina a sucursal declarándose FSESEJ</td>
+        <td>Sube credencial sindical o recibo de nómina (1 archivo)</td>
+        <td>Firma contrato, recibe auto, agenda instalación wallbox</td>
+        <td>Comparte experiencia con compañeros, refiere prospectos</td>
+      </tr>
+      <tr class="line-interaction"><td colspan="6">— Línea de interacción —</td></tr>
+      <tr class="lane-frontstage">
+        <td class="lane-label" style="background: var(--green); color: white; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">Frontstage</td>
+        <td>Material co-branded, embajadores sindicales, evento mensual de demo-drive</td>
+        <td>Asesor FSESEJ Especialista responde en menos de 2h hábiles</td>
+        <td>Asesor confirma elegibilidad y desbloquea cotizador FSESEJ</td>
+        <td>Asesor acompaña trámite IPEJAL, agenda entrega ceremonial</td>
+        <td>Asesor llama a 7 y 30 días, invita a evento, agenda servicios</td>
+      </tr>
+      <tr class="line-visibility"><td colspan="6">— Línea de visibilidad —</td></tr>
+      <tr class="lane-backstage">
+        <td class="lane-label" style="background: var(--blue); color: white; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">Backstage</td>
+        <td>Plasencia produce kit de delegados, FSESEJ central programa eventos en calendario sindical</td>
+        <td>Lead entra a CRM Plasencia con flag <code>convenio=FSESEJ</code> + <code>sindicato_origen</code></td>
+        <td>API/portal con Operador consulta padrón vigente; emite folio único en menos de 24h</td>
+        <td>Cotizador aplica paquete BASE/PREMIUM automáticamente; trigger a proveedor wallbox</td>
+        <td>Cron mensual reporta a FSESEJ + Operador; conciliación 3% mes anterior</td>
+      </tr>
+      <tr class="line-internal"><td colspan="6">— Línea de interacción interna —</td></tr>
+      <tr class="lane-support">
+        <td class="lane-label" style="background: var(--g700); color: white; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">Procesos de soporte</td>
+        <td>Cloudflare Worker · GitHub Pages (landing) · Meta CAPI + GA4 MP server-side</td>
+        <td>D1 SQLite · Vambe Fase 1 (WA + IA Perfilador) · pipeline kanban</td>
+        <td>API Operador · tabla <code>convenio_verificaciones</code> · webhook idempotente</td>
+        <td>Cotizador interno · alianza con IPEJAL (consulta de crédito) · proveedor wallbox</td>
+        <td>Dashboard ejecutivo D1 · cron <code>refresh-fsesej-report</code> · email mensual</td>
+      </tr>
+      <tr class="lane-time">
+        <td class="lane-label">Tiempo</td>
+        <td>Continuo · 1 evento/mes/sindicato</td>
+        <td>≤ 2h hábiles</td>
+        <td>≤ 24h hábiles</td>
+        <td>15-30 días (IPEJAL) + 1 día entrega</td>
+        <td>7d, 30d, 90d post-entrega</td>
+      </tr>
+      <tr class="lane-fail">
+        <td class="lane-label">Fail points</td>
+        <td><span class="fail">⚠</span> Sindicato sin delegado de convenio no difunde</td>
+        <td><span class="fail">⚠</span> Asesor no contacta en 2h → degradación NPS</td>
+        <td><span class="fail">⚠</span> Operador tarda más de 24h → fallback documental Plasencia</td>
+        <td><span class="fail">⚠</span> IPEJAL rechaza crédito → ruta alterna financiera concesionario</td>
+        <td><span class="fail">⚠</span> Sin seguimiento post-venta → afiliado no se vuelve embajador</td>
+      </tr>
+      <tr class="lane-mot">
+        <td class="lane-label">Momentos de verdad</td>
+        <td></td>
+        <td><span class="mot">★ Primera impresión</span><br>El asesor reconoce al afiliado, no es un cliente más</td>
+        <td></td>
+        <td><span class="mot">★ Peak</span><br>Entrega ceremonial con kit de bienvenida</td>
+        <td><span class="mot">★ End</span><br>Llamada a 30 días valida que el cliente está feliz</td>
+      </tr>
+    </tbody>
+  </table>
 
-  <div class="stage-card stage-1">
-    <div class="stage-label">Paso 3</div>
-    <div class="stage-title">Verificación de elegibilidad</div>
-    <div class="stage-purpose">El Operador valida pertenencia al padrón en menos de 24 horas hábiles</div>
-    <p>El Operador consulta el padrón FSESEJ y emite folio único de elegibilidad <code>FSESEJ-{sindicato}-{consecutivo}</code>. Si el cliente es familiar directo, se agrega acta de matrimonio o nacimiento. Tripwire documental si Operador no responde en plazo: Plasencia aplica verificación documental simplificada y reporta como provisional.</p>
-  </div>
-
-  <div class="stage-card stage-2">
-    <div class="stage-label">Paso 4</div>
-    <div class="stage-title">Compra: cotización, trámite IPEJAL, entrega ceremonial</div>
-    <div class="stage-purpose">Paquete aplicado automáticamente en cotizador. Plasencia acompaña en trámite IPEJAL</div>
-    <p>Cotización con desglose visual del paquete (precio + beneficios FSESEJ + neto). Aplicación de crédito IPEJAL (mediano plazo o Energías Limpias) con asesor dedicado dando seguimiento semanal. Tiempo total lead → entrega: 30 a 45 días para estatales con IPEJAL. Entrega ceremonial con kit de bienvenida institucional.</p>
-  </div>
-
-  <div class="stage-card stage-3">
-    <div class="stage-label">Paso 5</div>
-    <div class="stage-title">Post-venta y embajadores</div>
-    <div class="stage-purpose">El cliente se convierte en embajador del convenio dentro de su sindicato</div>
-    <p>Encuesta NPS a 7 días post-entrega, llamada de bienvenida a 30 días, invitación a eventos trimestrales de embajadores, caso de éxito sindical con consentimiento. Si EV/HEV: agenda de instalación de wallbox dentro de 7 días post-entrega.</p>
-  </div>
-
-  <h2 class="sub" style="margin-top: 6mm;">6.1 Quién hace qué</h2>
+  <h2 class="sub" style="margin-top: 5mm;">6.2 Quién hace qué — Responsabilidades por actor</h2>
 
   <table>
     <tr><th>Actor</th><th>Responsabilidad principal</th></tr>
@@ -1221,12 +1404,42 @@
     </div>
   </div>
 
-  <h2 class="sub">9.3 Impacto para el afiliado · valor agregado total entregado</h2>
+  <h2 class="sub">9.3 Killer Metric · la apuesta económica del convenio</h2>
 
-  <p>Con un valor promedio del paquete BASE de $35,000 por compra, en el escenario realista de 419 unidades, el convenio transfiere a los afiliados de FSESEJ un valor agregado total de aproximadamente <strong>$14.7 MDP en el primer año</strong>, sin contar el paquete PREMIUM Energías Limpias que multiplica el valor por compra en EV/HEV.</p>
+  <div class="killer-metric">
+    <div class="label">Valor entregado al afiliado por cada peso que recibe FSESEJ</div>
+    <div class="figure"><em>10×</em></div>
+    <div class="desc">En el escenario realista, FSESEJ recibe <strong>$1.52M</strong> al 1% gremial y los afiliados reciben aproximadamente <strong>$14.7M</strong> en valor agregado total durante el primer año (paquete BASE × 419 compras). Sin contar el refuerzo PREMIUM Energías Limpias que multiplica el valor en cada compra EV o HEV.</div>
+  </div>
+
+  <h2 class="sub">9.4 El costo de NO actuar — cuantificado</h2>
+
+  <p>Si FSESEJ no firma este convenio, sus afiliados siguen comprando vehículos. Solo que sin convenio. Sin acompañamiento. Sin valor agregado. <strong>El cálculo del costo de la inacción es directo:</strong> con el flujo histórico IPEJAL (1,606 préstamos auto/año) y el universo de servidores municipales sin IPEJAL, FSESEJ pierde cada año la oportunidad de capturar:</p>
+
+  <div class="kpi-grid">
+    <div class="kpi red">
+      <div class="label">Valor agregado dejado en mesa</div>
+      <div class="value">$14.7M</div>
+      <div class="unit">por año en valor que sus afiliados no reciben</div>
+    </div>
+    <div class="kpi red">
+      <div class="label">Ingreso gremial perdido</div>
+      <div class="value">$1.52M</div>
+      <div class="unit">por año al 1% que FSESEJ no recauda</div>
+    </div>
+    <div class="kpi navy">
+      <div class="label">Posicionamiento en electromovilidad</div>
+      <div class="value">— </div>
+      <div class="unit">Otro grupo automotriz captura el espacio de aliado de la transición energética</div>
+    </div>
+  </div>
+
+  <h2 class="sub">9.5 Benchmark — convenios análogos en el sector</h2>
+
+  <p>Convenios sindicato-concesionaria activos con sindicatos de magisterio, salud federal y federaciones gremiales tipo SUTSEJ en otros estados del país operan con porcentajes entre 2% y 5% sobre ventas, sin paquete de beneficios reforzados ni alianza explícita con la institución crediticia. <strong>El convenio Plasencia-FSESEJ es estructuralmente superior</strong>: 3% (medio del rango) + paquete tangible al afiliado + alineación con programa institucional Energías Limpias + transparencia mensual contractual.</p>
 
   <div class="governing-thought">
-    <strong>Lectura para FSESEJ:</strong> el convenio entrega aproximadamente <strong>diez veces más valor a la base de afiliados</strong> de lo que recauda como cuota gremial. Por cada peso que ingresa a FSESEJ por el 1%, los afiliados reciben diez pesos de valor agregado en sus compras. Esa es la propuesta económica concreta para los agremiados.
+    <strong>Lectura para FSESEJ:</strong> el convenio entrega <strong>diez veces más valor a la base de afiliados</strong> de lo que recauda como cuota gremial. Por cada peso que ingresa a FSESEJ por el 1%, los afiliados reciben diez pesos de valor agregado en sus compras. Esa es la propuesta económica concreta para los agremiados, no una promesa.
   </div>
 </section>
 
@@ -1347,6 +1560,22 @@
       <li>Primera ola de eventos sindicales con demo-drive</li>
       <li>Arranque operativo del primer mes con seguimiento diario</li>
     </ul>
+  </div>
+
+  <h2 class="sub">11.3 Qué sucede en los próximos 30 días si FSESEJ aprueba hoy</h2>
+
+  <table>
+    <tr><th style="width: 22mm;">Día</th><th>Hito</th><th>Responsable</th></tr>
+    <tr><td><strong>D+1</strong></td><td>Notificación de aprobación al Operador y a Plasencia. Designación de comité tripartita de arranque.</td><td>FSESEJ</td></tr>
+    <tr><td><strong>D+3</strong></td><td>Primera reunión tripartita: cierre de términos comerciales y exhibición de borrador legal.</td><td>FSESEJ + Plasencia + Operador</td></tr>
+    <tr><td><strong>D+7</strong></td><td>Revisión legal interna de cada parte. Comunicación de comentarios.</td><td>Asesorías jurídicas de cada parte</td></tr>
+    <tr><td><strong>D+14</strong></td><td>Versión 1.0 del convenio lista para firma. Identificación formal del Operador con instrumento jurídico vigente con FSESEJ.</td><td>Comité tripartita</td></tr>
+    <tr><td><strong>D+21</strong></td><td>Capacitación de delegados sindicales: 30 personas representando los 104 sindicatos. Material co-branded en producción.</td><td>FSESEJ + Plasencia</td></tr>
+    <tr><td><strong>D+30</strong></td><td>Firma protocolaria en evento institucional FSESEJ. Activación del convenio. Primera comunicación masiva.</td><td>Las tres partes</td></tr>
+  </table>
+
+  <div class="callout gold" style="margin-top: 4mm;">
+    <strong>El compromiso:</strong> 30 días entre la aprobación y la firma operativa. La maquinaria de Plasencia está lista para arrancar en cuanto FSESEJ dé el sí.
   </div>
 </section>
 
