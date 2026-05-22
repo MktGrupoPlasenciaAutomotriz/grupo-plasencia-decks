@@ -3,554 +3,662 @@
 <head>
 <meta charset="UTF-8">
 <title>Convenio Plasencia · FSESEJ · IPEJAL Energías Limpias — Propuesta Ejecutiva</title>
+<meta name="description" content="Propuesta de convenio entre Grupo Plasencia Automotriz y la Federación de Sindicatos de Empleados al Servicio de los Poderes del Estado, Municipios y Organismos Públicos Descentralizados en el Estado de Jalisco. Strategy Definition con disciplina Minto + SCR + Answer-First.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet">
 <style>
-:root {
-  --navy: #0A1F44;
-  --navy-deep: #050F26;
-  --navy-soft: #1A3066;
-  --gold: #C9A961;
-  --gold-deep: #A88947;
-  --red: #B91C1C;
-  --paper: #FAFAF7;
-  --ink: #0F172A;
-  --ink-soft: #475569;
-  --rule: #E5E7EB;
-  --rule-strong: #94A3B8;
-}
-
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
-html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-
-body {
-  font-family: 'Inter', -apple-system, sans-serif;
-  font-size: 10.5pt;
-  line-height: 1.55;
-  color: var(--ink);
-  background: #d1d5db;
-}
-
-.page {
-  width: 210mm;
-  min-height: 297mm;
-  max-height: 297mm;
-  background: var(--paper);
-  margin: 12mm auto;
-  padding: 18mm 16mm 16mm 16mm;
-  position: relative;
-  overflow: hidden;
-  page-break-after: always;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.15);
-}
-
-@page { size: A4; margin: 0; }
-
-@media print {
-  body { background: white; }
-  .page { margin: 0; box-shadow: none; page-break-after: always; }
-}
-
-/* Header / Footer */
-.page-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-bottom: 6mm;
-  margin-bottom: 6mm;
-  border-bottom: 1px solid var(--rule);
-}
-
-.page-header .brand {
-  font-family: 'Playfair Display', serif;
-  font-weight: 700;
-  font-size: 11pt;
-  color: var(--navy);
-  letter-spacing: 0.02em;
-}
-
-.page-header .doc-meta {
-  font-size: 8.5pt;
-  color: var(--ink-soft);
-  font-weight: 500;
-}
-
-.page-footer {
-  position: absolute;
-  bottom: 10mm;
-  left: 16mm;
-  right: 16mm;
-  display: flex;
-  justify-content: space-between;
-  font-size: 8pt;
-  color: var(--ink-soft);
-  border-top: 1px solid var(--rule);
-  padding-top: 3mm;
-}
-
-.page-footer .num {
-  font-weight: 600;
-  color: var(--navy);
-}
-
-/* Typography */
-h1, h2, h3, h4 {
-  font-family: 'Playfair Display', serif;
-  color: var(--navy);
-  font-weight: 700;
-  letter-spacing: -0.01em;
-}
-
-h1 { font-size: 26pt; line-height: 1.15; margin-bottom: 6mm; }
-h2 { font-size: 17pt; line-height: 1.2; margin-bottom: 4mm; margin-top: 6mm; }
-h3 { font-size: 13pt; line-height: 1.25; margin-bottom: 3mm; margin-top: 5mm; color: var(--navy-soft); }
-h4 { font-size: 11pt; line-height: 1.3; margin-bottom: 2mm; margin-top: 4mm; color: var(--navy); font-weight: 600; }
-
-p { margin-bottom: 3mm; }
-
-strong { font-weight: 600; color: var(--navy); }
-
-.lead {
-  font-size: 12pt;
-  line-height: 1.55;
-  color: var(--ink);
-  font-weight: 400;
-}
-
-.eyebrow {
-  font-size: 8.5pt;
-  text-transform: uppercase;
-  letter-spacing: 0.16em;
-  color: var(--gold-deep);
-  font-weight: 700;
-  margin-bottom: 3mm;
-}
-
-/* COVER */
-.cover {
-  background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 60%, var(--navy-soft) 100%);
-  color: white;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.cover-inner {
-  padding: 22mm 18mm;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.cover .gold-rule {
-  width: 60mm;
-  height: 1.5mm;
-  background: var(--gold);
-  margin-bottom: 8mm;
-}
-
-.cover .eyebrow {
-  color: var(--gold);
-  font-size: 9pt;
-  letter-spacing: 0.2em;
-}
-
-.cover h1 {
-  color: white;
-  font-size: 38pt;
-  line-height: 1.05;
-  font-weight: 700;
-  margin-bottom: 8mm;
-  margin-top: 6mm;
-}
-
-.cover .subtitle {
-  font-family: 'Inter', sans-serif;
-  font-size: 13pt;
-  font-weight: 300;
-  line-height: 1.45;
-  color: rgba(255,255,255,0.85);
-  max-width: 145mm;
-}
-
-.cover .footer-meta {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  border-top: 1px solid rgba(201,169,97,0.3);
-  padding-top: 6mm;
-  font-size: 9pt;
-  color: rgba(255,255,255,0.7);
-}
-
-.cover .footer-meta .right { text-align: right; }
-.cover .footer-meta strong { color: var(--gold); font-weight: 600; }
-
-.cover-brands {
-  display: flex;
-  gap: 8mm;
-  align-items: center;
-  margin-bottom: 8mm;
-}
-
-.cover-brand-card {
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(201,169,97,0.4);
-  padding: 4mm 5mm;
-  font-family: 'Playfair Display', serif;
-  font-weight: 700;
-  font-size: 11pt;
-  color: var(--gold);
-  letter-spacing: 0.05em;
-}
-
-/* Answer-first / Resumen ejecutivo */
-.answer-box {
-  background: white;
-  border-left: 4px solid var(--gold);
-  padding: 6mm 7mm;
-  margin: 4mm 0 6mm 0;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
-}
-
-.answer-box h3 {
-  margin-top: 0;
-  color: var(--navy);
-  font-size: 13pt;
-}
-
-.answer-box p {
-  font-size: 11pt;
-  line-height: 1.55;
-}
-
-/* Tables */
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 3mm 0 4mm 0;
-  font-size: 9.5pt;
-}
-
-th {
-  background: var(--navy);
-  color: white;
-  padding: 2.5mm 3mm;
-  text-align: left;
-  font-weight: 600;
-  font-size: 9pt;
-  letter-spacing: 0.02em;
-}
-
-td {
-  padding: 2mm 3mm;
-  border-bottom: 1px solid var(--rule);
-  vertical-align: top;
-}
-
-tr:nth-child(even) td { background: rgba(201,169,97,0.04); }
-
-td strong { color: var(--navy); }
-
-.table-tight th, .table-tight td { padding: 1.5mm 2.5mm; font-size: 9pt; }
-
-/* Layout helpers */
-.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm; }
-.grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4mm; }
-.grid-4 { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 3mm; }
-
-.card {
-  background: white;
-  padding: 5mm;
-  border: 1px solid var(--rule);
-  border-top: 3px solid var(--gold);
-}
-
-.card .num {
-  font-family: 'Playfair Display', serif;
-  font-size: 28pt;
-  font-weight: 700;
-  color: var(--navy);
-  line-height: 1;
-  margin-bottom: 2mm;
-}
-
-.card .label {
-  font-size: 8.5pt;
-  color: var(--ink-soft);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  font-weight: 600;
-}
-
-.card .desc {
-  font-size: 9pt;
-  color: var(--ink);
-  margin-top: 2mm;
-}
-
-.card-red { border-top-color: var(--red); }
-.card-navy { border-top-color: var(--navy); }
-
-/* SCR boxes */
-.scr-box {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 5mm;
-  align-items: start;
-  padding: 5mm 0;
-  border-bottom: 1px solid var(--rule);
-}
-
-.scr-box:last-child { border-bottom: none; }
-
-.scr-label {
-  font-family: 'Playfair Display', serif;
-  font-size: 11pt;
-  font-weight: 700;
-  color: var(--gold-deep);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  white-space: nowrap;
-  border-right: 2px solid var(--gold);
-  padding-right: 5mm;
-  min-width: 28mm;
-}
-
-/* Lists */
-ul.styled, ol.styled { padding-left: 5mm; }
-ul.styled li, ol.styled li { margin-bottom: 2mm; line-height: 1.5; }
-ul.styled li::marker { color: var(--gold); }
-
-/* Pillars */
-.pillar {
-  background: white;
-  border: 1px solid var(--rule);
-  padding: 4mm;
-  margin-bottom: 3mm;
-  display: grid;
-  grid-template-columns: 14mm 1fr;
-  gap: 4mm;
-  align-items: start;
-}
-
-.pillar-num {
-  font-family: 'Playfair Display', serif;
-  font-size: 24pt;
-  font-weight: 700;
-  color: var(--gold);
-  line-height: 1;
-  text-align: center;
-  border-right: 1px solid var(--rule);
-  padding-right: 4mm;
-}
-
-.pillar-title {
-  font-family: 'Playfair Display', serif;
-  font-weight: 700;
-  font-size: 12pt;
-  color: var(--navy);
-  margin-bottom: 1mm;
-}
-
-.pillar-desc { font-size: 9.5pt; line-height: 1.45; }
-
-/* Highlight bands */
-.band {
-  background: var(--navy);
-  color: white;
-  padding: 6mm 7mm;
-  margin: 5mm 0;
-}
-
-.band h3, .band h4 { color: white; }
-.band p { color: rgba(255,255,255,0.9); }
-.band strong { color: var(--gold); }
-
-.band-gold {
-  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-deep) 100%);
-  color: var(--navy-deep);
-}
-
-.band-gold h3, .band-gold h4 { color: var(--navy-deep); }
-.band-gold p { color: var(--navy-deep); }
-.band-gold strong { color: var(--navy-deep); }
-
-/* TOC */
-.toc-row {
-  display: grid;
-  grid-template-columns: 18mm 1fr 16mm;
-  gap: 3mm;
-  padding: 2.5mm 0;
-  border-bottom: 1px dotted var(--rule-strong);
-  font-size: 10.5pt;
-  align-items: baseline;
-}
-
-.toc-num {
-  font-family: 'Playfair Display', serif;
-  font-weight: 700;
-  color: var(--gold-deep);
-  font-size: 12pt;
-}
-
-.toc-title { color: var(--navy); font-weight: 500; }
-.toc-page { text-align: right; color: var(--ink-soft); font-weight: 600; font-size: 10pt; }
-
-/* Pull quote */
-.pullquote {
-  font-family: 'Playfair Display', serif;
-  font-size: 16pt;
-  line-height: 1.35;
-  color: var(--navy);
-  font-style: italic;
-  font-weight: 400;
-  padding: 4mm 0 4mm 8mm;
-  border-left: 3px solid var(--gold);
-  margin: 5mm 0;
-}
-
-.pullquote .attribution {
-  font-family: 'Inter', sans-serif;
-  font-style: normal;
-  font-size: 9.5pt;
-  font-weight: 600;
-  color: var(--gold-deep);
-  margin-top: 3mm;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-}
-
-/* Numbers band */
-.num-band {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 4mm;
-  margin: 4mm 0;
-}
-
-.num-stat {
-  text-align: center;
-  padding: 4mm 2mm;
-  background: white;
-  border: 1px solid var(--rule);
-  border-top: 3px solid var(--navy);
-}
-
-.num-stat .figure {
-  font-family: 'Playfair Display', serif;
-  font-size: 22pt;
-  font-weight: 700;
-  color: var(--navy);
-  line-height: 1;
-  margin-bottom: 2mm;
-}
-
-.num-stat .figure-sm {
-  font-size: 16pt;
-}
-
-.num-stat .legend {
-  font-size: 8pt;
-  color: var(--ink-soft);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  font-weight: 600;
-}
-
-/* Steps */
-.step-flow {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 2mm;
-  margin: 4mm 0;
-}
-
-.step {
-  background: white;
-  border: 1px solid var(--rule);
-  padding: 3mm;
-  text-align: center;
-  position: relative;
-}
-
-.step-num {
-  display: inline-block;
-  width: 8mm;
-  height: 8mm;
-  line-height: 8mm;
-  border-radius: 50%;
-  background: var(--navy);
-  color: var(--gold);
-  font-weight: 700;
-  font-size: 10pt;
-  margin-bottom: 2mm;
-}
-
-.step-title { font-weight: 600; font-size: 9pt; color: var(--navy); margin-bottom: 1mm; }
-.step-desc { font-size: 8.5pt; color: var(--ink-soft); line-height: 1.3; }
-
-/* Benefit box */
-.benefit {
-  background: white;
-  border: 1px solid var(--rule);
-  padding: 4mm 5mm;
-  margin-bottom: 3mm;
-  display: grid;
-  grid-template-columns: 1fr 30mm;
-  gap: 4mm;
-  align-items: center;
-}
-
-.benefit-name { font-weight: 600; color: var(--navy); font-size: 10.5pt; }
-.benefit-desc { font-size: 9pt; color: var(--ink-soft); line-height: 1.4; margin-top: 1mm; }
-.benefit-value {
-  text-align: right;
-  font-family: 'Playfair Display', serif;
-  font-weight: 700;
-  font-size: 12pt;
-  color: var(--gold-deep);
-  border-left: 1px solid var(--rule);
-  padding-left: 4mm;
-}
-
-/* CTA */
-.cta-box {
-  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-deep) 100%);
-  color: white;
-  padding: 8mm;
-  margin: 5mm 0;
-  text-align: center;
-}
-
-.cta-box h2 { color: white; margin-bottom: 4mm; }
-.cta-box p { color: rgba(255,255,255,0.9); }
-
-/* Closing signature */
-.signature-block {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12mm;
-  margin-top: 12mm;
-  padding-top: 6mm;
-  border-top: 1px solid var(--rule);
-}
-
-.sig {
-  text-align: center;
-}
-
-.sig-line {
-  border-top: 1px solid var(--ink);
-  margin: 16mm 4mm 2mm 4mm;
-}
-
-.sig-name { font-weight: 700; color: var(--navy); font-size: 11pt; }
-.sig-role { font-size: 9pt; color: var(--ink-soft); margin-top: 1mm; }
+  :root {
+    /* GP corporativo */
+    --gp-red: #C8102E;
+    --gp-red-soft: #A50D25;
+    --gp-navy: #1E2740;
+    --gp-navy-deep: #141B30;
+    --gp-slate: #2D3748;
+    --gp-black: #1A1A1A;
+
+    /* Acentos del convenio (homologados a los emisores) */
+    --fsesej-gold: #FBC645;
+    --fsesej-gold-deep: #C99500;
+    --ipejal-violet: #7C3AED;
+    --ipejal-violet-soft: #A78BFA;
+
+    /* Sistema */
+    --blue: #4299E1;
+    --green: #48BB78;
+    --amber: #D69E2E;
+    --gold: #ECC94B;
+    --red: #E53E3E;
+    --bg: #F0F4F8;
+    --paper: #FFFFFF;
+    --near-white: #F7FAFC;
+    --g100: #EDF2F7;
+    --g200: #E2E8F0;
+    --g300: #CBD5E0;
+    --g400: #A0AEC0;
+    --g500: #718096;
+    --g600: #4A5568;
+    --g700: #2D3748;
+    --text: #2D3748;
+
+    --display: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { background: var(--bg); }
+  body {
+    font-family: var(--sans);
+    color: var(--text);
+    line-height: 1.55;
+    font-size: 10pt;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  @page {
+    size: A4;
+    margin: 18mm 18mm 22mm 18mm;
+    @bottom-right {
+      content: counter(page);
+      font-family: 'Inter', sans-serif;
+      font-size: 9pt;
+      color: #718096;
+    }
+    @bottom-left {
+      content: "Confidencial · Grupo Plasencia · Dirección de Marketing Corporativo";
+      font-family: 'Inter', sans-serif;
+      font-size: 8pt;
+      color: #A0AEC0;
+    }
+    @top-right {
+      content: "Convenio Plasencia · FSESEJ · IPEJAL Energías Limpias";
+      font-family: 'Inter', sans-serif;
+      font-size: 8pt;
+      color: #A0AEC0;
+    }
+  }
+  @page :first { @top-right { content: ""; } @bottom-right { content: ""; } @bottom-left { content: ""; } }
+  @page cover { margin: 0; }
+
+  .page {
+    background: var(--paper);
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0 auto 8mm auto;
+    padding: 18mm 18mm 22mm 18mm;
+    position: relative;
+    page-break-after: always;
+    box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 4px 24px rgba(30,39,64,.08);
+  }
+  .page:last-child { page-break-after: auto; }
+
+  @media print {
+    html, body { background: white; }
+    .page { box-shadow: none; margin: 0; }
+  }
+
+  /* ============ TIPOGRAFÍA ============ */
+  h1, h2, h3, h4 {
+    font-family: var(--display);
+    color: var(--gp-navy);
+    letter-spacing: -0.4px;
+  }
+  h1 { font-size: 30pt; line-height: 1.1; font-weight: 800; margin-bottom: 6mm; }
+  h2 { font-size: 19pt; line-height: 1.2; font-weight: 800; margin-bottom: 4mm; margin-top: 8mm; }
+  h3 { font-size: 13pt; line-height: 1.3; font-weight: 700; margin-bottom: 3mm; margin-top: 6mm; }
+  h4 { font-size: 10.5pt; line-height: 1.35; font-weight: 700; margin-bottom: 2mm; margin-top: 4mm; letter-spacing: -0.1px; }
+
+  p { margin-bottom: 3mm; color: var(--text); }
+  p.lead { font-size: 11.5pt; line-height: 1.55; color: var(--gp-slate); font-weight: 400; }
+  strong { color: var(--gp-navy); font-weight: 600; }
+
+  .eyebrow {
+    font-family: var(--sans);
+    font-size: 9pt;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: var(--gp-red);
+    font-weight: 700;
+    margin-bottom: 4mm;
+    display: block;
+  }
+
+  /* ============ COVER ============ */
+  .cover {
+    background: var(--gp-navy);
+    color: var(--near-white);
+    padding: 0;
+    page: cover;
+  }
+  .cover-inner {
+    padding: 24mm 22mm 22mm 22mm;
+    min-height: 297mm;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background:
+      radial-gradient(ellipse at 100% 0%, rgba(251, 198, 69, 0.16) 0%, transparent 55%),
+      radial-gradient(ellipse at 0% 100%, rgba(200, 16, 46, 0.10) 0%, transparent 55%),
+      var(--gp-navy);
+    position: relative;
+  }
+  .cover-inner::before {
+    content: "";
+    position: absolute;
+    top: 24mm; left: 22mm;
+    width: 64mm; height: 1px;
+    background: var(--fsesej-gold);
+  }
+  .cover-mark {
+    font-family: var(--sans);
+    font-weight: 700;
+    font-size: 11pt;
+    letter-spacing: 4px;
+    color: var(--fsesej-gold);
+    text-transform: uppercase;
+  }
+  .cover-mark span {
+    display: block;
+    font-weight: 400;
+    color: rgba(255,255,255,0.55);
+    margin-top: 4px;
+    letter-spacing: 1px;
+    font-size: 9pt;
+  }
+  .cover-eyebrow {
+    font-family: var(--sans);
+    font-size: 10pt;
+    font-weight: 700;
+    letter-spacing: 5px;
+    color: var(--gp-red);
+    text-transform: uppercase;
+    margin-top: 14mm;
+  }
+  .cover-title {
+    font-family: var(--display);
+    font-weight: 800;
+    font-size: 56pt;
+    line-height: 0.98;
+    letter-spacing: -1.8px;
+    margin-top: 8mm;
+    color: var(--near-white);
+    max-width: 165mm;
+  }
+  .cover-title em {
+    font-style: normal;
+    color: var(--fsesej-gold);
+    font-weight: 800;
+  }
+  .cover-title-after {
+    font-family: var(--sans);
+    font-style: italic;
+    font-weight: 500;
+    font-size: 13pt;
+    color: rgba(255,255,255,0.65);
+    margin-top: 6mm;
+    letter-spacing: -0.2px;
+    max-width: 155mm;
+  }
+  .cover-rector {
+    font-family: var(--sans);
+    font-weight: 500;
+    font-size: 11pt;
+    color: rgba(255,255,255,0.9);
+    margin-top: 14mm;
+    line-height: 1.55;
+    border-top: 1px solid rgba(251,198,69,0.3);
+    padding-top: 6mm;
+    max-width: 155mm;
+  }
+  .cover-rector strong {
+    font-family: var(--sans);
+    font-weight: 700;
+    font-size: 9pt;
+    letter-spacing: 3px;
+    color: rgba(251,198,69,0.85);
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 3mm;
+  }
+  .cover-pull {
+    font-family: var(--sans);
+    font-weight: 400;
+    font-size: 11pt;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.6;
+    border-left: 3px solid var(--gp-red);
+    padding-left: 8mm;
+    margin-top: 10mm;
+    max-width: 155mm;
+  }
+  .cover-pull cite {
+    display: block;
+    font-style: normal;
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 9pt;
+    letter-spacing: 1.5px;
+    color: var(--gp-red);
+    margin-top: 5mm;
+    text-transform: uppercase;
+  }
+  .cover-tags { display: flex; gap: 4mm; margin-top: 10mm; flex-wrap: wrap; }
+  .cover-tag {
+    font-family: var(--sans);
+    font-size: 8.5pt;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: rgba(255,255,255,0.85);
+    border: 1px solid rgba(255,255,255,0.25);
+    padding: 4px 11px;
+    border-radius: 999px;
+    text-transform: uppercase;
+  }
+  .cover-tag.accent { color: var(--fsesej-gold); border-color: rgba(251,198,69,0.4); }
+  .cover-tag.urgent { color: var(--gp-red); border-color: rgba(200,16,46,0.4); }
+  .cover-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 14mm;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    padding-top: 8mm;
+  }
+  .cover-meta-block { font-size: 9pt; color: rgba(255,255,255,0.65); line-height: 1.7; }
+  .cover-meta-block strong {
+    display: block;
+    color: var(--near-white);
+    font-weight: 700;
+    font-size: 10pt;
+    letter-spacing: .5px;
+  }
+
+  /* ============ FLAGS DE SECCIÓN ============ */
+  .section-flag {
+    display: inline-block;
+    font-family: var(--sans);
+    font-size: 8.5pt;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 4px;
+    margin-bottom: 5mm;
+  }
+  .section-flag.red { background: rgba(200,16,46,0.1); color: var(--gp-red); }
+  .section-flag.gold { background: rgba(251,198,69,0.22); color: var(--fsesej-gold-deep); }
+  .section-flag.violet { background: rgba(124,58,237,0.12); color: var(--ipejal-violet); }
+  .section-flag.navy { background: rgba(30,39,64,0.08); color: var(--gp-navy); }
+
+  /* ============ ANSWER-FIRST BOX ============ */
+  .answer {
+    background: var(--paper);
+    border: 1px solid var(--g200);
+    border-left: 4px solid var(--gp-red);
+    padding: 7mm 8mm;
+    margin: 5mm 0 6mm 0;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+  }
+  .answer h3 {
+    margin-top: 0;
+    color: var(--gp-navy);
+    font-size: 13pt;
+    margin-bottom: 4mm;
+  }
+  .answer p { font-size: 11pt; line-height: 1.6; color: var(--gp-slate); }
+
+  /* ============ SCR (Situación · Complicación · Resolución) ============ */
+  .scr {
+    display: grid;
+    grid-template-columns: 32mm 1fr;
+    gap: 6mm;
+    align-items: start;
+    padding: 5mm 0;
+    border-bottom: 1px solid var(--g200);
+  }
+  .scr:last-child { border-bottom: none; }
+  .scr-label {
+    font-family: var(--display);
+    font-size: 11pt;
+    font-weight: 800;
+    color: var(--gp-red);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding-right: 5mm;
+    border-right: 2px solid var(--gp-red);
+    text-align: right;
+  }
+  .scr-body p { font-size: 10.5pt; line-height: 1.6; }
+
+  /* ============ TABLES ============ */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 4mm 0 5mm 0;
+    font-size: 9.5pt;
+  }
+  th {
+    background: var(--gp-navy);
+    color: var(--near-white);
+    padding: 3mm 3.5mm;
+    text-align: left;
+    font-family: var(--sans);
+    font-weight: 700;
+    font-size: 9pt;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+  }
+  td {
+    padding: 2.5mm 3.5mm;
+    border-bottom: 1px solid var(--g200);
+    vertical-align: top;
+    color: var(--text);
+  }
+  tr:nth-child(even) td { background: var(--near-white); }
+  td strong { color: var(--gp-navy); }
+  .table-tight th, .table-tight td { padding: 2mm 3mm; font-size: 9pt; }
+
+  /* ============ LAYOUT HELPERS ============ */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4mm; }
+  .grid-4 { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 3mm; }
+
+  /* ============ CARDS ============ */
+  .card {
+    background: var(--paper);
+    padding: 5mm;
+    border: 1px solid var(--g200);
+    border-top: 3px solid var(--fsesej-gold);
+  }
+  .card.red { border-top-color: var(--gp-red); }
+  .card.navy { border-top-color: var(--gp-navy); }
+  .card.violet { border-top-color: var(--ipejal-violet); }
+  .card .label {
+    font-family: var(--sans);
+    font-size: 8.5pt;
+    color: var(--g500);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+    margin-bottom: 2mm;
+  }
+  .card .num {
+    font-family: var(--display);
+    font-size: 26pt;
+    font-weight: 800;
+    color: var(--gp-navy);
+    line-height: 1;
+    margin-bottom: 2mm;
+    letter-spacing: -1px;
+  }
+  .card .desc { font-size: 9pt; color: var(--gp-slate); line-height: 1.45; }
+
+  /* ============ NUM BAND (4 stats horizontales) ============ */
+  .num-band {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4mm;
+    margin: 5mm 0;
+  }
+  .num-stat {
+    text-align: center;
+    padding: 5mm 2mm;
+    background: var(--paper);
+    border: 1px solid var(--g200);
+    border-top: 3px solid var(--gp-navy);
+  }
+  .num-stat .figure {
+    font-family: var(--display);
+    font-size: 22pt;
+    font-weight: 800;
+    color: var(--gp-navy);
+    line-height: 1;
+    margin-bottom: 2mm;
+    letter-spacing: -1px;
+  }
+  .num-stat .legend {
+    font-family: var(--sans);
+    font-size: 8pt;
+    color: var(--g500);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+  }
+
+  /* ============ PILLARS (numerados) ============ */
+  .pillar {
+    background: var(--paper);
+    border: 1px solid var(--g200);
+    padding: 5mm;
+    margin-bottom: 3mm;
+    display: grid;
+    grid-template-columns: 14mm 1fr;
+    gap: 5mm;
+    align-items: start;
+  }
+  .pillar-num {
+    font-family: var(--display);
+    font-size: 28pt;
+    font-weight: 800;
+    color: var(--fsesej-gold-deep);
+    line-height: 1;
+    text-align: center;
+    border-right: 1px solid var(--g200);
+    padding-right: 4mm;
+    letter-spacing: -1px;
+  }
+  .pillar-title {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 12pt;
+    color: var(--gp-navy);
+    margin-bottom: 1.5mm;
+    letter-spacing: -0.3px;
+  }
+  .pillar-desc { font-size: 9.5pt; line-height: 1.5; color: var(--gp-slate); }
+
+  /* ============ BANDS (highlights) ============ */
+  .band {
+    background: var(--gp-navy);
+    color: var(--near-white);
+    padding: 7mm 8mm;
+    margin: 5mm 0;
+  }
+  .band h3, .band h4 { color: var(--near-white); margin-top: 0; }
+  .band p { color: rgba(255,255,255,0.9); }
+  .band strong { color: var(--fsesej-gold); }
+  .band.gold {
+    background: linear-gradient(135deg, var(--fsesej-gold) 0%, var(--fsesej-gold-deep) 100%);
+    color: var(--gp-navy);
+  }
+  .band.gold h3, .band.gold h4, .band.gold p, .band.gold strong { color: var(--gp-navy); }
+  .band.red {
+    background: var(--gp-red);
+    color: var(--near-white);
+  }
+  .band.red strong { color: var(--fsesej-gold); }
+
+  /* ============ TOC ============ */
+  .toc-row {
+    display: grid;
+    grid-template-columns: 18mm 1fr 16mm;
+    gap: 3mm;
+    padding: 3mm 0;
+    border-bottom: 1px dotted var(--g300);
+    font-size: 10.5pt;
+    align-items: baseline;
+  }
+  .toc-num {
+    font-family: var(--display);
+    font-weight: 800;
+    color: var(--fsesej-gold-deep);
+    font-size: 13pt;
+    letter-spacing: -0.5px;
+  }
+  .toc-title { color: var(--gp-navy); font-weight: 500; }
+  .toc-page { text-align: right; color: var(--g500); font-weight: 700; font-size: 10pt; }
+
+  /* ============ PULLQUOTE ============ */
+  .pullquote {
+    font-family: var(--display);
+    font-size: 17pt;
+    line-height: 1.3;
+    color: var(--gp-navy);
+    font-style: italic;
+    font-weight: 500;
+    padding: 4mm 0 4mm 8mm;
+    border-left: 3px solid var(--gp-red);
+    margin: 6mm 0;
+    letter-spacing: -0.5px;
+  }
+  .pullquote .attribution {
+    font-family: var(--sans);
+    font-style: normal;
+    font-size: 9pt;
+    font-weight: 700;
+    color: var(--gp-red);
+    margin-top: 3mm;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  /* ============ STEPS ============ */
+  .step-flow {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 2mm;
+    margin: 5mm 0;
+  }
+  .step {
+    background: var(--paper);
+    border: 1px solid var(--g200);
+    padding: 4mm 3mm;
+    text-align: center;
+    position: relative;
+  }
+  .step-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 9mm;
+    height: 9mm;
+    border-radius: 50%;
+    background: var(--gp-navy);
+    color: var(--fsesej-gold);
+    font-family: var(--display);
+    font-weight: 800;
+    font-size: 11pt;
+    margin-bottom: 2.5mm;
+  }
+  .step-title {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 9.5pt;
+    color: var(--gp-navy);
+    margin-bottom: 1mm;
+    letter-spacing: -0.2px;
+  }
+  .step-desc { font-size: 8.5pt; color: var(--gp-slate); line-height: 1.35; }
+
+  /* ============ BENEFIT BOX ============ */
+  .benefit {
+    background: var(--paper);
+    border: 1px solid var(--g200);
+    padding: 4mm 5mm;
+    margin-bottom: 2.5mm;
+    display: grid;
+    grid-template-columns: 1fr 34mm;
+    gap: 4mm;
+    align-items: center;
+  }
+  .benefit-name {
+    font-family: var(--display);
+    font-weight: 700;
+    color: var(--gp-navy);
+    font-size: 10.5pt;
+    letter-spacing: -0.2px;
+  }
+  .benefit-desc { font-size: 9pt; color: var(--gp-slate); line-height: 1.4; margin-top: 1mm; }
+  .benefit-value {
+    text-align: right;
+    font-family: var(--display);
+    font-weight: 800;
+    font-size: 12pt;
+    color: var(--fsesej-gold-deep);
+    border-left: 1px solid var(--g200);
+    padding-left: 4mm;
+    letter-spacing: -0.5px;
+  }
+  .benefit.violet .benefit-value { color: var(--ipejal-violet); }
+
+  /* ============ LISTS ============ */
+  ul.styled, ol.styled { padding-left: 5mm; }
+  ul.styled li, ol.styled li { margin-bottom: 2mm; line-height: 1.5; color: var(--text); }
+  ul.styled li::marker { color: var(--gp-red); }
+
+  /* ============ CTA BOX ============ */
+  .cta-box {
+    background: linear-gradient(135deg, var(--gp-navy) 0%, var(--gp-navy-deep) 100%);
+    color: var(--near-white);
+    padding: 9mm 10mm;
+    margin: 5mm 0;
+    text-align: center;
+  }
+  .cta-box h2 {
+    color: var(--near-white);
+    margin: 0 0 4mm 0;
+    font-size: 17pt;
+  }
+  .cta-box p { color: rgba(255,255,255,0.9); }
+  .cta-box strong { color: var(--fsesej-gold); }
+
+  /* ============ SIGNATURE ============ */
+  .signature-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12mm;
+    margin-top: 12mm;
+    padding-top: 6mm;
+    border-top: 1px solid var(--g200);
+  }
+  .sig { text-align: center; }
+  .sig-line {
+    border-top: 1px solid var(--gp-navy);
+    margin: 18mm 4mm 2mm 4mm;
+  }
+  .sig-name {
+    font-family: var(--display);
+    font-weight: 700;
+    color: var(--gp-navy);
+    font-size: 11pt;
+    letter-spacing: -0.2px;
+  }
+  .sig-role {
+    font-size: 9pt;
+    color: var(--g500);
+    margin-top: 1mm;
+  }
+
+  /* ============ COVER BRANDS BAND ============ */
+  .cover-brands {
+    display: flex;
+    gap: 5mm;
+    align-items: center;
+    margin-bottom: 4mm;
+    flex-wrap: wrap;
+  }
+  .cover-brand-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(251,198,69,0.35);
+    padding: 3mm 5mm;
+    font-family: var(--display);
+    font-weight: 800;
+    font-size: 10pt;
+    color: var(--fsesej-gold);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
 
 </style>
 </head>
@@ -560,29 +668,40 @@ ul.styled li::marker { color: var(--gold); }
 <div class="page cover">
   <div class="cover-inner">
     <div>
-      <div class="gold-rule"></div>
-      <div class="eyebrow">Propuesta de convenio · Confidencial</div>
-      <h1>Familia FSESEJ + Plasencia.<br>Movilidad para servir a Jalisco.</h1>
-      <div class="subtitle">
-        Convenio de colaboración comercial entre Grupo Plasencia Automotriz y la Federación de Sindicatos de Empleados al Servicio de los Poderes del Estado, Municipios y Organismos Públicos Descentralizados en el Estado de Jalisco.
+      <div class="cover-mark">Grupo Plasencia Automotriz<span>Dirección de Marketing Corporativo</span></div>
+      <div class="cover-eyebrow">Propuesta de Convenio · Confidencial</div>
+      <h1 class="cover-title">Familia FSESEJ + Plasencia. <em>Movilidad para servir a Jalisco.</em></h1>
+      <div class="cover-title-after">Convenio de colaboración comercial entre el Grupo Plasencia Automotriz y la Federación de Sindicatos de Empleados al Servicio de los Poderes del Estado, Municipios y Organismos Públicos Descentralizados en el Estado de Jalisco.</div>
+      <div class="cover-pull">
+        Acceso al portafolio multimarca de Plasencia para los afiliados de los 104 sindicatos miembros y sus familiares directos, con paquete reforzado para electromovilidad alineado con el programa Energías Limpias de IPEJAL.
+        <cite>Tesis del convenio</cite>
       </div>
     </div>
 
     <div>
       <div class="cover-brands">
-        <div class="cover-brand-card">SEMINUEVOS</div>
-        <div class="cover-brand-card">HYUNDAI</div>
-        <div class="cover-brand-card">STELLANTIS</div>
-        <div class="cover-brand-card">+ FORD &middot; MAZDA</div>
+        <div class="cover-brand-card">Seminuevos</div>
+        <div class="cover-brand-card">Hyundai</div>
+        <div class="cover-brand-card">Stellantis</div>
+        <div class="cover-brand-card">Ford · Mazda</div>
       </div>
-      <div class="footer-meta">
-        <div>
-          Presenta <strong>Grupo Plasencia Automotriz</strong><br>
-          Guadalajara, Jalisco
+
+      <div class="cover-tags">
+        <div class="cover-tag accent">Strategy Definition</div>
+        <div class="cover-tag">Minto + SCR + Answer-First</div>
+        <div class="cover-tag urgent">v0.1 borrador</div>
+      </div>
+
+      <div class="cover-meta">
+        <div class="cover-meta-block">
+          <strong>Audiencia primaria</strong>
+          Quim. Isaac Filiberto Sánchez<br>
+          Secretario General · FSESEJ
         </div>
-        <div class="right">
-          <strong>v0.1 borrador</strong><br>
-          Mayo 2026
+        <div class="cover-meta-block" style="text-align: right;">
+          <strong>Mayo 2026</strong>
+          Guadalajara, Jalisco<br>
+          Documento confidencial
         </div>
       </div>
     </div>
@@ -591,50 +710,38 @@ ul.styled li::marker { color: var(--gold); }
 
 <!-- ====================== PAGE 2 — TOC ====================== -->
 <div class="page">
-  <div class="page-header">
-    <div class="brand">Grupo Plasencia &middot; FSESEJ</div>
-    <div class="doc-meta">Propuesta ejecutiva &middot; mayo 2026</div>
+  <span class="section-flag navy">Contenido</span>
+  <h1>¿Qué contiene esta propuesta?</h1>
+  <p class="lead">Catorce páginas estructuradas para que cualquier lector pueda decidir en cinco minutos o leer en veinte. La decisión vive en la página 14.</p>
+
+  <div style="margin-top: 8mm;">
+    <div class="toc-row"><div class="toc-num">01</div><div class="toc-title">Resumen ejecutivo · lo que proponemos en una página</div><div class="toc-page">03</div></div>
+    <div class="toc-row"><div class="toc-num">02</div><div class="toc-title">El momento · qué cambió en Jalisco que hace al convenio relevante hoy</div><div class="toc-page">04</div></div>
+    <div class="toc-row"><div class="toc-num">03</div><div class="toc-title">Por qué Plasencia · el grupo automotriz aliado del servidor público</div><div class="toc-page">05</div></div>
+    <div class="toc-row"><div class="toc-num">04</div><div class="toc-title">El convenio en una página</div><div class="toc-page">06</div></div>
+    <div class="toc-row"><div class="toc-num">05</div><div class="toc-title">Paquete BASE · Familia FSESEJ</div><div class="toc-page">07</div></div>
+    <div class="toc-row"><div class="toc-num">06</div><div class="toc-title">Paquete PREMIUM · IPEJAL Energías Limpias</div><div class="toc-page">08</div></div>
+    <div class="toc-row"><div class="toc-num">07</div><div class="toc-title">Cómo opera · del lead al embajador en cinco pasos</div><div class="toc-page">09</div></div>
+    <div class="toc-row"><div class="toc-num">08</div><div class="toc-title">Cobertura, sucursales y portafolio</div><div class="toc-page">10</div></div>
+    <div class="toc-row"><div class="toc-num">09</div><div class="toc-title">KPIs, revisión anual y transparencia mensual</div><div class="toc-page">11</div></div>
+    <div class="toc-row"><div class="toc-num">10</div><div class="toc-title">Volumen y proyección de impacto año 1</div><div class="toc-page">12</div></div>
+    <div class="toc-row"><div class="toc-num">11</div><div class="toc-title">Riesgos identificados y compromisos mutuos</div><div class="toc-page">13</div></div>
+    <div class="toc-row"><div class="toc-num">12</div><div class="toc-title">Próximos pasos · firmar y arrancar</div><div class="toc-page">14</div></div>
   </div>
 
-  <div class="eyebrow">Contenido</div>
-  <h1 style="font-size: 28pt; margin-bottom: 8mm;">¿Qué contiene esta propuesta?</h1>
-
-  <div class="toc-row"><div class="toc-num">01</div><div class="toc-title">Resumen ejecutivo &middot; lo que proponemos en una página</div><div class="toc-page">03</div></div>
-  <div class="toc-row"><div class="toc-num">02</div><div class="toc-title">El momento &middot; qué cambió en Jalisco que hace a este convenio relevante hoy</div><div class="toc-page">04</div></div>
-  <div class="toc-row"><div class="toc-num">03</div><div class="toc-title">Por qué Plasencia &middot; el grupo automotriz aliado del servidor público</div><div class="toc-page">05</div></div>
-  <div class="toc-row"><div class="toc-num">04</div><div class="toc-title">El convenio en una página</div><div class="toc-page">06</div></div>
-  <div class="toc-row"><div class="toc-num">05</div><div class="toc-title">Paquete BASE &middot; Familia FSESEJ</div><div class="toc-page">07</div></div>
-  <div class="toc-row"><div class="toc-num">06</div><div class="toc-title">Paquete PREMIUM &middot; IPEJAL Energías Limpias</div><div class="toc-page">08</div></div>
-  <div class="toc-row"><div class="toc-num">07</div><div class="toc-title">Cómo opera &middot; del lead al embajador en 5 pasos</div><div class="toc-page">09</div></div>
-  <div class="toc-row"><div class="toc-num">08</div><div class="toc-title">Cobertura, sucursales y portafolio</div><div class="toc-page">10</div></div>
-  <div class="toc-row"><div class="toc-num">09</div><div class="toc-title">KPIs, revisión anual y compromiso de transparencia</div><div class="toc-page">11</div></div>
-  <div class="toc-row"><div class="toc-num">10</div><div class="toc-title">Volumen y proyección de impacto año 1</div><div class="toc-page">12</div></div>
-  <div class="toc-row"><div class="toc-num">11</div><div class="toc-title">Riesgos y compromisos mutuos</div><div class="toc-page">13</div></div>
-  <div class="toc-row"><div class="toc-num">12</div><div class="toc-title">Próximos pasos &middot; firmar y arrancar</div><div class="toc-page">14</div></div>
-
-  <div class="band-gold band" style="margin-top: 12mm;">
-    <p style="font-size: 10pt;"><strong>Lectura ejecutiva (5 minutos):</strong> páginas 03 y 04. <strong>Lectura completa (20 minutos):</strong> documento íntegro. <strong>Decisión final:</strong> página 14.</p>
-  </div>
-
-  <div class="page-footer">
-    <div>Plasencia · FSESEJ · Convenio</div>
-    <div class="num">02</div>
+  <div class="band gold" style="margin-top: 10mm;">
+    <p style="font-size: 10pt;"><strong>Lectura ejecutiva (5 min):</strong> páginas 03 y 04. <strong>Lectura completa (20 min):</strong> documento íntegro. <strong>Decisión final:</strong> página 14.</p>
   </div>
 </div>
 
 <!-- ====================== PAGE 3 — RESUMEN EJECUTIVO ====================== -->
 <div class="page">
-  <div class="page-header">
-    <div class="brand">Grupo Plasencia &middot; FSESEJ</div>
-    <div class="doc-meta">01 &middot; Resumen ejecutivo</div>
-  </div>
-
-  <div class="eyebrow">01 &middot; Lo que proponemos</div>
+  <span class="section-flag red">01 · Lo que proponemos</span>
   <h1>Un convenio de movilidad para 187,364 familias.</h1>
 
-  <div class="answer-box">
+  <div class="answer">
     <h3>La respuesta primero</h3>
-    <p style="margin-top: 3mm;">Grupo Plasencia se convierte en el <strong>grupo automotriz aliado oficial</strong> de FSESEJ. Cada afiliado de los 104 sindicatos miembros, y sus familiares directos, acceden a un paquete de beneficios diferenciado: descuento preferente, placas y emplacamiento, tenencia primer año, seguro primer año, kit de equipamiento, garantía extendida y asesoría dedicada. Quienes se decidan por electromovilidad reciben adicionalmente <strong>wallbox de carga e instalación gratuita</strong>, alineado con el programa Energías Limpias de IPEJAL. El convenio tiene vigencia de 3 años, contraprestación de 3% sobre ventas aplicables, y arranca con 5 sucursales en la Zona Metropolitana de Guadalajara.</p>
+    <p>Grupo Plasencia se convierte en el <strong>grupo automotriz aliado oficial</strong> de FSESEJ. Cada afiliado de los 104 sindicatos miembros, y sus familiares directos, acceden a un paquete de beneficios diferenciado: descuento preferente, placas y emplacamiento, tenencia primer año, seguro primer año, kit de equipamiento, garantía extendida y asesoría dedicada. Quienes se decidan por electromovilidad reciben adicionalmente <strong>wallbox de carga e instalación</strong>, alineado con el programa Energías Limpias de IPEJAL. El convenio tiene vigencia de tres años, contraprestación de 3% sobre ventas aplicables, y arranca con cinco sucursales en la Zona Metropolitana de Guadalajara.</p>
   </div>
 
   <h3>Cinco razones por las que este convenio vale la pena para FSESEJ</h3>
@@ -651,7 +758,7 @@ ul.styled li::marker { color: var(--gold); }
     <div class="pillar-num">2</div>
     <div>
       <div class="pillar-title">Compatible con IPEJAL, no encima</div>
-      <div class="pillar-desc">El convenio se integra con el crédito IPEJAL existente (mediano plazo para auto, programa Energías Limpias para EV/HEV). Plasencia acompaña al afiliado en el trámite con asesor dedicado.</div>
+      <div class="pillar-desc">El convenio se integra con el crédito IPEJAL existente (mediano plazo para auto, programa Energías Limpias para EV y HEV). Plasencia acompaña al afiliado en el trámite con asesor dedicado.</div>
     </div>
   </div>
 
@@ -659,7 +766,7 @@ ul.styled li::marker { color: var(--gold); }
     <div class="pillar-num">3</div>
     <div>
       <div class="pillar-title">Familias también, no solo titular</div>
-      <div class="pillar-desc">Cónyuge e hijos mayores de edad acceden al beneficio. Multiplica por 2 o 3 el universo elegible sin esfuerzo administrativo extra.</div>
+      <div class="pillar-desc">Cónyuge e hijos mayores de edad acceden al beneficio. Multiplica por dos o tres el universo elegible sin esfuerzo administrativo extra.</div>
     </div>
   </div>
 
@@ -678,88 +785,68 @@ ul.styled li::marker { color: var(--gold); }
       <div class="pillar-desc">Cada mes FSESEJ recibe reporte de volumen, sindicatos activos, satisfacción y mix de electromovilidad. La relación se construye con datos, no con promesas.</div>
     </div>
   </div>
-
-  <div class="page-footer">
-    <div>Plasencia · FSESEJ · Convenio</div>
-    <div class="num">03</div>
-  </div>
 </div>
 
 <!-- ====================== PAGE 4 — EL MOMENTO (SCR) ====================== -->
 <div class="page">
-  <div class="page-header">
-    <div class="brand">Grupo Plasencia &middot; FSESEJ</div>
-    <div class="doc-meta">02 &middot; El momento</div>
-  </div>
+  <span class="section-flag red">02 · El momento</span>
+  <h1>Tres realidades simultáneas hacen al convenio relevante.</h1>
 
-  <div class="eyebrow">02 &middot; Por qué hoy</div>
-  <h1>Tres realidades simultáneas hacen este convenio relevante.</h1>
-
-  <div class="scr-box">
+  <div class="scr">
     <div class="scr-label">Situación</div>
-    <div>
-      <p>El servidor público de Jalisco vive un momento favorable para adquirir vehículo. <strong>IPEJAL operó en 2025</strong> 95,286 créditos por <strong>$12,808 MDP</strong>, de los cuales 1,606 fueron específicamente para automóvil con ticket promedio de $362,000. El programa <strong>"Convenio de Colaboración para Energías Limpias IPEJAL"</strong> ya está activo y empuja la decisión hacia vehículos eléctricos e híbridos. La capacidad financiera y la voluntad institucional están alineadas.</p>
+    <div class="scr-body">
+      <p>El servidor público de Jalisco vive un momento favorable para adquirir vehículo. <strong>IPEJAL operó en 2025</strong> 95,286 créditos por <strong>$12,808 MDP</strong>, de los cuales 1,606 fueron específicamente para automóvil con ticket promedio de $362,000. El programa <strong>Convenio de Colaboración para Energías Limpias IPEJAL</strong> ya está activo y empuja la decisión hacia vehículos eléctricos e híbridos. La capacidad financiera y la voluntad institucional están alineadas.</p>
     </div>
   </div>
 
-  <div class="scr-box">
+  <div class="scr">
     <div class="scr-label">Complicación</div>
-    <div>
-      <p>El afiliado, sin embargo, no recibe acompañamiento. Tiene crédito disponible pero enfrenta el proceso solo: comparar marcas, evaluar precios, gestionar placas y seguro por separado, decidir entre eléctrico e híbrido sin información comparativa, y todo en el tiempo que le quedan entre jornadas laborales. <strong>FSESEJ no cuenta hoy con un grupo automotriz aliado</strong> capaz de cubrir el portafolio completo, integrar el crédito IPEJAL en la conversación y entregar valor agregado real al afiliado.</p>
+    <div class="scr-body">
+      <p>El afiliado, sin embargo, no recibe acompañamiento. Tiene crédito disponible pero enfrenta el proceso solo: comparar marcas, evaluar precios, gestionar placas y seguro por separado, decidir entre eléctrico e híbrido sin información comparativa, y todo en el tiempo que le queda entre jornadas laborales. <strong>FSESEJ no cuenta hoy con un grupo automotriz aliado</strong> capaz de cubrir el portafolio completo, integrar el crédito IPEJAL en la conversación y entregar valor agregado real al afiliado.</p>
     </div>
   </div>
 
-  <div class="scr-box">
+  <div class="scr">
     <div class="scr-label">Resolución</div>
-    <div>
-      <p>Grupo Plasencia ofrece a FSESEJ exactamente eso: <strong>el grupo automotriz aliado de los servidores públicos de Jalisco</strong>. Portafolio multimarca, especialización en electromovilidad alineada con el programa IPEJAL, infraestructura digital probada (Motor de Atribución MVP corriendo desde abril 2026 con trazabilidad completa), 6 sucursales en ZMG, y un paquete de beneficios diseñado específicamente para el perfil del afiliado FSESEJ. El convenio formaliza esa alianza con KPIs medibles, transparencia mensual y revisión anual.</p>
+    <div class="scr-body">
+      <p>Grupo Plasencia ofrece a FSESEJ exactamente eso: <strong>el grupo automotriz aliado de los servidores públicos de Jalisco</strong>. Portafolio multimarca, especialización en electromovilidad alineada con el programa IPEJAL, infraestructura digital probada (Motor de Atribución MVP corriendo desde abril 2026 con trazabilidad completa), seis sucursales en ZMG y un paquete de beneficios diseñado específicamente para el perfil del afiliado FSESEJ. El convenio formaliza esa alianza con KPIs medibles, transparencia mensual y revisión anual.</p>
     </div>
   </div>
 
-  <div class="band">
+  <div class="band" style="margin-top: 8mm;">
     <h4 style="margin-top: 0;">Lo que está en juego para FSESEJ si NO sucede</h4>
     <p>Sin un aliado automotriz estructural, los 187,364 derechohabientes IPEJAL más los servidores municipales sin IPEJAL siguen comprando vehículo de forma fragmentada, dejando sobre la mesa <strong>$15,000 a $45,000 de valor agregado por compra</strong> que un convenio bien diseñado puede capturar. Y la oportunidad histórica de liderar la transición a electromovilidad dentro del sector público estatal pasa de largo.</p>
-  </div>
-
-  <div class="page-footer">
-    <div>Plasencia · FSESEJ · Convenio</div>
-    <div class="num">04</div>
   </div>
 </div>
 
 <!-- ====================== PAGE 5 — POR QUÉ PLASENCIA ====================== -->
 <div class="page">
-  <div class="page-header">
-    <div class="brand">Grupo Plasencia &middot; FSESEJ</div>
-    <div class="doc-meta">03 &middot; Por qué Plasencia</div>
-  </div>
-
-  <div class="eyebrow">03 &middot; El grupo</div>
-  <h1>Tres décadas vendiendo autos en Jalisco. Una infraestructura digital nueva. La misma seriedad.</h1>
+  <span class="section-flag red">03 · Por qué Plasencia</span>
+  <h1>Décadas vendiendo autos en Jalisco. Infraestructura digital nueva. La misma seriedad.</h1>
 
   <p class="lead">Grupo Plasencia Automotriz opera concesionarias multimarca en Jalisco con presencia consolidada en la Zona Metropolitana de Guadalajara. La promesa al afiliado FSESEJ no es solo descuento, es <strong>operación profesional verificable</strong>.</p>
 
-  <h3>Capacidades que hacen este convenio operable hoy</h3>
+  <h3 style="margin-top: 6mm;">Capacidades que hacen al convenio operable hoy</h3>
 
   <div class="grid-2" style="margin-top: 4mm;">
-    <div class="card card-navy">
+    <div class="card navy">
       <div class="label">Portafolio</div>
-      <div class="num" style="font-size: 18pt;">6 marcas</div>
-      <div class="desc">Seminuevos · Hyundai · Stellantis (RAM/Jeep/Dodge/Fiat/Peugeot) · Ford · Mazda. Cualquier perfil de afiliado encuentra opción.</div>
+      <div class="num">6 marcas</div>
+      <div class="desc">Seminuevos · Hyundai · Stellantis (RAM, Jeep, Dodge, Fiat, Peugeot) · Ford · Mazda. Cualquier perfil de afiliado encuentra opción.</div>
     </div>
-    <div class="card card-navy">
+    <div class="card navy">
       <div class="label">Sucursales en ZMG</div>
-      <div class="num" style="font-size: 18pt;">6+</div>
-      <div class="desc">López Mateos, Santa Anita, Bugámbilias, Galerías, González Gallo, Lote Otero. Capilaridad real.</div>
+      <div class="num">6+</div>
+      <div class="desc">López Mateos, Santa Anita, Bugámbilias, Galerías, González Gallo, Lote Otero. Capilaridad real en zona metropolitana.</div>
     </div>
-    <div class="card">
+    <div class="card violet">
       <div class="label">Electromovilidad</div>
-      <div class="num" style="font-size: 18pt;">12+ modelos</div>
-      <div class="desc">Hyundai IONIQ 5/6, Kona EV, Tucson/Santa Fe HEV; Jeep Wrangler/Grand Cherokee/Compass 4xe; Fiat 500e; Peugeot eléctricos.</div>
+      <div class="num">12+ modelos</div>
+      <div class="desc">Hyundai IONIQ 5/6, Kona EV, Tucson y Santa Fe HEV; Jeep Wrangler, Grand Cherokee y Compass 4xe; Fiat 500e; Peugeot eléctricos.</div>
     </div>
-    <div class="card">
+    <div class="card red">
       <div class="label">Plataforma digital</div>
-      <div class="num" style="font-size: 18pt;">LIVE</div>
+      <div class="num">LIVE</div>
       <div class="desc">Motor de Atribución MVP (abril 2026): trazabilidad completa de cada lead, reportes mensuales auditables.</div>
     </div>
   </div>
@@ -772,61 +859,41 @@ ul.styled li::marker { color: var(--gold); }
     El servidor público merece la misma calidad de servicio que cualquier cliente de Plasencia, más el valor agregado que su pertenencia a FSESEJ justifica.
     <div class="attribution">Principio rector del convenio</div>
   </div>
-
-  <div class="page-footer">
-    <div>Plasencia · FSESEJ · Convenio</div>
-    <div class="num">05</div>
-  </div>
 </div>
 
 <!-- ====================== PAGE 6 — EL CONVENIO EN UNA PÁGINA ====================== -->
 <div class="page">
-  <div class="page-header">
-    <div class="brand">Grupo Plasencia &middot; FSESEJ</div>
-    <div class="doc-meta">04 &middot; Convenio en una página</div>
-  </div>
-
-  <div class="eyebrow">04 &middot; One-pager</div>
+  <span class="section-flag gold">04 · One-pager</span>
   <h1>El convenio, en una página.</h1>
 
   <table>
     <tr><th style="width: 45mm;">Concepto</th><th>Definición</th></tr>
-    <tr><td><strong>Partes</strong></td><td>Grupo Plasencia Automotriz &middot; Empresa Operadora &middot; FSESEJ (beneficiario reconocido)</td></tr>
+    <tr><td><strong>Partes</strong></td><td>Grupo Plasencia Automotriz · Empresa Operadora · FSESEJ (beneficiario reconocido)</td></tr>
     <tr><td><strong>Objeto</strong></td><td>Ofrecer paquete preferencial de adquisición de vehículos y servicios anexos a los afiliados de los 104 sindicatos miembros de FSESEJ y a sus familiares directos</td></tr>
     <tr><td><strong>Universo</strong></td><td>187,364 derechohabientes IPEJAL + servidores municipales no IPEJAL + familiares directos. Estimación elegibles total: 300,000-450,000 personas</td></tr>
     <tr><td><strong>Beneficios al afiliado</strong></td><td>Paquete BASE: descuento + bono enganche + placas + tenencia + seguro 1 año + kit + garantía extendida + asesoría dedicada. Paquete PREMIUM (EV/HEV): + bono electromovilidad + wallbox + instalación + adaptador + asesoría energética</td></tr>
-    <tr><td><strong>Productos elegibles</strong></td><td>Auto nuevo (Hyundai, Stellantis, Ford, Mazda), Seminuevos certificados, Servicios anexos</td></tr>
+    <tr><td><strong>Productos elegibles</strong></td><td>Auto nuevo (Hyundai, Stellantis, Ford, Mazda), Seminuevos certificados, servicios anexos</td></tr>
     <tr><td><strong>Financiamiento</strong></td><td>Estatales: crédito IPEJAL (mediano plazo automóvil o Energías Limpias). Municipales: financiera del concesionario, banco aliado, descuento vía nómina</td></tr>
     <tr><td><strong>Contraprestación</strong></td><td>3% sobre ventas aplicables (1% FSESEJ + 2% Operador). Pagada por Plasencia, adicional al precio neto, sin sustituir el margen comercial</td></tr>
     <tr><td><strong>Verificación elegibilidad</strong></td><td>Credencial sindical, recibo de nómina o constancia oficial del sindicato. Validación operada por Operador en menos de 24h hábiles</td></tr>
-    <tr><td><strong>Liquidación</strong></td><td>Reporte mensual del Grupo, conciliación primeros 5 días hábiles, pago primeros 15 del mes siguiente, distribución 1% a FSESEJ primeros 20</td></tr>
+    <tr><td><strong>Liquidación</strong></td><td>Reporte mensual del Grupo, conciliación primeros 5 días hábiles, pago primeros 15 del mes siguiente, distribución del 1% a FSESEJ los primeros 20</td></tr>
     <tr><td><strong>Cobertura inicial</strong></td><td>5 sucursales piloto en ZMG, escalamiento ordenado conforme demanda</td></tr>
     <tr><td><strong>Exclusividad</strong></td><td>FSESEJ se compromete a no celebrar convenios análogos con otro grupo automotriz. Plasencia conserva libertad de relación con otros sindicatos o gremios</td></tr>
     <tr><td><strong>Vigencia</strong></td><td>3 años, renovable anualmente</td></tr>
     <tr><td><strong>Revisión</strong></td><td>Anual obligatoria, con ajuste de KPIs, beneficios o porcentajes si el desempeño lo justifica</td></tr>
-    <tr><td><strong>Auditoría</strong></td><td>Plasencia puede auditar al Operador 1 vez/año para verificar transferencia del 1% a FSESEJ</td></tr>
+    <tr><td><strong>Auditoría</strong></td><td>Plasencia puede auditar al Operador una vez al año para verificar transferencia del 1% a FSESEJ</td></tr>
     <tr><td><strong>Transparencia</strong></td><td>FSESEJ recibe reporte mensual con KPIs y dashboard de seguimiento</td></tr>
   </table>
 
-  <div class="band band-gold" style="margin-top: 6mm;">
+  <div class="band gold" style="margin-top: 6mm;">
     <p style="font-size: 10pt;"><strong>Lectura para FSESEJ:</strong> no es un acuerdo de palabra, es un instrumento medible. Cada cláusula se traduce en KPIs verificables. La relación se construye con datos mensuales, no con buenas intenciones.</p>
-  </div>
-
-  <div class="page-footer">
-    <div>Plasencia · FSESEJ · Convenio</div>
-    <div class="num">06</div>
   </div>
 </div>
 
 <!-- ====================== PAGE 7 — PAQUETE BASE ====================== -->
 <div class="page">
-  <div class="page-header">
-    <div class="brand">Grupo Plasencia &middot; FSESEJ</div>
-    <div class="doc-meta">05 &middot; Paquete BASE</div>
-  </div>
-
-  <div class="eyebrow">05 &middot; Lo que recibe el afiliado</div>
-  <h1>Paquete BASE &middot; Familia FSESEJ.</h1>
+  <span class="section-flag gold">05 · Lo que recibe el afiliado</span>
+  <h1>Paquete BASE · Familia FSESEJ.</h1>
 
   <p class="lead">Aplica a cualquier afiliado de FSESEJ y sus familiares directos, en compra de auto nuevo o seminuevo certificado del catálogo Plasencia.</p>
 
@@ -848,7 +915,7 @@ ul.styled li::marker { color: var(--gold); }
     <div class="benefit-value">$5,000 - $10,000</div>
   </div>
 
-  <h3 style="margin-top: 5mm;">Servicios incluidos</h3>
+  <h3>Servicios incluidos</h3>
 
   <div class="benefit">
     <div>
@@ -869,7 +936,7 @@ ul.styled li::marker { color: var(--gold); }
   <div class="benefit">
     <div>
       <div class="benefit-name">Kit de equipamiento básico</div>
-      <div class="benefit-desc">Tapetes, polarizado nivel 1, alerta de retroceso (si no viene de fábrica)</div>
+      <div class="benefit-desc">Tapetes, polarizado nivel 1, alerta de retroceso si no viene de fábrica</div>
     </div>
     <div class="benefit-value">$4,000 - $7,000</div>
   </div>
@@ -882,7 +949,7 @@ ul.styled li::marker { color: var(--gold); }
     <div class="benefit-value">$6,000 - $12,000</div>
   </div>
 
-  <h3 style="margin-top: 5mm;">Servicios de proceso (sin costo, alto valor)</h3>
+  <h3>Servicios de proceso (sin costo, alto valor)</h3>
 
   <ul class="styled">
     <li><strong>Asesor dedicado FSESEJ Especialista</strong> capacitado en proceso IPEJAL</li>
@@ -892,31 +959,21 @@ ul.styled li::marker { color: var(--gold); }
     <li><strong>Entrega ceremonial</strong> con kit de bienvenida institucional</li>
   </ul>
 
-  <div class="band-gold band" style="margin-top: 5mm;">
+  <div class="band gold" style="margin-top: 5mm;">
     <p style="font-size: 11pt; text-align: center;"><strong>Valor percibido total del paquete BASE: $25,500 - $47,500</strong> por afiliado, por compra.</p>
-  </div>
-
-  <div class="page-footer">
-    <div>Plasencia · FSESEJ · Convenio</div>
-    <div class="num">07</div>
   </div>
 </div>
 
 <!-- ====================== PAGE 8 — PAQUETE ENERGÍAS LIMPIAS ====================== -->
 <div class="page">
-  <div class="page-header">
-    <div class="brand">Grupo Plasencia &middot; FSESEJ</div>
-    <div class="doc-meta">06 &middot; Paquete PREMIUM</div>
-  </div>
-
-  <div class="eyebrow">06 &middot; Alineación con IPEJAL</div>
-  <h1>Paquete PREMIUM &middot; IPEJAL Energías Limpias.</h1>
+  <span class="section-flag violet">06 · Alineación con IPEJAL</span>
+  <h1>Paquete PREMIUM · IPEJAL Energías Limpias.</h1>
 
   <p class="lead">Aplica al afiliado que adquiere un vehículo <strong>eléctrico o híbrido</strong> del portafolio Plasencia, acreditado con el programa Energías Limpias de IPEJAL o con financiamiento alterno. Incluye todo el paquete BASE más los siguientes refuerzos.</p>
 
   <h3 style="margin-top: 5mm;">Refuerzos económicos</h3>
 
-  <div class="benefit">
+  <div class="benefit violet">
     <div>
       <div class="benefit-name">Bono adicional electromovilidad</div>
       <div class="benefit-desc">Reconocimiento a la decisión de electrificarse; compensa el premium del precio EV/HEV</div>
@@ -924,9 +981,9 @@ ul.styled li::marker { color: var(--gold); }
     <div class="benefit-value">$15,000 - $25,000</div>
   </div>
 
-  <h3 style="margin-top: 4mm;">Solución de carga completa</h3>
+  <h3>Solución de carga completa</h3>
 
-  <div class="benefit">
+  <div class="benefit violet">
     <div>
       <div class="benefit-name">Wallbox de carga AC nivel 2 (7.4 kW)</div>
       <div class="benefit-desc">Marca aliada, garantía y soporte técnico incluidos</div>
@@ -934,7 +991,7 @@ ul.styled li::marker { color: var(--gold); }
     <div class="benefit-value">$25,000 - $40,000</div>
   </div>
 
-  <div class="benefit">
+  <div class="benefit violet">
     <div>
       <div class="benefit-name">Instalación domiciliaria básica</div>
       <div class="benefit-desc">Hasta 5m de cableado, 1 punto eléctrico residencial, certificación de seguridad</div>
@@ -942,7 +999,7 @@ ul.styled li::marker { color: var(--gold); }
     <div class="benefit-value">$5,000 - $12,000</div>
   </div>
 
-  <div class="benefit">
+  <div class="benefit violet">
     <div>
       <div class="benefit-name">Adaptador móvil tipo 2</div>
       <div class="benefit-desc">Para tomacorriente convencional, uso emergente fuera de casa</div>
@@ -950,7 +1007,7 @@ ul.styled li::marker { color: var(--gold); }
     <div class="benefit-value">$2,500</div>
   </div>
 
-  <div class="benefit">
+  <div class="benefit violet">
     <div>
       <div class="benefit-name">Asesoría energética CFE</div>
       <div class="benefit-desc">Revisión de instalación eléctrica residencial, gestión de tarifa nocturna</div>
@@ -958,7 +1015,7 @@ ul.styled li::marker { color: var(--gold); }
     <div class="benefit-value">Servicio</div>
   </div>
 
-  <div class="benefit">
+  <div class="benefit violet">
     <div>
       <div class="benefit-name">Suscripción red pública de carga (12 meses)</div>
       <div class="benefit-desc">Convenio con red regional, sujeto a disponibilidad geográfica</div>
@@ -966,7 +1023,7 @@ ul.styled li::marker { color: var(--gold); }
     <div class="benefit-value">$3,000 - $6,000</div>
   </div>
 
-  <h3 style="margin-top: 4mm;">Programa Embajador Electromovilidad FSESEJ</h3>
+  <h3>Programa Embajador Electromovilidad FSESEJ</h3>
 
   <ul class="styled">
     <li>Kit comunicacional sindical para compartir experiencia con compañeros</li>
@@ -979,21 +1036,11 @@ ul.styled li::marker { color: var(--gold); }
     <h4 style="margin-top: 0;">Por qué este paquete es estratégico para FSESEJ</h4>
     <p>Posiciona a la federación como <strong>aliada de la transición energética de Jalisco</strong>. Mientras otros gremios siguen ofreciendo descuentos planos, FSESEJ aparece como la federación que llevó electromovilidad real a sus afiliados, alineada con el discurso público del Estado y con el programa institucional de IPEJAL.</p>
   </div>
-
-  <div class="page-footer">
-    <div>Plasencia · FSESEJ · Convenio</div>
-    <div class="num">08</div>
-  </div>
 </div>
 
 <!-- ====================== PAGE 9 — CÓMO OPERA ====================== -->
 <div class="page">
-  <div class="page-header">
-    <div class="brand">Grupo Plasencia &middot; FSESEJ</div>
-    <div class="doc-meta">07 &middot; Operación</div>
-  </div>
-
-  <div class="eyebrow">07 &middot; Del lead al embajador</div>
+  <span class="section-flag navy">07 · Del lead al embajador</span>
   <h1>Cómo opera el convenio.</h1>
 
   <p class="lead">El proceso del afiliado, en cinco pasos visibles, con sistemas de soporte invisibles que aseguran trazabilidad mensual.</p>
@@ -1049,21 +1096,11 @@ ul.styled li::marker { color: var(--gold); }
     <tr><td><strong>IPEJAL</strong></td><td>Otorgamiento del crédito al afiliado elegible (institucional, fuera del convenio)</td></tr>
     <tr><td><strong>Afiliado FSESEJ</strong></td><td>Presentar credencial o recibo de nómina, completar trámite IPEJAL, recibir su auto</td></tr>
   </table>
-
-  <div class="page-footer">
-    <div>Plasencia · FSESEJ · Convenio</div>
-    <div class="num">09</div>
-  </div>
 </div>
 
 <!-- ====================== PAGE 10 — COBERTURA ====================== -->
 <div class="page">
-  <div class="page-header">
-    <div class="brand">Grupo Plasencia &middot; FSESEJ</div>
-    <div class="doc-meta">08 &middot; Cobertura</div>
-  </div>
-
-  <div class="eyebrow">08 &middot; Sucursales y portafolio</div>
+  <span class="section-flag navy">08 · Cobertura</span>
   <h1>Dónde y con qué.</h1>
 
   <h3>Sucursales participantes en arranque</h3>
@@ -1073,15 +1110,15 @@ ul.styled li::marker { color: var(--gold); }
     <tr><td><strong>López Mateos</strong></td><td>López Mateos Sur, Zapopan</td><td>Seminuevos, Hyundai, Stellantis</td></tr>
     <tr><td><strong>Santa Anita</strong></td><td>Av. Camino Real a Colima, Tlaquepaque</td><td>Seminuevos, Hyundai, Stellantis</td></tr>
     <tr><td><strong>Bugámbilias</strong></td><td>Av. López Mateos Sur 8550, Zapopan</td><td>Seminuevos</td></tr>
-    <tr><td><strong>Galerías</strong></td><td>Zapopan</td><td>Seminuevos, Marcas selectas</td></tr>
-    <tr><td><strong>González Gallo</strong></td><td>Guadalajara</td><td>Seminuevos, Marcas selectas</td></tr>
+    <tr><td><strong>Galerías</strong></td><td>Zapopan</td><td>Seminuevos, marcas selectas</td></tr>
+    <tr><td><strong>González Gallo</strong></td><td>Guadalajara</td><td>Seminuevos, marcas selectas</td></tr>
     <tr><td><strong>Lote Otero</strong></td><td>López Mateos, Zapopan</td><td>Multimarca, sede piloto Motor de Atribución</td></tr>
   </table>
 
   <h3 style="margin-top: 6mm;">Portafolio de electromovilidad disponible</h3>
 
   <div class="grid-2">
-    <div class="card card-navy">
+    <div class="card violet">
       <div class="label">Hyundai</div>
       <ul class="styled" style="font-size: 9.5pt; padding-left: 4mm; margin-top: 2mm;">
         <li>IONIQ 5 (100% eléctrico)</li>
@@ -1091,7 +1128,7 @@ ul.styled li::marker { color: var(--gold); }
         <li>Santa Fe HEV</li>
       </ul>
     </div>
-    <div class="card card-navy">
+    <div class="card violet">
       <div class="label">Stellantis</div>
       <ul class="styled" style="font-size: 9.5pt; padding-left: 4mm; margin-top: 2mm;">
         <li>Jeep Wrangler 4xe</li>
@@ -1105,28 +1142,18 @@ ul.styled li::marker { color: var(--gold); }
 
   <h3 style="margin-top: 5mm;">Cobertura geográfica</h3>
 
-  <p>Las 6 sucursales cubren la Zona Metropolitana de Guadalajara (Guadalajara, Zapopan, Tlaquepaque, Tonalá). El convenio aplica a cualquier afiliado independientemente de su municipio de origen, siempre que la compra y entrega se realicen en una de las sucursales participantes.</p>
+  <p>Las seis sucursales cubren la Zona Metropolitana de Guadalajara (Guadalajara, Zapopan, Tlaquepaque, Tonalá). El convenio aplica a cualquier afiliado independientemente de su municipio de origen, siempre que la compra y entrega se realicen en una de las sucursales participantes.</p>
 
   <p><strong>Plan de expansión:</strong> al cumplir el primer año, las partes evaluarán incorporar sucursales adicionales del grupo en otros municipios del Estado de Jalisco según volumen alcanzado por sindicato.</p>
 
-  <h3 style="margin-top: 5mm;">Portafolio de combustión (paquete BASE)</h3>
+  <h3>Portafolio de combustión (paquete BASE)</h3>
 
   <p>Toda la gama de Hyundai (Accent, Elantra, Tucson, Santa Fe, Palisade), Stellantis (RAM 700/1500, Jeep Compass/Renegade, Dodge Attitude, Fiat Pulse/Mobi, Peugeot 2008/3008), Ford (Figo, Maverick, F-150 según disponibilidad) y Mazda (CX-3, CX-5, MX-30). Además del catálogo completo de Seminuevos Plasencia con piloto Sin Sorpresas activo desde mayo 2026.</p>
-
-  <div class="page-footer">
-    <div>Plasencia · FSESEJ · Convenio</div>
-    <div class="num">10</div>
-  </div>
 </div>
 
 <!-- ====================== PAGE 11 — KPIs ====================== -->
 <div class="page">
-  <div class="page-header">
-    <div class="brand">Grupo Plasencia &middot; FSESEJ</div>
-    <div class="doc-meta">09 &middot; KPIs</div>
-  </div>
-
-  <div class="eyebrow">09 &middot; Lo que se mide</div>
+  <span class="section-flag gold">09 · Lo que se mide</span>
   <h1>KPIs, revisión anual y transparencia mensual.</h1>
 
   <p class="lead">El convenio no es promesa, es instrumento medible. Cada mes FSESEJ recibe reporte. Cada año las partes revisan, ajustan y firman adenda si procede.</p>
@@ -1157,7 +1184,7 @@ ul.styled li::marker { color: var(--gold); }
     <li>Monto correspondiente del 1% a recibir y comprobante de transferencia</li>
   </ul>
 
-  <h3 style="margin-top: 4mm;">Revisión anual obligatoria</h3>
+  <h3>Revisión anual obligatoria</h3>
 
   <p>Cada aniversario del convenio, las tres partes (FSESEJ, Operador, Plasencia) sostendrán <strong>reunión formal de revisión</strong> donde se evalúa:</p>
 
@@ -1166,27 +1193,17 @@ ul.styled li::marker { color: var(--gold); }
     <li>Validez del paquete de beneficios y ajustes necesarios</li>
     <li>Ajuste de porcentaje de contraprestación según volumen efectivo</li>
     <li>Incorporación de sucursales y sindicatos adicionales</li>
-    <li>Posible incorporación de productos nuevos (Autolease, financiamiento alterno, etc.)</li>
+    <li>Posible incorporación de productos nuevos (Autolease, financiamiento alterno)</li>
   </ul>
 
-  <div class="band-gold band" style="margin-top: 4mm;">
+  <div class="band gold" style="margin-top: 4mm;">
     <p style="font-size: 10pt;"><strong>El compromiso:</strong> sin reporte mensual, sin reunión anual, sin transparencia, el convenio se considera incumplido. La relación se sostiene sobre datos, no sobre promesas.</p>
-  </div>
-
-  <div class="page-footer">
-    <div>Plasencia · FSESEJ · Convenio</div>
-    <div class="num">11</div>
   </div>
 </div>
 
 <!-- ====================== PAGE 12 — VOLUMEN E IMPACTO ====================== -->
 <div class="page">
-  <div class="page-header">
-    <div class="brand">Grupo Plasencia &middot; FSESEJ</div>
-    <div class="doc-meta">10 &middot; Volumen e impacto</div>
-  </div>
-
-  <div class="eyebrow">10 &middot; Proyección año 1</div>
+  <span class="section-flag red">10 · Proyección año 1</span>
   <h1>Lo que el convenio puede mover.</h1>
 
   <p class="lead">Proyecciones basadas en los datos públicos de IPEJAL 2025 y en la población elegible total de FSESEJ. Son escenarios indicativos para alineación de expectativas; los resultados reales dependen de la operación efectiva.</p>
@@ -1194,7 +1211,7 @@ ul.styled li::marker { color: var(--gold); }
   <div class="num-band" style="margin-top: 6mm;">
     <div class="num-stat">
       <div class="figure">187,364</div>
-      <div class="legend">Derechohabientes IPEJAL totales</div>
+      <div class="legend">Derechohabientes IPEJAL</div>
     </div>
     <div class="num-stat">
       <div class="figure">104</div>
@@ -1213,7 +1230,7 @@ ul.styled li::marker { color: var(--gold); }
   <h3 style="margin-top: 6mm;">Tres escenarios año 1</h3>
 
   <table>
-    <tr><th>Escenario</th><th>Captura IPEJAL</th><th>+ Universo municipal</th><th>Total unidades</th><th>Revenue estimado</th></tr>
+    <tr><th>Escenario</th><th>Captura IPEJAL</th><th>+ Municipal</th><th>Total unidades</th><th>Revenue estimado</th></tr>
     <tr><td><strong>Conservador</strong></td><td>10% (161)</td><td>80</td><td><strong>241</strong></td><td><strong>$87 MDP</strong></td></tr>
     <tr><td><strong>Realista</strong></td><td>18% (289)</td><td>130</td><td><strong>419</strong></td><td><strong>$152 MDP</strong></td></tr>
     <tr><td><strong>Optimista</strong></td><td>25% (402)</td><td>200</td><td><strong>602</strong></td><td><strong>$218 MDP</strong></td></tr>
@@ -1224,44 +1241,34 @@ ul.styled li::marker { color: var(--gold); }
   <div class="grid-3">
     <div class="card">
       <div class="label">Conservador</div>
-      <div class="num">$0.87 MDP</div>
+      <div class="num">$0.87M</div>
       <div class="desc">A FSESEJ por gestión gremial</div>
     </div>
-    <div class="card card-red">
+    <div class="card red">
       <div class="label">Realista</div>
-      <div class="num">$1.52 MDP</div>
+      <div class="num">$1.52M</div>
       <div class="desc">A FSESEJ por gestión gremial</div>
     </div>
     <div class="card">
       <div class="label">Optimista</div>
-      <div class="num">$2.18 MDP</div>
+      <div class="num">$2.18M</div>
       <div class="desc">A FSESEJ por gestión gremial</div>
     </div>
   </div>
 
   <h3 style="margin-top: 5mm;">Impacto para el afiliado (valor agregado total entregado)</h3>
 
-  <p>Con un valor promedio del paquete BASE de $35,000 por compra (mid-range), en el escenario realista de 419 unidades, el convenio transfiere a los afiliados de FSESEJ un valor agregado total de aproximadamente <strong>$14.7 MDP en el primer año</strong>, sin contar el paquete PREMIUM Energías Limpias que multiplica el valor por compra en EV/HEV.</p>
+  <p>Con un valor promedio del paquete BASE de $35,000 por compra, en el escenario realista de 419 unidades, el convenio transfiere a los afiliados de FSESEJ un valor agregado total de aproximadamente <strong>$14.7 MDP en el primer año</strong>, sin contar el paquete PREMIUM Energías Limpias que multiplica el valor por compra en EV/HEV.</p>
 
   <div class="band">
     <h4 style="margin-top: 0;">Lectura para FSESEJ</h4>
-    <p>El convenio entrega 10x más valor a la base de afiliados de lo que recauda como cuota gremial. Por cada peso que ingresa a FSESEJ por el 1%, los afiliados reciben aproximadamente <strong>10 pesos de valor agregado</strong> en sus compras. Esa es la propuesta económica concreta para los agremiados.</p>
-  </div>
-
-  <div class="page-footer">
-    <div>Plasencia · FSESEJ · Convenio</div>
-    <div class="num">12</div>
+    <p>El convenio entrega <strong>diez veces más valor a la base de afiliados</strong> de lo que recauda como cuota gremial. Por cada peso que ingresa a FSESEJ por el 1%, los afiliados reciben aproximadamente diez pesos de valor agregado en sus compras. Esa es la propuesta económica concreta para los agremiados.</p>
   </div>
 </div>
 
 <!-- ====================== PAGE 13 — RIESGOS Y COMPROMISOS ====================== -->
 <div class="page">
-  <div class="page-header">
-    <div class="brand">Grupo Plasencia &middot; FSESEJ</div>
-    <div class="doc-meta">11 &middot; Riesgos</div>
-  </div>
-
-  <div class="eyebrow">11 &middot; Honestidad mutua</div>
+  <span class="section-flag navy">11 · Honestidad mutua</span>
   <h1>Riesgos identificados y cómo los abordamos.</h1>
 
   <p class="lead">Un convenio honesto identifica sus riesgos antes de la firma. Aquí están los nuestros, con la mitigación específica para cada uno.</p>
@@ -1276,31 +1283,31 @@ ul.styled li::marker { color: var(--gold); }
     <tr><td>Verificación de elegibilidad tarda más de 24h</td><td>SLA contractual con el Operador; Plasencia puede aplicar verificación documental simplificada si Operador falla</td></tr>
   </table>
 
-  <h3 style="margin-top: 4mm;">Riesgos comerciales</h3>
+  <h3>Riesgos comerciales</h3>
 
   <table>
     <tr><th style="width: 55mm;">Riesgo</th><th>Mitigación</th></tr>
-    <tr><td>Afiliado percibe el paquete como "descuento normal" sin diferenciación</td><td>Materiales comunicacionales que desglosan el valor agregado real; comparativo "Plan abierto vs Plan FSESEJ"</td></tr>
+    <tr><td>Afiliado percibe el paquete como "descuento normal" sin diferenciación</td><td>Materiales comunicacionales que desglosan el valor agregado real; comparativo Plan abierto vs Plan FSESEJ</td></tr>
     <tr><td>Otra concesionaria mejora la oferta a FSESEJ</td><td>Cláusula de exclusividad FSESEJ con grupos automotrices durante vigencia; cláusula de mejora competitiva con derecho de empate</td></tr>
     <tr><td>Programa Energías Limpias IPEJAL se suspende o modifica</td><td>Convenio sobrevive con paquete BASE; cláusula de revisión inmediata si cambio sustantivo en condiciones IPEJAL</td></tr>
   </table>
 
-  <h3 style="margin-top: 4mm;">Riesgos reputacionales</h3>
+  <h3>Riesgos reputacionales</h3>
 
   <table>
     <tr><th style="width: 55mm;">Riesgo</th><th>Mitigación</th></tr>
     <tr><td>Cliente insatisfecho con el servicio escalando a FSESEJ</td><td>NPS mensual; canal de queja directo a FSESEJ con compromiso de respuesta en 5 días hábiles</td></tr>
-    <tr><td>Defectos de fábrica que afilados atribuyen al convenio</td><td>Clarificación en cotización: garantía oficial = responsabilidad del fabricante; convenio cubre solo lo que se describe</td></tr>
+    <tr><td>Defectos de fábrica que afiliados atribuyen al convenio</td><td>Clarificación en cotización: garantía oficial = responsabilidad del fabricante; convenio cubre solo lo que se describe</td></tr>
     <tr><td>Filtración de información personal de afiliados</td><td>Cláusula explícita LFPDPPP; reportes a FSESEJ sin datos personales individualizables; uso restringido del padrón</td></tr>
   </table>
 
-  <h3 style="margin-top: 4mm;">Compromisos explícitos</h3>
+  <h3>Compromisos explícitos del Grupo Plasencia</h3>
 
   <div class="pillar">
     <div class="pillar-num">A</div>
     <div>
-      <div class="pillar-title">Sostenibilidad de 3 años con revisión anual</div>
-      <div class="pillar-desc">Plasencia no propone una relación oportunista. Tres años con revisión anual obligatoria sostienen el convenio sin importar fluctuaciones de corto plazo.</div>
+      <div class="pillar-title">Sostenibilidad de tres años con revisión anual</div>
+      <div class="pillar-desc">No es relación oportunista. Tres años con revisión anual obligatoria sostienen el convenio sin importar fluctuaciones de corto plazo.</div>
     </div>
   </div>
 
@@ -1319,26 +1326,16 @@ ul.styled li::marker { color: var(--gold); }
       <div class="pillar-desc">El afiliado FSESEJ recibe la misma calidad de servicio que cualquier cliente Plasencia, más el valor agregado pactado. Nunca menos.</div>
     </div>
   </div>
-
-  <div class="page-footer">
-    <div>Plasencia · FSESEJ · Convenio</div>
-    <div class="num">13</div>
-  </div>
 </div>
 
 <!-- ====================== PAGE 14 — CIERRE Y ASK ====================== -->
 <div class="page">
-  <div class="page-header">
-    <div class="brand">Grupo Plasencia &middot; FSESEJ</div>
-    <div class="doc-meta">12 &middot; Próximos pasos</div>
-  </div>
-
-  <div class="eyebrow">12 &middot; El ask</div>
+  <span class="section-flag red">12 · El ask</span>
   <h1>Lo que pedimos para arrancar.</h1>
 
   <p class="lead">Esta propuesta es punto de partida, no destino final. Para convertirla en convenio firmado y operativo, planteamos los siguientes próximos pasos.</p>
 
-  <h3 style="margin-top: 6mm;">Fase 1 &middot; Validación (próximas 2 semanas)</h3>
+  <h3 style="margin-top: 6mm;">Fase 1 · Validación (próximas 2 semanas)</h3>
 
   <ul class="styled">
     <li>Reunión de alineación FSESEJ ↔ Plasencia ↔ Operador para confirmar diseño del paquete y términos comerciales</li>
@@ -1347,7 +1344,7 @@ ul.styled li::marker { color: var(--gold); }
     <li>Identificación formal del Operador y revisión de su instrumento jurídico con FSESEJ</li>
   </ul>
 
-  <h3>Fase 2 &middot; Producción operativa (semanas 3-6)</h3>
+  <h3>Fase 2 · Producción operativa (semanas 3-6)</h3>
 
   <ul class="styled">
     <li>Producción de materiales co-branded (digital + impreso)</li>
@@ -1358,7 +1355,7 @@ ul.styled li::marker { color: var(--gold); }
     <li>Reunión de difusión con delegados sindicales (representantes de los 104 sindicatos)</li>
   </ul>
 
-  <h3>Fase 3 &middot; Arranque (semana 7-8)</h3>
+  <h3>Fase 3 · Arranque (semana 7-8)</h3>
 
   <ul class="styled">
     <li>Firma del convenio en evento sindical de alta visibilidad</li>
@@ -1377,18 +1374,13 @@ ul.styled li::marker { color: var(--gold); }
     <div class="sig">
       <div class="sig-line"></div>
       <div class="sig-name">Quim. Isaac Filiberto Sánchez</div>
-      <div class="sig-role">Secretario General &middot; FSESEJ</div>
+      <div class="sig-role">Secretario General · FSESEJ</div>
     </div>
     <div class="sig">
       <div class="sig-line"></div>
-      <div class="sig-name">[Representante Legal]</div>
-      <div class="sig-role">Grupo Plasencia Automotriz</div>
+      <div class="sig-name">Grupo Plasencia Automotriz</div>
+      <div class="sig-role">Representante Legal · por definir</div>
     </div>
-  </div>
-
-  <div class="page-footer">
-    <div>Plasencia · FSESEJ · Convenio</div>
-    <div class="num">14</div>
   </div>
 </div>
 
