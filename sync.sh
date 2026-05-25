@@ -30,6 +30,7 @@ for f in \
   "El-Patron-Que-Gano-Experiencia-Plasencia.html" \
   "Discovery-Gerentes-MKT-Brief.html" \
   "Seminuevos-Sin-Sorpresas-Paper-Ejecutivo.html" \
+  "Seminuevos-Modelo-Operativo-Deck.html" \
   "Autolease-Definicion-Estrategica-Linea-Negocio.html" \
   "Autolease-Research-Readout.html" \
   "Vambe-Integration-Status-Memo.html"; do

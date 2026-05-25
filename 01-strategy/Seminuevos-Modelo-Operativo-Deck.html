@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seminuevos · Definición del modelo operativo · Escuadrón Seminuevos · 2026-05-25 · Grupo Plasencia Automotriz</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@500;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gp-red: #C8102E;
+  --gp-navy: #1E2740;
+  --gp-slate: #2D3748;
+  --green: #48BB78;
+  --deep-green: #276749;
+  --blue: #4299E1;
+  --deep-blue: #2B6CB0;
+  --amber: #D69E2E;
+  --gold: #ECC94B;
+  --bg: #F0F4F8;
+  --paper: #FFFFFF;
+  --near-white: #F7FAFC;
+  --g100: #EDF2F7;
+  --g200: #E2E8F0;
+  --g300: #CBD5E0;
+  --g400: #A0AEC0;
+  --g500: #718096;
+  --g600: #4A5568;
+  --text: #2D3748;
+  --serif: 'Playfair Display', Georgia, serif;
+  --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { width:100%; height:100%; overflow:hidden; background:#0d1117; font-family:var(--sans); -webkit-font-smoothing:antialiased; }
+
+.deck { width:100vw; height:100vh; position:relative; }
+.slide {
+  overflow:hidden; position:absolute; top:0; left:0;
+  width:1280px; height:720px; transform-origin:top left;
+  opacity:0; visibility:hidden;
+  transition: opacity .6s cubic-bezier(.4,0,.2,1);
+  display:flex; flex-direction:column;
+  background: var(--bg); color: var(--text);
+  box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 12px 40px rgba(30,39,64,.12);
+}
+.slide.active { opacity:1; visibility:visible; }
+.slide.cover { background: var(--gp-navy); color: var(--near-white); }
+
+#progress { opacity:.6; position:fixed; top:0; left:0; height:2px; background: var(--gold); z-index:9999; transition: width .4s cubic-bezier(.4,0,.2,1); }
+#counter { position:fixed; bottom:14px; right:22px; font-size:12px; font-weight:500; color: rgba(255,255,255,.5); z-index:9999; letter-spacing:.5px; font-family: var(--sans); }
+
+.t-eyebrow { font-family:var(--sans); font-size:10pt; font-weight:700; letter-spacing:4px; text-transform:uppercase; color: var(--gp-red); }
+.t-eyebrow.gold { color: var(--amber); }
+.t-eyebrow.blue { color: var(--blue); }
+.t-eyebrow.green { color: var(--deep-green); }
+.t-eyebrow.navy { color: var(--gp-navy); }
+.t-title-serif { font-family:var(--serif); font-weight:800; line-height:1.18; letter-spacing:-.8px; color: var(--gp-navy); }
+.t-title-serif em { font-style:italic; color: var(--gp-red); font-weight:700; }
+
+.divider-line { height:1px; background: var(--gold); }
+
+/* ==== COVER ==== */
+.cover-inner {
+  padding: 36px 64px 26px 64px;
+  flex:1; display:flex; flex-direction:column; justify-content:space-between;
+  background:
+    radial-gradient(ellipse at 100% 0%, rgba(236,201,75,.14) 0%, transparent 55%),
+    radial-gradient(ellipse at 0% 100%, rgba(200,16,46,.12) 0%, transparent 55%),
+    var(--gp-navy);
+  position:relative;
+}
+.cover-top { display:flex; justify-content:space-between; align-items:flex-start; }
+.cover-logo { height: 48px; width: auto; mix-blend-mode: screen; opacity:.95; }
+.cover-mark { font-family:var(--sans); font-weight:700; font-size:9.5pt; letter-spacing:3.5px; color: var(--gold); text-transform:uppercase; text-align:right; }
+.cover-mark span { display:block; font-weight:400; color: rgba(255,255,255,.55); margin-top:3px; letter-spacing:1px; font-size:8.5pt; }
+.cover-rule { width:120px; height:1px; background: var(--gold); margin: 14px 0 0 0; }
+.cover-eyebrow { font-family:var(--sans); font-size:9.5pt; font-weight:700; letter-spacing:4.5px; color: var(--gp-red); text-transform:uppercase; margin-top:14px; }
+.cover-title { font-family:var(--serif); font-weight:800; font-size:42pt; line-height:1.16; letter-spacing:-1.4px; margin-top:6px; color: var(--near-white); max-width:1020px; padding-bottom: 4px; }
+.cover-title em { font-style:italic; color: var(--gold); font-weight:700; }
+.cover-subtitle { font-family:var(--serif); font-weight:500; font-style:italic; font-size:14pt; color: var(--gold); margin-top:10px; letter-spacing:-.2px; line-height:1.3; max-width:980px; }
+.cover-pull { font-family:var(--serif); font-weight:500; font-style:italic; font-size:11.5pt; color: rgba(255,255,255,.88); line-height:1.55; border-left: 3px solid var(--gp-red); padding-left: 18px; margin-top: 18px; max-width: 1020px; }
+.cover-pull strong { font-style: normal; font-family: var(--sans); font-weight: 700; color: var(--near-white); }
+.cover-pull em { color: var(--gold); }
+.cover-tags { display:flex; gap:10px; margin-top:14px; flex-wrap:wrap; }
+.cover-tag { font-family:var(--sans); font-size:8.5pt; font-weight:600; letter-spacing:1px; color: rgba(255,255,255,.85); border: 1px solid rgba(255,255,255,.25); padding: 4px 11px; border-radius: 999px; text-transform:uppercase; }
+.cover-tag.accent { color: var(--gold); border-color: rgba(236,201,75,.4); }
+.cover-tag.urgent { color: var(--gp-red); border-color: rgba(200,16,46,.4); }
+.cover-meta { display:flex; justify-content:space-between; align-items:flex-end; border-top: 1px solid rgba(255,255,255,.15); padding-top:12px; }
+.cover-meta-block { font-size:8.5pt; color: rgba(255,255,255,.65); line-height:1.6; font-family: var(--sans); }
+.cover-meta-block strong { display:block; color: var(--near-white); font-weight:700; font-size:9.5pt; letter-spacing:.5px; }
+
+.cover-roster { display:flex; gap:12px; margin-top:16px; }
+.cov-pers { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.18); border-radius:8px; padding: 10px 14px; flex:1; }
+.cov-pers-name { font-family:var(--serif); font-weight:700; font-size:13pt; color: var(--near-white); letter-spacing:-.3px; }
+.cov-pers-role { font-family:var(--sans); font-size:8.5pt; font-weight:500; color: rgba(255,255,255,.65); margin-top:2px; }
+
+/* ==== CONTENT SLIDES (paper-style) ==== */
+.content { padding: 34px 52px 36px 52px; flex:1; display:flex; flex-direction:column; gap: 12px; position:relative; }
+.content::before { content:""; position:absolute; top:34px; left:52px; width:42px; height:3px; background: var(--gp-red); border-radius:2px; }
+.slide.foto .content::before { background: var(--gp-navy); }
+.slide.journey .content::before { background: var(--amber); }
+.slide.hoy .content::before { background: var(--blue); }
+.slide.rompe .content::before { background: var(--gp-red); }
+.slide.tesis .content::before { background: var(--gold); }
+.slide.quien .content::before { background: var(--amber); }
+.slide.blueprint .content::before { background: var(--blue); }
+.slide.decisiones .content::before { background: var(--gp-red); }
+.slide.cierre .content::before { background: var(--green); }
+
+.header-row { display:flex; align-items:flex-end; justify-content:space-between; margin-top: 14px; }
+.header-row .left { flex:1; }
+.header-row h1 { font-family:var(--serif); font-weight:800; font-size:28pt; line-height:1.18; letter-spacing:-.7px; color: var(--gp-navy); padding-bottom: 3px; }
+.header-row h1 em { font-style:italic; color: var(--gp-red); font-weight:700; }
+.slide.journey .header-row h1 em { color: var(--amber); }
+.slide.hoy .header-row h1 em { color: var(--blue); }
+.slide.rompe .header-row h1 em { color: var(--gp-red); }
+.slide.tesis .header-row h1 em { color: var(--amber); }
+.slide.quien .header-row h1 em { color: var(--amber); }
+.slide.blueprint .header-row h1 em { color: var(--blue); }
+.slide.decisiones .header-row h1 em { color: var(--gp-red); }
+.slide.cierre .header-row h1 em { color: var(--deep-green); }
+.header-row .lede { font-family:var(--sans); font-size:10pt; color: var(--g600); line-height:1.55; margin-top: 8px; max-width: 820px; }
+.header-row .lede strong { color: var(--gp-slate); }
+.header-row .lede em { font-style: italic; font-weight: 600; }
+.header-row .right { text-align:right; padding-left: 24px; }
+.hero-num { font-family:var(--serif); font-weight:900; font-size:48pt; line-height:1.25; letter-spacing:-1.6px; padding-bottom: 4px; color: var(--gp-navy); }
+.slide.journey .hero-num { color: var(--amber); }
+.slide.hoy .hero-num { color: var(--blue); }
+.slide.rompe .hero-num { color: var(--gp-red); }
+.slide.tesis .hero-num { color: var(--amber); }
+.slide.quien .hero-num { color: var(--amber); }
+.slide.blueprint .hero-num { color: var(--blue); }
+.slide.decisiones .hero-num { color: var(--gp-red); }
+.slide.cierre .hero-num { color: var(--deep-green); }
+.hero-sublabel { font-family:var(--sans); font-size:9pt; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color: var(--g500); margin-top: 4px; }
+.hero-focus { display:inline-block; font-family:var(--sans); font-size:8.5pt; font-weight:700; letter-spacing:1px; text-transform:uppercase; padding: 3px 10px; border-radius: 4px; margin-top: 6px; }
+.slide.journey .hero-focus { background: rgba(214,158,46,.12); color: var(--amber); }
+.slide.hoy .hero-focus { background: rgba(66,153,225,.12); color: var(--blue); }
+.slide.rompe .hero-focus { background: rgba(200,16,46,.12); color: var(--gp-red); }
+.slide.tesis .hero-focus { background: rgba(236,201,75,.16); color: var(--amber); }
+
+/* ==== Journey strip ==== */
+.journey-strip { display:grid; grid-template-columns: repeat(7, 1fr); gap:8px; }
+.j-step { background: var(--paper); border: 1px solid var(--g200); border-radius: 8px; padding: 10px 10px 12px 10px; position:relative; box-shadow: 0 1px 2px rgba(30,39,64,.04); }
+.j-step::after { content:'→'; position:absolute; right:-9px; top:50%; transform:translateY(-50%); color: var(--g400); font-size:13px; z-index:2; }
+.j-step:nth-child(7)::after { display:none; }
+.j-step.scope { border-color: var(--amber); background: rgba(214,158,46,.06); }
+.j-step.scope::before { content:""; position:absolute; top:0; left:0; right:0; height:2px; background: var(--amber); border-radius: 8px 8px 0 0; }
+.j-num { font-family:var(--sans); font-size:8pt; font-weight:700; letter-spacing:1.5px; color: var(--g500); text-transform: uppercase; }
+.j-title { font-family:var(--serif); font-weight:700; font-size:11pt; color: var(--gp-navy); line-height:1.2; margin-top: 4px; }
+.j-desc { font-family:var(--sans); font-size:8pt; color: var(--g500); margin-top: 6px; line-height:1.35; }
+.j-scope-tag { position:absolute; bottom:-7px; left: 50%; transform:translateX(-50%); font-family:var(--sans); font-size:7pt; font-weight:700; letter-spacing:1px; text-transform:uppercase; background: var(--amber); color: white; padding: 2px 6px; border-radius: 3px; }
+
+/* ==== KPI cards ==== */
+.kpi-block { display:grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.kpi-block.col4 { grid-template-columns: repeat(4, 1fr); }
+.kpi { background: var(--paper); border: 1px solid var(--g200); border-radius: 6px; padding: 12px 14px; min-height: 78px; box-shadow: 0 1px 2px rgba(30,39,64,.03); position:relative; }
+.kpi.featured { background: rgba(236,201,75,.06); border-color: rgba(236,201,75,.45); }
+.kpi.featured::before { content:""; position:absolute; left:0; top:0; bottom:0; width:3px; background: var(--gold); border-radius: 6px 0 0 6px; }
+.kpi.alert { background: rgba(200,16,46,.05); border-color: rgba(200,16,46,.35); }
+.kpi.alert::before { content:""; position:absolute; left:0; top:0; bottom:0; width:3px; background: var(--gp-red); border-radius: 6px 0 0 6px; }
+.kpi.win { background: rgba(72,187,120,.06); border-color: rgba(72,187,120,.4); }
+.kpi.win::before { content:""; position:absolute; left:0; top:0; bottom:0; width:3px; background: var(--green); border-radius: 6px 0 0 6px; }
+.kpi-label { font-family:var(--sans); font-size:8.5pt; font-weight:700; letter-spacing:1.2px; text-transform:uppercase; color: var(--g500); }
+.kpi-value { font-family:var(--serif); font-weight:800; font-size:20pt; color: var(--gp-navy); line-height:1.15; margin-top: 4px; letter-spacing:-.4px; }
+.kpi-value.gold { color: var(--amber); }
+.kpi-value.blue { color: var(--blue); }
+.kpi-value.red  { color: var(--gp-red); }
+.kpi-value.green{ color: var(--deep-green); }
+.kpi-value.muted{ color: var(--g400); }
+.kpi-value.big { font-size: 28pt; }
+.kpi-sub { font-family:var(--sans); font-size:9pt; color: var(--g500); margin-top: 5px; line-height:1.4; }
+.kpi-sub strong { color: var(--gp-slate); }
+
+/* ==== Section card / bars ==== */
+.section-card { background: var(--paper); border: 1px solid var(--g200); border-radius: 6px; padding: 14px 16px; box-shadow: 0 1px 2px rgba(30,39,64,.03); }
+.section-title { font-family:var(--sans); font-size:8.5pt; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color: var(--g500); margin-bottom: 10px; }
+.section-card p { font-family:var(--sans); font-size:9.5pt; color: var(--gp-slate); line-height:1.5; }
+.section-card p + p { margin-top: 7px; }
+.section-card p strong { color: var(--gp-navy); font-weight: 700; }
+
+.bar-row { display:flex; align-items:center; gap:10px; margin-bottom: 7px; font-family: var(--sans); }
+.bar-row:last-child { margin-bottom: 0; }
+.bar-row .lbl { flex:0 0 160px; color: var(--gp-slate); font-size: 9.5pt; white-space: nowrap; overflow:hidden; text-overflow: ellipsis; }
+.bar-row .bar { flex:1; height:8px; background: var(--g100); border-radius: 4px; overflow:hidden; }
+.bar-row .bar-fill { height:100%; border-radius: 4px; }
+.bar-row .n { flex:0 0 50px; text-align:right; font-family:var(--serif); font-weight:700; font-size:11pt; color: var(--gp-navy); }
+.fill-gold { background: var(--gold); }
+.fill-amber{ background: var(--amber); }
+.fill-blue { background: var(--blue); }
+.fill-red  { background: var(--gp-red); }
+.fill-green{ background: var(--green); }
+.fill-muted{ background: var(--g400); }
+
+/* ==== Note cards ==== */
+.note { background: var(--paper); border-left: 3px solid var(--gold); border-radius: 4px; padding: 9px 14px; font-family: var(--sans); font-size: 9.5pt; color: var(--gp-slate); line-height: 1.5; box-shadow: 0 1px 1px rgba(30,39,64,.03); }
+.note strong { color: var(--gp-navy); font-weight: 700; }
+.note.blue { border-left-color: var(--blue); }
+.note.amber { border-left-color: var(--amber); }
+.note.green { border-left-color: var(--green); }
+.note.red { border-left-color: var(--gp-red); }
+.note.navy { border-left-color: var(--gp-navy); }
+.note-tag { font-family:var(--sans); font-size:8pt; font-weight:700; letter-spacing:1px; text-transform:uppercase; color: var(--gold); margin-right:6px; }
+.note.blue .note-tag { color: var(--blue); }
+.note.amber .note-tag { color: var(--amber); }
+.note.green .note-tag { color: var(--deep-green); }
+.note.red .note-tag { color: var(--gp-red); }
+.note.navy .note-tag { color: var(--gp-navy); }
+
+/* ==== Table ==== */
+table.comp { width:100%; border-collapse:collapse; font-family:var(--sans); font-size:10pt; background: var(--paper); border: 1px solid var(--g200); border-radius: 6px; overflow: hidden; box-shadow: 0 1px 2px rgba(30,39,64,.03); }
+table.comp th { text-align:left; padding: 10px 12px; font-weight:700; font-size:8.5pt; letter-spacing:1.2px; text-transform:uppercase; color: var(--g500); border-bottom: 1px solid var(--g200); background: var(--g100); }
+table.comp th.num, table.comp td.num { text-align:right; }
+table.comp th.center, table.comp td.center { text-align:center; }
+table.comp td { padding: 9px 12px; border-bottom: 1px solid var(--g200); color: var(--gp-slate); vertical-align:middle; line-height:1.4; font-size: 9.5pt; }
+table.comp td.role { font-family:var(--serif); font-weight:800; font-size:11pt; letter-spacing:-.2px; }
+table.comp .role.mkt { color: var(--blue); }
+table.comp .role.act { color: var(--amber); }
+table.comp .role.piso { color: var(--gp-red); }
+table.comp tr:last-child td { border-bottom: none; }
+table.comp .good { color: var(--deep-green); font-weight: 700; }
+table.comp .bad  { color: var(--gp-red); font-weight: 600; }
+table.comp .owner-cell { font-weight: 700; }
+
+/* ==== Tesis slide (S6) — destacada ==== */
+.tesis-hero { background: var(--paper); border: 1px solid var(--g200); border-radius: 10px; padding: 22px 28px; box-shadow: 0 4px 14px rgba(30,39,64,.06); border-left: 4px solid var(--gold); margin-top: 8px; }
+.tesis-quote { font-family: var(--serif); font-weight: 700; font-style: italic; font-size: 18pt; color: var(--gp-navy); line-height: 1.32; letter-spacing: -.4px; }
+.tesis-quote em { color: var(--amber); font-style: italic; }
+.tesis-quote strong { font-style: normal; color: var(--gp-red); font-weight: 800; }
+
+.roles-grid { display:grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 4px; }
+.role-card { background: var(--paper); border: 1px solid var(--g200); border-radius: 8px; padding: 14px 18px; position:relative; box-shadow: 0 1px 2px rgba(30,39,64,.04); }
+.role-card::before { content:""; position:absolute; top:0; left:0; right:0; height:3px; border-radius: 8px 8px 0 0; }
+.role-card.mkt::before { background: var(--blue); }
+.role-card.act::before { background: var(--amber); }
+.role-card.piso::before { background: var(--gp-red); }
+.role-name { font-family:var(--serif); font-weight:800; font-size: 15pt; color: var(--gp-navy); letter-spacing: -.3px; }
+.role-card.mkt .role-name { color: var(--deep-blue); }
+.role-card.act .role-name { color: var(--amber); }
+.role-card.piso .role-name { color: var(--gp-red); }
+.role-tag { display:inline-block; font-family:var(--sans); font-size:7.5pt; font-weight:700; letter-spacing:1.2px; text-transform:uppercase; padding: 2px 8px; border-radius: 3px; margin-top: 4px; }
+.role-card.mkt .role-tag { background: rgba(66,153,225,.12); color: var(--blue); }
+.role-card.act .role-tag { background: rgba(214,158,46,.16); color: var(--amber); }
+.role-card.piso .role-tag { background: rgba(200,16,46,.12); color: var(--gp-red); }
+.role-desc { font-family:var(--sans); font-size:9pt; color: var(--gp-slate); line-height:1.5; margin-top: 8px; }
+.role-metric { font-family:var(--sans); font-size:8pt; font-weight:600; color: var(--g500); margin-top: 8px; padding-top: 8px; border-top: 1px dashed var(--g200); line-height: 1.4; }
+.role-metric strong { color: var(--gp-navy); font-weight: 700; }
+
+/* ==== Blueprint table ==== */
+table.blueprint { width:100%; border-collapse:collapse; font-family:var(--sans); font-size:9pt; background: var(--paper); border: 1px solid var(--g200); border-radius: 6px; overflow: hidden; box-shadow: 0 1px 2px rgba(30,39,64,.03); }
+table.blueprint th { text-align:left; padding: 8px 10px; font-weight:700; font-size:8pt; letter-spacing:1px; text-transform:uppercase; color: var(--g500); border-bottom: 1px solid var(--g200); background: var(--g100); }
+table.blueprint td { padding: 8px 10px; border-bottom: 1px solid var(--g200); color: var(--gp-slate); vertical-align:top; line-height:1.4; font-size:9pt; }
+table.blueprint td.stage { font-family:var(--serif); font-weight:700; font-size:10pt; color: var(--gp-navy); white-space: nowrap; }
+table.blueprint tr:last-child td { border-bottom: none; }
+table.blueprint td.owner-mkt { color: var(--deep-blue); font-weight: 700; }
+table.blueprint td.owner-act { color: var(--amber); font-weight: 700; }
+table.blueprint td.owner-piso { color: var(--gp-red); font-weight: 700; }
+table.blueprint td.owner-both { background: linear-gradient(90deg, rgba(66,153,225,.06) 0%, rgba(214,158,46,.08) 100%); font-weight: 700; color: var(--gp-slate); }
+
+/* ==== Decisiones grid ==== */
+.dec-grid { display:grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
+.dec-card { background: var(--paper); border: 1px solid var(--g200); border-radius: 8px; padding: 12px 14px; position:relative; box-shadow: 0 1px 2px rgba(30,39,64,.03); }
+.dec-num { position:absolute; top:8px; right:10px; font-family:var(--serif); font-weight:900; font-size:18pt; color: var(--gp-red); line-height:1; opacity:.5; }
+.dec-lbl { font-family:var(--sans); font-size:8pt; font-weight:700; letter-spacing:1.2px; text-transform:uppercase; color: var(--gp-red); }
+.dec-q { font-family:var(--serif); font-weight:700; font-size:11pt; color: var(--gp-navy); margin-top: 6px; line-height: 1.25; letter-spacing: -.2px; }
+.dec-opt { font-family:var(--sans); font-size:8.5pt; color: var(--g600); margin-top: 8px; padding-top: 8px; border-top: 1px dashed var(--g200); line-height: 1.4; }
+.dec-opt strong { color: var(--gp-slate); font-weight: 700; }
+
+/* ==== Closing slide ==== */
+.cierre-grid { display:grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.cierre-col { background: var(--paper); border: 1px solid var(--g200); border-radius: 8px; padding: 14px 16px; box-shadow: 0 1px 2px rgba(30,39,64,.03); }
+.cierre-col h3 { font-family:var(--serif); font-weight:800; font-size:13pt; color: var(--gp-navy); margin-bottom: 4px; }
+.cierre-col h3 em { color: var(--deep-green); font-style:italic; }
+.cierre-col .sub { font-family:var(--sans); font-size:8pt; font-weight:700; letter-spacing:1px; text-transform:uppercase; color: var(--g500); margin-bottom: 10px; }
+.cierre-item { display:flex; gap:8px; padding: 5px 0; border-bottom: 1px dashed var(--g200); font-family: var(--sans); font-size: 9pt; color: var(--gp-slate); line-height: 1.4; }
+.cierre-item:last-child { border-bottom: none; }
+.cierre-item .b { font-family: var(--serif); font-weight:800; font-size:10pt; flex:0 0 auto; min-width: 30px; color: var(--deep-green); line-height: 1; padding-top: 2px; }
+.cierre-conclusion { background: var(--gp-navy); color: var(--near-white); border-radius:8px; padding: 16px 22px; font-family: var(--serif); font-weight:500; font-style:italic; font-size:13pt; line-height: 1.5; border-left: 3px solid var(--gold); margin-top: 4px; }
+.cierre-conclusion strong { font-style: normal; font-family: var(--sans); font-weight:700; color: var(--gold); }
+.cierre-conclusion em { color: var(--gold); }
+
+/* ==== Footers ==== */
+.slide-footer { position:absolute; bottom: 12px; left: 52px; right: 52px; display:flex; justify-content:space-between; align-items:center; font-family: var(--sans); font-size: 7.5pt; letter-spacing:.8px; color: var(--g400); text-transform: uppercase; border-top: 1px solid var(--g200); padding-top: 8px; }
+.slide-footer .gp-mini { display:flex; align-items:center; gap:6px; font-weight:700; color: var(--gp-navy); letter-spacing: 2px; }
+.slide-footer .gp-mini .dot { width:5px; height:5px; border-radius:50%; background: var(--gp-red); }
+.slide.cover .slide-footer { display:none; }
+.slide-label { position:absolute; top: 18px; right: 52px; font-family:var(--sans); font-size: 8pt; letter-spacing: 1.8px; text-transform: uppercase; color: var(--g400); }
+.slide.cover .slide-label { display:none; }
+.page-chip { position:absolute; top: 18px; left: 52px; font-family:var(--serif); font-weight: 800; font-size: 11pt; color: var(--gp-red); letter-spacing:-.3px; }
+.slide.cover .page-chip { display:none; }
+
+@media print {
+  @page { size: 1280px 720px landscape; margin: 0; }
+  html, body { overflow:visible; background:#fff; }
+  .slide { position:relative !important; opacity:1 !important; visibility:visible !important; transform:none !important; left:auto !important; top:auto !important; page-break-after: always; box-shadow:none; }
+  .slide:last-child { page-break-after: avoid; }
+  #progress, #counter { display:none; }
+}
+</style>
+</head>
+<body>
+
+<div id="progress"></div>
+<div id="counter"></div>
+
+<div class="deck" id="deck">
+
+<!-- SLIDE 1 — COVER -->
+<section class="slide cover active" data-slide="cover">
+  <div class="cover-inner">
+    <div>
+      <div class="cover-top">
+        <img class="cover-logo" src="../assets/logos/LOGO-GP-Blanco.png" alt="Grupo Plasencia Automotriz">
+        <div class="cover-mark">Escuadrón Seminuevos<span>Definición Estratégica · Capítulo Adquisición</span></div>
+      </div>
+      <div class="cover-rule"></div>
+      <div class="cover-eyebrow">Documento de Alineación · Mayo 2026</div>
+      <h1 class="cover-title">Seminuevos · definición del<br><em>modelo operativo</em>.</h1>
+      <div class="cover-subtitle">Antes de elegir herramientas o escalar inversión, alinear quién hace qué entre marketing y ventas.</div>
+
+      <div class="cover-pull">
+        El capítulo de Adquisición de Seminuevos necesita <strong>tres responsables operativos</strong> —no dos— con métricas que no se contradigan. <strong>Marketing te trae al piso</strong>. <strong>Ventas Piso te cierra en el piso</strong>. <em>La figura que falta hoy</em> es la de <strong>Activación</strong>: la que asegura que el lead generado llegue físicamente al lote. Sin ella, ninguna inversión adicional en adquisición digital cambia la aguja del negocio.
+      </div>
+
+      <div class="cover-roster">
+        <div class="cov-pers">
+          <div class="cov-pers-name">Pepe Morales</div>
+          <div class="cov-pers-role">Sponsor · Dirección General</div>
+        </div>
+        <div class="cov-pers">
+          <div class="cov-pers-name">Chucho Porras</div>
+          <div class="cov-pers-role">Dirección Marketing Corporativo</div>
+        </div>
+        <div class="cov-pers">
+          <div class="cov-pers-name">Jonathan Medina</div>
+          <div class="cov-pers-role">Dirección Comercial</div>
+        </div>
+        <div class="cov-pers">
+          <div class="cov-pers-name">Pepe Reyes</div>
+          <div class="cov-pers-role">Gerencia Ventas Digitales</div>
+        </div>
+      </div>
+
+      <div class="cover-tags">
+        <span class="cover-tag accent">Strategy Definition</span>
+        <span class="cover-tag">Capítulo · Adquisición</span>
+        <span class="cover-tag">Fuente · Pipeline Snapshot 21-may-2026</span>
+        <span class="cover-tag urgent">Confidencial · Uso interno</span>
+      </div>
+    </div>
+
+    <div class="cover-meta">
+      <div class="cover-meta-block">
+        <strong>Dirección Marketing Corporativo</strong>
+        Grupo Plasencia Automotriz
+      </div>
+      <div class="cover-meta-block" style="text-align:center;">
+        <strong>Borrador de trabajo</strong>
+        Para discusión del Escuadrón
+      </div>
+      <div class="cover-meta-block" style="text-align:right;">
+        <strong>2026-05-25</strong>
+        Versión 1.0 · Base de alineación
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 2 — LA PREGUNTA DE FONDO -->
+<section class="slide foto" data-slide="pregunta">
+  <div class="slide-label">Foto compartida · La pregunta de fondo</div>
+  <div class="page-chip">01</div>
+  <div class="content">
+
+    <div class="header-row">
+      <div class="left">
+        <div class="t-eyebrow navy">El punto de partida del Escuadrón</div>
+        <h1>Estamos discutiendo <em>la pregunta equivocada</em>.</h1>
+        <div class="lede">Dos iniciativas paralelas dentro de la casa persiguen vender más Seminuevos digitalmente: el <strong>piloto del Motor de Atribución</strong> (Marketing Corporativo) y la <strong>operación Vambe</strong> (Ventas Digitales). Las dos producen resultados. La conversación táctica entre ellas —cuál herramienta usar, cuál escalar, cuál pausar— no es la que está moviendo la aguja del negocio. La data de los últimos 38 días dice otra cosa.</div>
+      </div>
+      <div class="right">
+        <div class="hero-num" style="color: var(--gp-navy);">370</div>
+        <div class="hero-sublabel">oportunidades 38 días</div>
+      </div>
+    </div>
+
+    <div class="kpi-block col4">
+      <div class="kpi">
+        <div class="kpi-label">Oportunidades generadas</div>
+        <div class="kpi-value">370</div>
+        <div class="kpi-sub">Seminuevos 74 · Hyundai 152 · Stellantis 144 · 38 días de piloto</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">Inversión digital total</div>
+        <div class="kpi-value">$46K</div>
+        <div class="kpi-sub">Meta + Google · 3 marcas · $125 promedio por interesado</div>
+      </div>
+      <div class="kpi alert">
+        <div class="kpi-label">Sin primer contacto</div>
+        <div class="kpi-value red">79%</div>
+        <div class="kpi-sub">Del pipeline activo Seminuevos sigue esperando que alguien llame</div>
+      </div>
+      <div class="kpi win">
+        <div class="kpi-label">Ventas cerradas</div>
+        <div class="kpi-value green">1</div>
+        <div class="kpi-sub">OMODA O5 · $289K · López Mateos · única venta del piloto en 38 días</div>
+      </div>
+    </div>
+
+    <div class="section-card">
+      <div class="section-title">La pregunta correcta</div>
+      <p>El canal de adquisición arrojó 370 personas distintas con nombre, teléfono y vehículo de interés. <strong>Eso funciona.</strong> La pregunta no es "¿qué herramienta es mejor?" ni "¿cuánto más invertimos en paid?". Es: <strong>¿quién se hace responsable de gestionar el lead entre el momento en que entra al pipeline y el momento en que llega al piso?</strong></p>
+      <p>Hoy no existe respuesta clara a esa pregunta. Este documento la propone.</p>
+    </div>
+
+    <div class="note navy">
+      <span class="note-tag">Cómo leer este deck</span>
+      <strong>5 minutos:</strong> esta slide. <strong>15 minutos:</strong> slides 3, 6 y 9. <strong>30 minutos:</strong> el deck completo. <strong>Profundidad:</strong> documento base <code>Seminuevos-Modelo-Operativo-Definicion-Estrategica.md</code>.
+    </div>
+
+  </div>
+  <div class="slide-footer">
+    <span>Fuente · Pipeline al 21-may-2026 · Meta/Google 30 días al 24-may · D1 crm-plasencia-db</span>
+    <span class="gp-mini"><span class="dot"></span>Grupo Plasencia · Dirección MKT Corporativo</span>
+  </div>
+</section>
+
+<!-- SLIDE 3 — EL CLIENTE QUE QUEREMOS VENDER -->
+<section class="slide journey" data-slide="journey">
+  <div class="slide-label">El cliente · Customer journey</div>
+  <div class="page-chip">02</div>
+  <div class="content">
+
+    <div class="header-row">
+      <div class="left">
+        <div class="t-eyebrow gold">Antes de hablar de organización · hablemos del cliente</div>
+        <h1>El camino del <em>comprador de seminuevo</em>.</h1>
+        <div class="lede">Cada miembro del Escuadrón ve una parte distinta del camino del cliente todos los días. Lo dibujamos completo —de la necesidad inicial a la recompra— para que todos veamos el mismo mapa. Este documento aborda <strong>las 5 primeras etapas</strong>: el capítulo de Adquisición. Termina cuando el cliente pisa el piso.</div>
+      </div>
+      <div class="right">
+        <div class="hero-num">7</div>
+        <div class="hero-sublabel">etapas · 5 en este capítulo</div>
+        <span class="hero-focus">Capítulo Adquisición</span>
+      </div>
+    </div>
+
+    <div class="journey-strip">
+      <div class="j-step scope"><div class="j-num">Etapa 1</div><div class="j-title">Necesita un coche distinto</div><div class="j-desc">Algo cambió: familia, trabajo, su auto falla, primer auto, upgrade. Plasencia aparece si la marca está bien construida.</div></div>
+      <div class="j-step scope"><div class="j-num">Etapa 2</div><div class="j-title">Investiga opciones</div><div class="j-desc">Google, IG, Marketplace, recomendaciones. Compara marcas, modelos, precios. Plasencia compite con Kavak, ML, otras agencias.</div></div>
+      <div class="j-step scope"><div class="j-num">Etapa 3</div><div class="j-title">Pide información a Plasencia</div><div class="j-desc">Formulario web, click-to-WhatsApp, llamada, DM, walk-in. Primer contacto, sale del anonimato.</div></div>
+      <div class="j-step scope"><div class="j-num">Etapa 4</div><div class="j-title">Plasencia responde y lo califica</div><div class="j-desc">Alguien dentro de la casa responde, perfila vehículo/presupuesto/plazo, agenda visita al piso.</div></div>
+      <div class="j-step scope"><div class="j-num">Etapa 5</div><div class="j-title">Visita el piso</div><div class="j-desc">Llega físicamente al lote. Lo recibe asesor, prueba el auto, ve documentos, hace cotización formal.</div></div>
+      <div class="j-step"><div class="j-num">Etapa 6</div><div class="j-title">Compra el coche</div><div class="j-desc">Acepta oferta, firma, paga, recibe el auto, sale manejando. Capítulo Experiencia + Operaciones.</div></div>
+      <div class="j-step"><div class="j-num">Etapa 7</div><div class="j-title">Vive como cliente Plasencia</div><div class="j-desc">Servicio, garantía, NPS, referidos, recompra a 3-5 años. Capítulo Postventa + Recompra.</div></div>
+    </div>
+
+    <div class="note amber">
+      <span class="note-tag">Por qué empezar por Adquisición</span>
+      El piso de venta <strong>sabe cerrar</strong>: 75 años de oficio. Lo que históricamente no ha sido oficio del negocio es conseguir que el cliente llegue al piso desde un canal digital. Resolver eso primero hace que los siguientes capítulos reciban clientes mejor calificados y se vuelvan más fáciles de optimizar.
+    </div>
+
+  </div>
+  <div class="slide-footer">
+    <span>Documento base §2 · El cliente que queremos vender</span>
+    <span class="gp-mini"><span class="dot"></span>Grupo Plasencia · Dirección MKT Corporativo</span>
+  </div>
+</section>
+
+<!-- SLIDE 4 — DÓNDE ESTAMOS HOY -->
+<section class="slide hoy" data-slide="hoy">
+  <div class="slide-label">Dónde estamos hoy · Las 2 iniciativas</div>
+  <div class="page-chip">03</div>
+  <div class="content">
+
+    <div class="header-row">
+      <div class="left">
+        <div class="t-eyebrow" style="color: var(--blue);">Dos iniciativas legítimas · mismo objetivo</div>
+        <h1>Cada una <em>está haciendo bien</em> lo suyo.</h1>
+        <div class="lede">El capítulo de Adquisición tiene hoy dos iniciativas activas que persiguen el mismo objetivo —que el comprador llegue al piso— por caminos distintos. Las dos funcionan técnicamente. Las dos comparten <strong>el mismo cuello operativo más abajo</strong>. La data del piloto demuestra que el problema no está en cuál herramienta usar.</div>
+      </div>
+      <div class="right">
+        <div class="hero-num">2</div>
+        <div class="hero-sublabel">iniciativas en paralelo</div>
+      </div>
+    </div>
+
+    <div class="kpi-block">
+      <div class="kpi">
+        <div class="kpi-label">Iniciativa 1 · Motor de Atribución</div>
+        <div class="kpi-value blue">$22.7K</div>
+        <div class="kpi-sub"><strong>Marketing Corporativo</strong> · landing seminuevos.grupoplasencia.com · CRM unificado (D1) · atribución Meta/Google · ROAS 15.7× sobre venta cerrada</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">Iniciativa 2 · Operación Vambe</div>
+        <div class="kpi-value blue">C2WA</div>
+        <div class="kpi-sub"><strong>Ventas Digitales</strong> · Click-to-WhatsApp · IA Perfilador · pipeline Vambe · cierra más coches que el piloto en mismo periodo (percepción reportada)</div>
+      </div>
+      <div class="kpi featured">
+        <div class="kpi-label">Lo que comparten</div>
+        <div class="kpi-value gold">100%</div>
+        <div class="kpi-sub">Mismo cliente objetivo · mismas sucursales · mismo destino físico · <strong>mismo cuello operativo abajo</strong></div>
+      </div>
+    </div>
+
+    <table class="comp">
+      <thead>
+        <tr>
+          <th>Dimensión</th>
+          <th>Motor de Atribución (Marketing)</th>
+          <th>Operación Vambe (Ventas Digitales)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Activo principal</strong></td><td>Landing del catálogo unificado 8 sucursales</td><td>Conversación de WhatsApp · IA Perfilador</td></tr>
+        <tr><td><strong>Punto de entrada</strong></td><td>Formulario web profundo</td><td>Click-to-WhatsApp en anuncios Meta</td></tr>
+        <tr><td><strong>Pipeline donde se trabaja</strong></td><td>Kanban CRM (D1)</td><td>Pipeline visual de Vambe</td></tr>
+        <tr><td><strong>Atribución a Meta/Google</strong></td><td>Sí · CAPI + GA4 server-side</td><td>No · pipeline propio dentro de Vambe</td></tr>
+        <tr><td><strong>Dueño operativo del seguimiento</strong></td><td class="bad">Implícito · vendedor de sucursal sin SLA enforced</td><td class="good">Activo · Ventas Digitales supervisa</td></tr>
+      </tbody>
+    </table>
+
+    <div class="note blue">
+      <span class="note-tag">Lectura compartida</span>
+      <strong>Ambas usan a Vambe como plataforma técnica abajo.</strong> El Motor invoca la API de Vambe para el primer WhatsApp del lead web. La operación Vambe captura directo desde el click. La tecnología es la misma —la diferencia es operativa.
+    </div>
+
+  </div>
+  <div class="slide-footer">
+    <span>Documento base §3 · Las 2 iniciativas activas en el capítulo</span>
+    <span class="gp-mini"><span class="dot"></span>Grupo Plasencia · Dirección MKT Corporativo</span>
+  </div>
+</section>
+
+<!-- SLIDE 5 — DÓNDE SE ROMPE -->
+<section class="slide rompe" data-slide="rompe">
+  <div class="slide-label">Diagnóstico · Dónde se rompe el capítulo</div>
+  <div class="page-chip">04</div>
+  <div class="content">
+
+    <div class="header-row">
+      <div class="left">
+        <div class="t-eyebrow">La data del pipeline · 38 días de piloto</div>
+        <h1>El cuello no es <em>el canal</em>. Es el <em>handoff</em>.</h1>
+        <div class="lede">Tres marcas, tres setups técnicos distintos, mismo patrón sistémico: una vez que el lead entra al pipeline, se cae en el handoff hacia la operación de seguimiento. Eso descarta "la calidad del lead es mala", "es problema de plataforma" y "falta más inversión digital". Lo que queda es una sola hipótesis: <strong>el handoff no tiene dueño operativo claro</strong>.</div>
+      </div>
+      <div class="right">
+        <div class="hero-num">82%</div>
+        <div class="hero-sublabel">cae cita → visita</div>
+        <span class="hero-focus">El cuello sistémico</span>
+      </div>
+    </div>
+
+    <div class="kpi-block">
+      <div class="kpi alert">
+        <div class="kpi-label">Sin primer contacto · Seminuevos</div>
+        <div class="kpi-value red big">79%</div>
+        <div class="kpi-sub"><strong>30 de 38</strong> leads vivos siguen esperando que alguien los llame por primera vez · SLA del grupo: mismo día</div>
+      </div>
+      <div class="kpi alert">
+        <div class="kpi-label">Caída cita → visita</div>
+        <div class="kpi-value red big">82%</div>
+        <div class="kpi-sub"><strong>28 de 34</strong> personas confirmaron cita y nunca llegaron al piso · No hay confirmación 24h antes ni recordatorio</div>
+      </div>
+      <div class="kpi alert">
+        <div class="kpi-label">Cerrados como Perdida en 38d</div>
+        <div class="kpi-value red big">47%</div>
+        <div class="kpi-sub"><strong>35 de 74</strong> oportunidades terminaron como pérdida en mes y medio · López Mateos 11, Galerías 5, Plasencia 5</div>
+      </div>
+    </div>
+
+    <div style="display:flex; gap:10px;">
+      <div class="section-card" style="flex:1;">
+        <div class="section-title">El patrón se repite en las 3 marcas</div>
+        <div class="bar-row"><div class="lbl">Seminuevos · sin contactar</div><div class="bar"><div class="bar-fill fill-red" style="width:79%"></div></div><div class="n">79%</div></div>
+        <div class="bar-row"><div class="lbl">Hyundai · sin contactar</div><div class="bar"><div class="bar-fill fill-red" style="width:79%"></div></div><div class="n">79%</div></div>
+        <div class="bar-row"><div class="lbl">Stellantis · atorado en seguimiento</div><div class="bar"><div class="bar-fill fill-amber" style="width:56%"></div></div><div class="n">56%</div></div>
+        <div class="bar-row"><div class="lbl">Seminuevos · cita sin visita</div><div class="bar"><div class="bar-fill fill-red" style="width:82%"></div></div><div class="n">82%</div></div>
+      </div>
+      <div class="section-card" style="flex:1;">
+        <div class="section-title">Por qué Vambe parece estar cerrando más</div>
+        <p><strong>No es la tecnología.</strong> Ambas iniciativas usan a Vambe como plataforma técnica.</p>
+        <p>La diferencia está más arriba: <strong>Vambe tiene a alguien gestionando el pipeline minuto a minuto</strong> (Ventas Digitales). Los leads del Motor llegan al mismo banco de vendedores sin un dueño operativo que vigile el SLA.</p>
+        <p>El descubrimiento del piloto no es <em>"Vambe vs Motor"</em>. Es: cuando un área se hace responsable activamente del handoff, las ventas suben. <strong>Eso es la pista.</strong></p>
+      </div>
+    </div>
+
+    <div class="note red">
+      <span class="note-tag">Lo que ya estaba dicho</span>
+      Snapshot ejecutivo del 21-may, en voz del Director: "<em>el modelo funciona cuando el seguimiento es disciplinado · la concentración fuerte en Por contactar indica que el ritmo de primera llamada es hoy la palanca prioritaria</em>". Este documento convierte ese diagnóstico en propuesta de modelo.
+    </div>
+
+  </div>
+  <div class="slide-footer">
+    <span>Documento base §4 · Diagnóstico con data del pipeline al 21-may</span>
+    <span class="gp-mini"><span class="dot"></span>Grupo Plasencia · Dirección MKT Corporativo</span>
+  </div>
+</section>
+
+<!-- SLIDE 6 — LA TESIS · MODELO DE 3 DUEÑOS -->
+<section class="slide tesis" data-slide="tesis">
+  <div class="slide-label">La tesis · El modelo propuesto</div>
+  <div class="page-chip">05</div>
+  <div class="content">
+
+    <div class="header-row">
+      <div class="left">
+        <div class="t-eyebrow gold">La pieza que falta</div>
+        <h1>Tres responsables del capítulo · <em>no dos</em>.</h1>
+        <div class="lede">El capítulo de Adquisición de Seminuevos necesita tres figuras operativas con responsabilidades que no se traslapan y métricas que no se contradicen. Hoy hay dos. La tercera —Activación— no existe en el organigrama, y es la que está rota en la práctica.</div>
+      </div>
+      <div class="right">
+        <div class="hero-num">3</div>
+        <div class="hero-sublabel">dueños del journey</div>
+        <span class="hero-focus">Modelo propuesto</span>
+      </div>
+    </div>
+
+    <div class="tesis-hero">
+      <div class="tesis-quote">"<strong>Marketing te trae al piso.</strong> <em>Activación te asegura que llegues al piso.</em> <strong>Ventas Piso te cierra en el piso.</strong>"</div>
+    </div>
+
+    <div class="roles-grid">
+      <div class="role-card mkt">
+        <div class="role-name">Marketing</div>
+        <span class="role-tag">Te trae al piso</span>
+        <div class="role-desc">Responsable de que la marca aparezca en cabeza del cliente, de que el anuncio sea relevante, de que el lead llegue al pipeline con la información mínima para perfilarlo. Termina cuando el cliente está dentro del sistema.</div>
+        <div class="role-metric"><strong>Métrica final:</strong> leads calificados entregados al pipeline</div>
+      </div>
+      <div class="role-card act">
+        <div class="role-name">Activación · NUEVO</div>
+        <span class="role-tag">Te asegura que llegues</span>
+        <div class="role-desc">Responsable de que el lead reciba primer contacto en SLA, sea perfilado, agende cita real, confirme esa cita 24h antes y físicamente llegue al lote. No existe hoy. Es la figura que cierra el cuello documentado.</div>
+        <div class="role-metric"><strong>Métrica final:</strong> visitas confirmadas al piso de venta</div>
+      </div>
+      <div class="role-card piso">
+        <div class="role-name">Ventas Piso</div>
+        <span class="role-tag">Te cierra en el piso</span>
+        <div class="role-desc">Responsable de recibir al cliente que ya llegó, hacer la prueba, oferta y cierre. Recibe clientes preparados, no leads en frío. Es donde el grupo tiene 75 años de oficio · no tiene problema operativo conocido.</div>
+        <div class="role-metric"><strong>Métrica final:</strong> ventas cerradas sobre visitas atendidas</div>
+      </div>
+    </div>
+
+    <div class="note amber">
+      <span class="note-tag">Qué NO es Activación</span>
+      <strong>No</strong> es vendedor remoto. <strong>No</strong> reemplaza al vendedor de sucursal. <strong>No</strong> cierra ventas, no negocia precio, no discute crédito. Su éxito se mide en <em>visitas confirmadas con contexto entregado al vendedor</em>, no en coches vendidos. Es el concierge del prospecto digital en el camino al piso.
+    </div>
+
+  </div>
+  <div class="slide-footer">
+    <span>Documento base §5 · Tesis del modelo operativo</span>
+    <span class="gp-mini"><span class="dot"></span>Grupo Plasencia · Dirección MKT Corporativo</span>
+  </div>
+</section>
+
+<!-- SLIDE 7 — QUIÉN HACE QUÉ -->
+<section class="slide quien" data-slide="quien">
+  <div class="slide-label">Quién hace qué en cada etapa</div>
+  <div class="page-chip">06</div>
+  <div class="content">
+
+    <div class="header-row">
+      <div class="left">
+        <div class="t-eyebrow gold">El modelo aterrizado · etapa por etapa</div>
+        <h1>Un <em>dueño claro</em> en cada etapa del journey.</h1>
+        <div class="lede">Tres figuras, cinco etapas, métricas que no se contradicen. Esta tabla no es un RACI completo —es la articulación mínima necesaria para que el Escuadrón sepa qué está aprobando. El RACI detallado se construye después de las decisiones de §8.</div>
+      </div>
+      <div class="right">
+        <div class="hero-num">5</div>
+        <div class="hero-sublabel">etapas del capítulo</div>
+      </div>
+    </div>
+
+    <table class="comp">
+      <thead>
+        <tr>
+          <th style="width:14%;">Etapa</th>
+          <th class="center" style="width:14%;">Dueño principal</th>
+          <th class="center" style="width:14%;">Apoyo</th>
+          <th>Qué hace el dueño</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="role">1. Necesita un coche</td>
+          <td class="center owner-cell" style="color: var(--blue);">Marketing</td>
+          <td class="center" style="color: var(--g400);">—</td>
+          <td>Construye marca Plasencia · contenido orgánico · posicionamiento Sin Sorpresas</td>
+        </tr>
+        <tr>
+          <td class="role">2. Investiga opciones</td>
+          <td class="center owner-cell" style="color: var(--blue);">Marketing</td>
+          <td class="center" style="color: var(--g400);">—</td>
+          <td>Captura intención: Meta Ads · Google Ads · SEO · presencia marketplaces · catálogo unificado</td>
+        </tr>
+        <tr>
+          <td class="role">3. Pide información</td>
+          <td class="center owner-cell" style="color: var(--blue);">Marketing</td>
+          <td class="center" style="color: var(--amber);">Activación</td>
+          <td>Recibe el lead (form web · C2WA · llamada · DM) · registra en sistema oficial · dispara acuse automático</td>
+        </tr>
+        <tr style="background: rgba(214,158,46,.05);">
+          <td class="role" style="color: var(--amber);">4. Plasencia responde y califica</td>
+          <td class="center owner-cell" style="color: var(--amber); font-size:11pt;">Activación</td>
+          <td class="center" style="color: var(--g600);">Marketing · Ventas Piso</td>
+          <td><strong>Primer contacto humano en SLA</strong> (mismo día) · perfilamiento conversacional · agenda cita con hora y sucursal · <strong>confirma cita 24h antes</strong></td>
+        </tr>
+        <tr>
+          <td class="role">5. Visita el piso</td>
+          <td class="center owner-cell" style="color: var(--gp-red);">Ventas Piso</td>
+          <td class="center" style="color: var(--amber);">Activación (handoff)</td>
+          <td>Recibe al cliente con contexto entregado por Activación · prueba · recorrido · oferta · cierre</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div style="display:flex; gap:10px;">
+      <div class="section-card" style="flex:1;">
+        <div class="section-title">Regla 1 · Handoff Marketing → Activación</div>
+        <p>Por <strong>entrada al pipeline, no por mensaje enviado</strong>. Cuando el lead está registrado en el sistema oficial con nombre + teléfono + vehículo + sucursal + UTMs, el handoff está hecho. Marketing no persigue al cliente más allá de ese punto.</p>
+      </div>
+      <div class="section-card" style="flex:1;">
+        <div class="section-title">Regla 2 · Handoff Activación → Ventas Piso</div>
+        <p>Por <strong>visita confirmada, no por cita agendada</strong>. Cita agendada sin visita confirmada sigue siendo responsabilidad de Activación. El handoff se cierra solo cuando el cliente físicamente entró al lote. Esto resuelve la caída del 82% documentada.</p>
+      </div>
+    </div>
+
+  </div>
+  <div class="slide-footer">
+    <span>Documento base §6 · Tabla operativa · 3 figuras × 5 etapas</span>
+    <span class="gp-mini"><span class="dot"></span>Grupo Plasencia · Dirección MKT Corporativo</span>
+  </div>
+</section>
+
+<!-- SLIDE 8 — SERVICE BLUEPRINT -->
+<section class="slide blueprint" data-slide="blueprint">
+  <div class="slide-label">Service blueprint · Qué plataforma toca qué</div>
+  <div class="page-chip">07</div>
+  <div class="content">
+
+    <div class="header-row">
+      <div class="left">
+        <div class="t-eyebrow blue">Las plataformas en su lugar</div>
+        <h1>Vambe y el Motor · <em>coexisten con rol claro</em>.</h1>
+        <div class="lede">Una vez definido el modelo de 3 dueños, las plataformas se reposicionan sin canibalizar. <strong>Marketing</strong> opera el Motor de Atribución (landing + atribución + paid) <strong>y</strong> los anuncios Click-to-WhatsApp de Vambe. <strong>Activación</strong> opera ambos pipelines (kanban CRM + pipeline Vambe) con criterio unificado. <strong>Ventas Piso</strong> opera el cierre presencial.</div>
+      </div>
+      <div class="right">
+        <div class="hero-num">0</div>
+        <div class="hero-sublabel">plataformas eliminadas</div>
+        <span class="hero-focus" style="background: rgba(66,153,225,.12); color: var(--blue);">Coexistencia con dueño</span>
+      </div>
+    </div>
+
+    <table class="blueprint">
+      <thead>
+        <tr>
+          <th style="width:12%;">Etapa</th>
+          <th style="width:22%;">Lo que el cliente VE</th>
+          <th style="width:24%;">Lo que pasa ATRÁS</th>
+          <th style="width:22%;">Plataforma técnica</th>
+          <th style="width:12%;">Dueño operativo</th>
+          <th style="width:8%;">Métrica</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="stage">1-2 · Descubre + investiga</td>
+          <td>Brand presence · anuncios · landing del catálogo</td>
+          <td>Pauta Meta/Google · audiencias · creativos · catálogo Maxipublica sync horario</td>
+          <td>Meta Ads · Google Ads · Landing</td>
+          <td class="owner-mkt">Marketing</td>
+          <td>CPL · CTR</td>
+        </tr>
+        <tr>
+          <td class="stage">3 · Pide información</td>
+          <td>Formulario web · WhatsApp inmediato · acuse automático</td>
+          <td>Lead → CRM (D1) o Vambe según canal · eventos CAPI + GA4 · dispatch primer WA</td>
+          <td>Motor · Cloudflare Worker · D1 · Vambe API</td>
+          <td class="owner-both">Marketing → Activación</td>
+          <td>Tiempo a registro</td>
+        </tr>
+        <tr style="background: rgba(214,158,46,.04);">
+          <td class="stage" style="color: var(--amber);">4 · Plasencia responde</td>
+          <td>Mensaje del asesor con nombre · llamada · conversación natural en WA</td>
+          <td>Pipeline movido manual o por IA · plantillas WA aprobadas · recordatorio 24h</td>
+          <td>Vambe (conversación) · CRM (estado) · WhatsApp Cloud</td>
+          <td class="owner-act">Activación</td>
+          <td>SLA · % cita</td>
+        </tr>
+        <tr>
+          <td class="stage">5 · Visita el piso</td>
+          <td>Recepción en sucursal · asesor · prueba · oferta</td>
+          <td>Handoff de contexto desde Activación · sistema de cotización + crédito</td>
+          <td>Sistemas internos de sucursal</td>
+          <td class="owner-piso">Ventas Piso</td>
+          <td>Conv visita</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div style="display:flex; gap:10px;">
+      <div class="note blue" style="flex:1;">
+        <span class="note-tag">Redundancia resuelta</span>
+        El primer WhatsApp del lead web ya pasa por Vambe API. <strong>No es integración a construir</strong>: es una que ya existe. El modelo solo le pone dueño operativo a algo que técnicamente está conectado.
+      </div>
+      <div class="note amber" style="flex:1;">
+        <span class="note-tag">Gap operativo · no técnico</span>
+        Confirmación 24h antes de cita y recordatorio mismo día <strong>no están asignados a nadie</strong>. Resultado: 82% caída cita → visita. Activación lo resuelve sin agregar plataforma.
+      </div>
+      <div class="note navy" style="flex:1;">
+        <span class="note-tag">Decisión pendiente</span>
+        Cuando un mismo cliente entra por 2 canales, ¿cuál es source of truth? Recomendación del documento: <strong>D1 oficial del estado · Vambe oficial de la conversación</strong>. Decide §8.
+      </div>
+    </div>
+
+  </div>
+  <div class="slide-footer">
+    <span>Documento base §7 · Service blueprint del capítulo Adquisición</span>
+    <span class="gp-mini"><span class="dot"></span>Grupo Plasencia · Dirección MKT Corporativo</span>
+  </div>
+</section>
+
+<!-- SLIDE 9 — 5 DECISIONES -->
+<section class="slide decisiones" data-slide="decisiones">
+  <div class="slide-label">Decisiones que pedimos al Escuadrón</div>
+  <div class="page-chip">08</div>
+  <div class="content">
+
+    <div class="header-row">
+      <div class="left">
+        <div class="t-eyebrow">El ask · binario, en la sesión</div>
+        <h1>Cinco decisiones · <em>en esta reunión</em>.</h1>
+        <div class="lede">Este documento no implementa nada. Plantea cinco decisiones que el Escuadrón debe tomar antes de que las tácticas se desprendan. Cada una está formulada como pregunta binaria o con opciones discretas. La meta de la sesión es <strong>salir con las cinco decisiones tomadas</strong>. Si alguna queda pendiente, este documento no completa su trabajo.</div>
+      </div>
+      <div class="right">
+        <div class="hero-num">5</div>
+        <div class="hero-sublabel">decisiones binarias</div>
+      </div>
+    </div>
+
+    <div class="dec-grid">
+      <div class="dec-card">
+        <div class="dec-num">01</div>
+        <div class="dec-lbl">Modelo</div>
+        <div class="dec-q">¿Adoptamos el modelo de 3 responsables del journey?</div>
+        <div class="dec-opt"><strong>Sí / No</strong><br>Costo de aprobar: $0 — conceptual<br>Sin esto, las 4 siguientes no aplican</div>
+      </div>
+      <div class="dec-card">
+        <div class="dec-num">02</div>
+        <div class="dec-lbl">Figura nueva</div>
+        <div class="dec-q">¿Creamos la figura operativa de Activación?</div>
+        <div class="dec-opt"><strong>Sí / No / Piloto antes</strong><br>Costo: 1 posición FTE<br>Rango $12K-$50K MXN/mes según perfil</div>
+      </div>
+      <div class="dec-card">
+        <div class="dec-num">03</div>
+        <div class="dec-lbl">Reporte</div>
+        <div class="dec-q">¿Dónde reporta operativamente Activación?</div>
+        <div class="dec-opt"><strong>A · Marketing Corporativo</strong><br><strong>B · Ventas Digitales</strong><br><strong>C · Función nueva al Sponsor</strong><br>Documento no recomienda — decide el Escuadrón</div>
+      </div>
+      <div class="dec-card">
+        <div class="dec-num">04</div>
+        <div class="dec-lbl">Source of truth</div>
+        <div class="dec-q">¿Cuál sistema es oficial del estado del cliente?</div>
+        <div class="dec-opt"><strong>A · D1 (CRM)</strong> (recomendado)<br><strong>B · Vambe</strong><br><strong>C · Coexistencia con regla</strong></div>
+      </div>
+      <div class="dec-card">
+        <div class="dec-num">05</div>
+        <div class="dec-lbl">Métricas</div>
+        <div class="dec-q">¿Acordamos las métricas finales por figura?</div>
+        <div class="dec-opt"><strong>Sí / Ajustar</strong><br>Marketing: leads calificados<br>Activación: visitas confirmadas<br>Ventas Piso: ventas cerradas</div>
+      </div>
+    </div>
+
+    <div class="note red">
+      <span class="note-tag">Lo que NO se discute en esta sesión</span>
+      Perfil RH detallado · consolidación a una sola plataforma · scripts conversacionales · escalamiento Hyundai/Stellantis · inversión adicional en paid. <strong>Todo eso se difiere hasta que las 5 decisiones estén tomadas.</strong>
+    </div>
+
+  </div>
+  <div class="slide-footer">
+    <span>Documento base §8 · 5 decisiones binarias + plan 30 días</span>
+    <span class="gp-mini"><span class="dot"></span>Grupo Plasencia · Dirección MKT Corporativo</span>
+  </div>
+</section>
+
+<!-- SLIDE 10 — CIERRE · 30 DÍAS -->
+<section class="slide cierre" data-slide="cierre">
+  <div class="slide-label">Cierre · Si las 5 se aprueban hoy</div>
+  <div class="page-chip">09</div>
+  <div class="content">
+
+    <div>
+      <div class="t-eyebrow green">Qué pasa mañana</div>
+      <h1 class="t-title-serif" style="font-size:28pt; margin-top:6px;">Si las cinco se aprueban hoy · <em>los próximos 30 días</em></h1>
+      <div class="lede" style="font-family:var(--sans); font-size:10pt; color: var(--g600); line-height:1.5; margin-top:6px; max-width:1100px;">El modelo se diseñó para ser ejecutable. Aprobado hoy, el Activador puede estar operando en 30-60 días. La medición contra baseline empieza desde el día 1. Si alguna decisión se aprueba condicionalmente (por ejemplo "Activación sí, validar con piloto en una sucursal primero"), el cronograma se ajusta sin perder el modelo conceptual.</div>
+    </div>
+
+    <div class="cierre-grid">
+      <div class="cierre-col">
+        <h3>Día <em>1-7</em></h3>
+        <div class="sub">Decisiones · perfilamiento</div>
+        <div class="cierre-item"><div class="b">01</div><div>Las 5 decisiones tomadas y documentadas en minuta firmada del Escuadrón</div></div>
+        <div class="cierre-item"><div class="b">02</div><div>Marketing redacta perfil de Activador según opción de reporte elegida</div></div>
+        <div class="cierre-item"><div class="b">03</div><div>Ventas Digitales y Marketing acuerdan handoffs operativos del periodo de transición</div></div>
+      </div>
+
+      <div class="cierre-col">
+        <h3>Día <em>7-14</em></h3>
+        <div class="sub">Reclutamiento · técnica</div>
+        <div class="cierre-item"><div class="b">04</div><div>Reclutamiento de Activador abierto · canales internos + externos según perfil</div></div>
+        <div class="cierre-item"><div class="b">05</div><div>Definición técnica del esquema de source of truth elegido</div></div>
+        <div class="cierre-item"><div class="b">06</div><div>Dashboard ejecutivo con métricas finales + baseline en construcción</div></div>
+      </div>
+
+      <div class="cierre-col">
+        <h3>Día <em>14-30</em></h3>
+        <div class="sub">Baseline · cierre proceso</div>
+        <div class="cierre-item"><div class="b">07</div><div>Marketing presenta al Escuadrón el dashboard ejecutivo unificado con baseline</div></div>
+        <div class="cierre-item"><div class="b">08</div><div>Continúa reclutamiento · short-list de candidatos</div></div>
+        <div class="cierre-item"><div class="b">09</div><div>Acuerdo de SLAs operativos iniciales + cadencia de seguimiento</div></div>
+      </div>
+
+      <div class="cierre-col">
+        <h3>Día <em>30-60</em></h3>
+        <div class="sub">Operación · medición</div>
+        <div class="cierre-item"><div class="b">10</div><div>Activador en operación · primer mes de medición contra baseline</div></div>
+        <div class="cierre-item"><div class="b">11</div><div>Sesión de revisión del Escuadrón al mes 2 · decisión informada</div></div>
+        <div class="cierre-item"><div class="b">12</div><div>Apertura del siguiente capítulo del negocio (a definir por sponsor)</div></div>
+      </div>
+    </div>
+
+    <div class="cierre-conclusion">
+      <strong>La pregunta del Escuadrón en esta sesión:</strong> no es <em>cuál herramienta gana</em>, ni <em>cuánto más invertir en paid</em>, ni <em>cuál iniciativa pausamos</em>. La pregunta es: <em>¿estamos listos para ponerle dueño operativo a la pieza del journey que hoy no tiene dueño?</em> Si la respuesta es sí, todo lo demás se desprende.
+    </div>
+
+  </div>
+  <div class="slide-footer">
+    <span>Resumen ejecutivo al 25-may-2026 · Para discusión del Escuadrón Seminuevos</span>
+    <span class="gp-mini"><span class="dot"></span>Grupo Plasencia · Dirección MKT Corporativo</span>
+  </div>
+</section>
+
+</div>
+
+<script>
+const slides = Array.from(document.querySelectorAll('.slide'));
+let idx = 0;
+const progress = document.getElementById('progress');
+const counter = document.getElementById('counter');
+
+function show(i) {
+  if (i < 0 || i >= slides.length) return;
+  slides[idx].classList.remove('active');
+  idx = i;
+  slides[idx].classList.add('active');
+  progress.style.width = ((idx + 1) / slides.length * 100) + '%';
+  counter.textContent = (idx + 1) + ' / ' + slides.length;
+}
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') { e.preventDefault(); show(idx + 1); }
+  else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); show(idx - 1); }
+  else if (e.key === 'Home') { e.preventDefault(); show(0); }
+  else if (e.key === 'End') { e.preventDefault(); show(slides.length - 1); }
+});
+
+function scaleSlides() {
+  const baseW = 1280, baseH = 720;
+  const scale = Math.min(window.innerWidth / baseW, window.innerHeight / baseH);
+  const tx = (window.innerWidth - baseW * scale) / 2;
+  const ty = (window.innerHeight - baseH * scale) / 2;
+  slides.forEach(s => { s.style.transform = `translate(${tx}px, ${ty}px) scale(${scale})`; });
+}
+window.addEventListener('resize', scaleSlides);
+scaleSlides();
+show(0);
+</script>
+
+</body>
+</html>
