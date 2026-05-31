@@ -1,0 +1,104 @@
+@import "tailwindcss";
+
+/* ============================================================
+   Plasencia Marketplace · Design System
+   Base: Grupo Plasencia (Montserrat + Inter, Navy/Red/Gold)
+   Capa fintech: claridad transaccional, trust, microinteracciones
+   ============================================================ */
+
+@theme {
+  /* Marca Plasencia */
+  --color-navy: #1E2740;
+  --color-navy-deep: #0F1A2E;
+  --color-slate: #2D3748;
+  --color-red: #C8102E;
+  --color-red-deep: #A50D25;
+  --color-gold: #ECC94B;
+  --color-gold-deep: #B7791F;
+
+  /* Señales (fintech) */
+  --color-accent: #4299E1;
+  --color-accent-deep: #2B6CB0;
+  --color-success: #48BB78;
+  --color-success-deep: #276749;
+  --color-warning: #D69E2E;
+  --color-danger: #E53E3E;
+
+  /* Neutros */
+  --color-n50: #F7FAFC;
+  --color-n100: #EDF2F7;
+  --color-n200: #E2E8F0;
+  --color-n300: #CBD5E0;
+  --color-n400: #A0AEC0;
+  --color-n500: #718096;
+  --color-n600: #4A5568;
+  --color-n700: #2D3748;
+  --color-n800: #1A202C;
+  --color-n900: #171923;
+
+  /* Tipografía */
+  --font-display: 'Montserrat', sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+
+  /* Radios */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 22px;
+
+  /* Sombras (suaves, premium) */
+  --shadow-sm: 0 1px 2px rgba(15,26,46,.06), 0 1px 3px rgba(15,26,46,.08);
+  --shadow-md: 0 4px 12px rgba(15,26,46,.08), 0 2px 4px rgba(15,26,46,.06);
+  --shadow-lg: 0 12px 32px rgba(15,26,46,.12), 0 4px 8px rgba(15,26,46,.06);
+  --shadow-xl: 0 24px 56px rgba(15,26,46,.18);
+
+  /* Easing */
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--color-n100);
+  color: var(--color-n800);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, .font-display { font-family: var(--font-display); }
+
+/* Utilidades de marca reutilizables */
+.gp-display { font-family: var(--font-display); }
+.gp-tnum { font-variant-numeric: tabular-nums; }
+
+/* Logo sobre fondo oscuro: eliminar fondo blanco horneado */
+.gp-logo-screen { mix-blend-mode: screen; }
+
+/* Scrollbar sutil */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-thumb { background: var(--color-n300); border-radius: 999px; }
+::-webkit-scrollbar-track { background: transparent; }
+
+/* Animaciones */
+@keyframes gp-fade-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.gp-fade-up { animation: gp-fade-up .5s var(--ease) both; }
+
+@keyframes gp-shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.gp-skeleton {
+  background: linear-gradient(90deg, var(--color-n200) 25%, var(--color-n100) 37%, var(--color-n200) 63%);
+  background-size: 200% 100%;
+  animation: gp-shimmer 1.4s infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
