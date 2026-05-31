@@ -1,265 +1,166 @@
-// ====== WIZARD HELPERS ======
-function steps(arr,cur){return `<div class="wiz-steps">${arr.map((s,i)=>`<div class="wiz-step ${i===cur?'on':i<cur?'done':''}"><div class="num">${i<cur?I.check(14):i+1}</div><span>${s}</span></div>${i<arr.length-1?`<div class="wiz-sep ${i<cur?'done':''}"></div>`:''}`).join('')}</div>`}
-function field(id,label,type='text',placeholder='',value=''){return `<div class="field"><label>${label}</label><input id="${id}" type="${type}" placeholder="${placeholder}" value="${value}"></div>`}
+// ====== WIZARDS · transactional flows ======
+function ensureAuth(cb){if(STATE.customer){cb();return}Auth.open('signup',cb)}
+function wizSteps(steps,cur){return `<div class="wiz-steps">${steps.map((s,i)=>{const st=i<cur?'done':i===cur?'on':'';return `<div class="wiz-step ${st}"><div class="num">${i<cur?'✓':i+1}</div>${s}</div>${i<steps.length-1?`<div class="wiz-sep ${i<cur?'done':''}"></div>`:''}`}).join('')}</div>`}
 
-// ====== FLOW · todos los flujos transaccionales simulados ======
 const Flow={
-  // CHECKOUT (apartado → datos → pago → confirmación → entrega)
-  openCheckout(carId){
-    if(!STATE.customer){Auth.open('signup',()=>Flow.openCheckout(carId));return}
-    const v=CARS.find(c=>c.id===carId);if(!v)return;
-    this.coStep=0;this.coCar=v;this.coData={metodo:'tarjeta',pagar:5000};
-    this.renderCheckout();
-  },
-  renderCheckout(){
-    const v=this.coCar,s=this.coStep,d=this.coData;
-    const labels=['Resumen','Tus datos','Pago','Confirmación'];
-    let body='';
-    if(s===0){
-      body=`<h2 style="font-size:22px;color:var(--navy);margin-bottom:6px">Resumen del apartado</h2>
-        <p style="font-size:13px;color:var(--n600);margin-bottom:18px">Reserva esta unidad con un depósito reembolsable. Si no continúas, te devolvemos el 100%.</p>
-        <div style="display:flex;gap:14px;align-items:center;padding:16px;background:var(--n50);border-radius:14px"><img src="${v.fotos[0]}" style="width:100px;aspect-ratio:16/10;object-fit:cover;border-radius:10px"><div><div style="font-family:var(--disp);font-size:11px;font-weight:800;text-transform:uppercase;color:var(--n600)">${v.marca} · ${v.anio}</div><h3 style="font-size:17px;color:var(--navy);margin-top:2px">${v.modelo}</h3><div class="tnum" style="font-family:var(--disp);font-weight:800;color:var(--navy);font-size:18px;margin-top:6px">${mxn(v.precio)}</div></div></div>
-        <div class="summary-box"><div class="row"><span>Depósito reembolsable</span><b class="tnum">${mxn(5000)}</b></div><div class="row"><span>Vigencia del apartado</span><b>72 horas</b></div><div class="row"><span>Concesionaria</span><b>${getSuc(v.suc).nombre}</b></div><div class="row tot"><span>A pagar hoy</span><b class="tnum">${mxn(5000)}</b></div></div>`;
-    } else if(s===1){
-      const c=STATE.customer;
-      body=`<h2 style="font-size:22px;color:var(--navy);margin-bottom:6px">Confirma tus datos</h2>
-        <p style="font-size:13px;color:var(--n600);margin-bottom:18px">Los datos se usan para el contrato del apartado.</p>
-        <div class="field-row">${field('co_nom','Nombre completo','text','Tu nombre',c.nombre)}${field('co_em','Correo','email','tu@correo.com',c.email)}</div>
-        <div class="field-row">${field('co_tel','Teléfono','tel','33 1234 5678',c.tel)}${field('co_rfc','RFC','text','POXC900101AB1',c.rfc||'')}</div>`;
-    } else if(s===2){
-      body=`<h2 style="font-size:22px;color:var(--navy);margin-bottom:6px">Método de pago</h2>
-        <p style="font-size:13px;color:var(--n600);margin-bottom:18px">Pago seguro. Tu depósito se mantiene reembolsable hasta el contrato final.</p>
-        <div class="choice-grid">
-          ${[['tarjeta','Tarjeta de crédito/débito',I.card(20),'Visa, MC, AMEX. Aprobación instantánea.'],['transfer','Transferencia SPEI',I.cash(20),'Confirmamos en 30 minutos hábiles.'],['oxxo','Pago en OXXO',I.building(20),'Genera ficha y paga en cualquier tienda.'],['wa','WhatsApp con asesor',I.wa(20),'Te enlaza un asesor para guiarte.']].map(m=>`<button class="choice ${d.metodo===m[0]?'on':''}" onclick="Flow.coData.metodo='${m[0]}';Flow.renderCheckout()"><div class="ic">${m[2]}</div><div class="t">${m[1]}</div><div class="d">${m[3]}</div><div class="check">${I.check(12)}</div></button>`).join('')}
-        </div>
-        ${d.metodo==='tarjeta'?`<div style="margin-top:18px">
-          ${field('co_card','Número de tarjeta','text','4242 4242 4242 4242')}
-          <div class="field-row">${field('co_exp','Vence (MM/AA)','text','12/28')}${field('co_cvv','CVV','text','•••')}</div>
-        </div>`:''}
-        <div class="summary-box" style="background:rgba(72,187,120,.06);border-color:rgba(72,187,120,.2)"><div style="display:flex;align-items:center;gap:8px;color:var(--green-d);font-size:13px"><span>${I.shield(16)}</span>Pago 100% seguro · datos cifrados · cumple PCI-DSS</div></div>`;
-    } else {
-      const f=folio(v.marca,'GP');
-      // Crear deal real
-      if(!d.created){
-        STATE.deals.unshift({id:uid('d'),folio:f,carId:v.id,modalidad:PDP?.mod||'credito',estado:'apartado',apartado:5000,mensualidad:PDP?.mod==='credito'?Math.round(mensCredito(v.precio,PDP.eng,PDP.plazo)):PDP?.mod==='arrendamiento'?Math.round(rentaLease(v.precio,PDP.plazo)):null,plazo:PDP?.mod!=='contado'?PDP?.plazo:null,createdAt:Date.now()});
-        STATE.notifs.unshift({id:uid('n'),ic:'green',t:`Apartaste ${v.marca} ${v.modelo}`,d:'Folio '+f+' · Te contactará la concesionaria',time:'Ahora'});
-        save();d.created=true;d.folio=f;updateHeader();
-      }
-      body=`<div class="ok-circle">${I.check(28)}</div><h2 style="font-size:24px;color:var(--navy);text-align:center">¡Apartado confirmado!</h2>
-        <p style="font-size:14px;color:var(--n600);text-align:center;margin-top:6px">Tu ${v.marca} ${v.modelo} está reservado. ${getSuc(v.suc).nombre} te contactará en las próximas horas.</p>
-        <div class="folio"><div class="k">Folio</div><div class="v tnum">${d.folio}</div></div>
-        <div class="summary-box"><div class="row"><span>Depósito pagado</span><b class="tnum">${mxn(5000)}</b></div><div class="row"><span>Estado</span><b style="color:var(--green-d)">Confirmado</b></div><div class="row"><span>Vigencia</span><b>72 horas</b></div></div>
-        <div style="margin-top:18px;padding:14px;background:var(--n50);border-radius:12px;font-size:13px;color:var(--n600);display:flex;align-items:center;gap:10px"><span style="color:var(--blue-d)">${I.cal(18)}</span><div><b style="color:var(--navy);font-family:var(--disp)">Próximo paso:</b> Agenda tu cita para conocer el auto y firmar el contrato.</div></div>`;
-    }
-    const isLast=s===3;
-    showModal(`${steps(labels,s)}${body}<div class="wiz-nav">${s>0&&!isLast?`<button class="btn btn-out btn-md" onclick="Flow.coStep--;Flow.renderCheckout()">${I.chevL(16)} Atrás</button>`:'<div></div>'}${isLast?`<div style="display:flex;gap:8px;margin-left:auto;flex-wrap:wrap"><button class="btn btn-out btn-md" onclick="closeModal();go('#/cuenta')">Ir a Mi Plasencia</button><button class="btn btn-conv btn-md" onclick="closeModal();Flow.openCita('${v.id}')">Agendar cita ${I.arrowR(16)}</button></div>`:`<button class="btn btn-conv btn-md" onclick="Flow.coStep++;Flow.renderCheckout()">${s===2?'Confirmar pago':'Continuar'} ${I.arrowR(16)}</button>`}</div>`,'lg');
-  },
+// === CHECKOUT (apartado + datos + pago + confirmación) ===
+openCheckout(carId){
+  const v=CARS.find(c=>c.id===carId);if(!v)return;
+  ensureAuth(()=>this._checkout(v,0,{trade:0}));
+},
+_checkout(v,step,d){
+  const steps=['Resumen','Datos','Pago','¡Listo!'];
+  const apart=5000;
+  const html=`<h2 style="font-size:22px;color:var(--navy)">Apartar ${v.marca} ${v.modelo}</h2>
+    <p style="color:var(--n500);font-size:13px;margin-top:4px">Reserva con $5,000 reembolsables. 7 días para confirmar.</p>
+    ${wizSteps(steps,step)}
+    ${step===0?`
+      <div style="display:flex;gap:14px;background:var(--n50);border-radius:12px;padding:14px;border:1px solid var(--n200)">
+        <img src="${v.fotos[0]}" style="width:100px;height:68px;object-fit:cover;border-radius:8px" onerror="this.src='${FALLBACK}'">
+        <div style="flex:1"><div style="font-family:var(--disp);font-weight:700;color:var(--navy)">${v.marca} ${v.modelo}</div><div style="font-size:12px;color:var(--n500)">${v.anio} · ${v.trans} · ${v.fuel}</div><div style="font-family:var(--disp);font-weight:800;color:var(--navy);margin-top:6px" class="tnum">${mxn(v.precio)}</div></div>
+      </div>
+      <div class="summary-box">
+        <div class="row"><span>Precio del vehículo</span><b class="tnum">${mxn(v.precio)}</b></div>
+        <div class="row"><span>Apartado reembolsable</span><b class="tnum">${mxn(apart)}</b></div>
+        ${d.trade>0?`<div class="row"><span>Trade-in aplicado</span><b style="color:var(--green-d)" class="tnum">−${mxn(d.trade)}</b></div>`:''}
+        <div class="row tot"><span>A pagar ahora</span><b class="tnum">${mxn(apart)}</b></div>
+      </div>
+      <div style="background:#FFF8E5;border:1px solid var(--gold);border-radius:12px;padding:14px;margin-top:14px;display:flex;align-items:flex-start;gap:10px">
+        <span style="color:var(--gold-d);flex-shrink:0">${I.trending(20)}</span>
+        <div style="flex:1"><b style="font-family:var(--disp);color:var(--navy);font-size:13px">¿Cambias tu auto actual?</b><div style="font-size:12px;color:var(--n600);margin-top:2px">Aplica tu valuación como enganche o pago parcial.</div></div>
+        <button class="btn btn-out btn-sm" onclick="closeModal();Flow.openTradein()">Valuar</button>
+      </div>
+    `:''}
+    ${step===1?`
+      <div class="field"><label>Nombre completo</label><input id="ck_nom" value="${STATE.customer?.nombre||''}"></div>
+      <div class="field-row">
+        <div class="field"><label>Correo</label><input id="ck_em" type="email" value="${STATE.customer?.email||''}"></div>
+        <div class="field"><label>Teléfono</label><input id="ck_tel" value="${STATE.customer?.tel||''}"></div>
+      </div>
+      <div class="field"><label>Notas (opcional)</label><textarea rows="2" placeholder="Algo que la concesionaria deba saber…"></textarea></div>
+    `:''}
+    ${step===2?`
+      <div class="choice-grid">
+        <button class="choice on" id="pmTar" onclick="document.querySelectorAll('.choice').forEach(c=>c.classList.remove('on'));this.classList.add('on');Flow.pm='tarjeta'"><div class="check">${I.check(14)}</div><div class="ic">${I.card(20)}</div><div class="t">Tarjeta</div><div class="d">Crédito o débito · 1 o 3 MSI</div></button>
+        <button class="choice" id="pmTr" onclick="document.querySelectorAll('.choice').forEach(c=>c.classList.remove('on'));this.classList.add('on');Flow.pm='transferencia'"><div class="check">${I.check(14)}</div><div class="ic">${I.cash(20)}</div><div class="t">Transferencia SPEI</div><div class="d">Pago inmediato</div></button>
+      </div>
+      <div class="field" style="margin-top:14px"><label>Número de tarjeta (demo)</label><input value="4242 4242 4242 4242" readonly></div>
+      <div class="field-row"><div class="field"><label>Vence</label><input value="12/29" readonly></div><div class="field"><label>CVV</label><input value="•••" readonly></div></div>
+      <div style="font-size:11px;color:var(--n500);margin-top:6px;display:flex;align-items:center;gap:6px">${I.shield(14)} Demo: no se cobra realmente.</div>
+    `:''}
+    ${step===3?`
+      <div class="ok-circle">${I.check(28)}</div>
+      <h2 style="text-align:center;color:var(--navy);font-size:24px">¡Apartado confirmado!</h2>
+      <p style="text-align:center;color:var(--n500);margin-top:6px;font-size:14px">Tu ${v.marca} ${v.modelo} está reservado por 7 días. El asesor te contactará en menos de 2 horas.</p>
+      <div class="folio"><div class="k">Folio de reserva</div><div class="v">${d.folio}</div></div>
+      <div style="background:var(--n50);border-radius:12px;padding:14px;margin-top:14px">
+        <div style="font-family:var(--disp);font-size:11px;font-weight:700;text-transform:uppercase;color:var(--n500);letter-spacing:.5px">Próximos pasos</div>
+        <ol style="margin:8px 0 0 20px;font-size:13px;color:var(--n700);line-height:1.7">
+          <li>Tu asesor te llama hoy mismo para coordinar entrega.</li>
+          <li>Firma de contrato y enganche restante en concesionaria o en línea.</li>
+          <li>Te entregamos tu auto. Bienvenido al grupo.</li>
+        </ol>
+      </div>
+    `:''}
+    <div class="wiz-nav">
+      ${step>0&&step<3?`<button class="btn btn-out btn-md" onclick='Flow._checkout(${JSON.stringify(v.id)},${step-1},${JSON.stringify(d)})'>${I.chevL(14)} Atrás</button>`:'<span></span>'}
+      ${step<3?`<button class="btn btn-conv btn-md" onclick='Flow._checkoutNext(${JSON.stringify(v.id)},${step},${JSON.stringify(d)})'>${step===2?'Pagar '+mxn(apart):'Continuar'} ${I.chevR(14)}</button>`:`<button class="btn btn-conv btn-md btn-full" onclick='closeModal();go("#/cuenta?t=reservas")'>Ver mis reservas</button>`}
+    </div>`;
+  showModal(html,'lg');
+},
+_checkoutNext(id,step,d){
+  const v=CARS.find(c=>c.id===id);
+  if(step===2){
+    const f=folio(v.marca,'AP');d.folio=f;
+    STATE.reservas.unshift({id:uid('res'),folio:f,carId:v.id,marca:v.marca,modelo:v.modelo,anio:v.anio,img:v.fotos[0],precio:v.precio,apart:5000,fecha:new Date().toISOString().slice(0,10),estado:'apartado',suc:v.suc,milestone:1});
+    STATE.notifs.unshift({id:uid('n'),ic:'green',t:'Reserva confirmada',d:`${v.marca} ${v.modelo} apartado · ${f}`,time:'Ahora'});
+    save();updateHeader();
+  }
+  this._checkout(v,step+1,d);
+},
 
-  // CITA (sucursal → día → hora → confirmación)
-  openCita(carId){
-    if(!STATE.customer){Auth.open('signup',()=>Flow.openCita(carId));return}
-    const v=carId?CARS.find(c=>c.id===carId):null;
-    this.ciStep=0;this.ciCar=v;this.ciData={suc:v?v.suc:SUCS[0].id,dia:1,hora:'',motivo:'test_drive'};
-    this.renderCita();
-  },
-  renderCita(){
-    const v=this.ciCar,s=this.ciStep,d=this.ciData;
-    const labels=v?['¿Para qué?','Día y hora','Confirmación']:['Concesionaria','¿Para qué?','Día y hora','Confirmación'];
-    let body='';
-    const dias=Array.from({length:7},(_,i)=>{const dt=new Date();dt.setDate(dt.getDate()+i+1);return{n:i+1,d:dt.toLocaleDateString('es-MX',{weekday:'short',day:'numeric',month:'short'})}});
-    const horas=['09:00','10:00','11:00','12:00','13:00','16:00','17:00','18:00'];
-    const stepIdx=v?s:s;
+// === CITA ===
+openCita(carId){
+  const v=carId?CARS.find(c=>c.id===carId):null;
+  ensureAuth(()=>this._cita(v,0,{}));
+},
+_cita(v,step,d){
+  const steps=['Concesionaria','Motivo','Día y hora','Confirmación'];
+  const sucList=v?[getSuc(v.suc)]:SUCS.slice(0,6);
+  const motivos=[['Test drive',I.car(20)],['Ver el auto',I.search(20)],['Cotizar crédito',I.card(20)],['Servicio',I.wrench(20)]];
+  const days=Array.from({length:5},(_,i)=>{const d=new Date();d.setDate(d.getDate()+i+1);return {iso:d.toISOString().slice(0,10),lbl:['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'][d.getDay()]+' '+d.getDate()}});
+  const hours=['10:00','11:30','13:00','15:00','16:30','18:00'];
+  const html=`<h2 style="font-size:22px;color:var(--navy)">Agendar cita ${v?`· ${v.marca} ${v.modelo}`:''}</h2>
+    ${wizSteps(steps,step)}
+    ${step===0?`<div class="choice-grid" style="grid-template-columns:1fr">${sucList.map(s=>`<button class="choice ${d.suc===s.id?'on':''}" onclick="Flow.citaSuc='${s.id}';document.querySelectorAll('.choice').forEach(c=>c.classList.remove('on'));this.classList.add('on')"><div class="check">${I.check(14)}</div><div style="display:flex;gap:12px;align-items:center">${sucLogoHTML(s,'sm')}<div><div class="t">${s.nombre}</div><div class="d">${s.zona} · ${I.star(11)} ${s.rating} · ${num(s.reviews)} reseñas</div></div></div></button>`).join('')}</div>`:''}
+    ${step===1?`<div class="choice-grid">${motivos.map(m=>`<button class="choice ${d.motivo===m[0]?'on':''}" onclick="Flow.citaMot='${m[0]}';document.querySelectorAll('.choice').forEach(c=>c.classList.remove('on'));this.classList.add('on')"><div class="check">${I.check(14)}</div><div class="ic">${m[1]}</div><div class="t">${m[0]}</div></button>`).join('')}</div>`:''}
+    ${step===2?`<div class="field"><label>Día</label><div class="timeslots">${days.map(x=>`<button class="timeslot ${d.dia===x.iso?'on':''}" onclick="Flow.citaDia='${x.iso}';document.querySelectorAll('[data-r=d]').forEach(b=>b.classList.remove('on'));this.classList.add('on')" data-r="d">${x.lbl}</button>`).join('')}</div></div><div class="field"><label>Hora</label><div class="timeslots">${hours.map(h=>`<button class="timeslot ${d.hora===h?'on':''}" onclick="Flow.citaHr='${h}';document.querySelectorAll('[data-r=h]').forEach(b=>b.classList.remove('on'));this.classList.add('on')" data-r="h">${h}</button>`).join('')}</div></div>`:''}
+    ${step===3?`<div class="ok-circle">${I.check(28)}</div><h2 style="text-align:center;color:var(--navy);font-size:24px">¡Cita confirmada!</h2><p style="text-align:center;color:var(--n500);margin-top:6px;font-size:14px">Te esperamos. Recibirás recordatorio por WhatsApp.</p><div class="folio"><div class="k">Folio</div><div class="v">${d.folio}</div></div><div class="summary-box"><div class="row"><span>Concesionaria</span><b>${d.sucName}</b></div><div class="row"><span>Motivo</span><b>${d.motivo}</b></div><div class="row"><span>Día y hora</span><b>${d.dia} · ${d.hora}</b></div></div>`:''}
+    <div class="wiz-nav">${step>0&&step<3?`<button class="btn btn-out btn-md" onclick='Flow._cita(${v?JSON.stringify(v.id):'null'},${step-1},${JSON.stringify(d)})'>${I.chevL(14)} Atrás</button>`:'<span></span>'}${step<3?`<button class="btn btn-conv btn-md" onclick='Flow._citaNext(${v?JSON.stringify(v.id):'null'},${step},${JSON.stringify(d)})'>Continuar ${I.chevR(14)}</button>`:`<button class="btn btn-conv btn-md btn-full" onclick='closeModal();go("#/cuenta?t=citas")'>Ver mis citas</button>`}</div>`;
+  showModal(html,'lg');
+},
+_citaNext(carId,step,d){
+  const v=carId?CARS.find(c=>c.id===carId):null;
+  if(step===0){if(!Flow.citaSuc&&v){Flow.citaSuc=v.suc}if(!Flow.citaSuc)return toast('Elige una concesionaria','x');d.suc=Flow.citaSuc;d.sucName=getSuc(d.suc).nombre}
+  if(step===1){if(!Flow.citaMot)return toast('Elige un motivo','x');d.motivo=Flow.citaMot}
+  if(step===2){if(!Flow.citaDia||!Flow.citaHr)return toast('Elige día y hora','x');d.dia=Flow.citaDia;d.hora=Flow.citaHr;const f=folio(d.motivo,'CT');d.folio=f;STATE.citas.unshift({id:uid('c'),folio:f,suc:d.suc,sucName:d.sucName,motivo:d.motivo,dia:d.dia,hora:d.hora,carId:v?.id});STATE.notifs.unshift({id:uid('n'),ic:'blue',t:'Cita agendada',d:`${d.sucName} · ${d.dia} ${d.hora}`,time:'Ahora'});save();updateHeader()}
+  this._cita(v,step+1,d);
+},
 
-    if(!v && s===0){
-      body=`<h2 style="font-size:22px;color:var(--navy);margin-bottom:6px">Elige concesionaria</h2><p style="font-size:13px;color:var(--n600);margin-bottom:18px">Te atendemos en cualquiera de las 12 del grupo.</p>
-        <div style="display:flex;flex-direction:column;gap:8px;max-height:340px;overflow-y:auto">${SUCS.map(sc=>`<button class="choice ${d.suc===sc.id?'on':''}" style="display:flex;align-items:center;gap:12px;text-align:left" onclick="Flow.ciData.suc='${sc.id}';Flow.renderCita()"><div style="width:42px;height:42px;border-radius:10px;background:linear-gradient(135deg,var(--navy),var(--slate));color:var(--gold);font-family:var(--disp);font-weight:900;font-size:14px;display:flex;align-items:center;justify-content:center;flex-shrink:0">${initials(sc.nombre)}</div><div style="flex:1"><div class="t">${sc.nombre}</div><div class="d">${sc.zona} · ${sc.rating} ★</div></div><div class="check">${I.check(12)}</div></button>`).join('')}</div>`;
-    } else if((v && s===0)||(!v && s===1)){
-      body=`<h2 style="font-size:22px;color:var(--navy);margin-bottom:6px">¿Para qué nos visitas?</h2>
-        <div class="choice-grid" style="grid-template-columns:1fr">
-          ${[['test_drive','Prueba de manejo',I.car(22),'Quiero conducir la unidad antes de decidir.'],['cotizar','Cotización presencial',I.cash(22),'Quiero ver opciones y precios con un asesor.'],['firma','Firma de contrato',I.doc(22),'Vengo a cerrar la compra ya apartada.'],['entrega','Entrega de mi auto',I.key(22),'Vengo por las llaves de mi auto nuevo.']].map(m=>`<button class="choice ${d.motivo===m[0]?'on':''}" onclick="Flow.ciData.motivo='${m[0]}';Flow.renderCita()"><div style="display:flex;gap:12px;align-items:flex-start"><div class="ic">${m[2]}</div><div><div class="t">${m[1]}</div><div class="d">${m[3]}</div></div></div><div class="check">${I.check(12)}</div></button>`).join('')}
-        </div>`;
-    } else if((v && s===1)||(!v && s===2)){
-      body=`<h2 style="font-size:22px;color:var(--navy);margin-bottom:6px">Elige día y hora</h2><p style="font-size:13px;color:var(--n600);margin-bottom:14px">Te confirmamos por WhatsApp.</p>
-        <div style="font-family:var(--disp);font-size:11px;font-weight:700;text-transform:uppercase;color:var(--n500);margin-bottom:6px">Día</div>
-        <div class="timeslots" style="grid-template-columns:repeat(7,1fr)">${dias.map(dia=>`<button class="timeslot ${d.dia===dia.n?'on':''}" onclick="Flow.ciData.dia=${dia.n};Flow.renderCita()" style="font-size:11px">${dia.d}</button>`).join('')}</div>
-        <div style="font-family:var(--disp);font-size:11px;font-weight:700;text-transform:uppercase;color:var(--n500);margin:14px 0 6px">Hora</div>
-        <div class="timeslots">${horas.map((h,i)=>`<button class="timeslot ${d.hora===h?'on':''} ${i===2?'taken':''}" ${i===2?'disabled':''} onclick="${i===2?'':`Flow.ciData.hora='${h}';Flow.renderCita()`}">${h}</button>`).join('')}</div>`;
-    } else {
-      const sc=getSuc(d.suc);
-      const dt=new Date();dt.setDate(dt.getDate()+d.dia);
-      const fStr=dt.toLocaleDateString('es-MX',{weekday:'long',day:'numeric',month:'long'});
-      const motivos={test_drive:'Prueba de manejo',cotizar:'Cotización presencial',firma:'Firma de contrato',entrega:'Entrega de auto'};
-      const fCita=folio(sc.marca,'CITA');
-      if(!d.created){STATE.citas.unshift({id:uid('cita'),folio:fCita,carId:v?v.id:null,suc:d.suc,dia:d.dia,hora:d.hora,motivo:d.motivo,fecha:fStr,createdAt:Date.now()});STATE.notifs.unshift({id:uid('n'),ic:'blue',t:'Cita agendada',d:`${motivos[d.motivo]} en ${sc.nombre} · ${fStr} ${d.hora}`,time:'Ahora'});save();d.created=true;d.folio=fCita}
-      body=`<div class="ok-circle">${I.check(28)}</div><h2 style="font-size:24px;color:var(--navy);text-align:center">¡Cita agendada!</h2>
-        <p style="font-size:14px;color:var(--n600);text-align:center;margin-top:6px">Te enviamos la confirmación por WhatsApp y correo.</p>
-        <div class="folio"><div class="k">Folio de cita</div><div class="v tnum">${d.folio}</div></div>
-        <div class="summary-box">
-          <div class="row"><span>Concesionaria</span><b>${sc.nombre}</b></div>
-          <div class="row"><span>Motivo</span><b>${motivos[d.motivo]}</b></div>
-          <div class="row"><span>Día</span><b style="text-transform:capitalize">${fStr}</b></div>
-          <div class="row"><span>Hora</span><b>${d.hora||'09:00'}</b></div>
-          ${v?`<div class="row"><span>Vehículo</span><b>${v.marca} ${v.modelo}</b></div>`:''}
-        </div>`;
-    }
-    const totalSteps=labels.length;const isLast=stepIdx===totalSteps-1;
-    const canNext=(!v&&s===0&&d.suc)||(s===(v?0:1)&&d.motivo)||(s===(v?1:2)&&d.hora)||isLast;
-    showModal(`${steps(labels,stepIdx)}${body}<div class="wiz-nav">${stepIdx>0&&!isLast?`<button class="btn btn-out btn-md" onclick="Flow.ciStep--;Flow.renderCita()">${I.chevL(16)} Atrás</button>`:'<div></div>'}${isLast?`<button class="btn btn-conv btn-md" onclick="closeModal();go('#/cuenta')" style="margin-left:auto">Ir a Mi Plasencia</button>`:`<button class="btn btn-conv btn-md" onclick="Flow.ciStep++;Flow.renderCita()" ${canNext?'':'disabled'}>Continuar ${I.arrowR(16)}</button>`}</div>`,'lg');
-  },
+// === CRÉDITO ===
+openCredito(carId){const v=carId?CARS.find(c=>c.id===carId):null;ensureAuth(()=>this._cred(v,0,{}))},
+_cred(v,step,d){
+  const steps=['Tipo de persona','KYC','Documentos','¡Pre-aprobado!'];
+  const html=`<h2 style="font-size:22px;color:var(--navy)">Pre-aprobación de crédito</h2><p style="color:var(--n500);font-size:13px;margin-top:4px">Sin afectar tu buró. Recibes respuesta en pantalla.</p>${wizSteps(steps,step)}
+  ${step===0?`<div class="choice-grid">${[['pf',I.user(20),'Persona Física','Asalariado o sin actividad'],['pfae',I.briefcase(20),'PFAE','Persona Física Actividad Empresarial'],['pm',I.building(20),'Persona Moral','Empresa']].map(p=>`<button class="choice ${d.tipo===p[0]?'on':''}" onclick="Flow.credTipo='${p[0]}';document.querySelectorAll('.choice').forEach(c=>c.classList.remove('on'));this.classList.add('on')"><div class="check">${I.check(14)}</div><div class="ic">${p[1]}</div><div class="t">${p[2]}</div><div class="d">${p[3]}</div></button>`).join('')}</div>`:''}
+  ${step===1?`<div class="field-row"><div class="field"><label>Nombre completo</label><input value="${STATE.customer?.nombre||''}"></div><div class="field"><label>Fecha de nacimiento</label><input type="date"></div></div><div class="field-row"><div class="field"><label>RFC</label><input value="${STATE.customer?.rfc||''}" placeholder="ABCD800101AB1"></div><div class="field"><label>CURP</label><input placeholder="ABCD800101HJCXXX01"></div></div><div class="field-row"><div class="field"><label>Ingreso mensual</label><input type="number" placeholder="45000"></div><div class="field"><label>Antigüedad laboral</label><select><option>Menos de 1 año</option><option selected>1-3 años</option><option>3-5 años</option><option>Más de 5 años</option></select></div></div><div style="font-size:11px;color:var(--n500);display:flex;align-items:center;gap:6px">${I.shield(14)} Tus datos se procesan bajo nuestro aviso de privacidad.</div>`:''}
+  ${step===2?`<div style="display:flex;flex-direction:column;gap:10px"><div class="upload-zone has"><div class="ic">${I.check(24)}</div><div class="t">INE.pdf · subida ✓</div><div class="d">Anverso y reverso detectados</div></div><div class="upload-zone has"><div class="ic">${I.check(24)}</div><div class="t">comprobante_domicilio.pdf ✓</div><div class="d">Recibo de luz · 1 mes de antigüedad</div></div><div class="upload-zone has"><div class="ic">${I.check(24)}</div><div class="t">recibos_nomina_3meses.pdf ✓</div><div class="d">3 últimos recibos detectados</div></div></div><div style="font-size:11px;color:var(--n500);margin-top:8px;display:flex;align-items:center;gap:6px">${I.check(14)} Demo: documentos pre-cargados</div>`:''}
+  ${step===3?(()=>{const linea=v?v.precio:850000;const tasa=13.5;const m=v?mensCredito(v.precio,20,60):mensCredito(linea,20,60);return `<div class="ok-circle">${I.check(28)}</div><h2 style="text-align:center;color:var(--navy);font-size:24px">¡Estás pre-aprobado!</h2><p style="text-align:center;color:var(--n500);margin-top:6px;font-size:14px">Línea de crédito asignada. Vigencia 30 días.</p><div class="mensbox" style="margin-top:18px"><div class="lbl">Línea pre-aprobada</div><div class="v tnum">${mxn(linea)}</div><div class="sub">Tasa fija ${tasa}% anual · 12 a 60 meses</div></div><div class="summary-box"><div class="row"><span>Ejemplo: 60 meses al 20% enganche</span><b class="tnum">${mxn(m)}/mes</b></div><div class="row"><span>Folio</span><b>${d.folio}</b></div></div>`})():''}
+  <div class="wiz-nav">${step>0&&step<3?`<button class="btn btn-out btn-md" onclick='Flow._cred(${v?JSON.stringify(v.id):'null'},${step-1},${JSON.stringify(d)})'>${I.chevL(14)} Atrás</button>`:'<span></span>'}${step<3?`<button class="btn btn-conv btn-md" onclick='Flow._credNext(${v?JSON.stringify(v.id):'null'},${step},${JSON.stringify(d)})'>Continuar ${I.chevR(14)}</button>`:`<div style="display:flex;gap:8px;width:100%"><button class="btn btn-out btn-md" style="flex:1" onclick='closeModal();go("#/cuenta?t=credito")'>Ver Mi Crédito</button>${v?`<button class="btn btn-conv btn-md" style="flex:1" onclick='closeModal();Flow.openCheckout("${v.id}")'>Apartar este auto</button>`:`<button class="btn btn-conv btn-md" style="flex:1" onclick='closeModal();go("#/catalogo")'>Explorar catálogo</button>`}</div>`}</div>`;
+  showModal(html,'lg');
+},
+_credNext(carId,step,d){const v=carId?CARS.find(c=>c.id===carId):null;if(step===0){if(!Flow.credTipo)return toast('Elige tipo de persona','x');d.tipo=Flow.credTipo}if(step===2){const f=folio('CR','PA');d.folio=f;const linea=v?v.precio:850000;STATE.creditos.unshift({id:uid('cr'),folio:f,linea,tasa:13.5,fecha:new Date().toISOString().slice(0,10),estado:'pre-aprobado',vigencia:30});STATE.customer.preap=true;STATE.customer.linea=linea;STATE.customer.kyc=true;STATE.notifs.unshift({id:uid('n'),ic:'green',t:'Crédito pre-aprobado',d:`Línea por ${mxn(linea)} · vigencia 30 días`,time:'Ahora'});save()}this._cred(v,step+1,d)},
 
-  // CRÉDITO (KYC → ingresos → documentos → resultado)
-  openCredito(carId){
-    if(!STATE.customer){Auth.open('signup',()=>Flow.openCredito(carId));return}
-    const v=carId?CARS.find(c=>c.id===carId):null;
-    this.crStep=0;this.crCar=v;this.crData={ingresos:0,buroOK:true,docs:{ine:false,domicilio:false,nomina:false}};
-    this.renderCredito();
-  },
-  renderCredito(){
-    const v=this.crCar,s=this.crStep,d=this.crData;
-    const labels=['Tipo de persona','Datos KYC','Documentos','Pre-aprobación'];
-    let body='';
-    if(s===0){
-      body=`<h2 style="font-size:22px;color:var(--navy);margin-bottom:6px">¿Qué tipo de persona eres?</h2>
-        <p style="font-size:13px;color:var(--n600);margin-bottom:18px">Nos ayuda a darte la mejor tasa y plazo.</p>
-        <div class="choice-grid" style="grid-template-columns:1fr">
-          ${[['pf','Persona física',I.user(22),'Asalariado o profesionista independiente.'],['pfae','Persona física con actividad empresarial',I.briefcase(22),'PFAE: facturas, deducible.'],['pm','Persona moral',I.building(22),'Empresa con RFC empresarial.']].map(m=>`<button class="choice ${d.tipo===m[0]?'on':''}" onclick="Flow.crData.tipo='${m[0]}';Flow.renderCredito()"><div style="display:flex;gap:12px;align-items:flex-start"><div class="ic">${m[2]}</div><div><div class="t">${m[1]}</div><div class="d">${m[3]}</div></div></div><div class="check">${I.check(12)}</div></button>`).join('')}
-        </div>
-        <div style="margin-top:18px;padding:14px;background:rgba(66,153,225,.08);border-radius:12px;font-size:12px;color:var(--blue-d);display:flex;align-items:center;gap:10px"><span>${I.shield(18)}</span>Esta es una pre-aprobación suave. <b>No afecta tu buró de crédito.</b></div>`;
-    } else if(s===1){
-      const c=STATE.customer;
-      body=`<h2 style="font-size:22px;color:var(--navy);margin-bottom:6px">Tus datos</h2>
-        <div class="field-row">${field('cr_nom','Nombre completo','text','',c.nombre)}${field('cr_rfc','RFC','text','POXC900101AB1',c.rfc||'')}</div>
-        ${field('cr_curp','CURP','text','POXC900101HJCRRH00')}
-        ${field('cr_ingresos','Ingresos mensuales (MXN)','number','25,000',c.ingresos||'')}
-        <div class="field"><label>Antigüedad laboral</label><select id="cr_antig"><option>Menos de 1 año</option><option>1-3 años</option><option selected>3-5 años</option><option>Más de 5 años</option></select></div>`;
-    } else if(s===2){
-      body=`<h2 style="font-size:22px;color:var(--navy);margin-bottom:6px">Documentos</h2>
-        <p style="font-size:13px;color:var(--n600);margin-bottom:18px">Sube fotos claras de los siguientes documentos. Demo: clic para simular subida.</p>
-        ${[['ine','INE vigente (ambos lados)'],['domicilio','Comprobante de domicilio (no mayor a 3 meses)'],['nomina','Últimos 3 recibos de nómina o estados de cuenta']].map(doc=>`<div class="upload-zone ${d.docs[doc[0]]?'has':''}" onclick="Flow.crData.docs['${doc[0]}']=true;Flow.renderCredito()"><div class="ic">${d.docs[doc[0]]?I.check(28):I.upload(28)}</div><div class="t">${doc[1]}</div><div class="d">${d.docs[doc[0]]?'Documento cargado correctamente':'PDF o foto · máx 10MB'}</div></div>`).map(h=>`<div style="margin-bottom:10px">${h}</div>`).join('')}`;
-    } else {
-      const ing=+($('#cr_ingresos')?.value||d.ingresos||45000);d.ingresos=ing;
-      const linea=Math.min(ing*15,1500000);const mens=v?Math.round(mensCredito(v.precio,20,60)):0;
-      const aprobado=ing>=15000;
-      if(!d.created){if(aprobado){STATE.customer.preap=true;STATE.customer.linea=linea;STATE.customer.kyc=true;STATE.customer.ingresos=ing;STATE.notifs.unshift({id:uid('n'),ic:'green',t:'¡Crédito pre-aprobado!',d:`Línea de ${mxn(linea)} · sin afectar tu buró`,time:'Ahora'});save();updateHeader()}d.created=true}
-      body=`<div class="ok-circle" style="background:${aprobado?'rgba(72,187,120,.15)':'rgba(214,158,46,.15)'};color:${aprobado?'var(--green-d)':'var(--amber)'}">${aprobado?I.check(28):I.bell(28)}</div>
-        <h2 style="font-size:24px;color:var(--navy);text-align:center">${aprobado?'¡Pre-aprobado!':'Tu solicitud está en revisión'}</h2>
-        <p style="font-size:14px;color:var(--n600);text-align:center;margin-top:6px">${aprobado?'Felicidades, ya puedes apartar cualquier auto con tu línea pre-aprobada.':'Un asesor te contactará en 24 horas hábiles.'}</p>
-        ${aprobado?`<div class="summary-box">
-          <div class="row"><span>Línea pre-aprobada</span><b class="tnum" style="color:var(--green-d);font-size:18px">${mxn(linea)}</b></div>
-          <div class="row"><span>Tasa</span><b>13.5% anual fija</b></div>
-          <div class="row"><span>Plazos</span><b>12 a 60 meses</b></div>
-          <div class="row"><span>Enganche mínimo</span><b>20%</b></div>
-          ${v?`<div class="row tot"><span>Mensualidad estimada (${v.modelo})</span><b class="tnum" style="color:var(--navy)">${mxn(mens)}</b></div>`:''}
-        </div>`:''}`;
-    }
-    const isLast=s===3;const canNext=(s===0&&d.tipo)||(s===1&&($('#cr_ingresos')?.value||true))||(s===2&&d.docs.ine&&d.docs.domicilio&&d.docs.nomina)||isLast;
-    showModal(`${steps(labels,s)}${body}<div class="wiz-nav">${s>0&&!isLast?`<button class="btn btn-out btn-md" onclick="Flow.crStep--;Flow.renderCredito()">${I.chevL(16)} Atrás</button>`:'<div></div>'}${isLast?`<div style="margin-left:auto;display:flex;gap:8px">${v?`<button class="btn btn-conv btn-md" onclick="closeModal();Flow.openCheckout('${v.id}')">Apartar ahora ${I.arrowR(16)}</button>`:`<button class="btn btn-conv btn-md" onclick="closeModal();go('#/catalogo')">Ver catálogo</button>`}</div>`:`<button class="btn btn-conv btn-md" onclick="${s===1?"['nom','rfc','curp','ingresos'].forEach(k=>{const e=document.getElementById('cr_'+k);if(e&&e.value){if(k==='ingresos')Flow.crData.ingresos=+e.value;else STATE.customer[k==='nom'?'nombre':k]=e.value}});":''}Flow.crStep++;Flow.renderCredito()" ${canNext?'':'disabled'}>${s===2?'Verificar y pre-aprobar':'Continuar'} ${I.arrowR(16)}</button>`}</div>`,'lg');
-  },
+// === ARRENDAMIENTO ===
+openLease(carId){const v=carId?CARS.find(c=>c.id===carId):null;ensureAuth(()=>this._lease(v,0,{}))},
+_lease(v,step,d){
+  const steps=['Tipo','Plan','Contrato','Confirmación'];
+  const plazos=[24,36,48];const precio=v?v.precio:500000;
+  const html=`<h2 style="font-size:22px;color:var(--navy)">Cotizar GP Autolease</h2>${wizSteps(steps,step)}
+  ${step===0?`<div class="choice-grid">${[['pfae',I.briefcase(20),'PFAE','Persona Física con Actividad Empresarial'],['pm',I.building(20),'Persona Moral','Empresa o Pyme']].map(p=>`<button class="choice ${d.tipo===p[0]?'on':''}" onclick="Flow.leaseTipo='${p[0]}';document.querySelectorAll('.choice').forEach(c=>c.classList.remove('on'));this.classList.add('on')"><div class="check">${I.check(14)}</div><div class="ic">${p[1]}</div><div class="t">${p[2]}</div><div class="d">${p[3]}</div></button>`).join('')}</div>`:''}
+  ${step===1?`<div class="field"><label>Plazo</label><div class="plazos" style="margin-top:8px">${plazos.map(p=>`<button class="${d.plazo===p?'on':''}" onclick="Flow.leasePlazo=${p};document.querySelectorAll('.plazos button').forEach(b=>b.classList.remove('on'));this.classList.add('on')">${p} meses</button>`).join('')}</div></div><div class="summary-box"><div class="row"><span>Auto</span><b>${v?v.marca+' '+v.modelo:'(catálogo)'}</b></div><div class="row"><span>Renta mensual estimada (24m)</span><b class="tnum">${mxn(rentaLease(precio,24))}</b></div><div class="row"><span>Renta mensual estimada (36m)</span><b class="tnum">${mxn(rentaLease(precio,36))}</b></div><div class="row"><span>Renta mensual estimada (48m)</span><b class="tnum">${mxn(rentaLease(precio,48))}</b></div></div>`:''}
+  ${step===2?`<div class="field"><label>Razón social</label><input placeholder="Mi Empresa SA de CV"></div><div class="field-row"><div class="field"><label>RFC</label><input placeholder="ABC800101AB1"></div><div class="field"><label>Representante legal</label><input value="${STATE.customer?.nombre||''}"></div></div><div style="background:var(--n50);border-radius:12px;padding:14px;font-size:12px;color:var(--n600);margin-top:10px;display:flex;align-items:flex-start;gap:8px">${I.doc(16)} <span>Contrato marco generado. Vigencia ${d.plazo||36} meses. Opción de compra al final.</span></div>`:''}
+  ${step===3?`<div class="ok-circle">${I.check(28)}</div><h2 style="text-align:center;color:var(--navy);font-size:24px">¡Cotización lista!</h2><p style="text-align:center;color:var(--n500);margin-top:6px;font-size:14px">Tu asesor de flotillas te contactará en menos de 24h.</p><div class="folio"><div class="k">Folio cotización</div><div class="v">${d.folio}</div></div>`:''}
+  <div class="wiz-nav">${step>0&&step<3?`<button class="btn btn-out btn-md" onclick='Flow._lease(${v?JSON.stringify(v.id):'null'},${step-1},${JSON.stringify(d)})'>${I.chevL(14)} Atrás</button>`:'<span></span>'}${step<3?`<button class="btn btn-conv btn-md" onclick='Flow._leaseNext(${v?JSON.stringify(v.id):'null'},${step},${JSON.stringify(d)})'>Continuar ${I.chevR(14)}</button>`:`<button class="btn btn-conv btn-md btn-full" onclick='closeModal();go("#/cuenta?t=autolease")'>Ver Mi Autolease</button>`}</div>`;
+  showModal(html,'lg');
+},
+_leaseNext(carId,step,d){const v=carId?CARS.find(c=>c.id===carId):null;if(step===0){if(!Flow.leaseTipo)return toast('Elige tipo','x');d.tipo=Flow.leaseTipo}if(step===1){d.plazo=Flow.leasePlazo||36}if(step===2){const f=folio('AL','CT');d.folio=f;const precio=v?v.precio:500000;STATE.leases.unshift({id:uid('al'),folio:f,plazo:d.plazo,renta:rentaLease(precio,d.plazo),tipo:d.tipo,fecha:new Date().toISOString().slice(0,10),estado:'cotizado'});STATE.notifs.unshift({id:uid('n'),ic:'green',t:'Autolease cotizado',d:`Renta estimada ${mxn(rentaLease(precio,d.plazo))}/mes · ${d.plazo}m`,time:'Ahora'});save()}this._lease(v,step+1,d)},
 
-  // LEASE (PFAE/PM → plazo y enganche → contrato → confirmación)
-  openLease(carId){
-    if(!STATE.customer){Auth.open('signup',()=>Flow.openLease(carId));return}
-    const v=carId?CARS.find(c=>c.id===carId):null;
-    this.leStep=0;this.leCar=v;this.leData={persona:'pfae',plazo:36,depInicial:10,empresa:''};
-    this.renderLease();
-  },
-  renderLease(){
-    const v=this.leCar,s=this.leStep,d=this.leData;
-    const labels=['Persona','Plan','Contrato','Confirmación'];
-    let body='';
-    if(s===0){
-      body=`<h2 style="font-size:22px;color:var(--navy);margin-bottom:6px">GP Autolease · Arrendamiento puro</h2>
-        <p style="font-size:13px;color:var(--n600);margin-bottom:18px">Renta mensual fija. Sin enganche fuerte. Deducible si facturas.</p>
-        <div class="choice-grid" style="grid-template-columns:1fr">
-          ${[['pfae','Persona física con actividad empresarial (PFAE)','Deducible · ideal si facturas como persona física.'],['pm','Persona moral','Empresa con RFC. Deducción completa.'],['pf','Persona física','No deducible. Plan personal.']].map(m=>`<button class="choice ${d.persona===m[0]?'on':''}" onclick="Flow.leData.persona='${m[0]}';Flow.renderLease()"><div class="t">${m[1]}</div><div class="d">${m[2]}</div><div class="check">${I.check(12)}</div></button>`).join('')}
-        </div>
-        ${d.persona==='pm'?`<div style="margin-top:14px">${field('le_emp','Razón social de tu empresa','text','Mi Empresa SA de CV')}</div>`:''}`;
-    } else if(s===1){
-      const precio=v?v.precio:600000;const renta=Math.round(rentaLease(precio,d.plazo));
-      body=`<h2 style="font-size:22px;color:var(--navy);margin-bottom:6px">Tu plan de arrendamiento</h2>
-        ${!v?`<div class="field"><label>Auto de interés</label><select id="le_car">${CARS.filter(c=>c.cond==='nuevo').slice(0,20).map(c=>`<option value="${c.id}">${c.marca} ${c.modelo} · ${mxn(c.precio)}</option>`).join('')}</select></div>`:''}
-        <div style="font-family:var(--disp);font-size:11px;font-weight:700;text-transform:uppercase;color:var(--n500);margin:14px 0 6px">Plazo</div>
-        <div class="plazos">${[24,36,48].map(p=>`<button class="${d.plazo===p?'on':''}" onclick="Flow.leData.plazo=${p};Flow.renderLease()">${p} meses</button>`).join('')}</div>
-        <div style="font-family:var(--disp);font-size:11px;font-weight:700;text-transform:uppercase;color:var(--n500);margin:18px 0 6px">Depósito en garantía (${d.depInicial}%)</div>
-        <input type="range" min="0" max="20" value="${d.depInicial}" oninput="Flow.leData.depInicial=+this.value;Flow.renderLease()" style="width:100%;accent-color:var(--red)">
-        <div class="mensbox" style="margin-top:18px"><div class="lbl">Renta mensual estimada</div><div class="v tnum">${mxn(renta)}</div><div class="sub">${d.plazo} meses · IVA incluido</div></div>
-        <div class="summary-box" style="margin-top:14px"><div class="row"><span>Depósito en garantía</span><b class="tnum">${mxn(precio*d.depInicial/100)}</b></div><div class="row"><span>Renta mensual</span><b class="tnum">${mxn(renta)}</b></div><div class="row tot"><span>Total del plan (${d.plazo} m)</span><b class="tnum">${mxn(renta*d.plazo+precio*d.depInicial/100)}</b></div></div>`;
-    } else if(s===2){
-      body=`<h2 style="font-size:22px;color:var(--navy);margin-bottom:6px">Contrato de arrendamiento</h2>
-        <p style="font-size:13px;color:var(--n600);margin-bottom:18px">Documentos para formalizar.</p>
-        ${['Identificación oficial','Constancia de situación fiscal','Estados de cuenta (últimos 3 meses)','Comprobante de domicilio'].map(doc=>`<div class="upload-zone has" style="margin-bottom:10px"><div class="ic">${I.check(24)}</div><div class="t">${doc}</div><div class="d">Demo: documento marcado como cargado</div></div>`).join('')}`;
-    } else {
-      const precio=v?v.precio:600000;const renta=Math.round(rentaLease(precio,d.plazo));const f=folio('AUT','LEASE');
-      if(!d.created){STATE.cotizaciones.unshift({id:uid('cot'),tipo:'lease',folio:f,carId:v?v.id:null,plazo:d.plazo,renta,persona:d.persona,createdAt:Date.now()});if(v){STATE.deals.unshift({id:uid('d'),folio:f,carId:v.id,modalidad:'arrendamiento',estado:'apartado',apartado:precio*d.depInicial/100,mensualidad:renta,plazo:d.plazo,createdAt:Date.now()})}STATE.notifs.unshift({id:uid('n'),ic:'green',t:'Arrendamiento contratado',d:`Renta ${mxn(renta)}/mes · ${d.plazo} meses`,time:'Ahora'});save();d.created=true;d.folio=f;updateHeader()}
-      body=`<div class="ok-circle">${I.check(28)}</div><h2 style="font-size:24px;color:var(--navy);text-align:center">¡Contrato firmado!</h2>
-        <p style="font-size:14px;color:var(--n600);text-align:center;margin-top:6px">Tu contrato GP Autolease está activo. Te contactará un asesor para la entrega.</p>
-        <div class="folio"><div class="k">Folio de contrato</div><div class="v tnum">${d.folio}</div></div>
-        <div class="summary-box">
-          <div class="row"><span>Renta mensual</span><b class="tnum" style="color:var(--navy)">${mxn(renta)}</b></div>
-          <div class="row"><span>Plazo</span><b>${d.plazo} meses</b></div>
-          <div class="row"><span>Tipo</span><b style="text-transform:uppercase">${d.persona}</b></div>
-        </div>`;
-    }
-    const isLast=s===3;
-    showModal(`${steps(labels,s)}${body}<div class="wiz-nav">${s>0&&!isLast?`<button class="btn btn-out btn-md" onclick="Flow.leStep--;Flow.renderLease()">${I.chevL(16)} Atrás</button>`:'<div></div>'}${isLast?`<button class="btn btn-conv btn-md" onclick="closeModal();go('#/cuenta?t=fin')" style="margin-left:auto">Ver en Mi Plasencia</button>`:`<button class="btn btn-conv btn-md" onclick="Flow.leStep++;Flow.renderLease()">${s===2?'Firmar contrato':'Continuar'} ${I.arrowR(16)}</button>`}</div>`,'lg');
-  },
+// === TRADE-IN ===
+openTradein(quick=false){this._ti(0,{quick})},
+_ti(step,d){
+  const steps=['Identifica','Inspección','Oferta','Confirmación'];
+  const html=`<h2 style="font-size:22px;color:var(--navy)">Valúa tu auto</h2><p style="color:var(--n500);font-size:13px;margin-top:4px">Oferta firme en 2 minutos. Sin compromiso.</p>${wizSteps(steps,step)}
+  ${step===0?`<div class="field-row"><div class="field"><label>Marca</label><select id="ti_m">${['Mazda','Hyundai','Toyota','Nissan','Chevrolet','Ford','Volkswagen','Kia','Jeep','Otro'].map(m=>`<option ${d.marca===m?'selected':''}>${m}</option>`).join('')}</select></div><div class="field"><label>Modelo</label><input id="ti_mo" placeholder="CX-5, Versa, etc." value="${d.modelo||''}"></div></div><div class="field-row"><div class="field"><label>Año</label><select id="ti_y">${Array.from({length:15},(_,i)=>2025-i).map(y=>`<option ${d.anio==y?'selected':''}>${y}</option>`).join('')}</select></div><div class="field"><label>Kilometraje</label><input id="ti_k" type="number" placeholder="50000" value="${d.km||''}"></div></div><div class="field-row"><div class="field"><label>Transmisión</label><select id="ti_t"><option>Automática</option><option>Manual</option></select></div><div class="field"><label>Estado general</label><select id="ti_e"><option>Excelente</option><option selected>Bueno</option><option>Regular</option></select></div></div>`:''}
+  ${step===1?`<p style="font-size:13px;color:var(--n600);margin-bottom:12px">Sube 4 fotos clave. En la versión final, nuestro asesor puede agendar inspección física.</p><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">${['Frente','Lado izquierdo','Lado derecho','Trasera'].map(t=>`<div class="upload-zone has"><div class="ic">${I.check(20)}</div><div class="t">${t} ✓</div><div class="d">demo.jpg</div></div>`).join('')}</div><div style="background:var(--n50);border-radius:12px;padding:14px;margin-top:14px;font-size:12px;color:var(--n600);display:flex;align-items:flex-start;gap:8px">${I.shield(16)} <span>Verificamos contra catálogo de partes y libro azul. Oferta firme hasta inspección presencial.</span></div>`:''}
+  ${step===2?(()=>{const base=d.anio>=2022?420000:d.anio>=2019?280000:d.anio>=2016?180000:120000;const ajuste=Math.max(.4,1-(d.km||50000)/200000);const oferta=Math.round(base*ajuste/1000)*1000;const bonus=Math.round(oferta*.08/1000)*1000;d.oferta=oferta;d.bonus=bonus;return `<div style="text-align:center"><div style="font-family:var(--disp);font-size:11px;font-weight:700;text-transform:uppercase;color:var(--n500);letter-spacing:1px">Oferta firme · 7 días</div><div style="font-family:var(--disp);font-weight:900;font-size:42px;color:var(--navy);margin-top:4px" class="tnum">${mxn(oferta)}</div><div style="font-size:13px;color:var(--n600)">${d.marca||'Tu auto'} ${d.anio||''} · ${num(d.km||50000)} km</div></div><div style="margin-top:20px;display:flex;flex-direction:column;gap:10px"><button class="choice ${d.path==='cambio'?'on':''}" style="text-align:left;position:relative" onclick="Flow.tiPath='cambio';document.querySelectorAll('.choice').forEach(c=>c.classList.remove('on'));this.classList.add('on')"><div class="check">${I.check(14)}</div><span class="bp bp-gold" style="position:absolute;top:14px;right:42px">+${mxn(bonus)}</span><div style="display:flex;gap:12px;align-items:center"><div class="ic">${I.cycle(20)}</div><div><div class="t">Cambiar por un seminuevo Plasencia</div><div class="d">Oferta + bonus aplicado como enganche</div></div></div></button><button class="choice ${d.path==='efectivo'?'on':''}" style="text-align:left" onclick="Flow.tiPath='efectivo';document.querySelectorAll('.choice').forEach(c=>c.classList.remove('on'));this.classList.add('on')"><div class="check">${I.check(14)}</div><div style="display:flex;gap:12px;align-items:center"><div class="ic">${I.cash(20)}</div><div><div class="t">Vender en efectivo</div><div class="d">Transferencia en 24h tras entrega</div></div></div></button><button class="choice ${d.path==='guardar'?'on':''}" style="text-align:left" onclick="Flow.tiPath='guardar';document.querySelectorAll('.choice').forEach(c=>c.classList.remove('on'));this.classList.add('on')"><div class="check">${I.check(14)}</div><div style="display:flex;gap:12px;align-items:center"><div class="ic">${I.cal(20)}</div><div><div class="t">Mantener oferta firme 7 días</div><div class="d">Decide sin presión</div></div></div></button></div>`})():''}
+  ${step===3?`<div class="ok-circle">${I.check(28)}</div><h2 style="text-align:center;color:var(--navy);font-size:24px">¡Valuación registrada!</h2><p style="text-align:center;color:var(--n500);margin-top:6px;font-size:14px">${d.path==='cambio'?'Aplica como enganche de cualquier seminuevo del catálogo.':d.path==='efectivo'?'Tu asesor te contactará para coordinar inspección y pago.':'Oferta firme por 7 días.'}</p><div class="folio"><div class="k">Folio valuación</div><div class="v">${d.folio}</div></div><div class="summary-box"><div class="row"><span>Tu auto</span><b>${d.marca||'—'} ${d.anio||''}</b></div><div class="row"><span>Oferta</span><b class="tnum">${mxn(d.oferta)}</b></div>${d.path==='cambio'?`<div class="row"><span>Bonus por cambio</span><b style="color:var(--green-d)" class="tnum">+${mxn(d.bonus)}</b></div><div class="row tot"><span>Total aplicable</span><b class="tnum">${mxn(d.oferta+d.bonus)}</b></div>`:''}</div>`:''}
+  <div class="wiz-nav">${step>0&&step<3?`<button class="btn btn-out btn-md" onclick='Flow._ti(${step-1},${JSON.stringify(d)})'>${I.chevL(14)} Atrás</button>`:'<span></span>'}${step<3?`<button class="btn btn-conv btn-md" onclick='Flow._tiNext(${step},${JSON.stringify(d)})'>${step===2?'Confirmar elección':'Continuar'} ${I.chevR(14)}</button>`:`<div style="display:flex;gap:8px;width:100%">${d.path==='cambio'?`<button class="btn btn-conv btn-md" style="flex:1" onclick='closeModal();go("#/catalogo?cond=seminuevo")'>Ver seminuevos</button>`:`<button class="btn btn-out btn-md" style="flex:1" onclick='closeModal();go("#/cuenta?t=tradein")'>Ver mi trade-in</button>`}<button class="btn btn-out btn-md" style="flex:1" onclick='closeModal()'>Cerrar</button></div>`}</div>`;
+  showModal(html,'lg');
+},
+_tiNext(step,d){if(step===0){d.marca=$('#ti_m').value;d.modelo=$('#ti_mo').value;d.anio=+$('#ti_y').value;d.km=+$('#ti_k').value||50000}if(step===2){if(!Flow.tiPath)return toast('Elige un camino','x');d.path=Flow.tiPath;const f=folio('TI','VA');d.folio=f;ensureAuth(()=>{STATE.tradeins.unshift({id:uid('ti'),folio:f,marca:d.marca,anio:d.anio,km:d.km,oferta:d.oferta,bonus:d.path==='cambio'?d.bonus:0,path:d.path,fecha:new Date().toISOString().slice(0,10),estado:'oferta firme',vigencia:7});STATE.notifs.unshift({id:uid('n'),ic:'gold',t:'Valuación lista',d:`${d.marca} ${d.anio} · oferta ${mxn(d.oferta)}`,time:'Ahora'});save();updateHeader();this._ti(step+1,d)});return}this._ti(step+1,d)},
 
-  // VALUAR AUTO
-  openValuar(){
-    showModal(`<h2 style="font-size:22px;color:var(--navy);margin-bottom:6px">Valúa tu auto actual</h2>
-      <p style="font-size:13px;color:var(--n600);margin-bottom:18px">Aplica como enganche de tu próximo Plasencia. Estimación inmediata.</p>
-      <div class="field-row">${field('vl_marca','Marca','text','Mazda')}${field('vl_modelo','Modelo','text','CX-5')}</div>
-      <div class="field-row">${field('vl_anio','Año','number','2020')}${field('vl_km','Kilometraje','number','45000')}</div>
-      <div class="field"><label>Estado general</label><select id="vl_est"><option>Excelente</option><option selected>Bueno</option><option>Regular</option></select></div>
-      <button class="btn btn-conv btn-md btn-full" style="margin-top:8px" onclick="Flow.calcValuar()">Calcular valor</button>
-      <div id="vl_result"></div>`,'lg');
-  },
-  calcValuar(){
-    const m=$('#vl_marca').value,mo=$('#vl_modelo').value,a=+$('#vl_anio').value||2020,km=+$('#vl_km').value||50000;
-    const base=400000;const edad=2026-a;const dep=Math.pow(0.86,edad)*Math.max(1-km/200000*0.5,0.4);
-    const oferta=Math.round(base*dep/1000)*1000;
-    $('#vl_result').innerHTML=`<div class="summary-box" style="margin-top:18px;background:linear-gradient(135deg,var(--navy),var(--navy-d));color:#fff;border:none">
-      <div style="font-family:var(--disp);font-size:11px;font-weight:700;text-transform:uppercase;color:var(--gold);letter-spacing:1px">Valor estimado de tu ${m} ${mo} ${a}</div>
-      <div style="font-family:var(--disp);font-weight:900;font-size:36px;color:var(--gold);margin-top:6px" class="tnum">${mxn(oferta)}</div>
-      <div style="font-size:12px;color:rgba(255,255,255,.7);margin-top:4px">Aplica como enganche. Te enviamos la oferta firme tras inspección.</div>
-    </div>
-    <button class="btn btn-out btn-md btn-full" style="margin-top:10px" onclick="closeModal();go('#/catalogo')">Ver autos con este enganche ${I.arrowR(16)}</button>`;
-  },
-
-  // FLOTILLA
-  openFlotilla(){
-    this.fStep=0;this.fData={};this.renderFlotilla();
-  },
-  renderFlotilla(){
-    const s=this.fStep,d=this.fData;
-    const labels=['Tu empresa','Necesidades','Confirmación'];
-    let body='';
-    if(s===0){
-      body=`<h2 style="font-size:22px;color:var(--navy);margin-bottom:6px">Tu empresa</h2>
-        <div class="field-row">${field('fl_emp','Razón social','text','Mi Empresa SA')}${field('fl_rfc','RFC empresarial','text','MEX900101ABC')}</div>
-        <div class="field-row">${field('fl_nom','Persona de contacto','text','Tu nombre')}${field('fl_tel','Teléfono','tel','33 0000 0000')}</div>
-        ${field('fl_em','Correo corporativo','email','contacto@empresa.com')}
-        <div class="field"><label>Sector</label><select id="fl_sect"><option>Logística / Reparto</option><option>Servicios</option><option>Construcción</option><option>Tecnología</option><option>Gobierno</option><option>Otro</option></select></div>`;
-    } else if(s===1){
-      body=`<h2 style="font-size:22px;color:var(--navy);margin-bottom:6px">Tus necesidades</h2>
-        <div class="field-row"><div class="field"><label>Unidades requeridas</label><select id="fl_unid"><option>1-5 unidades</option><option>6-15 unidades</option><option>16-50 unidades</option><option>+50 unidades</option></select></div><div class="field"><label>Plazo de incorporación</label><select id="fl_plz"><option>Inmediato</option><option>1-3 meses</option><option>3-6 meses</option><option>+6 meses</option></select></div></div>
-        <div class="field"><label>Modalidad preferida</label><select id="fl_mod"><option>Compra directa</option><option>Arrendamiento puro (GP Autolease)</option><option>Crédito empresarial</option><option>Combinación</option></select></div>
-        <div class="field"><label>Tipo de vehículos</label><select id="fl_tipo" multiple size="4" style="height:auto"><option selected>SUV ejecutivo</option><option>Pickup de trabajo</option><option>Sedán de fuerza de ventas</option><option>Van de reparto</option><option>Camión ligero</option></select></div>
-        <div class="field"><label>Comentarios (opcional)</label><textarea id="fl_com" rows="3" placeholder="Cuéntanos cualquier detalle relevante"></textarea></div>`;
-    } else {
-      const f=folio('FLOT','FLT');
-      if(!d.created){STATE.cotizaciones.unshift({id:uid('cot'),tipo:'flotilla',folio:f,createdAt:Date.now()});STATE.notifs.unshift({id:uid('n'),ic:'gold',t:'Cotización de flotilla recibida',d:'Un asesor empresarial te contactará en 24h hábiles',time:'Ahora'});save();d.created=true;d.folio=f;updateHeader()}
-      body=`<div class="ok-circle">${I.check(28)}</div><h2 style="font-size:24px;color:var(--navy);text-align:center">¡Solicitud recibida!</h2>
-        <p style="font-size:14px;color:var(--n600);text-align:center;margin-top:6px">Un asesor empresarial te contactará en 24 horas hábiles con propuesta a medida.</p>
-        <div class="folio"><div class="k">Folio de cotización</div><div class="v tnum">${d.folio}</div></div>
-        <div style="margin-top:18px;padding:14px;background:var(--n50);border-radius:12px;font-size:13px;color:var(--n600)">${I.briefcase(18)} <b style="color:var(--navy);font-family:var(--disp)">¿Por qué Plasencia Flotillas?</b><br>• Tarifas preferenciales por volumen<br>• Atención dedicada en 12 concesionarias<br>• Mantenimiento programado<br>• Facturación a empresa</div>`;
-    }
-    const isLast=s===2;
-    showModal(`${steps(labels,s)}${body}<div class="wiz-nav">${s>0&&!isLast?`<button class="btn btn-out btn-md" onclick="Flow.fStep--;Flow.renderFlotilla()">${I.chevL(16)} Atrás</button>`:'<div></div>'}${isLast?`<button class="btn btn-conv btn-md" onclick="closeModal()" style="margin-left:auto">Cerrar</button>`:`<button class="btn btn-conv btn-md" onclick="Flow.fStep++;Flow.renderFlotilla()">${s===1?'Enviar solicitud':'Continuar'} ${I.arrowR(16)}</button>`}</div>`,'lg');
-  },
-  submitFlotilla(){
-    const emp=$('#ff_emp')?.value;
-    if(!emp){toast('Ingresa el nombre de tu empresa','x');return}
-    this.openFlotilla();
-  },
+// === FLOTILLAS ===
+openFlotilla(){this._flot(0,{})},
+_flot(step,d){
+  const steps=['Empresa','Necesidades','Confirmación'];
+  const html=`<h2 style="font-size:22px;color:var(--navy)">Cotización Plasencia Flotillas</h2>${wizSteps(steps,step)}
+  ${step===0?`<div class="field"><label>Razón social</label><input id="fl_rs" placeholder="Mi Empresa SA de CV"></div><div class="field-row"><div class="field"><label>RFC</label><input id="fl_rfc"></div><div class="field"><label>Industria</label><select id="fl_ind"><option>Logística</option><option>Construcción</option><option>Comercial</option><option>Servicios</option><option>Gobierno</option></select></div></div><div class="field"><label>Contacto</label><input id="fl_nom" value="${STATE.customer?.nombre||''}"></div><div class="field-row"><div class="field"><label>Correo corporativo</label><input id="fl_em" type="email" value="${STATE.customer?.email||''}"></div><div class="field"><label>Teléfono</label><input id="fl_tel" value="${STATE.customer?.tel||''}"></div></div>`:''}
+  ${step===1?`<div class="field"><label>Cantidad de unidades</label><select id="fl_n"><option>1-5</option><option>6-15</option><option>16-50</option><option>+50</option></select></div><div class="field"><label>Uso principal</label><div class="choice-grid">${[[I.car(20),'Ejecutivo','Sedanes y SUVs'],[I.truck(20),'Carga','Pickups y vans'],[I.key(20),'Flota mixta','Combinado']].map((u,i)=>`<button class="choice ${i===0?'on':''}" onclick="document.querySelectorAll('.choice').forEach(c=>c.classList.remove('on'));this.classList.add('on');Flow.flotUso='${u[1]}'"><div class="check">${I.check(14)}</div><div class="ic">${u[0]}</div><div class="t">${u[1]}</div><div class="d">${u[2]}</div></button>`).join('')}</div></div><div class="field"><label>Forma de pago preferida</label><div class="plazos" style="margin-top:8px"><button class="on" onclick="document.querySelectorAll('.plazos button').forEach(b=>b.classList.remove('on'));this.classList.add('on');Flow.flotPago='Lease'">GP Autolease</button><button onclick="document.querySelectorAll('.plazos button').forEach(b=>b.classList.remove('on'));this.classList.add('on');Flow.flotPago='Credito'">Crédito automotriz</button><button onclick="document.querySelectorAll('.plazos button').forEach(b=>b.classList.remove('on'));this.classList.add('on');Flow.flotPago='Contado'">Contado</button></div></div>`:''}
+  ${step===2?`<div class="ok-circle">${I.check(28)}</div><h2 style="text-align:center;color:var(--navy);font-size:24px">¡Solicitud enviada!</h2><p style="text-align:center;color:var(--n500);margin-top:6px;font-size:14px">Nuestro equipo de flotillas te contactará en menos de 24 horas hábiles con propuesta cross-marca.</p><div class="folio"><div class="k">Folio cotización</div><div class="v">${d.folio}</div></div>`:''}
+  <div class="wiz-nav">${step>0&&step<2?`<button class="btn btn-out btn-md" onclick='Flow._flot(${step-1},${JSON.stringify(d)})'>${I.chevL(14)} Atrás</button>`:'<span></span>'}${step<2?`<button class="btn btn-conv btn-md" onclick='Flow._flotNext(${step},${JSON.stringify(d)})'>Continuar ${I.chevR(14)}</button>`:`<button class="btn btn-conv btn-md btn-full" onclick='closeModal()'>Cerrar</button>`}</div>`;
+  showModal(html,'lg');
+},
+_flotNext(step,d){if(step===1){const f=folio('FL','CT');d.folio=f;STATE.cotizaciones.unshift({id:uid('co'),folio:f,tipo:'flotilla',fecha:new Date().toISOString().slice(0,10),estado:'recibida'});STATE.notifs.unshift({id:uid('n'),ic:'green',t:'Cotización flotillas recibida',d:'Asesor te contactará en 24h',time:'Ahora'});save()}this._flot(step+1,d)},
 };
+window.Flow=Flow;

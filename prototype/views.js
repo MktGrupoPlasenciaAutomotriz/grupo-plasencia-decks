@@ -2,7 +2,7 @@
 function vcard(v){
   const mens=mensCredito(v.precio,20,60);
   const suc=getSuc(v.suc);
-  const liked=STATE.favs.includes(v.id);
+  const liked=STATE.watchlist.includes(v.id);
   return `<article class="vcard" onclick="go('#/auto/${v.id}')">
     <div class="ph">
       <img src="${v.fotos[0]}" alt="${v.marca} ${v.modelo}" loading="lazy" onerror="this.src='${FALLBACK}'">
@@ -17,10 +17,10 @@ function vcard(v){
       <h3>${v.modelo}</h3>
       <div class="specs"><span>${v.cond==='nuevo'?'0 km':num(v.km)+' km'}</span><span>·</span><span>${v.trans}</span><span>·</span><span>${v.fuel}</span></div>
       <div class="seller">
-        <div class="seller-av">${initials(suc.nombre)}</div>
+        ${sucLogoHTML(suc,'sm')}
         <div class="seller-info">
           <div class="seller-name">${suc.nombre}</div>
-          <div class="seller-meta"><span class="star">${I.star(11)}</span>${suc.rating} · ${num(suc.reviews)} reseñas</div>
+          <div class="seller-meta"><span class="star">${I.star(11)}</span>${suc.rating} · ${num(suc.reviews)}</div>
         </div>
       </div>
       <div class="foot">
@@ -37,16 +37,18 @@ home(){
   const topDealers=SUCS.slice().sort((a,b)=>b.reviews-a.reviews).slice(0,6);
   const SOLUC=[
     [I.car(24),'Comprar','Nuevos y seminuevos certificados de 14 marcas, en un solo catálogo cross-marca.','#/catalogo'],
-    [I.card(24),'Financiar','Plasencia Crédito: pre-aprobación en línea en 2 minutos, sin afectar tu buró.',null,'Flow.openCredito()'],
-    [I.key(24),'Arrendar','GP Autolease: arrendamiento puro para personas físicas con actividad empresarial y empresas.',null,'Flow.openLease()'],
-    [I.shield(24),'Asegurar','Seguros y garantía extendida integrados directamente a tu compra.'],
-    [I.wrench(24),'Mantener','Postventa y servicio programado agendados desde tu cuenta única Plasencia.'],
-    [I.cycle(24),'Renovar','Tu auto actual se valúa en línea y aplica como enganche del siguiente.'],
+    [I.trending(24),'Vender o cambiar','Valúa tu auto en línea. Oferta firme en 2 minutos.','#/trade-in'],
+    [I.card(24),'Financiar','Plasencia Crédito: pre-aprobación sin afectar tu buró. Tasa fija 13.5% anual.','#/credito'],
+    [I.key(24),'Arrendar','GP Autolease: arrendamiento puro para PFAE y empresas. Deducible.','#/autolease'],
+    [I.briefcase(24),'Flotillas','Cotización empresarial para Pymes y corporativos. 14 marcas disponibles.','#/flotillas'],
+    [I.wrench(24),'Mantener','Postventa y servicio en los 12 talleres del grupo, agendados en línea.'],
   ];
-  const PERSONAS=[
-    [I.family(24),'Compro mi primer auto','María, 32 años · PFAE','Soy joven, vivo en Zapopan y quiero algo confiable sub $500K. Necesito financiamiento simple y un asesor que me guíe.',"go('#/catalogo?cond=nuevo')"],
-    [I.briefcase(24),'Renuevo flotilla de mi empresa','Carlos, 47 años · Pyme','Tengo 8 vehículos de trabajo. Necesito cotización empresarial, factura y mantenimiento programado.',"go('#/flotillas')"],
-    [I.cycle(24),'Compro para mi familia','Andrea, 51 años · Decisora del hogar','Necesito un segundo auto para mi hija universitaria. Quiero seminuevo certificado, garantía y un proceso fácil.',"go('#/catalogo?cond=seminuevo')"],
+  // Entradas por INTENCIÓN, no por persona
+  const INTENT=[
+    [I.car(20),'Comprar auto nuevo','Catálogo de las 14 marcas',`go('#/catalogo?cond=nuevo')`],
+    [I.shield(20),'Comprar seminuevo','167 puntos de inspección',`go('#/catalogo?cond=seminuevo')`],
+    [I.trending(20),'Vender o cambiar mi auto','Valuación en 2 minutos',`go('#/trade-in')`],
+    [I.briefcase(20),'Cotizar para mi empresa','Plasencia Flotillas',`go('#/flotillas')`],
   ];
   const CICLO=[
     ['01','Descubre','Compara entre marcas por uso, no por logo. 12 concesionarias compiten por ti.'],
@@ -61,9 +63,9 @@ home(){
     <div class="hero-in fu">
       <div class="eyebrow gold">Grupo Plasencia · 75 años · 12 concesionarias · 14 marcas</div>
       <h1 style="margin-top:14px">Toda tu vida automotriz,<br><span class="y">en un solo lugar.</span></h1>
-      <p class="sub">El marketplace donde las 12 concesionarias del grupo compiten por ti. Compra, financia, arrienda, mantén y renueva tu auto con el respaldo de 75 años.</p>
+      <p class="sub">El marketplace donde las 12 concesionarias del grupo compiten por ti. Compra, vende, financia y mantén tu auto con el respaldo de 75 años.</p>
       <div class="search-shell">
-        <div class="si">${I.search(20)}<input id="heroSearch" placeholder="Busca por marca, modelo o uso (ej. SUV familiar)…" onkeydown="if(event.key==='Enter')go('#/catalogo?q='+encodeURIComponent(this.value))"></div>
+        <div class="si">${I.search(20)}<input placeholder="Busca por marca, modelo o uso (ej. SUV familiar)…" onkeydown="if(event.key==='Enter')go('#/catalogo?q='+encodeURIComponent(this.value))"></div>
         <button class="btn btn-conv btn-lg" onclick="go('#/catalogo')">Ver catálogo</button>
       </div>
       <div class="trust-line">
@@ -81,31 +83,43 @@ home(){
     </div>
   </section>
 
-  <section class="personas"><div class="wrap">
-    <h2>¿Qué te trae al marketplace hoy?</h2>
-    <p class="lede">Diseñamos cada flujo pensando en quién eres y qué necesitas.</p>
-    <div class="persona-grid">
-      ${PERSONAS.map(p=>`<div class="persona" onclick="${p[4]}">
-        <div class="ic">${p[0]}</div><div class="who">${p[2]}</div><h3>${p[1]}</h3><p>${p[3]}</p>
-        <div class="cta">Empezar aquí ${I.chevR(14)}</div>
-      </div>`).join('')}
+  <section class="intents"><div class="wrap">
+    <div class="intents-grid">
+      ${INTENT.map(it=>`<button class="intent" onclick="${it[3]}"><div class="ic">${it[0]}</div><h3>${it[1]}</h3><p>${it[2]}</p><div class="more">Empezar ${I.chevR(12)}</div></button>`).join('')}
     </div>
   </div></section>
 
   <div class="marcas"><div class="marcas-in">
     <span class="lbl">Las 14 marcas del grupo</span>
-    ${MARCAS.map(m=>{const s=marcaLogoSrc(m);return s?`<img class="marca-logo" src="${s}" alt="${m}" title="${m}" onclick="go('#/catalogo?marca=${encodeURIComponent(m)}')" onerror="this.outerHTML='<b style=\\'font-family:var(--disp);font-weight:800;color:var(--n600);font-size:14px;cursor:pointer\\' onclick=\\'go(\\&quot;#/catalogo?marca=${encodeURIComponent(m)}\\&quot;)\\'>${m}</b>'">`:`<b style="font-family:var(--disp);font-weight:800;color:var(--n600);font-size:14px;cursor:pointer" onclick="go('#/catalogo?marca=${encodeURIComponent(m)}')">${m}</b>`}).join('')}
+    ${MARCAS.map(m=>{const s=marcaLogoSrc(m);return s?`<img class="marca-logo" src="${s}" alt="${m}" title="${m}" onclick="go('#/catalogo?marca=${encodeURIComponent(m)}')" onerror="this.outerHTML='<b style=&quot;font-family:var(--disp);font-weight:800;color:var(--n600);font-size:14px;cursor:pointer&quot; onclick=&quot;go(\\&quot;#/catalogo?marca=${encodeURIComponent(m)}\\&quot;)&quot;>${m}</b>'">`:`<b style="font-family:var(--disp);font-weight:800;color:var(--n600);font-size:14px;cursor:pointer" onclick="go('#/catalogo?marca=${encodeURIComponent(m)}')">${m}</b>`}).join('')}
   </div></div>
 
   <section class="sec"><div class="wrap">
-    <div class="eyebrow">Todo lo que tu auto necesita</div>
-    <h2>Seis soluciones. Una sola cuenta. Una relación de cinco años.</h2>
-    <p class="lede">No eres un prospecto de una marca, eres cliente del grupo. Todo lo que tu auto necesita, en un solo lugar.</p>
+    <div class="eyebrow">Soluciones del grupo</div>
+    <h2>Todo lo que tu auto necesita, en una sola cuenta.</h2>
+    <p class="lede">No eres prospecto de una marca: eres cliente del grupo. Todo el ciclo del auto en un solo lugar.</p>
     <div class="sol-grid">
-      ${SOLUC.map(s=>`<div class="sol" ${s[3]?`onclick="go('${s[3]}')"`:s[4]?`onclick="${s[4]}"`:''} style="${s[3]||s[4]?'cursor:pointer':''}">
+      ${SOLUC.map(s=>`<div class="sol" ${s[3]?`onclick="go('${s[3]}')"`:''} style="${s[3]?'cursor:pointer':''}">
         <div class="ic">${s[0]}</div><h3>${s[1]}</h3><p>${s[2]}</p>
-        ${s[3]||s[4]?`<a class="more">Conocer más ${I.chevR(12)}</a>`:''}
+        ${s[3]?`<a class="more">Conocer más ${I.chevR(12)}</a>`:''}
       </div>`).join('')}
+    </div>
+
+    <div class="tradein-band">
+      <div class="ctn">
+        <div class="eyebrow gold" style="color:var(--gold)">Vende o cambia tu auto actual</div>
+        <h2 style="margin-top:10px">Tu auto vale más de lo que crees.</h2>
+        <p>Oferta firme en 2 minutos. Sin compromiso. Tres caminos: vender en efectivo, cambiar por un seminuevo o aplicar como enganche de tu próximo Plasencia.</p>
+        <div class="ctas">
+          <button class="btn btn-gold btn-lg" onclick="go('#/trade-in')">Valuar mi auto ${I.arrowR(16)}</button>
+          <button class="btn btn-out btn-lg" style="color:#fff;border-color:rgba(255,255,255,.3)" onclick="Plasi.open('¿Cómo funciona el trade-in?')">¿Cómo funciona?</button>
+        </div>
+      </div>
+      <div class="stats">
+        <div class="stat"><div class="v">2 min</div><div class="l">Para tu oferta firme</div></div>
+        <div class="stat"><div class="v">+$X</div><div class="l">Bonus si lo aplicas a compra</div></div>
+        <div class="stat"><div class="v">200+</div><div class="l">Trade-ins al mes</div></div>
+      </div>
     </div>
   </div></section>
 
@@ -127,7 +141,7 @@ home(){
     </div>
     <div class="dealer-grid">
       ${topDealers.map(d=>`<div class="dealer" onclick="go('#/concesionaria/${d.id}')">
-        <div class="ic">${initials(d.nombre)}</div>
+        ${sucLogoHTML(d,'md')}
         <div class="dealer-info">
           <h4>${d.nombre}</h4><div class="meta">${d.zona} · Desde ${d.desde}</div>
           <div class="rating"><span class="star">${I.star(13)}</span><b>${d.rating}</b><span class="reviews">(${num(d.reviews)} reseñas)</span></div>
@@ -197,7 +211,7 @@ concesionarias(){
   </div>
   <div class="wrap" style="padding-bottom:48px;padding-top:24px"><div class="dealer-grid">
     ${SUCS.map(d=>`<div class="dealer" onclick="go('#/concesionaria/${d.id}')">
-      <div class="ic">${initials(d.nombre)}</div>
+      ${sucLogoHTML(d,'md')}
       <div class="dealer-info">
         <h4>${d.nombre}</h4><div class="meta">${d.zona} · Especialista ${d.marca} · Desde ${d.desde}</div>
         <div class="rating"><span class="star">${I.star(13)}</span><b>${d.rating}</b><span class="reviews">(${num(d.reviews)} reseñas)</span></div>
@@ -212,10 +226,10 @@ concesionaria(id){
   if(!d)return `<div class="empty"><p>Concesionaria no encontrada.</p></div>`;
   const autos=CARS.filter(c=>c.suc===id);
   return `<section class="dealer-hero-page"><div class="wrap">
-    <div class="av">${initials(d.nombre)}</div>
+    ${sucLogoHTML(d,'xl')}
     <div>
       <h1>${d.nombre}</h1>
-      <div class="meta"><span>${I.pin(14)} ${d.zona}</span><span>Especialista ${d.marca}</span><span>${I.cal(14)} Desde ${d.desde}</span></div>
+      <div class="meta"><span style="display:flex;align-items:center;gap:4px">${I.pin(14)} ${d.zona}</span><span>Especialista ${d.marca}</span><span style="display:flex;align-items:center;gap:4px">${I.cal(14)} Desde ${d.desde}</span></div>
       <div class="rating-row"><span style="display:flex;align-items:center;gap:6px"><b>${d.rating}</b> ${I.star(18)} rating</span><span>${num(d.reviews)} reseñas verificadas</span></div>
     </div>
     <div class="stats">
@@ -226,8 +240,121 @@ concesionaria(id){
   </div></section>
   <div class="wrap" style="padding:40px 24px">
     <h2 style="font-size:24px;color:var(--navy)">Inventario en ${d.nombre}</h2>
-    ${autos.length?`<div class="vgrid" style="margin-top:24px">${autos.slice(0,12).map(vcard).join('')}</div>`:`<div class="empty"><p>Sin autos en este momento.</p></div>`}
+    ${autos.length?`<div class="vgrid" style="margin-top:24px">${autos.slice(0,12).map(vcard).join('')}</div>`:`<div class="empty"><div class="ic">${I.car(40)}</div><p>Sin autos disponibles en este momento.</p></div>`}
   </div>`;
+},
+
+// ====== TRADE-IN (público) ======
+tradein(){
+  const PATHS=[
+    [I.cash(28),'Vender en efectivo','Te pagamos por transferencia en 24 horas. Sin compromiso de compra.','Mejor para liquidez inmediata'],
+    [I.cycle(28),'Cambiar por un seminuevo','Aplica como enganche de un seminuevo de Plasencia. Bono adicional por cambio.','+$ bonus','recommended'],
+    [I.cal(28),'Mantener oferta firme','Tu valuación queda firme 7 días. Decide cuando quieras, sin presión.','Sin presión'],
+  ];
+  return `<section class="tradein-hero"><div class="wrap">
+    <div>
+      <div class="eyebrow gold" style="color:var(--gold)">Vende o cambia tu auto</div>
+      <h1 style="margin-top:14px">Tu auto vale más<br><span>de lo que crees.</span></h1>
+      <p class="sub">Oferta firme en 2 minutos. Sin compromiso. Las 12 concesionarias del grupo reciben +200 trade-ins al mes — pagamos mejor porque tenemos a quién venderlo.</p>
+      <div style="margin-top:24px;display:flex;gap:10px;flex-wrap:wrap">
+        <button class="btn btn-gold btn-lg" onclick="Flow.openTradein()">Empezar valuación ${I.arrowR(16)}</button>
+        <button class="btn btn-out btn-lg" style="color:#fff;border-color:rgba(255,255,255,.3)" onclick="Plasi.open('¿Cómo funciona el trade-in?')">¿Cómo funciona?</button>
+      </div>
+    </div>
+    <div class="quick-form">
+      <h3>Valuación express</h3>
+      <p style="font-size:13px;color:var(--n600);margin-top:4px">Estimación en 30 segundos.</p>
+      <div style="margin-top:14px;display:flex;flex-direction:column;gap:10px">
+        <div class="field-row">
+          <div class="field"><label>Marca</label><select id="qti_marca">${['Mazda','Hyundai','Toyota','Nissan','Chevrolet','Ford','Volkswagen','Kia','Jeep','Otro'].map(m=>`<option>${m}</option>`).join('')}</select></div>
+          <div class="field"><label>Año</label><select id="qti_anio">${Array.from({length:15},(_,i)=>2025-i).map(y=>`<option>${y}</option>`).join('')}</select></div>
+        </div>
+        <div class="field"><label>Kilometraje aprox.</label><input id="qti_km" type="number" placeholder="50000"></div>
+        <button class="btn btn-conv btn-md" onclick="Flow.openTradein(true)">Ver mi oferta ${I.arrowR(14)}</button>
+      </div>
+    </div>
+  </div></section>
+  <section class="sec"><div class="wrap">
+    <div class="eyebrow">3 caminos con tu oferta</div>
+    <h2 style="margin-top:10px">Tu decides cómo cierras.</h2>
+    <p class="lede">La misma valuación, tres formas de capitalizarla. Eliges cuando ya tengas la oferta firme.</p>
+    <div class="paths-grid">
+      ${PATHS.map(p=>`<div class="path-card" onclick="Flow.openTradein()">
+        ${p[4]?`<span class="bp bp-gold badge-deal">Más elegida</span>`:''}
+        <div class="ic">${p[0]}</div>
+        <h3>${p[1]}</h3>
+        <p>${p[2]}</p>
+        <div style="margin-top:14px;font-family:var(--disp);font-size:11px;font-weight:700;color:var(--red);text-transform:uppercase;letter-spacing:.5px">${p[3]}</div>
+      </div>`).join('')}
+    </div>
+    <div style="margin-top:60px;background:#fff;border:1px solid var(--n200);border-radius:18px;padding:32px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px">
+      <div><div class="eyebrow">Por qué Plasencia paga más</div></div>
+      <div><div style="display:flex;align-items:center;gap:10px"><span style="color:var(--green-d)">${I.check(20)}</span><b style="font-family:var(--disp);color:var(--navy)">200+ trade-ins/mes</b></div><p style="font-size:13px;color:var(--n600);margin-top:6px">Volumen en 12 concesionarias da escala para pagar mejor.</p></div>
+      <div><div style="display:flex;align-items:center;gap:10px"><span style="color:var(--green-d)">${I.check(20)}</span><b style="font-family:var(--disp);color:var(--navy)">Inventario propio</b></div><p style="font-size:13px;color:var(--n600);margin-top:6px">Plasencia Seminuevos los re-vende → margen para mejor oferta.</p></div>
+    </div>
+  </div></section>`;
+},
+
+// ====== CRÉDITO landing público ======
+credito(){
+  return `<section class="tradein-hero"><div class="wrap">
+    <div>
+      <div class="eyebrow gold" style="color:var(--gold)">Plasencia Crédito</div>
+      <h1 style="margin-top:14px">Crédito automotriz<br><span>sin sorpresas.</span></h1>
+      <p class="sub">Pre-aprobación en 2 minutos sin afectar tu buró. Tasa fija 13.5% anual. Plazos 12 a 60 meses. Enganche desde 20%.</p>
+      <div style="margin-top:24px;display:flex;gap:10px;flex-wrap:wrap">
+        <button class="btn btn-gold btn-lg" onclick="Flow.openCredito()">Pre-aprobarme ahora ${I.arrowR(16)}</button>
+        <button class="btn btn-out btn-lg" style="color:#fff;border-color:rgba(255,255,255,.3)" onclick="go('#/autolease')">¿Mejor arrendamiento?</button>
+      </div>
+    </div>
+    <div class="quick-form">
+      <h3>Simulador rápido</h3>
+      <p style="font-size:13px;color:var(--n600);margin-top:4px">Estimación con tasa actual.</p>
+      <div style="margin-top:14px;display:flex;flex-direction:column;gap:10px">
+        <div class="field"><label>Precio del auto</label><input id="sim_p" type="number" value="450000"></div>
+        <div class="field-row">
+          <div class="field"><label>Enganche %</label><input id="sim_e" type="number" value="20"></div>
+          <div class="field"><label>Plazo (meses)</label><select id="sim_n"><option>12</option><option>24</option><option>36</option><option>48</option><option selected>60</option></select></div>
+        </div>
+        <button class="btn btn-conv btn-md" onclick="simularCredito()">Calcular mensualidad</button>
+        <div id="sim_result"></div>
+      </div>
+    </div>
+  </div></section>
+  <section class="sec"><div class="wrap">
+    <div class="eyebrow">Cómo funciona</div>
+    <h2 style="margin-top:10px">Pre-aprobación en 4 pasos.</h2>
+    <div class="flot-benef" style="margin-top:36px">
+      ${[
+        [I.user(24),'1 · Tipo de persona','Eliges entre Persona Física, PFAE o Persona Moral. Cada una con su mejor tasa.'],
+        [I.doc(24),'2 · Datos KYC','Nombre, RFC, CURP, ingresos y antigüedad laboral. 2 minutos.'],
+        [I.upload(24),'3 · Documentos','Subes INE, comprobante de domicilio y últimos 3 recibos de nómina.'],
+        [I.check(24),'4 · Pre-aprobación','Recibes línea de crédito y mensualidad en pantalla. Sin afectar buró.'],
+      ].map(b=>`<div class="bf"><div class="ic">${b[0]}</div><h4>${b[1]}</h4><p>${b[2]}</p></div>`).slice(0,3).join('')}
+    </div>
+  </div></section>`;
+},
+
+// ====== AUTOLEASE landing público ======
+autolease(){
+  return `<section class="tradein-hero"><div class="wrap">
+    <div>
+      <div class="eyebrow gold" style="color:var(--gold)">GP Autolease</div>
+      <h1 style="margin-top:14px">Arrendamiento puro<br><span>sin enganche fuerte.</span></h1>
+      <p class="sub">Renta mensual fija, deducible para PFAE y empresas. Al final del plazo: renuevas, devuelves o compras. Plazos 24 a 48 meses.</p>
+      <div style="margin-top:24px;display:flex;gap:10px;flex-wrap:wrap">
+        <button class="btn btn-gold btn-lg" onclick="Flow.openLease()">Cotizar arrendamiento ${I.arrowR(16)}</button>
+        <button class="btn btn-out btn-lg" style="color:#fff;border-color:rgba(255,255,255,.3)" onclick="go('#/credito')">¿Mejor crédito?</button>
+      </div>
+    </div>
+    <div class="quick-form">
+      <h3>Comparar crédito vs lease</h3>
+      <table style="width:100%;margin-top:10px;font-size:13px;border-collapse:collapse">
+        <tr style="border-bottom:1px solid var(--n200)"><td style="padding:10px 4px;color:var(--n500)">Concepto</td><td style="padding:10px 4px;text-align:center;color:var(--navy);font-weight:700">Crédito</td><td style="padding:10px 4px;text-align:center;color:var(--gold-d);font-weight:700">Lease</td></tr>
+        ${[['Enganche','20%+','0-10%'],['Mensualidad','Más alta','Más baja'],['Eres dueño','Sí, al pagarlo','No (puedes comprar al final)'],['Deducible','No','Sí (PFAE/PM)'],['Plazo típico','60 meses','36 meses']].map(r=>`<tr style="border-bottom:1px solid var(--n100)"><td style="padding:8px 4px;color:var(--n600)">${r[0]}</td><td style="padding:8px 4px;text-align:center">${r[1]}</td><td style="padding:8px 4px;text-align:center">${r[2]}</td></tr>`).join('')}
+      </table>
+    </div>
+  </div></section>`;
 },
 
 // ====== FLOTILLAS ======
@@ -251,10 +378,9 @@ flotillas(){
       <h3>Cotización express</h3>
       <p style="font-size:13px;color:var(--n600);margin-top:4px">Recibe propuesta en 24 horas.</p>
       <div style="margin-top:14px;display:flex;flex-direction:column;gap:10px">
-        <div class="field"><label>Empresa</label><input id="ff_emp" placeholder="Razón social"></div>
-        <div class="field"><label>Unidades requeridas</label><select id="ff_unid"><option>1-5 unidades</option><option>6-15 unidades</option><option>16-50 unidades</option><option>+50 unidades</option></select></div>
-        <div class="field"><label>Uso principal</label><select id="ff_uso"><option>Reparto / logística</option><option>Personal ejecutivo</option><option>Fuerza de ventas</option><option>Servicios / técnicos</option><option>Otro</option></select></div>
-        <button class="btn btn-conv btn-md" onclick="Flow.submitFlotilla()">Solicitar cotización</button>
+        <div class="field"><label>Empresa</label><input placeholder="Razón social"></div>
+        <div class="field"><label>Unidades requeridas</label><select><option>1-5 unidades</option><option>6-15 unidades</option><option>16-50 unidades</option><option>+50 unidades</option></select></div>
+        <button class="btn btn-conv btn-md" onclick="Flow.openFlotilla()">Solicitar cotización</button>
       </div>
     </div>
   </div></section>
@@ -264,20 +390,13 @@ flotillas(){
     <div class="flot-benef">
       ${BENEF.map(b=>`<div class="bf"><div class="ic">${b[0]}</div><h4>${b[1]}</h4><p>${b[2]}</p></div>`).join('')}
     </div>
-    <div style="margin-top:48px;background:#fff;border:1px solid var(--n200);border-radius:18px;padding:32px">
-      <h3 style="font-size:20px;color:var(--navy)">Marcas disponibles para flotilla</h3>
-      <p style="font-size:13px;color:var(--n600);margin-top:4px">Las 14 marcas del grupo, incluyendo nuevos y seminuevos.</p>
-      <div style="margin-top:18px;display:flex;flex-wrap:wrap;gap:18px;align-items:center">
-        ${MARCAS.map(m=>{const s=marcaLogoSrc(m);return s?`<img class="marca-logo" src="${s}" alt="${m}" title="${m}" style="height:32px">`:`<b style="font-family:var(--disp);color:var(--n600)">${m}</b>`}).join('')}
-      </div>
-    </div>
   </div></section>`;
 },
 
 // ====== PDP ======
 pdp(id){
   const v=CARS.find(c=>c.id===id);
-  if(!v)return `<div class="empty"><p>Vehículo no encontrado. <a href="#/catalogo" style="color:var(--red);font-weight:700">Ver catálogo</a></p></div>`;
+  if(!v)return `<div class="empty"><div class="ic">${I.car(40)}</div><p>Vehículo no encontrado. <a href="#/catalogo" style="color:var(--red);font-weight:700">Ver catálogo</a></p></div>`;
   PDP={v,foto:0,mod:'credito',plazo:60,eng:20};
   setTimeout(renderCockpit,0);
   const suc=getSuc(v.suc);
@@ -286,6 +405,16 @@ pdp(id){
       <div>
         <div class="gal-main"><img id="galMain" src="${v.fotos[0]}" onerror="this.src='${FALLBACK}'" alt="${v.marca} ${v.modelo}"></div>
         <div class="gal-thumbs">${v.fotos.map((f,i)=>`<button class="${i===0?'on':''}" onclick="setFoto(${i})"><img src="${f}" onerror="this.src='${FALLBACK}'"></button>`).join('')}</div>
+
+        <div class="pdp-tradein" onclick="go('#/trade-in')">
+          <div class="ic">${I.trending(22)}</div>
+          <div class="ctn">
+            <h4>¿Cambias tu auto actual?</h4>
+            <p>Valúa el tuyo y aplícalo como enganche de este ${v.modelo}. Oferta firme en 2 minutos.</p>
+          </div>
+          <button class="btn btn-out btn-sm">Valuar ${I.arrowR(14)}</button>
+        </div>
+
         <div class="trust-row">
           <div class="t"><span class="ic">${I.check(18)}</span>${v.cond==='nuevo'?'Unidad nueva de agencia':'167 puntos de inspección'}</div>
           <div class="t"><span class="ic">${I.shield(18)}</span>Garantía incluida</div>
@@ -293,15 +422,15 @@ pdp(id){
           <div class="t"><span class="ic">${I.cycle(18)}</span>Devolución 7 días</div>
         </div>
         <div class="seller-box">
-          <div class="av">${initials(suc.nombre)}</div>
+          ${sucLogoHTML(suc,'lg')}
           <div class="info">
             <h4>Vendido por ${suc.nombre}</h4>
             <div class="meta">${suc.zona} · Especialista ${suc.marca} · Desde ${suc.desde}</div>
-            <div class="rating"><span class="star">${I.star(15)}</span><b>${suc.rating}</b><span class="rv">${num(suc.reviews)} reseñas · ${suc.autos} autos</span></div>
+            <div class="rating"><span class="star">${I.star(15)}</span><b>${suc.rating}</b><span class="rv">${num(suc.reviews)} reseñas · ${suc.autos} autos en inventario</span></div>
           </div>
           <div class="ctas">
             <a href="#/concesionaria/${suc.id}" class="btn btn-out btn-sm">Ver concesionaria</a>
-            <button class="btn btn-wa btn-sm" onclick="alert('Mensaje a la concesionaria via WhatsApp (demo)')">${I.wa(14)} WhatsApp</button>
+            <button class="btn btn-wa btn-sm" onclick="toast('Demo: mensaje vía WhatsApp')">${I.wa(14)} WhatsApp</button>
           </div>
         </div>
         <h2 style="font-size:20px;color:var(--navy);margin-top:28px">Especificaciones</h2>
@@ -319,3 +448,10 @@ pdp(id){
 
 cuenta(){return Account.view()},
 };
+
+function simularCredito(){
+  const p=+$('#sim_p').value,e=+$('#sim_e').value,n=+$('#sim_n').value;
+  const m=mensCredito(p,e,n);
+  $('#sim_result').innerHTML=`<div style="background:linear-gradient(135deg,var(--navy),var(--navy-d));color:#fff;border-radius:12px;padding:18px;margin-top:14px;text-align:center"><div style="font-family:var(--disp);font-size:11px;font-weight:700;text-transform:uppercase;color:var(--gold);letter-spacing:1px">Mensualidad estimada</div><div style="font-family:var(--disp);font-weight:900;font-size:28px;color:var(--gold)" class="tnum">${mxn(m)}</div><div style="font-size:11px;color:rgba(255,255,255,.6);margin-top:2px">${n} meses · tasa 13.5% · enganche ${mxn(p*e/100)}</div></div><button class="btn btn-conv btn-md btn-full" style="margin-top:10px" onclick="Flow.openCredito()">Pre-aprobarme con estos datos ${I.arrowR(14)}</button>`;
+}
+window.simularCredito=simularCredito;
