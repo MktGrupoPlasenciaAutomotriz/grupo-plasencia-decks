@@ -320,7 +320,7 @@ function viewHome(){
 
   <div class="marcas"><div class="marcas-in">
     <span class="lbl">Las marcas del grupo</span>
-    ${MARCAS.map(m=>{const lg=LOGOS[m.toLowerCase()];return lg?`<img src="marcas/${lg}" alt="${m}" style="height:22px;width:auto;opacity:.72;filter:grayscale(.3)" title="${m}">`:`<b>${m}</b>`}).join('')}
+    ${MARCAS.map(m=>`<b>${m}</b>`).join('')}
   </div></div>
 
   <section class="sec"><div class="wrap">
