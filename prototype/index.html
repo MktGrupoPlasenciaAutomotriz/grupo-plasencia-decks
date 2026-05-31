@@ -4,437 +4,685 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Plasencia Marketplace · La experiencia ideal</title>
-<meta name="description" content="Marketplace de Grupo Plasencia Automotriz: compra, financia, arrienda, asegura y mantén tu auto. Catálogo real, una sola cuenta, una relación de cinco años.">
+<meta name="description" content="El marketplace de Grupo Plasencia: 12 concesionarias, 14 marcas, en un solo lugar. Compra, financia, arrienda y mantén tu auto con el respaldo de 75 años.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet">
 <style>
 :root{
-  --navy:#1E2740; --navy-deep:#0F1A2E; --slate:#2D3748;
-  --red:#C8102E; --red-deep:#A50D25; --gold:#ECC94B; --gold-deep:#B7791F;
-  --blue:#4299E1; --blue-deep:#2B6CB0; --green:#48BB78; --green-deep:#276749; --amber:#D69E2E;
-  --n50:#F7FAFC; --n100:#EDF2F7; --n200:#E2E8F0; --n300:#CBD5E0; --n400:#A0AEC0;
-  --n500:#718096; --n600:#4A5568; --n700:#2D3748; --n800:#1A202C; --n900:#171923;
-  --disp:'Montserrat',sans-serif; --body:'Inter',system-ui,sans-serif;
-  --r-sm:6px; --r-md:10px; --r-lg:16px; --r-xl:22px;
-  --sh-sm:0 1px 3px rgba(15,26,46,.08); --sh-md:0 4px 12px rgba(15,26,46,.08),0 2px 4px rgba(15,26,46,.06);
-  --sh-lg:0 12px 32px rgba(15,26,46,.12); --sh-xl:0 24px 56px rgba(15,26,46,.20);
+  --navy:#1E2740;--navy-d:#0F1A2E;--slate:#2D3748;
+  --red:#C8102E;--red-d:#A50D25;--gold:#ECC94B;--gold-d:#B7791F;
+  --blue:#4299E1;--blue-d:#2B6CB0;--green:#48BB78;--green-d:#276749;--amber:#D69E2E;
+  --n50:#F7FAFC;--n100:#EDF2F7;--n200:#E2E8F0;--n300:#CBD5E0;--n400:#A0AEC0;
+  --n500:#718096;--n600:#4A5568;--n700:#2D3748;--n800:#1A202C;--n900:#171923;
+  --disp:'Montserrat',sans-serif;--body:'Inter',system-ui,sans-serif;
+  --sh-sm:0 1px 3px rgba(15,26,46,.08);--sh-md:0 4px 12px rgba(15,26,46,.08),0 2px 4px rgba(15,26,46,.06);
+  --sh-lg:0 12px 32px rgba(15,26,46,.12);--sh-xl:0 24px 56px rgba(15,26,46,.20);
   --ease:cubic-bezier(.4,0,.2,1);
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:var(--body);background:var(--n100);color:var(--n800);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;line-height:1.5}
+body{font-family:var(--body);background:var(--n100);color:var(--n800);-webkit-font-smoothing:antialiased;line-height:1.5}
 img{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
 button{font-family:inherit;cursor:pointer;border:none;background:none}
-input,select{font-family:inherit}
+input,select,textarea{font-family:inherit}
 h1,h2,h3,h4{font-family:var(--disp);letter-spacing:-.02em}
 .tnum{font-variant-numeric:tabular-nums}
-::-webkit-scrollbar{width:10px;height:10px}
-::-webkit-scrollbar-thumb{background:var(--n300);border-radius:99px}
-@keyframes fadeup{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
-.fadeup{animation:fadeup .5s var(--ease) both}
-@keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
-.skel{background:linear-gradient(90deg,var(--n200) 25%,var(--n100) 37%,var(--n200) 63%);background-size:200% 100%;animation:shimmer 1.4s infinite}
+::-webkit-scrollbar{width:10px;height:10px}::-webkit-scrollbar-thumb{background:var(--n300);border-radius:99px}
+@keyframes fu{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.fu{animation:fu .5s var(--ease) both}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}.pulse{animation:pulse 2s infinite}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 
-/* ===== HEADER ===== */
-.hdr{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--n200)}
-.hdr-in{max-width:1240px;margin:0 auto;padding:0 20px;height:64px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+/* HEADER */
+.hdr{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--n200)}
+.hdr-in{max-width:1280px;margin:0 auto;padding:0 24px;height:68px;display:flex;align-items:center;justify-content:space-between;gap:16px}
 .logo{display:flex;align-items:center;gap:10px}
-.logo img{height:30px;width:auto}
+.logo img{height:32px;width:auto}
 .logo .tag{font-family:var(--disp);font-size:9px;font-weight:800;letter-spacing:2px;text-transform:uppercase;background:var(--red);color:#fff;padding:3px 7px;border-radius:5px}
-.nav{display:flex;align-items:center;gap:4px}
-.nav a{font-family:var(--disp);font-size:13px;font-weight:600;color:var(--n700);padding:8px 12px;border-radius:8px;transition:.2s}
+.nav{display:flex;align-items:center;gap:2px}
+.nav a{font-family:var(--disp);font-size:13px;font-weight:600;color:var(--n700);padding:9px 14px;border-radius:8px;transition:.2s}
 .nav a:hover{background:var(--n100);color:var(--navy)}
-.nav a.on{color:var(--red)}
-.acct{font-family:var(--disp);font-size:13px;font-weight:700;color:var(--navy);display:flex;align-items:center;gap:8px;border:1px solid var(--n200);padding:8px 14px;border-radius:10px;transition:.2s}
-.acct:hover{border-color:var(--navy);background:var(--n50)}
+.nav a.on{color:var(--red);background:rgba(200,16,46,.06)}
+.hdr-right{display:flex;align-items:center;gap:10px}
+.acct,.signin{font-family:var(--disp);font-size:13px;font-weight:700;color:var(--navy);display:flex;align-items:center;gap:8px;padding:9px 14px;border-radius:10px;transition:.2s;cursor:pointer}
+.acct{border:1px solid var(--n200)}
+.acct:hover,.signin:hover{border-color:var(--navy);background:var(--n50)}
+.acct .av{width:26px;height:26px;border-radius:99px;background:var(--navy);color:var(--gold);font-family:var(--disp);font-weight:900;font-size:12px;display:flex;align-items:center;justify-content:center}
 .acct .badge{background:var(--red);color:#fff;font-size:10px;font-weight:800;min-width:18px;height:18px;padding:0 5px;border-radius:99px;display:inline-flex;align-items:center;justify-content:center}
-@media(max-width:760px){.nav{display:none}}
+@media(max-width:860px){.nav{display:none}}
 
-/* ===== BUTTONS ===== */
-.btn{font-family:var(--disp);font-weight:700;border-radius:10px;display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:.2s;letter-spacing:-.01em}
-.btn:active{transform:scale(.98)}
-.btn-sm{font-size:13px;padding:8px 14px} .btn-md{font-size:14px;padding:11px 20px} .btn-lg{font-size:15px;padding:14px 26px}
-.btn-primary{background:var(--navy);color:#fff} .btn-primary:hover{background:var(--slate)}
-.btn-conv{background:var(--red);color:#fff;box-shadow:0 6px 16px rgba(200,16,46,.25)} .btn-conv:hover{background:var(--red-deep)}
-.btn-out{border:1px solid var(--n300);color:var(--navy);background:#fff} .btn-out:hover{border-color:var(--navy);background:var(--n50)}
-.btn-ghost{color:var(--navy)} .btn-ghost:hover{background:var(--n100)}
-.btn-full{width:100%}
-.btn[disabled]{opacity:.5;cursor:not-allowed}
+/* BUTTONS */
+.btn{font-family:var(--disp);font-weight:700;border-radius:10px;display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:.2s;letter-spacing:-.01em;white-space:nowrap}
+.btn:active{transform:scale(.98)}.btn:focus-visible{outline:3px solid rgba(66,153,225,.4);outline-offset:2px}
+.btn-sm{font-size:13px;padding:8px 14px}.btn-md{font-size:14px;padding:11px 20px}.btn-lg{font-size:15px;padding:14px 26px}
+.btn-primary{background:var(--navy);color:#fff}.btn-primary:hover{background:var(--slate)}
+.btn-conv{background:var(--red);color:#fff;box-shadow:0 6px 16px rgba(200,16,46,.25)}.btn-conv:hover{background:var(--red-d)}
+.btn-out{border:1px solid var(--n300);color:var(--navy);background:#fff}.btn-out:hover{border-color:var(--navy);background:var(--n50)}
+.btn-ghost{color:var(--navy)}.btn-ghost:hover{background:var(--n100)}
+.btn-full{width:100%}.btn[disabled]{opacity:.5;cursor:not-allowed}
+.btn-gold{background:var(--gold);color:var(--navy)}.btn-gold:hover{background:var(--gold-d);color:#fff}
 
-/* ===== GENERIC ===== */
-.wrap{max-width:1240px;margin:0 auto;padding:0 20px}
+/* GENERIC */
+.wrap{max-width:1280px;margin:0 auto;padding:0 24px}
 .eyebrow{font-family:var(--disp);font-size:11px;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;color:var(--red)}
-.badge-pill{font-family:var(--disp);font-size:10px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:4px 10px;border-radius:99px;display:inline-flex;align-items:center;gap:4px}
-.bp-gold{background:rgba(236,201,75,.2);color:var(--gold-deep)}
-.bp-green{background:rgba(72,187,120,.15);color:var(--green-deep)}
+.eyebrow.gold{color:var(--gold)}
+.bp{font-family:var(--disp);font-size:10px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:4px 10px;border-radius:99px;display:inline-flex;align-items:center;gap:4px;white-space:nowrap}
+.bp-gold{background:rgba(236,201,75,.2);color:var(--gold-d)}
+.bp-green{background:rgba(72,187,120,.15);color:var(--green-d)}
 .bp-navy{background:rgba(30,39,64,.08);color:var(--navy)}
 .bp-red{background:rgba(200,16,46,.1);color:var(--red)}
+.bp-amber{background:rgba(214,158,46,.15);color:var(--amber)}
 
-/* ===== HERO ===== */
-.hero{position:relative;overflow:hidden;background:var(--navy-deep);color:var(--n50)}
-.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 85% 0%,rgba(236,201,75,.14),transparent 60%),radial-gradient(ellipse 60% 55% at 0% 100%,rgba(200,16,46,.16),transparent 55%)}
-.hero-in{position:relative;max-width:1240px;margin:0 auto;padding:80px 20px 90px}
-.hero h1{font-size:clamp(34px,6vw,66px);font-weight:900;line-height:1.02;max-width:880px}
+/* HERO con imagen real */
+.hero{position:relative;overflow:hidden;background:var(--navy-d);color:#fff;min-height:620px;display:flex;align-items:center}
+.hero .bg{position:absolute;inset:0;background-image:url(hero-showroom.jpg);background-size:cover;background-position:center;opacity:.45;filter:saturate(1.1)}
+.hero .grad{position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,26,46,.85) 0%,rgba(15,26,46,.55) 40%,rgba(15,26,46,.9) 100%),radial-gradient(ellipse 60% 80% at 100% 0%,rgba(236,201,75,.18),transparent 60%)}
+.hero-in{position:relative;max-width:1280px;margin:0 auto;padding:96px 24px 100px;width:100%}
+.hero h1{font-size:clamp(36px,6.5vw,72px);font-weight:900;line-height:1.02;max-width:920px;text-shadow:0 4px 20px rgba(0,0,0,.3)}
 .hero h1 .y{color:var(--gold)}
-.hero p.sub{font-size:clamp(15px,2vw,18px);color:var(--n300);margin-top:22px;max-width:620px;line-height:1.6}
-.searchbox{margin-top:34px;background:#fff;border-radius:16px;padding:8px;display:flex;gap:8px;max-width:640px;box-shadow:var(--sh-xl)}
-.searchbox input{flex:1;border:none;outline:none;padding:14px 16px;font-size:15px;color:var(--navy);border-radius:10px}
-.hero-trust{display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:34px}
-.hero-trust span{font-size:13px;color:var(--n300);display:flex;align-items:center;gap:7px}
-.hero-trust b{color:var(--gold)}
+.hero p.sub{font-size:clamp(15px,2vw,18px);color:rgba(255,255,255,.85);margin-top:22px;max-width:640px;line-height:1.6}
+.search-shell{margin-top:36px;background:#fff;border-radius:18px;padding:8px;display:flex;gap:8px;max-width:680px;box-shadow:0 24px 64px rgba(0,0,0,.4)}
+.search-shell input{flex:1;border:none;outline:none;padding:14px 18px;font-size:15px;color:var(--navy);border-radius:12px;font-weight:500}
+.trust-line{display:flex;flex-wrap:wrap;gap:8px 28px;margin-top:32px}
+.trust-line span{font-size:13px;color:rgba(255,255,255,.85);display:flex;align-items:center;gap:7px}
+.trust-line b{color:var(--gold);font-size:15px}
+.hero-stats{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;margin-top:54px;background:rgba(255,255,255,.1);border-radius:14px;overflow:hidden;max-width:740px}
+.hero-stats .stat{padding:18px 22px;background:rgba(15,26,46,.6);backdrop-filter:blur(8px)}
+.hero-stats .v{font-family:var(--disp);font-weight:900;font-size:26px;color:var(--gold)}
+.hero-stats .l{font-size:11px;color:rgba(255,255,255,.7);text-transform:uppercase;letter-spacing:1px;margin-top:2px;font-family:var(--disp);font-weight:700}
+@media(max-width:680px){.hero-stats{grid-template-columns:1fr 1fr}}
 
-/* ===== MARCAS STRIP ===== */
+/* MARCAS STRIP */
 .marcas{background:#fff;border-bottom:1px solid var(--n200)}
-.marcas-in{max-width:1240px;margin:0 auto;padding:18px 20px;display:flex;flex-wrap:wrap;gap:8px 26px;align-items:center;justify-content:center}
+.marcas-in{max-width:1280px;margin:0 auto;padding:24px;display:flex;flex-wrap:wrap;gap:6px 28px;align-items:center;justify-content:center}
 .marcas .lbl{font-family:var(--disp);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--n400)}
-.marcas b{font-family:var(--disp);font-weight:800;color:var(--n600);font-size:14px}
+.marcas b{font-family:var(--disp);font-weight:800;color:var(--n600);font-size:14px;transition:.2s;cursor:pointer}
+.marcas b:hover{color:var(--navy)}
 
-/* ===== SECTIONS ===== */
-.sec{padding:72px 0}
-.sec h2{font-size:clamp(24px,4vw,38px);font-weight:800;color:var(--navy);max-width:680px}
-.sol-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:36px}
-@media(max-width:860px){.sol-grid{grid-template-columns:1fr 1fr}}
+/* SECTIONS */
+.sec{padding:80px 0}
+.sec h2{font-size:clamp(26px,4vw,40px);font-weight:800;color:var(--navy);max-width:720px;line-height:1.15}
+.sec .lede{font-size:16px;color:var(--n600);margin-top:12px;max-width:640px;line-height:1.6}
+
+/* SOLUCIONES */
+.sol-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px}
+@media(max-width:880px){.sol-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:560px){.sol-grid{grid-template-columns:1fr}}
-.sol{background:#fff;border:1px solid var(--n200);border-radius:16px;padding:24px;transition:.2s}
-.sol:hover{box-shadow:var(--sh-md);border-color:var(--n300)}
-.sol .ic{font-size:26px}
-.sol h3{font-size:18px;font-weight:700;color:var(--navy);margin-top:12px}
+.sol{background:#fff;border:1px solid var(--n200);border-radius:18px;padding:28px;transition:.2s;position:relative;overflow:hidden}
+.sol::before{content:"";position:absolute;left:0;top:0;width:0;height:3px;background:var(--red);transition:.3s}
+.sol:hover::before{width:100%}
+.sol:hover{box-shadow:var(--sh-lg);border-color:var(--n300);transform:translateY(-3px)}
+.sol .ic{font-size:32px;display:inline-block;background:linear-gradient(135deg,var(--n50),var(--n100));width:56px;height:56px;border-radius:14px;display:flex;align-items:center;justify-content:center}
+.sol h3{font-size:18px;font-weight:700;color:var(--navy);margin-top:16px}
 .sol p{font-size:13px;color:var(--n600);margin-top:6px;line-height:1.55}
 
-/* ===== VEHICLE GRID & CARD ===== */
-.vgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:32px}
-@media(max-width:1080px){.vgrid{grid-template-columns:repeat(3,1fr)}}
-@media(max-width:780px){.vgrid{grid-template-columns:1fr 1fr}}
+/* VEHICLE GRID + CARD */
+.vgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:36px}
+@media(max-width:1100px){.vgrid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:820px){.vgrid{grid-template-columns:1fr 1fr}}
 @media(max-width:520px){.vgrid{grid-template-columns:1fr}}
-.vcard{background:#fff;border:1px solid var(--n200);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;transition:.2s;cursor:pointer}
-.vcard:hover{box-shadow:var(--sh-lg);transform:translateY(-2px);border-color:var(--n300)}
-.vcard .ph{position:relative;aspect-ratio:16/10;background:var(--n100);overflow:hidden}
+.vcard{background:#fff;border:1px solid var(--n200);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;transition:.25s;cursor:pointer}
+.vcard:hover{box-shadow:var(--sh-lg);transform:translateY(-3px);border-color:var(--n300)}
+.vcard .ph{position:relative;aspect-ratio:16/10;background:linear-gradient(180deg,var(--n100),var(--n200));overflow:hidden}
 .vcard .ph img{width:100%;height:100%;object-fit:cover;transition:transform .5s var(--ease)}
-.vcard:hover .ph img{transform:scale(1.05)}
-.vcard .ph .ovl{position:absolute;top:12px;left:12px;display:flex;flex-direction:column;gap:6px;align-items:flex-start}
-.vcard .body{padding:16px;display:flex;flex-direction:column;flex:1}
+.vcard:hover .ph img{transform:scale(1.06)}
+.vcard .ovl{position:absolute;top:12px;left:12px;display:flex;flex-direction:column;gap:6px;align-items:flex-start}
+.vcard .like{position:absolute;top:12px;right:12px;width:36px;height:36px;border-radius:99px;background:rgba(255,255,255,.9);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;font-size:16px;transition:.2s}
+.vcard .like:hover{background:#fff;transform:scale(1.1)}
+.vcard .like.on{background:var(--red);color:#fff}
+.vcard .body{padding:18px;display:flex;flex-direction:column;flex:1}
 .vcard .mk{font-family:var(--disp);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;color:var(--n600);display:flex;gap:6px;align-items:center}
 .vcard .mk .yr{color:var(--n400);font-weight:600}
-.vcard h3{font-size:16px;font-weight:700;color:var(--navy);margin-top:2px}
+.vcard h3{font-size:17px;font-weight:700;color:var(--navy);margin-top:2px;line-height:1.25}
 .vcard .specs{display:flex;flex-wrap:wrap;gap:4px 10px;margin-top:10px;font-size:11px;color:var(--n500)}
-.vcard .foot{margin-top:auto;padding-top:14px;display:flex;align-items:flex-end;justify-content:space-between}
-.vcard .price{font-family:var(--disp);font-weight:800;font-size:20px;color:var(--navy)}
-.vcard .mens{font-size:11px;color:var(--n500)} .vcard .mens b{color:var(--green-deep);font-weight:700}
-.vcard .suc{font-size:11px;color:var(--n400);text-align:right;max-width:92px;line-height:1.3}
+.vcard .seller{display:flex;align-items:center;gap:8px;margin-top:14px;padding:10px;background:var(--n50);border-radius:10px;border:1px solid var(--n100)}
+.vcard .seller-av{width:30px;height:30px;border-radius:8px;background:linear-gradient(135deg,var(--navy),var(--slate));color:var(--gold);font-family:var(--disp);font-weight:900;font-size:11px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.vcard .seller-info{flex:1;min-width:0}
+.vcard .seller-name{font-family:var(--disp);font-size:11px;font-weight:700;color:var(--navy);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.vcard .seller-meta{font-size:10px;color:var(--n500);display:flex;align-items:center;gap:4px}
+.vcard .star{color:var(--gold-d)}
+.vcard .foot{margin-top:14px;display:flex;align-items:flex-end;justify-content:space-between}
+.vcard .price{font-family:var(--disp);font-weight:800;font-size:21px;color:var(--navy)}
+.vcard .mens{font-size:11px;color:var(--n500)}.vcard .mens b{color:var(--green-d);font-weight:700}
 
-/* ===== FILTERS ===== */
-.filters{position:sticky;top:64px;z-index:30;background:rgba(237,242,247,.92);backdrop-filter:blur(6px);padding:16px 0;border-bottom:1px solid var(--n200)}
-.filters-in{max-width:1240px;margin:0 auto;padding:0 20px;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
-.filters input,.filters select{font-family:var(--disp);font-size:13px;font-weight:600;border:1px solid var(--n300);background:#fff;border-radius:99px;padding:9px 14px;outline:none;color:var(--navy);cursor:pointer}
-.filters input{cursor:text;min-width:170px}
-.filters input:focus,.filters select:focus{border-color:var(--navy)}
-.filters .clear{font-family:var(--disp);font-size:12px;font-weight:700;color:var(--red);padding:8px}
-.filters .count{margin-left:auto;font-size:13px;color:var(--n500)}
+/* CONCESIONARIAS BANNER + GRID */
+.dealers-hero{position:relative;border-radius:24px;overflow:hidden;color:#fff;padding:48px 40px;margin-top:36px;min-height:280px;display:flex;flex-direction:column;justify-content:flex-end}
+.dealers-hero .bg{position:absolute;inset:0;background:url(banner-dealerships.jpg) center/cover;opacity:.7}
+.dealers-hero .grad{position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,26,46,.4),rgba(15,26,46,.92))}
+.dealers-hero .ctn{position:relative}
+.dealers-hero h2{color:#fff;font-size:clamp(24px,3.5vw,34px);max-width:600px}
+.dealers-hero p{margin-top:8px;color:rgba(255,255,255,.85);max-width:540px;font-size:14px}
+.dealer-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:24px}
+@media(max-width:880px){.dealer-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.dealer-grid{grid-template-columns:1fr}}
+.dealer{background:#fff;border:1px solid var(--n200);border-radius:16px;padding:20px;transition:.2s;cursor:pointer;display:flex;gap:14px;align-items:flex-start}
+.dealer:hover{box-shadow:var(--sh-md);border-color:var(--navy);transform:translateY(-2px)}
+.dealer .ic{width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,var(--navy),var(--slate));color:var(--gold);font-family:var(--disp);font-weight:900;font-size:18px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.dealer-info{flex:1;min-width:0}
+.dealer-info h4{font-size:15px;color:var(--navy)}
+.dealer-info .meta{font-size:11px;color:var(--n500);margin-top:2px}
+.dealer-info .rating{display:flex;align-items:center;gap:6px;margin-top:8px;font-size:12px}
+.dealer-info .rating b{color:var(--navy);font-family:var(--disp);font-weight:700}
+.dealer-info .rating .star{color:var(--gold-d)}
+.dealer-info .rating .reviews{color:var(--n500)}
+.dealer-info .autos{font-size:11px;color:var(--n600);margin-top:6px;font-weight:600}
 
-/* ===== PDP ===== */
-.crumb{font-size:12px;color:var(--n500);display:flex;gap:8px;margin:20px 0}
+/* CICLO */
+.ciclo-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:20px;margin-top:40px}
+@media(max-width:880px){.ciclo-grid{grid-template-columns:repeat(2,1fr)}}
+.ciclo div{position:relative}
+.ciclo .n{font-family:var(--disp);font-weight:900;font-size:46px;color:var(--n200);line-height:1;letter-spacing:-2px}
+.ciclo h3{font-size:18px;color:var(--navy);margin-top:4px}
+.ciclo p{font-size:13px;color:var(--n600);margin-top:6px;line-height:1.55}
+
+/* BANNER PROMO */
+.promo{margin-top:80px;border-radius:24px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;background:var(--navy-d);color:#fff;min-height:340px}
+@media(max-width:760px){.promo{grid-template-columns:1fr}}
+.promo .img{background:url(banner-family.jpg) center/cover}
+.promo .ctn{padding:48px;display:flex;flex-direction:column;justify-content:center}
+.promo h2{color:#fff;font-size:clamp(22px,3vw,32px);max-width:420px}
+.promo p{color:rgba(255,255,255,.85);margin-top:12px;font-size:15px;max-width:420px;line-height:1.55}
+
+/* FILTERS */
+.filters{position:sticky;top:68px;z-index:30;background:rgba(237,242,247,.95);backdrop-filter:blur(8px);padding:18px 0;border-bottom:1px solid var(--n200)}
+.filters-in{max-width:1280px;margin:0 auto;padding:0 24px;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.filters input,.filters select{font-family:var(--disp);font-size:13px;font-weight:600;border:1px solid var(--n300);background:#fff;border-radius:99px;padding:10px 16px;outline:none;color:var(--navy);cursor:pointer;transition:.15s}
+.filters input{cursor:text;min-width:200px}
+.filters input:focus,.filters select:focus{border-color:var(--navy);box-shadow:0 0 0 3px rgba(30,39,64,.1)}
+.filters .clear{font-family:var(--disp);font-size:12px;font-weight:700;color:var(--red);padding:8px 12px}
+.filters .count{margin-left:auto;font-size:13px;color:var(--n500);font-weight:500}
+
+/* PDP */
+.crumb{font-size:12px;color:var(--n500);display:flex;gap:8px;margin:24px 0}
 .crumb a:hover{color:var(--navy)}
-.pdp{display:grid;grid-template-columns:1.4fr 1fr;gap:32px;align-items:start}
+.pdp{display:grid;grid-template-columns:1.4fr 1fr;gap:36px;align-items:start}
 @media(max-width:900px){.pdp{grid-template-columns:1fr}}
-.gal-main{aspect-ratio:16/10;border-radius:16px;overflow:hidden;background:var(--n100)}
+.gal-main{aspect-ratio:16/10;border-radius:20px;overflow:hidden;background:var(--n100);box-shadow:var(--sh-md)}
 .gal-main img{width:100%;height:100%;object-fit:cover}
-.gal-thumbs{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
-.gal-thumbs button{width:78px;height:54px;border-radius:8px;overflow:hidden;border:2px solid transparent;opacity:.65;transition:.2s}
+.gal-thumbs{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
+.gal-thumbs button{width:88px;height:60px;border-radius:10px;overflow:hidden;border:2px solid transparent;opacity:.6;transition:.2s;padding:0}
 .gal-thumbs button.on{border-color:var(--navy);opacity:1}
+.gal-thumbs button:hover{opacity:1}
 .gal-thumbs img{width:100%;height:100%;object-fit:cover}
-.trust-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:22px;background:#fff;border:1px solid var(--n200);border-radius:16px;padding:18px}
-.trust-row .t{font-size:13px;color:var(--n600);display:flex;align-items:center;gap:8px}
-.trust-row .t b{color:var(--green-deep)}
-.specs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--n200);border:1px solid var(--n200);border-radius:16px;overflow:hidden;margin-top:20px}
+.trust-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:24px;background:#fff;border:1px solid var(--n200);border-radius:18px;padding:22px}
+.trust-row .t{font-size:13px;color:var(--n600);display:flex;align-items:center;gap:10px}
+.trust-row .t b{color:var(--green-d);font-size:16px}
+/* Seller box en PDP */
+.seller-box{margin-top:24px;background:#fff;border:1px solid var(--n200);border-radius:18px;padding:22px;display:flex;align-items:center;gap:16px}
+.seller-box .av{width:64px;height:64px;border-radius:14px;background:linear-gradient(135deg,var(--navy),var(--slate));color:var(--gold);font-family:var(--disp);font-weight:900;font-size:22px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.seller-box .info h4{font-size:17px;color:var(--navy)}
+.seller-box .info .meta{font-size:12px;color:var(--n500);margin-top:2px}
+.seller-box .info .rating{display:flex;align-items:center;gap:6px;margin-top:6px;font-size:13px}
+.seller-box .info .rating .star{color:var(--gold-d)}
+.seller-box .info .rating b{color:var(--navy);font-family:var(--disp)}
+.seller-box .info .rating .rv{color:var(--n500)}
+.seller-box a{margin-left:auto;flex-shrink:0}
+/* Specs */
+.specs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--n200);border:1px solid var(--n200);border-radius:18px;overflow:hidden;margin-top:24px}
 @media(max-width:560px){.specs-grid{grid-template-columns:1fr 1fr}}
-.specs-grid .c{background:#fff;padding:14px}
+.specs-grid .c{background:#fff;padding:16px}
 .specs-grid .k{font-family:var(--disp);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--n500)}
 .specs-grid .v{font-size:14px;font-weight:600;color:var(--navy);margin-top:2px}
-/* cockpit */
-.cockpit{background:#fff;border:1px solid var(--n200);border-radius:18px;padding:24px;box-shadow:var(--sh-md);position:sticky;top:84px}
-.cockpit .mk{font-family:var(--disp);font-size:12px;font-weight:800;text-transform:uppercase;color:var(--n600);display:flex;gap:6px}
-.cockpit h1{font-size:26px;font-weight:800;color:var(--navy);line-height:1.1;margin-top:2px}
-.cockpit .price{font-family:var(--disp);font-weight:900;font-size:32px;color:var(--navy);margin-top:14px;padding-bottom:14px;border-bottom:1px solid var(--n200)}
+/* Cockpit */
+.cockpit{background:#fff;border:1px solid var(--n200);border-radius:20px;padding:26px;box-shadow:var(--sh-md);position:sticky;top:88px}
+.cockpit .mk{font-family:var(--disp);font-size:12px;font-weight:800;text-transform:uppercase;color:var(--n600);display:flex;gap:6px;align-items:center}
+.cockpit h1{font-size:28px;font-weight:800;color:var(--navy);line-height:1.1;margin-top:2px}
+.cockpit .v-ver{font-size:13px;color:var(--n500);margin-top:4px}
+.cockpit .price{font-family:var(--disp);font-weight:900;font-size:34px;color:var(--navy);margin-top:14px;padding-bottom:16px;border-bottom:1px solid var(--n200)}
 .modtabs{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;background:var(--n100);padding:4px;border-radius:12px;margin-top:18px}
-.modtabs button{font-family:var(--disp);font-size:12px;font-weight:700;padding:9px;border-radius:9px;color:var(--n500);transition:.2s}
+.modtabs button{font-family:var(--disp);font-size:12px;font-weight:700;padding:10px;border-radius:9px;color:var(--n500);transition:.2s}
 .modtabs button.on{background:#fff;color:var(--navy);box-shadow:var(--sh-sm)}
 .calc{margin-top:18px}
 .calc .row{display:flex;justify-content:space-between;font-size:12px;margin-bottom:6px}
 .calc .row b{color:var(--navy)}
 .calc input[type=range]{width:100%;accent-color:var(--red)}
 .plazos{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
-.plazos button{font-family:var(--disp);font-size:12px;font-weight:700;padding:6px 12px;border-radius:8px;border:1px solid var(--n300);color:var(--n600);transition:.2s}
+.plazos button{font-family:var(--disp);font-size:12px;font-weight:700;padding:7px 13px;border-radius:8px;border:1px solid var(--n300);color:var(--n600);transition:.2s}
 .plazos button.on{background:var(--navy);color:#fff;border-color:var(--navy)}
-.mensbox{background:var(--navy);color:#fff;border-radius:12px;padding:16px;text-align:center;margin-top:16px}
-.mensbox .lbl{font-family:var(--disp);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--n300)}
-.mensbox .v{font-family:var(--disp);font-weight:900;font-size:28px;color:var(--gold)}
-.mensbox .sub{font-size:11px;color:var(--n400)}
-.cta-stack{margin-top:18px;display:flex;flex-direction:column;gap:8px}
+.mensbox{background:linear-gradient(135deg,var(--navy),var(--navy-d));color:#fff;border-radius:14px;padding:18px;text-align:center;margin-top:18px;position:relative;overflow:hidden}
+.mensbox::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 90% 0%,rgba(236,201,75,.18),transparent 60%);pointer-events:none}
+.mensbox .lbl{font-family:var(--disp);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:rgba(255,255,255,.7);position:relative}
+.mensbox .v{font-family:var(--disp);font-weight:900;font-size:30px;color:var(--gold);position:relative}
+.mensbox .sub{font-size:11px;color:rgba(255,255,255,.6);position:relative}
+.cta-stack{margin-top:20px;display:flex;flex-direction:column;gap:8px}
 .cta-2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 
-/* ===== MODAL ===== */
-.modal-bg{position:fixed;inset:0;z-index:60;background:rgba(15,26,46,.6);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;padding:20px}
-.modal{background:#fff;border-radius:20px;padding:32px;max-width:440px;width:100%;text-align:center}
-.modal .ok{width:56px;height:56px;border-radius:99px;background:rgba(72,187,120,.15);color:var(--green-deep);font-size:28px;display:flex;align-items:center;justify-content:center;margin:0 auto}
-.modal h3{font-size:24px;font-weight:800;color:var(--navy);margin-top:16px}
-.modal p{font-size:14px;color:var(--n600);margin-top:8px}
-.modal .folio{background:var(--n100);border-radius:12px;padding:12px;margin-top:16px}
-.modal .folio .k{font-family:var(--disp);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--n500)}
-.modal .folio .v{font-family:var(--disp);font-weight:800;color:var(--navy)}
+/* MODAL */
+.modal-bg{position:fixed;inset:0;z-index:60;background:rgba(15,26,46,.7);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:20px;animation:fu .25s ease}
+.modal{background:#fff;border-radius:22px;padding:36px;max-width:480px;width:100%;max-height:90vh;overflow-y:auto;box-shadow:0 32px 80px rgba(0,0,0,.4)}
+.modal h3{font-size:24px;font-weight:800;color:var(--navy)}
+.modal p{font-size:14px;color:var(--n600);margin-top:8px;line-height:1.55}
+.modal .ok{width:60px;height:60px;border-radius:99px;background:rgba(72,187,120,.15);color:var(--green-d);font-size:32px;display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
+.modal .x{position:absolute;top:18px;right:18px;width:36px;height:36px;border-radius:99px;background:var(--n100);color:var(--n600);font-size:18px;display:flex;align-items:center;justify-content:center;transition:.2s}
+.modal .x:hover{background:var(--n200)}
+.modal-wrap{position:relative;background:#fff;border-radius:22px;max-width:480px;width:100%;max-height:90vh;overflow-y:auto;box-shadow:0 32px 80px rgba(0,0,0,.4)}
+.folio{background:var(--n100);border-radius:12px;padding:14px;margin-top:18px}
+.folio .k{font-family:var(--disp);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--n500)}
+.folio .v{font-family:var(--disp);font-weight:800;color:var(--navy);font-size:15px;margin-top:2px}
 
-/* ===== ACCOUNT ===== */
-.acct-tabs{display:flex;gap:2px;margin-top:24px;border-bottom:1px solid var(--n200);overflow-x:auto}
-.acct-tabs button{font-family:var(--disp);font-size:13px;font-weight:700;white-space:nowrap;padding:12px 16px;border-bottom:2px solid transparent;color:var(--n500);transition:.2s}
+/* LOGIN MODAL */
+.auth{padding:36px}
+.auth h2{font-size:24px;color:var(--navy);text-align:center}
+.auth .sub{color:var(--n500);font-size:14px;text-align:center;margin-top:6px}
+.auth-tabs{display:flex;gap:4px;background:var(--n100);padding:4px;border-radius:12px;margin:20px 0}
+.auth-tabs button{flex:1;font-family:var(--disp);font-size:13px;font-weight:700;padding:10px;border-radius:9px;color:var(--n500);transition:.2s}
+.auth-tabs button.on{background:#fff;color:var(--navy);box-shadow:var(--sh-sm)}
+.auth-form{display:flex;flex-direction:column;gap:12px}
+.auth-form label{font-family:var(--disp);font-size:11px;font-weight:700;text-transform:uppercase;color:var(--n500);letter-spacing:.5px}
+.auth-form input{border:1px solid var(--n300);border-radius:10px;padding:12px 14px;font-size:14px;outline:none;transition:.15s}
+.auth-form input:focus{border-color:var(--navy);box-shadow:0 0 0 3px rgba(30,39,64,.1)}
+.auth-social{display:flex;flex-direction:column;gap:8px;margin-top:18px}
+.auth-social button{font-family:var(--disp);font-size:14px;font-weight:600;color:var(--navy);border:1px solid var(--n300);background:#fff;border-radius:10px;padding:11px;display:flex;align-items:center;justify-content:center;gap:10px;transition:.2s}
+.auth-social button:hover{border-color:var(--navy);background:var(--n50)}
+.auth-divider{text-align:center;font-size:12px;color:var(--n400);margin:18px 0;position:relative}
+.auth-divider::before,.auth-divider::after{content:"";position:absolute;top:50%;width:42%;height:1px;background:var(--n200)}
+.auth-divider::before{left:0}.auth-divider::after{right:0}
+
+/* ACCOUNT */
+.acct-cover{background:linear-gradient(135deg,var(--navy),var(--navy-d));color:#fff;border-radius:0 0 24px 24px;padding:36px 0 28px;position:relative;overflow:hidden}
+.acct-cover::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 50% 80% at 100% 50%,rgba(236,201,75,.15),transparent 60%);pointer-events:none}
+.acct-cover .wrap{position:relative;display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+.acct-av{width:80px;height:80px;border-radius:20px;background:var(--gold);color:var(--navy);font-family:var(--disp);font-weight:900;font-size:32px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.acct-info h2{color:#fff;font-size:28px}
+.acct-info .sub{color:rgba(255,255,255,.7);font-size:14px;margin-top:4px;display:flex;flex-wrap:wrap;gap:14px}
+.acct-info .sub span{display:flex;align-items:center;gap:4px}
+.acct-info .badges{margin-top:10px;display:flex;flex-wrap:wrap;gap:6px}
+.acct-wallet{margin-left:auto;background:rgba(255,255,255,.08);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.15);border-radius:14px;padding:14px 20px;min-width:180px}
+.acct-wallet .lbl{font-family:var(--disp);font-size:10px;font-weight:700;text-transform:uppercase;color:var(--gold);letter-spacing:1px}
+.acct-wallet .v{font-family:var(--disp);font-weight:900;font-size:24px;margin-top:2px}
+.acct-tabs{display:flex;gap:2px;margin-top:28px;border-bottom:1px solid var(--n200);overflow-x:auto}
+.acct-tabs button{font-family:var(--disp);font-size:13px;font-weight:700;white-space:nowrap;padding:14px 18px;border-bottom:2px solid transparent;color:var(--n500);transition:.2s;display:flex;align-items:center;gap:6px}
 .acct-tabs button.on{border-color:var(--red);color:var(--navy)}
-.deal-card{background:#fff;border:1px solid var(--n200);border-radius:16px;padding:16px;display:flex;gap:16px;align-items:center;margin-bottom:12px;flex-wrap:wrap}
-.deal-card img{width:120px;aspect-ratio:16/10;object-fit:cover;border-radius:12px}
+.acct-tabs button:hover:not(.on){color:var(--navy);background:var(--n50)}
+.deal-card{background:#fff;border:1px solid var(--n200);border-radius:18px;padding:18px;display:flex;gap:16px;align-items:center;margin-bottom:12px;flex-wrap:wrap;transition:.2s}
+.deal-card:hover{box-shadow:var(--sh-md);border-color:var(--n300)}
+.deal-card img{width:140px;aspect-ratio:16/10;object-fit:cover;border-radius:12px}
+.notif{background:#fff;border:1px solid var(--n200);border-radius:14px;padding:16px;display:flex;align-items:flex-start;gap:14px;margin-bottom:10px;transition:.2s}
+.notif:hover{border-color:var(--n300)}
+.notif .nic{width:38px;height:38px;border-radius:99px;font-size:18px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.notif .nic.green{background:rgba(72,187,120,.15);color:var(--green-d)}
+.notif .nic.blue{background:rgba(66,153,225,.15);color:var(--blue-d)}
+.notif .nic.gold{background:rgba(236,201,75,.2);color:var(--gold-d)}
+.notif .ntime{font-size:11px;color:var(--n500);margin-top:4px}
 
-/* ===== PLASI ===== */
-.plasi-btn{position:fixed;bottom:20px;right:20px;z-index:50;background:var(--navy);color:#fff;display:flex;align-items:center;gap:10px;padding:12px 18px 12px 12px;border-radius:99px;box-shadow:var(--sh-xl);transition:.2s}
-.plasi-btn:hover{background:var(--slate)}
+/* DEALER PAGE */
+.dealer-hero-page{background:linear-gradient(135deg,var(--navy),var(--navy-d));color:#fff;padding:48px 0;border-radius:0 0 28px 28px;overflow:hidden;position:relative}
+.dealer-hero-page::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 90% 0%,rgba(236,201,75,.15),transparent 60%);pointer-events:none}
+.dealer-hero-page .wrap{position:relative;display:flex;gap:24px;align-items:center;flex-wrap:wrap}
+.dealer-hero-page .av{width:96px;height:96px;border-radius:22px;background:var(--gold);color:var(--navy);font-family:var(--disp);font-weight:900;font-size:38px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.dealer-hero-page h1{font-size:32px;color:#fff}
+.dealer-hero-page .meta{color:rgba(255,255,255,.7);margin-top:4px;display:flex;gap:14px;font-size:14px;flex-wrap:wrap}
+.dealer-hero-page .rating-row{margin-top:10px;display:flex;gap:14px;flex-wrap:wrap;font-size:14px}
+.dealer-hero-page .rating-row b{color:var(--gold);font-family:var(--disp);font-weight:800;font-size:18px}
+.dealer-hero-page .stats{margin-left:auto;display:flex;gap:24px}
+.dealer-hero-page .stats div{text-align:center}
+.dealer-hero-page .stats .v{font-family:var(--disp);font-weight:900;font-size:28px;color:var(--gold)}
+.dealer-hero-page .stats .l{font-size:11px;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:1px}
+
+/* PLASI */
+.plasi-btn{position:fixed;bottom:24px;right:24px;z-index:50;background:var(--navy);color:#fff;display:flex;align-items:center;gap:10px;padding:12px 20px 12px 12px;border-radius:99px;box-shadow:var(--sh-xl);transition:.2s}
+.plasi-btn:hover{background:var(--slate);transform:translateY(-2px)}
 .plasi-btn .av{width:32px;height:32px;border-radius:99px;background:var(--gold);color:var(--navy);font-family:var(--disp);font-weight:900;display:flex;align-items:center;justify-content:center}
 .plasi-btn span{font-family:var(--disp);font-weight:700;font-size:14px}
-.plasi-panel{position:fixed;bottom:20px;right:20px;z-index:50;width:min(380px,calc(100vw - 40px));height:min(560px,calc(100vh - 40px));background:#fff;border-radius:20px;box-shadow:var(--sh-xl);border:1px solid var(--n200);display:flex;flex-direction:column;overflow:hidden}
-.plasi-hd{background:var(--navy);color:#fff;padding:14px 16px;display:flex;align-items:center;gap:12px}
-.plasi-hd .av{width:36px;height:36px;border-radius:99px;background:var(--gold);color:var(--navy);font-family:var(--disp);font-weight:900;display:flex;align-items:center;justify-content:center}
+.plasi-panel{position:fixed;bottom:24px;right:24px;z-index:50;width:min(400px,calc(100vw - 48px));height:min(580px,calc(100vh - 48px));background:#fff;border-radius:22px;box-shadow:0 32px 80px rgba(0,0,0,.3);border:1px solid var(--n200);display:flex;flex-direction:column;overflow:hidden}
+.plasi-hd{background:linear-gradient(135deg,var(--navy),var(--navy-d));color:#fff;padding:16px 18px;display:flex;align-items:center;gap:12px}
+.plasi-hd .av{width:38px;height:38px;border-radius:99px;background:var(--gold);color:var(--navy);font-family:var(--disp);font-weight:900;display:flex;align-items:center;justify-content:center}
 .plasi-hd .nm{font-family:var(--disp);font-weight:700;font-size:15px}
-.plasi-hd .st{font-size:11px;color:var(--n300);display:flex;align-items:center;gap:6px}
-.plasi-hd .st .dot{width:6px;height:6px;border-radius:99px;background:var(--green)}
-.plasi-hd .x{margin-left:auto;color:var(--n400);font-size:22px;line-height:1}
-.plasi-msgs{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:12px;background:var(--n50)}
-.pmsg{max-width:82%;font-size:13px;line-height:1.5;padding:10px 14px;border-radius:16px}
-.pmsg.bot{background:#fff;border:1px solid var(--n200);color:var(--n700);align-self:flex-start;border-bottom-left-radius:4px}
+.plasi-hd .st{font-size:11px;color:rgba(255,255,255,.7);display:flex;align-items:center;gap:6px}
+.plasi-hd .dot{width:6px;height:6px;border-radius:99px;background:var(--green)}
+.plasi-hd .x{margin-left:auto;color:rgba(255,255,255,.5);font-size:22px;line-height:1;width:28px;height:28px;display:flex;align-items:center;justify-content:center}
+.plasi-msgs{flex:1;overflow-y:auto;padding:18px;display:flex;flex-direction:column;gap:12px;background:var(--n50)}
+.pmsg{max-width:82%;font-size:13.5px;line-height:1.5;padding:11px 15px;border-radius:18px}
+.pmsg.bot{background:#fff;border:1px solid var(--n200);color:var(--n700);align-self:flex-start;border-bottom-left-radius:4px;box-shadow:var(--sh-sm)}
 .pmsg.usr{background:var(--navy);color:#fff;align-self:flex-end;border-bottom-right-radius:4px}
-.psug{text-align:left;font-size:12.5px;color:var(--navy);background:#fff;border:1px solid var(--n200);border-radius:12px;padding:9px 12px;transition:.2s}
-.psug:hover{border-color:var(--navy)}
-.plasi-in{padding:12px;border-top:1px solid var(--n200);display:flex;gap:8px}
-.plasi-in input{flex:1;font-size:13px;padding:10px 14px;background:var(--n100);border:none;border-radius:99px;outline:none}
-.plasi-in button{width:40px;height:40px;border-radius:99px;background:var(--red);color:#fff;font-size:18px}
+.psug{text-align:left;font-size:12.5px;color:var(--navy);background:#fff;border:1px solid var(--n200);border-radius:12px;padding:10px 14px;transition:.2s}
+.psug:hover{border-color:var(--navy);transform:translateX(2px)}
+.plasi-in{padding:14px;border-top:1px solid var(--n200);background:#fff;display:flex;gap:8px}
+.plasi-in input{flex:1;font-size:13px;padding:11px 16px;background:var(--n100);border:none;border-radius:99px;outline:none;transition:.2s}
+.plasi-in input:focus{background:var(--n50);box-shadow:0 0 0 2px rgba(30,39,64,.15)}
+.plasi-in button{width:42px;height:42px;border-radius:99px;background:var(--red);color:#fff;font-size:18px}
 
-/* ===== FOOTER ===== */
-.ftr{background:var(--navy-deep);color:var(--n300);margin-top:80px}
-.ftr-in{max-width:1240px;margin:0 auto;padding:56px 20px}
-.ftr-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px}
-@media(max-width:780px){.ftr-grid{grid-template-columns:1fr 1fr}}
-.ftr img{height:30px;mix-blend-mode:screen}
-.ftr h4{font-family:var(--disp);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:var(--gold);margin-bottom:12px}
-.ftr ul{list-style:none} .ftr li{font-size:13px;color:var(--n400);padding:4px 0}
-.ftr .bottom{border-top:1px solid rgba(255,255,255,.1);margin-top:40px;padding-top:24px;font-size:11px;color:var(--n500);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+/* FOOTER */
+.ftr{background:linear-gradient(180deg,var(--navy),var(--navy-d));color:rgba(255,255,255,.7);margin-top:100px}
+.ftr-in{max-width:1280px;margin:0 auto;padding:64px 24px}
+.ftr-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:48px}
+@media(max-width:820px){.ftr-grid{grid-template-columns:1fr 1fr}}
+.ftr-logo img{height:36px;mix-blend-mode:screen}
+.ftr p{font-size:13px;line-height:1.6;margin-top:14px;color:rgba(255,255,255,.55);max-width:300px}
+.ftr h4{font-family:var(--disp);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:var(--gold);margin-bottom:14px}
+.ftr ul{list-style:none}
+.ftr li{font-size:13px;color:rgba(255,255,255,.55);padding:5px 0;transition:.2s;cursor:pointer}
+.ftr li:hover{color:#fff}
+.ftr .bottom{border-top:1px solid rgba(255,255,255,.08);margin-top:48px;padding-top:24px;font-size:11px;color:rgba(255,255,255,.4);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 
-/* loading */
-.loading{text-align:center;padding:100px 20px;color:var(--n500)}
+.loading{text-align:center;padding:120px 20px;color:var(--n500)}
 .empty{text-align:center;padding:80px 20px;color:var(--n500)}
-.empty .ic{font-size:40px}
+.empty .ic{font-size:42px;margin-bottom:8px}
 </style>
 </head>
 <body>
 <div id="app"><div class="loading">Cargando Plasencia Marketplace…</div></div>
-
-<button class="plasi-btn" id="plasiBtn" onclick="Plasi.open()">
-  <span class="av">P</span><span>Pregúntale a Plasi</span>
-</button>
+<button class="plasi-btn" id="plasiBtn" onclick="Plasi.open()"><span class="av">P</span><span>Pregúntale a Plasi</span></button>
 
 <script>
-//=================================================================
-// Plasencia Marketplace · SPA vanilla (HTML/CSS/JS, sin build)
-//=================================================================
 const $ = (s,el=document)=>el.querySelector(s);
+const $$ = (s,el=document)=>[...el.querySelectorAll(s)];
 const mxn = n => new Intl.NumberFormat('es-MX',{style:'currency',currency:'MXN',maximumFractionDigits:0}).format(n||0);
-const FALLBACK='data:image/svg+xml;utf8,'+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="400" height="250"><rect width="400" height="250" fill="#E2E8F0"/><text x="50%" y="50%" font-family="sans-serif" font-size="16" fill="#A0AEC0" text-anchor="middle" dy=".3em">Plasencia</text></svg>');
+const initials = s => (s||'').split(' ').filter(w=>/^[A-ZÁÉÍÓÚ]/.test(w[0]||'')).map(w=>w[0]).slice(0,2).join('').toUpperCase()||'P';
+const FALLBACK='data:image/svg+xml;utf8,'+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="400" height="250"><rect width="400" height="250" fill="#E2E8F0"/><text x="50%" y="50%" font-family="sans-serif" font-size="14" fill="#A0AEC0" text-anchor="middle" dy=".3em">Plasencia · Foto próximamente</text></svg>');
 
-// ---- Estado persistente ----
-const KEY='plasencia-mkt-v2';
-let STATE = JSON.parse(localStorage.getItem(KEY) || 'null') || {customer:null, deals:[], pagos:[], servicios:[]};
+const KEY='plasencia-mkt-v3';
+let STATE = JSON.parse(localStorage.getItem(KEY) || 'null') || {customer:null, deals:[], pagos:[], servicios:[], favs:[], notifs:[]};
 const save = ()=>localStorage.setItem(KEY, JSON.stringify(STATE));
 
-// ---- Finanzas ----
 const TASA=0.135;
-const mensCredito=(precio,engPct,plazo)=>{const cap=precio*(1-engPct/100);const i=TASA/12;return i===0?cap/plazo:cap*i/(1-Math.pow(1+i,-plazo));};
-const rentaLease=(precio,plazo)=>{const f=plazo<=24?.032:plazo<=36?.026:.022;return precio*f*1.16;};
-const folio=(marca)=>{const d=new Date();const p=x=>String(x).padStart(2,'0');return `GP-${marca.slice(0,3).toUpperCase()}-${String(d.getFullYear()%100)}${p(d.getMonth()+1)}${p(d.getDate())}-${p(d.getHours())}${p(d.getMinutes())}${p(d.getSeconds())}`;};
+const mensCredito=(p,e,n)=>{const cap=p*(1-e/100);const i=TASA/12;return i===0?cap/n:cap*i/(1-Math.pow(1+i,-n))};
+const rentaLease=(p,n)=>{const f=n<=24?.032:n<=36?.026:.022;return p*f*1.16};
+const folio=m=>{const d=new Date();const p=x=>String(x).padStart(2,'0');return `GP-${m.slice(0,3).toUpperCase()}-${String(d.getFullYear()%100)}${p(d.getMonth()+1)}${p(d.getDate())}-${p(d.getHours())}${p(d.getMinutes())}${p(d.getSeconds())}`};
 const uid=p=>p+'-'+Math.random().toString(36).slice(2,8);
 
-let CARS=[], MARCAS=[];
-const LOGOS={jeep:'jeep.png',ram:'ram.png',dodge:'dodge.png',fiat:'fiat.png',peugeot:'peugeot.png',chrysler:'chrysler.png',gac:'gac.png'};
+let CARS=[], MARCAS=[], SUCS=[];
+const getSuc = id => SUCS.find(s=>s.id===id) || {nombre:'Plasencia',rating:4.8,reviews:0};
 
-//=================================================================
-// COMPONENTES DE RENDER
-//=================================================================
+// ====== HEADER / FOOTER / NAV ======
+function header(){
+  const route=(location.hash||'#/').split('?')[0];
+  const c=STATE.customer;
+  const link=(h,l)=>`<a href="${h}" class="${route===h?'on':''}">${l}</a>`;
+  return `<header class="hdr"><div class="hdr-in">
+    <a href="#/" class="logo"><img src="logo-negro.png" alt="Grupo Plasencia"><span class="tag">Marketplace</span></a>
+    <nav class="nav">${link('#/catalogo','Catálogo')}${link('#/concesionarias','Concesionarias')}<a href="#/catalogo?cond=nuevo">Nuevos</a><a href="#/catalogo?cond=seminuevo">Seminuevos</a><a href="#/catalogo?mod=lease">Autolease</a></nav>
+    <div class="hdr-right">
+      ${c?`<a href="#/cuenta" class="acct"><span class="av">${initials(c.nombre)}</span><span>${c.nombre.split(' ')[0]}</span>${STATE.deals.length?`<span class="badge">${STATE.deals.length}</span>`:''}</a>`
+        :`<button class="signin" onclick="Auth.open()">Iniciar sesión</button><button class="btn btn-conv btn-md" onclick="Auth.open('signup')">Crear cuenta</button>`}
+    </div>
+  </div></header>`;
+}
+function footer(){return `<footer class="ftr"><div class="ftr-in"><div class="ftr-grid">
+  <div class="ftr-logo"><img src="logo-blanco.png" alt="Grupo Plasencia"><p>El marketplace de Grupo Plasencia: 12 concesionarias del grupo, 14 marcas, y todo el ciclo de tu auto en un solo lugar.</p></div>
+  <div><h4>Comprar</h4><ul><li>Autos nuevos</li><li>Seminuevos certificados</li><li>Comparar</li><li>Valuar mi auto</li></ul></div>
+  <div><h4>Soluciones</h4><ul><li>Plasencia Crédito</li><li>GP Autolease</li><li>Plasencia Seguros</li><li>Postventa</li></ul></div>
+  <div><h4>Grupo</h4><ul><li>75 años de historia</li><li>12 concesionarias</li><li>Trabaja con nosotros</li><li>Contacto</li></ul></div>
+</div><div class="bottom"><span>© 2026 Grupo Plasencia Automotriz · Prototipo de producto</span><span style="color:var(--gold)">Marketplace · la experiencia ideal</span></div></div></footer>`;}
+
+// ====== VEHICLE CARD (modelo marketplace: muestra vendedor) ======
 function vcard(v){
-  const mens = mensCredito(v.precio,20,60);
-  const nuevo = v.km===0;
+  const mens=mensCredito(v.precio,20,60);
+  const suc=getSuc(v.suc);
+  const liked=STATE.favs.includes(v.id);
   return `<article class="vcard" onclick="go('#/auto/${v.id}')">
     <div class="ph">
       <img src="${v.fotos[0]}" alt="${v.marca} ${v.modelo}" loading="lazy" onerror="this.src='${FALLBACK}'">
       <div class="ovl">
-        ${v.dest?'<span class="badge-pill bp-gold">★ Destacado</span>':''}
-        ${nuevo?'<span class="badge-pill bp-green">Nuevo · 0 km</span>':`<span class="badge-pill bp-navy">Seminuevo</span>`}
+        ${v.dest?'<span class="bp bp-gold">★ Destacado</span>':''}
+        ${v.cond==='nuevo'?'<span class="bp bp-green">Nuevo · 0 km</span>':'<span class="bp bp-navy">Seminuevo · 167 pts</span>'}
       </div>
+      <button class="like ${liked?'on':''}" onclick="event.stopPropagation();toggleFav('${v.id}',this)" title="Guardar">${liked?'♥':'♡'}</button>
     </div>
     <div class="body">
       <div class="mk">${v.marca}<span class="yr">· ${v.anio}</span></div>
       <h3>${v.modelo}</h3>
-      <div class="specs"><span>${nuevo?'0 km':v.km.toLocaleString('es-MX')+' km'}</span><span>·</span><span>${v.trans}</span><span>·</span><span>${v.rend} km/l</span></div>
+      <div class="specs"><span>${v.cond==='nuevo'?'0 km':v.km.toLocaleString('es-MX')+' km'}</span><span>·</span><span>${v.trans}</span><span>·</span><span>${v.fuel}</span></div>
+      <div class="seller">
+        <div class="seller-av">${initials(suc.nombre)}</div>
+        <div class="seller-info">
+          <div class="seller-name">${suc.nombre}</div>
+          <div class="seller-meta"><span class="star">★</span>${suc.rating} · ${suc.reviews.toLocaleString('es-MX')} reseñas</div>
+        </div>
+      </div>
       <div class="foot">
         <div><div class="price tnum">${mxn(v.precio)}</div><div class="mens">o <b class="tnum">${mxn(mens)}</b>/mes</div></div>
-        <div class="suc">${v.suc}</div>
       </div>
     </div>
   </article>`;
 }
 
-//=================================================================
-// VISTAS
-//=================================================================
+// ====== HOME ======
 const SOLUC=[
-  ['🚗','Comprar','Autos nuevos y seminuevos certificados de todas las marcas, en un solo catálogo.'],
-  ['💳','Financiar','Plasencia Crédito: pre-aprobación en línea sin afectar tu buró.'],
-  ['🔑','Arrendar','GP Autolease: arrendamiento puro para personas y empresas.'],
-  ['🛡️','Asegurar','Seguros y garantía extendida, integrados a tu compra.'],
-  ['🔧','Mantener','Postventa, servicio y refacciones agendados desde tu cuenta.'],
+  ['🚗','Comprar','Autos nuevos y seminuevos certificados de 14 marcas, en un solo catálogo cross-marca.'],
+  ['💳','Financiar','Plasencia Crédito: pre-aprobación en línea en 2 minutos, sin afectar tu buró.'],
+  ['🔑','Arrendar','GP Autolease: arrendamiento puro para personas y empresas. Renuevas cada 2-3 años.'],
+  ['🛡️','Asegurar','Seguros y garantía extendida, integrados directamente a tu compra.'],
+  ['🔧','Mantener','Postventa, servicio programado y refacciones agendados desde tu cuenta.'],
   ['♻️','Renovar','Tu auto actual se valúa en línea y aplica como enganche del siguiente.'],
 ];
-const CICLO=[['01','Descubre','Compara entre marcas por uso, no por logo.'],['02','Decide','Calcula, valúa tu auto, pre-aprueba crédito.'],['03','Aparta','Reserva con depósito reembolsable y paga en línea.'],['04','Vive','Servicios y postventa desde tu cuenta.'],['05','Renueva','A los 5 años, recompra con tu historial.']];
+const CICLO=[
+  ['01','Descubre','Compara entre marcas por uso, no por logo. 12 concesionarias compiten por ti.'],
+  ['02','Decide','Calcula crédito o arrendamiento. Valúa tu auto. Pre-aprueba sin afectar buró.'],
+  ['03','Aparta','Reserva con $5,000 reembolsables. Paga el enganche en línea, sin filas.'],
+  ['04','Vive','Servicios programados, refacciones y postventa desde tu cuenta única.'],
+  ['05','Renueva','A los 5 años, recompra con tu historial. El ciclo se cierra dentro del grupo.'],
+];
 
 function viewHome(){
-  const dest = CARS.filter(c=>c.dest).slice(0,4);
+  const dest=CARS.filter(c=>c.dest).slice(0,4);
+  const topDealers=SUCS.slice().sort((a,b)=>b.reviews-a.reviews).slice(0,6);
   return `
-  <section class="hero"><div class="hero-in fadeup">
-    <div class="eyebrow" style="color:var(--gold)">Grupo Plasencia · 75 años · Multimarca</div>
-    <h1>Toda tu vida automotriz,<br><span class="y">en un solo lugar.</span></h1>
-    <p class="sub">Compra, financia, arrienda, asegura y mantén tu auto con el respaldo de un grupo de 75 años. No eres un prospecto de una marca: eres cliente del grupo.</p>
-    <div class="searchbox">
-      <input id="heroSearch" placeholder="Busca por marca, modelo o uso (ej. SUV familiar)…" onkeydown="if(event.key==='Enter')go('#/catalogo')">
-      <button class="btn btn-conv btn-lg" onclick="go('#/catalogo')">Ver catálogo</button>
+  <section class="hero">
+    <div class="bg"></div><div class="grad"></div>
+    <div class="hero-in fu">
+      <div class="eyebrow gold">Grupo Plasencia · 75 años · 12 concesionarias · 14 marcas</div>
+      <h1 style="margin-top:14px">Toda tu vida automotriz,<br><span class="y">en un solo lugar.</span></h1>
+      <p class="sub">El marketplace donde las 12 concesionarias del grupo compiten por ti. Compra, financia, arrienda y mantén tu auto con el respaldo de 75 años.</p>
+      <div class="search-shell">
+        <input id="heroSearch" placeholder="Busca por marca, modelo o uso (ej. SUV familiar)…" onkeydown="if(event.key==='Enter')go('#/catalogo?q='+encodeURIComponent(this.value))">
+        <button class="btn btn-conv btn-lg" onclick="go('#/catalogo')">Ver catálogo</button>
+      </div>
+      <div class="trust-line">
+        <span><b>✓</b> Precio justo, sin sorpresas</span>
+        <span><b>✓</b> 167 puntos de inspección</span>
+        <span><b>✓</b> Apartado reembolsable</span>
+        <span><b>✓</b> Crédito sin afectar buró</span>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><div class="v tnum">${CARS.length}</div><div class="l">Autos disponibles</div></div>
+        <div class="stat"><div class="v">${MARCAS.length}</div><div class="l">Marcas del grupo</div></div>
+        <div class="stat"><div class="v">${SUCS.length}</div><div class="l">Concesionarias</div></div>
+        <div class="stat"><div class="v">75</div><div class="l">Años de historia</div></div>
+      </div>
     </div>
-    <div class="hero-trust">
-      <span><b>✓</b> Precio justo, sin sorpresas</span>
-      <span><b>✓</b> Seminuevos con 167 pts de inspección</span>
-      <span><b>✓</b> Apartado reembolsable</span>
-      <span><b>✓</b> Crédito sin afectar buró</span>
-    </div>
-  </div></section>
+  </section>
 
   <div class="marcas"><div class="marcas-in">
     <span class="lbl">Las marcas del grupo</span>
-    ${MARCAS.map(m=>`<b>${m}</b>`).join('')}
+    ${MARCAS.map(m=>`<b onclick="go('#/catalogo?marca=${encodeURIComponent(m)}')">${m}</b>`).join('')}
   </div></div>
 
   <section class="sec"><div class="wrap">
     <div class="eyebrow">La enchilada completa</div>
     <h2>Seis soluciones. Una sola cuenta. Una relación de cinco años.</h2>
+    <p class="lede">No eres un prospecto de una marca, eres cliente del grupo. Todo lo que tu auto necesita, en un solo lugar.</p>
     <div class="sol-grid">
       ${SOLUC.map(s=>`<div class="sol"><div class="ic">${s[0]}</div><h3>${s[1]}</h3><p>${s[2]}</p></div>`).join('')}
     </div>
   </div></section>
 
-  <section style="background:#fff;border-top:1px solid var(--n200);border-bottom:1px solid var(--n200)"><div class="wrap" style="padding:72px 20px">
+  <section style="background:#fff;border-top:1px solid var(--n200);border-bottom:1px solid var(--n200)"><div class="wrap" style="padding:80px 24px">
     <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap">
-      <div><div class="eyebrow">Destacados</div><h2 style="margin-top:8px">Cross-marca, en un solo lugar</h2></div>
+      <div><div class="eyebrow">Destacados de la semana</div><h2 style="margin-top:10px">Cross-marca, en un solo lugar</h2></div>
       <button class="btn btn-out btn-md" onclick="go('#/catalogo')">Ver todo el catálogo →</button>
     </div>
     <div class="vgrid">${dest.map(vcard).join('')}</div>
   </div></section>
 
   <section class="sec"><div class="wrap">
+    <div class="eyebrow gold" style="color:var(--gold-d)">Las 12 concesionarias del grupo</div>
+    <h2 style="margin-top:10px">Tus vendedores en el marketplace.</h2>
+    <p class="lede">Las concesionarias del grupo son los vendedores dentro del marketplace. Comparte una compra: gana visibilidad, reputación y conversión. El cliente decide con quién compra.</p>
+    <div class="dealers-hero">
+      <div class="bg"></div><div class="grad"></div>
+      <div class="ctn"><h2 style="color:#fff">12 concesionarias. 1 grupo. 1 promesa.</h2><p>Cada concesionaria mantiene su identidad y especialidad, pero todas operan bajo la promesa Plasencia: precio justo, inspección certificada, garantía por escrito.</p></div>
+    </div>
+    <div class="dealer-grid">
+      ${topDealers.map(d=>`<div class="dealer" onclick="go('#/concesionaria/${d.id}')">
+        <div class="ic">${initials(d.nombre)}</div>
+        <div class="dealer-info">
+          <h4>${d.nombre}</h4><div class="meta">${d.zona} · Desde ${d.desde}</div>
+          <div class="rating"><span class="star">★</span><b>${d.rating}</b><span class="reviews">(${d.reviews.toLocaleString('es-MX')} reseñas)</span></div>
+          <div class="autos">${d.autos} ${d.autos===1?'auto':'autos'} disponibles →</div>
+        </div>
+      </div>`).join('')}
+    </div>
+    <div style="text-align:center;margin-top:28px"><button class="btn btn-out btn-md" onclick="go('#/concesionarias')">Ver todas las concesionarias →</button></div>
+  </div></section>
+
+  <section class="sec" style="background:#fff;border-top:1px solid var(--n200)"><div class="wrap">
     <div class="eyebrow">El ciclo del auto, capturado</div>
-    <h2>Comprar un auto no es un evento. Es una relación que el grupo acompaña completa.</h2>
-    <div class="sol-grid" style="grid-template-columns:repeat(5,1fr)">
-      ${CICLO.map(c=>`<div><div style="font-family:var(--disp);font-weight:900;font-size:38px;color:var(--n200)">${c[0]}</div><h3 style="font-size:17px;color:var(--navy);margin-top:2px">${c[1]}</h3><p style="font-size:13px;color:var(--n600);margin-top:4px">${c[2]}</p></div>`).join('')}
+    <h2 style="margin-top:10px">Comprar un auto no es un evento. Es una relación.</h2>
+    <p class="lede">Cinco años, doce oportunidades. El grupo te acompaña en todo el ciclo.</p>
+    <div class="ciclo-grid ciclo">
+      ${CICLO.map(c=>`<div><div class="n">${c[0]}</div><h3>${c[1]}</h3><p>${c[2]}</p></div>`).join('')}
+    </div>
+    <div class="promo">
+      <div class="img"></div>
+      <div class="ctn">
+        <div class="eyebrow gold" style="color:var(--gold-d)">Para tu familia</div>
+        <h2>Empieza por el auto. Quédate por el grupo.</h2>
+        <p>Explora el catálogo cross-marca y vive la experiencia automotriz como debe ser en la era digital y de la IA.</p>
+        <div style="margin-top:24px;display:flex;gap:10px;flex-wrap:wrap"><button class="btn btn-gold btn-lg" onclick="go('#/catalogo')">Explorar catálogo</button><button class="btn btn-out btn-lg" style="color:#fff;border-color:rgba(255,255,255,.3)" onclick="Plasi.open()">💬 Hablar con Plasi</button></div>
+      </div>
     </div>
   </div></section>`;
 }
 
+// ====== CATÁLOGO ======
 let FILT={q:'',cond:'todos',marca:'todas',tipo:'todas',max:99999999,shown:12};
 function viewCatalogo(){
+  const tipos=[...new Set(CARS.map(c=>c.tipo))];
   return `<div class="filters"><div class="filters-in">
-    <input id="fq" placeholder="Buscar…" value="${FILT.q}" oninput="setF('q',this.value)">
-    <select id="fcond" onchange="setF('cond',this.value)">
-      <option value="todos">Condición</option><option value="nuevo">Nuevos</option><option value="seminuevo">Seminuevos</option>
-    </select>
-    <select id="fmarca" onchange="setF('marca',this.value)">
-      <option value="todas">Marca</option>${MARCAS.map(m=>`<option value="${m}">${m}</option>`).join('')}
-    </select>
-    <select id="ftipo" onchange="setF('tipo',this.value)">
-      <option value="todas">Tipo</option>${[...new Set(CARS.map(c=>c.tipo))].map(t=>`<option value="${t}">${t}</option>`).join('')}
-    </select>
-    <select id="fmax" onchange="setF('max',+this.value)">
-      <option value="99999999">Precio máx.</option><option value="350000">&lt; $350,000</option><option value="550000">&lt; $550,000</option><option value="800000">&lt; $800,000</option>
-    </select>
+    <input id="fq" placeholder="Buscar auto…" value="${FILT.q}" oninput="setF('q',this.value)">
+    <select onchange="setF('cond',this.value)"><option value="todos">Condición</option><option value="nuevo" ${FILT.cond==='nuevo'?'selected':''}>Nuevos</option><option value="seminuevo" ${FILT.cond==='seminuevo'?'selected':''}>Seminuevos</option></select>
+    <select onchange="setF('marca',this.value)"><option value="todas">Marca</option>${MARCAS.map(m=>`<option ${FILT.marca===m?'selected':''}>${m}</option>`).join('')}</select>
+    <select onchange="setF('tipo',this.value)"><option value="todas">Tipo</option>${tipos.map(t=>`<option ${FILT.tipo===t?'selected':''}>${t}</option>`).join('')}</select>
+    <select onchange="setF('max',+this.value)"><option value="99999999">Precio máx.</option><option value="350000">&lt; $350,000</option><option value="600000">&lt; $600,000</option><option value="900000">&lt; $900,000</option></select>
     <span class="count" id="fcount"></span>
   </div></div>
-  <div class="wrap" style="padding:32px 20px 0">
-    <div class="eyebrow">Catálogo cross-marca</div>
-    <h2 style="font-size:clamp(22px,3vw,32px);font-weight:800;color:var(--navy)">Encuentra por uso, no por logo</h2>
+  <div class="wrap" style="padding:32px 24px 0">
+    <div class="eyebrow">Catálogo cross-marca · 12 concesionarias</div>
+    <h2 style="font-size:clamp(24px,3vw,34px);font-weight:800;color:var(--navy);margin-top:8px">Encuentra por uso, no por logo</h2>
   </div>
-  <div class="wrap" style="padding-bottom:40px"><div id="vgrid" class="vgrid"></div><div id="loadmore" style="text-align:center;margin-top:36px"></div></div>`;
+  <div class="wrap" style="padding-bottom:48px"><div id="vgrid" class="vgrid"></div><div id="loadmore" style="text-align:center;margin-top:40px"></div></div>`;
 }
 function applyFilters(){
-  let r = CARS.filter(c=>{
-    if(FILT.cond!=='todos'){const isN=c.km===0?'nuevo':'seminuevo';if(isN!==FILT.cond)return false;}
+  let r=CARS.filter(c=>{
+    if(FILT.cond!=='todos'&&c.cond!==FILT.cond)return false;
     if(FILT.marca!=='todas'&&c.marca!==FILT.marca)return false;
     if(FILT.tipo!=='todas'&&c.tipo!==FILT.tipo)return false;
     if(c.precio>FILT.max)return false;
-    if(FILT.q){const h=(c.marca+' '+c.modelo+' '+c.tipo).toLowerCase();if(!h.includes(FILT.q.toLowerCase()))return false;}
+    if(FILT.q){const h=(c.marca+' '+c.modelo+' '+c.tipo).toLowerCase();if(!h.includes(FILT.q.toLowerCase()))return false}
     return true;
   });
-  const grid=$('#vgrid'), cnt=$('#fcount'), lm=$('#loadmore');
+  const g=$('#vgrid'),cnt=$('#fcount'),lm=$('#loadmore');
   if(cnt)cnt.textContent=r.length+' resultados';
-  if(!grid)return;
-  if(r.length===0){grid.innerHTML='';lm.innerHTML='<div class="empty"><div class="ic">🔍</div><p>Sin resultados con esos filtros.</p></div>';return;}
-  grid.innerHTML=r.slice(0,FILT.shown).map(vcard).join('');
-  lm.innerHTML = FILT.shown<r.length ? `<button class="btn btn-out btn-lg" onclick="FILT.shown+=8;applyFilters()">Ver más vehículos (${r.length-FILT.shown} restantes)</button>` : '';
+  if(!g)return;
+  if(r.length===0){g.innerHTML='';lm.innerHTML='<div class="empty"><div class="ic">🔍</div><p>Sin resultados con esos filtros.</p></div>';return}
+  g.innerHTML=r.slice(0,FILT.shown).map(vcard).join('');
+  lm.innerHTML=FILT.shown<r.length?`<button class="btn btn-out btn-lg" onclick="FILT.shown+=8;applyFilters()">Ver más vehículos (${r.length-FILT.shown} restantes)</button>`:'';
 }
-function setF(k,v){FILT[k]=v;FILT.shown=12;applyFilters();}
+function setF(k,v){FILT[k]=v;FILT.shown=12;applyFilters()}
+function toggleFav(id,btn){
+  const i=STATE.favs.indexOf(id);
+  if(i>=0)STATE.favs.splice(i,1);else STATE.favs.push(id);
+  save();if(btn){btn.classList.toggle('on');btn.textContent=STATE.favs.includes(id)?'♥':'♡'}
+}
 
+// ====== CONCESIONARIAS ======
+function viewConcesionarias(){
+  return `<div class="wrap" style="padding:40px 24px 0">
+    <div class="eyebrow">Concesionarias del grupo</div>
+    <h2 style="font-size:clamp(24px,3vw,34px);color:var(--navy);margin-top:8px">${SUCS.length} concesionarias. Tu vendedor en el marketplace.</h2>
+    <p class="lede">Cada concesionaria opera dentro del marketplace bajo la promesa Plasencia. Elige por proximidad, rating o especialidad.</p>
+  </div>
+  <div class="wrap" style="padding-bottom:48px;padding-top:24px"><div class="dealer-grid">
+    ${SUCS.map(d=>`<div class="dealer" onclick="go('#/concesionaria/${d.id}')">
+      <div class="ic">${initials(d.nombre)}</div>
+      <div class="dealer-info">
+        <h4>${d.nombre}</h4><div class="meta">${d.zona} · Especialista ${d.marca} · Desde ${d.desde}</div>
+        <div class="rating"><span class="star">★</span><b>${d.rating}</b><span class="reviews">(${d.reviews.toLocaleString('es-MX')} reseñas)</span></div>
+        <div class="autos">${d.autos} ${d.autos===1?'auto':'autos'} disponibles →</div>
+      </div>
+    </div>`).join('')}
+  </div></div>`;
+}
+
+function viewConcesionaria(id){
+  const d=SUCS.find(x=>x.id===id);
+  if(!d)return `<div class="empty"><p>Concesionaria no encontrada.</p></div>`;
+  const autos=CARS.filter(c=>c.suc===id);
+  return `<section class="dealer-hero-page"><div class="wrap">
+    <div class="av">${initials(d.nombre)}</div>
+    <div>
+      <h1>${d.nombre}</h1>
+      <div class="meta"><span>📍 ${d.zona}</span><span>🏆 Especialista ${d.marca}</span><span>📅 Desde ${d.desde}</span></div>
+      <div class="rating-row"><span><b>${d.rating}</b> <span class="star">★</span> rating</span><span>${d.reviews.toLocaleString('es-MX')} reseñas verificadas</span></div>
+    </div>
+    <div class="stats">
+      <div><div class="v">${autos.length}</div><div class="l">Autos</div></div>
+      <div><div class="v">${2026-d.desde}</div><div class="l">Años</div></div>
+      <div><div class="v">${d.rating}</div><div class="l">Rating</div></div>
+    </div>
+  </div></section>
+  <div class="wrap" style="padding:40px 24px">
+    <h2 style="font-size:24px;color:var(--navy)">Inventario en ${d.nombre}</h2>
+    ${autos.length?`<div class="vgrid" style="margin-top:24px">${autos.slice(0,12).map(vcard).join('')}</div>`:`<div class="empty"><p>Sin autos en este momento.</p></div>`}
+  </div>`;
+}
+
+// ====== PDP ======
+let PDP=null;
 function viewPDP(id){
   const v=CARS.find(c=>c.id===id);
   if(!v)return `<div class="empty"><p>Vehículo no encontrado. <a href="#/catalogo" style="color:var(--red);font-weight:700">Ver catálogo</a></p></div>`;
-  const nuevo=v.km===0;
   PDP={v,foto:0,mod:'credito',plazo:60,eng:20};
   setTimeout(renderCockpit,0);
-  return `<div class="wrap">
-    <div class="crumb"><a href="#/">Inicio</a><span>/</span><a href="#/catalogo">Catálogo</a><span>/</span><span style="color:var(--navy)">${v.marca} ${v.modelo}</span></div>
+  const suc=getSuc(v.suc);
+  return `<div class="wrap"><div class="crumb"><a href="#/">Inicio</a><span>/</span><a href="#/catalogo">Catálogo</a><span>/</span><span style="color:var(--navy)">${v.marca} ${v.modelo}</span></div>
     <div class="pdp">
       <div>
         <div class="gal-main"><img id="galMain" src="${v.fotos[0]}" onerror="this.src='${FALLBACK}'" alt="${v.marca} ${v.modelo}"></div>
         <div class="gal-thumbs">${v.fotos.map((f,i)=>`<button class="${i===0?'on':''}" onclick="setFoto(${i})"><img src="${f}" onerror="this.src='${FALLBACK}'"></button>`).join('')}</div>
         <div class="trust-row">
-          <div class="t"><b>✓</b> ${nuevo?'Unidad nueva de agencia':'167 puntos de inspección'}</div>
+          <div class="t"><b>✓</b> ${v.cond==='nuevo'?'Unidad nueva de agencia':'167 puntos de inspección'}</div>
           <div class="t"><b>✓</b> Garantía incluida</div>
-          <div class="t"><b>✓</b> ${nuevo?'Factura de agencia':'Historial documentado'}</div>
+          <div class="t"><b>✓</b> ${v.cond==='nuevo'?'Factura de agencia':'Historial documentado'}</div>
           <div class="t"><b>✓</b> Devolución 7 días</div>
         </div>
-        <h2 style="font-size:20px;color:var(--navy);margin-top:26px">Especificaciones</h2>
+        <div class="seller-box">
+          <div class="av">${initials(suc.nombre)}</div>
+          <div class="info">
+            <h4>Vendido por ${suc.nombre}</h4>
+            <div class="meta">${suc.zona} · Especialista ${suc.marca} · Desde ${suc.desde}</div>
+            <div class="rating"><span class="star">★</span><b>${suc.rating}</b><span class="rv">${suc.reviews.toLocaleString('es-MX')} reseñas · ${suc.autos} autos</span></div>
+          </div>
+          <a href="#/concesionaria/${suc.id}" class="btn btn-out btn-sm">Ver concesionaria →</a>
+        </div>
+        <h2 style="font-size:20px;color:var(--navy);margin-top:28px">Especificaciones</h2>
         <div class="specs-grid">
-          ${[['Año',v.anio],['Kilometraje',nuevo?'0 km':v.km.toLocaleString('es-MX')+' km'],['Transmisión',v.trans],['Combustible',v.fuel],['Rendimiento',v.rend+' km/l'],['Pasajeros',v.pas],['Color',v.color||'—'],['Carrocería',v.tipo],['Sucursal',v.suc]].map(s=>`<div class="c"><div class="k">${s[0]}</div><div class="v">${s[1]}</div></div>`).join('')}
+          ${[['Año',v.anio],['Kilometraje',v.cond==='nuevo'?'0 km':v.km.toLocaleString('es-MX')+' km'],['Transmisión',v.trans],['Combustible',v.fuel],['Rendimiento',v.rend+' km/l'],['Pasajeros',v.pas],['Color',v.color||'Por elegir'],['Carrocería',v.tipo],['Sucursal',suc.nombre.replace('Plasencia ','')]].map(s=>`<div class="c"><div class="k">${s[0]}</div><div class="v">${s[1]}</div></div>`).join('')}
         </div>
       </div>
       <div><div class="cockpit" id="cockpit"></div></div>
     </div>
-    <div style="margin-top:48px"><h2 style="font-size:20px;color:var(--navy);margin-bottom:18px">Similares en el grupo</h2>
+    <div style="margin-top:64px"><h2 style="font-size:22px;color:var(--navy);margin-bottom:20px">Similares en el grupo</h2>
       <div class="vgrid">${CARS.filter(c=>c.tipo===v.tipo&&c.id!==v.id).slice(0,4).map(vcard).join('')}</div>
     </div>
   </div>`;
 }
-let PDP=null;
-function setFoto(i){PDP.foto=i;$('#galMain').src=PDP.v.fotos[i];document.querySelectorAll('.gal-thumbs button').forEach((b,j)=>b.classList.toggle('on',j===i));}
+function setFoto(i){PDP.foto=i;$('#galMain').src=PDP.v.fotos[i];$$('.gal-thumbs button').forEach((b,j)=>b.classList.toggle('on',j===i))}
 function renderCockpit(){
-  const c=$('#cockpit'); if(!c||!PDP)return;
+  const c=$('#cockpit');if(!c||!PDP)return;
   const {v,mod,plazo,eng}=PDP;
-  const mens = mod==='credito'?mensCredito(v.precio,eng,plazo):mod==='arrendamiento'?rentaLease(v.precio,plazo):0;
-  const plazos = mod==='arrendamiento'?[24,36,48]:[12,24,36,48,60];
+  const mens=mod==='credito'?mensCredito(v.precio,eng,plazo):mod==='arrendamiento'?rentaLease(v.precio,plazo):0;
+  const plazos=mod==='arrendamiento'?[24,36,48]:[12,24,36,48,60];
   c.innerHTML=`
     <div class="mk">${v.marca} · ${v.anio}</div>
     <h1>${v.modelo}</h1>
+    <div class="v-ver">${v.version||v.trans+' · '+v.fuel}</div>
     <div class="price tnum">${mxn(v.precio)}</div>
     <div style="font-family:var(--disp);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--n500);margin-top:18px">Cómo lo quieres</div>
-    <div class="modtabs">
-      ${['contado','credito','arrendamiento'].map(m=>`<button class="${mod===m?'on':''}" onclick="setMod('${m}')">${m==='credito'?'Crédito':m==='arrendamiento'?'Arrendar':'Contado'}</button>`).join('')}
-    </div>
+    <div class="modtabs">${['contado','credito','arrendamiento'].map(m=>`<button class="${mod===m?'on':''}" onclick="setMod('${m}')">${m==='credito'?'Crédito':m==='arrendamiento'?'Arrendar':'Contado'}</button>`).join('')}</div>
     ${mod!=='contado'?`<div class="calc">
       ${mod==='credito'?`<div class="row"><span>Enganche</span><b class="tnum">${mxn(v.precio*eng/100)} · ${eng}%</b></div><input type="range" min="20" max="60" value="${eng}" oninput="PDP.eng=+this.value;renderCockpit()">`:''}
       <div class="row" style="margin-top:10px"><span>Plazo</span></div>
@@ -444,209 +692,295 @@ function renderCockpit(){
     <div class="cta-stack">
       <button class="btn btn-conv btn-lg btn-full" onclick="apartar('${v.id}')">Apartar con ${mxn(5000)} reembolsable</button>
       <div class="cta-2">
-        <button class="btn btn-out btn-md" onclick="alert('Agenda tu cita o test drive — demo')">Agendar cita</button>
-        <button class="btn btn-out btn-md" onclick="Plasi.open('Quiero valuar mi auto actual')">Valuar mi auto</button>
+        <button class="btn btn-out btn-md" onclick="alert('Agenda tu test drive (demo)')">📅 Agendar cita</button>
+        <button class="btn btn-out btn-md" onclick="Plasi.open('Valuar mi auto actual')">💰 Valuar mi auto</button>
       </div>
-      <button class="btn btn-ghost btn-md btn-full" style="color:var(--blue-deep)" onclick="Plasi.open('¿Qué necesito para el crédito?')">💬 Preguntar a Plasi</button>
+      <button class="btn btn-ghost btn-md btn-full" style="color:var(--blue-d)" onclick="Plasi.open('¿Qué necesito para el crédito?')">💬 Preguntar a Plasi</button>
     </div>`;
 }
-function setMod(m){PDP.mod=m;PDP.plazo=m==='arrendamiento'?36:60;renderCockpit();}
+function setMod(m){PDP.mod=m;PDP.plazo=m==='arrendamiento'?36:60;renderCockpit()}
 
 function apartar(id){
+  if(!STATE.customer){Auth.open('signup',()=>apartar(id));return}
   const v=CARS.find(c=>c.id===id);
   const f=folio(v.marca);
-  const mens = PDP.mod==='credito'?Math.round(mensCredito(v.precio,PDP.eng,PDP.plazo)):PDP.mod==='arrendamiento'?Math.round(rentaLease(v.precio,PDP.plazo)):0;
-  STATE.deals.unshift({id:uid('deal'),folio:f,carId:id,modalidad:PDP.mod,estado:'apartado',apartado:5000,mensualidad:mens||null,plazo:PDP.mod!=='contado'?PDP.plazo:null,createdAt:Date.now()});
-  if(!STATE.customer)STATE.customer={nombre:'Cliente Demo',email:'',tel:'',preap:false};
-  save();updateBadge();
-  showModal(`<div class="ok">✓</div><h3>¡Apartado!</h3><p>Tu ${v.marca} ${v.modelo} está reservado. Depósito de ${mxn(5000)} reembolsable.</p>
+  const mens=PDP.mod==='credito'?Math.round(mensCredito(v.precio,PDP.eng,PDP.plazo)):PDP.mod==='arrendamiento'?Math.round(rentaLease(v.precio,PDP.plazo)):0;
+  STATE.deals.unshift({id:uid('d'),folio:f,carId:id,modalidad:PDP.mod,estado:'apartado',apartado:5000,mensualidad:mens||null,plazo:PDP.mod!=='contado'?PDP.plazo:null,createdAt:Date.now()});
+  STATE.notifs.unshift({id:uid('n'),ic:'gold',t:`Apartaste ${v.marca} ${v.modelo}`,d:'Folio '+f,time:'Hace un momento'});
+  save();updateHeader();
+  showModal(`<div class="ok">✓</div><h3 style="text-align:center">¡Apartado!</h3><p style="text-align:center">Tu ${v.marca} ${v.modelo} está reservado. Depósito de ${mxn(5000)} reembolsable.</p>
     <div class="folio"><div class="k">Folio</div><div class="v tnum">${f}</div></div>
-    <div style="margin-top:18px;display:flex;flex-direction:column;gap:8px">
-      <button class="btn btn-conv btn-md btn-full" onclick="closeModal();go('#/cuenta')">Ver en Mi Plasencia →</button>
+    <div style="margin-top:20px;display:flex;flex-direction:column;gap:8px">
+      <button class="btn btn-conv btn-md btn-full" onclick="closeModal();go('#/cuenta')">Ir a Mi Plasencia →</button>
       <button class="btn btn-ghost btn-md btn-full" onclick="closeModal()">Seguir explorando</button>
     </div>`);
 }
 
-// ---- Cuenta ----
-let ATAB='compras';
-function viewCuenta(){
-  if(STATE.deals.length===0){
-    return `<div class="wrap"><div class="empty" style="padding-top:80px"><div class="ic">◆</div><h2 style="color:var(--navy);margin-top:8px">Mi Plasencia</h2><p>Aquí vivirá tu relación con el grupo: compras, crédito, arrendamiento, postventa y renovación.</p><button class="btn btn-conv btn-lg" style="margin-top:20px" onclick="go('#/catalogo')">Explorar catálogo</button></div></div>`;
+// ====== AUTH (login/signup completo simulado) ======
+const Auth={
+  mode:'signin',cb:null,
+  open(mode='signin',cb=null){this.mode=mode;this.cb=cb;this.render()},
+  close(){closeModal();this.cb=null},
+  switch(m){this.mode=m;this.render()},
+  render(){
+    const isSignup=this.mode==='signup';
+    showModal(`<div class="auth">
+      <h2>${isSignup?'Crea tu cuenta Plasencia':'Bienvenido de vuelta'}</h2>
+      <p class="sub">${isSignup?'Una cuenta para todo tu ciclo automotriz con el grupo.':'Tu cuenta para todo tu ciclo automotriz con el grupo.'}</p>
+      <div class="auth-tabs">
+        <button class="${!isSignup?'on':''}" onclick="Auth.switch('signin')">Iniciar sesión</button>
+        <button class="${isSignup?'on':''}" onclick="Auth.switch('signup')">Crear cuenta</button>
+      </div>
+      <div class="auth-social">
+        <button onclick="Auth.demo()"><span style="font-size:16px">G</span> Continuar con Google</button>
+        <button onclick="Auth.demo()"><span style="font-size:16px">f</span> Continuar con Facebook</button>
+        <button onclick="Auth.demo()"><span style="font-size:14px">📱</span> Continuar con WhatsApp</button>
+      </div>
+      <div class="auth-divider">o con tu correo</div>
+      <form class="auth-form" onsubmit="event.preventDefault();Auth.submit()">
+        ${isSignup?`<div><label>Nombre completo</label><input id="au_nom" required placeholder="Tu nombre"></div>`:''}
+        <div><label>Correo electrónico</label><input id="au_em" type="email" required placeholder="tu@correo.com"></div>
+        <div><label>Contraseña</label><input id="au_pw" type="password" required placeholder="••••••••"></div>
+        ${isSignup?`<div><label>Teléfono (opcional)</label><input id="au_tel" type="tel" placeholder="33 0000 0000"></div>`:''}
+        <button class="btn btn-conv btn-lg" type="submit" style="margin-top:8px">${isSignup?'Crear cuenta':'Iniciar sesión'}</button>
+      </form>
+      <p style="font-size:12px;color:var(--n500);margin-top:16px;text-align:center">${isSignup?'Al crear tu cuenta aceptas los términos y aviso de privacidad de Grupo Plasencia.':'<a onclick="alert(\\'Demo: recuperación de contraseña\\')" style="color:var(--blue-d);cursor:pointer">¿Olvidaste tu contraseña?</a>'}</p>
+      <p style="font-size:11px;color:var(--n400);text-align:center;margin-top:10px">🔒 Demo: ningún dato real se transmite. Todo se guarda local en tu navegador.</p>
+    </div>`);
+  },
+  demo(){
+    STATE.customer={nombre:'Chucho Porras',email:'chucho@plasencia.mx',tel:'33 1234 5678',preap:true,linea:850000,kyc:true,desde:new Date().toISOString().slice(0,10),points:1240};
+    STATE.notifs.unshift({id:uid('n'),ic:'green',t:'¡Bienvenido a Plasencia Marketplace!',d:'Tu cuenta está lista. Crédito pre-aprobado por '+mxn(850000),time:'Ahora'});
+    save();this.close();updateHeader();if(this.cb)setTimeout(this.cb,200);else go('#/cuenta');
+  },
+  submit(){
+    const nombre=$('#au_nom')?.value || $('#au_em').value.split('@')[0].replace(/[._]/g,' ').replace(/\b\w/g,c=>c.toUpperCase()) || 'Cliente';
+    STATE.customer={nombre,email:$('#au_em').value,tel:$('#au_tel')?.value||'',preap:false,kyc:false,desde:new Date().toISOString().slice(0,10),points:0};
+    STATE.notifs.unshift({id:uid('n'),ic:'green',t:'¡Cuenta creada!',d:'Completa tu perfil para pre-aprobar crédito.',time:'Ahora'});
+    save();this.close();updateHeader();if(this.cb)setTimeout(this.cb,200);else go('#/cuenta?t=perfil');
   }
+};
+
+// ====== CUENTA ======
+let ATAB='resumen';
+const TABS=[['resumen','Resumen','◆'],['compras','Compras','🚗'],['fin','Crédito y Lease','💳'],['post','Postventa','🔧'],['favs','Guardados','♥'],['renov','Renovación','♻️'],['notif','Notificaciones','🔔'],['perfil','Perfil','👤']];
+
+function viewCuenta(){
+  if(!STATE.customer){Auth.open('signin',()=>go('#/cuenta'));return '<div class="loading">Iniciando sesión…</div>'}
+  const c=STATE.customer;
   setTimeout(()=>renderAcctTab(),0);
-  const tabs=[['compras','Compras'],['fin','Crédito y Lease'],['post','Postventa'],['renov','Renovación'],['perfil','Perfil']];
-  return `<div class="wrap" style="padding-top:32px">
-    <div class="eyebrow">Mi Plasencia</div>
-    <h2 style="font-size:clamp(22px,3vw,30px);color:var(--navy)">Hola, ${(STATE.customer?.nombre||'Cliente').split(' ')[0]}</h2>
-    <div class="acct-tabs">${tabs.map(t=>`<button class="${ATAB===t[0]?'on':''}" onclick="ATAB='${t[0]}';renderAcctTab()">${t[1]}</button>`).join('')}</div>
-    <div id="acctBody" style="margin-top:24px"></div>
+  const unread=STATE.notifs.length;
+  return `<section class="acct-cover"><div class="wrap">
+    <div class="acct-av">${initials(c.nombre)}</div>
+    <div class="acct-info">
+      <h2>Hola, ${c.nombre.split(' ')[0]}</h2>
+      <div class="sub"><span>📧 ${c.email}</span>${c.tel?`<span>📱 ${c.tel}</span>`:''}<span>📅 Cliente desde ${c.desde||'2026'}</span></div>
+      <div class="badges">
+        ${c.preap?`<span class="bp bp-green">✓ Crédito pre-aprobado</span>`:`<span class="bp bp-amber">KYC pendiente</span>`}
+        ${c.kyc?`<span class="bp bp-navy">✓ Verificado</span>`:''}
+        <span class="bp bp-gold">⭐ Cliente Plasencia</span>
+      </div>
+    </div>
+    <div class="acct-wallet">
+      <div class="lbl">Plasencia Wallet</div>
+      <div class="v tnum">${(c.points||0).toLocaleString('es-MX')} pts</div>
+      <div style="font-size:11px;color:rgba(255,255,255,.6);margin-top:2px">≈ ${mxn((c.points||0)*0.5)} en beneficios</div>
+    </div>
+  </div></section>
+  <div class="wrap">
+    <div class="acct-tabs">${TABS.map(t=>`<button class="${ATAB===t[0]?'on':''}" onclick="ATAB='${t[0]}';renderAcctTab()"><span>${t[2]}</span>${t[1]}${t[0]==='notif'&&unread?`<span class="bp bp-red" style="margin-left:4px;padding:1px 6px">${unread}</span>`:''}</button>`).join('')}</div>
+    <div id="acctBody" style="margin-top:28px;padding-bottom:60px"></div>
   </div>`;
 }
 function renderAcctTab(){
-  const b=$('#acctBody'); if(!b)return;
-  document.querySelectorAll('.acct-tabs button').forEach(btn=>btn.classList.toggle('on',btn.textContent===({compras:'Compras',fin:'Crédito y Lease',post:'Postventa',renov:'Renovación',perfil:'Perfil'})[ATAB]));
-  if(ATAB==='compras')b.innerHTML=acctCompras();
+  const b=$('#acctBody');if(!b)return;
+  $$('.acct-tabs button').forEach((btn,i)=>btn.classList.toggle('on',TABS[i][0]===ATAB));
+  if(ATAB==='resumen')b.innerHTML=acctResumen();
+  else if(ATAB==='compras')b.innerHTML=acctCompras();
   else if(ATAB==='fin')b.innerHTML=acctFin();
   else if(ATAB==='post')b.innerHTML=acctPost();
+  else if(ATAB==='favs')b.innerHTML=acctFavs();
   else if(ATAB==='renov')b.innerHTML=acctRenov();
+  else if(ATAB==='notif')b.innerHTML=acctNotif();
   else b.innerHTML=acctPerfil();
+}
+
+function acctResumen(){
+  const d=STATE.deals,p=STATE.pagos,s=STATE.servicios,f=STATE.favs;
+  const stats=[['Vehículos comprados',d.filter(x=>x.estado==='cerrado'||x.estado==='enganche'||x.estado==='cita').length],['Pagos realizados',p.length],['Servicios',s.length],['Favoritos',f.length]];
+  const recent=d.slice(0,3);
+  return `<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px">
+    ${stats.map(s=>`<div style="background:#fff;border:1px solid var(--n200);border-radius:14px;padding:18px">
+      <div style="font-family:var(--disp);font-size:11px;font-weight:700;text-transform:uppercase;color:var(--n500);letter-spacing:.5px">${s[0]}</div>
+      <div style="font-family:var(--disp);font-weight:900;color:var(--navy);font-size:28px;margin-top:4px" class="tnum">${s[1]}</div>
+    </div>`).join('')}
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px">
+    <div style="background:linear-gradient(135deg,var(--navy),var(--navy-d));color:#fff;border-radius:16px;padding:24px;position:relative;overflow:hidden">
+      <div class="eyebrow gold" style="color:var(--gold-d)">Tu próxima acción</div>
+      ${d.length?`<p style="margin-top:8px;color:rgba(255,255,255,.85);font-size:14px">${d.find(x=>x.estado==='apartado')?'Tienes una compra sin terminar. Completa el enganche.':'Estás al día. Explora promociones o agenda servicio.'}</p><button class="btn btn-gold btn-sm" style="margin-top:14px" onclick="${d.find(x=>x.estado==='apartado')?'ATAB=\\'compras\\';renderAcctTab()':'go(\\'#/catalogo\\')'}">→</button>`
+      :`<p style="margin-top:8px;color:rgba(255,255,255,.85);font-size:14px">Todo en orden. Aparta tu primer auto y empieza tu ciclo Plasencia.</p><button class="btn btn-gold btn-sm" style="margin-top:14px" onclick="go('#/catalogo')">Explorar catálogo →</button>`}
+    </div>
+    <div style="background:#fff;border:1px solid var(--n200);border-radius:16px;padding:24px">
+      <div class="eyebrow">Tu ciclo Plasencia</div>
+      <div style="margin-top:10px">${[['Comprar',d.length>0],['Financiar',d.some(x=>x.mensualidad)],['Mantener',s.length>0],['Renovar',false]].map(s=>`<div style="display:flex;align-items:center;gap:10px;padding:6px 0;font-size:13px"><span style="width:22px;height:22px;border-radius:99px;background:${s[1]?'var(--green)':'var(--n200)'};color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:11px">${s[1]?'✓':'·'}</span><span style="color:${s[1]?'var(--navy)':'var(--n500)'};font-weight:${s[1]?'600':'400'}">${s[0]}</span></div>`).join('')}</div>
+    </div>
+  </div>
+  ${recent.length?`<h3 style="font-size:18px;color:var(--navy);margin:28px 0 12px">Actividad reciente</h3>${recent.map(d=>{const v=CARS.find(c=>c.id===d.carId);if(!v)return'';return `<div class="deal-card"><img src="${v.fotos[0]}" onerror="this.src='${FALLBACK}'"><div style="flex:1"><h4 style="color:var(--navy)">${v.marca} ${v.modelo}</h4><div style="font-size:12px;color:var(--n500)">Folio ${d.folio} · ${d.modalidad}</div></div><span class="bp bp-${d.estado==='cerrado'||d.estado==='cita'?'green':'gold'}">${d.estado}</span></div>`}).join('')}`:''}`;
 }
 const ESTLBL={apartado:['Apartado','bp-gold'],enganche:['Enganche pagado','bp-navy'],cerrado:['Comprado','bp-green'],cita:['Entrega agendada','bp-green']};
 function acctCompras(){
-  return STATE.deals.map(d=>{const v=CARS.find(c=>c.id===d.carId);if(!v)return'';const e=ESTLBL[d.estado]||['—','bp-navy'];
+  if(STATE.deals.length===0)return `<div class="empty"><div class="ic">🚗</div><p>Aún no tienes compras. <a href="#/catalogo" style="color:var(--red);font-weight:700">Explorar catálogo →</a></p></div>`;
+  return STATE.deals.map(d=>{const v=CARS.find(c=>c.id===d.carId);if(!v)return'';const e=ESTLBL[d.estado]||['—','bp-navy'];const suc=getSuc(v.suc);
     return `<div class="deal-card"><img src="${v.fotos[0]}" onerror="this.src='${FALLBACK}'">
-      <div style="flex:1;min-width:180px">
-        <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap"><h3 style="font-size:16px;color:var(--navy)">${v.marca} ${v.modelo}</h3><span class="badge-pill ${e[1]}">${e[0]}</span></div>
-        <div style="font-size:12px;color:var(--n500)">${v.anio} · Folio <span class="tnum">${d.folio}</span></div>
-        <div style="display:flex;gap:18px;flex-wrap:wrap;margin-top:8px;font-size:13px;color:var(--n600)">
+      <div style="flex:1;min-width:200px">
+        <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap"><h3 style="font-size:17px;color:var(--navy)">${v.marca} ${v.modelo}</h3><span class="bp ${e[1]}">${e[0]}</span></div>
+        <div style="font-size:12px;color:var(--n500);margin-top:2px">${v.anio} · Vendido por ${suc.nombre} · Folio <span class="tnum" style="font-family:var(--disp);font-weight:700">${d.folio}</span></div>
+        <div style="display:flex;gap:18px;flex-wrap:wrap;margin-top:10px;font-size:13px;color:var(--n600)">
           <span>Modalidad: <b style="color:var(--navy);text-transform:capitalize">${d.modalidad}</b></span>
-          ${d.mensualidad?`<span>Mensualidad: <b style="color:var(--green-deep)" class="tnum">${mxn(d.mensualidad)}</b></span>`:''}
+          ${d.mensualidad?`<span>Mensualidad: <b style="color:var(--green-d)" class="tnum">${mxn(d.mensualidad)}</b></span>`:''}
           <span>Depósito: <b class="tnum">${mxn(d.apartado)}</b></span>
         </div>
       </div>
-      <div style="display:flex;flex-direction:column;gap:8px">
-        ${d.estado==='apartado'?`<button class="btn btn-conv btn-sm" onclick="pagarEnganche('${d.id}')">Pagar enganche</button>`:''}
-        ${d.estado==='enganche'?`<button class="btn btn-primary btn-sm" onclick="agendar('${d.id}')">Agendar entrega</button>`:''}
-        ${d.estado==='cita'?`<span style="font-size:12px;color:var(--green-deep);font-weight:700;text-align:center">✓ Entrega: Sábado 11:00</span>`:''}
+      <div style="display:flex;flex-direction:column;gap:8px;min-width:160px">
+        ${d.estado==='apartado'?`<button class="btn btn-conv btn-sm" onclick="pagarEnganche('${d.id}')">Pagar enganche →</button>`:''}
+        ${d.estado==='enganche'?`<button class="btn btn-primary btn-sm" onclick="agendar('${d.id}')">Agendar entrega →</button>`:''}
+        ${d.estado==='cita'?`<span style="font-size:12px;color:var(--green-d);font-weight:700;text-align:center">✓ Sábado 11:00 hrs</span>`:''}
         <button class="btn btn-ghost btn-sm" onclick="go('#/auto/${v.id}')">Ver auto</button>
       </div></div>`;}).join('');
 }
-function pagarEnganche(id){const d=STATE.deals.find(x=>x.id===id);const v=CARS.find(c=>c.id===d.carId);d.estado='enganche';d.enganche=Math.round(v.precio*0.2);save();renderAcctTab();}
-function agendar(id){const d=STATE.deals.find(x=>x.id===id);d.estado='cita';d.cita='Sábado 11:00';save();renderAcctTab();}
+function pagarEnganche(id){const d=STATE.deals.find(x=>x.id===id);const v=CARS.find(c=>c.id===d.carId);d.estado='enganche';d.enganche=Math.round(v.precio*0.2);STATE.notifs.unshift({id:uid('n'),ic:'green',t:'Enganche pagado',d:`${v.marca} ${v.modelo} · ${mxn(d.enganche)}`,time:'Hace un momento'});save();renderAcctTab()}
+function agendar(id){const d=STATE.deals.find(x=>x.id===id);d.estado='cita';d.cita='Sábado 11:00';STATE.notifs.unshift({id:uid('n'),ic:'blue',t:'Entrega agendada',d:'Sábado 11:00 hrs en tu concesionaria',time:'Hace un momento'});save();renderAcctTab()}
 function acctFin(){
   const fin=STATE.deals.filter(d=>d.modalidad!=='contado'&&d.mensualidad&&(d.estado==='enganche'||d.estado==='cita'||d.estado==='cerrado'));
-  if(fin.length===0)return `<div class="empty"><div class="ic">💳</div><p>Cuando compres a crédito o arrendamiento, aquí verás tu estado de cuenta y podrás pagar.</p></div>`;
-  return fin.map(d=>{const v=CARS.find(c=>c.id===d.carId);const hechos=STATE.pagos.filter(p=>p.dealId===d.id).length;const total=d.mensualidad*d.plazo;const pagado=d.mensualidad*hechos;const pct=Math.round(hechos/d.plazo*100);const lease=d.modalidad==='arrendamiento';
+  if(fin.length===0)return `<div class="empty"><div class="ic">💳</div><p>Cuando compres a crédito o arrendamiento, aquí verás tu estado de cuenta.</p></div>`;
+  return fin.map(d=>{const v=CARS.find(c=>c.id===d.carId);const h=STATE.pagos.filter(p=>p.dealId===d.id).length;const total=d.mensualidad*d.plazo;const pagado=d.mensualidad*h;const pct=Math.round(h/d.plazo*100);const lease=d.modalidad==='arrendamiento';
     return `<div class="deal-card" style="display:block">
-      <div style="display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap">
-        <div style="display:flex;gap:12px;align-items:center"><img src="${v.fotos[0]}" style="width:56px;height:56px;border-radius:10px;object-fit:cover" onerror="this.src='${FALLBACK}'"><div><h3 style="font-size:16px;color:var(--navy)">${v.marca} ${v.modelo}</h3><div style="font-size:12px;color:var(--n500)">${lease?'GP Autolease':'Plasencia Crédito'} · ${d.plazo} meses</div></div></div>
-        <span class="badge-pill ${lease?'bp-navy':'bp-green'}">${lease?'Arrendamiento':'Crédito'}</span>
+      <div style="display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap">
+        <div style="display:flex;gap:14px;align-items:center"><img src="${v.fotos[0]}" style="width:64px;height:64px;border-radius:12px;object-fit:cover" onerror="this.src='${FALLBACK}'"><div><h3 style="font-size:17px;color:var(--navy)">${v.marca} ${v.modelo}</h3><div style="font-size:12px;color:var(--n500)">${lease?'GP Autolease':'Plasencia Crédito'} · ${d.plazo} meses</div></div></div>
+        <span class="bp ${lease?'bp-navy':'bp-green'}">${lease?'Arrendamiento':'Crédito'}</span>
       </div>
-      <div style="margin-top:16px"><div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:6px"><span style="color:var(--n600)">${hechos} de ${d.plazo} pagos</span><b class="tnum">${pct}%</b></div><div style="height:8px;background:var(--n200);border-radius:99px;overflow:hidden"><div style="height:100%;background:var(--green);width:${pct}%;transition:.3s"></div></div></div>
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px">
-        ${[['Pagado',mxn(pagado)],['Saldo',mxn(total-pagado)],[lease?'Renta/mes':'Mensualidad',mxn(d.mensualidad)]].map(s=>`<div style="background:var(--n50);border-radius:10px;padding:12px"><div style="font-family:var(--disp);font-size:10px;font-weight:700;text-transform:uppercase;color:var(--n500)">${s[0]}</div><div style="font-family:var(--disp);font-weight:800;color:var(--navy);font-size:15px;margin-top:2px" class="tnum">${s[1]}</div></div>`).join('')}
+      <div style="margin-top:18px"><div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:6px"><span style="color:var(--n600)">${h} de ${d.plazo} pagos</span><b class="tnum" style="font-family:var(--disp)">${pct}%</b></div><div style="height:10px;background:var(--n200);border-radius:99px;overflow:hidden"><div style="height:100%;background:linear-gradient(90deg,var(--green),var(--green-d));width:${pct}%;transition:.5s var(--ease)"></div></div></div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px">
+        ${[['Pagado',mxn(pagado)],['Saldo restante',mxn(total-pagado)],[lease?'Renta/mes':'Mensualidad',mxn(d.mensualidad)]].map(s=>`<div style="background:var(--n50);border-radius:12px;padding:14px"><div style="font-family:var(--disp);font-size:10px;font-weight:700;text-transform:uppercase;color:var(--n500)">${s[0]}</div><div style="font-family:var(--disp);font-weight:800;color:var(--navy);font-size:16px;margin-top:2px" class="tnum">${s[1]}</div></div>`).join('')}
       </div>
-      ${hechos<d.plazo?`<div style="margin-top:16px;display:flex;justify-content:space-between;align-items:center;background:var(--navy);color:#fff;border-radius:12px;padding:14px"><div><div style="font-family:var(--disp);font-size:11px;font-weight:700;text-transform:uppercase;color:var(--gold)">Próximo pago</div><div style="font-family:var(--disp);font-weight:900;font-size:18px" class="tnum">${mxn(d.mensualidad)}</div></div><button class="btn btn-conv btn-sm" onclick="pagarMens('${d.id}')">Pagar ahora</button></div>`:`<div style="margin-top:16px;background:rgba(72,187,120,.1);color:var(--green-deep);border-radius:12px;padding:14px;text-align:center;font-weight:700;font-size:13px">✓ Plan liquidado. ¡Felicidades!</div>`}
-    </div>`;}).join('');
+      ${h<d.plazo?`<div style="margin-top:18px;display:flex;justify-content:space-between;align-items:center;background:linear-gradient(135deg,var(--navy),var(--navy-d));color:#fff;border-radius:14px;padding:16px"><div><div style="font-family:var(--disp);font-size:11px;font-weight:700;text-transform:uppercase;color:var(--gold)">Próximo pago</div><div style="font-family:var(--disp);font-weight:900;font-size:20px" class="tnum">${mxn(d.mensualidad)}</div></div><button class="btn btn-conv btn-sm" onclick="pagarMens('${d.id}')">Pagar ahora →</button></div>`:`<div style="margin-top:18px;background:rgba(72,187,120,.1);color:var(--green-d);border-radius:14px;padding:16px;text-align:center;font-weight:700;font-size:14px">✓ Plan liquidado. ¡Felicidades!</div>`}
+    </div>`}).join('');
 }
-function pagarMens(id){STATE.pagos.unshift({id:uid('pay'),dealId:id,fecha:'Hoy'});save();renderAcctTab();}
+function pagarMens(id){STATE.pagos.unshift({id:uid('p'),dealId:id,fecha:'Hoy'});const d=STATE.deals.find(x=>x.id===id);const v=CARS.find(c=>c.id===d.carId);STATE.notifs.unshift({id:uid('n'),ic:'green',t:'Pago aplicado',d:`${v.marca} ${v.modelo} · ${mxn(d.mensualidad)}`,time:'Ahora'});STATE.customer.points=(STATE.customer.points||0)+Math.round(d.mensualidad/100);save();renderAcctTab()}
 function acctPost(){
-  const comprados=STATE.deals.filter(d=>d.estado==='cerrado'||d.estado==='cita'||d.estado==='enganche');
-  const SERV=[['Servicio 10,000 km',3200],['Servicio mayor',6800],['Alineación y balanceo',1400],['Cambio de llantas',9500]];
-  let html=`<div class="deal-card" style="display:block"><h3 style="font-size:17px;color:var(--navy)">Agendar servicio</h3><p style="font-size:13px;color:var(--n500);margin-bottom:14px">Tu auto, tu taller Plasencia, tu horario.</p>`;
-  if(comprados.length===0)html+=`<p style="font-size:13px;color:var(--n500)">Compra un auto para agendar servicios.</p>`;
-  else html+=`<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">${SERV.map(s=>`<button class="btn btn-out btn-md" style="justify-content:space-between" onclick="agendarServ('${s[0]}',${s[1]})"><span>${s[0]}</span><span style="color:var(--n500);font-size:12px" class="tnum">${mxn(s[1])}</span></button>`).join('')}</div>`;
+  const comp=STATE.deals.filter(d=>d.estado==='cerrado'||d.estado==='cita'||d.estado==='enganche');
+  const SERV=[['Servicio 10,000 km',3200,'🔧'],['Servicio mayor',6800,'⚙️'],['Alineación y balanceo',1400,'⚖️'],['Cambio de llantas',9500,'🛞']];
+  let html=`<div class="deal-card" style="display:block"><h3 style="font-size:18px;color:var(--navy)">Agendar servicio</h3><p style="font-size:13px;color:var(--n500);margin-bottom:16px">Tu auto, tu taller Plasencia, tu horario.</p>`;
+  if(comp.length===0)html+=`<p style="font-size:13px;color:var(--n500)">Compra un auto para agendar servicios.</p>`;
+  else html+=`<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">${SERV.map(s=>`<button class="btn btn-out btn-md" style="justify-content:space-between;padding:14px 18px" onclick="agendarServ('${s[0]}',${s[1]})"><span style="display:flex;align-items:center;gap:8px"><span style="font-size:18px">${s[2]}</span>${s[0]}</span><span style="color:var(--n500);font-size:12px" class="tnum">${mxn(s[1])}</span></button>`).join('')}</div>`;
   html+=`</div>`;
-  if(STATE.servicios.length)html+=`<h3 style="font-size:16px;color:var(--navy);margin:18px 0 12px">Historial de servicio</h3>`+STATE.servicios.map(s=>`<div class="deal-card"><span style="width:38px;height:38px;border-radius:99px;background:rgba(72,187,120,.15);display:flex;align-items:center;justify-content:center">🔧</span><div style="flex:1"><div style="font-family:var(--disp);font-weight:600;color:var(--navy);font-size:14px">${s.tipo}</div><div style="font-size:12px;color:var(--n500)">Próximo sábado 10:00</div></div><div class="tnum" style="font-weight:700;color:var(--navy)">${mxn(s.costo)}</div><span class="badge-pill bp-green">Agendado</span></div>`).join('');
+  if(STATE.servicios.length)html+=`<h3 style="font-size:17px;color:var(--navy);margin:24px 0 14px">Historial de servicio</h3>`+STATE.servicios.map(s=>`<div class="deal-card"><span style="width:42px;height:42px;border-radius:99px;background:rgba(72,187,120,.15);display:flex;align-items:center;justify-content:center;font-size:18px">🔧</span><div style="flex:1"><div style="font-family:var(--disp);font-weight:700;color:var(--navy);font-size:14px">${s.tipo}</div><div style="font-size:12px;color:var(--n500)">Próximo sábado 10:00 hrs</div></div><div class="tnum" style="font-weight:700;color:var(--navy);font-family:var(--disp)">${mxn(s.costo)}</div><span class="bp bp-green">Agendado</span></div>`).join('');
   return html;
 }
-function agendarServ(tipo,costo){STATE.servicios.unshift({id:uid('srv'),tipo,costo});save();renderAcctTab();}
-function acctRenov(){
-  const comprados=STATE.deals.filter(d=>d.estado==='cerrado'||d.estado==='cita'||d.estado==='enganche');
-  if(comprados.length===0)return `<div class="empty"><div class="ic">♻️</div><p>Cuando tengas un auto con nosotros, aquí verás tu oferta de recompra con trade-in pre-calculado.</p></div>`;
-  const v=CARS.find(c=>c.id===comprados[0].carId);const oferta=Math.round(v.precio*0.62/1000)*1000;
-  const sug=CARS.filter(c=>c.km===0&&c.tipo===v.tipo&&c.id!==v.id).slice(0,4);
-  return `<div style="background:var(--navy);color:#fff;border-radius:18px;padding:28px;position:relative;overflow:hidden">
-    <div style="position:relative"><div style="font-family:var(--disp);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:var(--gold)">Tu oferta de renovación</div>
-    <h3 style="font-size:24px;margin-top:6px">Tu ${v.marca} ${v.modelo} vale hasta</h3>
-    <div style="font-family:var(--disp);font-weight:900;font-size:40px;color:var(--gold)" class="tnum">${mxn(oferta)}</div>
-    <p style="font-size:14px;color:var(--n300);margin-top:8px;max-width:440px">Aplícalo como enganche de tu siguiente auto. El grupo conoce tu historial: renovar es más fácil que empezar de cero.</p></div></div>
-    <h3 style="font-size:18px;color:var(--navy);margin:28px 0 16px">Tu siguiente Plasencia</h3><div class="vgrid">${sug.map(vcard).join('')}</div>`;
+function agendarServ(tipo,costo){STATE.servicios.unshift({id:uid('s'),tipo,costo});STATE.notifs.unshift({id:uid('n'),ic:'blue',t:'Servicio agendado',d:`${tipo} · Sábado 10:00`,time:'Ahora'});save();renderAcctTab()}
+
+function acctFavs(){
+  const favs=CARS.filter(c=>STATE.favs.includes(c.id));
+  if(favs.length===0)return `<div class="empty"><div class="ic">♥</div><p>Aún no tienes favoritos.<br>Toca el corazón en cualquier auto del catálogo para guardarlo.</p><button class="btn btn-conv btn-md" style="margin-top:16px" onclick="go('#/catalogo')">Explorar catálogo</button></div>`;
+  return `<div class="vgrid">${favs.map(vcard).join('')}</div>`;
 }
+
+function acctRenov(){
+  const comp=STATE.deals.filter(d=>d.estado==='cerrado'||d.estado==='cita'||d.estado==='enganche');
+  if(comp.length===0)return `<div class="empty"><div class="ic">♻️</div><p>Cuando tengas un auto con nosotros, aquí verás tu oferta de recompra con trade-in pre-calculado.</p></div>`;
+  const v=CARS.find(c=>c.id===comp[0].carId);const oferta=Math.round(v.precio*0.62/1000)*1000;
+  const sug=CARS.filter(c=>c.cond==='nuevo'&&c.tipo===v.tipo&&c.id!==v.id).slice(0,4);
+  return `<div style="background:linear-gradient(135deg,var(--navy),var(--navy-d));color:#fff;border-radius:20px;padding:32px;position:relative;overflow:hidden">
+    <div style="position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 90% 0%,rgba(236,201,75,.18),transparent 60%)"></div>
+    <div style="position:relative">
+      <div class="eyebrow gold" style="color:var(--gold-d)">Tu oferta de renovación</div>
+      <h3 style="font-size:26px;margin-top:8px">Tu ${v.marca} ${v.modelo} vale hasta</h3>
+      <div style="font-family:var(--disp);font-weight:900;font-size:46px;color:var(--gold);line-height:1" class="tnum">${mxn(oferta)}</div>
+      <p style="font-size:14px;color:rgba(255,255,255,.8);margin-top:10px;max-width:480px">Aplícalo como enganche de tu siguiente auto. El grupo conoce tu historial: renovar es más fácil que empezar de cero.</p>
+    </div>
+  </div>
+  <h3 style="font-size:20px;color:var(--navy);margin:32px 0 18px">Tu siguiente Plasencia</h3>
+  <div class="vgrid">${sug.map(vcard).join('')}</div>`;
+}
+
+function acctNotif(){
+  if(STATE.notifs.length===0)return `<div class="empty"><div class="ic">🔔</div><p>Sin notificaciones por ahora.</p></div>`;
+  return STATE.notifs.map(n=>`<div class="notif"><div class="nic ${n.ic}">${n.ic==='green'?'✓':n.ic==='blue'?'📅':n.ic==='gold'?'★':'•'}</div><div style="flex:1"><div style="font-family:var(--disp);font-weight:700;color:var(--navy)">${n.t}</div><div style="font-size:13px;color:var(--n600);margin-top:2px">${n.d}</div><div class="ntime">${n.time}</div></div></div>`).join('');
+}
+
 function acctPerfil(){
-  const c=STATE.customer||{};
-  return `<div style="max-width:600px"><div class="deal-card" style="display:block">
-    <div style="display:flex;gap:16px;align-items:center;margin-bottom:18px"><div style="width:56px;height:56px;border-radius:99px;background:var(--navy);color:var(--gold);font-family:var(--disp);font-weight:900;font-size:20px;display:flex;align-items:center;justify-content:center">${(c.nombre||'C')[0].toUpperCase()}</div><div><h3 style="font-size:18px;color:var(--navy)">${c.nombre||'Tu perfil'}</h3>${c.preap?'<span class="badge-pill bp-green">Crédito pre-aprobado</span>':'<span class="badge-pill bp-gold">KYC pendiente</span>'}</div></div>
-    ${[['nombre','Nombre completo'],['email','Correo'],['tel','Teléfono'],['rfc','RFC']].map(f=>`<div style="margin-bottom:10px"><label style="font-family:var(--disp);font-size:11px;font-weight:700;text-transform:uppercase;color:var(--n500)">${f[1]}</label><input id="pf_${f[0]}" value="${c[f[0]]||''}" style="width:100%;margin-top:4px;border:1px solid var(--n300);border-radius:10px;padding:10px 14px;font-size:14px;outline:none"></div>`).join('')}
-    <button class="btn btn-conv btn-md" style="margin-top:8px" onclick="savePerfil()">Guardar cambios</button> <span id="pfsaved" style="font-size:13px;color:var(--green-deep);font-weight:700"></span>
-    <div style="margin-top:16px;padding-top:14px;border-top:1px solid var(--n100);font-size:12px;color:var(--n500)">🔒 Tus datos se gestionan bajo la política de privacidad de Grupo Plasencia. (Demo: guardado local.)</div>
+  const c=STATE.customer;
+  return `<div style="max-width:680px"><div class="deal-card" style="display:block">
+    <div style="display:flex;gap:16px;align-items:center;margin-bottom:24px"><div style="width:64px;height:64px;border-radius:18px;background:linear-gradient(135deg,var(--navy),var(--navy-d));color:var(--gold);font-family:var(--disp);font-weight:900;font-size:24px;display:flex;align-items:center;justify-content:center">${initials(c.nombre)}</div><div><h3 style="font-size:18px;color:var(--navy)">${c.nombre}</h3><div style="display:flex;gap:6px;margin-top:4px">${c.kyc?'<span class="bp bp-navy">✓ Verificado</span>':'<span class="bp bp-amber">KYC pendiente</span>'}${c.preap?'<span class="bp bp-green">Crédito pre-aprobado</span>':''}</div></div></div>
+    ${[['nombre','Nombre completo','text'],['email','Correo','email'],['tel','Teléfono','tel'],['rfc','RFC','text'],['ingresos','Ingresos mensuales MXN','number']].map(f=>`<div style="margin-bottom:12px"><label style="font-family:var(--disp);font-size:11px;font-weight:700;text-transform:uppercase;color:var(--n500);letter-spacing:.5px">${f[1]}</label><input id="pf_${f[0]}" type="${f[2]}" value="${c[f[0]]||''}" style="width:100%;margin-top:4px;border:1px solid var(--n300);border-radius:10px;padding:11px 14px;font-size:14px;outline:none"></div>`).join('')}
+    <div style="display:flex;gap:10px;margin-top:18px;flex-wrap:wrap"><button class="btn btn-conv btn-md" onclick="savePerfil()">Guardar cambios</button><button class="btn btn-out btn-md" onclick="logout()" style="margin-left:auto;color:var(--red);border-color:rgba(200,16,46,.3)">Cerrar sesión</button></div>
+    <span id="pfsaved" style="font-size:13px;color:var(--green-d);font-weight:700;display:block;margin-top:10px"></span>
+    <div style="margin-top:24px;padding-top:18px;border-top:1px solid var(--n100);font-size:12px;color:var(--n500)">🔒 Tus datos se gestionan bajo la política de privacidad de Grupo Plasencia. Demo: guardado local en tu navegador.</div>
   </div></div>`;
 }
-function savePerfil(){STATE.customer={...STATE.customer,nombre:$('#pf_nombre').value,email:$('#pf_email').value,tel:$('#pf_tel').value,rfc:$('#pf_rfc').value,kyc:!!$('#pf_nombre').value};save();$('#pfsaved').textContent='✓ Guardado';}
+function savePerfil(){const c=STATE.customer;['nombre','email','tel','rfc','ingresos'].forEach(k=>{const el=$('#pf_'+k);if(el)c[k]=el.value});c.kyc=!!(c.nombre&&c.rfc);if(c.kyc&&!c.preap){c.preap=true;c.linea=Math.round((+c.ingresos||50000)*15);STATE.notifs.unshift({id:uid('n'),ic:'green',t:'¡Crédito pre-aprobado!',d:`Línea de ${mxn(c.linea)}`,time:'Ahora'})}save();$('#pfsaved').textContent='✓ Guardado';updateHeader();setTimeout(()=>{$('#pfsaved').textContent=''},2500)}
+function logout(){if(confirm('¿Cerrar sesión? Tu progreso se conserva.')){STATE.customer=null;save();updateHeader();go('#/')}}
 
-// ---- Modal ----
-function showModal(html){const d=document.createElement('div');d.className='modal-bg';d.id='modalBg';d.onclick=e=>{if(e.target===d)closeModal()};d.innerHTML=`<div class="modal fadeup">${html}</div>`;document.body.appendChild(d);}
-function closeModal(){const m=$('#modalBg');if(m)m.remove();}
+// ====== MODAL ======
+function showModal(html){closeModal();const d=document.createElement('div');d.className='modal-bg';d.id='modalBg';d.onclick=e=>{if(e.target===d)closeModal()};d.innerHTML=`<div class="modal-wrap fu"><button class="x" onclick="closeModal()">×</button><div class="modal" style="padding:0">${html}</div></div>`;document.body.appendChild(d)}
+function closeModal(){const m=$('#modalBg');if(m)m.remove()}
 
-// ---- Plasi ----
+// ====== PLASI ======
 const Plasi={
-  open(pre){this.render();if(pre)setTimeout(()=>this.send(pre),300);},
-  close(){const p=$('#plasiPanel');if(p)p.remove();$('#plasiBtn').style.display='';},
   msgs:[{f:'bot',t:'¡Hola! Soy Plasi 👋 tu asistente en Plasencia Marketplace. ¿Te ayudo a encontrar tu próximo auto?'}],
+  open(pre){this.render();if(pre)setTimeout(()=>this.send(pre),300)},
+  close(){const p=$('#plasiPanel');if(p)p.remove();$('#plasiBtn').style.display=''},
   render(){
     $('#plasiBtn').style.display='none';
     let p=$('#plasiPanel');if(p)p.remove();
-    p=document.createElement('div');p.className='plasi-panel fadeup';p.id='plasiPanel';
+    p=document.createElement('div');p.className='plasi-panel fu';p.id='plasiPanel';
     const sug=['¿Cuál SUV me conviene para familia?','¿Cómo funciona el apartado?','¿Qué necesito para el crédito?','Diferencia entre comprar y arrendar'];
     p.innerHTML=`<div class="plasi-hd"><span class="av">P</span><div style="flex:1"><div class="nm">Plasi</div><div class="st"><span class="dot"></span>Asistente Plasencia · en línea</div></div><button class="x" onclick="Plasi.close()">×</button></div>
       <div class="plasi-msgs" id="pmsgs">${this.msgs.map(m=>`<div class="pmsg ${m.f}">${m.t}</div>`).join('')}${this.msgs.length<=1?'<div style="display:flex;flex-direction:column;gap:6px;margin-top:4px">'+sug.map(s=>`<button class="psug" onclick="Plasi.send(this.textContent)">${s}</button>`).join('')+'</div>':''}</div>
       <div class="plasi-in"><input id="pinput" placeholder="Escribe tu pregunta…" onkeydown="if(event.key==='Enter'){Plasi.send(this.value);this.value=''}"><button onclick="var i=document.getElementById('pinput');Plasi.send(i.value);i.value=''">→</button></div>`;
     document.body.appendChild(p);
   },
-  send(q){q=(q||'').trim();if(!q)return;this.msgs.push({f:'usr',t:q});this.renderMsgs();setTimeout(()=>{this.msgs.push({f:'bot',t:this.reply(q)});this.renderMsgs();},420);},
-  renderMsgs(){const m=$('#pmsgs');if(!m)return;m.innerHTML=this.msgs.map(x=>`<div class="pmsg ${x.f}">${x.t}</div>`).join('');m.scrollTop=m.scrollHeight;},
+  send(q){q=(q||'').trim();if(!q)return;this.msgs.push({f:'usr',t:q});this.renderMsgs();setTimeout(()=>{this.msgs.push({f:'bot',t:this.reply(q)});this.renderMsgs()},420)},
+  renderMsgs(){const m=$('#pmsgs');if(!m)return;m.innerHTML=this.msgs.map(x=>`<div class="pmsg ${x.f}">${x.t}</div>`).join('');m.scrollTop=m.scrollHeight},
   reply(q){const t=q.toLowerCase();
-    if(t.includes('familia')||t.includes('suv'))return 'Para familia te recomiendo un SUV: tenemos Mazda CX-5, Hyundai Tucson, Jeep Compass y más, todos cross-marca en el catálogo. ¿Quieres que te muestre los SUV disponibles?';
-    if(t.includes('apart'))return 'Apartas cualquier auto con $5,000 reembolsables desde su página. Reserva la unidad a tu nombre, fija el precio y agenda tu cita. Si no continúas, te devolvemos el depósito completo.';
-    if(t.includes('crédito')||t.includes('credito')||t.includes('financ'))return 'Para el crédito Plasencia necesitas identificación, comprobante de domicilio e ingresos. Te pre-apruebas en línea sin afectar tu buró. Enganche típico 20%, plazos de 12 a 60 meses a 13.5% anual.';
-    if(t.includes('arrend')||t.includes('lease'))return 'GP Autolease es arrendamiento puro: renta mensual fija, sin enganche fuerte, y al final renuevas, devuelves o compras. Ideal para empresas (deducible) y para quien renueva cada 2-3 años.';
-    if(t.includes('valuar')||t.includes('mi auto'))return 'Con gusto valúo tu auto actual para que aplique como enganche. ¿De qué marca, modelo y año es? (En el prototipo la valuación es estimada.)';
+    if(t.includes('familia')||t.includes('suv'))return 'Para familia te recomiendo un SUV: tenemos Mazda CX-5, Hyundai Tucson, Jeep Compass, GAC Emkoo y más. Todos cross-marca de las 12 concesionarias del grupo. ¿Quieres que filtre el catálogo por SUV?';
+    if(t.includes('apart'))return 'Apartas cualquier auto con $5,000 reembolsables. Reserva la unidad, fija el precio y agenda tu cita. Si no continúas, devolvemos el depósito completo.';
+    if(t.includes('crédito')||t.includes('credito')||t.includes('financ'))return 'Para el crédito Plasencia necesitas identificación, comprobante de domicilio e ingresos. Te pre-apruebas en línea sin afectar tu buró. Enganche típico 20%, plazos 12-60 meses, tasa 13.5% anual.';
+    if(t.includes('arrend')||t.includes('lease'))return 'GP Autolease es arrendamiento puro: renta mensual fija sin enganche fuerte. Al final del plazo renuevas, devuelves o compras. Ideal para empresas (deducible) y para quien renueva cada 2-3 años.';
+    if(t.includes('valuar')||t.includes('mi auto'))return 'Con gusto valúo tu auto actual para aplicar como enganche. ¿De qué marca, modelo y año es? (En el prototipo la valuación es estimada.)';
     if(t.includes('seminuevo')||t.includes('usado'))return 'Nuestros seminuevos pasan 167 puntos de inspección, con garantía por escrito y devolución de 7 días. Cada uno muestra su historial.';
-    return 'Te puedo ayudar con: elegir auto, cotizar crédito o arrendamiento, el apartado, seminuevos certificados o agendar tu cita. ¿Sobre cuál te cuento más?';
+    if(t.includes('concesion')||t.includes('vendedor'))return 'El grupo tiene 12 concesionarias: Mazda Bugambilias, López Mateos, Galerías, Santa Anita, Américas, Acueducto, Plasencia Centro, González Gallo, Hyundai Acueducto y Vallarta, Stellantis LCV y Jeep, y GAC Plasencia. Todas operan dentro del marketplace.';
+    return 'Te puedo ayudar con: elegir auto, cotizar crédito o arrendamiento, el apartado, seminuevos certificados, agendar tu cita, o conocer las concesionarias del grupo. ¿Sobre cuál te cuento más?';
   }
 };
 
-// ---- Footer ----
-function footer(){return `<footer class="ftr"><div class="ftr-in">
-  <div class="ftr-grid">
-    <div><img src="logo-blanco.png" alt="Grupo Plasencia"><p style="font-size:13px;color:var(--n400);margin-top:14px;max-width:280px;line-height:1.6">La experiencia automotriz completa de Grupo Plasencia en un solo lugar: comprar, financiar, arrendar, asegurar y vivir tu auto.</p></div>
-    <div><h4>Comprar</h4><ul><li>Autos nuevos</li><li>Seminuevos certificados</li><li>Comparar</li><li>Valuar mi auto</li></ul></div>
-    <div><h4>Soluciones</h4><ul><li>Plasencia Crédito</li><li>GP Autolease</li><li>Plasencia Seguros</li><li>Postventa</li></ul></div>
-    <div><h4>Grupo Plasencia</h4><ul><li>75 años</li><li>Multimarca</li><li>Sucursales</li><li>Contacto</li></ul></div>
-  </div>
-  <div class="bottom"><span>Grupo Plasencia Automotriz · Prototipo de producto · 2026</span><span style="color:var(--gold)">Marketplace · la experiencia ideal</span></div>
-</div></footer>`;}
-
-// ---- Header ----
-function header(){
-  const route=location.hash||'#/';
-  const n=STATE.deals.length;
-  const link=(h,l)=>`<a href="${h}" class="${route===h?'on':''}">${l}</a>`;
-  return `<header class="hdr"><div class="hdr-in">
-    <a href="#/" class="logo"><img src="logo-negro.png" alt="Grupo Plasencia"><span class="tag">Marketplace</span></a>
-    <nav class="nav">${link('#/catalogo','Catálogo')}${link('#/catalogo?cond=nuevo','Nuevos')}${link('#/catalogo?cond=seminuevo','Seminuevos')}<a href="#/catalogo">Autolease</a></nav>
-    <a href="#/cuenta" class="acct">◆ Mi Plasencia ${n>0?`<span class="badge">${n}</span>`:''}</a>
-  </div></header>`;
-}
-function updateBadge(){const h=$('.hdr');if(h)h.outerHTML=header();}
-
-//=================================================================
-// ROUTER
-//=================================================================
-function go(hash){location.hash=hash;}
+// ====== ROUTER ======
+function go(hash){location.hash=hash}
+function updateHeader(){const h=$('.hdr');if(h)h.outerHTML=header()}
 function render(){
   const app=$('#app');
   const hash=(location.hash||'#/').split('?')[0];
   const qs=new URLSearchParams((location.hash.split('?')[1]||''));
   let body='';
   if(hash==='#/'||hash==='#'||hash==='')body=viewHome();
-  else if(hash==='#/catalogo'){FILT={q:'',cond:qs.get('cond')||'todos',marca:'todas',tipo:'todas',max:99999999,shown:12};body=viewCatalogo();setTimeout(applyFilters,0);}
+  else if(hash==='#/catalogo'){FILT={q:qs.get('q')||'',cond:qs.get('cond')||'todos',marca:qs.get('marca')||'todas',tipo:'todas',max:99999999,shown:12};body=viewCatalogo();setTimeout(applyFilters,0)}
   else if(hash.startsWith('#/auto/'))body=viewPDP(hash.replace('#/auto/',''));
-  else if(hash==='#/cuenta')body=viewCuenta();
+  else if(hash==='#/concesionarias')body=viewConcesionarias();
+  else if(hash.startsWith('#/concesionaria/'))body=viewConcesionaria(hash.replace('#/concesionaria/',''));
+  else if(hash==='#/cuenta'){ATAB=qs.get('t')||'resumen';body=viewCuenta()}
   else body=viewHome();
-  app.innerHTML=header()+'<div class="fadeup">'+body+'</div>'+footer();
+  app.innerHTML=header()+'<div class="fu">'+body+'</div>'+footer();
   window.scrollTo(0,0);
 }
 
-//=================================================================
-// BOOT
-//=================================================================
+// ====== BOOT ======
 fetch('catalogo.json').then(r=>r.json()).then(data=>{
-  CARS=data; MARCAS=[...new Set(data.map(c=>c.marca))].sort();
-  window.addEventListener('hashchange',render);
-  render();
-}).catch(e=>{$('#app').innerHTML='<div class="loading">No se pudo cargar el catálogo. '+e+'</div>';});
-window.go=go;window.setF=setF;window.setFoto=setFoto;window.setMod=setMod;window.apartar=apartar;window.closeModal=closeModal;window.pagarEnganche=pagarEnganche;window.agendar=agendar;window.pagarMens=pagarMens;window.agendarServ=agendarServ;window.savePerfil=savePerfil;window.renderAcctTab=renderAcctTab;window.Plasi=Plasi;window.FILT=FILT;window.PDP=PDP;
+  CARS=data.cars; SUCS=data.sucursales; MARCAS=[...new Set(CARS.map(c=>c.marca))].sort();
+  window.addEventListener('hashchange',render);render();
+}).catch(e=>{$('#app').innerHTML='<div class="loading">No se pudo cargar el catálogo. '+e+'</div>'});
+
+Object.assign(window,{go,setF,setFoto,setMod,apartar,closeModal,pagarEnganche,agendar,pagarMens,agendarServ,savePerfil,renderAcctTab,Plasi,Auth,toggleFav,logout});
 </script>
 </body>
 </html>
