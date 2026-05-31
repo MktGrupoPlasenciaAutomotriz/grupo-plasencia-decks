@@ -41,7 +41,7 @@ function renderCockpit(){
       :`<button class="btn btn-conv btn-lg btn-full" onclick="Flow.openCheckout('${v.id}')">Apartar con ${mxn(5000)} reembolsable</button>`}
       <div class="cta-2">
         <button class="btn btn-out btn-md" onclick="Flow.openCita('${v.id}')">${I.cal(16)} Test drive</button>
-        <button class="btn btn-out btn-md" onclick="Flow.openTradein()">${I.trending(16)} Aplicar mi auto</button>
+        <button class="btn btn-out btn-md" onclick="Flow.openTradein()">${I.trending(16)} Mi auto a cuenta</button>
       </div>
       <button class="btn btn-ghost btn-sm btn-full" style="color:var(--blue-d);font-size:12px" onclick="Plasi.open('¿Me ayudas a decidir entre contado, crédito y arrendamiento para el ${v.modelo}?')">${I.chat(14)} Habla con Plasi · ¿cuál me conviene?</button>
     </div>`;
