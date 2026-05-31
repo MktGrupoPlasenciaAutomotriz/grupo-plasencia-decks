@@ -27,8 +27,8 @@ function sucLogoHTML(suc,size='sm'){
 }
 
 const KEY='plasencia-mkt-v6';
-let STATE = JSON.parse(localStorage.getItem(KEY) || 'null') || {customer:null, reservas:[], garage:[], creditos:[], leases:[], pagos:[], servicios:[], citas:[], tradeins:[], watchlist:[], cotizaciones:[], notifs:[], seguros:[]};
-if(!STATE.seguros)STATE.seguros=[];
+let STATE = JSON.parse(localStorage.getItem(KEY) || 'null') || {customer:null, reservas:[], garage:[], creditos:[], leases:[], pagos:[], servicios:[], citas:[], tradeins:[], watchlist:[], cotizaciones:[], notifs:[], seguros:[], documentos:[], direcciones:[], referidos:[], conversaciones:[]};
+['seguros','documentos','direcciones','referidos','conversaciones'].forEach(k=>{if(!STATE[k])STATE[k]=[]});
 const save = ()=>localStorage.setItem(KEY, JSON.stringify(STATE));
 
 const TASA=0.135;

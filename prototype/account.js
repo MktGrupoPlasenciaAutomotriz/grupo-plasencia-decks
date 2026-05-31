@@ -23,6 +23,9 @@ view(){
     ['citas','Mis citas',I.cal(14),STATE.citas.length],
     ['servicios','Historial de servicio',I.wrench(14),STATE.servicios.length],
     ['pagos','Pagos',I.cash(14),STATE.pagos.length],
+    ['documentos','Documentos',I.doc(14),STATE.documentos.length],
+    ['mensajes','Mensajes',I.chat(14),STATE.conversaciones.length],
+    ['referidos','Referidos',I.user(14),STATE.referidos.length],
     ['notificaciones','Notificaciones',I.bell(14),STATE.notifs.length],
     ['perfil','Mi perfil',I.user(14)],
   ];
@@ -292,32 +295,114 @@ notificaciones(){
 
 perfil(){
   const c=STATE.customer;
-  return `<div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+  const dirs=STATE.direcciones||[];
+  return `<div style="display:grid;grid-template-columns:1fr 1fr;gap:24px">
     <div>
       <h3 style="font-family:var(--disp);font-size:18px;color:var(--navy);margin-bottom:14px">Datos personales</h3>
       <div class="field"><label>Nombre completo</label><input value="${c.nombre}"></div>
       <div class="field"><label>Correo electrónico</label><input value="${c.email}"></div>
       <div class="field"><label>Teléfono</label><input value="${c.tel||''}"></div>
       <div class="field-row"><div class="field"><label>RFC</label><input value="${c.rfc||''}" placeholder="Para facturación"></div><div class="field"><label>CURP</label><input placeholder="Opcional"></div></div>
-      <button class="btn btn-conv btn-md" style="margin-top:8px" onclick="toast('Datos guardados')">Guardar cambios</button>
+      <button class="btn btn-conv btn-md" onclick="toast('Datos guardados')">Guardar cambios</button>
+
+      <h3 style="font-family:var(--disp);font-size:18px;color:var(--navy);margin:28px 0 14px">Mis direcciones</h3>
+      ${dirs.map(d=>`<div style="background:#fff;border:1px solid var(--n200);border-radius:12px;padding:14px;margin-bottom:10px"><div style="display:flex;justify-content:space-between;align-items:flex-start;gap:8px"><div><div style="font-family:var(--disp);font-weight:800;color:var(--navy);font-size:14px;display:flex;align-items:center;gap:6px">${I.pin(14)} ${d.etiqueta}${d.default?'<span class="bp bp-gold" style="font-size:9px">Principal</span>':''}</div><div style="font-size:13px;color:var(--n700);margin-top:4px">${d.calle}</div><div style="font-size:12px;color:var(--n500)">${d.colonia} · ${d.cp} · ${d.municipio}, ${d.estado}</div><div style="margin-top:8px;display:flex;gap:6px;flex-wrap:wrap">${d.paraEntrega?'<span class="bp bp-blue" style="font-size:10px">Entrega</span>':''}${d.paraFactura?'<span class="bp bp-navy" style="font-size:10px">Facturación</span>':''}</div></div><button class="btn btn-ghost btn-sm">Editar</button></div></div>`).join('')}
+      <button class="btn btn-out btn-md btn-full" style="justify-content:flex-start" onclick="toast('Agregar dirección · demo')">${I.plus(14)} Agregar dirección</button>
+
+      <h3 style="font-family:var(--disp);font-size:18px;color:var(--navy);margin:28px 0 14px">Preferencias de comunicación</h3>
+      <div style="background:#fff;border:1px solid var(--n200);border-radius:12px;padding:6px">
+        ${[['WhatsApp para confirmaciones de cita',true],['Correo con resumen mensual de mi crédito',true],['SMS solo para alertas críticas',true],['Ofertas y promociones (opt-in)',false],['Newsletter Plasencia (mensual)',false]].map(p=>`<label style="display:flex;align-items:center;gap:12px;padding:12px 14px;border-bottom:1px solid var(--n100);cursor:pointer"><span style="flex:1;font-size:13.5px;color:var(--navy)">${p[0]}</span><input type="checkbox" ${p[1]?'checked':''} style="width:18px;height:18px;accent-color:var(--red)"></label>`).join('')}
+      </div>
     </div>
     <div>
       <h3 style="font-family:var(--disp);font-size:18px;color:var(--navy);margin-bottom:14px">Wallet · Métodos de pago</h3>
-      <div style="background:linear-gradient(135deg,var(--navy),var(--navy-d));color:#fff;border-radius:14px;padding:18px">
-        <div style="font-family:var(--disp);font-size:11px;font-weight:700;text-transform:uppercase;color:var(--gold);letter-spacing:1px">Visa principal</div>
-        <div style="font-family:var(--disp);font-weight:700;font-size:18px;margin-top:6px">•••• •••• •••• 6411</div>
-        <div style="display:flex;justify-content:space-between;font-size:11px;color:rgba(255,255,255,.6);margin-top:14px"><span>${c.nombre.toUpperCase()}</span><span>12/29</span></div>
+      <div style="background:linear-gradient(135deg,var(--navy),var(--navy-d));color:#fff;border-radius:14px;padding:18px;position:relative;overflow:hidden">
+        <div style="position:absolute;inset:0;background:radial-gradient(ellipse at top right,rgba(236,201,75,.15),transparent 60%);pointer-events:none"></div>
+        <div style="position:relative">
+          <div style="font-family:var(--disp);font-size:11px;font-weight:700;text-transform:uppercase;color:var(--gold);letter-spacing:1px">Visa principal</div>
+          <div style="font-family:var(--disp);font-weight:700;font-size:18px;margin-top:6px;letter-spacing:2px">•••• •••• •••• 6411</div>
+          <div style="display:flex;justify-content:space-between;font-size:11px;color:rgba(255,255,255,.6);margin-top:14px"><span>${c.nombre.toUpperCase()}</span><span>12/29</span></div>
+        </div>
       </div>
       <button class="btn btn-out btn-md btn-full" style="margin-top:10px;justify-content:flex-start">${I.plus(14)} Agregar método de pago</button>
-      <h3 style="font-family:var(--disp);font-size:18px;color:var(--navy);margin:24px 0 14px">Plasencia Points</h3>
-      <div class="stat-card"><div class="l">Disponibles</div><div class="v tnum">${num(c.points||0)} pts</div><div style="font-size:11px;color:var(--n500);margin-top:4px">Acumulas 1 pt por cada $100 en servicio o postventa. Canjea en cualquier concesionaria.</div></div>
-      <button class="btn btn-ghost btn-md btn-full" style="margin-top:24px;color:var(--red);justify-content:flex-start" onclick="logout()">${I.logout(14)} Cerrar sesión</button>
+
+      <h3 style="font-family:var(--disp);font-size:18px;color:var(--navy);margin:28px 0 14px">Plasencia Points</h3>
+      <div class="stat-card"><div class="l">Disponibles</div><div class="v tnum">${num(c.points||0)} pts</div><div style="font-size:11px;color:var(--n500);margin-top:4px">Acumulas 1 pt por cada $100 en servicio o postventa. Canjea en cualquier agencia.</div></div>
+      <button class="btn btn-out btn-md btn-full" style="margin-top:10px;justify-content:flex-start" onclick="ATAB='referidos';render()">${I.user(14)} Programa de referidos · $2,500 por invitado</button>
+
+      <h3 style="font-family:var(--disp);font-size:18px;color:var(--navy);margin:28px 0 14px">Seguridad</h3>
+      <div style="background:#fff;border:1px solid var(--n200);border-radius:12px;padding:6px">
+        <button class="btn btn-ghost btn-md btn-full" style="justify-content:space-between;padding:14px;border-bottom:1px solid var(--n100);border-radius:0">Cambiar contraseña ${I.chevR(16)}</button>
+        <button class="btn btn-ghost btn-md btn-full" style="justify-content:space-between;padding:14px;border-bottom:1px solid var(--n100);border-radius:0">Autenticación de 2 factores ${I.chevR(16)}</button>
+        <button class="btn btn-ghost btn-md btn-full" style="justify-content:space-between;padding:14px;border-radius:0">Dispositivos conectados ${I.chevR(16)}</button>
+      </div>
+
+      <h3 style="font-family:var(--disp);font-size:18px;color:var(--navy);margin:28px 0 14px">Mi cuenta Plasencia</h3>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <button class="btn btn-ghost btn-md btn-full" style="justify-content:flex-start;color:var(--n600)">${I.doc(14)} Exportar mis datos</button>
+        <button class="btn btn-ghost btn-md btn-full" style="justify-content:flex-start;color:var(--red)" onclick="if(confirm('¿Cerrar sesión?'))logout()">${I.logout(14)} Cerrar sesión</button>
+        <button class="btn btn-ghost btn-md btn-full" style="justify-content:flex-start;color:var(--n400);font-size:12px" onclick="if(confirm('¿Eliminar permanentemente tu cuenta? Esta acción no se puede deshacer.'))toast('Demo: eliminar cuenta')">${I.x(14)} Eliminar cuenta</button>
+      </div>
     </div>
   </div>`;
 },
 
+documentos(){
+  if(!STATE.documentos.length)return Account._empty('documentos','Sin documentos guardados','Cuando compres, asegures o agendes con Plasencia, tus documentos vivirán aquí.',[]);
+  const cats={compra:'Compra',vehiculo:'Vehículo',seguro:'Seguro',financiero:'Financiero',personal:'Personal'};
+  const grouped={};STATE.documentos.forEach(d=>{(grouped[d.categoria]=grouped[d.categoria]||[]).push(d)});
+  return Object.entries(grouped).map(([cat,docs])=>`<div style="margin-bottom:24px">
+    <h3 style="font-family:var(--disp);font-size:14px;font-weight:800;text-transform:uppercase;color:var(--n500);letter-spacing:.5px;margin-bottom:10px">${cats[cat]||cat}</h3>
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:10px">
+      ${docs.map(d=>`<div style="background:#fff;border:1px solid var(--n200);border-radius:12px;padding:14px;display:flex;align-items:center;gap:12px">
+        <div style="width:42px;height:42px;border-radius:10px;background:linear-gradient(135deg,var(--n50),var(--n100));color:var(--navy);display:flex;align-items:center;justify-content:center;flex-shrink:0">${I.doc(20)}</div>
+        <div style="flex:1;min-width:0"><div style="font-family:var(--disp);font-size:14px;font-weight:700;color:var(--navy)">${d.tipo}</div><div style="font-size:11px;color:var(--n500);overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${d.nombre} · ${d.fecha} · ${d.tamano}</div></div>
+        <button class="btn btn-out btn-sm" onclick="Flow.openSim('descargarFactura')">${I.doc(14)}</button>
+      </div>`).join('')}
+    </div></div>`).join('')+`<button class="btn btn-out btn-md" style="margin-top:14px" onclick="toast('Sube documentos desde tu teléfono')">${I.upload(14)} Subir documento</button>`;
+},
+
+mensajes(){
+  if(!STATE.conversaciones.length)return Account._empty('mensajes','Sin conversaciones','Cuando hables con un asesor, Plasi o un taller, las conversaciones vivirán aquí.',[['Hablar con Plasi','#','conv',`Plasi.open()`]]);
+  return STATE.conversaciones.map(c=>`<div class="card-row" style="cursor:pointer" onclick="${c.asesor.startsWith('Plasi')?`Plasi.open()`:`toast('Demo: abrir conversación con '+'${c.asesor}'.split(' · ')[0])`}">
+    <div style="width:48px;height:48px;border-radius:99px;background:${c.asesor.startsWith('Plasi')?'transparent':'linear-gradient(135deg,var(--navy),var(--slate))'};color:#fff;font-family:var(--disp);font-weight:900;font-size:18px;display:flex;align-items:center;justify-content:center;flex-shrink:0">${c.asesor.startsWith('Plasi')?I.plasi(48):initials(c.asesor)}</div>
+    <div class="body">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:8px"><h3 style="font-size:15px">${c.asesor}</h3><span style="font-size:11px;color:var(--n500)">${c.hora}</span></div>
+      <div style="font-size:13px;color:var(--n600);margin-top:4px;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical">${c.ultima}</div>
+    </div>
+    ${c.unread?`<div style="background:var(--red);color:#fff;min-width:22px;height:22px;border-radius:99px;display:flex;align-items:center;justify-content:center;font-family:var(--disp);font-size:11px;font-weight:800;padding:0 7px">${c.unread}</div>`:''}
+  </div>`).join('');
+},
+
+referidos(){
+  const ganado=(STATE.referidos||[]).reduce((s,r)=>s+(r.recompensa||0),0);
+  const link='plasencia.mx/r/'+(STATE.customer?.email||'demo').split('@')[0];
+  return `<div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:24px">
+    <div class="stat-card"><div class="l">Referidos enviados</div><div class="v tnum">${STATE.referidos.length}</div></div>
+    <div class="stat-card"><div class="l">Ganado en bonus</div><div class="v tnum" style="color:var(--gold-d)">${mxn(ganado)}</div></div>
+  </div>
+  <div style="background:linear-gradient(135deg,var(--navy),var(--navy-d));color:#fff;border-radius:18px;padding:24px;margin-bottom:24px;position:relative;overflow:hidden">
+    <div style="position:absolute;inset:0;background:radial-gradient(ellipse at top right,rgba(236,201,75,.2),transparent 60%);pointer-events:none"></div>
+    <div style="position:relative">
+      <div style="font-family:var(--disp);font-size:11px;font-weight:700;text-transform:uppercase;color:var(--gold);letter-spacing:1px">Invita y gana</div>
+      <h3 style="font-size:22px;margin-top:4px">Comparte el grupo, gana $2,500</h3>
+      <p style="font-size:13px;color:rgba(255,255,255,.8);margin-top:6px;max-width:480px">Por cada persona que invites y compre con Plasencia, recibes $2,500 en Plasencia Points (válido en servicio, refacciones o tu próximo enganche).</p>
+      <div style="display:flex;gap:8px;margin-top:18px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:12px;padding:6px;align-items:center"><input value="${link}" readonly style="flex:1;background:transparent;border:none;color:#fff;font-family:var(--disp);font-size:13px;padding:8px 10px;outline:none"><button class="btn btn-gold btn-sm" onclick="navigator.clipboard?.writeText('${link}');toast('Link copiado')">Copiar</button></div>
+    </div>
+  </div>
+  ${STATE.referidos.length?STATE.referidos.map(r=>`<div class="card-row">
+    <div style="width:48px;height:48px;border-radius:99px;background:linear-gradient(135deg,var(--navy),var(--slate));color:var(--gold);font-family:var(--disp);font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0">${initials(r.nombre)}</div>
+    <div class="body">
+      <h3 style="font-size:15px">${r.nombre}</h3>
+      <div class="meta">${r.email} · invitado ${r.fecha}</div>
+      <span class="bp bp-${r.estado==='compró'?'green':'gold'}" style="margin-top:8px;display:inline-flex">${r.estado}</span>
+    </div>
+    <div class="actions" style="min-width:140px"><div style="font-family:var(--disp);font-weight:800;color:${r.recompensa>0?'var(--gold-d)':'var(--n400)'}" class="tnum">${r.recompensa>0?'+'+mxn(r.recompensa):'Pendiente'}</div></div>
+  </div>`).join(''):''}`;
+},
+
 _empty(key,t,d,ctas){
-  const iconMap={reservas:'cal',garage:'garage',watchlist:'heart',credito:'card',autolease:'key',seguros:'umbrella',tradein:'trending',citas:'cal',servicios:'wrench',pagos:'cash',notificaciones:'bell'};
+  const iconMap={reservas:'cal',garage:'garage',watchlist:'heart',credito:'card',autolease:'key',seguros:'umbrella',tradein:'trending',citas:'cal',servicios:'wrench',pagos:'cash',documentos:'doc',mensajes:'chat',referidos:'user',notificaciones:'bell'};
   return `<div class="empty">
     <div class="ic">${I[iconMap[key]||'car'](48)}</div>
     <h3 style="font-family:var(--disp);font-size:18px;color:var(--navy);margin-top:8px">${t}</h3>

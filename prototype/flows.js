@@ -107,6 +107,27 @@ const Auth={
       {id:uid('s'),fecha:'2025-10-08',tipo:'Servicio 10,000 km',suc:'Mazda Galerías',km:10120,monto:2450,detalle:'Cambio aceite + revisión'},
     ];
     STATE.seguros=[{id:uid('sg'),folio:'GP-SG-260510-120000',aseguradora:'Plasencia Seguros · GNP',poliza:'PLZ-2026-04521',vigencia:'2026-05-10 → 2027-05-10',cobertura:'Amplia Plus',deducible:'$5,000 daños / $15,000 robo',prima:11240,frecuencia:'Anual',carId:semiCar?.id,modelo:semiCar?.marca+' '+semiCar?.modelo+' '+semiCar?.anio,estado:'vigente'}];
+    STATE.documentos=[
+      {id:uid('d'),tipo:'Factura de compra',nombre:semiCar?`${semiCar.marca} ${semiCar.modelo} ${semiCar.anio}.pdf`:'factura.pdf',fecha:'2025-09-14',tamano:'342 KB',categoria:'compra',carId:semiCar?.carId},
+      {id:uid('d'),tipo:'Tarjeta de circulación',nombre:'tarjeta_circulacion.pdf',fecha:'2025-10-02',tamano:'128 KB',categoria:'vehiculo',carId:semiCar?.carId},
+      {id:uid('d'),tipo:'Póliza de seguro',nombre:'poliza_amplia_plus_2026.pdf',fecha:'2026-05-10',tamano:'956 KB',categoria:'seguro'},
+      {id:uid('d'),tipo:'Contrato de Autolease',nombre:'contrato_autolease_GP-AL-251020.pdf',fecha:'2025-10-20',tamano:'1.2 MB',categoria:'financiero'},
+      {id:uid('d'),tipo:'Identificación',nombre:'INE_anverso_reverso.pdf',fecha:'2025-08-12',tamano:'420 KB',categoria:'personal'},
+      {id:uid('d'),tipo:'Comprobante de domicilio',nombre:'comprobante_cfe_mayo2026.pdf',fecha:'2026-05-08',tamano:'180 KB',categoria:'personal'},
+      {id:uid('d'),tipo:'Constancia fiscal',nombre:'constancia_fiscal_sat.pdf',fecha:'2025-08-12',tamano:'95 KB',categoria:'personal'},
+    ];
+    STATE.direcciones=[
+      {id:uid('a'),etiqueta:'Casa',calle:'Av. Acueducto 1234, int. 5',colonia:'Jardines del Bosque',cp:'45040',municipio:'Zapopan',estado:'Jalisco',default:true,paraEntrega:true,paraFactura:true},
+      {id:uid('a'),etiqueta:'Oficina',calle:'Av. Vallarta 6503, piso 12',colonia:'Cd. Granja',cp:'45010',municipio:'Zapopan',estado:'Jalisco',default:false,paraEntrega:false,paraFactura:false},
+    ];
+    STATE.referidos=[
+      {id:uid('r'),nombre:'Pablo Hernández',email:'pablo@ejemplo.com',fecha:'2026-04-12',estado:'compró',recompensa:2500},
+      {id:uid('r'),nombre:'Andrea Rosales',email:'andrea@ejemplo.com',fecha:'2026-05-20',estado:'cotizando',recompensa:0},
+    ];
+    STATE.conversaciones=[
+      {id:uid('cv'),asesor:'Luis Vendedor · Mazda Bugambilias',ultima:'Tu entrega está lista para el 1 de junio. Te confirmo placas en cuanto las tenga.',hora:'Hace 2h',unread:1},
+      {id:uid('cv'),asesor:'Plasi · Asistente IA',ultima:'Aquí tienes el catálogo de SUVs que pediste, filtré por seminuevos certificados.',hora:'Hace 1 día',unread:0},
+    ];
     STATE.notifs=[
       {id:uid('n'),ic:'green',t:'Cita confirmada · Entrega',d:'Mazda Bugambilias · 1 jun 11:00am',time:'Hace 2h'},
       {id:uid('n'),ic:'gold',t:'Tu Jetta 2019 vale $185,000',d:'Oferta firme vigente 5 días · +$14,800 bonus si lo aplicas',time:'Hoy'},
