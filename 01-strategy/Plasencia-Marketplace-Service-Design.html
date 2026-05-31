@@ -1,0 +1,1491 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Plasencia Marketplace · Service Design · Visión E2E del journey del cliente y el ciclo del auto</title>
+<meta name="description" content="Documento de diseño estratégico de servicio. La visión end-to-end de cómo Plasencia se relaciona con cada cliente desde el primer interés hasta su quinto ciclo de auto. Mayo 2026.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    /* Editorial palette — IDEO/Frog sensibility */
+    --paper:        #FCFAF7;
+    --paper-warm:   #F5F1EA;
+    --ink:          #1A1A1A;
+    --ink-soft:     #2D2D2D;
+    --ink-mid:      #555555;
+    --ink-light:    #8A8A8A;
+    --rule:         #E8E2D8;
+    --rule-soft:    #F0EBE0;
+
+    /* Accent muestreado — más sutil que el corporate */
+    --terra:        #B85A3E;   /* terracotta — humano, cálido */
+    --terra-deep:   #8C3F28;
+    --moss:         #5C7A4C;   /* verde apagado — naturaleza, ciclo */
+    --moss-deep:    #3F5634;
+    --indigo:       #2F3E5C;   /* azul profundo — confianza, profundidad */
+    --indigo-deep:  #1E2940;
+    --ochre:        #C49434;   /* ocre dorado — momentos clave */
+
+    /* Sistema tipográfico */
+    --serif:        'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+    --sans:         'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --mono:         'JetBrains Mono', 'SF Mono', Menlo, monospace;
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html, body { background:var(--paper); }
+  body {
+    font-family: var(--sans);
+    color: var(--ink);
+    line-height: 1.6;
+    font-size: 10.5pt;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+  }
+
+  @page {
+    size: A4;
+    margin: 22mm 22mm 26mm 22mm;
+    @bottom-right {
+      content: counter(page);
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 10pt;
+      color: #8A8A8A;
+    }
+    @bottom-left {
+      content: "Plasencia Marketplace · Service Design";
+      font-family: 'Inter', sans-serif;
+      font-size: 8pt;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #8A8A8A;
+    }
+  }
+  @page :first {
+    @bottom-right { content: ""; }
+    @bottom-left { content: ""; }
+  }
+  @page cover { margin: 0; }
+
+  .page {
+    background: var(--paper);
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0 auto 12mm auto;
+    padding: 28mm 26mm 32mm 26mm;
+    position: relative;
+    page-break-after: always;
+    box-shadow: 0 1px 3px rgba(26,26,26,.05), 0 8px 32px rgba(26,26,26,.07);
+  }
+  .page:last-child { page-break-after: auto; }
+
+  /* ═══════════ COVER ═══════════ */
+  .cover { background: var(--paper-warm); padding: 0; page: cover; }
+  .cover-inner {
+    padding: 38mm 26mm 28mm 26mm;
+    min-height: 297mm;
+    display: flex; flex-direction: column;
+    position: relative;
+  }
+  .cover-mark {
+    font-family: var(--sans);
+    font-size: 8.5pt;
+    font-weight: 500;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--terra);
+  }
+  .cover-mark-sub {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 13pt;
+    color: var(--ink-mid);
+    margin-top: 3mm;
+  }
+  .cover-rule {
+    width: 24mm;
+    height: 1px;
+    background: var(--ink);
+    margin: 12mm 0 14mm 0;
+  }
+  .cover-title {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 62pt;
+    line-height: 1.02;
+    letter-spacing: -1.5px;
+    color: var(--ink);
+    max-width: 150mm;
+  }
+  .cover-title em {
+    font-style: italic;
+    color: var(--terra);
+    font-weight: 500;
+  }
+  .cover-deck {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 19pt;
+    line-height: 1.4;
+    color: var(--ink-soft);
+    margin-top: 14mm;
+    max-width: 145mm;
+    font-weight: 400;
+  }
+  .cover-stand-first {
+    font-family: var(--sans);
+    font-size: 11pt;
+    line-height: 1.65;
+    color: var(--ink-mid);
+    margin-top: 16mm;
+    max-width: 130mm;
+    font-weight: 400;
+  }
+  .cover-meta {
+    margin-top: auto;
+    padding-top: 24mm;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12mm;
+    border-top: 1px solid var(--rule);
+    padding-top: 8mm;
+  }
+  .cover-meta-block {
+    font-family: var(--sans);
+    font-size: 8.5pt;
+    color: var(--ink-light);
+    line-height: 1.6;
+    letter-spacing: 0.02em;
+  }
+  .cover-meta-block .lbl {
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--ink);
+    font-size: 7.5pt;
+    margin-bottom: 2mm;
+    display: block;
+  }
+
+  /* ═══════════ TYPOGRAPHY ═══════════ */
+  .section-marker {
+    font-family: var(--sans);
+    font-size: 8pt;
+    font-weight: 600;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--terra);
+    margin-bottom: 5mm;
+  }
+  .section-marker::before {
+    content: "§ ";
+    color: var(--ink-light);
+  }
+  h1.chapter {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 42pt;
+    line-height: 1.05;
+    letter-spacing: -1px;
+    color: var(--ink);
+    margin-bottom: 8mm;
+    max-width: 155mm;
+  }
+  h1.chapter em {
+    font-style: italic;
+    color: var(--terra);
+  }
+  h2.section-h {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 24pt;
+    line-height: 1.15;
+    letter-spacing: -0.5px;
+    color: var(--ink);
+    margin-top: 14mm;
+    margin-bottom: 5mm;
+  }
+  h2.section-h em {
+    font-style: italic;
+    color: var(--moss-deep);
+  }
+  h3.sub-h {
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 11pt;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin-top: 8mm;
+    margin-bottom: 3mm;
+  }
+  p { margin-bottom: 4mm; }
+  p.lede {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 16pt;
+    line-height: 1.45;
+    color: var(--ink-soft);
+    margin-bottom: 8mm;
+    max-width: 150mm;
+    font-weight: 400;
+  }
+  p.body { color: var(--ink-soft); }
+  strong { color: var(--ink); font-weight: 600; }
+  em.editorial { font-family: var(--serif); font-style: italic; color: var(--terra); font-weight: 500; font-size: 1.05em; }
+
+  /* ═══════════ DROP CAP ═══════════ */
+  .dropcap::first-letter {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 64pt;
+    line-height: 0.92;
+    float: left;
+    padding-right: 3mm;
+    padding-top: 2mm;
+    color: var(--terra);
+  }
+
+  /* ═══════════ EDITORIAL PULL QUOTE ═══════════ */
+  .pull-quote {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 400;
+    font-size: 22pt;
+    line-height: 1.35;
+    color: var(--ink);
+    margin: 12mm 8mm;
+    padding-left: 8mm;
+    border-left: 1px solid var(--terra);
+    max-width: 140mm;
+  }
+  .pull-quote.large {
+    font-size: 28pt;
+    line-height: 1.25;
+  }
+  .pull-quote cite {
+    display: block;
+    font-family: var(--sans);
+    font-style: normal;
+    font-weight: 600;
+    font-size: 8.5pt;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--terra);
+    margin-top: 5mm;
+  }
+
+  /* ═══════════ HUMAN QUOTE (cliente) ═══════════ */
+  .human-quote {
+    background: var(--paper-warm);
+    padding: 8mm 10mm;
+    margin: 6mm 0;
+    border-left: 3px solid var(--ochre);
+    position: relative;
+  }
+  .human-quote p {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 14pt;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    margin: 0;
+    font-weight: 400;
+  }
+  .human-quote .attrib {
+    font-family: var(--sans);
+    font-size: 9pt;
+    letter-spacing: 0.06em;
+    color: var(--ink-light);
+    margin-top: 4mm;
+    display: block;
+    font-style: normal;
+  }
+  .human-quote .attrib strong { color: var(--ink); font-weight: 600; }
+
+  /* ═══════════ PERSONA CARDS ═══════════ */
+  .personas-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6mm;
+    margin: 8mm 0;
+  }
+  .persona-card {
+    background: var(--paper-warm);
+    padding: 8mm 7mm;
+    border-top: 2px solid var(--terra);
+    position: relative;
+  }
+  .persona-card:nth-child(2) { border-top-color: var(--moss); }
+  .persona-card:nth-child(3) { border-top-color: var(--indigo); }
+  .persona-name {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 18pt;
+    color: var(--ink);
+    line-height: 1.1;
+    letter-spacing: -0.3px;
+  }
+  .persona-age {
+    font-family: var(--sans);
+    font-size: 9pt;
+    color: var(--ink-light);
+    font-weight: 500;
+    margin-top: 1mm;
+    letter-spacing: 0.04em;
+  }
+  .persona-role {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 11pt;
+    color: var(--terra);
+    margin-top: 2mm;
+  }
+  .persona-card:nth-child(2) .persona-role { color: var(--moss); }
+  .persona-card:nth-child(3) .persona-role { color: var(--indigo); }
+  .persona-meta {
+    font-family: var(--sans);
+    font-size: 8.5pt;
+    color: var(--ink-mid);
+    margin-top: 5mm;
+    line-height: 1.55;
+  }
+  .persona-meta-row {
+    margin-bottom: 2mm;
+  }
+  .persona-meta-row .lbl {
+    font-weight: 600;
+    color: var(--ink);
+    text-transform: uppercase;
+    font-size: 7.5pt;
+    letter-spacing: 0.12em;
+    display: block;
+    margin-bottom: 0.5mm;
+  }
+  .persona-quote {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 11pt;
+    line-height: 1.45;
+    color: var(--ink-soft);
+    margin-top: 6mm;
+    padding-top: 4mm;
+    border-top: 1px solid var(--rule);
+  }
+
+  /* ═══════════ JOURNEY MAP ═══════════ */
+  .journey-map {
+    margin: 10mm 0;
+    border-top: 1px solid var(--ink);
+    border-bottom: 1px solid var(--ink);
+    padding: 6mm 0;
+  }
+  .journey-phases {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 3mm;
+  }
+  .journey-phase {
+    padding: 4mm 3mm 0 3mm;
+    border-left: 1px solid var(--rule);
+  }
+  .journey-phase:first-child { border-left: none; padding-left: 0; }
+  .journey-phase .ph-num {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-style: italic;
+    font-size: 22pt;
+    color: var(--terra);
+    line-height: 1;
+  }
+  .journey-phase .ph-name {
+    font-family: var(--sans);
+    font-weight: 700;
+    font-size: 10pt;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin-top: 3mm;
+  }
+  .journey-phase .ph-when {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 10pt;
+    color: var(--ink-light);
+    margin-top: 1.5mm;
+  }
+  .journey-phase .ph-desc {
+    font-family: var(--sans);
+    font-size: 8.5pt;
+    line-height: 1.5;
+    color: var(--ink-mid);
+    margin-top: 4mm;
+  }
+  .journey-phase .ph-touch {
+    font-family: var(--sans);
+    font-size: 7.5pt;
+    color: var(--ink-light);
+    margin-top: 3mm;
+    line-height: 1.5;
+    padding-top: 3mm;
+    border-top: 1px dotted var(--rule);
+  }
+  .journey-phase .ph-touch strong {
+    display: block;
+    font-size: 7pt;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--terra);
+    margin-bottom: 1mm;
+    font-weight: 600;
+  }
+
+  /* ═══════════ AUTO LIFECYCLE (loop visual) ═══════════ */
+  .lifecycle {
+    margin: 10mm 0;
+    padding: 8mm 0;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .lifecycle-track {
+    position: relative;
+    padding: 4mm 0;
+  }
+  .lifecycle-line {
+    height: 1px;
+    background: var(--ink-light);
+    position: relative;
+    margin: 12mm 8mm;
+  }
+  .lifecycle-line::before, .lifecycle-line::after {
+    content: "";
+    position: absolute;
+    width: 8mm;
+    height: 8mm;
+    border: 1px solid var(--ink-light);
+    border-radius: 50%;
+    top: -3.5mm;
+  }
+  .lifecycle-line::before { left: -4mm; background: var(--terra); border-color: var(--terra); }
+  .lifecycle-line::after { right: -4mm; background: var(--moss); border-color: var(--moss); }
+  .lifecycle-years {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 3mm;
+    margin-top: -6mm;
+  }
+  .lifecycle-year {
+    text-align: center;
+    padding-top: 6mm;
+  }
+  .lifecycle-year .y-marker {
+    width: 5mm;
+    height: 5mm;
+    background: var(--paper);
+    border: 1.5px solid var(--ink);
+    border-radius: 50%;
+    margin: 0 auto 3mm auto;
+    position: relative;
+    top: -8mm;
+  }
+  .lifecycle-year .y-label {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 14pt;
+    color: var(--ink);
+    letter-spacing: -0.2px;
+  }
+  .lifecycle-year .y-month {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 10pt;
+    color: var(--ink-light);
+    margin-top: 1mm;
+  }
+  .lifecycle-year .y-event {
+    font-family: var(--sans);
+    font-size: 8pt;
+    color: var(--ink-mid);
+    margin-top: 3mm;
+    line-height: 1.5;
+  }
+  .lifecycle-year .y-event strong {
+    color: var(--terra);
+    font-weight: 600;
+    display: block;
+    font-size: 8pt;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 1mm;
+  }
+  .lifecycle-year:nth-child(6) .y-event strong { color: var(--moss); }
+
+  /* ═══════════ SERVICE BLUEPRINT ═══════════ */
+  .blueprint {
+    margin: 10mm 0;
+    font-family: var(--sans);
+    font-size: 8.5pt;
+    page-break-inside: avoid;
+  }
+  .blueprint-row {
+    display: grid;
+    grid-template-columns: 38mm 1fr 1fr 1fr 1fr 1fr;
+    gap: 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .blueprint-row.header {
+    background: var(--paper-warm);
+    border-bottom: 2px solid var(--ink);
+    border-top: 1px solid var(--ink);
+  }
+  .blueprint-cell {
+    padding: 4mm 3mm;
+    border-right: 1px solid var(--rule);
+    line-height: 1.4;
+    font-size: 8pt;
+    color: var(--ink-mid);
+  }
+  .blueprint-cell:last-child { border-right: none; }
+  .blueprint-label {
+    font-weight: 600;
+    color: var(--ink);
+    background: var(--paper-warm);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 7.5pt;
+  }
+  .blueprint-label .sub {
+    display: block;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
+    color: var(--ink-light);
+    font-size: 7pt;
+    font-style: italic;
+    margin-top: 1mm;
+    line-height: 1.3;
+  }
+  .blueprint-row.line-of {
+    background: var(--paper-warm);
+    border-top: 1px dashed var(--terra);
+    border-bottom: 1px dashed var(--terra);
+  }
+  .blueprint-row.line-of .blueprint-cell {
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--terra);
+    font-size: 8pt;
+    padding: 2mm 3mm;
+    text-align: center;
+  }
+  .blueprint-row.header .blueprint-cell {
+    font-weight: 700;
+    color: var(--ink);
+    font-size: 9pt;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .blueprint-row.header .blueprint-cell .ph-name-blu {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 500;
+    font-size: 14pt;
+    text-transform: none;
+    letter-spacing: -0.2px;
+    color: var(--terra);
+    display: block;
+    margin-top: 1mm;
+  }
+
+  /* ═══════════ MOMENTS OF TRUTH ═══════════ */
+  .moments {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5mm;
+    margin: 8mm 0;
+  }
+  .moment {
+    background: var(--paper);
+    padding: 7mm;
+    border: 1px solid var(--rule);
+    position: relative;
+  }
+  .moment-num {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-style: italic;
+    font-size: 32pt;
+    color: var(--ochre);
+    line-height: 0.9;
+    position: absolute;
+    top: 6mm;
+    right: 7mm;
+  }
+  .moment-name {
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 8pt;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--terra);
+    margin-bottom: 3mm;
+    padding-right: 18mm;
+  }
+  .moment-title {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 16pt;
+    color: var(--ink);
+    line-height: 1.2;
+    letter-spacing: -0.3px;
+    margin-bottom: 4mm;
+    padding-right: 18mm;
+  }
+  .moment-desc {
+    font-family: var(--sans);
+    font-size: 9.5pt;
+    color: var(--ink-mid);
+    line-height: 1.55;
+  }
+  .moment-desc strong { color: var(--ink); }
+
+  /* ═══════════ ECOSYSTEM MAP ═══════════ */
+  .ecosystem {
+    background: var(--paper-warm);
+    padding: 14mm 10mm;
+    margin: 10mm 0;
+    text-align: center;
+    border: 1px solid var(--rule);
+  }
+  .ecosystem-center {
+    display: inline-block;
+    background: var(--ink);
+    color: var(--paper);
+    padding: 6mm 10mm;
+    border-radius: 50%;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 18pt;
+    font-weight: 500;
+    line-height: 1;
+  }
+  .ecosystem-orbit {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4mm;
+    margin-top: 10mm;
+  }
+  .ecosystem-node {
+    background: var(--paper);
+    padding: 5mm 4mm;
+    border: 1px solid var(--rule);
+    text-align: center;
+  }
+  .ecosystem-node .icon {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 18pt;
+    color: var(--terra);
+    line-height: 1;
+  }
+  .ecosystem-node .name {
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 9pt;
+    color: var(--ink);
+    margin-top: 3mm;
+    letter-spacing: 0.02em;
+  }
+  .ecosystem-node .what {
+    font-family: var(--sans);
+    font-size: 7.5pt;
+    color: var(--ink-light);
+    margin-top: 2mm;
+    line-height: 1.4;
+  }
+
+  /* ═══════════ BEFORE/AFTER ═══════════ */
+  .before-after {
+    display: grid;
+    grid-template-columns: 1fr 4mm 1fr;
+    gap: 0;
+    margin: 8mm 0;
+    align-items: stretch;
+  }
+  .before-after .col {
+    padding: 7mm;
+    background: var(--paper-warm);
+  }
+  .before-after .col.after {
+    background: var(--paper);
+    border: 1px solid var(--moss);
+  }
+  .before-after .arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 22pt;
+    color: var(--terra);
+  }
+  .col-label {
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 8pt;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-bottom: 3mm;
+  }
+  .col.after .col-label { color: var(--moss-deep); }
+  .col-title {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 14pt;
+    color: var(--ink);
+    line-height: 1.2;
+    margin-bottom: 4mm;
+    letter-spacing: -0.2px;
+  }
+  .col-body {
+    font-family: var(--sans);
+    font-size: 9pt;
+    color: var(--ink-mid);
+    line-height: 1.55;
+  }
+
+  /* ═══════════ NUMBERED LIST EDITORIAL ═══════════ */
+  ol.editorial {
+    counter-reset: editorial;
+    list-style: none;
+    padding: 0;
+    margin: 5mm 0;
+  }
+  ol.editorial li {
+    counter-increment: editorial;
+    padding: 4mm 0 4mm 18mm;
+    position: relative;
+    border-bottom: 1px solid var(--rule);
+    font-family: var(--sans);
+    font-size: 10pt;
+    line-height: 1.55;
+    color: var(--ink-soft);
+  }
+  ol.editorial li::before {
+    content: counter(editorial, decimal-leading-zero);
+    position: absolute;
+    left: 0;
+    top: 4mm;
+    font-family: var(--serif);
+    font-weight: 400;
+    font-style: italic;
+    font-size: 18pt;
+    color: var(--terra);
+    line-height: 1;
+  }
+  ol.editorial li strong { color: var(--ink); font-weight: 600; }
+  ol.editorial li:last-child { border-bottom: none; }
+
+  /* ═══════════ MISC ═══════════ */
+  .rule-thin {
+    height: 1px;
+    background: var(--rule);
+    margin: 8mm 0;
+  }
+  .rule-thick {
+    height: 1px;
+    background: var(--ink);
+    margin: 12mm 0 8mm 0;
+  }
+  .small-caps {
+    font-family: var(--sans);
+    font-size: 8pt;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--terra);
+  }
+  .two-col {
+    column-count: 2;
+    column-gap: 8mm;
+    column-rule: 1px solid var(--rule);
+    margin: 6mm 0;
+  }
+  .two-col p { break-inside: avoid; }
+
+  .closing {
+    text-align: center;
+    padding-top: 10mm;
+    border-top: 1px solid var(--ink);
+    margin-top: 14mm;
+  }
+  .closing-mark {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 14pt;
+    color: var(--ink-soft);
+    max-width: 130mm;
+    margin: 0 auto;
+    line-height: 1.45;
+  }
+  .closing-sig {
+    font-family: var(--sans);
+    font-size: 8pt;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-top: 6mm;
+  }
+
+  @media print {
+    html, body { background: white; }
+    .page { box-shadow: none; margin: 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════ COVER ═══════════════════ -->
+<div class="page cover">
+  <div class="cover-inner">
+    <div>
+      <div class="cover-mark">Plasencia Marketplace</div>
+      <div class="cover-mark-sub">A service design vision</div>
+    </div>
+
+    <div class="cover-rule"></div>
+
+    <div class="cover-title">
+      Cómo Plasencia<br>
+      se relaciona con<br>
+      <em>cada cliente</em>,<br>
+      a lo largo de toda<br>
+      su vida con un auto.
+    </div>
+
+    <div class="cover-deck">
+      La visión end-to-end del journey del cliente y el ciclo del auto, desde el primer interés hasta su quinto ciclo de renovación. El Marketplace como articulación coherente de toda la experiencia.
+    </div>
+
+    <div class="cover-stand-first">
+      Este documento no es una propuesta tecnológica. No es un plan operativo. Es la visión de servicio: la imagen mental compartida de cómo se siente, cómo se ve y cómo se vive ser cliente de Plasencia cuando el grupo opera como una sola experiencia integrada. Si la visión es correcta, lo demás es ingeniería.
+    </div>
+
+    <div class="cover-meta">
+      <div class="cover-meta-block">
+        <span class="lbl">Disciplina</span>
+        Service Design<br>
+        Strategic Design<br>
+        Experience Architecture
+      </div>
+      <div class="cover-meta-block">
+        <span class="lbl">Estructura</span>
+        IDEO / Frog Design framework<br>
+        5 swim lanes blueprint<br>
+        Journey + Lifecycle map
+      </div>
+      <div class="cover-meta-block">
+        <span class="lbl">Documento</span>
+        Mayo 2026 · v1.0<br>
+        Complemento del Paper Ejecutivo<br>
+        Grupo Plasencia Automotriz
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ PÁGINA 2 — La premisa ═══════════════════ -->
+<div class="page">
+  <div class="section-marker">1 · La premisa</div>
+  <h1 class="chapter">Comprar un auto<br>no es <em>un evento</em>.<br>Es una relación.</h1>
+
+  <p class="lede">Y sin embargo, en México, la industria automotriz sigue diseñando esa relación como si fuera un solo momento — la firma del contrato — y todo lo demás fuera responsabilidad de alguien más.</p>
+
+  <p class="body dropcap">Cuando una persona decide cambiar de auto, no está tomando una decisión técnica. Está tomando una decisión sobre cómo se ve a sí misma, cuánto va a invertir de su tiempo y su ingreso en los próximos cinco años, y a quién va a confiar uno de los activos materiales más importantes que va a poseer. Esa decisión empieza meses antes de que entre por primera vez a una agencia. Continúa en cada conversación con su contador, su pareja, su hermana. Se confirma — o se rompe — en el momento exacto en que recibe el auto. Y vuelve a empezar, cinco años después, cuando el odómetro o la familia o la oportunidad fiscal le digan que es tiempo de renovar.</p>
+
+  <p class="body">Hoy, Grupo Plasencia atiende a esa persona en al menos cinco lugares distintos. La marca-OEM le vende. La financiera le presta. La arrendadora le arrienda. El taller le da servicio. La casa de seminuevos le recompra al final. Cada uno opera como si fuera la primera vez que ve a esa persona. Cada uno le pide los mismos datos. Cada uno conserva su propia versión incompleta del cliente. Y Plasencia, como grupo, no termina de reconocer que esa persona es <em class="editorial">su cliente</em> — no del concesionario individual ni de la marca-OEM, sino del grupo que durante setenta y cinco años se ha construido en occidente y bajío.</p>
+
+  <p class="body"><strong>Plasencia Marketplace existe para corregir esa fragmentación.</strong> No es un sitio web. No es un canal de captación. Es la articulación coherente y end-to-end de cómo Plasencia se relaciona con cada cliente, desde el primer momento en que esa persona se pregunta si es tiempo de cambiar de auto, hasta el quinto año en que regresa para volver a empezar el ciclo — y todos los años intermedios en que vive con el auto que Plasencia le entregó.</p>
+
+  <div class="pull-quote large">
+    El Marketplace activa que el grupo saque provecho de todo el ciclo de producto del auto. Y que toque, deliberadamente, <em style="font-style:italic;color:var(--terra);">toda</em> la experiencia del cliente.
+  </div>
+
+  <p class="body">Lo que sigue en este documento es la visión de esa relación, articulada con la disciplina del service design. Empezamos con quién es el cliente. Después describimos el journey completo. Después describimos el ciclo del auto en los cinco años de propiedad. Después el blueprint operativo que hace posible la experiencia. Después los momentos de verdad que decidirán si la visión se cumple o se queda en deck.</p>
+</div>
+
+<!-- ═══════════════════ PÁGINA 3 — Personas ═══════════════════ -->
+<div class="page">
+  <div class="section-marker">2 · Quiénes son</div>
+  <h1 class="chapter">Tres personas reales,<br><em>no segmentos</em>.</h1>
+
+  <p class="lede">El service design no diseña para mercados objetivo. Diseña para personas específicas, con nombre, edad y contradicciones. Si la experiencia funciona para María, Carlos y Andrea, funciona para sus segmentos respectivos.</p>
+
+  <div class="personas-grid">
+
+    <div class="persona-card">
+      <div class="persona-name">María</div>
+      <div class="persona-age">38 años</div>
+      <div class="persona-role">Contadora independiente</div>
+      <div class="persona-meta">
+        <div class="persona-meta-row"><span class="lbl">Régimen</span>PFAE · Art. 612 SAT</div>
+        <div class="persona-meta-row"><span class="lbl">Ingreso</span>$110K MXN / mes facturado</div>
+        <div class="persona-meta-row"><span class="lbl">Auto actual</span>Mazda 3 2021 propio</div>
+        <div class="persona-meta-row"><span class="lbl">Necesidad</span>SUV familiar · próxima renovación</div>
+        <div class="persona-meta-row"><span class="lbl">Decide con</span>Su contador · su esposo</div>
+      </div>
+      <div class="persona-quote">
+        "No quiero perder un sábado entero yendo de agencia en agencia. Quiero saber cuánto me cuesta y qué me deduzco, en mi mesa, en mi tiempo."
+      </div>
+    </div>
+
+    <div class="persona-card">
+      <div class="persona-name">Carlos</div>
+      <div class="persona-age">47 años</div>
+      <div class="persona-role">Director de operaciones · PYME</div>
+      <div class="persona-meta">
+        <div class="persona-meta-row"><span class="lbl">Empresa</span>Distribuidora regional · 38 empleados</div>
+        <div class="persona-meta-row"><span class="lbl">Flotilla actual</span>7 unidades · mix de marcas y años</div>
+        <div class="persona-meta-row"><span class="lbl">Necesidad</span>Renovar 4 unidades · evaluar arrendamiento puro vs compra</div>
+        <div class="persona-meta-row"><span class="lbl">Decide con</span>Su director financiero · el dueño</div>
+        <div class="persona-meta-row"><span class="lbl">Restricción</span>Disponibilidad y trazabilidad fiscal</div>
+      </div>
+      <div class="persona-quote">
+        "Necesito una propuesta que mi director financiero pueda meter a Excel sin tener que llamarle a cinco proveedores distintos."
+      </div>
+    </div>
+
+    <div class="persona-card">
+      <div class="persona-name">Andrea</div>
+      <div class="persona-age">26 años</div>
+      <div class="persona-role">Profesionista · primer auto propio</div>
+      <div class="persona-meta">
+        <div class="persona-meta-row"><span class="lbl">Ingreso</span>$32K MXN / mes nómina</div>
+        <div class="persona-meta-row"><span class="lbl">Auto actual</span>Ninguno · transporte propio o app</div>
+        <div class="persona-meta-row"><span class="lbl">Necesidad</span>Seminuevo certificado · $250K presupuesto</div>
+        <div class="persona-meta-row"><span class="lbl">Decide con</span>Su mamá · sola</div>
+        <div class="persona-meta-row"><span class="lbl">Preocupación</span>Que la estafen o le vendan un auto con problemas</div>
+      </div>
+      <div class="persona-quote">
+        "Necesito confiar. No me importa que sea seminuevo. Me importa que alguien me responda si algo sale mal."
+      </div>
+    </div>
+
+  </div>
+
+  <h2 class="section-h">Lo que las tres tienen <em>en común</em></h2>
+
+  <p class="body">Las tres han aprendido a desconfiar de la industria automotriz mexicana. Las tres han sido tratadas como un lead, no como personas. Las tres han tenido que repetir su nombre y su teléfono cuatro veces en una misma visita. Las tres saben — por experiencia o por testimonio — que la promesa de un vendedor en piso vale poco cuando algo sale mal después de la firma. Las tres están dispuestas a pagar — en tiempo, en dinero, en lealtad — por un grupo que las trate distinto.</p>
+
+  <p class="body">El Marketplace existe para tratarlas distinto. No con discurso, sino con arquitectura.</p>
+</div>
+
+<!-- ═══════════════════ PÁGINA 4-5 — Customer Journey ═══════════════════ -->
+<div class="page">
+  <div class="section-marker">3 · El customer journey</div>
+  <h1 class="chapter">Seis fases.<br>Seis <em>oportunidades</em><br>de tocar al cliente.</h1>
+
+  <p class="lede">El journey de María desde que se pregunta "¿es tiempo de cambiar de auto?" hasta que recibe la propuesta automática de renovación cinco años después. Lo que el Marketplace hace en cada fase.</p>
+
+  <div class="journey-map">
+    <div class="journey-phases">
+
+      <div class="journey-phase">
+        <div class="ph-num">i</div>
+        <div class="ph-name">Descubrir</div>
+        <div class="ph-when">Mes -3 a -1</div>
+        <div class="ph-desc">María empieza a notar que su Mazda 3 ya tiene 4 años. Su hija mayor empieza la primaria. Su contador menciona que puede deducir arrendamiento. Algo se mueve.</div>
+        <div class="ph-touch">
+          <strong>Touchpoints</strong>
+          Ads contextuales · Búsqueda Google · Conversaciones · Plasencia.mx (entrada orgánica)
+        </div>
+      </div>
+
+      <div class="journey-phase">
+        <div class="ph-num">ii</div>
+        <div class="ph-name">Explorar</div>
+        <div class="ph-when">Semana -4 a -2</div>
+        <div class="ph-desc">Entra al Marketplace. Filtra SUV familiar. Compara Tucson, CX-5, RAV4. La calculadora le muestra mensualidad bajo compra a crédito, arrendamiento puro y contado.</div>
+        <div class="ph-touch">
+          <strong>Touchpoints</strong>
+          Catálogo cross-marca · Configurador · Calculadora fiscal · Galerías · Specs comparables
+        </div>
+      </div>
+
+      <div class="journey-phase">
+        <div class="ph-num">iii</div>
+        <div class="ph-name">Decidir</div>
+        <div class="ph-when">Semana -2 a -1</div>
+        <div class="ph-desc">Se queda con Tucson Limited. Solicita valuación de su Mazda 3 en línea. Pre-aprueba crédito vía Plasencia Crédito. Le manda los números a su contador.</div>
+        <div class="ph-touch">
+          <strong>Touchpoints</strong>
+          Trade-in calculator · Pre-aprobación crédito · Resumen fiscal exportable · WhatsApp asesor opcional
+        </div>
+      </div>
+
+      <div class="journey-phase">
+        <div class="ph-num">iv</div>
+        <div class="ph-name">Adquirir</div>
+        <div class="ph-when">Día 0</div>
+        <div class="ph-desc">Aparta el auto con $5K en línea. Agenda visita el sábado a las 11:00. Llega al kiosko. José Luis la espera con el auto, los documentos firmados y la entrega del nuevo lista.</div>
+        <div class="ph-touch">
+          <strong>Touchpoints</strong>
+          Apartado pago digital · Confirmación QR · Kiosko fila premium · Entrega ceremoniosa · App cliente activada
+        </div>
+      </div>
+
+      <div class="journey-phase">
+        <div class="ph-num">v</div>
+        <div class="ph-name">Vivir</div>
+        <div class="ph-when">Mes 3 a Año 4</div>
+        <div class="ph-desc">Servicios programados con recordatorio. Refacciones disponibles desde la app. Seguro renovado automático con descuento por buen historial. Plasencia Club: beneficios cross-marca.</div>
+        <div class="ph-touch">
+          <strong>Touchpoints</strong>
+          App cliente · Recordatorios · Plasencia Posventa · Refacciones · Plasencia Club loyalty
+        </div>
+      </div>
+
+      <div class="journey-phase">
+        <div class="ph-num">vi</div>
+        <div class="ph-name">Renovar</div>
+        <div class="ph-when">Año 4-5</div>
+        <div class="ph-desc">Al año 4, María recibe propuesta personalizada: su Tucson vale X de trade-in, hay un Tucson 2030 con descuento de loyalty. La conversación nunca empieza de cero.</div>
+        <div class="ph-touch">
+          <strong>Touchpoints</strong>
+          Trigger automático de renovación · Trade-in pre-calculado · Oferta personalizada · Continuidad del historial · Nuevo ciclo
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <h2 class="section-h">El principio de continuidad</h2>
+
+  <p class="body">En cada fase, el cliente <em class="editorial">no empieza de cero</em>. Lo que María configuró en Explorar persiste cuando vuelve en Decidir. Lo que cotizó en Decidir persiste cuando llega al kiosko en Adquirir. Lo que reportó en su primer servicio persiste cuando recibe la propuesta de renovación cuatro años después. <strong>La continuidad de la información — y por lo tanto de la relación — es el principio operativo central del Marketplace.</strong></p>
+
+  <div class="human-quote">
+    <p>"En cinco visitas anteriores a agencias, di mi nombre y teléfono nueve veces. Nadie me reconoció en la segunda visita. ¿Cómo voy a confiarles un auto por cinco años si no se acuerdan de mí en una semana?"</p>
+    <span class="attrib"><strong>María</strong>, en investigación con personas reales del grupo objetivo</span>
+  </div>
+</div>
+
+<!-- ═══════════════════ PÁGINA 6 — Ciclo del auto ═══════════════════ -->
+<div class="page">
+  <div class="section-marker">4 · El ciclo del auto</div>
+  <h1 class="chapter">Cinco años,<br>doce <em>oportunidades</em><br>de revenue.</h1>
+
+  <p class="lede">El cliente compra el auto una vez. Pero el grupo puede tocar la relación más de una docena de veces a lo largo de su vida. Hoy, la mayoría de esas oportunidades se ceden a terceros o simplemente no se tocan.</p>
+
+  <div class="lifecycle">
+    <div class="lifecycle-track">
+      <div class="lifecycle-line"></div>
+      <div class="lifecycle-years">
+
+        <div class="lifecycle-year">
+          <div class="y-marker"></div>
+          <div class="y-label">Año 0</div>
+          <div class="y-month">Adquisición</div>
+          <div class="y-event">
+            <strong>Compra</strong>
+            Venta del vehículo · Financiamiento o arrendamiento · Seguro año 1 · Accesorios entrega
+          </div>
+        </div>
+
+        <div class="lifecycle-year">
+          <div class="y-marker"></div>
+          <div class="y-label">Año 1</div>
+          <div class="y-month">Onboarding</div>
+          <div class="y-event">
+            <strong>Vivir</strong>
+            Primer servicio 10K · Refacciones · App cliente · Loyalty activado · Renovación seguro
+          </div>
+        </div>
+
+        <div class="lifecycle-year">
+          <div class="y-marker"></div>
+          <div class="y-label">Año 2</div>
+          <div class="y-month">Rutina</div>
+          <div class="y-event">
+            <strong>Vivir</strong>
+            Servicios 20K · Refacciones · Beneficios loyalty · Renovación seguro · Posventa
+          </div>
+        </div>
+
+        <div class="lifecycle-year">
+          <div class="y-marker"></div>
+          <div class="y-label">Año 3</div>
+          <div class="y-month">Madurez</div>
+          <div class="y-event">
+            <strong>Vivir</strong>
+            Servicios mayores · Refacciones · Plasencia Crédito (refi opcional) · Renovación seguro
+          </div>
+        </div>
+
+        <div class="lifecycle-year">
+          <div class="y-marker"></div>
+          <div class="y-label">Año 4</div>
+          <div class="y-month">Pre-renovación</div>
+          <div class="y-event">
+            <strong>Trigger</strong>
+            Propuesta personalizada · Trade-in pre-calculado · Oferta loyalty · Pre-aprobación renovada
+          </div>
+        </div>
+
+        <div class="lifecycle-year">
+          <div class="y-marker"></div>
+          <div class="y-label">Año 5</div>
+          <div class="y-month">Renovación</div>
+          <div class="y-event">
+            <strong>Cierra el ciclo</strong>
+            Trade-in efectivo · Auto entra a Seminuevos · María empieza nuevo ciclo · Andrea compra el Mazda 3 de María en Seminuevos
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <h2 class="section-h">Las ocho líneas de CLTV, <em>operadas como sistema</em></h2>
+
+  <p class="body">En cada uno de esos cinco años, el cliente genera valor en ocho líneas de negocio que el grupo ya tiene — venta del vehículo, financiamiento, arrendamiento, seguros, mantenimiento y servicio, refacciones y accesorios, recompra y renovación, referidos. Hoy esas ocho líneas operan en silos. El Marketplace las opera como un solo sistema:</p>
+
+  <ol class="editorial">
+    <li><strong>La venta del vehículo</strong> es el punto de entrada, no el destino. Se diseña sabiendo que faltan cuatro años y medio de relación por adelante.</li>
+    <li><strong>El financiamiento</strong> deja de intermediarse con cautivas OEM externas. Plasencia Crédito captura la cuasi-cautiva — referente Driveway Finance Corp de Lithia, primera utilidad de $15.4M USD en 2024.</li>
+    <li><strong>El arrendamiento puro</strong> vía GP Autolease se ofrece como opción comparable a compra dentro del mismo flujo, sin friction de canal.</li>
+    <li><strong>El seguro</strong> se contrata bundled en checkout y se renueva automático con descuento por historial — el cliente nunca compara afuera.</li>
+    <li><strong>El servicio y mantenimiento</strong> entra como recordatorio proactivo en la app del cliente, no como cita que el cliente tiene que recordar. Plasencia Posventa absorbe el flujo.</li>
+    <li><strong>Las refacciones y accesorios</strong> se ofrecen contextualmente — el cliente compra el tapete de hule desde la app cuando empieza la temporada de lluvias, no cuando se acuerda.</li>
+    <li><strong>La recompra y renovación</strong> se trigger automáticamente al año 4, con trade-in pre-calculado y oferta personalizada. El cliente no tiene que decidir empezar de cero.</li>
+    <li><strong>Los referidos</strong> se instrumentan con código de Plasencia Club. Cada cliente satisfecho es prospecto de tres más.</li>
+  </ol>
+
+  <div class="pull-quote">
+    La métrica decisiva de un grupo automotriz moderno no es <em style="font-style:italic;color:var(--terra);">cuántos autos vendió este mes</em>. Es <em style="font-style:italic;color:var(--terra);">cuánto vale un cliente a lo largo de toda su vida</em>. El Marketplace existe para hacer esa métrica medible — y maximizable.
+  </div>
+</div>
+
+<!-- ═══════════════════ PÁGINA 7-8 — Service Blueprint ═══════════════════ -->
+<div class="page">
+  <div class="section-marker">5 · El service blueprint</div>
+  <h1 class="chapter">La maquinaria<br>detrás de la <em>experiencia</em>.</h1>
+
+  <p class="lede">Un blueprint no es un diagrama bonito. Es la radiografía operacional que muestra qué tiene que pasar — visible e invisible para el cliente — para que cada fase del journey se cumpla. Lo que sigue es el blueprint de las seis fases del journey de María.</p>
+
+  <p class="body"><strong>Persona:</strong> María, 38, contadora PFAE. <strong>Escenario:</strong> renovación de auto familiar, decide en cuatro semanas, paga apartado online, recibe el auto el sábado siguiente. <strong>Canales:</strong> web responsive, app cliente, WhatsApp, sucursal física, email.</p>
+
+  <div class="blueprint">
+
+    <div class="blueprint-row header">
+      <div class="blueprint-cell blueprint-label">Capa de servicio</div>
+      <div class="blueprint-cell"><span class="ph-name-blu">Descubrir</span></div>
+      <div class="blueprint-cell"><span class="ph-name-blu">Explorar</span></div>
+      <div class="blueprint-cell"><span class="ph-name-blu">Decidir</span></div>
+      <div class="blueprint-cell"><span class="ph-name-blu">Adquirir</span></div>
+      <div class="blueprint-cell"><span class="ph-name-blu">Vivir + Renovar</span></div>
+    </div>
+
+    <div class="blueprint-row">
+      <div class="blueprint-cell blueprint-label">Evidencia física / digital<span class="sub">Lo que el cliente ve, recibe o toca</span></div>
+      <div class="blueprint-cell">Anuncio contextual · Resultado búsqueda · Landing Plasencia.mx</div>
+      <div class="blueprint-cell">Catálogo cross-marca · Configurador · Galería · Comparativa</div>
+      <div class="blueprint-cell">Calculadora fiscal · Estimación trade-in · Pre-aprobación crédito · Email confirmación</div>
+      <div class="blueprint-cell">Folio cita QR · Mensaje WhatsApp 24h y 1h antes · Kiosko premium recepción · Auto preparado · Llaves entregadas</div>
+      <div class="blueprint-cell">App cliente · Notificaciones servicio · Beneficios Plasencia Club · Propuesta renovación email</div>
+    </div>
+
+    <div class="blueprint-row">
+      <div class="blueprint-cell blueprint-label">Acciones del cliente<span class="sub">Lo que María hace en cada fase</span></div>
+      <div class="blueprint-cell">Nota necesidad · Busca opciones · Llega al Marketplace</div>
+      <div class="blueprint-cell">Filtra · Compara · Configura · Calcula mensualidad</div>
+      <div class="blueprint-cell">Solicita trade-in · Pre-aprueba crédito · Apparta online · Agenda visita</div>
+      <div class="blueprint-cell">Llega al kiosko · Presenta QR · Test drive · Firma · Recibe auto</div>
+      <div class="blueprint-cell">Lleva auto a servicio · Renueva seguro · Recibe propuesta · Decide renovar</div>
+    </div>
+
+    <div class="blueprint-row line-of">
+      <div class="blueprint-cell">Línea de interacción</div>
+      <div class="blueprint-cell">↓</div>
+      <div class="blueprint-cell">↓</div>
+      <div class="blueprint-cell">↓</div>
+      <div class="blueprint-cell">↓</div>
+      <div class="blueprint-cell">↓</div>
+    </div>
+
+    <div class="blueprint-row">
+      <div class="blueprint-cell blueprint-label">Frontstage<span class="sub">Visible para el cliente · respuestas del sistema y personas</span></div>
+      <div class="blueprint-cell">Hero copy claro · Sin friction signup · Calculadora visible</div>
+      <div class="blueprint-cell">Filtros responsivos · Specs comparables · Stock real · Asesor WA opcional</div>
+      <div class="blueprint-cell">Resultado fiscal instantáneo · Trade-in en 2 minutos · Confirmación pre-aprobación · Resumen exportable</div>
+      <div class="blueprint-cell">RevOps recibe en kiosko · José Luis con dossier · Auto en piso preparado · Contrato listo · Bienvenida formal</div>
+      <div class="blueprint-cell">Recordatorios proactivos · Asesor servicio dedicado · Oferta renovación personalizada</div>
+    </div>
+
+    <div class="blueprint-row line-of">
+      <div class="blueprint-cell">Línea de visibilidad</div>
+      <div class="blueprint-cell">↓</div>
+      <div class="blueprint-cell">↓</div>
+      <div class="blueprint-cell">↓</div>
+      <div class="blueprint-cell">↓</div>
+      <div class="blueprint-cell">↓</div>
+    </div>
+
+    <div class="blueprint-row">
+      <div class="blueprint-cell blueprint-label">Backstage<span class="sub">Invisible al cliente · sistemas, datos, decisiones internas</span></div>
+      <div class="blueprint-cell">GA4 captura sesión · Meta Pixel + CAPI · Atribución a fuente · Cookie identidad</div>
+      <div class="blueprint-cell">D1 query inventario · Configurador serializa estado · Cookie persiste decisiones · Anthropic IA asiste con preguntas</div>
+      <div class="blueprint-cell">Plasencia Crédito API consulta buró · Trade-in pricing engine valida · Pre-aprobación se persiste · Folio único asignado</div>
+      <div class="blueprint-cell">Worker dispara WA reminders · Plasi instruye RevOps · DMS conecta inventario · POS conecta facturación · Pipeline pasa a "Visita Realizada"</div>
+      <div class="blueprint-cell">Trigger automatizado por kilometraje y tiempo · CLTV scoring · Trade-in re-cotiza con datos reales · Pipeline reabre en "Renovación"</div>
+    </div>
+
+    <div class="blueprint-row line-of">
+      <div class="blueprint-cell">Línea de interacción interna</div>
+      <div class="blueprint-cell">↓</div>
+      <div class="blueprint-cell">↓</div>
+      <div class="blueprint-cell">↓</div>
+      <div class="blueprint-cell">↓</div>
+      <div class="blueprint-cell">↓</div>
+    </div>
+
+    <div class="blueprint-row">
+      <div class="blueprint-cell blueprint-label">Soporte / infraestructura<span class="sub">Plataforma, integraciones, equipo</span></div>
+      <div class="blueprint-cell">GTM · GA4 · Meta CAPI · Pipeboard · Search Console</div>
+      <div class="blueprint-cell">Cloudflare Workers · D1 database · Catálogo DCA · Maxipublica feed · Pricing engine</div>
+      <div class="blueprint-cell">API Plasencia Crédito · API Buró · Pricing trade-in (modelo propio + Kavak benchmark) · Mailing transaccional</div>
+      <div class="blueprint-cell">WhatsApp Cloud API · Vambe + Plasi orquestador · Equipo RevOps · CRM kanban · DMS Plasencia · POS sucursal</div>
+      <div class="blueprint-cell">App cliente Plasencia · Workflow cron renovación · Plasencia Club platform · Email marketing transaccional</div>
+    </div>
+
+  </div>
+
+  <h3 class="sub-h">Tres patrones que el blueprint hace explícitos</h3>
+
+  <p class="body"><strong>Primero:</strong> cada fase tiene un dueño operativo claro. No hay handoffs perdidos entre el equipo de marketing y el de ventas, ni entre el vendedor de piso y el departamento de posventa. El Marketplace formaliza Revenue Operations como la capa que asume la propiedad del flujo end-to-end.</p>
+
+  <p class="body"><strong>Segundo:</strong> cada interacción frontstage tiene una infraestructura backstage real — no es ilustración. Plasi entrega su contexto al asesor RevOps antes de que el cliente llegue al kiosko. El DMS y el POS están conectados al pipeline del CRM, no operando en paralelo.</p>
+
+  <p class="body"><strong>Tercero:</strong> la fase "Vivir + Renovar" — donde hoy el cliente desaparece del radar del grupo — es donde está la mayor oportunidad de captura de CLTV. El blueprint hace visible que diseñar esa fase es tan crítico como diseñar la venta inicial.</p>
+</div>
+
+<!-- ═══════════════════ PÁGINA 9 — Moments of Truth ═══════════════════ -->
+<div class="page">
+  <div class="section-marker">6 · Los momentos de verdad</div>
+  <h1 class="chapter">Seis momentos<br>que <em>deciden</em><br>si la visión se cumple.</h1>
+
+  <p class="lede">Los demás momentos del journey son importantes. Estos seis son los que el cliente recuerda y los que determinan si vuelve, recomienda o se va. El Peak-End Rule del comportamiento humano: el pico emocional y el final son lo que persiste en la memoria.</p>
+
+  <div class="moments">
+
+    <div class="moment">
+      <div class="moment-num">i</div>
+      <div class="moment-name">Primera impresión</div>
+      <div class="moment-title">Cuando María entra al Marketplace y entiende todo en menos de 30 segundos</div>
+      <div class="moment-desc">Sin friction de signup. Sin formularios largos. Tres preguntas máximo: <strong>qué auto buscas</strong>, <strong>cuánto puedes pagar al mes</strong>, <strong>dónde estás</strong>. Resultado relevante en pantalla en menos de 5 segundos. El primer impulso emocional es: <em class="editorial">esto se ve fácil</em>.</div>
+    </div>
+
+    <div class="moment">
+      <div class="moment-num">ii</div>
+      <div class="moment-name">Transparencia fiscal</div>
+      <div class="moment-title">La calculadora le muestra cuánto <em>realmente</em> le cuesta cada opción</div>
+      <div class="moment-desc">Compra a crédito, arrendamiento puro, contado. Mensualidad, deducción fiscal, costo neto a 5 años. <strong>Sin asteriscos que la engañen.</strong> La industria automotriz mexicana acostumbra a esconder números. El Marketplace los muestra. María siente: <em class="editorial">por fin alguien me trata como adulta</em>.</div>
+    </div>
+
+    <div class="moment">
+      <div class="moment-num">iii</div>
+      <div class="moment-name">Trade-in instantáneo</div>
+      <div class="moment-title">Su Mazda 3 actual vale algo concreto, en línea, ahora</div>
+      <div class="moment-desc">Tres datos (marca, modelo, año, kilometraje) y un rango de valuación con compromiso de oferta. <strong>No "te llamamos para tasártelo".</strong> El cliente se siente reconocido como dueño de un activo, no como suplicante. La inflexión emocional: <em class="editorial">tengo más capacidad de la que creía</em>.</div>
+    </div>
+
+    <div class="moment">
+      <div class="moment-num">iv</div>
+      <div class="moment-name">El kiosko premium</div>
+      <div class="moment-title">Llega a la sucursal y la están esperando — literal</div>
+      <div class="moment-desc">El cliente con cita marketplace entra por su propio carril, presenta QR, el asesor RevOps lo recibe con dossier completo en mano. <strong>El auto preparado en piso. El contrato listo. Los documentos firmados.</strong> Cero re-explicar. Cero esperar. Analogía: la fila premium del banco con tarjeta black. María piensa: <em class="editorial">esto sí se siente distinto</em>.</div>
+    </div>
+
+    <div class="moment">
+      <div class="moment-num">v</div>
+      <div class="moment-name">La entrega ceremoniosa</div>
+      <div class="moment-title">El momento en que recibe las llaves y se va a casa</div>
+      <div class="moment-desc">No es transaccional. Es ritual. Foto con el auto (opcional). Walk-through de funciones esenciales por el asesor. Bienvenida a Plasencia Club con beneficios visibles desde el día uno. <strong>El cliente sale sintiéndose dueño de algo, no comprador de algo.</strong> El pico emocional del journey: <em class="editorial">esto valió la pena</em>.</div>
+    </div>
+
+    <div class="moment">
+      <div class="moment-num">vi</div>
+      <div class="moment-name">La propuesta de renovación</div>
+      <div class="moment-title">Año 4 — el grupo se acordó de María antes de que ella tuviera que pensar en cambiar</div>
+      <div class="moment-desc">Mensaje proactivo: <em>"Tu Tucson tiene 4 años. Vale aproximadamente $X de trade-in. Tenemos un Tucson 2030 que te puede interesar, con descuento de loyalty por tu historial. ¿Quieres que te mandemos la propuesta?"</em> María no tiene que decidir empezar de cero. <strong>Decide continuar.</strong> Eso es el fin de un ciclo y el inicio del siguiente — <em class="editorial">el ending del Peak-End Rule</em>.</div>
+    </div>
+
+  </div>
+
+  <div class="rule-thin"></div>
+
+  <p class="body" style="font-family:var(--serif);font-style:italic;font-size:13pt;color:var(--ink-soft);line-height:1.5;max-width:155mm;">
+    El Marketplace, como sistema de servicio, no se evalúa por la suma de sus features. Se evalúa por la calidad emocional de estos seis momentos. Si los seis se diseñan obsesivamente y los demás simplemente no fallan, el cliente vuelve y recomienda. Si alguno de los seis falla, ningún número de features compensará.
+  </p>
+</div>
+
+<!-- ═══════════════════ PÁGINA 10 — Ecosystem ═══════════════════ -->
+<div class="page">
+  <div class="section-marker">7 · El ecosistema</div>
+  <h1 class="chapter">Todas las líneas<br>del grupo,<br><em>orbitando al cliente</em>.</h1>
+
+  <p class="lede">El Marketplace no agrega líneas de negocio nuevas al grupo. Las pone a operar juntas, como sistema, alrededor de una sola identidad de cliente.</p>
+
+  <div class="ecosystem">
+    <div class="ecosystem-center">El cliente</div>
+    <div class="ecosystem-orbit">
+
+      <div class="ecosystem-node">
+        <div class="icon">i</div>
+        <div class="name">Marcas OEM</div>
+        <div class="what">Hyundai · Mazda · Stellantis · Ford · Changan · GWM · GAC · Isuzu</div>
+      </div>
+
+      <div class="ecosystem-node">
+        <div class="icon">ii</div>
+        <div class="name">Plasencia Seminuevos</div>
+        <div class="what">Sub-marca propia · ya operando · sub-marca más madura del grupo</div>
+      </div>
+
+      <div class="ecosystem-node">
+        <div class="icon">iii</div>
+        <div class="name">GP Autolease</div>
+        <div class="what">Arrendamiento puro multimarca · pre-launch operativo · GP Drive S.A. de C.V.</div>
+      </div>
+
+      <div class="ecosystem-node">
+        <div class="icon">iv</div>
+        <div class="name">Flotillas</div>
+        <div class="what">PYMEs y corporativos · vinculada a Arrendadora Plasencia</div>
+      </div>
+
+      <div class="ecosystem-node">
+        <div class="icon">v</div>
+        <div class="name">Plasencia Crédito</div>
+        <div class="what">Cuasi-cautiva financiera · referente DFC de Lithia</div>
+      </div>
+
+      <div class="ecosystem-node">
+        <div class="icon">vi</div>
+        <div class="name">Seguros</div>
+        <div class="what">Brokerage bundled · Biensea como partner inicial · renovación automática</div>
+      </div>
+
+      <div class="ecosystem-node">
+        <div class="icon">vii</div>
+        <div class="name">Posventa</div>
+        <div class="what">Servicio · mantenimiento · refacciones · accesorios — cross-marca</div>
+      </div>
+
+      <div class="ecosystem-node">
+        <div class="icon">viii</div>
+        <div class="name">Plasencia Club</div>
+        <div class="what">Loyalty cross-marca · referente NIO Points · trigger recompra</div>
+      </div>
+
+    </div>
+  </div>
+
+  <p class="body">Hoy, cada una de estas ocho líneas trata al cliente como si fuera nuevo cada vez. El Marketplace las articula bajo una identidad única — el cliente Plasencia. La consecuencia operacional: la información fluye entre líneas. La consecuencia comercial: el CLTV se captura como sistema. La consecuencia emocional para el cliente: la sensación de pertenecer a un grupo que lo reconoce.</p>
+
+  <h3 class="sub-h">El cliente al centro · no la marca-OEM</h3>
+
+  <p class="body two-col">El modelo tradicional de la industria automotriz mexicana coloca al fabricante en el centro — el cliente orbita a Mazda, a Hyundai, a Stellantis. Cada fabricante recolecta su propia versión del cliente. La marca-paraguas del grupo (Plasencia) queda subordinada visualmente y operativamente a la marca-OEM. El cliente se identifica como "cliente de Mazda Plasencia" en lugar de "cliente de Plasencia que actualmente maneja un Mazda". El modelo del Marketplace invierte esa relación. Plasencia está en el centro. Las marcas-OEM son inventario que el grupo ofrece. El cliente se identifica primero como cliente del grupo y secundariamente como dueño de un auto de una marca específica. Esa inversión es la diferencia entre un concesionario tradicional y un retailer-marketplace moderno — la diferencia entre la AutoNation de 2005 y la Lithia & Driveway de 2024.</p>
+</div>
+
+<!-- ═══════════════════ PÁGINA 11 — Before / After ═══════════════════ -->
+<div class="page">
+  <div class="section-marker">8 · Antes y después</div>
+  <h1 class="chapter">Lo que hoy vive el cliente,<br>vs lo que <em>podría vivir</em>.</h1>
+
+  <p class="lede">Para que la visión no quede en abstracto, la comparación honesta entre la experiencia que la industria mexicana ofrece hoy — incluyendo Plasencia — y la experiencia que el Marketplace hace posible.</p>
+
+  <div class="before-after">
+    <div class="col">
+      <div class="col-label">Hoy</div>
+      <div class="col-title">María visita tres sitios web de marcas distintas y recibe seis llamadas de vendedores diferentes</div>
+      <div class="col-body">Cada sitio le pide los mismos datos. Cada vendedor le hace las mismas preguntas. Nadie recuerda quién es ella cuando vuelve. Cuando finalmente decide, la cotización fiscal sigue siendo ambigua. El sábado de la visita, espera 40 minutos en la sala junto a walk-ins.</div>
+    </div>
+    <div class="arrow">→</div>
+    <div class="col after">
+      <div class="col-label">Mañana</div>
+      <div class="col-title">María entra una sola vez al Marketplace y todo lo demás fluye desde ahí</div>
+      <div class="col-body">El sistema reconoce su sesión en cada regreso. La calculadora fiscal le muestra deducción real, no claim de marketing. El sábado tiene fila premium, vendedor designado con dossier completo, auto en piso preparado, contrato listo.</div>
+    </div>
+  </div>
+
+  <div class="before-after">
+    <div class="col">
+      <div class="col-label">Hoy</div>
+      <div class="col-title">Carlos pide tres cotizaciones de flotilla y recibe tres formatos distintos</div>
+      <div class="col-body">Mazda Plasencia le manda Excel. Ford Plasencia le manda PDF. Stellantis Plasencia le manda mensaje de WhatsApp sin formato. Su director financiero arma un comparativo a mano. Carlos pierde dos semanas. Termina decidiendo por proximidad, no por análisis.</div>
+    </div>
+    <div class="arrow">→</div>
+    <div class="col after">
+      <div class="col-label">Mañana</div>
+      <div class="col-title">Carlos solicita una cotización de flotilla en el Marketplace y recibe comparativo cross-marca instantáneo</div>
+      <div class="col-body">El sistema le entrega tabla limpia: Mazda, Ford, Stellantis, costos a 5 años, deducciones, residuales. <strong>Director financiero arma análisis en una hora.</strong> Carlos decide basado en datos. El grupo gana la flotilla aunque ninguna marca-OEM individual hubiera ganado.</div>
+    </div>
+  </div>
+
+  <div class="before-after">
+    <div class="col">
+      <div class="col-label">Hoy</div>
+      <div class="col-title">Andrea va a una casa de seminuevos en la colonia, pregunta por un Mazda 3, y nadie le da garantía clara</div>
+      <div class="col-body">El vendedor le ofrece "garantía de 30 días" verbal. No hay documento. No hay historial verificable del auto. Andrea, sola y joven, se va con miedo de comprar. Termina decidiendo no decidir. El auto se queda en piso. La transacción no ocurre.</div>
+    </div>
+    <div class="arrow">→</div>
+    <div class="col after">
+      <div class="col-label">Mañana</div>
+      <div class="col-title">Andrea entra al Marketplace y ve el Mazda 3 con historial certificado, garantía formal, y soporte de un grupo de 75 años</div>
+      <div class="col-body">El auto tiene 47 fotos, historial documentado, garantía de 6 meses por escrito. Plasencia Seminuevos como sub-marca propia respalda la transacción. <strong>Andrea confía.</strong> Compra. Se incorpora al ecosistema Plasencia. En cinco años, va a renovar — esta vez sí.</div>
+    </div>
+  </div>
+
+  <h2 class="section-h">El diferencial no es <em>tecnológico</em>. Es <em>de relación</em>.</h2>
+
+  <p class="body">Las tres situaciones de la columna "Hoy" no se resuelven con mejor tecnología. Se resuelven con un grupo que decide tratar al cliente como cliente del grupo, no como prospecto de la marca-OEM individual. La tecnología hace posible la relación, pero la relación es la decisión estratégica.</p>
+
+  <div class="human-quote">
+    <p>"Yo no estaba buscando un producto digital. Estaba buscando que alguien me hiciera la compra del auto menos miserable. Si el Marketplace hace eso, paga lo que sea."</p>
+    <span class="attrib"><strong>Carlos</strong>, en investigación con personas reales del grupo objetivo</span>
+  </div>
+</div>
+
+<!-- ═══════════════════ PÁGINA 12 — Cierre ═══════════════════ -->
+<div class="page">
+  <div class="section-marker">9 · Cierre</div>
+  <h1 class="chapter">Una visión<br>no es un <em>plan</em>.<br>Pero sin visión,<br>el plan no <em>importa</em>.</h1>
+
+  <p class="lede">Este documento no resuelve cómo se construye el Marketplace, cuánto cuesta ni quién lo opera. Esas conversaciones viven en el Paper Ejecutivo. Lo que este documento hace es articular la imagen mental compartida de lo que estamos construyendo — para que cada decisión técnica, operacional o financiera tenga un norte claro.</p>
+
+  <p class="body">Tres ideas que merecen quedarse en la memoria del Consejo:</p>
+
+  <ol class="editorial">
+    <li><strong>Comprar un auto no es un evento.</strong> Es una relación que dura cinco años o más, con doce o más oportunidades de revenue que hoy el grupo cede a terceros o no toca. El Marketplace existe para que el grupo capture esa relación completa.</li>
+    <li><strong>El cliente al centro, no la marca-OEM.</strong> El modelo actual subordina la marca-paraguas Plasencia a las marcas-OEM individuales. El Marketplace invierte esa relación: Plasencia al centro, marcas-OEM como inventario que el grupo ofrece. Esa inversión es lo que separa a un concesionario tradicional de un retailer-marketplace moderno.</li>
+    <li><strong>El diferencial es de relación, no de tecnología.</strong> La industria mexicana sabe construir sitios web. No sabe construir relaciones de cinco años con sus clientes. El Marketplace es el sistema que hace esa relación posible — tecnológica, operativa y emocionalmente.</li>
+  </ol>
+
+  <div class="closing">
+    <p class="closing-mark">
+      Si la visión es correcta, lo demás es ingeniería.<br>
+      Si la visión es ambigua, ninguna ingeniería la salva.
+    </p>
+    <div class="closing-sig">Plasencia Marketplace · Service Design · Mayo 2026</div>
+  </div>
+</div>
+
+</body>
+</html>
