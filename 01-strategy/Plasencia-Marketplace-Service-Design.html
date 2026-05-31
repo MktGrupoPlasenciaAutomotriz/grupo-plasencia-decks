@@ -2,743 +2,500 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Plasencia Marketplace · Service Design Document · AS IS → TO BE</title>
+<title>Plasencia Marketplace · Service Design Document · AS IS → TO BE · Mayo 2026</title>
+<meta name="description" content="Service Design Document de Plasencia Marketplace. Articula el delta AS IS to TO BE en customer journey, ciclo del auto, service blueprint y moments of truth. Sistema de diseño Grupo Plasencia.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
 <style>
-:root {
-  /* GP Design System tokens */
-  --gp-black: #1A1A1A;
-  --gp-navy: #1E2740;
-  --gp-navy-deep: #0F1A2E;
-  --gp-slate: #2D3748;
-  --gp-red: #C8102E;
-  --gp-red-soft: rgba(200,16,46,0.10);
-  --gp-red-line: rgba(200,16,46,0.35);
-  --gp-gold: #ECC94B;
-  --gp-gold-soft: rgba(236,201,75,0.12);
-  --gp-blue: #4299E1;
-  --gp-green: #48BB78;
-  --gp-green-soft: rgba(72,187,120,0.12);
-  --gp-green-line: rgba(72,187,120,0.35);
-  --gp-amber: #D69E2E;
+  :root {
+    /* === Grupo Plasencia Design System Tokens === */
+    --gp-black: #1A1A1A;
+    --color-primary: #1E2740;
+    --color-primary-light: #2D3748;
+    --color-accent: #4299E1;
+    --color-accent-hover: #3182CE;
+    --color-conversion: #C8102E;
+    --color-conversion-hover: #A50D25;
+    --color-success: #48BB78;
+    --color-success-deep: #276749;
+    --color-warning: #D69E2E;
+    --color-warning-deep: #B7791F;
+    --color-error: #E53E3E;
+    --color-info: #3182CE;
+    --gold: #ECC94B;
+    --neutral-50: #F7FAFC;
+    --neutral-100: #EDF2F7;
+    --neutral-200: #E2E8F0;
+    --neutral-300: #CBD5E0;
+    --neutral-400: #A0AEC0;
+    --neutral-500: #718096;
+    --neutral-600: #4A5568;
+    --neutral-700: #2D3748;
+    --neutral-800: #1A202C;
+    --neutral-900: #171923;
+    --bg: #F0F4F8;
+    --paper: #FFFFFF;
+    --font-display: 'Montserrat', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --radius-sm: 4px; --radius-md: 8px; --radius-lg: 12px; --radius-xl: 16px;
+    --shadow-md: 0 4px 6px rgba(26,26,26,.10), 0 2px 4px rgba(26,26,26,.06);
+  }
 
-  --n-50:  #F7FAFC;
-  --n-100: #EDF2F7;
-  --n-200: #E2E8F0;
-  --n-300: #CBD5E0;
-  --n-400: #A0AEC0;
-  --n-500: #718096;
-  --n-600: #4A5568;
-  --n-700: #2D3748;
-  --n-800: #1A202C;
-  --n-900: #171923;
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html, body { background:var(--bg); }
+  body {
+    font-family: var(--font-body);
+    color: var(--neutral-700);
+    line-height: 1.55;
+    font-size: 10pt;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 
-  --font-display: 'Montserrat', sans-serif;
-  --font-body: 'Inter', sans-serif;
-}
+  @page {
+    size: A4;
+    margin: 18mm 18mm 22mm 18mm;
+    @bottom-right { content: counter(page); font-family: 'Inter', sans-serif; font-size: 9pt; color: #718096; }
+    @bottom-left { content: "Confidencial · Grupo Plasencia · Dirección de Marketing Corporativo"; font-family: 'Inter', sans-serif; font-size: 8pt; color: #A0AEC0; }
+    @top-right { content: "Plasencia Marketplace · Service Design Document"; font-family: 'Inter', sans-serif; font-size: 8pt; color: #A0AEC0; }
+  }
+  @page :first { @top-right { content: ""; } @bottom-right { content: ""; } @bottom-left { content: ""; } }
+  @page cover { margin: 0; }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html, body { background: var(--n-200); font-family: var(--font-body); color: var(--gp-navy); -webkit-font-smoothing: antialiased; }
+  .page {
+    background: var(--paper);
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0 auto 8mm auto;
+    padding: 18mm 18mm 22mm 18mm;
+    position: relative;
+    page-break-after: always;
+    box-shadow: var(--shadow-md), 0 4px 24px rgba(30,39,64,.08);
+  }
+  .page:last-child { page-break-after: auto; }
 
-/* A4 page setup */
-.page {
-  width: 210mm; min-height: 297mm;
-  margin: 16px auto; background: #FFFFFF;
-  box-shadow: 0 2px 12px rgba(15,26,46,0.10);
-  padding: 22mm 20mm;
-  position: relative;
-  page-break-after: always;
-  display: flex; flex-direction: column;
-}
-.page.dark { background: var(--gp-navy-deep); color: var(--n-50); }
-.page.split { padding: 0; }
+  /* ============ COVER (clonado del Paper Ejecutivo) ============ */
+  .cover { background: var(--color-primary); color: var(--neutral-50); padding: 0; page: cover; }
+  .cover-inner {
+    padding: 36mm 22mm 24mm 22mm;
+    min-height: 297mm;
+    display: flex; flex-direction: column; justify-content: space-between;
+    background:
+      radial-gradient(ellipse at 100% 0%, rgba(236,201,75,0.12) 0%, transparent 55%),
+      radial-gradient(ellipse at 0% 100%, rgba(200,16,46,0.10) 0%, transparent 55%),
+      var(--color-primary);
+    position: relative;
+  }
+  .cover-inner::before {
+    content: ""; position: absolute; top: 24mm; left: 22mm;
+    width: 64mm; height: 1px; background: var(--gold);
+  }
+  .cover-mark { font-family: var(--font-display); font-weight: 700; font-size: 10pt; letter-spacing: 3.5px; color: var(--gold); text-transform: uppercase; }
+  .cover-mark span { display:block; font-family: var(--font-body); font-weight:400; color:rgba(255,255,255,0.55); margin-top:4px; letter-spacing:1px; font-size:9pt; text-transform: none; }
+  .cover-eyebrow { font-family: var(--font-display); font-size: 10pt; font-weight: 700; letter-spacing: 4.5px; color: var(--color-conversion); text-transform: uppercase; margin-top: 14mm; }
+  .cover-title { font-family: var(--font-display); font-weight: 800; font-size: 48pt; line-height: 1.05; letter-spacing: -1.8px; margin-top: 6mm; color: var(--neutral-50); }
+  .cover-title em { font-style: normal; color: var(--gold); font-weight: 800; }
+  .cover-subtitle { font-family: var(--font-display); font-weight: 600; font-size: 14pt; color: var(--gold); margin-top: 8mm; letter-spacing: -0.2px; line-height: 1.35; }
+  .cover-pull { font-family: var(--font-body); font-weight: 400; font-size: 11pt; color: rgba(255,255,255,0.85); line-height: 1.5; border-left: 3px solid var(--color-conversion); padding-left: 8mm; margin-top: 16mm; max-width: 150mm; }
+  .cover-pull strong { color: var(--gold); font-weight: 600; }
+  .cover-pull cite { display: block; font-style: normal; font-family: var(--font-display); font-weight: 700; font-size: 9pt; letter-spacing: 1.5px; color: var(--color-conversion); margin-top: 6mm; text-transform: uppercase; }
+  .cover-tags { display:flex; gap:6mm; margin-top: 14mm; flex-wrap:wrap; }
+  .cover-tag { font-family: var(--font-display); font-size: 8.5pt; font-weight: 700; letter-spacing: 1px; color: rgba(255,255,255,0.85); border: 1px solid rgba(255,255,255,0.25); padding: 4px 11px; border-radius: 999px; text-transform: uppercase; }
+  .cover-tag.accent { color: var(--gold); border-color: rgba(236,201,75,0.4); }
+  .cover-tag.alarm { color: #FCA5A5; border-color: rgba(200,16,46,0.5); background: rgba(200,16,46,0.10); }
+  .cover-tag.win { color: #9AE6B4; border-color: rgba(72,187,120,0.5); background: rgba(72,187,120,0.10); }
+  .cover-meta { display: flex; justify-content: space-between; align-items: flex-end; margin-top: 16mm; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 8mm; }
+  .cover-meta-block { font-family: var(--font-body); font-size: 9pt; color: rgba(255,255,255,0.65); line-height: 1.7; }
+  .cover-meta-block strong { display:block; font-family: var(--font-display); color: var(--neutral-50); font-weight: 700; font-size: 10pt; letter-spacing: .5px; }
+  .cover-logo { height: 40px; mix-blend-mode: screen; opacity: 0.9; }
 
-@media print {
-  body { background: white; }
-  .page { box-shadow: none; margin: 0; page-break-after: always; }
-  .nav-foot { display: none !important; }
-}
+  /* ============ TOC ============ */
+  .toc { margin-top: 6mm; }
+  .toc-item { display: flex; justify-content: space-between; align-items: baseline; padding: 3mm 0; border-bottom: 1px dotted var(--neutral-300); font-size: 10.5pt; }
+  .toc-num { font-family: var(--font-display); font-weight: 800; font-size: 12pt; color: var(--color-conversion); width: 14mm; flex-shrink: 0; }
+  .toc-title { flex: 1; font-family: var(--font-display); color: var(--color-primary); font-weight: 700; padding-right: 4mm; }
+  .toc-sub { display: block; font-family: var(--font-body); font-size: 9pt; color: var(--neutral-500); font-weight: 400; margin-top: 1mm; }
+  .toc-page { color: var(--neutral-500); font-family: var(--font-display); font-style: italic; font-size: 10.5pt; flex-shrink: 0; font-weight: 600; }
 
-/* Page chrome */
-.page-num {
-  position: absolute; bottom: 14mm; right: 20mm;
-  font-family: var(--font-display); font-size: 10px; font-weight: 700;
-  letter-spacing: 2px; color: var(--n-400); text-transform: uppercase;
-}
-.page.dark .page-num { color: var(--n-500); }
-.page-mark {
-  position: absolute; bottom: 14mm; left: 20mm;
-  font-size: 10px; font-weight: 600; letter-spacing: 1.5px;
-  color: var(--n-400); text-transform: uppercase;
-  display: flex; align-items: center; gap: 8px;
-}
-.page-mark::before { content: ""; width: 6px; height: 6px; background: var(--gp-red); border-radius: 50%; display: inline-block; }
-.page.dark .page-mark { color: var(--n-400); }
-.page.dark .page-mark::before { background: var(--gp-gold); }
+  /* ============ TYPOGRAPHY (clonado del Paper) ============ */
+  h1.section-title {
+    font-family: var(--font-display); font-weight: 800; font-size: 26pt; line-height: 1.1; letter-spacing: -0.8px;
+    color: var(--color-primary); border-top: 3px solid var(--color-conversion); padding-top: 6mm; margin-bottom: 6mm;
+  }
+  h1.section-title .num { display: block; font-family: var(--font-display); font-weight: 700; font-size: 9pt; letter-spacing: 4px; color: var(--color-conversion); text-transform: uppercase; margin-bottom: 4mm; }
+  h2.section-h2 { font-size: 14pt; font-family: var(--font-display); font-weight: 700; color: var(--color-primary); margin-top: 7mm; margin-bottom: 3mm; letter-spacing: -0.3px; }
+  h3.section-h3 { font-size: 11pt; font-family: var(--font-display); font-weight: 700; color: var(--color-primary); margin-top: 5mm; margin-bottom: 2mm; letter-spacing: -0.2px; }
+  p { margin-bottom: 3mm; font-family: var(--font-body); }
+  p.lede { font-size: 11pt; line-height: 1.55; color: var(--color-primary-light); margin-bottom: 4mm; font-weight: 500; }
+  strong { color: var(--color-primary); font-weight: 600; }
 
-.section-marker {
-  font-family: var(--font-display); font-size: 10px; font-weight: 800;
-  letter-spacing: 3px; color: var(--gp-red); text-transform: uppercase;
-  margin-bottom: 14px; display: flex; align-items: center; gap: 10px;
-}
-.section-marker::before {
-  content: ""; width: 28px; height: 2px; background: var(--gp-red); display: inline-block;
-}
-.page.dark .section-marker { color: var(--gp-gold); }
-.page.dark .section-marker::before { background: var(--gp-gold); }
+  /* ============ ANSWER-FIRST / FRAME BOX (clonado) ============ */
+  .answer-first {
+    background: var(--color-primary); color: var(--neutral-50);
+    padding: 9mm 10mm; border-radius: var(--radius-md); margin-top: 6mm;
+    border-left: 4px solid var(--gold);
+  }
+  .answer-first .label { font-family: var(--font-display); font-size: 8.5pt; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 4mm; }
+  .answer-first p { font-family: var(--font-body); font-weight: 400; font-size: 11pt; line-height: 1.55; color: rgba(255,255,255,0.92); margin-bottom: 3mm; }
+  .answer-first p:last-child { margin-bottom: 0; }
+  .answer-first strong { color: var(--gold); font-weight: 600; }
 
-/* Typography */
-h1.hero {
-  font-family: var(--font-display); font-weight: 900;
-  font-size: 56px; line-height: 1.02; letter-spacing: -1.6px;
-  color: var(--gp-navy); margin-bottom: 24px;
-}
-.page.dark h1.hero { color: var(--n-50); }
-h2.section-h {
-  font-family: var(--font-display); font-weight: 800;
-  font-size: 32px; line-height: 1.15; letter-spacing: -0.7px;
-  color: var(--gp-navy); margin-bottom: 16px; margin-top: 18px;
-}
-.page.dark h2.section-h { color: var(--n-50); }
-h3.sub-h {
-  font-family: var(--font-display); font-weight: 700;
-  font-size: 18px; line-height: 1.25; letter-spacing: -0.2px;
-  color: var(--gp-navy); margin-bottom: 10px; margin-top: 14px;
-}
-.page.dark h3.sub-h { color: var(--n-100); }
-p.lede {
-  font-family: var(--font-body); font-weight: 500;
-  font-size: 16px; line-height: 1.6; color: var(--n-700);
-  margin-bottom: 18px;
-}
-.page.dark p.lede { color: var(--n-300); }
-p.body {
-  font-family: var(--font-body); font-weight: 400;
-  font-size: 13px; line-height: 1.65; color: var(--n-700);
-  margin-bottom: 12px;
-}
-.page.dark p.body { color: var(--n-300); }
-strong { font-weight: 700; color: var(--gp-navy); }
-.page.dark strong { color: var(--n-50); }
-em { font-style: italic; color: var(--gp-red); font-weight: 500; }
-.page.dark em { color: var(--gp-gold); }
+  /* ============ KPI CARDS (clonado) ============ */
+  .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4mm; margin: 4mm 0; }
+  .kpi-grid.three { grid-template-columns: repeat(3, 1fr); }
+  .kpi-grid.two { grid-template-columns: repeat(2, 1fr); }
+  .kpi {
+    background: var(--paper); border: 1px solid var(--neutral-200); border-radius: var(--radius-md);
+    padding: 4mm; position: relative;
+  }
+  .kpi.featured { background: rgba(236,201,75,0.05); border-color: rgba(236,201,75,0.4); }
+  .kpi.featured::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--gold); border-radius: var(--radius-md) 0 0 var(--radius-md); }
+  .kpi.alarm { background: rgba(200,16,46,0.04); border-color: rgba(200,16,46,0.3); }
+  .kpi.alarm::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--color-conversion); border-radius: var(--radius-md) 0 0 var(--radius-md); }
+  .kpi.win { background: rgba(72,187,120,0.05); border-color: rgba(72,187,120,0.35); }
+  .kpi.win::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--color-success); border-radius: var(--radius-md) 0 0 var(--radius-md); }
+  .kpi-label { font-family: var(--font-display); font-size: 8pt; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: var(--neutral-500); }
+  .kpi-value { font-family: var(--font-display); font-weight: 800; font-size: 22pt; color: var(--color-primary); line-height: 1.1; margin-top: 2mm; letter-spacing: -0.6px; }
+  .kpi-value.gold { color: var(--color-warning-deep); }
+  .kpi-value.red { color: var(--color-conversion); }
+  .kpi-value.green { color: var(--color-success-deep); }
+  .kpi-sub { font-family: var(--font-body); font-size: 8.5pt; color: var(--neutral-500); margin-top: 2mm; line-height: 1.4; }
 
-/* AS IS / TO BE split — la firma visual del documento */
-.delta-grid {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 0; margin-top: 16px; margin-bottom: 18px;
-  border: 1px solid var(--n-200);
-  border-radius: 8px; overflow: hidden;
-}
-.delta-col {
-  padding: 22px 22px 24px;
-  display: flex; flex-direction: column;
-  position: relative;
-}
-.delta-col.as-is {
-  background: var(--gp-navy-deep);
-  color: var(--n-100);
-  border-right: 1px solid rgba(255,255,255,0.06);
-}
-.delta-col.to-be {
-  background: #FFFFFF;
-  color: var(--gp-navy);
-}
-.delta-tag {
-  font-family: var(--font-display); font-weight: 800;
-  font-size: 9px; letter-spacing: 2.5px; text-transform: uppercase;
-  padding: 4px 10px; border-radius: 999px;
-  display: inline-block; margin-bottom: 12px;
-  width: fit-content;
-}
-.delta-tag.as { background: var(--gp-red); color: white; }
-.delta-tag.to { background: var(--gp-green); color: white; }
-.delta-h {
-  font-family: var(--font-display); font-weight: 800;
-  font-size: 16px; line-height: 1.25; letter-spacing: -0.2px;
-  margin-bottom: 10px;
-}
-.delta-col.as-is .delta-h { color: var(--n-50); }
-.delta-col.to-be .delta-h { color: var(--gp-navy); }
-.delta-body {
-  font-family: var(--font-body); font-size: 12px; line-height: 1.6;
-}
-.delta-col.as-is .delta-body { color: var(--n-300); }
-.delta-col.to-be .delta-body { color: var(--n-700); }
-.delta-body strong { color: inherit; }
-.delta-col.as-is .delta-body strong { color: var(--gp-gold); }
-.delta-col.to-be .delta-body strong { color: var(--gp-navy); }
+  /* ============ AS IS / TO BE COMPARISON ============ */
+  .delta-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; margin: 4mm 0; }
+  .delta-card { padding: 5mm 6mm; border-radius: var(--radius-md); position: relative; }
+  .delta-card.as { background: rgba(200,16,46,0.04); border: 1px solid rgba(200,16,46,0.30); }
+  .delta-card.to { background: rgba(72,187,120,0.05); border: 1px solid rgba(72,187,120,0.35); }
+  .delta-card .delta-tag { font-family: var(--font-display); font-size: 8pt; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }
+  .delta-card.as .delta-tag { color: var(--color-conversion); }
+  .delta-card.to .delta-tag { color: var(--color-success-deep); }
+  .delta-card h3 { font-family: var(--font-display); font-weight: 700; font-size: 12pt; color: var(--color-primary); margin-top: 2mm; line-height: 1.25; letter-spacing: -0.2px; }
+  .delta-card p { font-family: var(--font-body); font-size: 9.5pt; line-height: 1.55; color: var(--color-primary-light); margin-top: 2mm; }
+  .delta-card .delta-stat { font-family: var(--font-display); font-weight: 800; font-size: 20pt; line-height: 1; margin-top: 4mm; letter-spacing: -0.5px; }
+  .delta-card.as .delta-stat { color: var(--color-conversion); }
+  .delta-card.to .delta-stat { color: var(--color-success-deep); }
+  .delta-card .delta-stat-label { font-family: var(--font-body); font-size: 8.5pt; color: var(--neutral-500); margin-top: 1mm; font-weight: 500; }
+  .delta-card ul { list-style: none; margin: 3mm 0 0 0; padding: 0; }
+  .delta-card ul li { font-family: var(--font-body); font-size: 9.5pt; line-height: 1.5; color: var(--color-primary-light); padding: 1mm 0 1mm 5mm; position: relative; }
+  .delta-card ul li::before { content: ""; width: 5px; height: 5px; border-radius: 50%; position: absolute; left: 0; top: 6px; }
+  .delta-card.as ul li::before { background: var(--color-conversion); }
+  .delta-card.to ul li::before { background: var(--color-success); }
+  .delta-card ul li strong { color: var(--color-primary); }
 
-.delta-list { list-style: none; margin-top: 8px; }
-.delta-list li {
-  position: relative; padding-left: 18px; margin-bottom: 8px;
-  font-size: 12px; line-height: 1.55;
-}
-.delta-list li::before {
-  content: ""; width: 6px; height: 6px; border-radius: 50%;
-  position: absolute; left: 2px; top: 7px;
-}
-.delta-col.as-is .delta-list li::before { background: var(--gp-red); }
-.delta-col.to-be .delta-list li::before { background: var(--gp-green); }
-.delta-col.as-is .delta-list li { color: var(--n-300); }
-.delta-col.to-be .delta-list li { color: var(--n-700); }
+  /* ============ JOURNEY 6-PHASE GRID ============ */
+  .journey-grid {
+    display: grid; grid-template-columns: repeat(6, 1fr);
+    margin: 4mm 0;
+    border: 1px solid var(--neutral-200); border-radius: var(--radius-md); overflow: hidden;
+  }
+  .journey-cell {
+    padding: 3mm; border-right: 1px solid var(--neutral-200);
+    font-family: var(--font-body); font-size: 8.5pt; line-height: 1.45;
+    color: var(--color-primary-light);
+  }
+  .journey-cell:nth-child(6n) { border-right: none; }
+  .journey-cell.head {
+    background: var(--color-primary); color: var(--neutral-50);
+    padding: 4mm 3mm;
+  }
+  .journey-cell.head .phase-num { font-family: var(--font-display); font-size: 7.5pt; font-weight: 700; letter-spacing: 1.5px; color: var(--gold); text-transform: uppercase; }
+  .journey-cell.head .phase-name { font-family: var(--font-display); font-size: 11pt; font-weight: 700; letter-spacing: -0.2px; line-height: 1.2; margin-top: 1mm; color: var(--neutral-50); }
+  .journey-cell.as { background: rgba(200,16,46,0.03); border-top: 1px solid var(--neutral-200); }
+  .journey-cell.to { background: rgba(72,187,120,0.03); border-top: 1px solid var(--neutral-200); }
+  .journey-cell .cell-tag { font-family: var(--font-display); font-size: 7pt; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; display: block; margin-bottom: 1mm; }
+  .journey-cell.as .cell-tag { color: var(--color-conversion); }
+  .journey-cell.to .cell-tag { color: var(--color-success-deep); }
 
-/* Stat callout */
-.stat {
-  font-family: var(--font-display); font-weight: 900;
-  font-size: 28px; letter-spacing: -0.8px; line-height: 1;
-  display: block; margin-top: 12px;
-}
-.delta-col.as-is .stat { color: var(--gp-red); }
-.delta-col.to-be .stat { color: var(--gp-green); }
-.stat-label {
-  font-family: var(--font-body); font-size: 11px; font-weight: 600;
-  color: var(--n-500); letter-spacing: 0.3px; text-transform: uppercase;
-  display: block; margin-top: 4px;
-}
-.delta-col.as-is .stat-label { color: var(--n-400); }
+  /* ============ LIFECYCLE 12 OPPORTUNITIES ============ */
+  .lifecycle { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3mm; margin: 4mm 0; }
+  .life-card { padding: 3.5mm 4mm; border: 1px solid var(--neutral-200); border-radius: var(--radius-md); background: var(--paper); position: relative; }
+  .life-card::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; border-radius: var(--radius-md) 0 0 var(--radius-md); }
+  .life-card.captured { background: rgba(72,187,120,0.05); border-color: rgba(72,187,120,0.30); }
+  .life-card.captured::before { background: var(--color-success); }
+  .life-card.ceded { background: rgba(200,16,46,0.04); border-color: rgba(200,16,46,0.30); }
+  .life-card.ceded::before { background: var(--color-conversion); }
+  .life-num { font-family: var(--font-display); font-weight: 700; font-size: 8pt; letter-spacing: 1.5px; text-transform: uppercase; }
+  .life-card.captured .life-num { color: var(--color-success-deep); }
+  .life-card.ceded .life-num { color: var(--color-conversion); }
+  .life-title { font-family: var(--font-display); font-weight: 700; font-size: 10.5pt; color: var(--color-primary); margin-top: 1mm; line-height: 1.2; letter-spacing: -0.1px; }
+  .life-status { font-family: var(--font-body); font-size: 8.5pt; color: var(--neutral-600); margin-top: 2mm; line-height: 1.45; }
+  .life-status strong { color: var(--color-primary); }
 
-/* Quote / pull / killer */
-.killer {
-  background: var(--gp-gold-soft);
-  border-left: 4px solid var(--gp-gold);
-  padding: 18px 22px;
-  margin: 18px 0;
-  border-radius: 4px;
-}
-.killer-eyebrow {
-  font-family: var(--font-display); font-size: 10px; font-weight: 800;
-  letter-spacing: 2.5px; text-transform: uppercase;
-  color: var(--gp-amber); margin-bottom: 6px;
-}
-.killer-text {
-  font-family: var(--font-display); font-weight: 700; font-size: 19px;
-  line-height: 1.3; letter-spacing: -0.3px; color: var(--gp-navy);
-}
-.killer-text strong { color: var(--gp-red); font-weight: 800; }
-.page.dark .killer { background: rgba(236,201,75,0.08); border-left-color: var(--gp-gold); }
-.page.dark .killer-text { color: var(--n-50); }
-.page.dark .killer-text strong { color: var(--gp-gold); }
+  /* ============ BLUEPRINT TABLE ============ */
+  .blueprint {
+    margin: 4mm 0; border: 1px solid var(--neutral-200); border-radius: var(--radius-md);
+    overflow: hidden;
+  }
+  .bp-row {
+    display: grid; grid-template-columns: 32mm 1fr 1fr;
+    border-bottom: 1px solid var(--neutral-200);
+  }
+  .bp-row:last-of-type { border-bottom: 0; }
+  .bp-lane {
+    background: var(--color-primary); color: var(--neutral-50);
+    padding: 4mm; font-family: var(--font-display); font-weight: 700; font-size: 9pt;
+    letter-spacing: 1.2px; text-transform: uppercase;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .bp-lane .lane-sub { display: block; font-size: 7.5pt; color: var(--gold); margin-top: 1mm; letter-spacing: 1px; font-weight: 600; text-transform: none; }
+  .bp-line {
+    background: var(--color-primary-light); color: var(--gold);
+    padding: 2mm 4mm; font-family: var(--font-display); font-weight: 700; font-size: 7.5pt;
+    letter-spacing: 1.5px; text-transform: uppercase; text-align: center;
+    grid-column: 1 / -1; border-bottom: 1px solid var(--neutral-200);
+  }
+  .bp-cell {
+    padding: 3mm 4mm;
+    font-family: var(--font-body); font-size: 9pt; line-height: 1.5;
+    color: var(--color-primary-light);
+  }
+  .bp-cell.as { background: rgba(200,16,46,0.04); border-right: 1px solid var(--neutral-200); }
+  .bp-cell.to { background: rgba(72,187,120,0.04); }
+  .bp-cell strong { color: var(--color-primary); }
+  .bp-cell .bp-pill { display: inline-block; font-family: var(--font-display); font-size: 7pt; font-weight: 700; padding: 1px 6px; border-radius: 999px; margin-right: 4px; letter-spacing: 1px; text-transform: uppercase; }
+  .bp-cell .bp-pill.fail { background: var(--color-conversion); color: white; }
+  .bp-cell .bp-pill.win { background: var(--color-success); color: white; }
+  .bp-header {
+    display: grid; grid-template-columns: 32mm 1fr 1fr;
+    border-bottom: 1px solid var(--neutral-200);
+  }
+  .bp-header .bp-lane { background: var(--neutral-900); }
+  .bp-header .bp-cell {
+    background: var(--neutral-100);
+    font-family: var(--font-display); font-weight: 700; font-size: 9pt;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    color: var(--color-primary);
+    padding: 3mm 4mm;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .bp-header .bp-cell.as { border-right: 1px solid var(--neutral-200); }
+  .bp-header .bp-cell .dot { width: 8px; height: 8px; border-radius: 50%; }
+  .bp-header .bp-cell.as .dot { background: var(--color-conversion); }
+  .bp-header .bp-cell.to .dot { background: var(--color-success); }
 
-/* Persona quote */
-.persona-quote {
-  background: var(--n-50); border-left: 3px solid var(--gp-navy);
-  padding: 18px 22px; margin: 14px 0;
-  border-radius: 4px;
-}
-.persona-quote p {
-  font-family: var(--font-display); font-style: italic; font-weight: 500;
-  font-size: 15px; line-height: 1.5; color: var(--gp-navy); margin-bottom: 8px;
-}
-.persona-quote .attrib {
-  font-family: var(--font-body); font-size: 11px; font-weight: 600;
-  letter-spacing: 0.4px; color: var(--n-500); text-transform: uppercase;
-}
-.persona-quote .attrib strong { color: var(--gp-red); }
+  /* ============ MOMENTS OF TRUTH ============ */
+  .mot-row {
+    display: grid; grid-template-columns: 16mm 1fr 1fr;
+    margin-bottom: 3mm;
+    border: 1px solid var(--neutral-200); border-radius: var(--radius-md);
+    overflow: hidden;
+  }
+  .mot-num {
+    background: var(--color-primary); color: var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-display); font-weight: 800; font-size: 18pt;
+    letter-spacing: -0.5px;
+  }
+  .mot-side {
+    padding: 3mm 4mm;
+    display: flex; flex-direction: column; gap: 1mm;
+  }
+  .mot-side.as { background: rgba(200,16,46,0.04); border-right: 1px solid var(--neutral-200); }
+  .mot-side.to { background: rgba(72,187,120,0.04); }
+  .mot-tag { font-family: var(--font-display); font-size: 7pt; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; }
+  .mot-side.as .mot-tag { color: var(--color-conversion); }
+  .mot-side.to .mot-tag { color: var(--color-success-deep); }
+  .mot-title { font-family: var(--font-display); font-weight: 700; font-size: 10pt; color: var(--color-primary); line-height: 1.2; }
+  .mot-text { font-family: var(--font-body); font-size: 8.5pt; line-height: 1.5; color: var(--color-primary-light); }
 
-/* Cover page */
-.cover {
-  background: var(--gp-navy-deep);
-  background-image:
-    radial-gradient(ellipse 80% 60% at 100% 0%, rgba(236,201,75,0.10), transparent 60%),
-    radial-gradient(ellipse 60% 50% at 0% 100%, rgba(200,16,46,0.10), transparent 60%);
-  color: var(--n-50);
-  display: flex; flex-direction: column; justify-content: space-between;
-  padding: 24mm 22mm;
-}
-.cover-top { display: flex; align-items: center; justify-content: space-between; }
-.cover-logo { height: 38px; mix-blend-mode: screen; opacity: 0.95; }
-.cover-meta {
-  font-family: var(--font-display); font-size: 10px; font-weight: 700;
-  letter-spacing: 2.5px; color: var(--gp-gold); text-transform: uppercase;
-}
-.cover-center { display: flex; flex-direction: column; gap: 18px; }
-.cover-eyebrow {
-  font-family: var(--font-display); font-size: 11px; font-weight: 700;
-  letter-spacing: 3px; color: var(--gp-gold); text-transform: uppercase;
-}
-.cover-title {
-  font-family: var(--font-display); font-weight: 900;
-  font-size: 76px; line-height: 0.98; letter-spacing: -2.2px;
-  color: var(--n-50);
-}
-.cover-title .accent { color: var(--gp-gold); }
-.cover-title .strike { color: var(--gp-red); position: relative; }
-.cover-sub {
-  font-family: var(--font-body); font-weight: 400;
-  font-size: 17px; line-height: 1.5; color: var(--n-300);
-  max-width: 540px; margin-top: 6px;
-}
-.cover-pill-row { display: flex; gap: 10px; margin-top: 6px; flex-wrap: wrap; }
-.cover-pill {
-  font-family: var(--font-display); font-size: 10px; font-weight: 700;
-  letter-spacing: 1.8px; text-transform: uppercase;
-  padding: 6px 12px; border-radius: 999px;
-  background: rgba(255,255,255,0.06); color: var(--n-200);
-  border: 1px solid rgba(255,255,255,0.10);
-}
-.cover-pill.red { border-color: var(--gp-red); color: white; background: var(--gp-red); }
-.cover-pill.gold { border-color: var(--gp-gold); color: var(--gp-navy); background: var(--gp-gold); }
-.cover-pill.green { border-color: var(--gp-green); color: white; background: var(--gp-green); }
+  /* ============ ECOSYSTEM PANELS ============ */
+  .eco-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; margin: 4mm 0; }
+  .eco-panel { padding: 5mm 6mm; border-radius: var(--radius-md); }
+  .eco-panel.as { background: rgba(200,16,46,0.04); border: 1px solid rgba(200,16,46,0.30); }
+  .eco-panel.to { background: rgba(72,187,120,0.05); border: 1px solid rgba(72,187,120,0.35); }
+  .eco-panel .eco-tag { font-family: var(--font-display); font-size: 8pt; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }
+  .eco-panel.as .eco-tag { color: var(--color-conversion); }
+  .eco-panel.to .eco-tag { color: var(--color-success-deep); }
+  .eco-panel h3 { font-family: var(--font-display); font-weight: 700; font-size: 12pt; color: var(--color-primary); margin-top: 2mm; line-height: 1.2; letter-spacing: -0.2px; }
+  .eco-panel ul { list-style: none; margin: 3mm 0 0 0; padding: 0; }
+  .eco-panel ul li { font-family: var(--font-body); font-size: 9.5pt; line-height: 1.5; padding: 1.5mm 0 1.5mm 6mm; color: var(--color-primary-light); position: relative; }
+  .eco-panel ul li::before { content: ""; width: 5px; height: 5px; border-radius: 50%; position: absolute; left: 0; top: 7px; }
+  .eco-panel.as ul li::before { background: var(--color-conversion); }
+  .eco-panel.to ul li::before { background: var(--color-success); }
+  .eco-panel ul li strong { color: var(--color-primary); }
 
-.cover-bottom {
-  display: flex; justify-content: space-between; align-items: flex-end;
-  font-family: var(--font-display); font-size: 11px; font-weight: 600;
-  letter-spacing: 1.5px; color: var(--n-400); text-transform: uppercase;
-}
+  /* ============ PERSONAS ============ */
+  .persona-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3mm; margin: 4mm 0; }
+  .persona-card { padding: 4mm; border: 1px solid var(--neutral-200); border-radius: var(--radius-md); background: var(--paper); }
+  .persona-name { font-family: var(--font-display); font-weight: 800; font-size: 13pt; color: var(--color-primary); letter-spacing: -0.2px; }
+  .persona-meta { font-family: var(--font-display); font-size: 7.5pt; font-weight: 700; color: var(--neutral-500); letter-spacing: 1px; text-transform: uppercase; margin-top: 1mm; }
+  .persona-block { margin-top: 3mm; padding: 3mm 4mm; border-radius: var(--radius-sm); }
+  .persona-block.as { background: rgba(200,16,46,0.05); border-left: 3px solid var(--color-conversion); }
+  .persona-block.to { background: rgba(72,187,120,0.06); border-left: 3px solid var(--color-success); }
+  .persona-block .pb-tag { font-family: var(--font-display); font-size: 7pt; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; }
+  .persona-block.as .pb-tag { color: var(--color-conversion); }
+  .persona-block.to .pb-tag { color: var(--color-success-deep); }
+  .persona-block .pb-text { font-family: var(--font-body); font-size: 9pt; line-height: 1.5; color: var(--color-primary-light); margin-top: 1mm; }
 
-/* Frame page — eje narrativo */
-.frame-row {
-  display: grid; grid-template-columns: 60px 1fr;
-  gap: 18px; align-items: start;
-  padding: 18px 0;
-  border-bottom: 1px solid var(--n-200);
-}
-.frame-row:last-child { border-bottom: 0; }
-.frame-num {
-  font-family: var(--font-display); font-weight: 900;
-  font-size: 36px; color: var(--gp-red);
-  line-height: 1; letter-spacing: -1px;
-}
-.frame-body h4 {
-  font-family: var(--font-display); font-weight: 800;
-  font-size: 17px; color: var(--gp-navy); margin-bottom: 4px;
-  letter-spacing: -0.2px;
-}
-.frame-body p {
-  font-family: var(--font-body); font-size: 13px; line-height: 1.55;
-  color: var(--n-600);
-}
+  /* ============ NOTES / CALLOUTS (clonado) ============ */
+  .note {
+    background: var(--paper); border-left: 3px solid var(--gold); padding: 3mm 5mm;
+    margin: 3mm 0; font-family: var(--font-body); font-size: 10pt; color: var(--color-primary-light); line-height: 1.55;
+    border-radius: var(--radius-sm);
+  }
+  .note.red { border-left-color: var(--color-conversion); }
+  .note.green { border-left-color: var(--color-success); }
+  .note.amber { border-left-color: var(--color-warning); }
+  .note.navy { background: var(--color-primary); color: var(--neutral-50); border-left-color: var(--gold); }
+  .note.navy strong { color: var(--gold); }
+  .note .tag { font-family: var(--font-display); font-size: 8pt; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--color-warning-deep); margin-right: 3mm; }
+  .note.red .tag { color: var(--color-conversion); }
+  .note.green .tag { color: var(--color-success-deep); }
 
-/* Journey grid — 6 fases */
-.journey-grid {
-  display: grid; grid-template-columns: repeat(6, 1fr);
-  gap: 0; margin-top: 14px;
-  border: 1px solid var(--n-200); border-radius: 8px; overflow: hidden;
-}
-.journey-cell {
-  padding: 12px 10px;
-  border-right: 1px solid var(--n-200);
-  display: flex; flex-direction: column; gap: 4px;
-}
-.journey-cell:last-child { border-right: 0; }
-.journey-cell.head {
-  background: var(--gp-navy); color: var(--n-50);
-  padding: 14px 10px;
-  border-right-color: rgba(255,255,255,0.08);
-}
-.journey-cell.head .phase-num {
-  font-family: var(--font-display); font-size: 9px; font-weight: 800;
-  letter-spacing: 2px; color: var(--gp-gold); text-transform: uppercase;
-}
-.journey-cell.head .phase-name {
-  font-family: var(--font-display); font-size: 13px; font-weight: 800;
-  color: var(--n-50); letter-spacing: -0.2px; line-height: 1.2;
-}
-.journey-cell.as { background: rgba(200,16,46,0.04); }
-.journey-cell.to { background: rgba(72,187,120,0.04); }
-.journey-cell .cell-tag {
-  font-family: var(--font-display); font-size: 8px; font-weight: 800;
-  letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 2px;
-}
-.journey-cell.as .cell-tag { color: var(--gp-red); }
-.journey-cell.to .cell-tag { color: var(--gp-green); }
-.journey-cell .cell-text {
-  font-family: var(--font-body); font-size: 10.5px; line-height: 1.45;
-  color: var(--n-700);
-}
+  /* ============ PULL QUOTES (clonado) ============ */
+  .pull-quote {
+    font-family: var(--font-display); font-weight: 600; font-size: 13pt;
+    line-height: 1.4; color: var(--color-primary-light); border-left: 3px solid var(--color-conversion);
+    padding: 3mm 0 3mm 8mm; margin: 5mm 0; max-width: 92%;
+  }
+  .pull-quote em { color: var(--color-conversion); font-style: normal; font-weight: 700; }
+  .pull-quote cite { display: block; font-style: normal; font-family: var(--font-body); font-weight: 600; font-size: 9pt; letter-spacing: 1.2px; color: var(--color-conversion); margin-top: 3mm; text-transform: uppercase; }
 
-/* Auto lifecycle ring — 12 oportunidades */
-.lifecycle {
-  display: grid; grid-template-columns: 1fr 1fr 1fr;
-  gap: 10px; margin-top: 14px;
-}
-.life-card {
-  padding: 14px;
-  border-radius: 8px;
-  border: 1px solid var(--n-200);
-  background: #FFFFFF;
-  position: relative;
-  display: flex; flex-direction: column; gap: 6px;
-}
-.life-card.captured { border-left: 4px solid var(--gp-green); background: rgba(72,187,120,0.04); }
-.life-card.ceded { border-left: 4px solid var(--gp-red); background: rgba(200,16,46,0.04); }
-.life-num {
-  font-family: var(--font-display); font-weight: 800; font-size: 11px;
-  letter-spacing: 2px; text-transform: uppercase;
-}
-.life-card.captured .life-num { color: var(--gp-green); }
-.life-card.ceded .life-num { color: var(--gp-red); }
-.life-title {
-  font-family: var(--font-display); font-weight: 700; font-size: 13px;
-  color: var(--gp-navy); line-height: 1.25; letter-spacing: -0.1px;
-}
-.life-status {
-  font-family: var(--font-body); font-size: 10px; font-weight: 600;
-  color: var(--n-500); line-height: 1.4;
-}
-.life-status strong { color: var(--gp-navy); }
+  /* ============ PERSONA QUOTE (estilo paper) ============ */
+  .persona-quote {
+    background: var(--neutral-100); border-left: 3px solid var(--color-primary);
+    padding: 4mm 6mm; margin: 4mm 0; border-radius: var(--radius-sm);
+  }
+  .persona-quote p { font-family: var(--font-display); font-style: italic; font-weight: 500; font-size: 12pt; line-height: 1.45; color: var(--color-primary); margin-bottom: 2mm; }
+  .persona-quote .attrib { font-family: var(--font-body); font-size: 8.5pt; font-weight: 600; letter-spacing: 1px; color: var(--neutral-500); text-transform: uppercase; }
+  .persona-quote .attrib strong { color: var(--color-conversion); }
 
-/* Blueprint table */
-.blueprint {
-  margin-top: 12px; border: 1px solid var(--n-200); border-radius: 8px;
-  overflow: hidden;
-}
-.bp-row {
-  display: grid; grid-template-columns: 130px 1fr 1fr;
-  border-bottom: 1px solid var(--n-200);
-}
-.bp-row:last-child { border-bottom: 0; }
-.bp-lane {
-  background: var(--gp-navy); color: var(--n-50);
-  padding: 14px 14px;
-  font-family: var(--font-display); font-weight: 800; font-size: 10px;
-  letter-spacing: 1.8px; text-transform: uppercase;
-  display: flex; align-items: center;
-}
-.bp-lane.line { background: var(--gp-slate); }
-.bp-lane.line .lane-sub {
-  display: block; font-size: 8px; color: var(--gp-gold); margin-top: 2px;
-  letter-spacing: 1.5px;
-}
-.bp-cell {
-  padding: 12px 14px;
-  font-family: var(--font-body); font-size: 11px; line-height: 1.5;
-  color: var(--n-700);
-}
-.bp-cell.as {
-  background: rgba(200,16,46,0.04);
-  border-right: 1px solid var(--n-200);
-}
-.bp-cell.to {
-  background: rgba(72,187,120,0.04);
-}
-.bp-cell strong { color: var(--gp-navy); }
-.bp-cell .bp-fail {
-  display: inline-block; font-size: 9px; font-weight: 700;
-  background: var(--gp-red); color: white;
-  padding: 1px 7px; border-radius: 999px; margin-right: 6px;
-  letter-spacing: 1px;
-}
-.bp-cell .bp-win {
-  display: inline-block; font-size: 9px; font-weight: 700;
-  background: var(--gp-green); color: white;
-  padding: 1px 7px; border-radius: 999px; margin-right: 6px;
-  letter-spacing: 1px;
-}
-.bp-header {
-  display: grid; grid-template-columns: 130px 1fr 1fr;
-}
-.bp-header .bp-lane {
-  background: var(--gp-navy-deep);
-  font-size: 9px;
-}
-.bp-header .bp-cell {
-  background: var(--n-100); color: var(--gp-navy);
-  font-family: var(--font-display); font-weight: 800; font-size: 11px;
-  letter-spacing: 1.5px; text-transform: uppercase;
-  padding: 12px 14px;
-  display: flex; align-items: center; gap: 8px;
-}
-.bp-header .bp-cell .dot {
-  width: 8px; height: 8px; border-radius: 50%;
-}
-.bp-header .bp-cell.as .dot { background: var(--gp-red); }
-.bp-header .bp-cell.to .dot { background: var(--gp-green); }
+  /* ============ DECLARATION (cierre) ============ */
+  .declaration {
+    background: var(--color-primary); color: var(--neutral-50);
+    padding: 6mm 7mm; border-radius: var(--radius-md); margin: 5mm 0;
+    border-left: 4px solid var(--color-conversion);
+  }
+  .declaration .label { font-family: var(--font-display); font-size: 8pt; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--color-conversion); margin-bottom: 3mm; }
+  .declaration p { font-family: var(--font-body); font-size: 10pt; line-height: 1.55; color: rgba(255,255,255,0.92); margin-bottom: 2mm; }
+  .declaration p:last-child { margin-bottom: 0; }
+  .declaration strong { color: var(--gold); font-weight: 600; }
 
-/* Moments of truth */
-.mot-row {
-  display: grid; grid-template-columns: 60px 1fr 1fr;
-  gap: 0; margin-bottom: 12px;
-  border: 1px solid var(--n-200); border-radius: 8px;
-  overflow: hidden;
-}
-.mot-num {
-  background: var(--gp-navy); color: var(--gp-gold);
-  display: flex; align-items: center; justify-content: center;
-  font-family: var(--font-display); font-weight: 900; font-size: 22px;
-  letter-spacing: -0.5px;
-}
-.mot-side {
-  padding: 12px 14px;
-  display: flex; flex-direction: column; gap: 4px;
-}
-.mot-side.as { background: rgba(200,16,46,0.04); border-right: 1px solid var(--n-200); }
-.mot-side.to { background: rgba(72,187,120,0.04); }
-.mot-tag {
-  font-family: var(--font-display); font-size: 8px; font-weight: 800;
-  letter-spacing: 1.5px; text-transform: uppercase;
-}
-.mot-side.as .mot-tag { color: var(--gp-red); }
-.mot-side.to .mot-tag { color: var(--gp-green); }
-.mot-title {
-  font-family: var(--font-display); font-weight: 700; font-size: 12px;
-  color: var(--gp-navy); line-height: 1.2;
-}
-.mot-text {
-  font-family: var(--font-body); font-size: 10.5px; line-height: 1.5;
-  color: var(--n-700);
-}
+  .close-statement {
+    text-align: center; margin-top: 12mm; padding-top: 6mm; border-top: 1px solid var(--neutral-300);
+  }
+  .close-statement p {
+    font-family: var(--font-display); font-weight: 700; font-size: 14pt; color: var(--color-primary); line-height: 1.4; max-width: 140mm; margin: 0 auto;
+  }
+  .close-statement p em { color: var(--color-conversion); font-style: normal; }
+  .close-statement .sig {
+    font-family: var(--font-display); font-size: 9pt; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--neutral-500); margin-top: 6mm; text-align: center;
+  }
 
-/* Ecosystem comparison */
-.eco-grid {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
-  margin-top: 14px;
-}
-.eco-panel {
-  padding: 18px;
-  border-radius: 8px;
-  display: flex; flex-direction: column; gap: 10px;
-}
-.eco-panel.as { background: var(--gp-navy-deep); color: var(--n-100); }
-.eco-panel.to { background: #FFFFFF; border: 1px solid var(--gp-green-line); color: var(--gp-navy); }
-.eco-h {
-  font-family: var(--font-display); font-size: 14px; font-weight: 800;
-  letter-spacing: -0.2px;
-}
-.eco-panel.as .eco-h { color: var(--n-50); }
-.eco-panel.to .eco-h { color: var(--gp-navy); }
-.eco-list {
-  list-style: none; display: flex; flex-direction: column; gap: 6px;
-}
-.eco-list li {
-  font-family: var(--font-body); font-size: 11px; line-height: 1.5;
-  padding-left: 16px; position: relative;
-}
-.eco-list li::before {
-  content: ""; width: 5px; height: 5px; border-radius: 50%;
-  position: absolute; left: 2px; top: 7px;
-}
-.eco-panel.as .eco-list li { color: var(--n-300); }
-.eco-panel.as .eco-list li::before { background: var(--gp-red); }
-.eco-panel.to .eco-list li { color: var(--n-700); }
-.eco-panel.to .eco-list li::before { background: var(--gp-green); }
+  /* ============ NAV FOOTER (cross-references) ============ */
+  .nav-foot {
+    background: var(--color-primary); color: var(--neutral-50);
+    padding: 14mm 18mm 12mm 18mm;
+    width: 210mm; margin: 8mm auto 4mm;
+    box-shadow: var(--shadow-md);
+  }
+  .nav-foot .nf-eye { font-family: var(--font-display); font-size: 9pt; font-weight: 700; letter-spacing: 2.5px; color: var(--gold); text-transform: uppercase; }
+  .nav-foot .nf-h { font-family: var(--font-display); font-weight: 800; font-size: 18pt; margin-top: 3mm; letter-spacing: -0.4px; color: var(--neutral-50); }
+  .nav-foot .nf-p { font-size: 10pt; line-height: 1.55; color: rgba(255,255,255,0.85); margin-top: 3mm; max-width: 160mm; }
+  .nav-foot .nf-p strong { color: var(--gold); font-weight: 600; }
+  .nav-foot .nf-row { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; margin-top: 8mm; }
+  .nav-foot .nf-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.10); padding: 4mm 5mm; border-radius: var(--radius-md); text-decoration: none; color: inherit; }
+  .nav-foot .nf-card:hover { border-color: var(--gold); background: rgba(236,201,75,0.06); }
+  .nav-foot .nf-card .nfc-eye { font-family: var(--font-display); font-size: 8pt; font-weight: 700; letter-spacing: 1.5px; color: var(--gold); text-transform: uppercase; }
+  .nav-foot .nf-card .nfc-t { font-family: var(--font-display); font-weight: 700; font-size: 12pt; color: var(--neutral-50); margin-top: 2mm; }
+  .nav-foot .nf-card .nfc-p { font-size: 9pt; color: rgba(255,255,255,0.65); margin-top: 1mm; line-height: 1.45; }
+  .nav-foot .nf-back { text-align: center; margin-top: 6mm; padding-top: 4mm; border-top: 1px solid rgba(255,255,255,0.10); font-size: 9pt; color: rgba(255,255,255,0.55); letter-spacing: 0.4px; }
+  .nav-foot .nf-back a { color: var(--gold); text-decoration: none; }
 
-/* Personas table */
-.persona-row {
-  display: grid; grid-template-columns: 1fr 1fr 1fr;
-  gap: 12px; margin-top: 12px;
-}
-.persona-card {
-  padding: 16px;
-  border: 1px solid var(--n-200); border-radius: 8px;
-  background: #FFFFFF;
-  display: flex; flex-direction: column; gap: 8px;
-}
-.persona-name {
-  font-family: var(--font-display); font-weight: 800; font-size: 15px;
-  color: var(--gp-navy); letter-spacing: -0.2px;
-}
-.persona-meta {
-  font-family: var(--font-body); font-size: 10px; font-weight: 600;
-  color: var(--n-500); letter-spacing: 0.3px; text-transform: uppercase;
-}
-.persona-block {
-  margin-top: 6px; padding: 10px 12px;
-  border-radius: 6px;
-}
-.persona-block.as { background: rgba(200,16,46,0.06); border-left: 3px solid var(--gp-red); }
-.persona-block.to { background: rgba(72,187,120,0.06); border-left: 3px solid var(--gp-green); }
-.persona-block .pb-tag {
-  font-family: var(--font-display); font-size: 8px; font-weight: 800;
-  letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 3px;
-}
-.persona-block.as .pb-tag { color: var(--gp-red); }
-.persona-block.to .pb-tag { color: var(--gp-green); }
-.persona-block .pb-text {
-  font-family: var(--font-body); font-size: 10.5px; line-height: 1.5;
-  color: var(--n-700);
-}
-
-/* Closing */
-.close-hero {
-  margin-top: auto; padding: 28px 32px;
-  background: var(--gp-navy-deep); color: var(--n-50);
-  border-radius: 10px;
-}
-.close-hero .close-eyebrow {
-  font-family: var(--font-display); font-size: 10px; font-weight: 800;
-  letter-spacing: 2.5px; color: var(--gp-gold); text-transform: uppercase;
-  margin-bottom: 10px;
-}
-.close-hero .close-text {
-  font-family: var(--font-display); font-weight: 800; font-size: 24px;
-  line-height: 1.2; letter-spacing: -0.5px;
-}
-.close-hero .close-text em { color: var(--gp-gold); font-style: italic; }
-.close-hero .close-sig {
-  font-family: var(--font-body); font-size: 11px; font-weight: 500;
-  color: var(--n-400); letter-spacing: 0.4px; margin-top: 14px;
-  padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.08);
-}
-
-/* Index pill nav */
-.toc-grid {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 10px; margin-top: 18px;
-}
-.toc-item {
-  padding: 12px 14px;
-  background: var(--n-50); border: 1px solid var(--n-200);
-  border-radius: 6px; border-left: 3px solid var(--gp-red);
-}
-.toc-item .toc-n {
-  font-family: var(--font-display); font-size: 9px; font-weight: 800;
-  letter-spacing: 1.5px; color: var(--gp-red); text-transform: uppercase;
-}
-.toc-item .toc-t {
-  font-family: var(--font-display); font-weight: 700; font-size: 13px;
-  color: var(--gp-navy); margin-top: 2px;
-}
-
-/* Nav footer (cross-reference) — bottom of last page */
-.nav-foot {
-  background: var(--gp-navy-deep); color: var(--n-50);
-  padding: 36px 28px;
-  margin: 24px auto 16px;
-  width: 210mm;
-  border-radius: 0;
-  font-family: var(--font-body);
-}
-.nav-foot-inner { max-width: 100%; padding: 0 14mm; }
-.nav-foot .nf-eye {
-  font-family: var(--font-display); font-size: 10px; font-weight: 800;
-  letter-spacing: 2.5px; color: var(--gp-gold); text-transform: uppercase;
-}
-.nav-foot .nf-h {
-  font-family: var(--font-display); font-weight: 800; font-size: 22px;
-  margin-top: 8px; letter-spacing: -0.4px; color: var(--n-50);
-}
-.nav-foot .nf-p {
-  font-size: 13px; line-height: 1.55; color: var(--n-300);
-  margin-top: 10px; max-width: 640px;
-}
-.nav-foot .nf-row {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
-  margin-top: 20px;
-}
-.nav-foot .nf-card {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.10);
-  padding: 16px; border-radius: 8px;
-  text-decoration: none; color: inherit;
-  transition: border-color 200ms ease, background 200ms ease;
-}
-.nav-foot .nf-card:hover {
-  border-color: var(--gp-gold);
-  background: rgba(236,201,75,0.06);
-}
-.nav-foot .nf-card .nfc-eye {
-  font-family: var(--font-display); font-size: 9px; font-weight: 800;
-  letter-spacing: 1.5px; color: var(--gp-gold); text-transform: uppercase;
-}
-.nav-foot .nf-card .nfc-t {
-  font-family: var(--font-display); font-weight: 700; font-size: 15px;
-  color: var(--n-50); margin-top: 4px;
-}
-.nav-foot .nf-card .nfc-p {
-  font-size: 11px; color: var(--n-400); margin-top: 4px; line-height: 1.5;
-}
-.nav-foot .nf-back {
-  text-align: center; margin-top: 20px; padding-top: 16px;
-  border-top: 1px solid rgba(255,255,255,0.08);
-  font-size: 11px; color: var(--n-500); letter-spacing: 0.4px;
-}
-.nav-foot .nf-back a { color: var(--gp-gold); text-decoration: none; }
-
+  @media print {
+    html, body { background: white; }
+    .page { box-shadow: none; margin: 0; }
+    .nav-foot { display: none; }
+  }
 </style>
 </head>
 <body>
 
-<!-- ═══════════════════ PÁGINA 1 — COVER ═══════════════════ -->
-<div class="page cover">
-  <div class="cover-top">
-    <img src="../assets/logos/LOGO-GP-Blanco.png" class="cover-logo" alt="Grupo Plasencia">
-    <div class="cover-meta">Service Design Document · v2.0 · Mayo 2026</div>
+<!-- ==================== COVER ==================== -->
+<section class="page cover">
+  <div class="cover-inner">
+    <div>
+      <div style="display:flex; align-items:center; justify-content:space-between;">
+        <div class="cover-mark">Grupo Plasencia<span>Documento ejecutivo · Mayo 2026</span></div>
+        <img src="../assets/logos/LOGO-GP-Blanco.png" class="cover-logo" alt="Grupo Plasencia Automotriz">
+      </div>
+      <p class="cover-eyebrow">Service Design Document · Doc 3 de 3</p>
+      <h1 class="cover-title">De hoy<br>a <em>mañana.</em></h1>
+      <p class="cover-subtitle">El delta visual entre la experiencia del cliente Plasencia HOY (AS IS) y la que viviría MAÑANA cuando el Marketplace exista.</p>
+      <div class="cover-pull">
+        Cada sección de este documento articula el mismo paso AS IS → TO BE en una capa distinta del servicio: customer journey en 6 fases, ciclo del auto a 5 años con 12 oportunidades de revenue, service blueprint operativo en 5 capas, 6 moments of truth, ecosistema del grupo y 3 personas reales. <strong>No es una visión aspiracional. Es la fotografía honesta del estado actual puesta lado a lado con la del estado deseado</strong>, para que la decisión del Consejo no sea sobre un PowerPoint sino sobre una experiencia humana concreta.
+        <cite>Sustento humano-operativo del Paper Ejecutivo</cite>
+      </div>
+      <div class="cover-tags">
+        <span class="cover-tag accent">AS IS → TO BE</span>
+        <span class="cover-tag alarm">AS IS · Hoy</span>
+        <span class="cover-tag win">TO BE · Mañana</span>
+        <span class="cover-tag">Sistema GP</span>
+      </div>
+    </div>
+    <div class="cover-meta">
+      <div class="cover-meta-block"><strong>Para</strong>Consejo Directivo<br>Nicolás Plasencia · Andrés Plasencia · Enrique Rojas</div>
+      <div class="cover-meta-block"><strong>Emisor</strong>Chucho Porras<br>Dirección de Marketing Corporativo</div>
+      <div class="cover-meta-block"><strong>Estructura</strong>Service Design · 12 páginas A4<br>v3.0 · Mayo 2026</div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== PÁGINA 2 — EL FRAME ==================== -->
+<div class="page">
+  <h1 class="section-title"><span class="num">§ 01 · Cómo leer este documento</span>Este documento muestra un delta, no una visión abstracta</h1>
+
+  <p class="lede">El Paper Ejecutivo del All-In dice qué decisión le pedimos al Consejo y por qué. El Deck lo sustenta en sala. Este documento hace algo distinto: <strong>muestra el delta entre la experiencia que el cliente vive hoy con el grupo y la que viviría mañana con el Marketplace.</strong> No es aspiracional, es comparativo. Cada sección presenta el AS IS al lado del TO BE para que la decisión sea sobre una experiencia concreta, no sobre un concepto.</p>
+
+  <div class="answer-first">
+    <div class="label">Idea rectora · El frame del documento</div>
+    <p>El mandato del piloto era documentar si marketing es rentable. La respuesta es <strong>sí</strong>. Pero el piloto destapó algo más importante: <strong>el cuello no está en marketing, está en el modelo operativo aguas abajo</strong>. Por eso este documento articula la solución desde la experiencia humana hacia la operación, no al revés. Si el Consejo entiende cómo se VIVE el delta entre el hoy y el mañana, la decisión sobre el modelo operativo se vuelve obvia.</p>
+    <p><strong>El Marketplace no es un sitio web.</strong> Es la decisión de tratar al cliente como cliente del grupo, no como prospecto de una marca-OEM individual. Es un sistema de relación, no un canal digital.</p>
   </div>
 
-  <div class="cover-center">
-    <div class="cover-eyebrow">Estrategia All-In Junio 2026 · Documento 3 de 3</div>
-    <h1 class="cover-title">
-      De <span class="strike">hoy</span><br>
-      a <span class="accent">mañana</span>.
-    </h1>
-    <p class="cover-sub">El service design del Plasencia Marketplace, articulado como la distancia entre la experiencia que el cliente vive con el grupo hoy y la que viviría cuando el Marketplace exista. Cada sección compara AS IS contra TO BE: customer journey, ciclo del auto a cinco años, service blueprint operativo, moments of truth y ecosistema.</p>
-    <div class="cover-pill-row">
-      <span class="cover-pill red">AS IS · Hoy</span>
-      <span class="cover-pill green">TO BE · Mañana</span>
-      <span class="cover-pill gold">Delta · La decisión</span>
+  <h2 class="section-h2">Los tres ejes del delta</h2>
+
+  <div class="kpi-grid three">
+    <div class="kpi featured">
+      <div class="kpi-label">Eje 1</div>
+      <div class="kpi-value gold" style="font-size:14pt; line-height:1.2;">Customer Journey<br>6 fases</div>
+      <div class="kpi-sub">Cómo se vive hoy descubrir, explorar, decidir, adquirir, vivir y renovar un auto con el grupo. Cómo se viviría mañana cuando esas seis fases conecten en un solo sistema.</div>
+    </div>
+    <div class="kpi featured">
+      <div class="kpi-label">Eje 2</div>
+      <div class="kpi-value gold" style="font-size:14pt; line-height:1.2;">Ciclo del auto<br>12 oportunidades</div>
+      <div class="kpi-sub">Por cliente y por ciclo de 5 años. Hoy el grupo captura 3 con seguridad. Cede 9 a terceros casi sin notarlo. Mañana las captura porque el Marketplace existe como sistema, no como sitio web.</div>
+    </div>
+    <div class="kpi featured">
+      <div class="kpi-label">Eje 3</div>
+      <div class="kpi-value gold" style="font-size:14pt; line-height:1.2;">Service Blueprint<br>5 capas</div>
+      <div class="kpi-sub">El delta no es tecnológico, es organizacional. Las cinco capas (evidencia, acciones, frontstage, backstage, soporte) tal como existen hoy y como existirían mañana.</div>
     </div>
   </div>
 
-  <div class="cover-bottom">
-    <div>Dirección de Marketing Corporativo<br><span style="color:var(--n-500);">Grupo Plasencia Automotriz</span></div>
-    <div style="text-align:right;">Confidencial · Uso interno<br><span style="color:var(--n-500);">Para Consejo: Nicolás Plasencia · Andrés Plasencia · Enrique Rojas</span></div>
+  <h2 class="section-h2">Índice</h2>
+  <div class="toc">
+    <div class="toc-item"><span class="toc-num">§02</span><span class="toc-title">Customer Journey overview<span class="toc-sub">Las seis fases lado a lado · AS IS vs TO BE</span></span><span class="toc-page">03</span></div>
+    <div class="toc-item"><span class="toc-num">§03</span><span class="toc-title">Zoom · María compra su primer auto<span class="toc-sub">Una persona real, dos versiones del mismo viaje</span></span><span class="toc-page">04</span></div>
+    <div class="toc-item"><span class="toc-num">§04</span><span class="toc-title">Ciclo del auto · 12 oportunidades de revenue<span class="toc-sub">Capturadas vs cedidas · ciclo de 5 años</span></span><span class="toc-page">05</span></div>
+    <div class="toc-item"><span class="toc-num">§04b</span><span class="toc-title">Ciclo del auto TO BE · killer metric<span class="toc-sub">El delta económico que sustenta el caso financiero</span></span><span class="toc-page">06</span></div>
+    <div class="toc-item"><span class="toc-num">§05</span><span class="toc-title">Service Blueprint · Decidir + Adquirir<span class="toc-sub">5 capas comparadas AS IS vs TO BE</span></span><span class="toc-page">07</span></div>
+    <div class="toc-item"><span class="toc-num">§05b</span><span class="toc-title">La lectura del blueprint<span class="toc-sub">El cuello no está en marketing · está en el handoff</span></span><span class="toc-page">08</span></div>
+    <div class="toc-item"><span class="toc-num">§06</span><span class="toc-title">Los 6 Moments of Truth<span class="toc-sub">Peak-End design del journey</span></span><span class="toc-page">09</span></div>
+    <div class="toc-item"><span class="toc-num">§07</span><span class="toc-title">Ecosistema del grupo · silos vs órbita<span class="toc-sub">8 líneas que hoy no se hablan y mañana orbitan al cliente</span></span><span class="toc-page">10</span></div>
+    <div class="toc-item"><span class="toc-num">§08</span><span class="toc-title">3 personas · before / after<span class="toc-sub">María, Carlos, Andrea</span></span><span class="toc-page">11</span></div>
+    <div class="toc-item"><span class="toc-num">§09</span><span class="toc-title">Cierre · Conexión con Paper + Deck<span class="toc-sub">Las tres ideas que merecen quedarse en la memoria del Consejo</span></span><span class="toc-page">12</span></div>
   </div>
 </div>
 
-<!-- ═══════════════════ PÁGINA 2 — EL FRAME ═══════════════════ -->
+<!-- ==================== PÁGINA 3 — CUSTOMER JOURNEY OVERVIEW ==================== -->
 <div class="page">
-  <div class="section-marker">§ 1 · Cómo leer este documento</div>
-  <h1 class="hero">Este documento muestra un <em>delta</em>, no una visión abstracta.</h1>
+  <h1 class="section-title"><span class="num">§ 02 · Customer Journey</span>Seis fases. Una sola relación. Hoy rota. Mañana continua.</h1>
 
-  <p class="lede">El Paper Ejecutivo del All-In dice qué decisión le pedimos al Consejo y por qué. El Deck la sustenta en sala. Este documento hace algo distinto: <strong>muestra el delta entre la experiencia que el cliente vive hoy con el grupo y la que viviría mañana con el Marketplace.</strong> No es una visión aspiracional. Es la fotografía honesta del estado actual, puesta lado a lado con la fotografía del estado deseado, para que la decisión del Consejo no sea sobre un PowerPoint sino sobre una experiencia humana concreta.</p>
+  <p class="lede">Comprar un auto no es un evento. Es una decisión de cinco años o más que se vive en seis fases: descubrir, explorar, decidir, adquirir, vivir y renovar. Hoy esas seis fases viven en silos operativos y comerciales del grupo. Mañana viven como un solo sistema que el cliente percibe continuo.</p>
 
-  <h2 class="section-h">El frame: tres ejes del delta</h2>
-
-  <div class="frame-row">
-    <div class="frame-num">1</div>
-    <div class="frame-body">
-      <h4>Customer Journey en seis fases</h4>
-      <p>Cómo se vive hoy descubrir, explorar, decidir, adquirir, usar y renovar un auto con el grupo. Cómo se viviría mañana cuando esas seis fases conectan en un solo sistema. El delta es el dolor que hoy se acumula y la confianza que mañana se construye.</p>
-    </div>
-  </div>
-
-  <div class="frame-row">
-    <div class="frame-num">2</div>
-    <div class="frame-body">
-      <h4>Ciclo del auto a cinco años</h4>
-      <p>Doce oportunidades de revenue por cliente que viven entre la compra y la renovación. Hoy el grupo captura unas pocas y cede el resto a terceros sin saberlo. Mañana las captura porque el Marketplace existe como sistema, no como sitio web.</p>
-    </div>
-  </div>
-
-  <div class="frame-row">
-    <div class="frame-num">3</div>
-    <div class="frame-body">
-      <h4>Service blueprint operativo</h4>
-      <p>Las cinco capas del servicio (evidencia, acciones, frontstage, backstage, soporte) tal como existen hoy y como existirían mañana. El delta no es tecnológico. Es organizacional. Quién hace qué, qué sistema lo respalda, dónde está la línea de visibilidad para el cliente.</p>
-    </div>
-  </div>
-
-  <div class="killer">
-    <div class="killer-eyebrow">Idea rectora</div>
-    <div class="killer-text">El Marketplace no es un sitio web. Es la decisión de tratar al cliente como cliente del <strong>grupo</strong>, no como prospecto de una marca-OEM individual.</div>
-  </div>
-
-  <div class="toc-grid">
-    <div class="toc-item"><div class="toc-n">§ 3</div><div class="toc-t">Customer Journey · AS IS vs TO BE</div></div>
-    <div class="toc-item"><div class="toc-n">§ 4</div><div class="toc-t">Ciclo del auto · 12 oportunidades</div></div>
-    <div class="toc-item"><div class="toc-n">§ 5</div><div class="toc-t">Service Blueprint · 5 capas</div></div>
-    <div class="toc-item"><div class="toc-n">§ 6</div><div class="toc-t">6 Moments of Truth</div></div>
-    <div class="toc-item"><div class="toc-n">§ 7</div><div class="toc-t">Ecosistema · silos vs órbita</div></div>
-    <div class="toc-item"><div class="toc-n">§ 8</div><div class="toc-t">3 personas · before / after</div></div>
-  </div>
-
-  <div class="page-mark">Service Design · El frame</div>
-  <div class="page-num">02 / 12</div>
-</div>
-
-<!-- ═══════════════════ PÁGINA 3 — CUSTOMER JOURNEY OVERVIEW ═══════════════════ -->
-<div class="page">
-  <div class="section-marker">§ 2 · El customer journey de comprar un auto con el grupo</div>
-  <h1 class="hero">Seis fases. Una sola relación. Hoy <em>rota</em>. Mañana <em>continua</em>.</h1>
-
-  <p class="lede">Comprar un auto no es un evento de transacción. Es una decisión de cinco años o más que se vive en seis fases: descubrir que existe un auto, explorar opciones, decidir cuál, adquirirlo, vivirlo (mantenimiento, refacciones, postventa) y eventualmente renovarlo. Hoy esas seis fases viven en silos operativos y comerciales del grupo. Mañana viven como un solo sistema que el cliente percibe continuo.</p>
-
-  <h3 class="sub-h">Las seis fases del viaje, lado a lado</h3>
+  <h2 class="section-h2">Las seis fases del viaje, lado a lado</h2>
 
   <div class="journey-grid">
     <div class="journey-cell head"><div class="phase-num">F1</div><div class="phase-name">Descubrir</div></div>
@@ -748,66 +505,62 @@ em { font-style: italic; color: var(--gp-red); font-weight: 500; }
     <div class="journey-cell head"><div class="phase-num">F5</div><div class="phase-name">Vivir</div></div>
     <div class="journey-cell head"><div class="phase-num">F6</div><div class="phase-name">Renovar</div></div>
 
-    <div class="journey-cell as"><div class="cell-tag">Hoy</div><div class="cell-text">Ve un anuncio de Mazda en Facebook. No sabe que es del grupo.</div></div>
-    <div class="journey-cell as"><div class="cell-tag">Hoy</div><div class="cell-text">Entra al sitio de cada marca. No puede comparar entre marcas-OEM.</div></div>
-    <div class="journey-cell as"><div class="cell-tag">Hoy</div><div class="cell-text">Llena formulario. Lo llaman dos veces, lo dejan de llamar. 47% se pierde en 38 días.</div></div>
-    <div class="journey-cell as"><div class="cell-tag">Hoy</div><div class="cell-text">Llega a la agencia. Vendedor lo trata como prospecto, no como cliente del grupo.</div></div>
-    <div class="journey-cell as"><div class="cell-tag">Hoy</div><div class="cell-text">Vive cinco años con el auto. El grupo le ofrece servicios sueltos: agencia, refacciones, seguro.</div></div>
-    <div class="journey-cell as"><div class="cell-tag">Hoy</div><div class="cell-text">Cuando renueva, vuelve a ver anuncios como si fuera primer contacto. La memoria no existió.</div></div>
+    <div class="journey-cell as"><span class="cell-tag">Hoy</span>Ve un anuncio de Mazda en Facebook. No sabe que es del grupo.</div>
+    <div class="journey-cell as"><span class="cell-tag">Hoy</span>Entra al sitio de cada marca. No puede comparar entre marcas-OEM.</div>
+    <div class="journey-cell as"><span class="cell-tag">Hoy</span>Llena formulario. Lo llaman dos veces, lo dejan de llamar. 47% se pierde en 38 días.</div>
+    <div class="journey-cell as"><span class="cell-tag">Hoy</span>Llega a la agencia. Vendedor lo trata como prospecto, no como cliente del grupo.</div>
+    <div class="journey-cell as"><span class="cell-tag">Hoy</span>Vive 5 años con el auto. El grupo le ofrece servicios sueltos: agencia, refacciones, seguro.</div>
+    <div class="journey-cell as"><span class="cell-tag">Hoy</span>Cuando renueva, vuelve a ver anuncios como primer contacto. La memoria no existió.</div>
 
-    <div class="journey-cell to"><div class="cell-tag">Mañana</div><div class="cell-text">Ve un auto en redes. La marca paraguas Plasencia es lo que recuerda.</div></div>
-    <div class="journey-cell to"><div class="cell-text-tag"></div><div class="cell-tag">Mañana</div><div class="cell-text">Entra al Marketplace. Compara entre marcas del grupo en un solo lugar. Filtra por uso, no por OEM.</div></div>
-    <div class="journey-cell to"><div class="cell-tag">Mañana</div><div class="cell-text">Decide con calculadora financiera integrada. Reserva con depósito reembolsable. Cero llamadas hostiles.</div></div>
-    <div class="journey-cell to"><div class="cell-tag">Mañana</div><div class="cell-text">Recibe el auto con onboarding del grupo: app, calendario de servicios, contacto único.</div></div>
-    <div class="journey-cell to"><div class="cell-tag">Mañana</div><div class="cell-text">Vive cinco años dentro del ecosistema. Servicios programados, recordatorios, postventa integrada.</div></div>
-    <div class="journey-cell to"><div class="cell-tag">Mañana</div><div class="cell-text">Cuando renueva, el grupo conoce su historia. La toma de seminuevo es enganche del siguiente.</div></div>
+    <div class="journey-cell to"><span class="cell-tag">Mañana</span>Ve un auto en redes. La marca paraguas Plasencia es lo que recuerda.</div>
+    <div class="journey-cell to"><span class="cell-tag">Mañana</span>Entra al Marketplace. Compara entre marcas del grupo en un solo lugar. Filtra por uso, no por OEM.</div>
+    <div class="journey-cell to"><span class="cell-tag">Mañana</span>Decide con calculadora financiera integrada. Reserva con depósito reembolsable. Cero llamadas hostiles.</div>
+    <div class="journey-cell to"><span class="cell-tag">Mañana</span>Recibe el auto con onboarding del grupo: app, calendario de servicios, contacto único.</div>
+    <div class="journey-cell to"><span class="cell-tag">Mañana</span>Vive 5 años dentro del ecosistema. Servicios programados, recordatorios, postventa integrada.</div>
+    <div class="journey-cell to"><span class="cell-tag">Mañana</span>Cuando renueva, el grupo conoce su historia. La toma de seminuevo es enganche del siguiente.</div>
   </div>
 
-  <div class="killer">
-    <div class="killer-eyebrow">Lo que el delta significa para el cliente</div>
-    <div class="killer-text">Hoy seis fases viven en silos: marketing por marca, ventas por agencia, postventa por taller, renovación como reset. Mañana esas seis fases viven en una sola relación que <strong>el cliente percibe continua</strong> aunque internamente cruce ocho líneas de negocio del grupo.</div>
+  <div class="note navy">
+    <span class="tag" style="color:var(--gold);">Lo que el delta significa para el cliente</span>
+    Hoy seis fases viven en silos: marketing por marca, ventas por agencia, postventa por taller, renovación como reset. Mañana esas seis fases viven en una sola relación que <strong>el cliente percibe continua</strong> aunque internamente cruce ocho líneas de negocio del grupo. <strong>Esa percepción es el producto, no el sitio web.</strong>
   </div>
-
-  <div class="page-mark">Customer journey · Overview</div>
-  <div class="page-num">03 / 12</div>
 </div>
 
-<!-- ═══════════════════ PÁGINA 4 — JOURNEY ZOOM: MARÍA ═══════════════════ -->
+<!-- ==================== PÁGINA 4 — ZOOM MARÍA ==================== -->
 <div class="page">
-  <div class="section-marker">§ 3 · Zoom · María compra su primer auto</div>
-  <h1 class="hero">Una persona real. Dos versiones del <em>mismo</em> viaje.</h1>
+  <h1 class="section-title"><span class="num">§ 03 · Zoom · María compra su primer auto</span>Una persona real. Dos versiones del mismo viaje.</h1>
 
-  <p class="lede">María tiene 32 años, trabaja en marketing, vive en Zapopan, sueldo de PFAE con ingresos comprobables. Hace seis meses decidió que necesita su primer auto. Quiere algo confiable, sub $500K, con servicio cerca. Esta es su historia hoy y mañana, lado a lado.</p>
+  <p class="lede">María tiene 32 años, trabaja en marketing, vive en Zapopan, ingresos PFAE comprobables. Hace seis meses decidió que necesita su primer auto. Quiere algo confiable, sub $500K, con servicio cerca. Esta es su historia hoy y mañana, lado a lado.</p>
 
-  <div class="delta-grid">
-    <div class="delta-col as-is">
-      <span class="delta-tag as">AS IS · Hoy</span>
-      <h3 class="delta-h">Mes 1: la búsqueda fragmentada</h3>
-      <p class="delta-body">María ve un anuncio de Mazda CX-30 en Instagram. No sabe que es de Plasencia. Entra al sitio de Mazda, llena formulario. La llama un vendedor de la agencia López Mateos. Le ofrece test drive el sábado.</p>
+  <div class="delta-pair">
+    <div class="delta-card as">
+      <span class="delta-tag">AS IS · Hoy</span>
+      <h3>Mes 1 — Búsqueda fragmentada</h3>
+      <p>María ve un anuncio de Mazda CX-30 en Instagram. No sabe que es de Plasencia. Entra al sitio de Mazda, llena formulario. La llama un vendedor de López Mateos. Le ofrece test drive el sábado.</p>
 
-      <h3 class="delta-h" style="margin-top:14px;">Mes 2: el bucle de ruido</h3>
-      <p class="delta-body">El sábado María no puede ir. El vendedor la llama tres veces más. Después deja de llamarla. María entra al sitio de Hyundai porque también le gustó el Kona. Llena otro formulario. La llama otro vendedor, esta vez de Hyundai Tepic. María no entiende por qué le contestan agencias distintas del mismo grupo.</p>
+      <h3 style="margin-top:4mm;">Mes 2 — Bucle de ruido</h3>
+      <p>El sábado María no puede ir. El vendedor la llama tres veces más, después deja de llamarla. Entra al sitio de Hyundai porque también le gustó el Kona, llena otro formulario. La llama otro vendedor, esta vez de Hyundai Tepic. No entiende por qué le contestan agencias distintas del mismo grupo.</p>
 
-      <h3 class="delta-h" style="margin-top:14px;">Mes 4: la compra hostil</h3>
-      <p class="delta-body">María visita tres agencias en un sábado. Tres pruebas. Tres cotizaciones en papel. Tres financiamientos distintos. Compra el CX-30. La entrega tarda diez días sin razón clara. Sale del piso con manuales que no abrirá nunca.</p>
+      <h3 style="margin-top:4mm;">Mes 4 — Compra hostil</h3>
+      <p>María visita tres agencias en un sábado. Tres pruebas. Tres cotizaciones en papel. Tres financiamientos distintos. Compra el CX-30. La entrega tarda diez días sin razón clara. Sale del piso con manuales que no abrirá nunca.</p>
 
-      <span class="stat">79%</span>
-      <span class="stat-label">de los leads no recibe primer contacto efectivo (data pipeline 21-may)</span>
+      <div class="delta-stat">79%</div>
+      <div class="delta-stat-label">de los leads no recibe primer contacto efectivo (data del pipeline al 21-may)</div>
     </div>
 
-    <div class="delta-col to-be">
-      <span class="delta-tag to">TO BE · Mañana</span>
-      <h3 class="delta-h">Mes 1: la búsqueda integrada</h3>
-      <p class="delta-body">María entra al Plasencia Marketplace porque vio un anuncio donde la marca paraguas es Plasencia, no Mazda. En el Marketplace compara CX-30, Kona, Tucson y un GAC sin salir del sitio. Filtra por <strong>uso</strong> (familia chica + ciudad), no por OEM. Ve mensualidad real con su perfil financiero.</p>
+    <div class="delta-card to">
+      <span class="delta-tag">TO BE · Mañana</span>
+      <h3>Mes 1 — Búsqueda integrada</h3>
+      <p>María entra al Plasencia Marketplace porque vio un anuncio donde la marca paraguas es Plasencia, no Mazda. Compara CX-30, Kona, Tucson y un GAC sin salir del sitio. Filtra por <strong>uso</strong> (familia chica + ciudad), no por OEM. Ve mensualidad real con su perfil financiero.</p>
 
-      <h3 class="delta-h" style="margin-top:14px;">Mes 2: la reserva sin fricción</h3>
-      <p class="delta-body">María reserva el CX-30 con depósito reembolsable de $5,000. La agenda del test drive la elige ella, no la elige el vendedor. Llega a López Mateos: el vendedor ya tiene su perfil completo, su financiamiento pre-aprobado, su historial de navegación. Cero formularios. La sesión es de quince minutos.</p>
+      <h3 style="margin-top:4mm;">Mes 2 — Reserva sin fricción</h3>
+      <p>María reserva el CX-30 con depósito reembolsable de $5,000. Elige el horario del test drive ella, no el vendedor. Llega a López Mateos: el asesor del grupo ya tiene su perfil completo, su financiamiento pre-aprobado y su historial. Cero formularios. La sesión es de quince minutos.</p>
 
-      <h3 class="delta-h" style="margin-top:14px;">Mes 3: la entrega como onboarding</h3>
-      <p class="delta-body">María recibe el auto con un onboarding del grupo, no de la agencia. App descargada, calendario de servicios pre-cargado, contacto único asignado. La marca-OEM está, pero el grupo está por encima. Sabe que <strong>cualquier cosa que necesite del auto los próximos cinco años, lo resuelve aquí.</strong></p>
+      <h3 style="margin-top:4mm;">Mes 3 — Entrega como onboarding</h3>
+      <p>María recibe el auto con onboarding del grupo, no de la agencia. App descargada, calendario de servicios pre-cargado, contacto único asignado. Sabe que <strong>cualquier cosa que necesite del auto los próximos cinco años, lo resuelve aquí.</strong></p>
 
-      <span class="stat">15 días</span>
-      <span class="stat-label">del primer contacto a la entrega, sin re-explicar nada en el camino</span>
+      <div class="delta-stat">15 días</div>
+      <div class="delta-stat-label">del primer contacto a la entrega, sin re-explicar nada en el camino</div>
     </div>
   </div>
 
@@ -815,246 +568,227 @@ em { font-style: italic; color: var(--gp-red); font-weight: 500; }
     <p>"No estaba buscando un sitio web mejor. Estaba buscando que dejaran de tratarme como prospecto desechable. Si el grupo me hace sentir cliente desde el primer minuto, lo demás se acomoda."</p>
     <span class="attrib"><strong>María</strong> · 32 años · investigación con personas reales del grupo objetivo</span>
   </div>
-
-  <div class="page-mark">Customer journey · Zoom María</div>
-  <div class="page-num">04 / 12</div>
 </div>
 
-<!-- ═══════════════════ PÁGINA 5 — CICLO DEL AUTO OVERVIEW ═══════════════════ -->
+<!-- ==================== PÁGINA 5 — CICLO 12 OPORTUNIDADES ==================== -->
 <div class="page">
-  <div class="section-marker">§ 4 · El ciclo del auto a cinco años</div>
-  <h1 class="hero">Doce oportunidades de revenue por cliente. Hoy el grupo captura <em>tres</em>.</h1>
+  <h1 class="section-title"><span class="num">§ 04 · Ciclo del auto a 5 años</span>Doce oportunidades de revenue por cliente. Hoy el grupo captura tres.</h1>
 
-  <p class="lede">Entre la compra y la renovación viven cinco años o más de relación con el auto. En esos cinco años se generan al menos doce oportunidades de ingreso por cliente: financiamiento, seguro inicial, accesorios, primer servicio, segundo servicio, refacciones, póliza de extensión, mantenimiento mayor, neumáticos, hojalatería, seguro de renovación, toma de seminuevo como enganche del siguiente. Hoy el grupo captura una fracción y cede el resto a terceros casi sin notarlo. Mañana las captura porque el Marketplace existe como sistema operativo, no como sitio web.</p>
+  <p class="lede">Entre la compra y la renovación viven cinco años o más de relación con el auto. En esos cinco años se generan al menos doce oportunidades de ingreso por cliente. Hoy el grupo captura una fracción y cede el resto a terceros casi sin notarlo. Mañana las captura porque el Marketplace existe como sistema, no como sitio web.</p>
 
-  <h3 class="sub-h">Las doce oportunidades, marcadas por estado actual</h3>
+  <h2 class="section-h2">Las doce oportunidades, marcadas por estado actual</h2>
 
   <div class="lifecycle">
     <div class="life-card captured">
-      <span class="life-num">01 · Captura</span>
-      <span class="life-title">Venta del auto nuevo</span>
-      <span class="life-status">Hoy: <strong>captura completa</strong>. Es el ingreso visible del grupo.</span>
+      <div class="life-num">01 · Captura</div>
+      <div class="life-title">Venta del auto nuevo</div>
+      <div class="life-status">Hoy: <strong>captura completa</strong>. Es el ingreso visible del grupo.</div>
     </div>
     <div class="life-card captured">
-      <span class="life-num">02 · Captura</span>
-      <span class="life-title">Financiamiento al momento</span>
-      <span class="life-status">Hoy: <strong>captura parcial</strong> vía financieras-OEM. Sin política grupo.</span>
+      <div class="life-num">02 · Captura</div>
+      <div class="life-title">Financiamiento al momento</div>
+      <div class="life-status">Hoy: <strong>captura parcial</strong> vía financieras-OEM. Sin política grupo.</div>
     </div>
     <div class="life-card ceded">
-      <span class="life-num">03 · Cede</span>
-      <span class="life-title">Seguro inicial del auto</span>
-      <span class="life-status">Hoy: <strong>cede a corredor externo</strong>. El grupo no lo opera.</span>
+      <div class="life-num">03 · Cede</div>
+      <div class="life-title">Seguro inicial del auto</div>
+      <div class="life-status">Hoy: <strong>cede a corredor externo</strong>. El grupo no lo opera.</div>
     </div>
     <div class="life-card ceded">
-      <span class="life-num">04 · Cede</span>
-      <span class="life-title">Accesorios + protección</span>
-      <span class="life-status">Hoy: <strong>cede al cliente</strong> que los compra en Amazon o tianguis.</span>
+      <div class="life-num">04 · Cede</div>
+      <div class="life-title">Accesorios + protección</div>
+      <div class="life-status">Hoy: <strong>cede al cliente</strong> que los compra en Amazon o tianguis.</div>
     </div>
     <div class="life-card captured">
-      <span class="life-num">05 · Captura</span>
-      <span class="life-title">Primer servicio (10k km)</span>
-      <span class="life-status">Hoy: <strong>captura por garantía</strong>. El cliente vuelve obligado.</span>
+      <div class="life-num">05 · Captura</div>
+      <div class="life-title">Primer servicio (10k km)</div>
+      <div class="life-status">Hoy: <strong>captura por garantía</strong>. El cliente vuelve obligado.</div>
     </div>
     <div class="life-card ceded">
-      <span class="life-num">06 · Cede</span>
-      <span class="life-title">Segundo servicio en adelante</span>
-      <span class="life-status">Hoy: <strong>cede a talleres independientes</strong> por precio.</span>
+      <div class="life-num">06 · Cede</div>
+      <div class="life-title">Segundo servicio en adelante</div>
+      <div class="life-status">Hoy: <strong>cede a talleres independientes</strong> por precio.</div>
     </div>
     <div class="life-card ceded">
-      <span class="life-num">07 · Cede</span>
-      <span class="life-title">Refacciones de uso</span>
-      <span class="life-status">Hoy: <strong>cede a mercado libre</strong>, refaccionarias, tianguis.</span>
+      <div class="life-num">07 · Cede</div>
+      <div class="life-title">Refacciones de uso</div>
+      <div class="life-status">Hoy: <strong>cede a mercado libre</strong>, refaccionarias, tianguis.</div>
     </div>
     <div class="life-card ceded">
-      <span class="life-num">08 · Cede</span>
-      <span class="life-title">Hojalatería + pintura</span>
-      <span class="life-status">Hoy: <strong>cede a aseguradora</strong>, que cotiza con terceros.</span>
+      <div class="life-num">08 · Cede</div>
+      <div class="life-title">Hojalatería + pintura</div>
+      <div class="life-status">Hoy: <strong>cede a aseguradora</strong>, que cotiza con terceros.</div>
     </div>
     <div class="life-card ceded">
-      <span class="life-num">09 · Cede</span>
-      <span class="life-title">Neumáticos + suspensión</span>
-      <span class="life-status">Hoy: <strong>cede a llanteras + Costco</strong>. Cero captura.</span>
+      <div class="life-num">09 · Cede</div>
+      <div class="life-title">Neumáticos + suspensión</div>
+      <div class="life-status">Hoy: <strong>cede a llanteras + Costco</strong>. Cero captura.</div>
     </div>
     <div class="life-card ceded">
-      <span class="life-num">10 · Cede</span>
-      <span class="life-title">Renovación del seguro</span>
-      <span class="life-status">Hoy: <strong>cede</strong>. Cliente renueva con su corredor, no con el grupo.</span>
+      <div class="life-num">10 · Cede</div>
+      <div class="life-title">Renovación del seguro</div>
+      <div class="life-status">Hoy: <strong>cede</strong>. Cliente renueva con su corredor, no con el grupo.</div>
     </div>
     <div class="life-card ceded">
-      <span class="life-num">11 · Cede</span>
-      <span class="life-title">Toma del seminuevo</span>
-      <span class="life-status">Hoy: <strong>cede a kavak.com</strong> u oferta de tianguis del cliente.</span>
+      <div class="life-num">11 · Cede</div>
+      <div class="life-title">Toma del seminuevo</div>
+      <div class="life-status">Hoy: <strong>cede a kavak.com</strong> u oferta de tianguis del cliente.</div>
     </div>
     <div class="life-card ceded">
-      <span class="life-num">12 · Cede</span>
-      <span class="life-title">Venta del auto siguiente</span>
-      <span class="life-status">Hoy: <strong>cede al ruido</strong>. El cliente vuelve a buscar desde cero.</span>
+      <div class="life-num">12 · Cede</div>
+      <div class="life-title">Venta del auto siguiente</div>
+      <div class="life-status">Hoy: <strong>cede al ruido</strong>. El cliente vuelve a buscar desde cero.</div>
     </div>
   </div>
 
-  <p class="body" style="margin-top:14px;"><strong>Lectura honesta:</strong> de las doce oportunidades, el grupo hoy captura solo tres con seguridad (01, 02, 05). Las otras nueve se ceden a terceros con quienes el grupo no compite en producto, compite en relación. Y la relación es lo que no se ha construido.</p>
-
-  <div class="page-mark">Ciclo del auto · 12 oportunidades</div>
-  <div class="page-num">05 / 12</div>
+  <div class="note red">
+    <span class="tag">Lectura honesta del ciclo</span>
+    De las doce oportunidades, el grupo hoy captura solo tres con seguridad (01, 02, 05). Las otras nueve se ceden a terceros con quienes el grupo <strong>no compite en producto, compite en relación. Y la relación es lo que no se ha construido.</strong>
+  </div>
 </div>
 
-<!-- ═══════════════════ PÁGINA 6 — CICLO TO BE ═══════════════════ -->
+<!-- ==================== PÁGINA 6 — CICLO TO BE FINANCIERO ==================== -->
 <div class="page">
-  <div class="section-marker">§ 4b · El mismo ciclo, capturado</div>
-  <h1 class="hero">Mañana el grupo captura <em>las doce</em>. No por agresividad. Por <em>relación</em>.</h1>
+  <h1 class="section-title"><span class="num">§ 04b · Ciclo TO BE · El caso financiero</span>El grupo captura las 12. No por agresividad. Por relación.</h1>
 
   <p class="lede">El cambio no es que el grupo le venda más cosas al cliente. Es que las nueve oportunidades que hoy se ceden a terceros se capturan porque el Marketplace existe como sistema de relación continua. La diferencia operacional es modesta. La diferencia económica es enorme.</p>
 
-  <div class="delta-grid">
-    <div class="delta-col as-is">
-      <span class="delta-tag as">AS IS · Hoy</span>
-      <h3 class="delta-h">Lo que el grupo factura por cliente en 5 años</h3>
-      <p class="delta-body" style="margin-top:6px;">Auto + financiamiento + primer servicio. Tres oportunidades capturadas, AOV ≈ $412K MXN (confirmado por Dirección de Finanzas).</p>
-      <span class="stat">~$412K</span>
-      <span class="stat-label">Cliente promedio · 5 años · captura actual</span>
+  <div class="delta-pair">
+    <div class="delta-card as">
+      <span class="delta-tag">AS IS · Lo que el grupo factura hoy por cliente en 5 años</span>
+      <p>Auto + financiamiento + primer servicio. Tres oportunidades capturadas, AOV ≈ $412K MXN (confirmado por Dirección de Finanzas).</p>
+      <div class="delta-stat">~$412K</div>
+      <div class="delta-stat-label">Cliente promedio · 5 años · captura actual</div>
 
-      <h3 class="delta-h" style="margin-top:18px;">Lo que el grupo cede a terceros</h3>
-      <p class="delta-body" style="margin-top:6px;">Seguro inicial + accesorios + servicios 2-5 + refacciones + hojalatería + neumáticos + renovación seguro + toma seminuevo + venta siguiente. Nueve oportunidades, cliente cede $80K-$200K a terceros a lo largo de 5 años.</p>
-      <span class="stat">~$120K</span>
-      <span class="stat-label">Cedidos a terceros por cliente · estimación conservadora</span>
+      <h3 style="margin-top:6mm;">Lo que el grupo cede a terceros</h3>
+      <p>Seguro inicial + accesorios + servicios 2-5 + refacciones + hojalatería + neumáticos + renovación seguro + toma seminuevo + venta siguiente. Nueve oportunidades, cliente cede $80K-$200K a terceros en 5 años.</p>
+      <div class="delta-stat">~$120K</div>
+      <div class="delta-stat-label">Cedidos a terceros por cliente · estimación conservadora</div>
     </div>
 
-    <div class="delta-col to-be">
-      <span class="delta-tag to">TO BE · Mañana</span>
-      <h3 class="delta-h">Lo que el grupo facturaría por cliente en 5 años</h3>
-      <p class="delta-body" style="margin-top:6px;">Las mismas tres capturas actuales + recuperación gradual de las nueve cedidas. No 100% de captura, pero sí 40-60% por la conveniencia de tenerlo todo en un solo lugar.</p>
-      <span class="stat">~$510K</span>
-      <span class="stat-label">Cliente promedio · 5 años · captura proyectada (escenario base)</span>
+    <div class="delta-card to">
+      <span class="delta-tag">TO BE · Lo que el grupo facturaría por cliente en 5 años</span>
+      <p>Las mismas tres capturas actuales + recuperación gradual de las nueve cedidas. No 100% de captura, pero sí 40-60% por la conveniencia de tenerlo todo en un solo lugar.</p>
+      <div class="delta-stat">~$510K</div>
+      <div class="delta-stat-label">Cliente promedio · 5 años · captura proyectada (escenario base)</div>
 
-      <h3 class="delta-h" style="margin-top:18px;">El delta por cliente</h3>
-      <p class="delta-body" style="margin-top:6px;">Recuperación de seguro grupo, accesorios on-purchase, servicios programados con recordatorio, refacciones del Marketplace, renovación con beneficio histórico, toma de seminuevo como enganche del siguiente.</p>
-      <span class="stat">+$98K</span>
-      <span class="stat-label">Incremental promedio por cliente capturado · ciclo 5 años</span>
+      <h3 style="margin-top:6mm;">El delta por cliente</h3>
+      <p>Recuperación de seguro grupo, accesorios on-purchase, servicios programados con recordatorio, refacciones del Marketplace, renovación con beneficio histórico, toma de seminuevo como enganche del siguiente.</p>
+      <div class="delta-stat">+$98K</div>
+      <div class="delta-stat-label">Incremental promedio por cliente · ciclo 5 años</div>
     </div>
   </div>
 
-  <div class="killer">
-    <div class="killer-eyebrow">Killer metric del ciclo · sustento del caso financiero</div>
-    <div class="killer-text">Con 3,000 ventas anuales del grupo (rango histórico), recuperar <strong>$98K incrementales por cliente a lo largo de 5 años</strong> equivale a <strong>+$294M MXN anuales</strong> en el régimen permanente. Es la captura, no la conquista, lo que paga el Marketplace.</div>
+  <div class="note navy">
+    <span class="tag" style="color:var(--gold);">Killer metric del Service Design · sustento del caso financiero</span>
+    Con 3,000 ventas anuales del grupo (rango histórico), recuperar <strong>$98K incrementales por cliente a lo largo de 5 años</strong> equivale a <strong>+$294M MXN anuales</strong> en el régimen permanente. Es la captura, no la conquista, lo que paga el Marketplace.
   </div>
 
-  <p class="body" style="margin-top:14px;"><strong>Lectura honesta:</strong> esta cifra no asume crecimiento de mercado, no asume mejora en cierre, no asume ventas adicionales por canal nuevo. Asume <em>únicamente</em> que el grupo deja de regalar a terceros lo que es suyo por relación.</p>
-
-  <div class="page-mark">Ciclo del auto · TO BE</div>
-  <div class="page-num">06 / 12</div>
+  <p>Esta cifra <strong>no asume</strong>: crecimiento de mercado, mejora en la tasa de cierre, ventas adicionales por canal nuevo. Asume <em>únicamente</em> que el grupo deja de regalar a terceros lo que es suyo por relación. Es la cifra más defensible del caso financiero porque es captura, no conquista.</p>
 </div>
 
-<!-- ═══════════════════ PÁGINA 7 — SERVICE BLUEPRINT ═══════════════════ -->
+<!-- ==================== PÁGINA 7 — SERVICE BLUEPRINT ==================== -->
 <div class="page">
-  <div class="section-marker">§ 5 · Service Blueprint operativo</div>
-  <h1 class="hero">El <em>delta</em> no es tecnológico. Es <em>organizacional</em>.</h1>
+  <h1 class="section-title"><span class="num">§ 05 · Service Blueprint operativo</span>El delta no es tecnológico. Es organizacional.</h1>
 
   <p class="lede">Un Service Blueprint expone las cinco capas que hacen posible un servicio: la evidencia que el cliente ve, sus acciones, lo que el frontstage hace en respuesta, lo que el backstage hace sin que se vea, y la infraestructura que respalda todo. Aquí están las cinco capas en la fase de <strong>Decidir + Adquirir</strong> (la más rota del journey actual), comparadas AS IS contra TO BE.</p>
 
   <div class="bp-header">
-    <div class="bp-lane" style="background:var(--gp-navy-deep);">Capa</div>
+    <div class="bp-lane">Capa</div>
     <div class="bp-cell as"><span class="dot"></span>AS IS · Hoy</div>
     <div class="bp-cell to"><span class="dot"></span>TO BE · Mañana</div>
   </div>
 
   <div class="blueprint">
     <div class="bp-row">
-      <div class="bp-lane">Evidencia<br><span style="font-weight:500;color:var(--n-400);font-size:8px;">Lo que el cliente ve</span></div>
+      <div class="bp-lane">Evidencia<span class="lane-sub">Lo que ve el cliente</span></div>
       <div class="bp-cell as">Anuncio Meta/Google de marca-OEM individual · landing por marca · WhatsApp de agencia · cotización en papel · entrega sin onboarding</div>
       <div class="bp-cell to">Anuncio Plasencia paraguas · Marketplace con todas las marcas · WhatsApp único del grupo · cotización digital firmable · app de onboarding</div>
     </div>
 
     <div class="bp-row">
-      <div class="bp-lane">Acciones del cliente</div>
+      <div class="bp-lane">Acciones<span class="lane-sub">Del cliente</span></div>
       <div class="bp-cell as">Llena formulario · espera llamada · agenda cita · va a tres agencias en un sábado · firma papeles · pierde tiempo confirmando</div>
       <div class="bp-cell to">Filtra inventario · reserva con depósito · agenda test drive en su calendario · llega 15 min · firma digital · recibe llave</div>
     </div>
 
-    <div class="bp-lane line" style="grid-column: 1 / -1; padding: 8px 14px; font-size:9px;">— Línea de interacción —<span class="lane-sub">Lo que el cliente ve por encima · operación por debajo</span></div>
+    <div class="bp-line">— Línea de interacción —</div>
 
     <div class="bp-row">
-      <div class="bp-lane">Frontstage<br><span style="font-weight:500;color:var(--n-400);font-size:8px;">Visible al cliente</span></div>
-      <div class="bp-cell as"><span class="bp-fail">FALLA</span>Vendedor llama tarde, repite preguntas que el cliente ya respondió en formulario, ofrece cita en su agenda no la del cliente</div>
-      <div class="bp-cell to"><span class="bp-win">WIN</span>Asesor del grupo (no de agencia) llega al test drive con perfil completo, financiamiento pre-aprobado, historial de navegación visible</div>
+      <div class="bp-lane">Frontstage<span class="lane-sub">Visible</span></div>
+      <div class="bp-cell as"><span class="bp-pill fail">Falla</span>Vendedor llama tarde, repite preguntas que el cliente ya respondió en formulario, ofrece cita en su agenda no la del cliente</div>
+      <div class="bp-cell to"><span class="bp-pill win">Win</span>Asesor del grupo (no de agencia) llega al test drive con perfil completo, financiamiento pre-aprobado, historial de navegación visible</div>
     </div>
 
-    <div class="bp-lane line" style="grid-column: 1 / -1; padding: 8px 14px; font-size:9px;">— Línea de visibilidad —<span class="lane-sub">Backstage invisible para el cliente</span></div>
+    <div class="bp-line">— Línea de visibilidad —</div>
 
     <div class="bp-row">
-      <div class="bp-lane">Backstage<br><span style="font-weight:500;color:var(--n-400);font-size:8px;">Invisible al cliente</span></div>
-      <div class="bp-cell as"><span class="bp-fail">FALLA</span>Lead entra a CRM-marca. Vendedor lo trabaja solo si tiene cupo. Sin SLA. Sin escalación. Sin dueño operativo del handoff marketing→ventas. <strong>82% de citas no se convierten en visita.</strong></div>
-      <div class="bp-cell to"><span class="bp-win">WIN</span>Lead entra al CRM grupo. Función nueva de Activación lo trabaja con SLA &lt;15 min. Vendedor recibe solo lo que llegó a visita confirmada. RevOps mide el handoff y lo corrige semana a semana.</div>
+      <div class="bp-lane">Backstage<span class="lane-sub">Invisible</span></div>
+      <div class="bp-cell as"><span class="bp-pill fail">Falla</span>Lead entra a CRM-marca. Vendedor lo trabaja si tiene cupo. Sin SLA. Sin escalación. Sin dueño operativo del handoff marketing→ventas. <strong>82% de citas no se convierten en visita.</strong></div>
+      <div class="bp-cell to"><span class="bp-pill win">Win</span>Lead entra al CRM grupo. Función nueva de Activación lo trabaja con SLA &lt;15 min. Vendedor recibe solo lo que llegó a visita confirmada. RevOps mide el handoff y lo corrige semana a semana.</div>
     </div>
 
-    <div class="bp-lane line" style="grid-column: 1 / -1; padding: 8px 14px; font-size:9px;">— Línea de interacción interna —<span class="lane-sub">Sistemas que respaldan</span></div>
+    <div class="bp-line">— Línea de interacción interna —</div>
 
     <div class="bp-row">
-      <div class="bp-lane">Soporte<br><span style="font-weight:500;color:var(--n-400);font-size:8px;">Infraestructura</span></div>
+      <div class="bp-lane">Soporte<span class="lane-sub">Infraestructura</span></div>
       <div class="bp-cell as">CRMs separados por marca · catálogos en Airtable cada uno · pipelines en Vambe sin política · GTM con tracking parcial · sin handoff a postventa</div>
       <div class="bp-cell to">CRM unificado del grupo (D1 + Worker) · Marketplace como sistema único · Plasi IA institucional como handler · GTM con tracking E2E · postventa integrada al perfil</div>
     </div>
   </div>
-
-  <div class="page-mark">Service Blueprint · Decidir + Adquirir</div>
-  <div class="page-num">07 / 12</div>
 </div>
 
-<!-- ═══════════════════ PÁGINA 8 — BLUEPRINT INSIGHT ═══════════════════ -->
+<!-- ==================== PÁGINA 8 — LECTURA DEL BLUEPRINT ==================== -->
 <div class="page">
-  <div class="section-marker">§ 5b · La lectura del blueprint</div>
-  <h1 class="hero">El cuello no está en marketing. Está en el <em>handoff</em>.</h1>
+  <h1 class="section-title"><span class="num">§ 05b · Lectura del blueprint</span>El cuello no está en marketing. Está en el handoff.</h1>
 
-  <p class="lede">El Service Blueprint expone lo que el dashboard del piloto Motor de Atribución ya cuantificó pero que nadie había visto como problema de servicio: el cuello operacional vive en la línea de visibilidad, no en la línea de interacción. Marketing entrega leads. Vendedor los recibe. Pero entre ambos no hay nadie con dueño operativo del handoff. El cliente nunca lo ve. Lo siente.</p>
+  <p class="lede">El Service Blueprint expone lo que el dashboard del piloto Motor de Atribución ya cuantificó pero que nadie había visto como problema de servicio: <strong>el cuello operacional vive en la línea de visibilidad, no en la línea de interacción.</strong> Marketing entrega leads. Vendedor los recibe. Pero entre ambos no hay nadie con dueño operativo del handoff. El cliente nunca lo ve. Lo siente.</p>
 
-  <div class="delta-grid">
-    <div class="delta-col as-is">
-      <span class="delta-tag as">AS IS · El handoff sin dueño</span>
-      <h3 class="delta-h">Tres puntos de falla repetidos</h3>
-      <ul class="delta-list">
+  <div class="delta-pair">
+    <div class="delta-card as">
+      <span class="delta-tag">AS IS · El handoff sin dueño</span>
+      <h3>Tres puntos de falla repetidos</h3>
+      <ul>
         <li><strong>Sin SLA de primer contacto.</strong> 79% de leads no recibe primer contacto efectivo en las primeras 24 horas.</li>
         <li><strong>Sin política de re-engagement.</strong> Si el lead no responde a la primera llamada, no hay segunda planificada. Se reza.</li>
         <li><strong>Sin escalación cuando se cae.</strong> Cita agendada que no se convierte en visita muere en silencio. Nadie la reactiva.</li>
       </ul>
 
-      <h3 class="delta-h" style="margin-top:16px;">Lo que esto le hace al cliente</h3>
-      <p class="delta-body">El cliente percibe falta de interés. No percibe falta de proceso. Asume que <em>el grupo no quiere venderle</em>. Y se va con un competidor que sí lo trabaja, aunque tenga peor producto.</p>
+      <h3 style="margin-top:5mm;">Lo que esto le hace al cliente</h3>
+      <p>El cliente percibe falta de interés. No percibe falta de proceso. Asume que <em>el grupo no quiere venderle</em>. Y se va con un competidor que sí lo trabaja, aunque tenga peor producto.</p>
 
-      <span class="stat">47%</span>
-      <span class="stat-label">de leads se pierden en 38 días sin razón operativa registrada</span>
+      <div class="delta-stat">47%</div>
+      <div class="delta-stat-label">de leads se pierden en 38 días sin razón operativa registrada</div>
     </div>
 
-    <div class="delta-col to-be">
-      <span class="delta-tag to">TO BE · Activación como función dueña</span>
-      <h3 class="delta-h">La figura nueva: Activación</h3>
-      <ul class="delta-list">
+    <div class="delta-card to">
+      <span class="delta-tag">TO BE · Activación como función dueña</span>
+      <h3>La figura nueva: Activación</h3>
+      <ul>
         <li><strong>SLA de 15 minutos al primer contacto.</strong> Plasi (IA institucional) o asesor humano según hora y complejidad. Cero leads sin tocar.</li>
         <li><strong>Secuencia de re-engagement programada.</strong> Si no contesta a la primera, hay segunda, tercera y handoff a canal alterno. Operacional, no voluntario.</li>
-        <li><strong>Escalación automática del handoff caído.</strong> Cita no concretada en 48 horas dispara reactivación con incentivo (descuento, reprogramación express).</li>
+        <li><strong>Escalación automática del handoff caído.</strong> Cita no concretada en 48 horas dispara reactivación con incentivo.</li>
       </ul>
 
-      <h3 class="delta-h" style="margin-top:16px;">Lo que esto le hace al cliente</h3>
-      <p class="delta-body">El cliente percibe interés sin asfixia. No tiene que esperar a que alguien tenga ganas. La operación lo respalda aunque el vendedor esté ocupado.</p>
+      <h3 style="margin-top:5mm;">Lo que esto le hace al cliente</h3>
+      <p>El cliente percibe interés sin asfixia. No tiene que esperar a que alguien tenga ganas. La operación lo respalda aunque el vendedor esté ocupado.</p>
 
-      <span class="stat">&lt;15 min</span>
-      <span class="stat-label">SLA de primer contacto efectivo (humano o IA)</span>
+      <div class="delta-stat">&lt;15 min</div>
+      <div class="delta-stat-label">SLA de primer contacto efectivo (humano o IA)</div>
     </div>
   </div>
 
-  <div class="killer">
-    <div class="killer-eyebrow">El insight estructural del blueprint</div>
-    <div class="killer-text">El Marketplace no se construye con un sitio web nuevo. Se construye <strong>creando la función de Activación que hoy no existe</strong> y dándole infraestructura, SLAs y métricas. La función es el Marketplace. El sitio es solo la evidencia visible.</div>
+  <div class="note navy">
+    <span class="tag" style="color:var(--gold);">El insight estructural del blueprint</span>
+    El Marketplace no se construye con un sitio web nuevo. Se construye <strong>creando la función de Activación que hoy no existe</strong> y dándole infraestructura, SLAs y métricas. La función es el Marketplace. El sitio es solo la evidencia visible.
   </div>
-
-  <div class="page-mark">Service Blueprint · Lectura del cuello</div>
-  <div class="page-num">08 / 12</div>
 </div>
 
-<!-- ═══════════════════ PÁGINA 9 — MOMENTS OF TRUTH ═══════════════════ -->
+<!-- ==================== PÁGINA 9 — MOMENTS OF TRUTH ==================== -->
 <div class="page">
-  <div class="section-marker">§ 6 · Los 6 Moments of Truth del journey</div>
-  <h1 class="hero">Seis momentos que el cliente <em>recordará</em>. Hoy todos fallan.</h1>
+  <h1 class="section-title"><span class="num">§ 06 · 6 Moments of Truth</span>Seis momentos que el cliente recordará. Hoy todos fallan.</h1>
 
-  <p class="lede">La Peak-End Rule dice que el cliente recuerda la experiencia por su momento más intenso y por cómo termina. En un journey de seis fases hay seis momentos que sobre-pesan el recuerdo. Diseñar el Marketplace es diseñar estos seis con obsesión, no diseñar los cuarenta intermedios.</p>
+  <p class="lede">La <strong>Peak-End Rule</strong> dice que el cliente recuerda la experiencia por su momento más intenso y por cómo termina. En un journey de seis fases hay seis momentos que sobre-pesan el recuerdo. Diseñar el Marketplace es diseñar estos seis con obsesión, no diseñar los cuarenta intermedios.</p>
 
   <div class="mot-row">
     <div class="mot-num">1</div>
@@ -1102,13 +836,13 @@ em { font-style: italic; color: var(--gp-red); font-weight: 500; }
     <div class="mot-num">4</div>
     <div class="mot-side as">
       <span class="mot-tag">Hoy</span>
-      <span class="mot-title">Entrega del auto comprado</span>
+      <span class="mot-title">Entrega del auto</span>
       <span class="mot-text">Llaves + manuales + foto + adiós. El cliente sale del piso sin saber qué viene después.</span>
     </div>
     <div class="mot-side to">
       <span class="mot-tag">Mañana</span>
       <span class="mot-title">Onboarding al ecosistema</span>
-      <span class="mot-text">App descargada, primer servicio agendado, contacto único asignado, recordatorios programados. El cliente sale del piso dentro del sistema.</span>
+      <span class="mot-text">App descargada, primer servicio agendado, contacto único asignado. El cliente sale del piso dentro del sistema.</span>
     </div>
   </div>
 
@@ -1116,13 +850,13 @@ em { font-style: italic; color: var(--gp-red); font-weight: 500; }
     <div class="mot-num">5</div>
     <div class="mot-side as">
       <span class="mot-tag">Hoy</span>
-      <span class="mot-title">Primer servicio (10 mil km)</span>
+      <span class="mot-title">Primer servicio (10k km)</span>
       <span class="mot-text">El cliente recuerda que debe agendar. Llama a la agencia, espera. Se siente "uno más" otra vez.</span>
     </div>
     <div class="mot-side to">
       <span class="mot-tag">Mañana</span>
       <span class="mot-title">Servicio que llega al cliente</span>
-      <span class="mot-text">App le recuerda. Reserva en un tap. Llega y el taller ya tiene su orden lista. Salió en 90 minutos.</span>
+      <span class="mot-text">App le recuerda. Reserva en un tap. Llega y el taller ya tiene su orden lista. Sale en 90 minutos.</span>
     </div>
   </div>
 
@@ -1136,27 +870,23 @@ em { font-style: italic; color: var(--gp-red); font-weight: 500; }
     <div class="mot-side to">
       <span class="mot-tag">Mañana</span>
       <span class="mot-title">Renovación como continuación</span>
-      <span class="mot-text">El grupo conoce su historia. Toma del seminuevo se valúa en línea. Aplica como enganche del siguiente. Cliente se queda otros 5 años.</span>
+      <span class="mot-text">El grupo conoce su historia. Toma del seminuevo se valúa en línea. Aplica como enganche del siguiente.</span>
     </div>
   </div>
-
-  <div class="page-mark">Moments of Truth · Peak-End design</div>
-  <div class="page-num">09 / 12</div>
 </div>
 
-<!-- ═══════════════════ PÁGINA 10 — ECOSYSTEM ═══════════════════ -->
+<!-- ==================== PÁGINA 10 — ECOSISTEMA ==================== -->
 <div class="page">
-  <div class="section-marker">§ 7 · El ecosistema del grupo</div>
-  <h1 class="hero">Hoy ocho líneas operan como <em>silos</em>. Mañana orbitan al cliente.</h1>
+  <h1 class="section-title"><span class="num">§ 07 · Ecosistema del grupo</span>Hoy ocho líneas operan como silos. Mañana orbitan al cliente.</h1>
 
   <p class="lede">El grupo Plasencia hoy opera ocho líneas de negocio relacionadas con auto: Seminuevos, Mazda, Hyundai, Stellantis, GAC, Autolease (nueva), Postventa/Servicio y Financiamiento. Operativamente viven en silos: cada una con su CRM, su pipeline, su marca, su KPI. El cliente las vive como ocho relaciones separadas. El Marketplace las pone a orbitar al cliente como un solo sistema.</p>
 
-  <div class="eco-grid">
+  <div class="eco-pair">
     <div class="eco-panel as">
-      <span class="delta-tag as">AS IS · Silos por marca-OEM</span>
-      <h3 class="eco-h">Ocho líneas que no se hablan</h3>
-      <ul class="eco-list">
-        <li><strong>Seminuevos:</strong> catálogo unificado 8 sucursales, pero opera como marca aparte.</li>
+      <span class="eco-tag">AS IS · Silos por marca-OEM</span>
+      <h3>Ocho líneas que no se hablan</h3>
+      <ul>
+        <li><strong>Seminuevos:</strong> catálogo unificado 8 sucursales, opera como marca aparte.</li>
         <li><strong>Mazda · Hyundai · Stellantis · GAC:</strong> cada marca con su CRM, sus KPIs, su agencia, su gerente.</li>
         <li><strong>Autolease:</strong> línea nueva pre-lanzamiento. Sin infraestructura compartida con las demás.</li>
         <li><strong>Postventa:</strong> talleres por marca, agendas separadas, sin visibilidad cruzada del perfil del cliente.</li>
@@ -1166,9 +896,9 @@ em { font-style: italic; color: var(--gp-red); font-weight: 500; }
     </div>
 
     <div class="eco-panel to">
-      <span class="delta-tag to">TO BE · Cliente al centro</span>
-      <h3 class="eco-h">Ocho líneas que orbitan</h3>
-      <ul class="eco-list">
+      <span class="eco-tag">TO BE · Cliente al centro</span>
+      <h3>Ocho líneas que orbitan</h3>
+      <ul>
         <li><strong>Cliente único del grupo:</strong> perfil consolidado, historia de 5+ años, contacto único.</li>
         <li><strong>Marketplace como puerta:</strong> entrada unificada. Marcas-OEM como inventario, no como interfaz.</li>
         <li><strong>Plasi (IA institucional):</strong> handler conversacional con conocimiento de las 8 líneas.</li>
@@ -1179,19 +909,15 @@ em { font-style: italic; color: var(--gp-red); font-weight: 500; }
     </div>
   </div>
 
-  <div class="killer">
-    <div class="killer-eyebrow">La inversión estructural del modelo</div>
-    <div class="killer-text">El modelo actual subordina la marca paraguas Plasencia a las marcas-OEM individuales. El Marketplace <strong>invierte esa relación</strong>: Plasencia al centro, marcas-OEM como inventario que el grupo ofrece. Esa inversión es lo que separa a un concesionario tradicional de un retailer-marketplace moderno como Lithia o Asbury.</div>
+  <div class="note navy">
+    <span class="tag" style="color:var(--gold);">La inversión estructural del modelo</span>
+    El modelo actual subordina la marca paraguas Plasencia a las marcas-OEM individuales. El Marketplace <strong>invierte esa relación</strong>: Plasencia al centro, marcas-OEM como inventario que el grupo ofrece. Esa inversión es lo que separa a un concesionario tradicional de un retailer-marketplace moderno como Lithia o Asbury.
   </div>
-
-  <div class="page-mark">Ecosystem map · Silos vs órbita</div>
-  <div class="page-num">10 / 12</div>
 </div>
 
-<!-- ═══════════════════ PÁGINA 11 — 3 PERSONAS ═══════════════════ -->
+<!-- ==================== PÁGINA 11 — 3 PERSONAS ==================== -->
 <div class="page">
-  <div class="section-marker">§ 8 · Before / After con tres personas reales</div>
-  <h1 class="hero">No vendemos a "el cliente". Vendemos a <em>María, Carlos y Andrea</em>.</h1>
+  <h1 class="section-title"><span class="num">§ 08 · 3 personas · before / after</span>No vendemos a "el cliente". Vendemos a María, Carlos y Andrea.</h1>
 
   <p class="lede">Las generalizaciones esconden el delta. Las personas lo revelan. Aquí está el AS IS / TO BE de tres personas del grupo objetivo: María (primer comprador PFAE), Carlos (Pyme con flotilla), Andrea (segundo auto para hija universitaria, decisora del hogar).</p>
 
@@ -1207,7 +933,7 @@ em { font-style: italic; color: var(--gp-red); font-weight: 500; }
 
       <div class="persona-block to">
         <div class="pb-tag">Mañana</div>
-        <div class="pb-text">Compara en Marketplace, reserva con depósito reembolsable, test drive en su calendario. Entrega en 15 días con onboarding del grupo. Sale con app instalada y primer servicio agendado.</div>
+        <div class="pb-text">Compara en Marketplace, reserva con depósito reembolsable, test drive en su calendario. Entrega en 15 días con onboarding del grupo. Sale con app y primer servicio agendado.</div>
       </div>
     </div>
 
@@ -1222,22 +948,22 @@ em { font-style: italic; color: var(--gp-red); font-weight: 500; }
 
       <div class="persona-block to">
         <div class="pb-tag">Mañana</div>
-        <div class="pb-text">Entra al Marketplace B2B del grupo. Configura flotilla cruzada (Hyundai + Stellantis), cotización con financiamiento Autolease integrada en 24h, contrato firmable digital, postventa agendada de antemano.</div>
+        <div class="pb-text">Entra al Marketplace B2B del grupo. Configura flotilla cruzada (Hyundai + Stellantis), cotización con financiamiento Autolease integrada en 24h, contrato firmable, postventa agendada.</div>
       </div>
     </div>
 
     <div class="persona-card">
       <div class="persona-name">Andrea, 51</div>
-      <div class="persona-meta">Decisora hogar · segundo auto para hija</div>
+      <div class="persona-meta">Decisora hogar · segundo auto hija</div>
 
       <div class="persona-block as">
         <div class="pb-tag">Hoy</div>
-        <div class="pb-text">Compra de seminuevo para hija de 19. Visita Plasencia Seminuevos, también Kavak, también Auto Cosmos. Decide por Kavak porque "se ve más serio el sitio". Plasencia perdió la venta por percepción digital.</div>
+        <div class="pb-text">Compra seminuevo para hija de 19. Visita Plasencia Seminuevos, también Kavak, también Auto Cosmos. Decide por Kavak porque "se ve más serio el sitio". Plasencia perdió la venta por percepción digital.</div>
       </div>
 
       <div class="persona-block to">
         <div class="pb-tag">Mañana</div>
-        <div class="pb-text">Entra al Marketplace, ve 47 fotos del auto, historial documentado, garantía 6 meses por escrito. Plasencia Seminuevos respalda. Andrea confía. Compra. Su hija se incorpora al ecosistema del grupo.</div>
+        <div class="pb-text">Entra al Marketplace, ve 47 fotos del auto, historial documentado, garantía 6 meses por escrito. Plasencia Seminuevos respalda. Andrea confía. Compra. Su hija entra al ecosistema del grupo.</div>
       </div>
     </div>
   </div>
@@ -1247,76 +973,66 @@ em { font-style: italic; color: var(--gp-red); font-weight: 500; }
     <span class="attrib"><strong>Carlos</strong> · investigación con personas reales del grupo objetivo</span>
   </div>
 
-  <h2 class="section-h" style="margin-top:8px;">El diferencial no es tecnológico. Es de relación.</h2>
-  <p class="body">Las tres situaciones de la columna AS IS no se resuelven con mejor tecnología. Se resuelven con un grupo que decide tratar al cliente como cliente del grupo, no como prospecto de la marca-OEM individual. La tecnología hace posible la relación. La relación es la decisión estratégica.</p>
-
-  <div class="page-mark">3 personas · before / after</div>
-  <div class="page-num">11 / 12</div>
+  <h2 class="section-h2">El diferencial no es tecnológico. Es de relación.</h2>
+  <p>Las tres situaciones de la columna AS IS no se resuelven con mejor tecnología. Se resuelven con un grupo que decide tratar al cliente como cliente del grupo, no como prospecto de la marca-OEM individual. La tecnología hace posible la relación. La relación es la decisión estratégica.</p>
 </div>
 
-<!-- ═══════════════════ PÁGINA 12 — CIERRE ═══════════════════ -->
-<div class="page dark">
-  <div class="section-marker">§ 9 · Cierre · Una visión no es un plan, pero sin visión el plan no importa</div>
-  <h1 class="hero">El Paper Ejecutivo dice <em>qué</em>. Este documento dice <em>por qué importa</em>.</h1>
+<!-- ==================== PÁGINA 12 — CIERRE ==================== -->
+<div class="page">
+  <h1 class="section-title"><span class="num">§ 09 · Cierre</span>El Paper dice qué. Este documento dice por qué importa.</h1>
 
   <p class="lede">Este documento no resuelve cómo se construye el Marketplace, cuánto cuesta ni quién lo opera. Esas conversaciones viven en el Paper Ejecutivo y el Deck del All-In. Lo que este documento hace es articular la imagen mental compartida de lo que estamos construyendo, para que cada decisión técnica, operacional o financiera tenga un norte claro.</p>
 
-  <h3 class="sub-h" style="color:var(--gp-gold); margin-top:24px;">Tres ideas para quedarse en la memoria del Consejo</h3>
+  <h2 class="section-h2">Tres ideas para quedarse en la memoria del Consejo</h2>
 
-  <div class="frame-row" style="border-bottom-color: rgba(255,255,255,0.10);">
-    <div class="frame-num" style="color:var(--gp-gold);">1</div>
-    <div class="frame-body">
-      <h4 style="color:var(--n-50);">Comprar un auto no es un evento. Es una relación.</h4>
-      <p style="color:var(--n-300);">Cinco años. Doce oportunidades de revenue. Hoy el grupo cede nueve a terceros. El Marketplace existe para que el grupo capture la relación completa, no para que tenga un sitio web bonito.</p>
+  <div class="kpi-grid three">
+    <div class="kpi featured">
+      <div class="kpi-label">Idea 1</div>
+      <div class="kpi-value gold" style="font-size:13pt; line-height:1.25;">Comprar un auto<br>no es un evento</div>
+      <div class="kpi-sub">Es una relación de cinco años. Doce oportunidades de revenue. Hoy el grupo cede nueve a terceros. El Marketplace existe para capturar la relación completa, no para tener un sitio web bonito.</div>
+    </div>
+    <div class="kpi featured">
+      <div class="kpi-label">Idea 2</div>
+      <div class="kpi-value gold" style="font-size:13pt; line-height:1.25;">El cliente al centro,<br>no la marca-OEM</div>
+      <div class="kpi-sub">El modelo actual subordina la marca paraguas Plasencia a las marcas-OEM individuales. El Marketplace invierte esa relación: Plasencia al centro, marcas-OEM como inventario que el grupo ofrece.</div>
+    </div>
+    <div class="kpi featured">
+      <div class="kpi-label">Idea 3</div>
+      <div class="kpi-value gold" style="font-size:13pt; line-height:1.25;">El diferencial es<br>de relación, no de tecnología</div>
+      <div class="kpi-sub">La industria mexicana sabe construir sitios web. No sabe construir relaciones de cinco años con sus clientes. El Marketplace es el sistema que hace esa relación posible: tecnológica, operativa y emocionalmente.</div>
     </div>
   </div>
 
-  <div class="frame-row" style="border-bottom-color: rgba(255,255,255,0.10);">
-    <div class="frame-num" style="color:var(--gp-gold);">2</div>
-    <div class="frame-body">
-      <h4 style="color:var(--n-50);">El cliente al centro, no la marca-OEM.</h4>
-      <p style="color:var(--n-300);">El modelo actual subordina la marca paraguas Plasencia a las marcas-OEM individuales. El Marketplace invierte esa relación: Plasencia al centro, marcas-OEM como inventario que el grupo ofrece. Esa inversión es la decisión estratégica.</p>
-    </div>
+  <div class="declaration">
+    <div class="label">Cierre</div>
+    <p>El mandato del piloto era documentar si marketing es rentable. La respuesta es sí. Pero el piloto destapó que <strong>hagas lo que hagas en marketing, sin arreglar el modelo operativo end-to-end no tiene caso</strong>. Este documento articuló el delta entre la experiencia que el cliente vive hoy y la que viviría mañana.</p>
+    <p>La conversación que el Consejo enfrenta no es sobre tecnología, ni sobre presupuesto, ni sobre canal. Es sobre <strong>si el grupo está dispuesto a tratar al cliente como cliente del grupo</strong>, no como prospecto de una marca individual. Esa decisión, una vez tomada, hace que todo lo demás —arquitectura, ejecución, ingeniería— sea consecuencia.</p>
   </div>
 
-  <div class="frame-row" style="border-bottom: 0;">
-    <div class="frame-num" style="color:var(--gp-gold);">3</div>
-    <div class="frame-body">
-      <h4 style="color:var(--n-50);">El diferencial es de relación, no de tecnología.</h4>
-      <p style="color:var(--n-300);">La industria mexicana sabe construir sitios web. No sabe construir relaciones de cinco años con sus clientes. El Marketplace es el sistema que hace esa relación posible: tecnológica, operativa y emocionalmente.</p>
-    </div>
+  <div class="close-statement">
+    <p>Si la visión es correcta, lo demás es <em>ingeniería</em>.<br>Si la visión es ambigua, ninguna ingeniería la <em>salva</em>.</p>
+    <div class="sig">Plasencia Marketplace · Service Design Document · v3.0 · Mayo 2026<br>Dirección de Marketing Corporativo · Grupo Plasencia Automotriz</div>
   </div>
-
-  <div class="close-hero">
-    <div class="close-eyebrow">Cierre</div>
-    <div class="close-text">Si la visión es correcta, lo demás es <em>ingeniería</em>.<br>Si la visión es ambigua, ninguna ingeniería la <em>salva</em>.</div>
-    <div class="close-sig">Plasencia Marketplace · Service Design Document · v2.0 · Mayo 2026 · Dirección de Marketing Corporativo · Grupo Plasencia Automotriz</div>
-  </div>
-
-  <div class="page-mark">Cierre · Conexión con Paper + Deck</div>
-  <div class="page-num">12 / 12</div>
 </div>
 
-<!-- ═══════════════════ CROSS-REFERENCE FOOTER ═══════════════════ -->
+<!-- ==================== NAV FOOTER ==================== -->
 <div class="nav-foot">
-  <div class="nav-foot-inner">
-    <div class="nf-eye">Estrategia All-In Junio 2026 · Documento 3 de 3</div>
-    <div class="nf-h">Este documento no vive solo.</div>
-    <p class="nf-p">Acabas de leer el <strong style="color:#F7FAFC;">Service Design Document</strong>: el delta visual entre el hoy y el mañana del cliente Plasencia. Su par estratégico es el <strong style="color:#F7FAFC;">Paper Ejecutivo</strong> (argumento Minto + SCR + ASK al Consejo) y su par presencial es el <strong style="color:#F7FAFC;">Deck</strong> (mismo argumento, formato sala). Los tres son la misma propuesta en tres capas.</p>
-    <div class="nf-row">
-      <a class="nf-card" href="Plasencia-Marketplace-Estrategia-Paper-Ejecutivo.html">
-        <div class="nfc-eye">Doc 1 · Paper A4</div>
-        <div class="nfc-t">Paper Ejecutivo · All-In</div>
-        <div class="nfc-p">13 páginas · Strategy Definition + ASK binario al Consejo</div>
-      </a>
-      <a class="nf-card" href="Plasencia-Marketplace-Estrategia-Deck.html">
-        <div class="nfc-eye">Doc 2 · Deck</div>
-        <div class="nfc-t">Deck · All-In</div>
-        <div class="nfc-p">17 slides + 1 navegación · sustento en sala del Paper</div>
-      </a>
-    </div>
-    <div class="nf-back"><a href="../index.html">← Volver al índice de decks estratégicos</a></div>
+  <div class="nf-eye">Estrategia All-In Junio 2026 · Documento 3 de 3</div>
+  <div class="nf-h">Este documento no vive solo.</div>
+  <p class="nf-p">Acabas de leer el <strong>Service Design Document</strong>: el delta visual entre el hoy y el mañana del cliente Plasencia. Su par estratégico es el <strong>Paper Ejecutivo</strong> (argumento Minto + SCR + ASK al Consejo) y su par presencial es el <strong>Deck</strong> (mismo argumento, formato sala). Los tres son la misma propuesta en tres capas, todos bajo el mismo sistema de diseño de Grupo Plasencia.</p>
+  <div class="nf-row">
+    <a class="nf-card" href="Plasencia-Marketplace-Estrategia-Paper-Ejecutivo.html">
+      <div class="nfc-eye">Doc 1 · Paper A4</div>
+      <div class="nfc-t">Paper Ejecutivo · All-In</div>
+      <div class="nfc-p">13 páginas · Strategy Definition + ASK binario al Consejo</div>
+    </a>
+    <a class="nf-card" href="Plasencia-Marketplace-Estrategia-Deck.html">
+      <div class="nfc-eye">Doc 2 · Deck</div>
+      <div class="nfc-t">Deck · All-In</div>
+      <div class="nfc-p">18 slides · sustento en sala del Paper</div>
+    </a>
   </div>
+  <div class="nf-back"><a href="../index.html">← Volver al índice de decks estratégicos</a></div>
 </div>
 
 </body>
