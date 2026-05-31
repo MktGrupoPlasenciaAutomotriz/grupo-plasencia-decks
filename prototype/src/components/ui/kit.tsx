@@ -1,4 +1,6 @@
 import type { ReactNode, ButtonHTMLAttributes } from 'react'
+import logoBlanco from '../../assets/logo-gp-blanco.png'
+import logoNegro from '../../assets/logo-gp-negro.png'
 
 // ============================================================
 // UI Kit · Plasencia Marketplace (corporate + fintech)
@@ -74,10 +76,13 @@ export function Stat({ value, label, tone = 'navy' }: { value: string; label: st
 // Logo Plasencia (texto, para no depender de assets externos en el proto)
 export function Logo({ dark = false }: { dark?: boolean }) {
   return (
-    <div className="flex items-center gap-2 select-none">
-      <div className={`gp-display font-black text-[19px] tracking-tight ${dark ? 'text-white' : 'text-navy'}`}>
-        PLASENCIA
-      </div>
+    <div className="flex items-center gap-2.5 select-none">
+      <img
+        src={dark ? logoBlanco : logoNegro}
+        alt="Grupo Plasencia"
+        className="h-7 w-auto"
+        style={dark ? { mixBlendMode: 'screen' } : undefined}
+      />
       <span className="gp-display text-[9px] font-extrabold tracking-[2px] uppercase px-1.5 py-0.5 rounded bg-red text-white">Marketplace</span>
     </div>
   )
