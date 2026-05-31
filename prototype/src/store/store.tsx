@@ -14,6 +14,7 @@ const initialState: AppState = {
   deals: [],
   tradeIns: [],
   servicios: [],
+  pagos: [],
   compareIds: [],
 }
 
@@ -24,6 +25,7 @@ type Action =
   | { type: 'UPDATE_DEAL'; payload: { id: string; patch: Partial<Deal> } }
   | { type: 'ADD_TRADEIN'; payload: TradeIn }
   | { type: 'ADD_SERVICE'; payload: ServiceEvent }
+  | { type: 'ADD_PAYMENT'; payload: Payment }
   | { type: 'TOGGLE_COMPARE'; payload: string }
   | { type: 'RESET' }
 
@@ -44,6 +46,8 @@ function reducer(state: AppState, action: Action): AppState {
       return { ...state, tradeIns: [action.payload, ...state.tradeIns] }
     case 'ADD_SERVICE':
       return { ...state, servicios: [action.payload, ...state.servicios] }
+    case 'ADD_PAYMENT':
+      return { ...state, pagos: [action.payload, ...state.pagos] }
     case 'TOGGLE_COMPARE': {
       const exists = state.compareIds.includes(action.payload)
       if (exists) return { ...state, compareIds: state.compareIds.filter(id => id !== action.payload) }

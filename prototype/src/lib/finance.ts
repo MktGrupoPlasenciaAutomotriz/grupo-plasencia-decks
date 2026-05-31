@@ -34,3 +34,23 @@ export function valuarTradeIn(precioRefNuevo: number, anio: number, kmAprox: num
   const depKm = Math.max(1 - (kmAprox / 200000) * 0.5, 0.4)
   return Math.round((precioRefNuevo * depAnio * depKm) / 1000) * 1000
 }
+
+// Estado de cuenta: progreso de un plan de crédito/arrendamiento dado # de pagos hechos
+export interface EstadoCuenta {
+  pagosHechos: number
+  pagosTotales: number
+  pagado: number
+  saldoRestante: number
+  proximoPago: number
+}
+export function estadoCuenta(mensualidad: number, plazoMeses: number, pagosHechos: number): EstadoCuenta {
+  const total = mensualidad * plazoMeses
+  const pagado = mensualidad * pagosHechos
+  return {
+    pagosHechos,
+    pagosTotales: plazoMeses,
+    pagado,
+    saldoRestante: Math.max(total - pagado, 0),
+    proximoPago: pagosHechos < plazoMeses ? mensualidad : 0,
+  }
+}

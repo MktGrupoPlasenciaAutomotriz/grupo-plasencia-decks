@@ -3,6 +3,7 @@ import { useEffect } from 'react'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import CompareBar from './components/CompareBar'
+import Plasi from './components/Plasi'
 import Home from './pages/Home'
 import Catalog from './pages/Catalog'
 import VehiclePDP from './pages/VehiclePDP'
@@ -32,6 +33,7 @@ export default function App() {
       </main>
       <CompareBar />
       <Footer />
+      <Plasi />
     </div>
   )
 }

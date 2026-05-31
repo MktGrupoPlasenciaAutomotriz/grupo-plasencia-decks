@@ -82,7 +82,19 @@ export interface ServiceEvent {
   vehicleId: string
   tipo: string
   fecha: string
+  sucursal: string
+  costo: number
   estado: 'agendado' | 'completado'
+  createdAt: number
+}
+
+export interface Payment {
+  id: string
+  dealId: string
+  concepto: string
+  monto: number
+  fecha: string
+  createdAt: number
 }
 
 export interface Customer {
@@ -101,5 +113,6 @@ export interface AppState {
   deals: Deal[]
   tradeIns: TradeIn[]
   servicios: ServiceEvent[]
+  pagos: Payment[]
   compareIds: string[]
 }

@@ -15,6 +15,7 @@ export default function VehicleCard({ v }: { v: Vehicle }) {
       <article className="bg-white border border-n200 rounded-[16px] overflow-hidden transition-all duration-200 hover:shadow-[0_12px_32px_rgba(15,26,46,.12)] hover:-translate-y-0.5 hover:border-n300 h-full flex flex-col">
         <div className="relative aspect-[16/10] bg-n100 overflow-hidden">
           <img src={v.fotos[0]} alt={`${v.marca} ${v.modelo}`} loading="lazy"
+            onError={(e) => { (e.currentTarget as HTMLImageElement).src = 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=1100&q=80' }}
             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
           <div className="absolute top-3 left-3 flex flex-col gap-1.5 items-start">
             {v.destacado && <Badge tone="gold">★ Destacado</Badge>}
