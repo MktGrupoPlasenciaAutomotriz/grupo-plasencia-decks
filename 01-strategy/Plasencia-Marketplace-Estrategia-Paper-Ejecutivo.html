@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Plasencia Marketplace · Documento ejecutivo · Mayo 2026</title>
+<meta name="description" content="Documento ejecutivo de Plasencia Marketplace para el Consejo Directivo de Grupo Plasencia Automotriz. Estructura Minto + SCR + Answer-First.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    /* === Grupo Plasencia Design System Tokens === */
+    --gp-black: #1A1A1A;
+    --color-primary: #1E2740;
+    --color-primary-light: #2D3748;
+    --color-accent: #4299E1;
+    --color-accent-hover: #3182CE;
+    --color-conversion: #C8102E;
+    --color-conversion-hover: #A50D25;
+    --color-success: #48BB78;
+    --color-success-deep: #276749;
+    --color-warning: #D69E2E;
+    --color-warning-deep: #B7791F;
+    --color-error: #E53E3E;
+    --color-info: #3182CE;
+    --gold: #ECC94B;
+    --neutral-50: #F7FAFC;
+    --neutral-100: #EDF2F7;
+    --neutral-200: #E2E8F0;
+    --neutral-300: #CBD5E0;
+    --neutral-400: #A0AEC0;
+    --neutral-500: #718096;
+    --neutral-600: #4A5568;
+    --neutral-700: #2D3748;
+    --neutral-800: #1A202C;
+    --neutral-900: #171923;
+    --bg: #F0F4F8;
+    --paper: #FFFFFF;
+    --font-display: 'Montserrat', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --space-1: 4px; --space-2: 8px; --space-3: 12px; --space-4: 16px;
+    --space-6: 24px; --space-8: 32px; --space-12: 48px; --space-16: 64px;
+    --radius-sm: 4px; --radius-md: 8px; --radius-lg: 12px; --radius-xl: 16px;
+    --shadow-sm: 0 1px 3px rgba(26,26,26,.10), 0 1px 2px rgba(26,26,26,.06);
+    --shadow-md: 0 4px 6px rgba(26,26,26,.10), 0 2px 4px rgba(26,26,26,.06);
+    --shadow-lg: 0 10px 15px rgba(26,26,26,.10), 0 4px 6px rgba(26,26,26,.05);
+    --duration-fast: 150ms; --duration-normal: 250ms; --duration-slow: 400ms;
+    --ease-default: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html, body { background:var(--bg); }
+  body {
+    font-family: var(--font-body);
+    color: var(--neutral-700);
+    line-height: 1.55;
+    font-size: 10pt;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  @page {
+    size: A4;
+    margin: 18mm 18mm 22mm 18mm;
+    @bottom-right { content: counter(page); font-family: 'Inter', sans-serif; font-size: 9pt; color: #718096; }
+    @bottom-left { content: "Confidencial · Grupo Plasencia · Dirección de Marketing Corporativo"; font-family: 'Inter', sans-serif; font-size: 8pt; color: #A0AEC0; }
+    @top-right { content: "Plasencia Marketplace · Documento ejecutivo"; font-family: 'Inter', sans-serif; font-size: 8pt; color: #A0AEC0; }
+  }
+  @page :first { @top-right { content: ""; } @bottom-right { content: ""; } @bottom-left { content: ""; } }
+  @page cover { margin: 0; }
+
+  .page {
+    background: var(--paper);
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0 auto 8mm auto;
+    padding: 18mm 18mm 22mm 18mm;
+    position: relative;
+    page-break-after: always;
+    box-shadow: var(--shadow-md), 0 4px 24px rgba(30,39,64,.08);
+  }
+  .page:last-child { page-break-after: auto; }
+
+  /* ============ COVER ============ */
+  .cover { background: var(--color-primary); color: var(--neutral-50); padding: 0; page: cover; }
+  .cover-inner {
+    padding: 36mm 22mm 24mm 22mm;
+    min-height: 297mm;
+    display: flex; flex-direction: column; justify-content: space-between;
+    background:
+      radial-gradient(ellipse at 100% 0%, rgba(236,201,75,0.12) 0%, transparent 55%),
+      radial-gradient(ellipse at 0% 100%, rgba(200,16,46,0.10) 0%, transparent 55%),
+      var(--color-primary);
+    position: relative;
+  }
+  .cover-inner::before {
+    content: ""; position: absolute; top: 24mm; left: 22mm;
+    width: 64mm; height: 1px; background: var(--gold);
+  }
+  .cover-mark { font-family: var(--font-display); font-weight: 700; font-size: 10pt; letter-spacing: 3.5px; color: var(--gold); text-transform: uppercase; }
+  .cover-mark span { display:block; font-family: var(--font-body); font-weight:400; color:rgba(255,255,255,0.55); margin-top:4px; letter-spacing:1px; font-size:9pt; text-transform: none; }
+  .cover-eyebrow { font-family: var(--font-display); font-size: 10pt; font-weight: 700; letter-spacing: 4.5px; color: var(--color-conversion); text-transform: uppercase; margin-top: 14mm; }
+  .cover-title { font-family: var(--font-display); font-weight: 800; font-size: 48pt; line-height: 1.05; letter-spacing: -1.8px; margin-top: 6mm; color: var(--neutral-50); }
+  .cover-title em { font-style: normal; color: var(--gold); font-weight: 800; }
+  .cover-subtitle { font-family: var(--font-display); font-weight: 600; font-size: 14pt; color: var(--gold); margin-top: 8mm; letter-spacing: -0.2px; line-height: 1.35; }
+  .cover-pull { font-family: var(--font-body); font-weight: 400; font-size: 11pt; color: rgba(255,255,255,0.85); line-height: 1.5; border-left: 3px solid var(--color-conversion); padding-left: 8mm; margin-top: 16mm; max-width: 150mm; }
+  .cover-pull strong { color: var(--gold); font-weight: 600; }
+  .cover-pull cite { display: block; font-style: normal; font-family: var(--font-display); font-weight: 700; font-size: 9pt; letter-spacing: 1.5px; color: var(--color-conversion); margin-top: 6mm; text-transform: uppercase; }
+  .cover-tags { display:flex; gap:6mm; margin-top: 14mm; flex-wrap:wrap; }
+  .cover-tag { font-family: var(--font-display); font-size: 8.5pt; font-weight: 700; letter-spacing: 1px; color: rgba(255,255,255,0.85); border: 1px solid rgba(255,255,255,0.25); padding: 4px 11px; border-radius: var(--radius-full, 999px); text-transform: uppercase; }
+  .cover-tag.accent { color: var(--gold); border-color: rgba(236,201,75,0.4); }
+  .cover-tag.urgent { color: var(--color-conversion); border-color: rgba(200,16,46,0.4); }
+  .cover-meta { display: flex; justify-content: space-between; align-items: flex-end; margin-top: 16mm; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 8mm; }
+  .cover-meta-block { font-family: var(--font-body); font-size: 9pt; color: rgba(255,255,255,0.65); line-height: 1.7; }
+  .cover-meta-block strong { display:block; font-family: var(--font-display); color: var(--neutral-50); font-weight: 700; font-size: 10pt; letter-spacing: .5px; }
+
+  /* ============ TOC ============ */
+  .toc { margin-top: 6mm; }
+  .toc-item { display: flex; justify-content: space-between; align-items: baseline; padding: 3mm 0; border-bottom: 1px dotted var(--neutral-300); font-size: 10.5pt; }
+  .toc-num { font-family: var(--font-display); font-weight: 800; font-size: 12pt; color: var(--color-conversion); width: 14mm; flex-shrink: 0; }
+  .toc-title { flex: 1; font-family: var(--font-display); color: var(--color-primary); font-weight: 700; padding-right: 4mm; }
+  .toc-sub { display: block; font-family: var(--font-body); font-size: 9pt; color: var(--neutral-500); font-weight: 400; margin-top: 1mm; }
+  .toc-page { color: var(--neutral-500); font-family: var(--font-display); font-style: italic; font-size: 10.5pt; flex-shrink: 0; font-weight: 600; }
+
+  /* ============ TYPOGRAPHY ============ */
+  h1.section-title {
+    font-family: var(--font-display); font-weight: 800; font-size: 26pt; line-height: 1.1; letter-spacing: -0.8px;
+    color: var(--color-primary); border-top: 3px solid var(--color-conversion); padding-top: 6mm; margin-bottom: 6mm;
+  }
+  h1.section-title .num { display: block; font-family: var(--font-display); font-weight: 700; font-size: 9pt; letter-spacing: 4px; color: var(--color-conversion); text-transform: uppercase; margin-bottom: 4mm; }
+  h2.section-h2 { font-size: 14pt; font-family: var(--font-display); font-weight: 700; color: var(--color-primary); margin-top: 7mm; margin-bottom: 3mm; letter-spacing: -0.3px; }
+  h3.section-h3 { font-size: 11pt; font-family: var(--font-display); font-weight: 700; color: var(--color-primary); margin-top: 5mm; margin-bottom: 2mm; letter-spacing: -0.2px; }
+  p { margin-bottom: 3mm; font-family: var(--font-body); }
+  p.lede { font-size: 11pt; line-height: 1.55; color: var(--color-primary-light); margin-bottom: 4mm; font-weight: 500; }
+  strong { color: var(--color-primary); font-weight: 600; }
+
+  /* ============ ANSWER-FIRST BOX ============ */
+  .answer-first {
+    background: var(--color-primary); color: var(--neutral-50);
+    padding: 9mm 10mm; border-radius: var(--radius-md); margin-top: 6mm;
+    border-left: 4px solid var(--gold);
+  }
+  .answer-first .label { font-family: var(--font-display); font-size: 8.5pt; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 4mm; }
+  .answer-first p { font-family: var(--font-body); font-weight: 400; font-size: 11pt; line-height: 1.55; color: rgba(255,255,255,0.92); margin-bottom: 3mm; }
+  .answer-first p:last-child { margin-bottom: 0; }
+  .answer-first strong { color: var(--gold); font-weight: 600; }
+
+  /* ============ KPI CARDS ============ */
+  .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4mm; margin: 4mm 0; }
+  .kpi-grid.three { grid-template-columns: repeat(3, 1fr); }
+  .kpi-grid.two { grid-template-columns: repeat(2, 1fr); }
+  .kpi {
+    background: var(--paper); border: 1px solid var(--neutral-200); border-radius: var(--radius-md);
+    padding: 4mm; position: relative;
+  }
+  .kpi.featured { background: rgba(236,201,75,0.05); border-color: rgba(236,201,75,0.4); }
+  .kpi.featured::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--gold); border-radius: var(--radius-md) 0 0 var(--radius-md); }
+  .kpi.alarm { background: rgba(200,16,46,0.04); border-color: rgba(200,16,46,0.3); }
+  .kpi.alarm::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--color-conversion); border-radius: var(--radius-md) 0 0 var(--radius-md); }
+  .kpi.win { background: rgba(72,187,120,0.05); border-color: rgba(72,187,120,0.35); }
+  .kpi.win::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--color-success); border-radius: var(--radius-md) 0 0 var(--radius-md); }
+  .kpi-label { font-family: var(--font-display); font-size: 8pt; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: var(--neutral-500); }
+  .kpi-value { font-family: var(--font-display); font-weight: 800; font-size: 22pt; color: var(--color-primary); line-height: 1.1; margin-top: 2mm; letter-spacing: -0.6px; }
+  .kpi-value.gold { color: var(--color-warning-deep); }
+  .kpi-value.red { color: var(--color-conversion); }
+  .kpi-value.green { color: var(--color-success-deep); }
+  .kpi-value.blue { color: var(--color-info); }
+  .kpi-value.muted { color: var(--neutral-400); }
+  .kpi-sub { font-family: var(--font-body); font-size: 8.5pt; color: var(--neutral-500); margin-top: 2mm; line-height: 1.4; }
+
+  /* ============ TABLES ============ */
+  table.data {
+    width: 100%; border-collapse: collapse; font-family: var(--font-body); font-size: 9.5pt;
+    background: var(--paper); border: 1px solid var(--neutral-200); border-radius: var(--radius-md); overflow: hidden;
+    margin: 3mm 0;
+  }
+  table.data th {
+    text-align: left; padding: 3mm; font-family: var(--font-display); font-weight: 700; font-size: 8pt; letter-spacing: 1.2px;
+    text-transform: uppercase; color: var(--neutral-500); border-bottom: 1px solid var(--neutral-200); background: var(--neutral-100);
+  }
+  table.data th.num, table.data td.num { text-align: right; }
+  table.data td { padding: 3mm; border-bottom: 1px solid var(--neutral-200); color: var(--color-primary-light); vertical-align: middle; line-height: 1.4; }
+  table.data tr:last-child td { border-bottom: none; }
+  table.data td.brand { font-family: var(--font-display); font-weight: 700; font-size: 10pt; }
+  table.data td.brand.semin { color: var(--color-warning-deep); }
+  table.data td.brand.hyu { color: var(--color-info); }
+  table.data td.brand.stl { color: var(--color-conversion); }
+  table.data td.brand.gac { color: var(--neutral-400); }
+  table.data .good { color: var(--color-success-deep); font-weight: 600; }
+  table.data .bad { color: var(--color-conversion); font-weight: 600; }
+  table.data .num.hero { font-family: var(--font-display); font-weight: 700; font-size: 11pt; color: var(--color-primary); }
+  table.data tr.total td { background: var(--neutral-100); font-weight: 600; border-top: 2px solid var(--color-primary); }
+
+  /* ============ NOTES / CALLOUTS ============ */
+  .note {
+    background: var(--paper); border-left: 3px solid var(--gold); padding: 3mm 5mm;
+    margin: 3mm 0; font-family: var(--font-body); font-size: 10pt; color: var(--color-primary-light); line-height: 1.55;
+    border-radius: var(--radius-sm);
+  }
+  .note.red { border-left-color: var(--color-conversion); }
+  .note.blue { border-left-color: var(--color-info); }
+  .note.green { border-left-color: var(--color-success); }
+  .note.amber { border-left-color: var(--color-warning); }
+  .note.navy { background: var(--color-primary); color: var(--neutral-50); border-left-color: var(--gold); }
+  .note.navy strong { color: var(--gold); }
+  .note .tag { font-family: var(--font-display); font-size: 8pt; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--color-warning-deep); margin-right: 3mm; }
+  .note.red .tag { color: var(--color-conversion); }
+  .note.blue .tag { color: var(--color-info); }
+  .note.green .tag { color: var(--color-success-deep); }
+  .note.amber .tag { color: var(--color-warning-deep); }
+
+  /* ============ PULL QUOTES ============ */
+  .pull-quote {
+    font-family: var(--font-display); font-weight: 600; font-size: 13pt;
+    line-height: 1.4; color: var(--color-primary-light); border-left: 3px solid var(--color-conversion);
+    padding: 3mm 0 3mm 8mm; margin: 5mm 0; max-width: 92%;
+  }
+  .pull-quote em { color: var(--color-conversion); font-style: normal; font-weight: 700; }
+  .pull-quote cite { display: block; font-style: normal; font-family: var(--font-body); font-weight: 600; font-size: 9pt; letter-spacing: 1.2px; color: var(--color-conversion); margin-top: 3mm; text-transform: uppercase; }
+
+  /* ============ ECOSYSTEM GRID ============ */
+  .eco-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 3mm; margin: 4mm 0; }
+  .eco-card { background: var(--paper); border: 1px solid var(--neutral-200); border-radius: var(--radius-md); padding: 3.5mm 4mm; position: relative; }
+  .eco-card::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; border-radius: var(--radius-md) 0 0 var(--radius-md); }
+  .eco-card.infra::before { background: var(--color-info); }
+  .eco-card.product::before { background: var(--color-warning); }
+  .eco-card.intel::before { background: var(--color-success); }
+  .eco-card.docs::before { background: var(--gold); }
+  .eco-card.gov::before { background: var(--color-conversion); }
+  .eco-card .eco-cat { font-family: var(--font-display); font-size: 8pt; font-weight: 700; letter-spacing: 1.3px; text-transform: uppercase; color: var(--neutral-500); }
+  .eco-card.infra .eco-cat { color: var(--color-info); }
+  .eco-card.product .eco-cat { color: var(--color-warning-deep); }
+  .eco-card.intel .eco-cat { color: var(--color-success-deep); }
+  .eco-card.docs .eco-cat { color: var(--color-warning-deep); }
+  .eco-card.gov .eco-cat { color: var(--color-conversion); }
+  .eco-card .eco-title { font-family: var(--font-display); font-weight: 700; font-size: 11pt; color: var(--color-primary); margin-top: 1mm; }
+  .eco-card .eco-desc { font-family: var(--font-body); font-size: 9pt; color: var(--color-primary-light); margin-top: 2mm; line-height: 1.45; }
+
+  /* ============ COMPARISON TABLE - IA vs TERCEROS ============ */
+  .comparison { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm; margin: 5mm 0; }
+  .comp-card { padding: 6mm; border-radius: var(--radius-md); position: relative; }
+  .comp-card.alt-A { background: var(--neutral-100); border: 1px solid var(--neutral-300); }
+  .comp-card.alt-B { background: rgba(72,187,120,0.06); border: 2px solid var(--color-success); }
+  .comp-card .alt-label { font-family: var(--font-display); font-size: 8.5pt; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--neutral-500); }
+  .comp-card.alt-B .alt-label { color: var(--color-success-deep); }
+  .comp-card .alt-name { font-family: var(--font-display); font-weight: 800; font-size: 14pt; color: var(--color-primary); margin-top: 2mm; line-height: 1.15; }
+  .comp-card .alt-total { font-family: var(--font-display); font-weight: 800; font-size: 26pt; color: var(--color-primary); margin-top: 4mm; letter-spacing: -0.6px; line-height: 1.05; }
+  .comp-card.alt-B .alt-total { color: var(--color-success-deep); }
+  .comp-card .alt-time { font-family: var(--font-display); font-weight: 700; font-size: 11pt; color: var(--neutral-500); margin-top: 2mm; }
+  .comp-card.alt-B .alt-time { color: var(--color-success); }
+  .comp-card ul { list-style: none; padding: 0; margin: 4mm 0 0 0; }
+  .comp-card ul li { font-family: var(--font-body); font-size: 9pt; padding: 1.5mm 0; color: var(--color-primary-light); border-bottom: 1px dotted var(--neutral-300); display: flex; justify-content: space-between; }
+  .comp-card ul li:last-child { border-bottom: none; }
+  .comp-card ul li strong { color: var(--color-primary); font-weight: 600; }
+  .ratio-bar { background: var(--color-primary); color: var(--neutral-50); padding: 5mm 7mm; border-radius: var(--radius-md); margin: 4mm 0; text-align: center; border-left: 4px solid var(--gold); }
+  .ratio-bar .label { font-family: var(--font-display); font-size: 9pt; font-weight: 700; letter-spacing: 2px; color: var(--gold); text-transform: uppercase; }
+  .ratio-bar .value { font-family: var(--font-display); font-weight: 800; font-size: 24pt; color: var(--neutral-50); margin-top: 2mm; letter-spacing: -0.8px; }
+  .ratio-bar .value em { color: var(--gold); font-style: normal; }
+  .ratio-bar .sub { font-family: var(--font-body); font-size: 9.5pt; color: rgba(255,255,255,0.75); margin-top: 1mm; }
+
+  /* ============ HEADCOUNT SCENARIOS ============ */
+  .scenarios { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3mm; margin: 4mm 0; }
+  .scenario { background: var(--paper); border: 1px solid var(--neutral-200); border-radius: var(--radius-md); padding: 4mm; position: relative; }
+  .scenario.recommended { background: rgba(236,201,75,0.05); border-color: rgba(236,201,75,0.5); border-width: 2px; }
+  .scenario .s-label { font-family: var(--font-display); font-size: 8pt; font-weight: 700; letter-spacing: 1.3px; color: var(--neutral-500); text-transform: uppercase; }
+  .scenario.recommended .s-label { color: var(--color-warning-deep); }
+  .scenario .s-name { font-family: var(--font-display); font-weight: 800; font-size: 12pt; color: var(--color-primary); margin-top: 2mm; line-height: 1.2; }
+  .scenario .s-team { font-family: var(--font-display); font-weight: 700; font-size: 18pt; color: var(--color-primary); margin-top: 3mm; }
+  .scenario.recommended .s-team { color: var(--color-warning-deep); }
+  .scenario .s-cost { font-family: var(--font-body); font-size: 9pt; color: var(--color-success-deep); font-weight: 600; margin-top: 1mm; }
+  .scenario .s-desc { font-family: var(--font-body); font-size: 8.5pt; color: var(--neutral-600); margin-top: 3mm; line-height: 1.45; }
+  .scenario .s-badge { position: absolute; top: -7px; right: 4mm; background: var(--gold); color: var(--color-primary); font-family: var(--font-display); font-size: 7.5pt; font-weight: 800; letter-spacing: .8px; padding: 2px 7px; border-radius: var(--radius-full, 999px); text-transform: uppercase; }
+
+  /* ============ LAYERS ============ */
+  .layers { display: flex; flex-direction: column; gap: 3mm; margin: 4mm 0; }
+  .layer { display: grid; grid-template-columns: 12mm 1fr; gap: 4mm; padding: 3.5mm 4mm; border: 1px solid var(--neutral-200); border-radius: var(--radius-md); background: var(--paper); position: relative; align-items: center; }
+  .layer-num { font-family: var(--font-display); font-weight: 800; font-size: 22pt; color: var(--color-conversion); line-height: 1; }
+  .layer:nth-child(1) .layer-num { color: var(--color-warning-deep); }
+  .layer:nth-child(2) .layer-num { color: var(--gold); }
+  .layer:nth-child(3) .layer-num { color: var(--color-info); }
+  .layer:nth-child(4) .layer-num { color: var(--color-success-deep); }
+  .layer:nth-child(5) .layer-num { color: var(--color-primary); }
+  .layer-content h3 { font-family: var(--font-display); font-weight: 700; font-size: 11pt; color: var(--color-primary); margin-bottom: 1mm; }
+  .layer-content p { font-family: var(--font-body); font-size: 9pt; line-height: 1.45; color: var(--color-primary-light); margin-bottom: 0; }
+
+  /* ============ OPTION BOXES ============ */
+  .options { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4mm; margin: 4mm 0; }
+  .option { background: var(--paper); border: 1px solid var(--neutral-200); border-radius: var(--radius-md); padding: 5mm; position: relative; }
+  .option.recommended { background: rgba(236,201,75,0.05); border-color: rgba(236,201,75,0.5); border-width: 2px; }
+  .option-label { font-family: var(--font-display); font-size: 8pt; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--neutral-500); }
+  .option.recommended .option-label { color: var(--color-warning-deep); }
+  .option-name { font-family: var(--font-display); font-weight: 800; font-size: 13pt; color: var(--color-primary); margin-top: 2mm; line-height: 1.15; }
+  .option-tagline { font-family: var(--font-body); font-size: 9pt; font-weight: 500; color: var(--neutral-600); margin-top: 2mm; line-height: 1.4; }
+  .option-details { font-family: var(--font-body); font-size: 9pt; color: var(--color-primary-light); margin-top: 3mm; line-height: 1.55; }
+  .option-details strong { color: var(--color-primary); }
+  .option-badge { position: absolute; top: -8px; right: 6mm; background: var(--gold); color: var(--color-primary); font-family: var(--font-display); font-size: 7.5pt; font-weight: 800; letter-spacing: 1px; padding: 2px 8px; border-radius: var(--radius-full, 999px); text-transform: uppercase; }
+
+  /* ============ ASK BOXES ============ */
+  .ask-block { background: var(--neutral-100); border-radius: var(--radius-md); padding: 4mm 5mm; margin: 3mm 0; border-left: 3px solid var(--color-primary); }
+  .ask-num { font-family: var(--font-display); font-weight: 800; font-size: 11pt; color: var(--color-conversion); display: inline; margin-right: 3mm; }
+  .ask-title { font-family: var(--font-display); font-weight: 700; font-size: 11pt; color: var(--color-primary); display: inline; }
+  .ask-body { margin-top: 2mm; font-family: var(--font-body); font-size: 9.5pt; line-height: 1.55; color: var(--color-primary-light); }
+  .ask-body strong { color: var(--color-primary); }
+
+  /* ============ DECLARATION BOX ============ */
+  .declaration {
+    background: var(--color-primary); color: var(--neutral-50);
+    padding: 6mm 7mm; border-radius: var(--radius-md); margin: 5mm 0;
+    border-left: 4px solid var(--color-conversion);
+  }
+  .declaration .label { font-family: var(--font-display); font-size: 8pt; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--color-conversion); margin-bottom: 3mm; }
+  .declaration p { font-family: var(--font-body); font-size: 10pt; line-height: 1.55; color: rgba(255,255,255,0.92); margin-bottom: 2mm; }
+  .declaration p:last-child { margin-bottom: 0; }
+  .declaration strong { color: var(--gold); font-weight: 600; }
+
+  /* ============ MISCELANEOUS ============ */
+  ul.clean { list-style: none; padding: 0; margin: 3mm 0; }
+  ul.clean li { padding: 1.5mm 0 1.5mm 8mm; position: relative; font-family: var(--font-body); font-size: 10pt; line-height: 1.5; color: var(--color-primary-light); }
+  ul.clean li::before { content: "—"; position: absolute; left: 0; color: var(--color-conversion); font-weight: 700; }
+  ul.clean li strong { color: var(--color-primary); }
+
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 6mm; margin: 4mm 0; }
+
+  .close-statement {
+    text-align: center; margin-top: 12mm; padding-top: 6mm; border-top: 1px solid var(--neutral-300);
+  }
+  .close-statement p {
+    font-family: var(--font-display); font-weight: 700; font-size: 14pt; color: var(--color-primary); line-height: 1.4; max-width: 140mm; margin: 0 auto;
+  }
+  .close-statement p em { color: var(--color-conversion); font-style: normal; }
+  .close-statement .sig {
+    font-family: var(--font-display); font-size: 9pt; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--neutral-500); margin-top: 6mm; text-align: center;
+  }
+
+  @media print {
+    html, body { background: white; }
+    .page { box-shadow: none; margin: 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ==================== COVER ==================== -->
+<div class="page cover">
+  <div class="cover-inner">
+    <div>
+      <div class="cover-mark">Grupo Plasencia Automotriz<span>Dirección de Marketing Corporativo</span></div>
+      <div class="cover-eyebrow">Documento ejecutivo · Mayo 2026 · v1.0</div>
+      <div class="cover-title">Plasencia<br><em>Marketplace</em></div>
+      <div class="cover-subtitle">Modelo operativo end-to-end del journey del cliente y el ciclo del auto, gobernado por el grupo, sustentado en el patrón global que ya ganó y construido con la ventaja injusta de IA generativa.</div>
+      <div class="cover-pull">
+        El piloto del Motor de Atribución probó en 4 semanas con team-of-one + IA generativa lo que una alternativa externa cotiza en 5-7 meses y $880K MXN. Esa <strong>ventaja injusta de 230x en costo y 5-7x en velocidad</strong> es lo que permitió derivar en 66 días un ecosistema digital completo: 4 landings, CRM corporativo, 7 WABAs, asistente IA institucional, autopilot operativo, sincronización Vambe, conciliación diaria, 18 documentos estratégicos. Y al hacerlo, destapó dónde está el cuello real del negocio.
+        <cite>Documento ejecutivo · Para el Consejo Directivo</cite>
+      </div>
+      <div class="cover-tags">
+        <span class="cover-tag accent">Marketplace + RevOps</span>
+        <span class="cover-tag">Ventaja injusta de IA</span>
+        <span class="cover-tag urgent">Ventana 24–36 meses</span>
+        <span class="cover-tag">Piloto LIVE</span>
+      </div>
+    </div>
+    <div class="cover-meta">
+      <div class="cover-meta-block">
+        <strong>Para</strong>
+        Consejo Directivo · Andrés / Nicolás / Enrique<br>
+        Pepe Morales · Director General
+      </div>
+      <div class="cover-meta-block">
+        <strong>Emisor</strong>
+        Chucho Porras<br>
+        Dirección de Marketing Corporativo
+      </div>
+      <div class="cover-meta-block">
+        <strong>Estructura</strong>
+        Minto + SCR + Answer-First<br>
+        Mayo 2026 · v1.0
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== PÁGINA 2 — TOC + ANSWER-FIRST ==================== -->
+<div class="page">
+  <h1 class="section-title"><span class="num">Índice · Cómo leer este documento</span>Plasencia Marketplace en diez movimientos</h1>
+  <p class="lede">Este documento articula la situación, lo que el piloto construyó y destapó, la ventaja injusta que lo hizo posible, la visión Marketplace, el modelo operativo, las opciones de ejecución, el primer hito y el ask. Cada sección es autónoma. La síntesis cabe en un párrafo (abajo). La decisión binaria que se solicita cabe en una página (§8).</p>
+
+  <div class="toc">
+    <div class="toc-item"><span class="toc-num">§1</span><span class="toc-title">Situación<span class="toc-sub">Grupo Plasencia hoy y el ecosistema digital completo construido en 66 días</span></span><span class="toc-page">3</span></div>
+    <div class="toc-item"><span class="toc-num">§2</span><span class="toc-title">Complicación<span class="toc-sub">Lo que el piloto destapó: el cuello del grupo está aguas abajo</span></span><span class="toc-page">5</span></div>
+    <div class="toc-item"><span class="toc-num">§3</span><span class="toc-title">La ventaja injusta de IA<span class="toc-sub">Cuantificada · 230x en costo · 5-7x en velocidad · escenarios de headcount</span></span><span class="toc-page">6</span></div>
+    <div class="toc-item"><span class="toc-num">§4</span><span class="toc-title">La tesis<span class="toc-sub">Plasencia Marketplace + RevOps como speedboat paralelo al modelo actual</span></span><span class="toc-page">7</span></div>
+    <div class="toc-item"><span class="toc-num">§5</span><span class="toc-title">El modelo operativo<span class="toc-sub">Cinco capas del Marketplace + service design phygital end-to-end</span></span><span class="toc-page">8</span></div>
+    <div class="toc-item"><span class="toc-num">§6</span><span class="toc-title">Las tres opciones de ejecución<span class="toc-sub">Construir, comprar o whitelabel · Recomendación + declaración formal de interés</span></span><span class="toc-page">9</span></div>
+    <div class="toc-item"><span class="toc-num">§7</span><span class="toc-title">El primer hito · 90 días Seminuevos<span class="toc-sub">Métricas binarias de validación verificables por el Consejo</span></span><span class="toc-page">10</span></div>
+    <div class="toc-item"><span class="toc-num">§8</span><span class="toc-title">El caso financiero<span class="toc-sub">Baseline, costo del plan, killer metric, costo de inacción, benchmark · una página al CFO</span></span><span class="toc-page">11</span></div>
+    <div class="toc-item"><span class="toc-num">§9</span><span class="toc-title">El ask al Consejo<span class="toc-sub">Tres decisiones binarias acotadas · Lo que NO se pide ahora</span></span><span class="toc-page">12</span></div>
+    <div class="toc-item"><span class="toc-num">§10</span><span class="toc-title">Cierre<span class="toc-sub">Qué ocurre en los próximos 30 días si las decisiones se aprueban</span></span><span class="toc-page">13</span></div>
+  </div>
+
+  <div class="answer-first">
+    <div class="label">Answer-First · Tesis en un párrafo</div>
+    <p>En 66 días con team-of-one apalancado por IA generativa, la Dirección de Marketing Corporativo construyó y puso en producción un ecosistema digital completo (4 landings, CRM corporativo D1, 7 WABAs WhatsApp Cloud API, asistente IA institucional, autopilot operativo, sincronización Vambe, conciliación diaria, 18 documentos estratégicos), entregando en costo total marginal lo que una alternativa externa cotiza en <strong>5-7 meses y $880K MXN</strong>. Ratio <strong>~230 veces menor costo</strong>, <strong>5-7 veces mayor velocidad</strong> — esa es la ventaja injusta del grupo, aún no internalizada por la industria automotriz mexicana.</p>
+    <p>Al instrumentar todo, el piloto destapó por primera vez con datos en mano que <strong>de 656 oportunidades calificadas generadas con $69K MXN de pauta, sólo se materializó una venta</strong>. El cuello no está en marketing: está aguas abajo, en el modelo operativo de ventas. Ninguna inversión adicional en captación, plataformas o IA resolverá ese cuello sin antes arreglar el proceso humano de seguimiento y cierre. La propuesta es construir <strong>Plasencia Marketplace</strong> — canal y producto digital propio del grupo que opera journey + ciclo del auto end-to-end — como speedboat paralelo que no toca el modelo actual, se activa en 90 días sobre Seminuevos como primer hito, y para su versión robusta requiere proveedores externos especializados orientados a IA (no más vibe coding).</p>
+  </div>
+</div>
+
+<!-- ==================== PÁGINA 3 — §1 SITUACIÓN ==================== -->
+<div class="page">
+  <h1 class="section-title"><span class="num">§ 01 · Situación</span>Grupo Plasencia hoy y la apuesta inicial del piloto</h1>
+  <p class="lede">Grupo Plasencia opera 8 marcas OEM más Seminuevos, 42 concesionarias y aproximadamente 60 personas en marketing. La facturación 2025 alcanzó $12,813 MDP con cerca de 29,595 unidades. La inversión de marketing del grupo se ubica en torno a $73.4M anuales, equivalente a 0.57% de los ingresos, frente a un benchmark internacional del sector entre 5% y 10%.</p>
+
+  <div class="kpi-grid">
+    <div class="kpi"><div class="kpi-label">Revenue 2025</div><div class="kpi-value">$12,813M</div><div class="kpi-sub">+9.5% YoY</div></div>
+    <div class="kpi"><div class="kpi-label">Unidades 2025</div><div class="kpi-value">29,595</div><div class="kpi-sub">+10.2% YoY</div></div>
+    <div class="kpi"><div class="kpi-label">Marcas + sub-marcas</div><div class="kpi-value">8 + 1</div><div class="kpi-sub">OEM + Seminuevos</div></div>
+    <div class="kpi alarm"><div class="kpi-label">% MKT / Revenue</div><div class="kpi-value red">0.57%</div><div class="kpi-sub">vs 5–10% benchmark</div></div>
+  </div>
+
+  <h2 class="section-h2">El mandato y el piloto</h2>
+  <p>A partir de marzo 2026 la Dirección de Marketing Corporativo, posición de nueva creación, recibió el mandato de construir un piloto que diera al Consejo evidencia accionable sobre la viabilidad de un modelo de atribución unificado. El piloto se ejecutó en tres unidades de negocio (Seminuevos, Hyundai y Stellantis), con presupuesto operativo negociado directamente con cada marca, sin asignación corporativa adicional, y con un equipo team-of-one apalancado por inteligencia artificial generativa.</p>
+
+  <div class="pull-quote">
+    Lo que originalmente se pidió como piloto de medición se convirtió en <em>66 días</em> en un ecosistema digital corporativo completo, operando en producción, auditable en tiempo real, construido a costo marginal.
+  </div>
+</div>
+
+<!-- ==================== PÁGINA 4 — §1.2 ECOSISTEMA COMPLETO ==================== -->
+<div class="page">
+  <h1 class="section-title"><span class="num">§ 01.2 · El ecosistema construido</span>Lo que existe en producción al día 66</h1>
+  <p class="lede">No es un piloto de medición. Es una plataforma operativa completa que abarca infraestructura técnica, productos digitales user-facing, integraciones inteligentes, procesos de gobierno operativo y documentación estratégica institucional. Todo construido a costo de plataforma inferior a USD 100 mensuales.</p>
+
+  <div class="eco-grid">
+    <div class="eco-card infra">
+      <div class="eco-cat">Infraestructura · 1</div>
+      <div class="eco-title">Cloudflare Worker + D1</div>
+      <div class="eco-desc">Worker edge con 3,800+ líneas que orquesta CRM, dashboard, APIs. Base D1 con 28 migrations aplicadas, 14 tablas relacionales auditables. Cutover Airtable → D1 completado 25-abr.</div>
+    </div>
+    <div class="eco-card infra">
+      <div class="eco-cat">Infraestructura · 2</div>
+      <div class="eco-title">4 landings (3 LIVE + 1 lista)</div>
+      <div class="eco-desc">Seminuevos, Hyundai, Stellantis en producción. GAC v1.1 publicada con 36/40 grupos enriquecidos. Sistemas de captura, catálogo dinámico, lead form, atribución completa.</div>
+    </div>
+    <div class="eco-card infra">
+      <div class="eco-cat">Infraestructura · 3</div>
+      <div class="eco-title">Tracking GTM v23 multi-marca</div>
+      <div class="eco-desc">Un container con stack multi-marca: 4 GA4 properties, 4 Meta Pixels, 3 Microsoft Clarity, 69 custom dimensions. measurementIdOverride dinámico por hostname.</div>
+    </div>
+    <div class="eco-card infra">
+      <div class="eco-cat">Infraestructura · 4</div>
+      <div class="eco-title">Atribución server-side completa</div>
+      <div class="eco-desc">Meta CAPI + GA4 Measurement Protocol con deduplicación. Webhook Meta Lead Gen con HMAC. Conciliación diaria 3 fuentes externas con backfill. Cero fugas verificadas.</div>
+    </div>
+    <div class="eco-card infra">
+      <div class="eco-cat">Infraestructura · 5</div>
+      <div class="eco-title">7 WABAs WhatsApp Cloud API</div>
+      <div class="eco-desc">WABA corporativo + 6 WABAs Mazda dedicadas (una por sucursal). Throughput STANDARD. 7 templates Meta APPROVED. PIN 2FA canónico.</div>
+    </div>
+    <div class="eco-card infra">
+      <div class="eco-cat">Infraestructura · 6</div>
+      <div class="eco-title">Pipeline DCA multi-marca</div>
+      <div class="eco-desc">Parser Python que normaliza 8 marcas desde CSV/XLSX, sincroniza vía Worker a D1. CI integrado. 612 VINs activos. Refactorizado 26-may.</div>
+    </div>
+
+    <div class="eco-card product">
+      <div class="eco-cat">Producto · 1</div>
+      <div class="eco-title">CRM Kanban Corporativo</div>
+      <div class="eco-desc">10 columnas operativas, 28 usuarios canónicos, modelo PIN ≠ Asignable, vendedor digital por marca, motivos estructurados de descarte, badges Plasi+Vambe, 3 capas de acceso.</div>
+    </div>
+    <div class="eco-card product">
+      <div class="eco-cat">Producto · 2</div>
+      <div class="eco-title">Dashboard Ejecutivo Multi-Canal</div>
+      <div class="eco-desc">Refresh diario 08:00 GDL. Pipeline activo + Cohort funnel. Narrativas LLM Claude Sonnet 4.5. 11 bugs matemáticos corregidos. Board-ready.</div>
+    </div>
+    <div class="eco-card product">
+      <div class="eco-cat">Producto · 3</div>
+      <div class="eco-title">Pipeline-Marcas-Deck auto-refresh</div>
+      <div class="eco-desc">Deck operativo que se regenera diariamente con datos D1+Meta+Google+LLM. Snapshot board-ready accesible en URL pública estática.</div>
+    </div>
+    <div class="eco-card product">
+      <div class="eco-cat">Producto · 4</div>
+      <div class="eco-title">Chat Hub Multi-Marca + Voz del Cliente</div>
+      <div class="eco-desc">Hub WhatsApp embebido con chips de filtro por marca/origen. Encuesta de experiencia con 9 pantallas, 50 tokens pre-generados, lógica condicional, escape valve por rating.</div>
+    </div>
+
+    <div class="eco-card intel">
+      <div class="eco-cat">Inteligencia · 1</div>
+      <div class="eco-title">Plasi · Asistente IA Institucional</div>
+      <div class="eco-desc">Claude Sonnet 4.5 con system prompt v3 + inventario real inyectado por turn. Modos Sugerir + Plasi Responde Solo. Guardrails, escala por stop words, audit completo. Costo $0.04/turn.</div>
+    </div>
+    <div class="eco-card intel">
+      <div class="eco-cat">Inteligencia · 2</div>
+      <div class="eco-title">Integración Vambe → CRM (mirror del sistema heredado)</div>
+      <div class="eco-desc">Integración propia: sync cada 2 min con Vambe (canal preexistente del grupo, decisión heredada), 24/24 stages mapeados, reconciliation pass automático. El mirror técnico funciona perfectamente. <strong>El hallazgo crítico:</strong> aún con la integración operando, las tasas downstream (cita, visita, compra) no mejoran. Evidencia técnica de que el cuello no es de visibilidad ni de herramientas — es de proceso operativo humano.</div>
+    </div>
+    <div class="eco-card intel">
+      <div class="eco-cat">Inteligencia · 3</div>
+      <div class="eco-title">Autopilot Plasi + Broadcasts</div>
+      <div class="eco-desc">processExperienciaAutopilot cada 2 min: leads ≥25 días reciben encuesta automática. Kill-switch operacional. 47 templates one-shot dispatch (78% delivered+).</div>
+    </div>
+    <div class="eco-card intel">
+      <div class="eco-cat">Inteligencia · 4</div>
+      <div class="eco-title">Conciliación + Audio inbound</div>
+      <div class="eco-desc">Cron 07:03+22:30 cruza 3 fuentes externas vs D1. Pipeline audio inbound WhatsApp validado end-to-end. Job Summary con deltas direccionales.</div>
+    </div>
+
+    <div class="eco-card gov">
+      <div class="eco-cat">Gobierno · 1</div>
+      <div class="eco-title">Sistema de usuarios y roles</div>
+      <div class="eco-desc">28 usuarios canónicos documentados. Modelo PIN ≠ Asignable. 4 gerentes movidos a no asignables. 5 vendedores legacy reactivados. PINs únicos.</div>
+    </div>
+    <div class="eco-card gov">
+      <div class="eco-cat">Gobierno · 2</div>
+      <div class="eco-title">Reglas documentales + Routing modelos</div>
+      <div class="eco-desc">CLAUDE.md del repo + MEMORY.md + 6 pillars actualizados por sesión. Decision tree completo de dónde va cada tipo de documento. Routing Opus/Sonnet/Haiku codificado.</div>
+    </div>
+
+    <div class="eco-card docs">
+      <div class="eco-cat">Documentación · 1</div>
+      <div class="eco-title">18 documentos HTML estratégicos</div>
+      <div class="eco-desc">Papers ejecutivos, decks Consejo, decks operativos, playbooks, strategy definitions, frames. Todos pixel-perfect, A4 o slides 1280x720, sistema de diseño consistente.</div>
+    </div>
+    <div class="eco-card docs">
+      <div class="eco-cat">Documentación · 2</div>
+      <div class="eco-title">Sistema de reframe MAP-Plasencia + 6 pillars</div>
+      <div class="eco-desc">Índice navegable con estado vivo actualizado por sesión. Pillars Datos-Atribución, Diseño, Estrategia, Operación, Producto, Tech. 39 sesiones de trabajo documentadas.</div>
+    </div>
+  </div>
+
+  <div class="note green">
+    <span class="tag">El veredicto operativo</span>
+    Lo que normalmente requiere una célula de producto digital de 5 a 7 personas (designer, dev, growth, analytics, PM) lo cubrió un perfil con experiencia cross-funcional usando IA generativa. <strong>Esto no es una persona haciendo el trabajo de un equipo — es una persona apalancada por IA entregando el output de un equipo, con costo y velocidad estructuralmente distintos.</strong>
+  </div>
+
+  <div class="pull-quote">
+    ¿Quién entrega esto en 66 días, en producción, auditable, con costo total marginal? <em>Esa es la pregunta que el Consejo no había podido hacerse antes</em> porque la respuesta no existía como precedente comparable en la industria automotriz mexicana.
+  </div>
+</div>
+
+<!-- ==================== PÁGINA 5 — §2 COMPLICACIÓN ==================== -->
+<div class="page">
+  <h1 class="section-title"><span class="num">§ 02 · Complicación</span>Lo que el ecosistema destapó con datos en mano</h1>
+
+  <p class="lede">El piloto cumplió su promesa upstream. Al instrumentar todo, hizo visible por primera vez en la historia operativa del grupo un problema estructural que antes era invisible: <strong>el cuello no está en captación, está en conversión</strong>. Los datos al 30 de mayo de 2026, verificados directamente en plataforma, son inequívocos.</p>
+
+  <h2 class="section-h2">Las cifras cross-piloto al 30 de mayo (verificadas en plataforma)</h2>
+
+  <div class="kpi-grid">
+    <div class="kpi featured"><div class="kpi-label">Inversión total</div><div class="kpi-value gold">$69.2K</div><div class="kpi-sub">Meta + Google · 45 días</div></div>
+    <div class="kpi"><div class="kpi-label">Oportunidades</div><div class="kpi-value">656</div><div class="kpi-sub">Leads calificados D1</div></div>
+    <div class="kpi"><div class="kpi-label">Visitas al piso</div><div class="kpi-value">10</div><div class="kpi-sub">Visita + Negociación + Ganada</div></div>
+    <div class="kpi alarm"><div class="kpi-label">Ventas cerradas</div><div class="kpi-value red">1</div><div class="kpi-sub">Conv. e2e: 0.15%</div></div>
+  </div>
+
+  <h2 class="section-h2">El detalle por marca expone el patrón estructural</h2>
+
+  <table class="data">
+    <thead>
+      <tr><th>Marca</th><th class="num">Inversión pauta</th><th class="num">Leads</th><th class="num">Visitas piso</th><th class="num">Ventas</th><th class="num">Tasa pérdida</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="brand semin">Seminuevos</td><td class="num hero">$33.3K</td><td class="num hero">162</td><td class="num hero">8</td><td class="num good">1</td><td class="num">4.9%</td></tr>
+      <tr><td class="brand hyu">Hyundai</td><td class="num hero">$18.5K</td><td class="num hero">282</td><td class="num hero">1</td><td class="num bad">0</td><td class="num bad">57.1%</td></tr>
+      <tr><td class="brand stl">Stellantis</td><td class="num hero">$17.4K</td><td class="num hero">207</td><td class="num hero">1</td><td class="num bad">0</td><td class="num">15.9%</td></tr>
+      <tr><td class="brand gac">GAC</td><td class="num">$0</td><td class="num">5</td><td class="num">0</td><td class="num">0</td><td class="num">—</td></tr>
+      <tr class="total"><td>TOTAL CROSS-PILOTO</td><td class="num">$69.2K</td><td class="num">656</td><td class="num">10</td><td class="num bad">1</td><td class="num">30.8%</td></tr>
+    </tbody>
+  </table>
+
+  <h2 class="section-h2">El hallazgo brutal y el patrón cross-marca</h2>
+
+  <p>De los 282 leads generados por Hyundai en 45 días, <strong>161 quedaron marcados como Perdida — una tasa de pérdida de 57.1%</strong>, muchos sin haber recibido contacto estructurado siquiera. Cero ventas cerradas a pesar de tener el CPL más bajo del piloto ($69 MXN por lead, comparable a benchmarks internacionales superiores). Stellantis registra el mismo patrón en menor escala: 207 leads, una visita confirmada, cero ventas.</p>
+
+  <p>Seminuevos — la marca con el funnel más optimizado upstream, sin restricciones OEM, con form profundo, retención cita 38% — tiene <strong>107 de 162 leads (66%) estancados en "Por contactar"</strong> sin primer contacto estructurado. El sistema cerró una sola venta en 45 días (OMODA O5, $289K MXN, López Mateos) con ROAS de 12.9 veces. La excepción demuestra la regla: cuando el seguimiento es disciplinado, el sistema cierra. La regla actual es la falta de seguimiento.</p>
+
+  <div class="note red">
+    <span class="tag">La prueba en vivo: más IA no resuelve</span>
+    El canal Vambe (WhatsApp + IA conversacional, sistema heredado del grupo) lleva <strong>365 días operando con cero facturas registradas</strong>. Siete oportunidades en "Apartados-Ganados" sin nunca llegar a Facturado. 318 contactos (50% del total) en limbo. La Dirección de Marketing Corporativo construyó la integración técnica Vambe → CRM (mirror cada 2 min, 24/24 stages mapeados, reconciliation pass automático) para tener visibilidad operativa de este canal. <strong>El hallazgo definitivo: aún con la integración funcionando perfecto, las tasas a cita, visita y compra no mejoran.</strong> La hipótesis de poner más inteligencia artificial encima del modelo operativo actual está empíricamente refutada por esta evidencia en vivo, dentro del mismo grupo, con instrumentación auditable.
+  </div>
+
+  <div class="pull-quote">
+    Sin un dueño operativo del funnel post-lead, sin un proceso comercial estandarizado, y sin SLA enforced, ninguna inversión adicional — en pauta, en plataformas, en herramientas digitales o en IA — mueve la aguja del cierre real. <em>El modelo humano de ventas se arregla primero.</em>
+  </div>
+</div>
+
+<!-- ==================== PÁGINA 6 — §3 VENTAJA INJUSTA DE IA ==================== -->
+<div class="page">
+  <h1 class="section-title"><span class="num">§ 03 · La ventaja injusta de IA</span>Cuantificada · El diferencial estructural del grupo</h1>
+
+  <p class="lede">El ecosistema digital descrito en §1.2 y la instrumentación del cuello descrita en §2 no son posibles bajo el modelo operativo tradicional de marketing automotriz. Son producto de una palanca específica que el grupo posee y que la industria mexicana aún no ha internalizado a escala: un perfil correctamente calibrado con experiencia cross-funcional apalancado por inteligencia artificial generativa de frontera. Esta es la ventaja injusta del grupo. Cuantificada.</p>
+
+  <h2 class="section-h2">El comparativo verificable: lo que costó vs lo que hubiera costado</h2>
+
+  <div class="comparison">
+    <div class="comp-card alt-A">
+      <div class="alt-label">Escenario A · Terceros</div>
+      <div class="alt-name">Consultora + agencia integrada</div>
+      <div class="alt-total">$880K MXN</div>
+      <div class="alt-time">5–7 meses</div>
+      <ul>
+        <li>Agencia digital MKT (4 meses) <strong>$100K</strong></li>
+        <li>Tech consultancy (CRM + integraciones) <strong>$150K</strong></li>
+        <li>Diseño producto (3 SPAs UX/UI) <strong>$80K</strong></li>
+        <li>Equipo interno (PM + 2 devs, 4m) <strong>$400K</strong></li>
+        <li>Data engineering + BI dashboard <strong>$150K</strong></li>
+      </ul>
+    </div>
+    <div class="comp-card alt-B">
+      <div class="alt-label">Escenario B · Realidad ejecutada</div>
+      <div class="alt-name">Team-of-one + IA generativa</div>
+      <div class="alt-total">$3.8K MXN</div>
+      <div class="alt-time">4 semanas (piloto base)</div>
+      <ul>
+        <li>Claude Code (Anthropic API) <strong>$2,000</strong></li>
+        <li>Zapier + Airtable (inicial) <strong>$1,800</strong></li>
+        <li>Agencias / consultoría / diseño <strong>$0</strong></li>
+        <li>Equipo dedicado externo <strong>$0</strong></li>
+        <li>Salario Director (sunk cost del rol) <strong>—</strong></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="ratio-bar">
+    <div class="label">Diferencial verificado · ratio estructural</div>
+    <div class="value"><em>~230×</em> menor costo · <em>5–7×</em> mayor velocidad</div>
+    <div class="sub">Una oportunidad real de MOAT a nivel industria automotriz mexicana</div>
+  </div>
+
+  <h2 class="section-h2">Por qué esto sucede — qué hace que IA reemplace una célula de 5–7 personas</h2>
+
+  <p>Un perfil especialista correctamente apalancado por IA generativa entrega <strong>40-60% más output por unidad de tiempo</strong> que el mismo perfil sin IA (Harvard/BCG 2023 + evidencia del piloto). Aplicado a un perfil con experiencia cross-funcional (estrategia, producto digital, performance, analytics, datos, gobierno), la palanca permite cubrir el skill stack que típicamente requiere una célula completa de producto digital.</p>
+
+  <p>Esto NO significa que el modelo escalable sea team-of-one. Significa que el modelo escalable es <strong>team apalancado por IA</strong> — donde cada perfil opera con la palanca de IA generativa, y por lo tanto un equipo de 6 a 10 personas entrega el output de un equipo tradicional de 15 a 20.</p>
+
+  <h2 class="section-h2">Tres escenarios de headcount para el Centro de Excelencia MKT</h2>
+
+  <div class="scenarios">
+    <div class="scenario">
+      <div class="s-label">Escenario A</div>
+      <div class="s-name">Generalistas IA-leveraged</div>
+      <div class="s-team">4–5 → 7–8</div>
+      <div class="s-cost">~$250–300K / mes</div>
+      <div class="s-desc">Más económico. Riesgo: cuellos de botella en profundidad técnica de especialidades.</div>
+    </div>
+    <div class="scenario recommended">
+      <div class="s-badge">Recomendado</div>
+      <div class="s-label">Escenario C</div>
+      <div class="s-name">Híbrido especialistas + generalistas IA</div>
+      <div class="s-team">6–7 → 10–12</div>
+      <div class="s-cost">~$320–400K / mes</div>
+      <div class="s-desc">2 especialistas senior pivote (Performance + Data) + 3-4 generalistas IA-leveraged + 1 Brand Lead. Mejor balance costo / profundidad.</div>
+    </div>
+    <div class="scenario">
+      <div class="s-label">Escenario B</div>
+      <div class="s-name">Especialistas full IA-native</div>
+      <div class="s-team">5–6 → 9–11</div>
+      <div class="s-cost">~$400–500K / mes</div>
+      <div class="s-desc">Profundidad máxima por especialidad. Riesgo: costo mayor, más difícil contratar perfiles IA-native senior.</div>
+    </div>
+  </div>
+
+  <div class="note navy">
+    <span class="tag">El insight estratégico del Consejo</span>
+    <strong>Cualquiera de los tres escenarios sigue estando 100× por debajo del costo tradicional</strong> de operar la dirección de marketing de un grupo automotriz comparable. La pregunta para el Consejo no es si esta ventaja existe — está cuantificada y verificable. La pregunta es si el grupo la institucionaliza como capacidad permanente, antes de que la industria mexicana la internalice.
+  </div>
+</div>
+
+<!-- ==================== PÁGINA 7 — §4 LA TESIS ==================== -->
+<div class="page">
+  <h1 class="section-title"><span class="num">§ 04 · La tesis estratégica</span>Plasencia Marketplace como speedboat paralelo</h1>
+
+  <p class="lede">La respuesta al cuello identificado por el piloto no es ampliar el equipo de marketing ni invertir más en pauta. Es construir un canal y producto digital propio del grupo que opere el journey del cliente y el ciclo del auto end-to-end, con modelo operativo de ventas embebido, replicando el patrón global ya validado en grupos automotrices líderes del mundo.</p>
+
+  <h2 class="section-h2">Plasencia Marketplace en una frase</h2>
+
+  <div class="answer-first">
+    <div class="label">Definición operativa</div>
+    <p><strong>Plasencia Marketplace</strong> es un canal y experiencia de marca propios del grupo donde el cliente puede ver inventario de todas las marcas, configurar, calcular financiamiento o arrendamiento, apartar online, agendar visita con vendedor específico, solicitar valuación de su auto actual, contratar seguros, y mantener relación post-venta — todo gobernado por el grupo, no por cada marca-OEM por separado. <strong>El grupo es el operador. Las concesionarias son los vendors. Las marcas OEM son inventory. El cliente, los datos y el CLTV son del grupo.</strong></p>
+  </div>
+
+  <h2 class="section-h2">El patrón ya ganó globalmente — no estamos inventando</h2>
+
+  <p>Entre 2020 y 2025, los grupos automotrices líderes del mundo convergieron independientemente en exactamente este modelo: retailer-marketplace bajo marca-paraguas corporativa, con plataforma digital propia que orquesta el journey end-to-end, captura del CLTV cross-marca, y capacidad operativa apalancada por IA. La evidencia es pública y verificable en SEC filings y earnings calls.</p>
+
+  <table class="data">
+    <thead><tr><th>Grupo</th><th>Plataforma</th><th>Resultado verificable</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Lithia &amp; Driveway</strong></td><td>Driveway (USA)</td><td>32% mix retail Q1 2025 · DFC primera utilidad $15.4M USD 2024</td></tr>
+      <tr><td><strong>Asbury</strong></td><td>Clicklane (USA)</td><td>91 dealerships en 8 meses · cierre cash 8 min · &gt;$1B revenue 2022</td></tr>
+      <tr><td><strong>Group 1</strong></td><td>AcceleRide (USA/UK)</td><td>116 dealerships · &gt;70% clientes la tocan · $19B revenue 2025</td></tr>
+      <tr><td><strong>Hendrick</strong></td><td>HendrickCars.com</td><td>96 ubicaciones · &gt;35,000 vehículos bajo un SKU virtual</td></tr>
+      <tr><td><strong>Inchcape</strong></td><td>DXP (14 países LATAM)</td><td>22 contratos OEM 2024 · adquisición Derco $1.5B USD</td></tr>
+      <tr><td><strong>Sonic</strong></td><td>EchoPark (sub-marca seminuevos)</td><td>EBITDA récord +78% YoY 2025 sin abrir tiendas nuevas</td></tr>
+    </tbody>
+  </table>
+
+  <p>Los grupos que intentaron el modelo 100% digital sin red física fracasaron de forma documentable: Cazoo quemó £1.4B y entró en administración mayo 2024; Vroom liquidó su ecommerce enero 2024; Care by Volvo cerró agosto 2024. <strong>Plasencia tiene los dos ingredientes que distinguen al patrón ganador del anti-patrón fallido: red física consolidada y producto digital propio en construcción.</strong></p>
+
+  <h2 class="section-h2">Speedboat: por qué no toca el modelo actual</h2>
+
+  <p>Cualquier propuesta de transformación a un grupo con 75 años, 8 marcas y 42 concesionarias activa el sistema inmune organizacional. La propuesta correcta es operar Plasencia Marketplace como <strong>speedboat paralelo</strong>: canal alterno desde cero, sin los vicios operativos del modelo actual, con su propia gobernanza, sus propios procesos y su propio ADN. Si funciona, gana peso progresivamente. Si no funciona, se itera barato o se cierra limpio sin daño al barco principal. <strong>El barco principal navega; el speedboat explora.</strong></p>
+
+  <div class="note amber">
+    <span class="tag">Ventana competitiva</span>
+    Stellantis lanzó marketplace en MercadoLibre México en abril 2026 (modelo lead generator). Plasencia tiene una ventana estimada de <strong>24 a 36 meses</strong> antes de que algún OEM serio capture customer data en México por la fuerza. Cada trimestre de postergación cede curva de aprendizaje algorítmico a competidores nativos digitales.
+  </div>
+</div>
+
+<!-- ==================== PÁGINA 8 — §5 MODELO OPERATIVO ==================== -->
+<div class="page">
+  <h1 class="section-title"><span class="num">§ 05 · El modelo operativo</span>Cinco capas del Marketplace y service design phygital</h1>
+
+  <p class="lede">Plasencia Marketplace no es una herramienta aislada ni un sitio web. Es un sistema de cinco capas que opera como ciclo cerrado entre adquisición, conversión, cierre, posventa y recompra — capturando las ocho líneas de CLTV ya mapeadas en el conocimiento operativo del grupo.</p>
+
+  <div class="layers">
+    <div class="layer">
+      <div class="layer-num">1</div>
+      <div class="layer-content">
+        <h3>Marketplace digital (lo que el cliente hace solo)</h3>
+        <p>Catálogo cross-marca unificado (nuevos + seminuevos + flotillas). Filtros avanzados. Configurador, calculadora de crédito y arrendamiento, apartado online con pago digital, agenda de cita con vendedor específico, solicitud de trade-in con valuación, pre-aprobación de crédito, compra de seguros bundled. Todo bajo identidad Plasencia.</p>
+      </div>
+    </div>
+    <div class="layer">
+      <div class="layer-num">2</div>
+      <div class="layer-content">
+        <h3>Puente phygital (lo que asegura que el cliente llegue al piso)</h3>
+        <p>Value exchange trigger — incentivo claro y monetizable por confirmar la visita. QR único + folio único de cita. Recordatorios automáticos 24h y 1h antes desde el canal del marketplace, no desde el WhatsApp personal del vendedor. Cliente llega al piso con su QR.</p>
+      </div>
+    </div>
+    <div class="layer">
+      <div class="layer-num">3</div>
+      <div class="layer-content">
+        <h3>Recepción en piso (lo que RevOps opera)</h3>
+        <p>Kiosko de cita rápida agendada por marketplace — analogía banca premium: cliente con cita marketplace no espera junto a walk-ins, tiene su carril propio. RevOps coordina, avisa al vendedor designado, prepara el vehículo y entrega al vendedor el dossier completo del cliente. Cliente no repite información, no espera.</p>
+      </div>
+    </div>
+    <div class="layer">
+      <div class="layer-num">4</div>
+      <div class="layer-content">
+        <h3>Cierre y post-venta (lo que sostiene el ciclo)</h3>
+        <p>Vendedor en marco metodológico estandarizado, no en estilo individual. Su único job es cerrar; la prospección ya pasó. Si no cierra ese día, el cliente sigue en el sistema del marketplace, no en el WhatsApp del vendedor. Triggers automatizados de recompra. Trade-in entra a Seminuevos, iniciando nuevo ciclo.</p>
+      </div>
+    </div>
+    <div class="layer">
+      <div class="layer-num">5</div>
+      <div class="layer-content">
+        <h3>Sistema de inteligencia (el sistema nervioso)</h3>
+        <p>El Motor de Atribución ya operando es la base. Cada touchpoint emite señal trazable: vio_catalogo → apartó → pagó_apartado → agendó_cita → confirmó_kiosko → recibido_revops → vendedor_cierra (o no_cierra con motivo estructurado). Atribución 100% del journey digital al físico al cierre.</p>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="section-h2">El service design elimina el efecto topo por diseño</h2>
+
+  <p>Hoy el cliente que viene del digital al piso no se identifica: el vendedor lo trata como walk-in, no se atribuye al canal, las métricas no cierran. Con el modelo propuesto, el value exchange trigger fuerza la identificación, el kiosko procesa esa identificación, RevOps tiene SLA enforced, y el vendedor recibe con dossier completo. <strong>Efecto topo eliminado por diseño, no por buena voluntad del vendedor.</strong></p>
+</div>
+
+<!-- ==================== PÁGINA 9 — §6 LAS 3 OPCIONES ==================== -->
+<div class="page">
+  <h1 class="section-title"><span class="num">§ 06 · Las tres opciones de ejecución</span>Cómo se construye la versión robusta del Marketplace</h1>
+
+  <p class="lede">Aprobado el qué (Plasencia Marketplace + RevOps), el grupo enfrenta tres opciones reales para el cómo. Cada una tiene perfil distinto de tiempo, costo, riesgo técnico y riesgo de gobernanza. La recomendación profesional del Director es transparente, sustentada, y deja la decisión final donde corresponde: en el Consejo.</p>
+
+  <div class="note red">
+    <span class="tag">Nota crítica sobre el modo de construcción</span>
+    El piloto operó en modalidad <strong>vibe-coding</strong>: un perfil cross-funcional iterando con IA generativa para resolver problemas acotados de captura, instrumentación y dashboards. Esa modalidad fue brillante para el MVP, demostró la ventaja injusta cuantificada en §3, y se completó en 4 semanas. <strong>Esa modalidad NO escala al Marketplace robusto.</strong> Los features del Marketplace son sustancialmente más complejos que capas de diseño y frontend: incluyen arquitectura de producto cross-funcional, flujos transaccionales (apartado, pago, trade-in, financiamiento, arrendamiento, seguros), service design phygital con instrumentación física en piso, ingeniería de plataforma escalable, gobierno de datos, seguridad transaccional, integraciones DMS, regulación financiera, UX especializado por journey, y operación 24/7. <strong>Sería un riesgo material que el Director (o cualquier vibe-coder, sea quien sea) construya este nivel de producto en modalidad iterativa de IA-leveraged single-contributor.</strong> Esto NO es "dame un equipo interno de vibe coders". Esto es "vamos con proveedores externos reales, especializados, preferentemente orientados a IA para mantener velocidad y costo competitivos, pero con la profundidad de ingeniería y product design que un marketplace robusto exige".
+  </div>
+
+  <div class="options">
+    <div class="option">
+      <div class="option-label">Opción A</div>
+      <div class="option-name">Construir desde cero</div>
+      <div class="option-tagline">Proveedores externos especializados + dirección interna</div>
+      <div class="option-details">
+        <strong>Tiempo MVP:</strong> 12–18 meses<br>
+        <strong>Costo inicial:</strong> $5–15M MXN<br>
+        <strong>Riesgo:</strong> alto (greenfield)<br>
+        <strong>Conflicto:</strong> ninguno
+      </div>
+    </div>
+    <div class="option">
+      <div class="option-label">Opción B</div>
+      <div class="option-name">Comprar producto extranjero</div>
+      <div class="option-tagline">Reachlocal, AutoFi, plataformas internacionales</div>
+      <div class="option-details">
+        <strong>Tiempo MVP:</strong> 3–6 meses<br>
+        <strong>Costo inicial:</strong> licencias caras USD<br>
+        <strong>Riesgo:</strong> lock-in sin contexto MX automotriz<br>
+        <strong>Conflicto:</strong> ninguno
+      </div>
+    </div>
+    <div class="option recommended">
+      <div class="option-badge">Recomendación</div>
+      <div class="option-label">Opción C</div>
+      <div class="option-name">Whitelabel sobre stack base existente + proveedores especializados</div>
+      <div class="option-tagline">Acelera MVP aprovechando infraestructura ya operando + proveedores expertos para versión robusta</div>
+      <div class="option-details">
+        <strong>Tiempo MVP:</strong> 30–60 días<br>
+        <strong>Costo inicial:</strong> incremental sobre stack actual<br>
+        <strong>Riesgo técnico:</strong> bajo (Motor de Atribución ya operando)<br>
+        <strong>Gobernanza:</strong> Plasencia dueña de marca, cliente, datos, CLTV
+      </div>
+    </div>
+  </div>
+
+  <h2 class="section-h2">Por qué la recomendación profesional es la opción C</h2>
+
+  <ul class="clean">
+    <li><strong>Velocidad de activación.</strong> El piloto Motor de Atribución demostró que el grupo puede construir y operar infraestructura digital en cuatro semanas con team-of-one + IA. La opción C aprovecha esa misma palanca para escalar a marketplace en 30-60 días, no 12-18 meses.</li>
+    <li><strong>Costo total estructuralmente menor.</strong> La opción A requiere headcount técnico interno y costo recurrente alto. La opción B tiene lock-in extranjero con tarifas en USD. La opción C opera con costo incremental acotado sobre infraestructura ya operando.</li>
+    <li><strong>Contexto del mercado mexicano.</strong> Las plataformas internacionales no entienden DMS locales, restricciones OEM en MX, financiamiento mexicano, regulación de arrendamiento puro, esquemas fiscales. La opción C parte de comprensión profunda del contexto local validada en el piloto.</li>
+    <li><strong>Gobernanza limpia.</strong> Plasencia mantiene propiedad completa de marca, cliente, datos y CLTV. Cualquier vendor tecnológico opera bajo contrato formal con cláusulas explícitas de propiedad de activos comerciales.</li>
+    <li><strong>Reconocimiento honesto del límite.</strong> El piloto operó en modalidad vibe-coding (perfil cross-funcional + IA + iteración rápida). Esto fue brillante para el MVP. <strong>NO escala a producto robusto.</strong> La versión robusta del Marketplace requiere proveedores externos especializados: diseño estratégico de producto, ingeniería sólida, UX/UI especializado — preferentemente orientados a IA para mantener velocidad. La opción C incluye eso explícitamente.</li>
+  </ul>
+
+  <div class="note navy">
+    <span class="tag">Gobernanza propuesta para la opción C</span>
+    Si el Consejo elige opción C, el proceso de selección del vendor tecnológico y de los proveedores especializados (diseño, ingeniería, UX) se conduce con <strong>auditoría externa, RFP formal con criterios objetivos, y cláusulas contractuales que garantizan propiedad completa de Plasencia sobre marca, cliente, datos y CLTV</strong>. La decisión sobre vendors específicos no es del Director — es del comité que el Consejo designe. El Director conduce la operación técnica del proceso pero la selección final pasa por gobernanza independiente.
+  </div>
+</div>
+
+<!-- ==================== PÁGINA 10 — §7 PRIMER HITO ==================== -->
+<div class="page">
+  <h1 class="section-title"><span class="num">§ 07 · El primer hito</span>Noventa días sobre Seminuevos como piloto del marketplace</h1>
+
+  <p class="lede">El despliegue del Marketplace inicia donde el grupo tiene control total: Seminuevos. Sin restricciones OEM. Con la marca propia más madura del grupo. Con el funnel upstream más optimizado del piloto. Con la única venta cerrada documentada del Motor de Atribución como prueba operativa de viabilidad. Y donde el cuello downstream está cuantificado al detalle.</p>
+
+  <h2 class="section-h2">Lo que se construye en los primeros 90 días</h2>
+
+  <div class="two-col">
+    <div>
+      <h3 class="section-h3">Mes 1 — Setup</h3>
+      <ul class="clean">
+        <li>Whitelabel del marketplace activado bajo marca Plasencia</li>
+        <li>Catálogo Seminuevos integrado al marketplace</li>
+        <li>Service design phygital implementado en sucursal piloto</li>
+        <li>Equipo RevOps designado y entrenado</li>
+        <li>Kiosko cita rápida operando en sucursal piloto</li>
+        <li>Primer value exchange trigger en producción</li>
+      </ul>
+    </div>
+    <div>
+      <h3 class="section-h3">Meses 2-3 — Operación + validación</h3>
+      <ul class="clean">
+        <li>Funnel completo en producción</li>
+        <li>RevOps opera handoff con SLA enforced</li>
+        <li>Vendedores en marco metodológico estandarizado</li>
+        <li>Dashboard ejecutivo semanal al Consejo</li>
+        <li>Primera cohorte de ventas atribuidas al marketplace</li>
+        <li>Iteración continua basada en data</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2 class="section-h2">Métricas binarias de validación al día 90</h2>
+
+  <table class="data">
+    <thead><tr><th>Métrica</th><th class="num">Baseline actual</th><th class="num">Objetivo día 90</th><th>Resultado esperado</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Retención cita → visita</strong></td><td class="num">20%</td><td class="num good">&gt; 40%</td><td>Duplicar visitas piso</td></tr>
+      <tr><td><strong>Conversión e2e (lead → venta)</strong></td><td class="num">0.62%</td><td class="num good">&gt; 2%</td><td>Triplicar tasa de cierre</td></tr>
+      <tr><td><strong>Leads sin primer contacto</strong></td><td class="num">66%</td><td class="num good">&lt; 10%</td><td>SLA enforced funcionando</td></tr>
+      <tr><td><strong>Ventas cerradas vía marketplace</strong></td><td class="num">1 (45 días)</td><td class="num good">&gt; 15 / mes</td><td>Volumen verificable</td></tr>
+      <tr><td><strong>NPS clientes marketplace</strong></td><td class="num">no medido</td><td class="num good">&gt; 50</td><td>Experiencia validada</td></tr>
+      <tr><td><strong>Loop DMS → Marketplace</strong></td><td class="num">0%</td><td class="num good">100%</td><td>Trazabilidad e2e cerrada</td></tr>
+    </tbody>
+  </table>
+
+  <h2 class="section-h2">Por qué Seminuevos como primer hito</h2>
+
+  <ul class="clean">
+    <li><strong>Cero restricción OEM.</strong> El producto es del grupo. Toda decisión de marketing, journey y experiencia se toma internamente.</li>
+    <li><strong>Margen y madurez.</strong> Seminuevos opera con 3.8x el benchmark nacional de seminuevos por punto de venta. Es la sub-marca propia más madura del grupo.</li>
+    <li><strong>Cuello cuantificado.</strong> 162 leads operativos, 1 venta, 107 sin primer contacto. Cada punto porcentual de mejora es medible.</li>
+    <li><strong>Riesgo financiero contenido.</strong> Inversión incremental marginal frente a cualquiera de las palancas económicas del grupo.</li>
+    <li><strong>Caso de éxito potencial.</strong> Si funciona, sustenta el escalamiento a Hyundai, Stellantis y GAC con alineación previa con OEM.</li>
+  </ul>
+</div>
+
+<!-- ==================== PÁGINA 11 — §8 EL CASO FINANCIERO ==================== -->
+<div class="page">
+  <h1 class="section-title"><span class="num">§ 08 · El caso financiero</span>El dinero — en una página que el CFO puede leer sola</h1>
+
+  <p class="lede">Una sola página. El argumento de inversión en lenguaje del CFO. Esta página responde tres preguntas: cuánto cuesta el plan, cuánto retorna, y cuánto cuesta NO hacerlo. Los números son conservadores. La sección está diseñada para sustentar la aprobación sin necesidad de leer el resto del documento.</p>
+
+  <h2 class="section-h2">Baseline actual del grupo</h2>
+
+  <div class="kpi-grid">
+    <div class="kpi"><div class="kpi-label">Gasto MKT anual</div><div class="kpi-value">$73.4M</div><div class="kpi-sub">Plantilla + pauta + 14 proveedores</div></div>
+    <div class="kpi alarm"><div class="kpi-label">% del revenue</div><div class="kpi-value red">0.57%</div><div class="kpi-sub">vs 5-10% benchmark sector</div></div>
+    <div class="kpi"><div class="kpi-label">Atribución digital real</div><div class="kpi-value">0%</div><div class="kpi-sub">Pre-piloto · sin trazabilidad</div></div>
+    <div class="kpi"><div class="kpi-label">Subsidio cruzado OEM</div><div class="kpi-value">$11M+</div><div class="kpi-sub">Marcas con 0% co-inversión</div></div>
+  </div>
+
+  <h2 class="section-h2">Lo que cuesta el plan propuesto · por fase</h2>
+
+  <table class="data">
+    <thead><tr><th>Fase</th><th>Alcance</th><th class="num">Inversión incremental</th><th>Comentario</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Fase 0 — Piloto (60-90 días)</strong></td><td>Marketplace whitelabel + RevOps en Seminuevos</td><td class="num good">Marginal</td><td>Reutiliza Motor de Atribución ya operando. Fee licencia controlado. 0-2 personas RevOps.</td></tr>
+      <tr><td><strong>Fase 1 — Validación + escalamiento</strong></td><td>Escalar a HYU/STL/GAC con OEM alineadas</td><td class="num">A definir post-piloto</td><td>Condicional a métricas binarias del día 90 (§7). Caso financiero específico al cierre del piloto.</td></tr>
+      <tr><td><strong>Fase 2 — Centro de Excelencia</strong></td><td>CdE completo · escenario híbrido recomendado (§3)</td><td class="num">~$320–400K / mes</td><td>6-7 personas Fase 1 → 10-12 Fase 2. 100× por debajo del costo tradicional equivalente.</td></tr>
+      <tr><td><strong>Fase 3 — Central de medios + 8 marcas</strong></td><td>Operación corporativa completa</td><td class="num">A definir</td><td>Decisión separada, condicional a resultados Fase 2.</td></tr>
+    </tbody>
+  </table>
+
+  <h2 class="section-h2">El killer metric · el número que cierra el caso</h2>
+
+  <div class="answer-first">
+    <div class="label">Killer Metric — KO Estratégico línea 1066</div>
+    <p><strong>+1 punto porcentual de conversión digital del grupo = +$661 MDP de ingreso anual incremental.</strong> Sobre la línea base actual ($4,228M MXN de revenue digital atribuible), mover la participación digital de 33% a 36.3% significa aproximadamente <strong>1,604 unidades adicionales y $661 MDP de ingreso anual</strong>. El piloto, al cuantificar el cuello (0.15% conversión e2e cross-marca actual), demuestra que el espacio para mover la aguja es estructuralmente material — mucho mayor que un punto porcentual.</p>
+  </div>
+
+  <h2 class="section-h2">Lo que cuesta NO actuar · cuantificado</h2>
+
+  <ul class="clean">
+    <li><strong>Comisión de medios externa anual:</strong> $800K – $1.2M MXN absorbidos por agencias intermediarias sin trazabilidad de valor.</li>
+    <li><strong>IVA no recuperable:</strong> aproximadamente <strong>16% del gasto en pauta digital</strong> por esquema fiscal subóptimo en compra de medios externa.</li>
+    <li><strong>Eficiencia no capturada:</strong> al menos <strong>$5M MXN anuales</strong> en optimización data-driven que no se hace sobre los $36.3M de pauta del grupo.</li>
+    <li><strong>Desperdicio recurrente del piloto actual:</strong> 656 oportunidades pagadas cada 45 días, 655 abandonadas. Si el patrón persiste, <strong>~5,200 oportunidades calificadas perdidas al año</strong> por modelo operativo roto.</li>
+    <li><strong>Ventana competitiva cediéndose:</strong> Stellantis lanzó marketplace en MercadoLibre México en abril 2026. Plasencia tiene 24-36 meses antes de que algún OEM serio capture customer data en MX por la fuerza. Participación de mercado en seminuevos progresivamente cedida a competidores nativos digitales.</li>
+  </ul>
+
+  <h2 class="section-h2">Benchmark comparativo · qué pagaría el grupo con la alternativa</h2>
+
+  <div class="comparison">
+    <div class="comp-card alt-A">
+      <div class="alt-label">Alternativa externa</div>
+      <div class="alt-name">Consultora + agencia equivalente</div>
+      <div class="alt-total">$880K MXN</div>
+      <div class="alt-time">5–7 meses (sólo el setup)</div>
+      <ul>
+        <li>Setup MVP <strong>$880K MXN</strong></li>
+        <li>Tiempo <strong>5-7 meses</strong></li>
+        <li>Recurrente post-MVP <strong>$300-500K/mes</strong></li>
+      </ul>
+    </div>
+    <div class="comp-card alt-B">
+      <div class="alt-label">Plan propuesto · Fase 0</div>
+      <div class="alt-name">Piloto Marketplace + RevOps en Seminuevos</div>
+      <div class="alt-total">Marginal</div>
+      <div class="alt-time">30–60 días</div>
+      <ul>
+        <li>Stack existente reutilizado <strong>$100 USD/mes</strong></li>
+        <li>Fee licencia whitelabel <strong>Acotado</strong></li>
+        <li>RevOps 0-2 personas <strong>Dimensionado piloto</strong></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="note green">
+    <span class="tag">El argumento financiero al CFO</span>
+    El plan propuesto es <strong>la opción más barata, más rápida y más reversible de las tres</strong> sobre la mesa. La inversión incremental en Fase 0 es marginal frente a cualquiera de los costos de inacción cuantificados. La métrica decisiva (+1pp conversión = +$661 MDP/año) es un orden de magnitud mayor que cualquier inversión Fase 0/1/2 combinada. Y si el piloto no cumple las métricas binarias del §7, el modelo se cierra limpio sin daño al barco principal.
+  </div>
+</div>
+
+<!-- ==================== PÁGINA 12 — §9 EL ASK ==================== -->
+<div class="page">
+  <h1 class="section-title"><span class="num">§ 09 · El ask al Consejo</span>Tres decisiones binarias · 30 días de respuesta</h1>
+
+  <p class="lede">La Dirección de Marketing Corporativo solicita al Consejo Directivo tres decisiones binarias acotadas, con horizonte de respuesta de 30 días naturales. Esta es deliberadamente la versión más conservadora del ask: no pide presupuesto masivo, no pide reorganización organizacional, no pide escalamiento simultáneo a 8 marcas. Pide permiso para construir y validar el modelo donde el grupo tiene control total.</p>
+
+  <div class="ask-block">
+    <span class="ask-num">D1</span><span class="ask-title">Aprobar la construcción de Plasencia Marketplace iniciando por Seminuevos durante 90 días</span>
+    <div class="ask-body">
+      <strong>Lo que el Consejo entrega:</strong> mandato corporativo para construir el canal/producto y activarlo en Seminuevos como primer hito con métricas binarias acordadas.<br>
+      <strong>Lo que el Consejo recibe:</strong> al cierre de 90 días, evidencia cuantitativa verificable directamente en el dashboard. Decisión informada para escalamiento o iteración.<br>
+      <strong>Costo asociado:</strong> incremental y acotado al piloto Seminuevos. La infraestructura del Motor de Atribución ya existe y se reutiliza.
+    </div>
+  </div>
+
+  <div class="ask-block">
+    <span class="ask-num">D2</span><span class="ask-title">Aprobar Revenue Operations como unidad nueva dentro de la Dirección de Marketing Corporativo</span>
+    <div class="ask-body">
+      <strong>Lo que el Consejo entrega:</strong> mandato para crear RevOps como rol/función nueva con autoridad ejecutora sobre el funnel post-lead en Seminuevos durante 90 días.<br>
+      <strong>Lo que el Consejo recibe:</strong> el dueño operativo del tramo intermedio que hoy no existe en el grupo. Sin esta pieza, ninguna mejora upstream se materializa en cierres.<br>
+      <strong>Costo asociado:</strong> dimensionado al piloto Seminuevos (0-2 personas dedicadas + coordinación con vendedores actuales).
+    </div>
+  </div>
+
+  <div class="ask-block">
+    <span class="ask-num">D3</span><span class="ask-title">Decisión binaria sobre la opción de ejecución (A, B o C de §6)</span>
+    <div class="ask-body">
+      <strong>Lo que el Consejo entrega:</strong> decisión binaria sobre la opción de construcción del marketplace, con conocimiento de la declaración formal de interés del Director (opción C).<br>
+      <strong>Lo que el Consejo recibe:</strong> claridad operativa sobre el camino de ejecución, eliminación de ambigüedad, gobernanza transparente.<br>
+      <strong>Costo asociado:</strong> función de la opción elegida.
+    </div>
+  </div>
+
+  <h2 class="section-h2">Lo que NO se pide ahora — explícito por disciplina narrativa</h2>
+
+  <ul class="clean">
+    <li><strong>NO se pide</strong> Centro de Excelencia MKT completo con headcount 6-12 personas. Decisión de fase 2, condicional al éxito del piloto Marketplace + RevOps en Seminuevos.</li>
+    <li><strong>NO se pide</strong> central de medios corporativa fase 1. Decisión separada, posterior.</li>
+    <li><strong>NO se pide</strong> escalamiento simultáneo a 8 marcas. El piloto Seminuevos valida primero.</li>
+    <li><strong>NO se pide</strong> reorganización organizacional ni reducción de plantilla. Las gerencias de marca mantienen su operación.</li>
+    <li><strong>NO se pide</strong> alineación masiva con OEMs antes de demostrar el modelo en Seminuevos. Esa conversación se abre con OEMs cuando hay caso de éxito que mostrar.</li>
+    <li><strong>NO se pide</strong> un equipo interno de vibe coders. Se reconoce explícitamente que la versión robusta del Marketplace requiere proveedores externos especializados orientados a IA.</li>
+    <li><strong>NO se recomienda</strong> escalar el uso de Vambe ni cualquier herramienta de IA adicional <em>antes</em> de arreglar el proceso comercial humano. Vambe es canal heredado del grupo. La Dirección construyó la integración técnica Vambe → CRM para tener visibilidad operativa, y precisamente esa instrumentación demostró que <strong>aún con mirror técnico funcionando perfecto, las tasas a cita, visita y compra no mejoran</strong>. El handoff Marketing → Ventas sigue roto. Eso es la prueba empírica de que <strong>no se puede construir nada on top of a lie</strong>. El CRM corporativo, el kanban operativo y la infraestructura del Motor de Atribución sí se preservan como instrumentación del nuevo modelo porque son construcción propia auditada — pero ninguna se escala sin antes arreglar el proceso humano.</li>
+  </ul>
+</div>
+
+<!-- ==================== PÁGINA 13 — §10 CIERRE ==================== -->
+<div class="page">
+  <h1 class="section-title"><span class="num">§ 10 · Cierre</span>Qué ocurre en los próximos 30 días si las decisiones se aprueban</h1>
+
+  <p class="lede">La aprobación de las tres decisiones binarias del §8 activa una secuencia de ejecución concreta y verificable. La negativa no preserva el statu quo: lo deteriora mes con mes en función de los costos de inacción cuantificados — pipeline acumulado de cientos de prospectos calificados que se siguen perdiendo, ventana competitiva de 24-36 meses que se sigue cerrando, eficiencia digital que no se captura.</p>
+
+  <h2 class="section-h2">Lo que se ejecuta en los próximos 30 días bajo aprobación</h2>
+
+  <ul class="clean">
+    <li><strong>Semana 1:</strong> firma de acuerdos formales según opción elegida en D3. Asignación de equipo RevOps. Comunicación a stakeholders internos.</li>
+    <li><strong>Semana 2:</strong> setup técnico del marketplace whitelabel con catálogo Seminuevos integrado. Diseño del primer value exchange trigger. Capacitación del equipo RevOps en proceso comercial estandarizado.</li>
+    <li><strong>Semana 3:</strong> kiosko cita rápida operativo en sucursal piloto. Service design phygital probado con clientes reales. Primer dashboard ejecutivo semanal entregado al Consejo.</li>
+    <li><strong>Semana 4:</strong> primer reporte cuantitativo del piloto Marketplace con cohorte inicial de oportunidades. Inicio del conteo formal de los 90 días.</li>
+  </ul>
+
+  <h2 class="section-h2">Lo que se entrega al Consejo al cierre de los 90 días</h2>
+
+  <ul class="clean">
+    <li>Reporte completo cuantitativo del piloto Marketplace + RevOps en Seminuevos.</li>
+    <li>Verificación de cumplimiento de las seis métricas binarias del §7.</li>
+    <li>Propuesta formal de escalamiento a Hyundai, Stellantis y GAC condicional a resultados, con alineación previa propuesta con OEMs.</li>
+    <li>Caso financiero actualizado con datos reales del horizonte ejecutado.</li>
+    <li>Decisión binaria al Consejo sobre fase 2 (escalamiento o iteración o cierre).</li>
+  </ul>
+
+  <div class="pull-quote">
+    El piloto del Motor de Atribución demostró que el grupo puede medir, optimizar y atribuir con infraestructura propia a costo marginal. <em>Esa capacidad ya está en el grupo.</em> La pregunta que el Consejo enfrenta no es si Plasencia debe construir el modelo correcto — esa decisión ya se tomó implícitamente al autorizar el piloto. La pregunta es si el grupo está dispuesto a hacer lo que el diagnóstico cuantitativo del piloto exige.
+  </div>
+
+  <div class="close-statement">
+    <p>Esta es una decisión de <em>gobierno corporativo</em>,<br>no de presupuesto.<br><br>El piloto entregó la evidencia.<br>El Consejo entrega la decisión.</p>
+    <div class="sig">Dirección de Marketing Corporativo · Grupo Plasencia Automotriz · Mayo 2026</div>
+  </div>
+</div>
+
+</body>
+</html>
