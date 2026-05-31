@@ -173,14 +173,18 @@
 .path-card p{font-size:13px;color:var(--n600);margin-top:8px;line-height:1.55}
 .path-card .badge-deal{position:absolute;top:14px;right:14px}
 
-/* PLASI */
-.plasi-btn{position:fixed;bottom:24px;right:24px;z-index:50;background:var(--navy);color:#fff;display:flex;align-items:center;gap:10px;padding:12px 20px 12px 12px;border-radius:99px;box-shadow:var(--sh-xl);transition:.2s}
-.plasi-btn:hover{background:var(--slate);transform:translateY(-2px)}
-.plasi-btn .av{width:32px;height:32px;border-radius:99px;background:var(--gold);color:var(--navy);font-family:var(--disp);font-weight:900;display:flex;align-items:center;justify-content:center}
-.plasi-btn span{font-family:var(--disp);font-weight:700;font-size:14px}
-.plasi-panel{position:fixed;bottom:24px;right:24px;z-index:50;width:min(400px,calc(100vw - 48px));height:min(580px,calc(100vh - 48px));background:#fff;border-radius:22px;box-shadow:0 32px 80px rgba(0,0,0,.3);border:1px solid var(--n200);display:flex;flex-direction:column;overflow:hidden}
-.plasi-hd{background:linear-gradient(135deg,var(--navy),var(--navy-d));color:#fff;padding:16px 18px;display:flex;align-items:center;gap:12px}
-.plasi-hd .av{width:38px;height:38px;border-radius:99px;background:var(--gold);color:var(--navy);font-family:var(--disp);font-weight:900;display:flex;align-items:center;justify-content:center}
+/* PLASI · nueva identidad visual con isotipo */
+@keyframes plasi-pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.06);opacity:.95}}
+.av-iso{width:40px;height:40px;border-radius:99px;display:inline-flex;align-items:center;justify-content:center;background:transparent;overflow:visible;flex-shrink:0;animation:plasi-pulse 3s var(--ease) infinite}
+.av-iso svg{width:100%;height:100%;display:block;filter:drop-shadow(0 2px 8px rgba(236,201,75,.35))}
+.plasi-btn{position:fixed;bottom:24px;right:24px;z-index:50;background:linear-gradient(135deg,var(--navy),var(--navy-d));color:#fff;display:flex;align-items:center;gap:10px;padding:8px 20px 8px 8px;border-radius:99px;box-shadow:0 14px 40px rgba(15,26,46,.4),0 0 0 3px rgba(236,201,75,.15);transition:.2s;border:1px solid rgba(236,201,75,.3)}
+.plasi-btn:hover{transform:translateY(-3px);box-shadow:0 18px 48px rgba(15,26,46,.5),0 0 0 4px rgba(236,201,75,.25)}
+.plasi-btn .av-iso{width:36px;height:36px;animation:none}
+.plasi-btn span{font-family:var(--disp);font-weight:700;font-size:13.5px;letter-spacing:.2px}
+.plasi-panel{position:fixed;bottom:24px;right:24px;z-index:50;width:min(400px,calc(100vw - 32px));height:min(620px,calc(100vh - 32px));background:#fff;border-radius:22px;box-shadow:0 32px 80px rgba(0,0,0,.3);border:1px solid var(--n200);display:flex;flex-direction:column;overflow:hidden}
+.plasi-hd{background:linear-gradient(135deg,var(--navy),var(--navy-d));color:#fff;padding:16px 18px;display:flex;align-items:center;gap:12px;position:relative;overflow:hidden}
+.plasi-hd::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 100% at 0% 100%,rgba(236,201,75,.2),transparent 60%);pointer-events:none}
+.plasi-hd .av-iso{position:relative;z-index:1;width:42px;height:42px}
 .plasi-hd .nm{font-family:var(--disp);font-weight:700;font-size:15px}
 .plasi-hd .st{font-size:11px;color:rgba(255,255,255,.7);display:flex;align-items:center;gap:6px}
 .plasi-hd .dot{width:6px;height:6px;border-radius:99px;background:var(--green)}
@@ -197,7 +201,19 @@
 .plasi-in{padding:14px;border-top:1px solid var(--n200);background:#fff;display:flex;gap:8px}
 .plasi-in input{flex:1;font-size:13px;padding:11px 16px;background:var(--n100);border:none;border-radius:99px;outline:none;transition:.2s}
 .plasi-in input:focus{background:var(--n50);box-shadow:0 0 0 2px rgba(30,39,64,.15)}
-.plasi-in button{width:42px;height:42px;border-radius:99px;background:var(--red);color:#fff;display:flex;align-items:center;justify-content:center}
+.plasi-in button{width:44px;height:44px;border-radius:99px;background:var(--red);color:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:.15s}
+.plasi-in button:hover{background:var(--red-d);transform:scale(1.05)}
+.ptyping{display:inline-flex!important;gap:5px;padding:14px 18px!important;align-items:center}
+.ptyping span{width:7px;height:7px;border-radius:99px;background:var(--n400);animation:ptyp 1.2s var(--ease) infinite}
+.ptyping span:nth-child(2){animation-delay:.15s}.ptyping span:nth-child(3){animation-delay:.3s}
+@keyframes ptyp{0%,80%,100%{opacity:.3;transform:translateY(0)}40%{opacity:1;transform:translateY(-3px)}}
+.acct-info h2 .acct-nm{display:inline}
+@media(max-width:600px){
+  .plasi-btn{bottom:14px;right:14px;padding:6px 14px 6px 6px}
+  .plasi-btn span{font-size:12.5px;display:none}
+  .plasi-btn .av-iso{width:44px;height:44px;margin:0}
+  .plasi-panel{bottom:0;right:0;left:0;width:100%;max-width:100%;height:100vh;height:100dvh;border-radius:0}
+}
 
 /* FOOTER */
 .ftr{background:linear-gradient(180deg,var(--navy),var(--navy-d));color:rgba(255,255,255,.7);margin-top:100px}
@@ -216,5 +232,111 @@
 .empty{text-align:center;padding:80px 20px;color:var(--n500)}
 .empty .ic{margin-bottom:8px;color:var(--n300);display:inline-flex}
 
-.toast{position:fixed;bottom:96px;right:24px;z-index:55;background:var(--navy);color:#fff;padding:14px 20px;border-radius:12px;box-shadow:var(--sh-xl);display:flex;align-items:center;gap:10px;font-family:var(--disp);font-weight:600;font-size:14px;animation:fu .3s ease}
+.toast{position:fixed;bottom:96px;right:24px;z-index:55;background:var(--navy);color:#fff;padding:14px 20px;border-radius:12px;box-shadow:var(--sh-xl);display:flex;align-items:center;gap:10px;font-family:var(--disp);font-weight:600;font-size:14px;animation:fu .3s ease;max-width:calc(100vw - 32px)}
 .toast .ic{color:var(--green)}
+
+/* RESUMEN stats row · responsive */
+.stats-row{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
+@media(max-width:1100px){.stats-row{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:500px){.stats-row{grid-template-columns:1fr 1fr}}
+
+/* ===== MOBILE OPTIMIZATIONS ===== */
+@media(max-width:760px){
+  .hero{min-height:520px}
+  .hero-in{padding:56px 18px 64px}
+  .hero h1{font-size:clamp(30px,8vw,42px);line-height:1.05}
+  .hero p.sub{font-size:14.5px;margin-top:16px}
+  .search-shell{margin-top:24px;flex-direction:column;padding:6px;border-radius:14px}
+  .search-shell .si{padding:0 12px}
+  .search-shell input{padding:14px 0;font-size:14px}
+  .search-shell .btn{width:100%;border-radius:10px;padding:14px}
+  .trust-line{margin-top:24px;gap:6px 18px}
+  .trust-line span{font-size:12px}
+  .hero-stats{margin-top:32px;grid-template-columns:1fr 1fr;border-radius:12px}
+  .hero-stats .stat{padding:14px 16px}
+  .hero-stats .v{font-size:22px}
+  .hero-stats .l{font-size:10px}
+  .sec{padding:48px 0}
+  .sec h2{font-size:24px;line-height:1.2}
+  .sec .lede{font-size:14.5px;margin-top:10px}
+  .wrap{padding:0 18px}
+  .marcas-in{gap:14px 22px;padding:6px 18px}
+  .marca-logo{height:22px;max-width:64px}
+  .intents{padding:36px 0}
+  .intent{padding:18px}
+  .intent h3{font-size:15px}
+  .intent p{font-size:12px}
+  .sol-grid{gap:12px;margin-top:24px}
+  .sol{padding:22px}
+  .tradein-band{padding:28px 22px;margin-top:24px;border-radius:18px}
+  .tradein-band .stats{gap:6px}
+  .tradein-band .stat{padding:12px 16px}
+  .promo{margin-top:48px}
+  .promo .ctn{padding:28px 22px}
+  .promo .img{min-height:200px}
+  .plasi-explainer{padding:24px;gap:18px}
+  .plasi-explainer .av{margin:0 auto}
+  .ciclo .n{font-size:38px}
+  .ciclo h3{font-size:16px}
+  .ftr-in{padding:48px 18px}
+  .ftr-grid{gap:32px}
+  /* CATALOGO filtros: scroll horizontal */
+  .filters{padding:14px 0;top:60px}
+  .filters-in{padding:0 18px;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .filters-in::-webkit-scrollbar{display:none}
+  .filters input,.filters select{font-size:12px;padding:9px 14px;flex-shrink:0}
+  .filters input{min-width:140px;width:180px}
+  .filters .count{display:none}
+  /* PDP */
+  .crumb{margin:14px 0;flex-wrap:wrap}
+  .pdp{gap:24px}
+  .cockpit{position:static;padding:22px}
+  .cockpit h1{font-size:24px}
+  .cockpit .price{font-size:28px}
+  .gal-thumbs button{width:64px;height:44px}
+  .specs-grid{grid-template-columns:1fr 1fr}
+  .seller-box{flex-direction:column;align-items:flex-start;gap:12px}
+  .seller-box .ctas{margin-left:0;width:100%}
+  .seller-box .ctas .btn{flex:1}
+  /* CONCESIONARIA hero stats */
+  .dealer-hero-page{padding:32px 0}
+  .dealer-hero-page .stats{margin-left:0;width:100%;justify-content:space-around;gap:8px}
+  .dealer-hero-page .stats .v{font-size:22px}
+  .dealer-hero-page h1{font-size:24px}
+  .dealer-hero-page .logo-big{width:80px;height:80px;padding:12px}
+  /* CUENTA */
+  .acct-cover{padding:24px 0 20px;border-radius:0 0 18px 18px}
+  .acct-cover .wrap{flex-direction:column;align-items:flex-start;gap:16px}
+  .acct-av{width:64px;height:64px;font-size:24px;border-radius:14px}
+  .acct-info h2{font-size:22px}
+  .acct-info .sub{font-size:12px;gap:8px;flex-direction:column;align-items:flex-start}
+  .acct-wallet{margin-left:0;width:100%}
+  .acct-tabs{padding:0 18px;margin-top:18px;margin-left:-18px;margin-right:-18px}
+  .acct-tabs button{padding:12px 14px;font-size:12.5px}
+  .card-row{padding:14px;gap:12px;flex-direction:column}
+  .card-row .img{width:100%;aspect-ratio:16/9}
+  .card-row .actions{min-width:0;width:100%;flex-direction:row;flex-wrap:wrap}
+  .card-row .actions .btn{flex:1;min-width:140px}
+  /* WIZARDS */
+  .modal-body{padding:24px 22px}
+  .wiz-steps{gap:4px;margin-bottom:22px}
+  .wiz-step{font-size:10.5px}
+  .wiz-step .num{width:22px;height:22px;font-size:10px}
+  .wiz-sep{min-width:6px}
+  .choice-grid{grid-template-columns:1fr}
+  .choice{padding:14px}
+  /* HERO secundario (trade-in, credito, autolease, flotillas, seguros) */
+  .flotillas-hero, .tradein-hero{padding:40px 0;border-radius:0 0 18px 18px}
+  .flotillas-hero h1, .tradein-hero h1{font-size:32px}
+  .flotillas-hero .sub, .tradein-hero .sub{font-size:14.5px}
+  /* CTA bands */
+  .tradein-band{grid-template-columns:1fr}
+  .pdp-tradein{flex-direction:column;align-items:flex-start;text-align:left}
+  .pdp-tradein .btn{width:100%;justify-content:center}
+}
+@media(max-width:480px){
+  .vcard .ph{aspect-ratio:16/11}
+  .vcard .body{padding:14px}
+  .vcard h3{font-size:15.5px}
+  .vcard .price{font-size:18px}
+}

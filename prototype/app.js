@@ -26,8 +26,9 @@ function sucLogoHTML(suc,size='sm'){
   return `<div class="${cls} gp">${size==='sm'?'GP':initials(suc.nombre)}</div>`;
 }
 
-const KEY='plasencia-mkt-v5';
-let STATE = JSON.parse(localStorage.getItem(KEY) || 'null') || {customer:null, reservas:[], garage:[], creditos:[], leases:[], pagos:[], servicios:[], citas:[], tradeins:[], watchlist:[], cotizaciones:[], notifs:[]};
+const KEY='plasencia-mkt-v6';
+let STATE = JSON.parse(localStorage.getItem(KEY) || 'null') || {customer:null, reservas:[], garage:[], creditos:[], leases:[], pagos:[], servicios:[], citas:[], tradeins:[], watchlist:[], cotizaciones:[], notifs:[], seguros:[]};
+if(!STATE.seguros)STATE.seguros=[];
 const save = ()=>localStorage.setItem(KEY, JSON.stringify(STATE));
 
 const TASA=0.135;
@@ -56,24 +57,39 @@ function header(){
           <a href="#/concesionarias">Concesionarias<span class="d">Las 12 del grupo</span></a>
         </div></div>
       <div class="nav-item ${isOn(['#/trade-in'])?'on':''}"><a href="#/trade-in">Vender o cambiar</a></div>
-      <div class="nav-item ${isOn(['#/credito','#/autolease'])?'on':''}"><a href="#/credito">Financiar ${I.chevD(14)}</a>
+      <div class="nav-item ${isOn(['#/credito','#/autolease','#/seguros'])?'on':''}"><a href="#/credito">Financiar y proteger ${I.chevD(14)}</a>
         <div class="submenu">
-          <a href="#/credito">Plasencia Crédito<span class="d">Pre-aprobación sin afectar buró</span></a>
+          <a href="#/credito">Plasencia Crédito<span class="d">Pre-aprobación sin afectar tu buró</span></a>
           <a href="#/autolease">GP Autolease<span class="d">Arrendamiento puro · deducible</span></a>
+          <a href="#/seguros">Plasencia Seguros<span class="d">Cobertura amplia desde tu cuenta</span></a>
         </div></div>
       <div class="nav-item ${isOn(['#/flotillas'])?'on':''}"><a href="#/flotillas">Empresa</a></div>
     </nav>
     <div class="hdr-right">
       ${c?`<button class="notif-bell" onclick="go('#/cuenta?t=notificaciones')" aria-label="Notificaciones">${I.bell(20)}${unread?'<span class="dot"></span>':''}</button>
-        <a href="#/cuenta" class="acct"><span class="av">${initials(c.nombre)}</span><span>${c.nombre.split(' ')[0]}</span>${STATE.reservas.length?`<span class="badge">${STATE.reservas.length}</span>`:''}</a>`
-        :`<button class="signin" onclick="Auth.open()">Iniciar sesión</button><button class="btn btn-conv btn-md" onclick="Auth.open('signup')">Crear cuenta</button>`}
+        <a href="#/cuenta" class="acct"><span class="av">${initials(c.nombre)}</span><span class="acct-nm">${c.nombre.split(' ')[0]}</span>${STATE.reservas.length?`<span class="badge">${STATE.reservas.length}</span>`:''}</a>`
+        :`<button class="signin" onclick="Auth.open()">Entrar</button><button class="btn btn-conv btn-md" onclick="Auth.open('signup')">Crear cuenta</button>`}
+      <button class="hmb" onclick="toggleMobileNav()" aria-label="Menú">${I.menu(22)}</button>
     </div>
+  </div>
+  <div class="mobile-nav" id="mobileNav">
+    <a href="#/catalogo" onclick="toggleMobileNav()">${I.car(18)} Comprar</a>
+    <a href="#/catalogo?cond=nuevo" onclick="toggleMobileNav()" class="sub">Autos nuevos</a>
+    <a href="#/catalogo?cond=seminuevo" onclick="toggleMobileNav()" class="sub">Seminuevos certificados</a>
+    <a href="#/concesionarias" onclick="toggleMobileNav()" class="sub">Las 12 concesionarias</a>
+    <a href="#/trade-in" onclick="toggleMobileNav()">${I.trending(18)} Vender o cambiar mi auto</a>
+    <a href="#/credito" onclick="toggleMobileNav()">${I.card(18)} Crédito</a>
+    <a href="#/autolease" onclick="toggleMobileNav()">${I.key(18)} Autolease</a>
+    <a href="#/seguros" onclick="toggleMobileNav()">${I.umbrella(18)} Seguros</a>
+    <a href="#/flotillas" onclick="toggleMobileNav()">${I.briefcase(18)} Para empresas</a>
+    ${c?`<a href="#/cuenta" onclick="toggleMobileNav()">${I.user(18)} Mi Plasencia</a>`:`<button onclick="toggleMobileNav();Auth.open()">${I.user(18)} Iniciar sesión</button><button onclick="toggleMobileNav();Auth.open('signup')" class="conv">Crear cuenta</button>`}
   </div></header>`;
 }
+function toggleMobileNav(){const n=$('#mobileNav');if(n)n.classList.toggle('open')}
 function footer(){return `<footer class="ftr"><div class="ftr-in"><div class="ftr-grid">
   <div class="ftr-logo"><img src="logo-blanco.png" alt="Grupo Plasencia"><p>El marketplace de Grupo Plasencia: 12 concesionarias del grupo, 14 marcas y todo el ciclo de tu auto en un solo lugar.</p></div>
   <div><h4>Comprar</h4><ul><li onclick="go('#/catalogo?cond=nuevo')">Autos nuevos</li><li onclick="go('#/catalogo?cond=seminuevo')">Seminuevos certificados</li><li onclick="go('#/catalogo')">Catálogo cross-marca</li><li onclick="go('#/concesionarias')">Las 12 concesionarias</li></ul></div>
-  <div><h4>Soluciones</h4><ul><li onclick="go('#/trade-in')">Vender o cambiar tu auto</li><li onclick="go('#/credito')">Plasencia Crédito</li><li onclick="go('#/autolease')">GP Autolease</li><li onclick="go('#/flotillas')">Flotillas empresariales</li></ul></div>
+  <div><h4>Soluciones</h4><ul><li onclick="go('#/trade-in')">Vender o cambiar tu auto</li><li onclick="go('#/credito')">Plasencia Crédito</li><li onclick="go('#/autolease')">GP Autolease</li><li onclick="go('#/seguros')">Plasencia Seguros</li><li onclick="go('#/flotillas')">Flotillas empresariales</li></ul></div>
   <div><h4>Grupo Plasencia</h4><ul><li>75 años de historia</li><li>12 concesionarias en Jalisco y Nayarit</li><li>14 marcas representadas</li><li>Trabaja con nosotros</li></ul></div>
 </div><div class="bottom"><span>© 2026 Grupo Plasencia Automotriz · Prototipo de producto</span><span style="color:var(--gold)">Marketplace · la experiencia ideal</span></div></div></footer>`;}
 function updateHeader(){const h=$('.hdr');if(h)h.outerHTML=header()}
@@ -110,6 +126,7 @@ function render(){
   else if(hash==='#/trade-in')body=Views.tradein();
   else if(hash==='#/credito')body=Views.credito();
   else if(hash==='#/autolease')body=Views.autolease();
+  else if(hash==='#/seguros')body=Views.seguros();
   else if(hash==='#/cuenta'){ATAB=qs.get('t')||'resumen';body=Views.cuenta()}
   else body=Views.home();
   app.innerHTML=header()+'<div class="fu">'+body+'</div>'+footer();

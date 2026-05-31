@@ -36,43 +36,43 @@ home(){
   const dest=CARS.filter(c=>c.dest).slice(0,4);
   const topDealers=SUCS.slice().sort((a,b)=>b.reviews-a.reviews).slice(0,6);
   const SOLUC=[
-    [I.car(24),'Comprar','Nuevos y seminuevos certificados de 14 marcas, en un solo catálogo cross-marca.','#/catalogo'],
-    [I.trending(24),'Vender o cambiar','Valúa tu auto en línea. Oferta firme en 2 minutos.','#/trade-in'],
-    [I.card(24),'Financiar','Plasencia Crédito: pre-aprobación sin afectar tu buró. Tasa fija 13.5% anual.','#/credito'],
-    [I.key(24),'Arrendar','GP Autolease: arrendamiento puro para PFAE y empresas. Deducible.','#/autolease'],
-    [I.briefcase(24),'Flotillas','Cotización empresarial para Pymes y corporativos. 14 marcas disponibles.','#/flotillas'],
-    [I.wrench(24),'Mantener','Postventa y servicio en los 12 talleres del grupo, agendados en línea.'],
+    [I.car(24),'Encuentra tu próximo auto','Compara nuevos y seminuevos de 14 marcas en un solo catálogo. Filtra por uso, presupuesto o forma de pago.','#/catalogo'],
+    [I.trending(24),'Vende o cambia el que ya tienes','Sube fotos, recibe oferta firme en 2 minutos. Decide después: efectivo, cambio o esperar.','#/trade-in'],
+    [I.card(24),'Págalo como te acomode','Crédito con tasa fija sin afectar tu buró, contado con descuento, o arrendamiento puro si facturas.','#/credito'],
+    [I.umbrella(24),'Asegúralo aquí mismo','Cobertura amplia respaldada por GNP. Cotiza, contrata y administra desde tu cuenta.','#/seguros'],
+    [I.briefcase(24),'¿Es para tu empresa?','Flotillas: cotización empresarial cross-marca, contrato marco, mantenimiento en los 12 talleres.','#/flotillas'],
+    [I.wrench(24),'Mantenlo donde lo compraste','Servicio y refacciones en los 12 talleres del grupo. Agenda en línea, ve tu historial completo.'],
   ];
-  // Entradas por INTENCIÓN, no por persona
+  // Entradas por INTENCION del cliente, en su voz
   const INTENT=[
-    [I.car(20),'Comprar auto nuevo','Catálogo de las 14 marcas',`go('#/catalogo?cond=nuevo')`],
-    [I.shield(20),'Comprar seminuevo','167 puntos de inspección',`go('#/catalogo?cond=seminuevo')`],
-    [I.trending(20),'Vender o cambiar mi auto','Valuación en 2 minutos',`go('#/trade-in')`],
-    [I.briefcase(20),'Cotizar para mi empresa','Plasencia Flotillas',`go('#/flotillas')`],
+    [I.car(20),'Quiero un auto nuevo','Las 14 marcas, lado a lado',`go('#/catalogo?cond=nuevo')`],
+    [I.shield(20),'Quiero un seminuevo','Con 167 puntos revisados',`go('#/catalogo?cond=seminuevo')`],
+    [I.trending(20),'Quiero vender el mío','Oferta firme en 2 minutos',`go('#/trade-in')`],
+    [I.briefcase(20),'Es para mi empresa','Cotización para flotilla',`go('#/flotillas')`],
   ];
   const CICLO=[
-    ['01','Descubre','Compara entre marcas por uso, no por logo. 12 concesionarias compiten por ti.'],
-    ['02','Decide','Calcula crédito o arrendamiento. Valúa tu auto. Pre-aprueba sin afectar buró.'],
-    ['03','Aparta','Reserva con $5,000 reembolsables. Paga el enganche en línea, sin filas.'],
-    ['04','Vive','Servicios programados, refacciones y postventa desde tu cuenta única.'],
-    ['05','Renueva','A los 5 años, recompra con tu historial. El ciclo se cierra dentro del grupo.'],
+    ['01','Descubre sin presión','Ves nuevos, seminuevos y todas las marcas del grupo en un solo catálogo. Filtra por lo que importa: precio, uso, transmisión.'],
+    ['02','Decide con datos','Calcula tu crédito o renta, valúa tu auto actual, agenda test drive. Todo desde tu celular, sin pisar la agencia.'],
+    ['03','Aparta sin filas','Reserva con $5,000 reembolsables. Pagas el enganche en línea, firmas digital, te entregamos donde tú digas.'],
+    ['04','Maneja tranquilo','Tu garage, póliza, próximo servicio y pagos en una sola cuenta. Sin perseguir a nadie por WhatsApp.'],
+    ['05','Renueva fácil','Cuando quieras cambiar, tu historial cuenta: trade-in con bonus, crédito ya pre-aprobado, todo dentro del grupo.'],
   ];
   return `
   <section class="hero">
     <div class="bg"></div><div class="grad"></div>
     <div class="hero-in fu">
-      <div class="eyebrow gold">Grupo Plasencia · 75 años · 12 concesionarias · 14 marcas</div>
-      <h1 style="margin-top:14px">Toda tu vida automotriz,<br><span class="y">en un solo lugar.</span></h1>
-      <p class="sub">El marketplace donde las 12 concesionarias del grupo compiten por ti. Compra, vende, financia y mantén tu auto con el respaldo de 75 años.</p>
+      <div class="eyebrow gold">14 marcas · 12 concesionarias · respaldadas por Grupo Plasencia</div>
+      <h1 style="margin-top:14px">Tu próximo auto,<br><span class="y">sin perseguir a nadie.</span></h1>
+      <p class="sub">Compara entre 14 marcas en un solo catálogo. Cotiza crédito, valúa tu actual y agenda entrega — desde tu celular, en menos de lo que tarda una llamada al vendedor.</p>
       <div class="search-shell">
-        <div class="si">${I.search(20)}<input placeholder="Busca por marca, modelo o uso (ej. SUV familiar)…" onkeydown="if(event.key==='Enter')go('#/catalogo?q='+encodeURIComponent(this.value))"></div>
+        <div class="si">${I.search(20)}<input placeholder="¿Qué buscas? SUV familiar, pickup de trabajo, sedán económico…" onkeydown="if(event.key==='Enter')go('#/catalogo?q='+encodeURIComponent(this.value))"></div>
         <button class="btn btn-conv btn-lg" onclick="go('#/catalogo')">Ver catálogo</button>
       </div>
       <div class="trust-line">
-        <span><span class="ico">${I.check(16)}</span>Precio justo, sin sorpresas</span>
-        <span><span class="ico">${I.check(16)}</span>167 puntos de inspección</span>
-        <span><span class="ico">${I.check(16)}</span>Apartado reembolsable</span>
-        <span><span class="ico">${I.check(16)}</span>Crédito sin afectar buró</span>
+        <span><span class="ico">${I.check(16)}</span>Precio sin regateo</span>
+        <span><span class="ico">${I.check(16)}</span>Seminuevos con 167 puntos</span>
+        <span><span class="ico">${I.check(16)}</span>Apartas con $5,000 reembolsables</span>
+        <span><span class="ico">${I.check(16)}</span>Crédito sin afectar tu buró</span>
       </div>
       <div class="hero-stats">
         <div class="stat"><div class="v tnum">${CARS.length}</div><div class="l">Autos disponibles</div></div>
@@ -90,14 +90,14 @@ home(){
   </div></section>
 
   <div class="marcas"><div class="marcas-in">
-    <span class="lbl">Las 14 marcas del grupo</span>
+    <span class="lbl">Filtra por marca o cómpralas todas</span>
     ${MARCAS.map(m=>{const s=marcaLogoSrc(m);return s?`<img class="marca-logo" src="${s}" alt="${m}" title="${m}" onclick="go('#/catalogo?marca=${encodeURIComponent(m)}')" onerror="this.outerHTML='<b style=&quot;font-family:var(--disp);font-weight:800;color:var(--n600);font-size:14px;cursor:pointer&quot; onclick=&quot;go(\\&quot;#/catalogo?marca=${encodeURIComponent(m)}\\&quot;)&quot;>${m}</b>'">`:`<b style="font-family:var(--disp);font-weight:800;color:var(--n600);font-size:14px;cursor:pointer" onclick="go('#/catalogo?marca=${encodeURIComponent(m)}')">${m}</b>`}).join('')}
   </div></div>
 
   <section class="sec"><div class="wrap">
-    <div class="eyebrow">Soluciones del grupo</div>
-    <h2>Todo lo que tu auto necesita, en una sola cuenta.</h2>
-    <p class="lede">No eres prospecto de una marca: eres cliente del grupo. Todo el ciclo del auto en un solo lugar.</p>
+    <div class="eyebrow">Todo en una cuenta</div>
+    <h2>Comprar es solo el principio.</h2>
+    <p class="lede">Lo difícil empieza después: financiamiento, seguro, servicio, renovar. Aquí tienes todo eso resuelto y en un solo lugar — para que dejes de coordinar y simplemente uses tu auto.</p>
     <div class="sol-grid">
       ${SOLUC.map(s=>`<div class="sol" ${s[3]?`onclick="go('${s[3]}')"`:''} style="${s[3]?'cursor:pointer':''}">
         <div class="ic">${s[0]}</div><h3>${s[1]}</h3><p>${s[2]}</p>
@@ -132,12 +132,12 @@ home(){
   </div></section>
 
   <section class="sec"><div class="wrap">
-    <div class="eyebrow gold">Las 12 concesionarias del grupo</div>
-    <h2 style="margin-top:10px">Tus vendedores en el marketplace.</h2>
-    <p class="lede">Cada concesionaria opera dentro del marketplace bajo la promesa Plasencia. Compiten por tu compra: tú eliges con quién te quedas.</p>
+    <div class="eyebrow gold">12 agencias compitiendo por ti</div>
+    <h2 style="margin-top:10px">Elige con quién quieres tratar.</h2>
+    <p class="lede">Cada agencia tiene su propio rating, reseñas y especialidad. Tú decides cuál te entrega — con la misma promesa Plasencia: precio justo, inspección certificada, garantía por escrito.</p>
     <div class="dealers-hero">
       <div class="bg"></div><div class="grad"></div>
-      <div class="ctn"><h2 style="color:#fff">12 concesionarias. 1 grupo. 1 promesa.</h2><p>Cada concesionaria mantiene su identidad y especialidad. Todas operan bajo la promesa Plasencia: precio justo, inspección certificada, garantía por escrito.</p></div>
+      <div class="ctn"><h2 style="color:#fff">12 agencias. 14 marcas. Una sola promesa.</h2><p>Cambia de agencia sin perder tu historial. Compra en una, da servicio en otra, vende en una tercera. Tu cuenta Plasencia te sigue.</p></div>
     </div>
     <div class="dealer-grid">
       ${topDealers.map(d=>`<div class="dealer" onclick="go('#/concesionaria/${d.id}')">
@@ -153,9 +153,9 @@ home(){
   </div></section>
 
   <section class="sec" style="background:#fff;border-top:1px solid var(--n200)"><div class="wrap">
-    <div class="eyebrow">El ciclo del auto, capturado</div>
-    <h2 style="margin-top:10px">Comprar un auto no es un evento. Es una relación.</h2>
-    <p class="lede">Cinco años, doce oportunidades. El grupo te acompaña en todo el ciclo.</p>
+    <div class="eyebrow">Cómo funciona</div>
+    <h2 style="margin-top:10px">De decidir a manejar, en cinco pasos.</h2>
+    <p class="lede">Y después seguimos juntos: cada servicio, cada pago, cada renovación. Sin perder tu historial cuando cambies de auto.</p>
     <div class="ciclo-grid ciclo">
       ${CICLO.map(c=>`<div><div class="n">${c[0]}</div><h3>${c[1]}</h3><p>${c[2]}</p></div>`).join('')}
     </div>
@@ -352,6 +352,52 @@ autolease(){
       <table style="width:100%;margin-top:10px;font-size:13px;border-collapse:collapse">
         <tr style="border-bottom:1px solid var(--n200)"><td style="padding:10px 4px;color:var(--n500)">Concepto</td><td style="padding:10px 4px;text-align:center;color:var(--navy);font-weight:700">Crédito</td><td style="padding:10px 4px;text-align:center;color:var(--gold-d);font-weight:700">Lease</td></tr>
         ${[['Enganche','20%+','0-10%'],['Mensualidad','Más alta','Más baja'],['Eres dueño','Sí, al pagarlo','No (puedes comprar al final)'],['Deducible','No','Sí (PFAE/PM)'],['Plazo típico','60 meses','36 meses']].map(r=>`<tr style="border-bottom:1px solid var(--n100)"><td style="padding:8px 4px;color:var(--n600)">${r[0]}</td><td style="padding:8px 4px;text-align:center">${r[1]}</td><td style="padding:8px 4px;text-align:center">${r[2]}</td></tr>`).join('')}
+      </table>
+    </div>
+  </div></section>`;
+},
+
+// ====== SEGUROS landing publico ======
+seguros(){
+  return `<section class="tradein-hero"><div class="wrap">
+    <div>
+      <div class="eyebrow gold" style="color:var(--gold)">Plasencia Seguros</div>
+      <h1 style="margin-top:14px">Asegúralo<br><span>en la misma cuenta.</span></h1>
+      <p class="sub">Cobertura amplia respaldada por GNP. Cotiza en 2 minutos, contrata sin papeles físicos y administra tu póliza desde Mi Plasencia. Asistencia 24/7 en todo México.</p>
+      <div style="margin-top:24px;display:flex;gap:10px;flex-wrap:wrap">
+        <button class="btn btn-gold btn-lg" onclick="Flow.openSeguro()">Cotizar mi seguro ${I.arrowR(16)}</button>
+        <button class="btn btn-out btn-lg" style="color:#fff;border-color:rgba(255,255,255,.3)" onclick="Plasi.open('¿Qué cubre el seguro Plasencia?')">¿Qué cubre?</button>
+      </div>
+    </div>
+    <div class="quick-form">
+      <h3>Cotización express</h3>
+      <p style="font-size:13px;color:var(--n600);margin-top:4px">Estimación con datos básicos.</p>
+      <div style="margin-top:14px;display:flex;flex-direction:column;gap:10px">
+        <div class="field-row">
+          <div class="field"><label>Marca de tu auto</label><select id="sg_m">${MARCAS.map(m=>`<option>${m}</option>`).join('')}</select></div>
+          <div class="field"><label>Año</label><select id="sg_y">${Array.from({length:8},(_,i)=>2026-i).map(y=>`<option>${y}</option>`).join('')}</select></div>
+        </div>
+        <div class="field"><label>Cobertura</label><select id="sg_c"><option>Amplia Plus (recomendada)</option><option>Amplia</option><option>Limitada</option><option>Responsabilidad civil</option></select></div>
+        <button class="btn btn-conv btn-md" onclick="Flow.openSeguro()">Ver mi prima estimada ${I.arrowR(14)}</button>
+      </div>
+    </div>
+  </div></section>
+  <section class="sec"><div class="wrap">
+    <div class="eyebrow">3 coberturas, una experiencia</div>
+    <h2 style="margin-top:10px">El seguro que querrías que existiera.</h2>
+    <p class="lede">Sin agentes que no responden, sin pólizas en papel que se pierden. Todo digital, todo en tu cuenta.</p>
+    <div class="flot-benef" style="margin-top:36px">
+      ${[
+        [I.shield(24),'Cobertura amplia respaldada','Daños materiales, robo total, responsabilidad civil, gastos médicos a ocupantes y asistencia legal incluidos.'],
+        [I.phone(24),'Asistencia 24/7 desde la app','Reporta siniestro con un toque. Grúa, ajustador y taller propio del grupo te llegan donde estés.'],
+        [I.cycle(24),'Renovación automática · sin sorpresas','Te avisamos 30 días antes con tu prima actualizada. Aceptas con un click o ajustas cobertura.'],
+      ].map(b=>`<div class="bf"><div class="ic">${b[0]}</div><h4>${b[1]}</h4><p>${b[2]}</p></div>`).join('')}
+    </div>
+    <div style="margin-top:48px;background:#fff;border:1px solid var(--n200);border-radius:18px;overflow:hidden">
+      <div style="padding:24px;background:var(--n50);border-bottom:1px solid var(--n200)"><h3 style="font-family:var(--disp);font-size:18px;color:var(--navy)">Compara coberturas</h3></div>
+      <table style="width:100%;border-collapse:collapse;font-size:13px">
+        <thead><tr><th style="padding:12px;text-align:left;color:var(--n500);font-family:var(--disp);font-size:11px;text-transform:uppercase;letter-spacing:.5px">Concepto</th><th style="padding:12px;text-align:center;color:var(--n500);font-family:var(--disp);font-size:11px;text-transform:uppercase;letter-spacing:.5px">RC</th><th style="padding:12px;text-align:center;color:var(--n500);font-family:var(--disp);font-size:11px;text-transform:uppercase;letter-spacing:.5px">Limitada</th><th style="padding:12px;text-align:center;color:var(--n500);font-family:var(--disp);font-size:11px;text-transform:uppercase;letter-spacing:.5px">Amplia</th><th style="padding:12px;text-align:center;color:var(--gold-d);font-family:var(--disp);font-size:11px;text-transform:uppercase;letter-spacing:.5px;background:rgba(236,201,75,.08)">Amplia Plus</th></tr></thead>
+        <tbody>${[['Responsabilidad civil','✓','✓','✓','✓'],['Robo total','—','✓','✓','✓'],['Daños materiales','—','—','✓','✓'],['Gastos médicos','—','—','✓','✓'],['Auto sustituto','—','—','—','✓'],['Cero deducible robo','—','—','—','✓']].map(r=>`<tr style="border-top:1px solid var(--n100)"><td style="padding:10px 12px;color:var(--n700);font-weight:600">${r[0]}</td>${r.slice(1).map((v,i)=>`<td style="padding:10px 12px;text-align:center;color:${v==='✓'?(i===3?'var(--gold-d)':'var(--green-d)'):'var(--n400)'};font-weight:700;${i===3?'background:rgba(236,201,75,.04)':''}">${v}</td>`).join('')}</tr>`).join('')}</tbody>
       </table>
     </div>
   </div></section>`;

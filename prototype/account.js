@@ -13,15 +13,18 @@ view(){
   const c=STATE.customer;
   const TABS=[
     ['resumen','Resumen',I.user(14)],
-    ['reservas','Reservas',I.cal(14),STATE.reservas.length],
-    ['garage','Mi Garage',I.garage(14),STATE.garage.length],
+    ['reservas','Mis reservas',I.cal(14),STATE.reservas.length],
+    ['garage','Mi garage',I.garage(14),STATE.garage.length],
     ['watchlist','Watchlist',I.heart(14,true),STATE.watchlist.length],
-    ['credito','Mi Crédito',I.card(14),STATE.creditos.length],
-    ['autolease','Mi Autolease',I.key(14),STATE.leases.length],
-    ['tradein','Mi Trade-in',I.trending(14),STATE.tradeins.length],
-    ['citas','Citas',I.cal(14),STATE.citas.length],
+    ['credito','Mi crédito',I.card(14),STATE.creditos.length],
+    ['autolease','Mi autolease',I.key(14),STATE.leases.length],
+    ['seguros','Mis seguros',I.umbrella(14),STATE.seguros.length],
+    ['tradein','Mi trade-in',I.trending(14),STATE.tradeins.length],
+    ['citas','Mis citas',I.cal(14),STATE.citas.length],
+    ['servicios','Historial de servicio',I.wrench(14),STATE.servicios.length],
+    ['pagos','Pagos',I.cash(14),STATE.pagos.length],
     ['notificaciones','Notificaciones',I.bell(14),STATE.notifs.length],
-    ['perfil','Perfil',I.user(14)],
+    ['perfil','Mi perfil',I.user(14)],
   ];
   const walletPts=c.points||0;
   return `<section class="acct-cover"><div class="wrap">
@@ -45,12 +48,14 @@ view(){
 resumen(){
   const c=STATE.customer;
   const STATS=[
-    ['Reservas activas',STATE.reservas.length,'reservas'],
-    ['En mi garage',STATE.garage.length,'garage'],
-    ['Créditos vivos',STATE.creditos.length,'credito'],
+    ['Reservas',STATE.reservas.length,'reservas'],
+    ['Mi garage',STATE.garage.length,'garage'],
+    ['Crédito',STATE.creditos.length,'credito'],
+    ['Autolease',STATE.leases.length,'autolease'],
+    ['Seguros',STATE.seguros.length,'seguros'],
     ['Trade-ins',STATE.tradeins.length,'tradein'],
   ];
-  return `<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px">${STATS.map(s=>`<div class="stat-card" style="cursor:pointer" onclick="ATAB='${s[2]}';render()"><div class="l">${s[0]}</div><div class="v tnum">${s[1]}</div></div>`).join('')}</div>
+  return `<div class="stats-row">${STATS.map(s=>`<div class="stat-card" style="cursor:pointer" onclick="ATAB='${s[2]}';render()"><div class="l">${s[0]}</div><div class="v tnum">${s[1]}</div></div>`).join('')}</div>
   <div style="display:grid;grid-template-columns:2fr 1fr;gap:20px;margin-top:24px">
     <div>
       <h3 style="font-family:var(--disp);font-size:18px;color:var(--navy);margin-bottom:12px">Actividad reciente</h3>
@@ -96,26 +101,23 @@ reservas(){
 },
 
 garage(){
-  // Inyectar muestra solo para demo de Chucho
-  if(!STATE.garage.length && STATE.customer?.email==='chucho@plasencia.mx' && !STATE._injected){
-    const sample=CARS.find(c=>c.cond==='nuevo')||CARS[0];
-    if(sample){STATE.garage.push({id:uid('g'),carId:sample.id,marca:sample.marca,modelo:sample.modelo,anio:sample.anio,img:sample.fotos[0],placas:'JEK-1234-A',vin:'1HGCM82633A',km:12450,proxServ:'2026-08-15',adquirido:'2025-11-20'});STATE._injected=true;save()}
-  }
-  if(!STATE.garage.length)return Account._empty('garage','Tu Garage está vacío','Aquí vivirán los autos que ya son tuyos: papeles digitales, próximo servicio, historial. Una sola fuente de verdad para tu auto.',[['Explorar catálogo','#/catalogo','conv']]);
+  if(!STATE.garage.length)return Account._empty('garage','Tu garage está vacío','Cuando compres con Plasencia, tu auto vivirá aquí: papeles digitales, próximo servicio, garantía, historial. Una sola fuente de verdad.',[['Explorar catálogo','#/catalogo','conv']]);
   return STATE.garage.map(g=>`<div class="card-row">
     <img class="img" src="${g.img}" onerror="this.src='${FALLBACK}'">
     <div class="body">
       <h3>${g.marca} ${g.modelo} ${g.anio}</h3>
-      <div class="meta">Placas ${g.placas} · VIN ${g.vin?.slice(0,8)||'—'} · Adquirido ${g.adquirido}</div>
-      <div class="info-grid">
-        <div class="info-cell"><div class="k">Kilometraje actual</div><div class="v tnum">${num(g.km)} km</div></div>
+      <div class="meta">Placas ${g.placas} · VIN ${(g.vin||'').slice(0,12)}… · Adquirido ${g.adquirido}</div>
+      <div class="info-grid" style="grid-template-columns:repeat(4,1fr)">
+        <div class="info-cell"><div class="k">Kilometraje</div><div class="v tnum">${num(g.km)} km</div></div>
         <div class="info-cell"><div class="k">Próximo servicio</div><div class="v">${g.proxServ}</div></div>
+        <div class="info-cell"><div class="k">Garantía</div><div class="v" style="color:var(--green-d);font-size:12px">${g.garantia||'Vigente'}</div></div>
+        <div class="info-cell"><div class="k">Verificación</div><div class="v">${g.proxVerif||'—'}</div></div>
       </div>
     </div>
     <div class="actions">
       <button class="btn btn-conv btn-md" onclick="Flow.openCita('${g.carId}')">${I.wrench(14)} Agendar servicio</button>
       <button class="btn btn-out btn-md">${I.doc(14)} Documentos</button>
-      <button class="btn btn-ghost btn-sm" onclick="Flow.openTradein()">Cambiar este auto</button>
+      <button class="btn btn-out btn-md" onclick="Flow.openTradein()">${I.cycle(14)} Cambiar este auto</button>
     </div>
   </div>`).join('');
 },
@@ -128,41 +130,46 @@ watchlist(){
 },
 
 credito(){
-  if(!STATE.creditos.length)return Account._empty('credito','Sin crédito vivo','Pre-aprueba sin afectar tu buró. Tasa fija 13.5% anual, hasta 60 meses.',[['Pre-aprobarme','#','conv','Flow.openCredito()']]);
-  return STATE.creditos.map(cr=>`<div class="card-row" style="display:block">
+  if(!STATE.creditos.length)return Account._empty('credito','Aún no tienes un crédito Plasencia','Pre-aprueba en 2 minutos sin afectar tu buró. Tasa fija 13.5% anual, hasta 60 meses.',[['Pre-aprobarme','#','conv','Flow.openCredito()']]);
+  return STATE.creditos.map(cr=>{
+    const usado=cr.saldoUsado||0;const disp=cr.linea-usado;const pctUsado=Math.round(usado/cr.linea*100);
+    return `<div class="card-row" style="display:block">
     <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:14px">
       <div>
         <h3 style="font-size:18px;color:var(--navy)">Línea de crédito Plasencia</h3>
-        <div style="font-size:12px;color:var(--n500)">Folio ${cr.folio} · ${cr.fecha}</div>
-        <span class="bp bp-${cr.estado==='pre-aprobado'?'gold':'green'}" style="margin-top:8px;display:inline-flex">${cr.estado}</span>
+        <div style="font-size:12px;color:var(--n500)">Folio ${cr.folio} · Otorgada ${cr.fecha}</div>
+        <span class="bp bp-${cr.estado==='pre-aprobado'?(usado>0?'green':'gold'):'green'}" style="margin-top:8px;display:inline-flex">${usado>0?'activo':cr.estado}</span>
       </div>
       <div style="text-align:right">
         <div style="font-family:var(--disp);font-size:11px;font-weight:700;text-transform:uppercase;color:var(--n500);letter-spacing:1px">Disponible</div>
-        <div style="font-family:var(--disp);font-weight:900;font-size:28px;color:var(--navy)" class="tnum">${mxn(cr.linea)}</div>
-        <div style="font-size:11px;color:var(--n500)">Tasa fija ${cr.tasa}% anual</div>
+        <div style="font-family:var(--disp);font-weight:900;font-size:28px;color:var(--navy)" class="tnum">${mxn(disp)}</div>
+        <div style="font-size:11px;color:var(--n500)">de ${mxn(cr.linea)} · tasa ${cr.tasa}%</div>
       </div>
     </div>
+    ${usado>0?`<div style="margin-top:18px"><div style="display:flex;justify-content:space-between;font-size:12px;color:var(--n600);margin-bottom:6px"><span>Saldo usado</span><span class="tnum">${mxn(usado)} (${pctUsado}%)</span></div><div style="height:8px;background:var(--n200);border-radius:99px;overflow:hidden"><div style="height:100%;width:${pctUsado}%;background:linear-gradient(90deg,var(--navy),var(--gold-d))"></div></div></div>`:''}
     <div class="info-grid" style="grid-template-columns:repeat(4,1fr);margin-top:18px">
-      <div class="info-cell"><div class="k">Pago actual</div><div class="v tnum">${mxn(0)}</div></div>
-      <div class="info-cell"><div class="k">Próximo pago</div><div class="v">—</div></div>
-      <div class="info-cell"><div class="k">Vigencia oferta</div><div class="v">${cr.vigencia} días</div></div>
+      <div class="info-cell"><div class="k">Mensualidad</div><div class="v tnum">${mxn(cr.mensActual||0)}</div></div>
+      <div class="info-cell"><div class="k">Próximo pago</div><div class="v">${cr.proxPago||'—'}</div></div>
+      <div class="info-cell"><div class="k">Avance</div><div class="v">${cr.pagosHechos||0}/${cr.pagosTotal||60} meses</div></div>
       <div class="info-cell"><div class="k">Buró afectado</div><div class="v" style="color:var(--green-d)">No</div></div>
     </div>
     <div style="margin-top:16px;display:flex;gap:8px;flex-wrap:wrap">
-      <button class="btn btn-conv btn-md" onclick="go('#/catalogo')">Usar mi línea</button>
-      <button class="btn btn-out btn-md">${I.cash(14)} Pagar mensualidad</button>
+      ${usado>0?`<button class="btn btn-conv btn-md">${I.cash(14)} Pagar ${mxn(cr.mensActual)}</button>`:`<button class="btn btn-conv btn-md" onclick="go('#/catalogo')">Usar mi línea</button>`}
       <button class="btn btn-out btn-md">${I.doc(14)} Estado de cuenta</button>
+      <button class="btn btn-out btn-md">${I.cal(14)} Calendario de pagos</button>
     </div>
-  </div>`).join('');
+  </div>`}).join('');
 },
 
 autolease(){
-  if(!STATE.leases.length)return Account._empty('autolease','Sin contrato de Autolease','Arrendamiento puro deducible para PFAE y empresas. Plazos 24 a 48 meses.',[['Cotizar Autolease','#','conv','Flow.openLease()']]);
-  return STATE.leases.map(al=>`<div class="card-row" style="display:block">
+  if(!STATE.leases.length)return Account._empty('autolease','Aún no tienes un autolease','Arrendamiento puro deducible para PFAE y empresas. Plazos 24 a 48 meses.',[['Cotizar Autolease','#','conv','Flow.openLease()']]);
+  return STATE.leases.map(al=>{
+    const pct=Math.round((al.mesActual||0)/al.plazo*100);
+    return `<div class="card-row" style="display:block">
     <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:14px;flex-wrap:wrap">
       <div>
         <h3 style="font-size:18px;color:var(--navy)">GP Autolease</h3>
-        <div style="font-size:12px;color:var(--n500)">Folio ${al.folio} · ${al.fecha}</div>
+        <div style="font-size:12px;color:var(--n500)">Folio ${al.folio} · Inicio ${al.fecha}</div>
         <span class="bp bp-${al.estado==='cotizado'?'gold':'green'}" style="margin-top:8px;display:inline-flex">${al.estado}</span>
       </div>
       <div style="text-align:right">
@@ -171,10 +178,69 @@ autolease(){
         <div style="font-size:11px;color:var(--n500)">${al.plazo} meses · IVA incluido</div>
       </div>
     </div>
+    ${al.mesActual?`<div style="margin-top:18px"><div style="display:flex;justify-content:space-between;font-size:12px;color:var(--n600);margin-bottom:6px"><span>Mes ${al.mesActual} de ${al.plazo}</span><span class="tnum">${pct}%</span></div><div style="height:8px;background:var(--n200);border-radius:99px;overflow:hidden"><div style="height:100%;width:${pct}%;background:linear-gradient(90deg,var(--navy),var(--gold-d))"></div></div></div>`:''}
+    <div class="info-grid" style="grid-template-columns:repeat(3,1fr);margin-top:18px">
+      <div class="info-cell"><div class="k">Próxima renta</div><div class="v">${al.proxRenta||'—'}</div></div>
+      <div class="info-cell"><div class="k">Pagos hechos</div><div class="v">${al.mesesPagados||0} meses</div></div>
+      <div class="info-cell"><div class="k">Opción de compra al final</div><div class="v" style="color:var(--green-d)">Sí</div></div>
+    </div>
     <div style="margin-top:16px;display:flex;gap:8px;flex-wrap:wrap">
-      <button class="btn btn-conv btn-md">${I.cash(14)} Pagar renta</button>
+      <button class="btn btn-conv btn-md">${I.cash(14)} Pagar renta de mes</button>
       <button class="btn btn-out btn-md">${I.doc(14)} Contrato</button>
-      <button class="btn btn-out btn-md">${I.wrench(14)} Mantenimiento</button>
+      <button class="btn btn-out btn-md" onclick="Flow.openCita()">${I.wrench(14)} Mantenimiento</button>
+    </div>
+  </div>`}).join('');
+},
+
+seguros(){
+  if(!STATE.seguros.length)return Account._empty('seguros','Aún no tienes seguro contratado','Cobertura amplia respaldada por GNP, gestionada desde tu cuenta Plasencia. Cotiza en 2 minutos.',[['Cotizar seguro','#','conv','Flow.openSeguro()']]);
+  return STATE.seguros.map(s=>`<div class="card-row" style="display:block">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:14px;flex-wrap:wrap">
+      <div>
+        <h3 style="font-size:18px;color:var(--navy)">${s.aseguradora}</h3>
+        <div style="font-size:12px;color:var(--n500)">Póliza ${s.poliza} · ${s.modelo||''}</div>
+        <span class="bp bp-${s.estado==='vigente'?'green':'gold'}" style="margin-top:8px;display:inline-flex">${s.estado}</span>
+      </div>
+      <div style="text-align:right">
+        <div style="font-family:var(--disp);font-size:11px;font-weight:700;text-transform:uppercase;color:var(--n500);letter-spacing:1px">Prima ${s.frecuencia}</div>
+        <div style="font-family:var(--disp);font-weight:900;font-size:28px;color:var(--navy)" class="tnum">${mxn(s.prima)}</div>
+        <div style="font-size:11px;color:var(--n500)">${s.cobertura}</div>
+      </div>
+    </div>
+    <div class="info-grid" style="grid-template-columns:repeat(3,1fr);margin-top:18px">
+      <div class="info-cell"><div class="k">Vigencia</div><div class="v">${s.vigencia}</div></div>
+      <div class="info-cell"><div class="k">Deducible</div><div class="v">${s.deducible}</div></div>
+      <div class="info-cell"><div class="k">Asistencia 24/7</div><div class="v" style="color:var(--green-d)">Incluida</div></div>
+    </div>
+    <div style="margin-top:16px;display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn btn-conv btn-md">${I.phone(14)} Reportar siniestro</button>
+      <button class="btn btn-out btn-md">${I.doc(14)} Ver póliza</button>
+      <button class="btn btn-out btn-md">${I.cycle(14)} Renovar</button>
+    </div>
+  </div>`).join('');
+},
+
+pagos(){
+  if(!STATE.pagos.length)return Account._empty('pagos','Sin movimientos registrados','Aquí verás todos los pagos de tu crédito, autolease, seguros y servicios.',[]);
+  return `<div style="background:#fff;border:1px solid var(--n200);border-radius:14px;overflow:hidden">
+    <table style="width:100%;border-collapse:collapse">
+      <thead><tr style="background:var(--n50);text-align:left"><th style="padding:14px;font-family:var(--disp);font-size:11px;font-weight:800;color:var(--n500);text-transform:uppercase;letter-spacing:.5px">Fecha</th><th style="padding:14px;font-family:var(--disp);font-size:11px;font-weight:800;color:var(--n500);text-transform:uppercase;letter-spacing:.5px">Concepto</th><th style="padding:14px;font-family:var(--disp);font-size:11px;font-weight:800;color:var(--n500);text-transform:uppercase;letter-spacing:.5px">Método</th><th style="padding:14px;text-align:right;font-family:var(--disp);font-size:11px;font-weight:800;color:var(--n500);text-transform:uppercase;letter-spacing:.5px">Monto</th></tr></thead>
+      <tbody>${STATE.pagos.map(p=>`<tr style="border-top:1px solid var(--n100)"><td style="padding:14px;font-size:13px;color:var(--n600)">${p.fecha}</td><td style="padding:14px;font-size:13px;color:var(--navy);font-weight:600">${p.concepto}</td><td style="padding:14px;font-size:12px;color:var(--n500)">${p.metodo}</td><td style="padding:14px;text-align:right;font-family:var(--disp);font-weight:700;color:var(--navy)" class="tnum">${mxn(p.monto)}</td></tr>`).join('')}</tbody>
+    </table>
+  </div>`;
+},
+
+servicios(){
+  if(!STATE.servicios.length)return Account._empty('servicios','Sin historial de servicio','Aquí verás cada servicio que hagas en cualquiera de las 12 concesionarias.',[['Agendar servicio','#','conv','Flow.openCita()']]);
+  return STATE.servicios.map(s=>`<div class="card-row">
+    <div class="body" style="width:100%">
+      <h3>${s.tipo}</h3>
+      <div class="meta">${s.suc} · ${s.fecha} · ${num(s.km)} km</div>
+      <div style="font-size:13px;color:var(--n600);margin-top:8px">${s.detalle}</div>
+    </div>
+    <div class="actions">
+      <div style="font-family:var(--disp);font-weight:800;color:var(--navy);font-size:18px" class="tnum">${mxn(s.monto)}</div>
+      <button class="btn btn-out btn-sm">${I.doc(14)} Factura</button>
     </div>
   </div>`).join('');
 },
@@ -248,7 +314,7 @@ perfil(){
 },
 
 _empty(key,t,d,ctas){
-  const iconMap={reservas:'cal',garage:'garage',watchlist:'heart',credito:'card',autolease:'key',tradein:'trending',citas:'cal',notificaciones:'bell'};
+  const iconMap={reservas:'cal',garage:'garage',watchlist:'heart',credito:'card',autolease:'key',seguros:'umbrella',tradein:'trending',citas:'cal',servicios:'wrench',pagos:'cash',notificaciones:'bell'};
   return `<div class="empty">
     <div class="ic">${I[iconMap[key]||'car'](48)}</div>
     <h3 style="font-family:var(--disp);font-size:18px;color:var(--navy);margin-top:8px">${t}</h3>
@@ -259,21 +325,27 @@ _empty(key,t,d,ctas){
 };
 window.Account=Account;
 
-// ====== PLASI (asistente IA) ======
+// ====== PLASI · Asistente IA del Grupo (claude-sonnet-4-5 cuando endpoint este LIVE) ======
+// Endpoint real: cuando este expuesto en crm-worker, setear PLASI_ENDPOINT a
+//   https://crm.plasencia.mx/api/public/plasi-marketplace
+// Mientras tanto: fallback local con respuestas predefinidas.
+const PLASI_ENDPOINT=window.PLASI_ENDPOINT||null;
+
 const Plasi={
+  history:[],
   open(seed){
     closeModal();
     const existing=$('#plasiPanel');if(existing)existing.remove();
     const el=document.createElement('div');
     el.className='plasi-panel fu';el.id='plasiPanel';
     el.innerHTML=`<div class="plasi-hd">
-      <div class="av">P</div>
-      <div><div class="nm">Plasi</div><div class="st"><span class="dot"></span>Asistente IA · 24/7</div></div>
-      <button class="x" onclick="Plasi.close()">${I.x(18)}</button>
+      <div class="av-iso">${I.plasi(40)}</div>
+      <div><div class="nm">Plasi</div><div class="st"><span class="dot"></span>Asistente IA · Dirección de Marketing GP</div></div>
+      <button class="x" onclick="Plasi.close()" aria-label="Cerrar">${I.x(18)}</button>
     </div>
-    <div class="plasi-intro"><b>Plasi</b> es el asistente IA del marketplace. Te ayudo a elegir auto, cotizar, valuar el tuyo o agendar cita.</div>
+    <div class="plasi-intro"><b>Plasi</b> es la IA institucional del grupo. Conoce el catálogo completo, los 12 talleres, las formas de pago y políticas. Te ayudo a decidir.</div>
     <div class="plasi-msgs" id="plasiMsgs"></div>
-    <div class="plasi-in"><input id="plasiIn" placeholder="Pregúntame lo que sea…" onkeydown="if(event.key==='Enter'){Plasi.send(this.value);this.value=''}"><button onclick="var i=document.getElementById('plasiIn');Plasi.send(i.value);i.value=''">${I.arrowR(18)}</button></div>`;
+    <div class="plasi-in"><input id="plasiIn" placeholder="Pregúntame lo que sea…" onkeydown="if(event.key==='Enter'){Plasi.send(this.value);this.value=''}"><button onclick="var i=document.getElementById('plasiIn');Plasi.send(i.value);i.value=''" aria-label="Enviar">${I.send(18)}</button></div>`;
     document.body.appendChild(el);
     const btn=document.getElementById('plasiBtn');if(btn)btn.style.display='none';
     this.greet(seed);
@@ -281,34 +353,65 @@ const Plasi={
   close(){const p=$('#plasiPanel');if(p)p.remove();const btn=document.getElementById('plasiBtn');if(btn)btn.style.display='flex'},
   greet(seed){
     const m=$('#plasiMsgs');if(!m)return;
-    m.innerHTML='';
-    this.say('bot','¡Hola! Soy Plasi. Puedo ayudarte a elegir auto, calcular crédito o arrendamiento, valuar el tuyo o agendar cita.');
-    ['¿Cuál SUV familiar me conviene?','Quiero cotizar arrendamiento','¿Cuánto vale mi auto actual?','Compárame Mazda CX-30 vs Hyundai Tucson'].forEach(s=>this.say('sug',s));
+    this.history=[];m.innerHTML='';
+    this.say('bot','¡Hola! Soy Plasi, la asistente IA de Grupo Plasencia. Puedo ayudarte a elegir auto, calcular crédito o arrendamiento, valuar el tuyo, contratar seguro o agendar cita en cualquiera de las 12 agencias.');
+    ['¿Qué SUV me conviene para familia de 4?','Quiero cotizar arrendamiento','¿Cuánto vale mi auto actual?','Compara Mazda CX-30 vs Hyundai Tucson'].forEach(s=>this.say('sug',s));
     if(seed)setTimeout(()=>this.send(seed),300);
   },
   say(kind,txt){
     const m=$('#plasiMsgs');if(!m)return;
     if(kind==='sug'){m.insertAdjacentHTML('beforeend',`<button class="psug" onclick="Plasi.send(this.dataset.q)" data-q="${txt.replace(/"/g,'&quot;')}">${txt} ${I.chevR(14)}</button>`)}
-    else{m.insertAdjacentHTML('beforeend',`<div class="pmsg ${kind}">${txt}</div>`)}
+    else if(kind==='typing'){m.insertAdjacentHTML('beforeend',`<div class="pmsg bot ptyping" id="ptyping"><span></span><span></span><span></span></div>`)}
+    else{
+      if(kind==='bot')this.history.push({role:'assistant',content:txt});
+      if(kind==='usr')this.history.push({role:'user',content:txt});
+      m.insertAdjacentHTML('beforeend',`<div class="pmsg ${kind}">${txt}</div>`);
+    }
     m.scrollTop=m.scrollHeight;
   },
   send(txt){
     if(!txt||!txt.trim())return;
     this.say('usr',txt);
-    setTimeout(()=>this.respond(txt.toLowerCase(),txt),500);
+    this.say('typing');
+    if(PLASI_ENDPOINT){this.sendReal(txt)}
+    else{setTimeout(()=>{const p=$('#ptyping');if(p)p.remove();this.respondLocal(txt.toLowerCase(),txt)},700)}
   },
-  respond(q,orig){
+  async sendReal(txt){
+    try{
+      const r=await fetch(PLASI_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({history:this.history.slice(-10),customer:STATE.customer?{nombre:STATE.customer.nombre,preap:STATE.customer.preap}:null,context:'marketplace-public'})});
+      const data=await r.json();
+      const p=$('#ptyping');if(p)p.remove();
+      this.say('bot',data.response||'Disculpa, no pude procesar eso. ¿Lo intentas de otra forma?');
+      if(data.action){setTimeout(()=>this.runAction(data.action),900)}
+      else if(data.suggestions)data.suggestions.forEach(s=>this.say('sug',s));
+    }catch(e){
+      const p=$('#ptyping');if(p)p.remove();
+      this.respondLocal(txt.toLowerCase(),txt);
+    }
+  },
+  runAction(a){
+    this.close();
+    if(a==='catalogo')go('#/catalogo');
+    else if(a==='credito')Flow.openCredito();
+    else if(a==='lease')Flow.openLease();
+    else if(a==='tradein')Flow.openTradein();
+    else if(a==='cita')Flow.openCita();
+    else if(a==='seguro')Flow.openSeguro();
+    else if(a==='concesionarias')go('#/concesionarias');
+  },
+  respondLocal(q,orig){
     const route=action=>setTimeout(action,900);
-    if(/cx-30|tucson|compar/.test(q)){this.say('bot','Compárame: <b>Mazda CX-30</b> tiene mejor manejo y acabados premium. <b>Hyundai Tucson</b> ofrece más espacio y mejor garantía. Ambas en el catálogo del grupo. ¿Te paso al catálogo de SUVs?');this.say('sug','Sí, llévame al catálogo SUV')}
+    if(/cx-30|tucson|compar/.test(q)){this.say('bot','Te comparo: <b>Mazda CX-30</b> destaca en manejo y acabados premium, motor 2.5 con 191hp. <b>Hyundai Tucson</b> tiene más espacio de cajuela y carga, garantía 5 años. Las dos las encuentras en el grupo. ¿Vamos al catálogo SUV?');this.say('sug','Sí, llévame al catálogo SUV')}
     else if(/ver catalog|llévame al catal|catalogo suv|ver suv|llevame al cat/.test(q)){this.say('bot','Listo, te llevo al catálogo.');route(()=>{this.close();go('#/catalogo')})}
-    else if(/suv|famil/.test(q)){this.say('bot','Para uso familiar te recomiendo SUVs medianas: <b>Mazda CX-50</b>, <b>Hyundai Tucson</b>, <b>Jeep Compass</b>, <b>GAC GS3</b>. Las cuatro están en el grupo.');this.say('sug','Ver SUVs disponibles')}
+    else if(/suv|famil|familia/.test(q)){this.say('bot','Para familia de 4 con espacio cómodo te recomiendo SUVs medianas: <b>Mazda CX-50</b>, <b>Hyundai Tucson</b>, <b>Jeep Compass</b> o <b>GAC GS3</b>. Las cuatro caben en presupuesto medio. ¿Te muestro?');this.say('sug','Ver SUVs disponibles')}
+    else if(/segur|póliza|gnp/.test(q)){this.say('bot','Plasencia Seguros con respaldo GNP. Amplia Plus desde ~$11,240/año con auto sustituto y asistencia 24/7. Abro la cotización.');route(()=>{this.close();Flow.openSeguro()})}
     else if(/cotizar arrenda|arrenda|lease|autolease/.test(q)){this.say('bot','GP Autolease es arrendamiento puro para PFAE/PM, deducible, plazos 24-48 meses. Abro el cotizador.');route(()=>{this.close();Flow.openLease()})}
-    else if(/cred|fin|pre-aprob|preaprob/.test(q)){this.say('bot','Plasencia Crédito: pre-aprobación sin afectar buró, tasa fija 13.5%, hasta 60 meses. Abro el flujo.');route(()=>{this.close();Flow.openCredito()})}
+    else if(/cred|fin|pre-aprob|preaprob/.test(q)){this.say('bot','Plasencia Crédito: pre-aprobación sin afectar tu buró, tasa fija 13.5%, hasta 60 meses. Abro el flujo.');route(()=>{this.close();Flow.openCredito()})}
     else if(/vale|valu|trade|cambi|cuanto.*auto/.test(q)){this.say('bot','En 2 minutos te doy oferta firme por tu auto. Tres caminos: efectivo, cambio por seminuevo (con bonus) o mantener oferta 7 días. Abro la valuación.');route(()=>{this.close();Flow.openTradein()})}
-    else if(/cita|test drive|prueba|manejo|agend/.test(q)){this.say('bot','Te abro el agendador. Elige concesionaria, motivo y horario.');route(()=>{this.close();Flow.openCita()})}
-    else if(/precio|cost|cuant/.test(q)){this.say('bot','El catálogo cross-marca va desde sub-$300K hasta arriba de $1M. Filtra por precio desde el buscador.');this.say('sug','Ver catálogo')}
-    else if(/concesion|sucur|tienda|12/.test(q)){this.say('bot','Tenemos 12 concesionarias en Jalisco y Nayarit, cada una especialista de su marca. Te llevo al directorio.');route(()=>{this.close();go('#/concesionarias')})}
-    else{this.say('bot','Puedo ayudarte con: <b>elegir auto</b>, <b>cotizar crédito/arrendamiento</b>, <b>valuar tu auto</b>, <b>agendar cita</b>, o <b>conocer las concesionarias</b>. ¿Por dónde empezamos?');this.say('sug','Quiero comprar un auto');this.say('sug','Quiero vender mi auto')}
+    else if(/cita|test drive|prueba|manejo|agend/.test(q)){this.say('bot','Te abro el agendador. Elige agencia, motivo y horario.');route(()=>{this.close();Flow.openCita()})}
+    else if(/precio|cost|cuant/.test(q)){this.say('bot','El catálogo va desde $280K (Foton, Changan) hasta $1.5M (Jeep Wrangler, Infiniti). Filtra por precio máximo desde el buscador.');this.say('sug','Ver catálogo')}
+    else if(/concesion|sucur|tienda|12|agenci/.test(q)){this.say('bot','Tenemos 12 agencias en Jalisco y Nayarit, cada una especialista de su marca. Te llevo al directorio.');route(()=>{this.close();go('#/concesionarias')})}
+    else{this.say('bot','Puedo ayudarte con: <b>elegir auto</b>, <b>cotizar crédito o arrendamiento</b>, <b>contratar seguro</b>, <b>valuar tu auto actual</b>, <b>agendar cita</b>, o <b>conocer las 12 agencias</b>. ¿Por dónde empezamos?');this.say('sug','Quiero comprar un auto');this.say('sug','Quiero vender el mío');this.say('sug','Cotizar seguro')}
   },
 };
 window.Plasi=Plasi;

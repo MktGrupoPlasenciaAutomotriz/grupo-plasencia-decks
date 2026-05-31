@@ -33,5 +33,10 @@ const I={
   logout:(s=18)=>`<svg width="${s}" height="${s}" ${I.attrs}><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></svg>`,
   trending:(s=20)=>`<svg width="${s}" height="${s}" ${I.attrs}><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>`,
   garage:(s=20)=>`<svg width="${s}" height="${s}" ${I.attrs}><path d="M2 10 12 3l10 7v11H2Z"/><path d="M6 13h12v8H6z"/><path d="M6 17h12M9 17v4M15 17v4"/></svg>`,
+  menu:(s=22)=>`<svg width="${s}" height="${s}" ${I.attrs}><path d="M3 12h18M3 6h18M3 18h18"/></svg>`,
+  umbrella:(s=20)=>`<svg width="${s}" height="${s}" ${I.attrs}><path d="M12 2a10 10 0 0 0-10 10c1-1.5 3-1.5 4 0s3 1.5 4 0 3-1.5 4 0 3 1.5 4 0 3-1.5 4 0A10 10 0 0 0 12 2Z"/><path d="M12 12v7a2 2 0 0 1-2 2 2 2 0 0 1-2-2"/></svg>`,
+  send:(s=18)=>`<svg width="${s}" height="${s}" ${I.attrs}><path d="m22 2-7 20-4-9-9-4 20-7Z"/></svg>`,
+  // Logo Plasi: isotipo geometrico con spark gold sobre navy. SVG gradient inline.
+  plasi:(s=40)=>`<svg width="${s}" height="${s}" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="plg${s}" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#1E2740"/><stop offset="100%" stop-color="#0F1A2E"/></linearGradient><radialGradient id="plgsp${s}" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#FFE89B"/><stop offset="60%" stop-color="#ECC94B"/><stop offset="100%" stop-color="#B7791F"/></radialGradient></defs><circle cx="20" cy="20" r="19" fill="url(#plg${s})"/><path d="M20 7 L23 17 L33 20 L23 23 L20 33 L17 23 L7 20 L17 17 Z" fill="url(#plgsp${s})"/><circle cx="20" cy="20" r="2.5" fill="#fff" opacity=".9"/></svg>`,
 };
 window.I=I;
