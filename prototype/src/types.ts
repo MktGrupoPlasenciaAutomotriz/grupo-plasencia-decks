@@ -62,6 +62,8 @@ export interface Deal {
   plazoMeses?: number
   tradeInId?: string
   citaFecha?: string
+  contratoAceptado?: boolean
+  segurosBundle?: boolean
   createdAt: number
 }
 
@@ -90,6 +92,8 @@ export interface Customer {
   creditoPreaprobado: boolean
   lineaCredito?: number
   kycCompleto: boolean
+  rfc?: string
+  ingresosMensuales?: number
 }
 
 export interface AppState {

@@ -7,6 +7,7 @@ import Home from './pages/Home'
 import Catalog from './pages/Catalog'
 import VehiclePDP from './pages/VehiclePDP'
 import Account from './pages/Account'
+import Checkout from './pages/Checkout'
 
 function ScrollTop() {
   const { pathname } = useLocation()
@@ -24,6 +25,7 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/catalogo" element={<Catalog />} />
           <Route path="/auto/:id" element={<VehiclePDP />} />
+          <Route path="/checkout/:dealId" element={<Checkout />} />
           <Route path="/cuenta" element={<Account />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>

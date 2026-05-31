@@ -19,7 +19,7 @@ export default function VehiclePDP() {
   const [plazo, setPlazo] = useState(60)
   const [enganchePct, setEnganchePct] = useState(20)
   const [tradeOpen, setTradeOpen] = useState(false)
-  const [confirmFolio, setConfirmFolio] = useState<string | null>(null)
+  const [confirm, setConfirm] = useState<{ folio: string; dealId: string } | null>(null)
 
   if (!v) return <div className="max-w-[1240px] mx-auto px-5 py-24 text-center text-n500">Vehículo no encontrado. <Link to="/catalogo" className="text-red font-semibold">Ver catálogo</Link></div>
 
@@ -33,15 +33,17 @@ export default function VehiclePDP() {
 
   function apartar() {
     const folio = generarFolio(v!.marca)
+    const dealId = uid('deal')
     dispatch({ type: 'ADD_DEAL', payload: {
-      id: uid('deal'), folio, vehicleId: v!.id, modalidad,
+      id: dealId, folio, vehicleId: v!.id, modalidad,
       estado: 'apartado', apartadoMonto: 5000,
+      engancheMonto: modalidad === 'credito' ? Math.round(engancheBase) : undefined,
       mensualidad: modalidad !== 'contado' ? Math.round(mens) : undefined,
       plazoMeses: modalidad !== 'contado' ? plazo : undefined,
       tradeInId: tradeIn?.id, createdAt: Date.now(),
     }})
     if (!state.customer) dispatch({ type: 'SET_CUSTOMER', payload: { nombre: 'Cliente Demo', email: 'demo@plasencia.mx', telefono: '33 0000 0000', creditoPreaprobado: false, kycCompleto: false } })
-    setConfirmFolio(folio)
+    setConfirm({ folio, dealId })
   }
 
   function preaprobar() {
@@ -209,19 +211,20 @@ export default function VehiclePDP() {
       </section>
 
       {/* Confirmación de apartado */}
-      {confirmFolio && (
-        <div className="fixed inset-0 z-50 bg-navy-deep/60 backdrop-blur-sm flex items-center justify-center p-5" onClick={() => setConfirmFolio(null)}>
+      {confirm && (
+        <div className="fixed inset-0 z-50 bg-navy-deep/60 backdrop-blur-sm flex items-center justify-center p-5" onClick={() => setConfirm(null)}>
           <div className="bg-white rounded-[20px] p-8 max-w-md w-full text-center gp-fade-up" onClick={e => e.stopPropagation()}>
             <div className="w-14 h-14 rounded-full bg-success/15 text-success-deep text-[28px] flex items-center justify-center mx-auto">✓</div>
             <h3 className="gp-display font-extrabold text-navy text-2xl mt-4">¡Apartado!</h3>
             <p className="text-[14px] text-n600 mt-2">Tu {v.marca} {v.modelo} está reservado. Depósito de {mxn(5000)} reembolsable.</p>
             <div className="bg-n100 rounded-[12px] p-3 mt-4">
               <div className="text-[11px] text-n500 uppercase tracking-wide gp-display font-bold">Folio</div>
-              <div className="gp-display font-extrabold text-navy gp-tnum">{confirmFolio}</div>
+              <div className="gp-display font-extrabold text-navy gp-tnum">{confirm.folio}</div>
             </div>
             <div className="mt-5 space-y-2">
-              <Button variant="conversion" full onClick={() => nav('/cuenta')}>Ver en Mi Plasencia →</Button>
-              <Button variant="ghost" full onClick={() => setConfirmFolio(null)}>Seguir explorando</Button>
+              <Button variant="conversion" full onClick={() => nav(`/checkout/${confirm.dealId}`)}>Completar compra ahora →</Button>
+              <Button variant="outline" full onClick={() => nav('/cuenta')}>Guardar y ver en Mi Plasencia</Button>
+              <Button variant="ghost" full onClick={() => setConfirm(null)}>Seguir explorando</Button>
             </div>
           </div>
         </div>

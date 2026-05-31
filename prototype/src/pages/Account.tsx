@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useStore } from '../store/store'
 import { getVehicle } from '../data/vehicles'
 import { mxn } from '../lib/format'
@@ -14,6 +14,7 @@ const ESTADO_LABEL: Record<string, { t: string; tone: 'gold' | 'green' | 'navy' 
 
 export default function Account() {
   const { state, dispatch } = useStore()
+  const nav = useNavigate()
   const { customer, deals, tradeIns } = state
 
   if (deals.length === 0 && !customer) {
@@ -72,15 +73,18 @@ export default function Account() {
                 </div>
               </div>
               <div className="flex flex-col gap-2 w-full sm:w-auto">
-                {d.estado === 'apartado' && (
-                  <Button variant="conversion" size="sm" onClick={() => dispatch({ type: 'UPDATE_DEAL', payload: { id: d.id, patch: { estado: 'enganche_pagado', engancheMonto: Math.round(v.precio * 0.2) } } })}>
-                    Pagar enganche
+                {(d.estado === 'apartado' || d.estado === 'enganche_pagado') && (
+                  <Button variant="conversion" size="sm" onClick={() => nav(`/checkout/${d.id}`)}>
+                    {d.estado === 'apartado' ? 'Completar compra' : 'Continuar'}
                   </Button>
                 )}
-                {d.estado === 'enganche_pagado' && (
+                {(d.estado === 'cerrado') && (
                   <Button variant="primary" size="sm" onClick={() => dispatch({ type: 'UPDATE_DEAL', payload: { id: d.id, patch: { estado: 'cita_agendada', citaFecha: 'Sábado 11:00' } } })}>
                     Agendar entrega
                   </Button>
+                )}
+                {d.estado === 'cita_agendada' && (
+                  <div className="text-[12px] text-success-deep font-semibold text-center">✓ Entrega: {d.citaFecha}</div>
                 )}
                 <Link to={`/auto/${v.id}`}><Button variant="ghost" size="sm" full>Ver auto</Button></Link>
               </div>
