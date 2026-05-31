@@ -79,8 +79,27 @@
 .plasi-explainer p{color:rgba(255,255,255,.8);margin-top:6px;max-width:560px;line-height:1.6;font-size:14px;position:relative;z-index:1}
 .plasi-explainer .btn{position:relative;z-index:1}
 
+/* BRAND STRIP filtro visual */
+.brand-strip{background:#fff;border-bottom:1px solid var(--n200);padding:18px 0;position:sticky;top:68px;z-index:31}
+.brand-strip-in{max-width:1280px;margin:0 auto;padding:0 24px;display:flex;gap:10px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.brand-strip-in::-webkit-scrollbar{display:none}
+.brand-chip{flex-shrink:0;height:60px;min-width:88px;padding:0 16px;border:2px solid var(--n200);background:#fff;border-radius:14px;display:flex;align-items:center;justify-content:center;gap:6px;transition:.2s;cursor:pointer;opacity:.65;filter:grayscale(.4)}
+.brand-chip img{max-height:32px;max-width:64px;width:auto;object-fit:contain}
+.brand-chip .brand-lbl{font-family:var(--disp);font-weight:800;font-size:12px;color:var(--n700)}
+.brand-chip .all-ic{color:var(--navy)}
+.brand-chip:hover{opacity:1;filter:none;border-color:var(--n300);transform:translateY(-1px)}
+.brand-chip.on{opacity:1;filter:none;border-color:var(--navy);box-shadow:0 4px 12px rgba(15,26,46,.15);background:linear-gradient(180deg,#fff,var(--n50))}
+.brand-chip.on .brand-lbl{color:var(--red)}
+@media(max-width:760px){
+  .brand-strip{top:60px;padding:12px 0}
+  .brand-strip-in{padding:0 18px;gap:8px}
+  .brand-chip{height:52px;min-width:72px;padding:0 12px;border-radius:11px}
+  .brand-chip img{max-height:26px;max-width:54px}
+}
+
 /* FILTERS */
-.filters{position:sticky;top:68px;z-index:30;background:rgba(237,242,247,.95);backdrop-filter:blur(8px);padding:18px 0;border-bottom:1px solid var(--n200)}
+.filters{position:sticky;top:165px;z-index:30;background:rgba(237,242,247,.95);backdrop-filter:blur(8px);padding:18px 0;border-bottom:1px solid var(--n200)}
+@media(max-width:760px){.filters{top:122px}}
 .filters-in{max-width:1280px;margin:0 auto;padding:0 24px;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
 .filters input,.filters select{font-family:var(--disp);font-size:13px;font-weight:600;border:1px solid var(--n300);background:#fff;border-radius:99px;padding:10px 16px;outline:none;color:var(--navy);cursor:pointer;transition:.15s}
 .filters input{cursor:text;min-width:200px}

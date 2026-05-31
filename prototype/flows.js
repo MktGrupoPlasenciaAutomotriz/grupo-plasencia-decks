@@ -36,13 +36,14 @@ function renderCockpit(){
       <div class="mensbox"><div class="lbl">${mod==='credito'?'Mensualidad estimada':'Renta mensual estimada'}</div><div class="v tnum">${mxn(mens)}</div><div class="sub">${plazo} meses · ${mod==='credito'?'tasa 13.5% anual':'IVA incluido'}</div></div>
     </div>`:''}
     <div class="cta-stack">
-      <button class="btn btn-conv btn-lg btn-full" onclick="Flow.openCheckout('${v.id}')">Apartar con ${mxn(5000)} reembolsable</button>
+      ${mod==='credito'?`<button class="btn btn-conv btn-lg btn-full" onclick="Flow.openCredito('${v.id}')">${I.card(16)} Pre-aprobar mi crédito ahora</button><button class="btn btn-out btn-md btn-full" onclick="Flow.openCheckout('${v.id}')">O apartar con ${mxn(5000)} reembolsable</button>`
+      :mod==='arrendamiento'?`<button class="btn btn-conv btn-lg btn-full" onclick="Flow.openLease('${v.id}')">${I.key(16)} Cotizar este Autolease</button><button class="btn btn-out btn-md btn-full" onclick="Flow.openCheckout('${v.id}')">O apartar con ${mxn(5000)} reembolsable</button>`
+      :`<button class="btn btn-conv btn-lg btn-full" onclick="Flow.openCheckout('${v.id}')">Apartar con ${mxn(5000)} reembolsable</button>`}
       <div class="cta-2">
-        <button class="btn btn-out btn-md" onclick="Flow.openCita('${v.id}')">${I.cal(16)} Agendar cita</button>
-        <button class="btn btn-out btn-md" onclick="Flow.openTradein()">${I.trending(16)} Tomar mi auto</button>
+        <button class="btn btn-out btn-md" onclick="Flow.openCita('${v.id}')">${I.cal(16)} Test drive</button>
+        <button class="btn btn-out btn-md" onclick="Flow.openTradein()">${I.trending(16)} Aplicar mi auto</button>
       </div>
-      ${mod==='credito'?`<button class="btn btn-ghost btn-md btn-full" style="color:var(--blue-d)" onclick="Flow.openCredito('${v.id}')">${I.card(16)} Pre-aprobar crédito</button>`:''}
-      ${mod==='arrendamiento'?`<button class="btn btn-ghost btn-md btn-full" style="color:var(--blue-d)" onclick="Flow.openLease('${v.id}')">${I.key(16)} Cotizar arrendamiento</button>`:''}
+      <button class="btn btn-ghost btn-sm btn-full" style="color:var(--blue-d);font-size:12px" onclick="Plasi.open('¿Me ayudas a decidir entre contado, crédito y arrendamiento para el ${v.modelo}?')">${I.chat(14)} Habla con Plasi · ¿cuál me conviene?</button>
     </div>`;
 }
 

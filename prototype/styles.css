@@ -82,6 +82,7 @@ svg{flex-shrink:0}
 .btn-primary{background:var(--navy);color:#fff}.btn-primary:hover{background:var(--slate)}
 .btn-conv{background:var(--red);color:#fff;box-shadow:0 6px 16px rgba(200,16,46,.25)}.btn-conv:hover{background:var(--red-d)}
 .btn-out{border:1px solid var(--n300);color:var(--navy);background:#fff}.btn-out:hover{border-color:var(--navy);background:var(--n50)}
+.btn-ghost-dark{border:1px solid rgba(255,255,255,.35);color:#fff;background:rgba(255,255,255,.06);backdrop-filter:blur(4px)}.btn-ghost-dark:hover{border-color:#fff;background:rgba(255,255,255,.14)}
 .btn-ghost{color:var(--navy)}.btn-ghost:hover{background:var(--n100)}
 .btn-gold{background:var(--gold);color:var(--navy)}.btn-gold:hover{background:var(--gold-d);color:#fff}
 .btn-wa{background:#25D366;color:#fff}.btn-wa:hover{background:#1ea854}

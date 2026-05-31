@@ -64,10 +64,12 @@ resumen(){
     <div>
       <h3 style="font-family:var(--disp);font-size:18px;color:var(--navy);margin-bottom:12px">Acciones rápidas</h3>
       <div style="display:flex;flex-direction:column;gap:8px">
+        ${STATE.creditos.length&&STATE.creditos[0].mensActual?`<button class="btn btn-conv btn-md btn-full" style="justify-content:flex-start" onclick="Flow.openSim('pagoCredito',{monto:${STATE.creditos[0].mensActual},folio:'${STATE.creditos[0].folio}'})">${I.cash(16)} Pagar mensualidad (${mxn(STATE.creditos[0].mensActual)})</button>`:''}
+        ${STATE.leases.length?`<button class="btn btn-conv btn-md btn-full" style="justify-content:flex-start;background:var(--navy)" onclick="Flow.openSim('pagoLease',{monto:${STATE.leases[0].renta},folio:'${STATE.leases[0].folio}'})">${I.cash(16)} Pagar renta lease (${mxn(STATE.leases[0].renta)})</button>`:''}
+        <button class="btn btn-out btn-md btn-full" style="justify-content:flex-start" onclick="Flow.openCita()">${I.cal(16)} Agendar servicio o test drive</button>
         <button class="btn btn-out btn-md btn-full" style="justify-content:flex-start" onclick="go('#/catalogo')">${I.car(16)} Explorar catálogo</button>
         <button class="btn btn-out btn-md btn-full" style="justify-content:flex-start" onclick="Flow.openTradein()">${I.trending(16)} Valuar mi auto</button>
         ${!c.preap?`<button class="btn btn-conv btn-md btn-full" style="justify-content:flex-start" onclick="Flow.openCredito()">${I.card(16)} Pre-aprobar crédito</button>`:''}
-        <button class="btn btn-out btn-md btn-full" style="justify-content:flex-start" onclick="Flow.openCita()">${I.cal(16)} Agendar cita</button>
         <button class="btn btn-out btn-md btn-full" style="justify-content:flex-start;color:var(--red);border-color:var(--n200)" onclick="logout()">${I.logout(16)} Cerrar sesión</button>
       </div>
     </div>
@@ -93,7 +95,7 @@ reservas(){
       </div>
     </div>
     <div class="actions">
-      <button class="btn btn-conv btn-md">Pagar enganche</button>
+      <button class="btn btn-conv btn-md" onclick="Flow.openSim('pagoEnganche',{monto:${Math.round(r.precio*0.2-r.apart)},modelo:'${r.marca} ${r.modelo}'})">Pagar enganche</button>
       <button class="btn btn-out btn-md" onclick="Flow.openCita('${r.carId}')">${I.cal(14)} Agendar entrega</button>
       <button class="btn btn-ghost btn-sm" onclick="go('#/auto/${r.carId}')">Ver detalle</button>
     </div>
@@ -116,8 +118,9 @@ garage(){
     </div>
     <div class="actions">
       <button class="btn btn-conv btn-md" onclick="Flow.openCita('${g.carId}')">${I.wrench(14)} Agendar servicio</button>
-      <button class="btn btn-out btn-md">${I.doc(14)} Documentos</button>
-      <button class="btn btn-out btn-md" onclick="Flow.openTradein()">${I.cycle(14)} Cambiar este auto</button>
+      <button class="btn btn-out btn-md" onclick="Flow.openSim('descargarFactura')">${I.doc(14)} Factura · Tarjeta</button>
+      <button class="btn btn-out btn-md" onclick="Flow.openSeguro('${g.carId}')">${I.umbrella(14)} Asegurar</button>
+      <button class="btn btn-ghost btn-sm" onclick="Flow.openTradein()">Cambiar este auto</button>
     </div>
   </div>`).join('');
 },
@@ -154,9 +157,9 @@ credito(){
       <div class="info-cell"><div class="k">Buró afectado</div><div class="v" style="color:var(--green-d)">No</div></div>
     </div>
     <div style="margin-top:16px;display:flex;gap:8px;flex-wrap:wrap">
-      ${usado>0?`<button class="btn btn-conv btn-md">${I.cash(14)} Pagar ${mxn(cr.mensActual)}</button>`:`<button class="btn btn-conv btn-md" onclick="go('#/catalogo')">Usar mi línea</button>`}
-      <button class="btn btn-out btn-md">${I.doc(14)} Estado de cuenta</button>
-      <button class="btn btn-out btn-md">${I.cal(14)} Calendario de pagos</button>
+      ${usado>0?`<button class="btn btn-conv btn-md" onclick="Flow.openSim('pagoCredito',{monto:${cr.mensActual},folio:'${cr.folio}',mes:${(cr.pagosHechos||0)+1},total:${cr.pagosTotal||60}})">${I.cash(14)} Pagar ${mxn(cr.mensActual)}</button>`:`<button class="btn btn-conv btn-md" onclick="go('#/catalogo')">Usar mi línea</button>`}
+      <button class="btn btn-out btn-md" onclick="Flow.openSim('estadoCuenta')">${I.doc(14)} Estado de cuenta</button>
+      <button class="btn btn-out btn-md" onclick="toast('Calendario abierto en demo')">${I.cal(14)} Calendario de pagos</button>
     </div>
   </div>`}).join('');
 },
@@ -185,8 +188,8 @@ autolease(){
       <div class="info-cell"><div class="k">Opción de compra al final</div><div class="v" style="color:var(--green-d)">Sí</div></div>
     </div>
     <div style="margin-top:16px;display:flex;gap:8px;flex-wrap:wrap">
-      <button class="btn btn-conv btn-md">${I.cash(14)} Pagar renta de mes</button>
-      <button class="btn btn-out btn-md">${I.doc(14)} Contrato</button>
+      <button class="btn btn-conv btn-md" onclick="Flow.openSim('pagoLease',{monto:${al.renta},folio:'${al.folio}',mes:${al.mesActual||1},total:${al.plazo}})">${I.cash(14)} Pagar renta ${mxn(al.renta)}</button>
+      <button class="btn btn-out btn-md" onclick="Flow.openSim('descargarContrato')">${I.doc(14)} Contrato</button>
       <button class="btn btn-out btn-md" onclick="Flow.openCita()">${I.wrench(14)} Mantenimiento</button>
     </div>
   </div>`}).join('');
@@ -213,9 +216,9 @@ seguros(){
       <div class="info-cell"><div class="k">Asistencia 24/7</div><div class="v" style="color:var(--green-d)">Incluida</div></div>
     </div>
     <div style="margin-top:16px;display:flex;gap:8px;flex-wrap:wrap">
-      <button class="btn btn-conv btn-md">${I.phone(14)} Reportar siniestro</button>
-      <button class="btn btn-out btn-md">${I.doc(14)} Ver póliza</button>
-      <button class="btn btn-out btn-md">${I.cycle(14)} Renovar</button>
+      <button class="btn btn-conv btn-md" onclick="Flow.openSim('reportarSiniestro')">${I.phone(14)} Reportar siniestro</button>
+      <button class="btn btn-out btn-md" onclick="Flow.openSim('descargarPoliza')">${I.doc(14)} Descargar póliza</button>
+      <button class="btn btn-out btn-md" onclick="Flow.openSim('pagoPrima',{monto:${s.prima},folio:'${s.folio}'})">${I.cycle(14)} Renovar (${mxn(s.prima)})</button>
     </div>
   </div>`).join('');
 },
@@ -240,7 +243,7 @@ servicios(){
     </div>
     <div class="actions">
       <div style="font-family:var(--disp);font-weight:800;color:var(--navy);font-size:18px" class="tnum">${mxn(s.monto)}</div>
-      <button class="btn btn-out btn-sm">${I.doc(14)} Factura</button>
+      <button class="btn btn-out btn-sm" onclick="Flow.openSim('descargarFactura')">${I.doc(14)} Factura</button>
     </div>
   </div>`).join('');
 },
@@ -262,8 +265,8 @@ tradein(){
     </div>
     <div style="margin-top:14px;font-size:13px;color:var(--n600)">Camino elegido: <b style="color:var(--navy);font-family:var(--disp)">${t.path==='cambio'?'Cambiar por seminuevo':t.path==='efectivo'?'Vender en efectivo':'Mantener oferta firme'}</b></div>
     <div style="margin-top:16px;display:flex;gap:8px;flex-wrap:wrap">
-      ${t.path==='cambio'?`<button class="btn btn-conv btn-md" onclick="go('#/catalogo?cond=seminuevo')">Ver seminuevos</button>`:`<button class="btn btn-conv btn-md">${I.check(14)} Aceptar oferta</button>`}
-      <button class="btn btn-out btn-md">${I.cal(14)} Agendar inspección</button>
+      ${t.path==='cambio'?`<button class="btn btn-conv btn-md" onclick="go('#/catalogo?cond=seminuevo')">Ver seminuevos</button>`:`<button class="btn btn-conv btn-md" onclick="toast('Oferta aceptada · te contactamos hoy mismo')">${I.check(14)} Aceptar oferta</button>`}
+      <button class="btn btn-out btn-md" onclick="Flow.openCita()">${I.cal(14)} Agendar inspección</button>
     </div>
   </div>`).join('');
 },
@@ -276,8 +279,8 @@ citas(){
       <div class="meta">Folio ${c.folio} · ${c.sucName}</div>
     </div>
     <div class="actions">
-      <button class="btn btn-out btn-md">${I.cal(14)} Reagendar</button>
-      <button class="btn btn-ghost btn-sm" style="color:var(--red)">Cancelar</button>
+      <button class="btn btn-out btn-md" onclick="Flow.openCita('${c.carId||''}')">${I.cal(14)} Reagendar</button>
+      <button class="btn btn-ghost btn-sm" style="color:var(--red)" onclick="if(confirm('¿Cancelar esta cita?')){STATE.citas=STATE.citas.filter(x=>x.id!=='${c.id}');save();render();toast('Cita cancelada','check')}">Cancelar</button>
     </div>
   </div>`).join('');
 },
@@ -325,11 +328,10 @@ _empty(key,t,d,ctas){
 };
 window.Account=Account;
 
-// ====== PLASI · Asistente IA del Grupo (claude-sonnet-4-5 cuando endpoint este LIVE) ======
-// Endpoint real: cuando este expuesto en crm-worker, setear PLASI_ENDPOINT a
-//   https://crm.plasencia.mx/api/public/plasi-marketplace
-// Mientras tanto: fallback local con respuestas predefinidas.
-const PLASI_ENDPOINT=window.PLASI_ENDPOINT||null;
+// ====== PLASI · Asistente IA del Grupo (claude-sonnet-4-5) ======
+// Endpoint real en crm-worker bajo /api/lead/plasi-marketplace (bypass CF Access).
+// Si falla o no responde, cae a respuestas locales transparentemente.
+const PLASI_ENDPOINT=window.PLASI_ENDPOINT||'https://crm-plasencia.grupo-plasencia-automotriz.workers.dev/api/lead/plasi-marketplace';
 
 const Plasi={
   history:[],

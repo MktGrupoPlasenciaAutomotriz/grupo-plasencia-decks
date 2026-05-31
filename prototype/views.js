@@ -112,7 +112,7 @@ home(){
         <p>Oferta firme en 2 minutos. Sin compromiso. Tres caminos: vender en efectivo, cambiar por un seminuevo o aplicar como enganche de tu próximo Plasencia.</p>
         <div class="ctas">
           <button class="btn btn-gold btn-lg" onclick="go('#/trade-in')">Valuar mi auto ${I.arrowR(16)}</button>
-          <button class="btn btn-out btn-lg" style="color:#fff;border-color:rgba(255,255,255,.3)" onclick="Plasi.open('¿Cómo funciona el trade-in?')">¿Cómo funciona?</button>
+          <button class="btn btn-ghost-dark btn-lg" onclick="Plasi.open('¿Cómo funciona el trade-in?')">¿Cómo funciona?</button>
         </div>
       </div>
       <div class="stats">
@@ -177,7 +177,7 @@ home(){
         <p>Explora el catálogo cross-marca y vive la experiencia automotriz como debe ser en la era digital y de la IA.</p>
         <div style="margin-top:24px;display:flex;gap:10px;flex-wrap:wrap">
           <button class="btn btn-gold btn-lg" onclick="go('#/catalogo')">Explorar catálogo</button>
-          <button class="btn btn-out btn-lg" style="color:#fff;border-color:rgba(255,255,255,.3)" onclick="Plasi.open()">${I.chat(16)} Hablar con Plasi</button>
+          <button class="btn btn-ghost-dark btn-lg" onclick="Plasi.open()">${I.chat(16)} Hablar con Plasi</button>
         </div>
       </div>
     </div>
@@ -187,17 +187,22 @@ home(){
 // ====== CATALOGO ======
 catalogo(){
   const tipos=[...new Set(CARS.map(c=>c.tipo))];
-  return `<div class="filters"><div class="filters-in">
+  return `<div class="brand-strip">
+    <div class="brand-strip-in">
+      <button class="brand-chip ${FILT.marca==='todas'?'on':''}" onclick="setF('marca','todas')"><span class="all-ic">${I.car(18)}</span><span class="brand-lbl">Todas</span></button>
+      ${MARCAS.map(m=>{const s=marcaLogoSrc(m);return `<button class="brand-chip ${FILT.marca===m?'on':''}" onclick="setF('marca','${m}')" title="${m}">${s?`<img src="${s}" alt="${m}">`:`<span class="brand-lbl">${m}</span>`}</button>`}).join('')}
+    </div>
+  </div>
+  <div class="filters"><div class="filters-in">
     <input placeholder="Buscar auto…" value="${FILT.q}" oninput="setF('q',this.value)">
     <select onchange="setF('cond',this.value)"><option value="todos">Condición</option><option value="nuevo" ${FILT.cond==='nuevo'?'selected':''}>Nuevos</option><option value="seminuevo" ${FILT.cond==='seminuevo'?'selected':''}>Seminuevos</option></select>
-    <select onchange="setF('marca',this.value)"><option value="todas">Marca</option>${MARCAS.map(m=>`<option ${FILT.marca===m?'selected':''}>${m}</option>`).join('')}</select>
     <select onchange="setF('tipo',this.value)"><option value="todas">Tipo</option>${tipos.map(t=>`<option ${FILT.tipo===t?'selected':''}>${t}</option>`).join('')}</select>
     <select onchange="setF('max',+this.value)"><option value="99999999">Precio máx.</option><option value="350000">&lt; $350,000</option><option value="600000">&lt; $600,000</option><option value="900000">&lt; $900,000</option></select>
     <span class="count" id="fcount"></span>
   </div></div>
   <div class="wrap" style="padding:32px 24px 0">
-    <div class="eyebrow">Catálogo cross-marca · 12 concesionarias</div>
-    <h2 style="font-size:clamp(24px,3vw,34px);font-weight:800;color:var(--navy);margin-top:8px">Encuentra por uso, no por logo</h2>
+    <div class="eyebrow">Catálogo · 14 marcas · 12 agencias</div>
+    <h2 style="font-size:clamp(24px,3vw,34px);font-weight:800;color:var(--navy);margin-top:8px">${FILT.marca==='todas'?'Todo el inventario, lado a lado':FILT.marca+' en el Grupo Plasencia'}</h2>
   </div>
   <div class="wrap" style="padding-bottom:48px"><div id="vgrid" class="vgrid"></div><div id="loadmore" style="text-align:center;margin-top:40px"></div></div>`;
 },
@@ -258,7 +263,7 @@ tradein(){
       <p class="sub">Oferta firme en 2 minutos. Sin compromiso. Las 12 concesionarias del grupo reciben +200 trade-ins al mes — pagamos mejor porque tenemos a quién venderlo.</p>
       <div style="margin-top:24px;display:flex;gap:10px;flex-wrap:wrap">
         <button class="btn btn-gold btn-lg" onclick="Flow.openTradein()">Empezar valuación ${I.arrowR(16)}</button>
-        <button class="btn btn-out btn-lg" style="color:#fff;border-color:rgba(255,255,255,.3)" onclick="Plasi.open('¿Cómo funciona el trade-in?')">¿Cómo funciona?</button>
+        <button class="btn btn-ghost-dark btn-lg" onclick="Plasi.open('¿Cómo funciona el trade-in?')">¿Cómo funciona?</button>
       </div>
     </div>
     <div class="quick-form">
@@ -304,7 +309,7 @@ credito(){
       <p class="sub">Pre-aprobación en 2 minutos sin afectar tu buró. Tasa fija 13.5% anual. Plazos 12 a 60 meses. Enganche desde 20%.</p>
       <div style="margin-top:24px;display:flex;gap:10px;flex-wrap:wrap">
         <button class="btn btn-gold btn-lg" onclick="Flow.openCredito()">Pre-aprobarme ahora ${I.arrowR(16)}</button>
-        <button class="btn btn-out btn-lg" style="color:#fff;border-color:rgba(255,255,255,.3)" onclick="go('#/autolease')">¿Mejor arrendamiento?</button>
+        <button class="btn btn-ghost-dark btn-lg" onclick="go('#/autolease')">¿Mejor arrendamiento?</button>
       </div>
     </div>
     <div class="quick-form">
@@ -344,7 +349,7 @@ autolease(){
       <p class="sub">Renta mensual fija, deducible para PFAE y empresas. Al final del plazo: renuevas, devuelves o compras. Plazos 24 a 48 meses.</p>
       <div style="margin-top:24px;display:flex;gap:10px;flex-wrap:wrap">
         <button class="btn btn-gold btn-lg" onclick="Flow.openLease()">Cotizar arrendamiento ${I.arrowR(16)}</button>
-        <button class="btn btn-out btn-lg" style="color:#fff;border-color:rgba(255,255,255,.3)" onclick="go('#/credito')">¿Mejor crédito?</button>
+        <button class="btn btn-ghost-dark btn-lg" onclick="go('#/credito')">¿Mejor crédito?</button>
       </div>
     </div>
     <div class="quick-form">
@@ -366,7 +371,7 @@ seguros(){
       <p class="sub">Cobertura amplia respaldada por GNP. Cotiza en 2 minutos, contrata sin papeles físicos y administra tu póliza desde Mi Plasencia. Asistencia 24/7 en todo México.</p>
       <div style="margin-top:24px;display:flex;gap:10px;flex-wrap:wrap">
         <button class="btn btn-gold btn-lg" onclick="Flow.openSeguro()">Cotizar mi seguro ${I.arrowR(16)}</button>
-        <button class="btn btn-out btn-lg" style="color:#fff;border-color:rgba(255,255,255,.3)" onclick="Plasi.open('¿Qué cubre el seguro Plasencia?')">¿Qué cubre?</button>
+        <button class="btn btn-ghost-dark btn-lg" onclick="Plasi.open('¿Qué cubre el seguro Plasencia?')">¿Qué cubre?</button>
       </div>
     </div>
     <div class="quick-form">
@@ -417,7 +422,7 @@ flotillas(){
       <p class="sub">Para Pymes, corporativos y gobierno. Cotización empresarial cross-marca, crédito o arrendamiento, mantenimiento programado y atención dedicada.</p>
       <div style="margin-top:24px;display:flex;gap:10px;flex-wrap:wrap">
         <button class="btn btn-gold btn-lg" onclick="Flow.openFlotilla()">Cotizar flotilla ${I.arrowR(16)}</button>
-        <button class="btn btn-out btn-lg" style="color:#fff;border-color:rgba(255,255,255,.3)" onclick="alert('Contacto comercial demo')">${I.phone(16)} Llamar a un asesor</button>
+        <button class="btn btn-ghost-dark btn-lg" onclick="alert('Contacto comercial demo')">${I.phone(16)} Llamar a un asesor</button>
       </div>
     </div>
     <div class="quick-form">

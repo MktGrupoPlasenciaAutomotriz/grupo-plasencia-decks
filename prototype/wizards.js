@@ -181,6 +181,45 @@ _seg(carId,step,d){
   <div class="wiz-nav">${step>0&&step<3?`<button class="btn btn-out btn-md" onclick='Flow._seg(${carId?JSON.stringify(carId):'null'},${step-1},${JSON.stringify(d)})'>${I.chevL(14)} Atrás</button>`:'<span></span>'}${step<3?`<button class="btn btn-conv btn-md" onclick='Flow._segNext(${carId?JSON.stringify(carId):'null'},${step},${JSON.stringify(d)})'>${step===2?'Contratar ahora':'Continuar'} ${I.chevR(14)}</button>`:`<button class="btn btn-conv btn-md btn-full" onclick='closeModal();go("#/cuenta?t=seguros")'>Ver Mis Seguros</button>`}</div>`;
   showModal(html,'lg');
 },
+// === SIMULACION GENERICA · pagar mensualidad / renta / prima / siniestro / descarga ===
+openSim(kind,opts={}){
+  const C={
+    pagoCredito:{ttl:'Pagar mensualidad de crédito',sub:'Tu próximo cargo automático corre el 15 de cada mes. También puedes adelantar hoy.',monto:opts.monto||9740,detalle:'Crédito Plasencia · '+(opts.folio||'GP-CR-260512')+' · mes '+(opts.mes||1)+' de '+(opts.total||60),ok:'¡Pago aplicado!',okSub:'Tu saldo se actualiza en máximo 30 minutos. Comprobante enviado a tu correo.'},
+    pagoLease:{ttl:'Pagar renta del mes',sub:'Renta GP Autolease del mes en curso.',monto:opts.monto||13980,detalle:'GP Autolease · '+(opts.folio||'GP-AL-251020')+' · mes '+(opts.mes||8)+' de '+(opts.total||36),ok:'¡Renta pagada!',okSub:'Tu próxima renta se cobrará el 20 del mes siguiente.'},
+    pagoEnganche:{ttl:'Pagar enganche',sub:'Apartado completo. Procedemos a generar contrato y agendar entrega.',monto:opts.monto||90000,detalle:'Enganche '+(opts.modelo||'tu reserva'),ok:'¡Enganche pagado!',okSub:'Te llamamos en menos de 2 horas para coordinar entrega.'},
+    pagoPrima:{ttl:'Pagar prima de seguro',sub:'Prima anual Amplia Plus respaldada por GNP.',monto:opts.monto||11240,detalle:'Plasencia Seguros · '+(opts.folio||'PLZ-2026-04521'),ok:'¡Póliza renovada!',okSub:'Tu cobertura sigue activa por un año más.'},
+    reportarSiniestro:{ttl:'Reportar siniestro',sub:'Cuéntanos qué pasó. La grúa, ajustador y/o taller del grupo se activan al confirmar.',monto:0,detalle:'Asistencia 24/7 · Plasencia Seguros',ok:'¡Reporte recibido!',okSub:'El ajustador te contactará en menos de 30 minutos. Folio enviado por SMS.',custom:true},
+    descargarPoliza:{ttl:'Descargando póliza…',sub:'Tu archivo PDF se está generando.',sim:true,ok:'Póliza descargada',okSub:'Revisa tu carpeta de descargas.'},
+    descargarContrato:{ttl:'Descargando contrato…',sub:'Tu archivo PDF se está generando.',sim:true,ok:'Contrato descargado',okSub:'Revisa tu carpeta de descargas.'},
+    descargarFactura:{ttl:'Descargando factura…',sub:'Tu archivo PDF/XML se está generando.',sim:true,ok:'Factura descargada',okSub:'Lista para tu contabilidad.'},
+    estadoCuenta:{ttl:'Estado de cuenta',sub:'Tu estado de cuenta del crédito actualizado al día de hoy.',sim:true,ok:'Estado generado',okSub:'Te lo enviamos también por correo.'},
+  }[kind];
+  if(!C){toast('Acción no disponible','x');return}
+  if(C.sim){
+    showModal(`<div style="text-align:center;padding:20px 0"><div class="ok-circle" style="background:rgba(66,153,225,.15);color:var(--blue-d)">${I.doc(28)}</div><h2 style="font-size:22px;color:var(--navy)">${C.ttl}</h2><p style="color:var(--n500);margin-top:6px;font-size:14px">${C.sub}</p><div style="margin-top:18px;height:6px;background:var(--n100);border-radius:99px;overflow:hidden"><div id="simbar" style="height:100%;width:0;background:var(--blue);transition:width 1.5s"></div></div></div>`);
+    setTimeout(()=>{const b=$('#simbar');if(b)b.style.width='100%'},80);
+    setTimeout(()=>{closeModal();toast(C.ok+' · '+C.okSub,'check')},1800);return;
+  }
+  // Modal pago / siniestro
+  const html=`<h2 style="font-size:22px;color:var(--navy)">${C.ttl}</h2><p style="color:var(--n500);font-size:13px;margin-top:4px">${C.sub}</p>
+    ${C.custom?`<div class="field"><label>¿Qué pasó?</label><textarea rows="3" placeholder="Choque, robo, asistencia vial..."></textarea></div><div class="field"><label>Ubicación</label><input value="Mi ubicación actual" readonly></div><div style="background:var(--n50);border-radius:12px;padding:14px;margin-top:10px;display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--n600)">${I.phone(18)} <span>Asistencia 24/7: 800-PLASENCIA. También llegamos sin que llames si activas alarma desde la app.</span></div>`
+    :`<div class="summary-box"><div class="row"><span>Concepto</span><b>${C.detalle}</b></div><div class="row tot"><span>Monto a pagar</span><b class="tnum">${mxn(C.monto)}</b></div></div>
+    <div class="field" style="margin-top:14px"><label>Método de pago</label></div>
+    <div class="choice-grid"><button class="choice on"><div class="check">${I.check(14)}</div><div class="ic">${I.card(20)}</div><div class="t">Visa •6411</div><div class="d">Tu método predeterminado</div></button><button class="choice"><div class="check">${I.check(14)}</div><div class="ic">${I.cash(20)}</div><div class="t">SPEI</div><div class="d">Transferencia inmediata</div></button></div>`}
+    <div class="wiz-nav"><button class="btn btn-out btn-md" onclick="closeModal()">Cancelar</button><button class="btn btn-conv btn-md" onclick="Flow._simDone('${kind}','${(C.ok+'').replace(/'/g,"\\'")}','${(C.okSub+'').replace(/'/g,"\\'")}',${C.monto||0})">${C.custom?'Enviar reporte':'Pagar '+mxn(C.monto)} ${I.chevR(14)}</button></div>`;
+  showModal(html);
+},
+_simDone(kind,ok,okSub,monto){
+  closeModal();
+  if(monto>0){
+    STATE.pagos=STATE.pagos||[];
+    STATE.pagos.unshift({id:uid('p'),fecha:new Date().toISOString().slice(0,10),concepto:{pagoCredito:'Pago de crédito Plasencia',pagoLease:'Renta GP Autolease',pagoEnganche:'Enganche',pagoPrima:'Prima de seguro'}[kind]||'Pago',monto,metodo:'Visa •6411',estado:'aplicado'});
+  }
+  STATE.notifs.unshift({id:uid('n'),ic:'green',t:ok,d:okSub,time:'Ahora'});
+  save();updateHeader();toast(ok,'check');
+  if(ATAB&&typeof render==='function')setTimeout(render,300);
+},
+
 _segNext(carId,step,d){
   if(step===0){d.car=Flow.segCar||carId}
   if(step===1){if(!Flow.segCov)Flow.segCov='plus';d.cov=Flow.segCov}

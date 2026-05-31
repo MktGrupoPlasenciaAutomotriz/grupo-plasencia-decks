@@ -7,9 +7,9 @@ const initials = s => (s||'').split(' ').filter(w=>/^[A-ZÁÉÍÓÚ]/.test(w[0]|
 const FALLBACK='data:image/svg+xml;utf8,'+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="400" height="250"><rect width="400" height="250" fill="#E2E8F0"/><text x="50%" y="50%" font-family="sans-serif" font-size="14" fill="#A0AEC0" text-anchor="middle" dy=".3em">Foto próximamente</text></svg>');
 
 // Mapa marca → logo SVG. "Multimarca" o sin logo = isotipo GP
-const MARCA_LOGOS={Mazda:'mazda',Hyundai:'hyundai',Nissan:'nissan',Chevrolet:'chevrolet',Kia:'kia',Ford:'ford',Jeep:'jeep',RAM:'ram',Dodge:'dodge',Fiat:'fiat',Peugeot:'peugeot',GAC:'gac',GWM:'gwm',Changan:'changan',Buick:'buick',GMC:'gmc',Foton:'foton',Isuzu:'isuzu',Infiniti:'infiniti'};
-// Mapa: id de sucursal → marca para el logo (las multimarca usan isotipo GP)
-const SUC_MARCA={'bugambilias':'Mazda','galerias':'Mazda','santa-anita':'Mazda','americas':'Mazda','acueducto':'Mazda','plasencia':'Mazda','gonzalez-gallo':'Mazda','hyundai-acueducto':'Hyundai','hyundai-vallarta':'Hyundai','stellantis-lcv':'Stellantis','stellantis-jeep':'Jeep','gac-plasencia':'GAC'};
+const MARCA_LOGOS={Mazda:'mazda',Hyundai:'hyundai',Nissan:'nissan',Chevrolet:'chevrolet',Kia:'kia',Ford:'ford',Jeep:'jeep',RAM:'ram',Dodge:'dodge',Fiat:'fiat',Peugeot:'peugeot',GAC:'gac',GWM:'gwm',Changan:'changan',Buick:'buick',GMC:'gmc',Foton:'foton',Isuzu:'isuzu',Infiniti:'infiniti',Seminuevos:'seminuevos'};
+// Mapa: id de sucursal → marca para el logo. Lopez Mateos = Plasencia Seminuevos
+const SUC_MARCA={'bugambilias':'Mazda','galerias':'Mazda','santa-anita':'Mazda','americas':'Mazda','acueducto':'Mazda','plasencia':'Mazda','gonzalez-gallo':'Mazda','hyundai-acueducto':'Hyundai','hyundai-vallarta':'Hyundai','stellantis-lcv':'Stellantis','stellantis-jeep':'Jeep','gac-plasencia':'GAC','lopez-mateos':'Seminuevos'};
 // Stellantis no tiene logo individual: usa Jeep o RAM según contexto, o isotipo GP
 const STELLANTIS_FALLBACK='jeep';
 
