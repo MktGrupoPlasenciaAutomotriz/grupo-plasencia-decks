@@ -127,7 +127,15 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{outline:none;bor
 .btn-out:hover{transform:translateY(-1px);box-shadow:var(--sh-sm);background:var(--g-50);border-color:var(--p-navy)}
 .btn-gold{background:linear-gradient(135deg,#FFE89B,var(--p-gold));color:var(--p-navy) !important;box-shadow:0 6px 18px -4px rgba(236,201,75,.5)}
 .btn-gold:hover{transform:translateY(-1px);box-shadow:0 10px 28px -6px rgba(236,201,75,.6);background:linear-gradient(135deg,var(--p-gold),var(--p-gold-d));color:var(--p-navy) !important}
-.btn-gold:hover svg{color:var(--p-navy)}
+.btn-gold:hover svg,.btn-gold svg{color:var(--p-navy)}
+
+/* DEFENSA GLOBAL: ningún texto blanco sobre fondos gold/amber */
+.bp-gold,.bp-gold *{color:var(--p-gold-d) !important}
+.btn-gold,.btn-gold *,.btn-gold:hover,.btn-gold:hover *{color:var(--p-navy) !important}
+.b-gold h3,.b-gold p{color:var(--p-navy)}
+.pdp-tradein,.pdp-tradein *:not(.btn-conv):not(.btn-conv *){color:var(--p-navy)}
+.mensbox,.mensbox *{color:var(--p-navy)}
+.mensbox .lbl{color:var(--p-gold-d) !important}
 .btn-ghost-dark{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.22);color:#fff;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
 .btn-ghost-dark:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.5);transform:translateY(-1px)}
 .btn[disabled],.btn[aria-disabled="true"]{opacity:.45;pointer-events:none}
