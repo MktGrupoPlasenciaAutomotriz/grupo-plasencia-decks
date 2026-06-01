@@ -30,12 +30,12 @@ function sucLogoHTML(suc,size='sm'){
   return `<div class="${cls} gp">${size==='sm'?'GP':initials(suc.nombre)}</div>`;
 }
 
-const KEY='plasencia-mkt-v6';
+const KEY='plasencia-mkt-v7'; // bump: multi-perfil cross-cliente
 const SESSION_KEY='plasencia-mkt-session';
 const SESSION_TTL_MS = 30*60*1000; // 30 min de inactividad → desloguea
 
-let STATE = JSON.parse(localStorage.getItem(KEY) || 'null') || {customer:null, reservas:[], garage:[], creditos:[], leases:[], pagos:[], servicios:[], citas:[], tradeins:[], watchlist:[], cotizaciones:[], notifs:[], seguros:[], documentos:[], direcciones:[], referidos:[], conversaciones:[]};
-['seguros','documentos','direcciones','referidos','conversaciones'].forEach(k=>{if(!STATE[k])STATE[k]=[]});
+let STATE = JSON.parse(localStorage.getItem(KEY) || 'null') || {customer:null, reservas:[], garage:[], creditos:[], leases:[], pagos:[], servicios:[], citas:[], tradeins:[], watchlist:[], cotizaciones:[], notifs:[], seguros:[], documentos:[], direcciones:[], referidos:[], conversaciones:[], personas:[]};
+['seguros','documentos','direcciones','referidos','conversaciones','personas'].forEach(k=>{if(!STATE[k])STATE[k]=[]});
 
 // Sesion de login: vive en sessionStorage (se borra al cerrar tab/browser)
 // + TTL de 30 min de inactividad. Para el piloto: cada sesion nueva pide login.

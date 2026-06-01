@@ -57,12 +57,25 @@ _checkout(v,step,d){
       </div>
     `:''}
     ${step===1?`
-      <div class="field"><label>Nombre completo</label><input id="ck_nom" value="${STATE.customer?.nombre||''}"></div>
+      <div class="field"><label>¿Para quién es este auto?</label></div>
+      <div class="paraquien-grid">
+        <button class="pq ${(d.paraquien||'self')==='self'?'on':''}" onclick="Flow.coParaQuien='self';document.querySelectorAll('.pq').forEach(c=>c.classList.remove('on'));this.classList.add('on');document.getElementById('pq-extra').style.display='none'">
+          <div class="ic">${I.user(18)}</div><div class="t">Para mí</div><div class="d">Yo soy el titular y conductor</div>
+        </button>
+        <button class="pq ${d.paraquien==='family'?'on':''}" onclick="Flow.coParaQuien='family';document.querySelectorAll('.pq').forEach(c=>c.classList.remove('on'));this.classList.add('on');document.getElementById('pq-extra').style.display='block';document.getElementById('pq-extra-label').textContent='A nombre de:'">
+          <div class="ic">${I.user(18)}</div><div class="t">Para un familiar</div><div class="d">Yo pago, factura a su nombre</div>
+        </button>
+        <button class="pq ${d.paraquien==='company'?'on':''}" onclick="Flow.coParaQuien='company';document.querySelectorAll('.pq').forEach(c=>c.classList.remove('on'));this.classList.add('on');document.getElementById('pq-extra').style.display='block';document.getElementById('pq-extra-label').textContent='Razón social:'">
+          <div class="ic">${I.briefcase(18)}</div><div class="t">Para mi empresa</div><div class="d">Factura a Persona Moral</div>
+        </button>
+      </div>
+      <div id="pq-extra" style="display:none;margin-top:10px"><div class="field"><label id="pq-extra-label">A nombre de</label><input id="pq-titular" placeholder="Nombre completo o razón social"></div></div>
+      <div class="field" style="margin-top:14px"><label>Datos del comprador (tú)</label><input id="ck_nom" value="${STATE.customer?.nombre||''}" placeholder="Nombre completo"></div>
       <div class="field-row">
         <div class="field"><label>Correo</label><input id="ck_em" type="email" value="${STATE.customer?.email||''}"></div>
         <div class="field"><label>Teléfono</label><input id="ck_tel" value="${STATE.customer?.tel||''}"></div>
       </div>
-      <div class="field"><label>Notas (opcional)</label><textarea rows="2" placeholder="Algo que la concesionaria deba saber…"></textarea></div>
+      <div class="field"><label>Notas (opcional)</label><textarea rows="2" placeholder="Algo que la agencia deba saber…"></textarea></div>
     `:''}
     ${step===2?`
       <div class="choice-grid">
@@ -109,6 +122,7 @@ _checkout(v,step,d){
 _checkoutNext(id,step,d){
   const v=CARS.find(c=>c.id===id);
   if(step===0&&d.opcion==='custom'){d.monto=Flow.coMonto||d.monto||5000}
+  if(step===1){d.paraquien=Flow.coParaQuien||'self';const pqEl=document.getElementById('pq-titular');if(pqEl)d.titularNombre=pqEl.value}
   if(step===2){
     const f=folio(v.marca,'AP');d.folio=f;
     const engCompleto=Math.round(v.precio*0.2);
@@ -117,7 +131,7 @@ _checkoutNext(id,step,d){
     // Si ya existe reserva del mismo auto, actualiza; si no, crea
     const existing=STATE.reservas.find(r=>r.carId===v.id);
     if(existing){existing.apart=(existing.apart||0)+monto;existing.milestone=isEng?3:Math.max(existing.milestone||1,2);save()}
-    else{STATE.reservas.unshift({id:uid('res'),folio:f,carId:v.id,marca:v.marca,modelo:v.modelo,anio:v.anio,img:v.fotos[0],precio:v.precio,apart:monto,fecha:new Date().toISOString().slice(0,10),estado:isEng?'enganche-pagado':'apartado',suc:v.suc,milestone:isEng?3:1})}
+    else{STATE.reservas.unshift({id:uid('res'),folio:f,carId:v.id,marca:v.marca,modelo:v.modelo,anio:v.anio,img:v.fotos[0],precio:v.precio,apart:monto,fecha:new Date().toISOString().slice(0,10),estado:isEng?'enganche-pagado':'apartado',suc:v.suc,milestone:isEng?3:1,paraquien:d.paraquien||'self',titularNombre:d.titularNombre||''})}
     STATE.pagos=STATE.pagos||[];
     STATE.pagos.unshift({id:uid('p'),fecha:new Date().toISOString().slice(0,10),concepto:`${isEng?'Enganche':'Adelanto'} ${v.marca} ${v.modelo}`,monto,metodo:'Visa •6411',estado:'aplicado'});
     STATE.notifs.unshift({id:uid('n'),ic:'green',t:isEng?'Enganche pagado':'Reserva confirmada',d:`${v.marca} ${v.modelo} · ${mxn(monto)} · ${f}`,time:'Ahora'});

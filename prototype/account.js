@@ -137,10 +137,20 @@ reservas(){
 
 garage(){
   if(!STATE.garage.length)return Account._empty('garage','Tu garage está vacío','Cuando compres con Plasencia, tu auto vivirá aquí: papeles digitales, próximo servicio, garantía, historial. Una sola fuente de verdad.',[['Explorar catálogo','#/catalogo','conv']]);
-  return STATE.garage.map(g=>`<div class="card-row">
+  const personas=STATE.personas||[];
+  const findPer=id=>personas.find(p=>p.id===id)||{nombre:'Tú',tipo:'titular'};
+  const rolBadge=(g)=>{
+    if(g.rol==='mio')return '';
+    const titular=findPer(g.titular);
+    if(g.rol==='familiar')return `<span class="rol-badge rol-familiar">${I.user(12)} A nombre de ${titular.nombre.replace(/ \(.+\)/,'')} · tú lo pagas</span>`;
+    if(g.rol==='empresa')return `<span class="rol-badge rol-empresa">${I.briefcase(12)} Facturado a ${titular.nombre}</span>`;
+    return '';
+  };
+  return `<div style="margin-bottom:16px;font-size:13px;color:var(--n600);background:var(--bg-sunken);border-radius:10px;padding:12px 14px;display:flex;align-items:center;gap:10px"><span style="color:var(--p-gold-d);flex-shrink:0">${I.user(16)}</span><span>Tu garage incluye autos a tu nombre <b>y</b> autos donde tú eres el pagador o representante (familiares, empresa). <a style="color:var(--blue-d);cursor:pointer;text-decoration:underline" onclick="ATAB='perfil';render()">Gestiona personas vinculadas →</a></span></div>` +
+  STATE.garage.map(g=>`<div class="card-row">
     <img class="img" src="${g.img}" onerror="this.src='${FALLBACK}'">
     <div class="body">
-      <h3>${g.marca} ${g.modelo} ${g.anio}</h3>
+      <h3>${g.marca} ${g.modelo} ${g.anio} ${rolBadge(g)}</h3>
       <div class="meta">Placas ${g.placas} · VIN ${(g.vin||'').slice(0,12)}… · Adquirido ${g.adquirido}</div>
       <div class="info-grid" style="grid-template-columns:repeat(4,1fr)">
         <div class="info-cell"><div class="k">Kilometraje</div><div class="v tnum">${num(g.km)} km</div></div>
@@ -338,6 +348,13 @@ perfil(){
       <h3 style="font-family:var(--disp);font-size:18px;color:var(--navy);margin:28px 0 14px">Mis direcciones</h3>
       ${dirs.map(d=>`<div style="background:#fff;border:1px solid var(--n200);border-radius:12px;padding:14px;margin-bottom:10px"><div style="display:flex;justify-content:space-between;align-items:flex-start;gap:8px"><div><div style="font-family:var(--disp);font-weight:800;color:var(--navy);font-size:14px;display:flex;align-items:center;gap:6px">${I.pin(14)} ${d.etiqueta}${d.default?'<span class="bp bp-gold" style="font-size:9px">Principal</span>':''}</div><div style="font-size:13px;color:var(--n700);margin-top:4px">${d.calle}</div><div style="font-size:12px;color:var(--n500)">${d.colonia} · ${d.cp} · ${d.municipio}, ${d.estado}</div><div style="margin-top:8px;display:flex;gap:6px;flex-wrap:wrap">${d.paraEntrega?'<span class="bp bp-blue" style="font-size:10px">Entrega</span>':''}${d.paraFactura?'<span class="bp bp-navy" style="font-size:10px">Facturación</span>':''}</div></div><button class="btn btn-ghost btn-sm">Editar</button></div></div>`).join('')}
       <button class="btn btn-out btn-md btn-full" style="justify-content:flex-start" onclick="toast('Agregar dirección · demo')">${I.plus(14)} Agregar dirección</button>
+
+      <h3 style="font-family:var(--disp);font-size:18px;color:var(--navy);margin:28px 0 8px">Personas vinculadas a tu cuenta</h3>
+      <p style="font-size:13px;color:var(--n600);margin-bottom:14px;line-height:1.5">Cuando compras un auto para un familiar o para tu empresa, lo vinculas aquí. Verás sus autos en <b>Mi Garage</b>, gestionas su servicio, y la factura puede salir a su nombre.</p>
+      <div class="personas-list">
+        ${(STATE.personas||[]).map(p=>p.id==='self'?`<div class="persona-card"><div class="pav titular">${initials(c.nombre)}</div><div class="pinfo"><div class="pn">${c.nombre} <span class="pr">titular de la cuenta</span></div><div class="pe">${c.email}</div></div></div>`:`<div class="persona-card"><div class="pav ${p.tipo}">${initials(p.nombre.replace(/\s*\(.+\)/,''))}</div><div class="pinfo"><div class="pn">${p.nombre.replace(/\s*\(.+\)/,'')} <span class="pr">${p.relacion}</span></div><div class="pe">${p.email||p.rfc||''} ${p.fecha?`· vinculado ${p.fecha}`:''}</div></div><div class="pact"><button class="btn btn-ghost btn-sm" onclick="toast('Editar persona · demo')">Editar</button></div></div>`).join('')}
+      </div>
+      <button class="btn btn-out btn-md btn-full" style="margin-top:10px;justify-content:flex-start" onclick="toast('Agregar persona o empresa · demo')">${I.plus(14)} Agregar familiar o empresa</button>
 
       <h3 style="font-family:var(--disp);font-size:18px;color:var(--navy);margin:28px 0 14px">Preferencias de comunicación</h3>
       <div style="background:#fff;border:1px solid var(--n200);border-radius:12px;padding:6px">

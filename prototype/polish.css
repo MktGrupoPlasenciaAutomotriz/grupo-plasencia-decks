@@ -408,6 +408,36 @@ img[loading="lazy"].loaded,img[loading="lazy"][src]:not([src=""]){opacity:1}
 .sec{padding:clamp(48px,6vw,96px) 0}
 .wrap{padding:0 clamp(18px,3vw,32px)}
 
+/* ¿Para quién? selector en wizard checkout · 3-way */
+.paraquien-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:8px 0 4px}
+.paraquien-grid .pq{background:var(--bg-surface);border:2px solid var(--border-default);border-radius:var(--r-md);padding:14px 12px;text-align:center;cursor:pointer;transition:all var(--d-base) var(--e-out);display:flex;flex-direction:column;align-items:center;gap:6px}
+.paraquien-grid .pq:hover{border-color:var(--border-strong);transform:translateY(-1px)}
+.paraquien-grid .pq.on{border-color:var(--p-navy);background:linear-gradient(180deg,#fff,var(--g-50));box-shadow:var(--sh-sm), inset 0 0 0 1px var(--p-navy)}
+.paraquien-grid .pq .ic{color:var(--text-2);width:32px;height:32px;border-radius:8px;background:var(--g-100);display:flex;align-items:center;justify-content:center}
+.paraquien-grid .pq.on .ic{background:linear-gradient(135deg,var(--p-navy),var(--p-slate));color:#fff}
+.paraquien-grid .pq .t{font-family:var(--disp);font-weight:800;color:var(--p-navy);font-size:13.5px}
+.paraquien-grid .pq .d{font-size:11.5px;color:var(--text-3);line-height:1.35}
+@media(max-width:600px){.paraquien-grid{grid-template-columns:1fr;gap:6px}.paraquien-grid .pq{flex-direction:row;text-align:left;gap:12px}.paraquien-grid .pq .ic{width:32px;height:32px;flex-shrink:0}}
+
+/* Roles de vehículos en garage · multi-perfil cross-cliente */
+.rol-badge{display:inline-flex;align-items:center;gap:5px;padding:3px 9px;border-radius:99px;font-family:var(--disp);font-size:10.5px;font-weight:700;letter-spacing:.02em;margin-left:8px;vertical-align:middle}
+.rol-familiar{background:linear-gradient(135deg,#E0E7FF,#C7D2FE);color:#3730A3;border:1px solid rgba(67,56,202,.2)}
+.rol-empresa{background:linear-gradient(135deg,#F0FDF4,#DCFCE7);color:#166534;border:1px solid rgba(34,197,94,.25)}
+
+/* Personas vinculadas · sección en perfil */
+.personas-list{display:flex;flex-direction:column;gap:10px;margin-top:8px}
+.persona-card{background:var(--bg-surface);border:1px solid var(--border-subtle);border-radius:var(--r-md);padding:14px;display:flex;align-items:center;gap:12px;transition:all var(--d-base) var(--e-out)}
+.persona-card:hover{box-shadow:var(--sh-sm);border-color:var(--border-default)}
+.persona-card .pav{width:44px;height:44px;border-radius:99px;display:flex;align-items:center;justify-content:center;font-family:var(--disp);font-weight:900;font-size:14px;color:#fff;flex-shrink:0}
+.persona-card .pav.titular{background:linear-gradient(135deg,var(--p-gold),var(--p-gold-d));color:var(--p-navy)}
+.persona-card .pav.familiar{background:linear-gradient(135deg,#6366F1,#4338CA)}
+.persona-card .pav.empresa{background:linear-gradient(135deg,#22C55E,#15803D)}
+.persona-card .pinfo{flex:1;min-width:0}
+.persona-card .pinfo .pn{font-family:var(--disp);font-weight:800;color:var(--p-navy);font-size:14.5px;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.persona-card .pinfo .pn .pr{font-family:var(--body);font-weight:500;font-size:11px;color:var(--text-3);background:var(--g-100);padding:2px 8px;border-radius:99px}
+.persona-card .pinfo .pe{font-size:12px;color:var(--text-2);margin-top:2px}
+.persona-card .pact{display:flex;gap:4px}
+
 /* Medios de pago strip · trust signal e-commerce */
 .payments-strip{margin-top:48px;background:linear-gradient(135deg,var(--bg-surface),var(--g-50));border:1px solid var(--border-default);border-radius:var(--r-2xl);padding:32px;display:grid;grid-template-columns:1fr 1.4fr;gap:32px;align-items:center;box-shadow:var(--sh-sm)}
 .payments-strip .ps-head .ps-eyebrow{display:inline-flex;align-items:center;gap:6px;font-family:var(--disp);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--p-gold-d);background:linear-gradient(135deg,var(--p-gold-l),#fff);padding:6px 12px;border-radius:99px;border:1px solid rgba(236,201,75,.4)}

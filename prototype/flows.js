@@ -93,8 +93,24 @@ const Auth={
     const futCar=CARS.find(c=>c.dest)||CARS[2];
     if(newCar)STATE.reservas=[{id:uid('res'),folio:'GP-MAZ-260520-103045',carId:newCar.id,marca:newCar.marca,modelo:newCar.modelo,anio:newCar.anio,img:newCar.fotos[0],precio:newCar.precio,apart:5000,fecha:'2026-05-20',estado:'apartado',suc:newCar.suc,milestone:2}];
     if(semiCar){
-      STATE.garage=[{id:uid('g'),carId:semiCar.id,marca:semiCar.marca,modelo:semiCar.modelo,anio:semiCar.anio,img:semiCar.fotos[0],placas:'JEK-4521-B',vin:'1HGCM82633A4521',km:18560,proxServ:'2026-08-15',adquirido:'2025-09-14',garantia:'Hasta 2028-09-14',proxVerif:'2027-02-01'}];
+      // Garage con 3 autos en distintos roles · multi-perfil cross-cliente
+      const futCar = CARS.find(c=>c.cond==='nuevo' && c.tipo==='SUV') || CARS[3] || CARS[0];
+      const empCar = CARS.find(c=>c.marca==='RAM' || c.tipo==='Pickup') || CARS[5] || CARS[0];
+      STATE.garage=[
+        {id:uid('g'),carId:semiCar.id,marca:semiCar.marca,modelo:semiCar.modelo,anio:semiCar.anio,img:semiCar.fotos[0],placas:'JEK-4521-B',vin:'1HGCM82633A4521',km:18560,proxServ:'2026-08-15',adquirido:'2025-09-14',garantia:'Hasta 2028-09-14',proxVerif:'2027-02-01',
+         titular:'self', conductor:'self', pagador:'self', rol:'mio'},
+        ...(futCar && futCar.id!==semiCar.id?[{id:uid('g'),carId:futCar.id,marca:futCar.marca,modelo:futCar.modelo,anio:futCar.anio,img:futCar.fotos[0],placas:'JEM-8821-C',vin:'KMHJ981CV2A4892',km:4200,proxServ:'2026-12-10',adquirido:'2026-02-20',garantia:'Hasta 2029-02-20',proxVerif:'2027-08-20',
+         titular:'family-mateo', conductor:'family-mateo', pagador:'self', rol:'familiar'}]:[]),
+        ...(empCar && empCar.id!==semiCar.id && empCar.id!==futCar?.id?[{id:uid('g'),carId:empCar.id,marca:empCar.marca,modelo:empCar.modelo,anio:empCar.anio,img:empCar.fotos[0],placas:'JFK-2024-E',vin:'3C6TRVAG2EE5521',km:32100,proxServ:'2026-09-05',adquirido:'2024-11-18',garantia:'Hasta 2027-11-18',proxVerif:'2026-11-01',
+         titular:'company-mke', conductor:'self', pagador:'company-mke', rol:'empresa'}]:[]),
+      ];
     }
+    // Personas y entidades vinculadas a la cuenta principal
+    STATE.personas=[
+      {id:'self',tipo:'titular',nombre:'Tú',email:STATE.customer.email,relacion:'principal',activo:true},
+      {id:'family-mateo',tipo:'familiar',nombre:'Mateo (mi hijo)',email:'mateo@ejemplo.com',relacion:'Hijo',activo:true,fecha:'2026-02-20'},
+      {id:'company-mke',tipo:'empresa',nombre:'MKE Operaciones SA de CV',rfc:'MKE190215XYZ',relacion:'Mi empresa (PM)',activo:true,fecha:'2024-11-18'},
+    ];
     STATE.creditos=[{id:uid('cr'),folio:'GP-CR-260512-090000',linea:850000,tasa:13.5,fecha:'2026-05-12',estado:'pre-aprobado',vigencia:18,carId:newCar?.id,saldoUsado:newCar?Math.round(newCar.precio*0.8):0,mensActual:newCar?mensCredito(newCar.precio,20,60):0,proxPago:'2026-06-15',pagosHechos:0,pagosTotal:60}];
     STATE.leases=[{id:uid('al'),folio:'GP-AL-251020-141500',plazo:36,renta:13980,tipo:'pfae',fecha:'2025-10-20',estado:'activo',mesActual:8,proxRenta:'2026-06-20',mesesPagados:7}];
     STATE.tradeins=[{id:uid('ti'),folio:'GP-TI-260528-181200',marca:'Volkswagen',modelo:'Jetta',anio:2019,km:78500,oferta:185000,bonus:14800,path:'cambio',fecha:'2026-05-28',estado:'oferta firme',vigencia:5}];
