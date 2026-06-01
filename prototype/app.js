@@ -39,14 +39,16 @@ const uid=p=>p+'-'+Math.random().toString(36).slice(2,8);
 
 let CARS=[], MARCAS=[], SUCS=[];
 
-// Inventario PROXY · datos reales del KO-Estrategico Grupo Plasencia
-// Volumen: ~800 facturas/mes (Mazda 403 + Hyundai 121 + GAC 39 + GWM 80 + estimado resto)
-// Inventario en piso = ~2.5 meses de ventas = ~2,000 unidades activas
-// catalogo.json muestra 96 destacados; el grupo opera ~2,000 a nivel grupo
+// Inventario PROXY · datos reales del KO-Estrategico + catalogo Seminuevos piloto
+// El piloto Otero (8 lotes) muestra 239 unidades — eso es subset del grupo
+// El grupo total Seminuevos cubre las 42 agencias y multi-marca (incluye trade-ins
+// de Toyota, Nissan, VW, Renault que NO se venden nuevos)
+// Volumen: ~800 facturas/mes (Mazda 403 + Hyundai 121 + GAC 39 + GWM 80 + resto)
 const INVENTORY={
-  total:2050,
-  nuevos:1750,
-  seminuevos:300, // Seminuevos opera 7 puntos no 1
+  total:2700, // 1,950 nuevos + 750 seminuevos certificados
+  nuevos:1950,
+  seminuevos:750, // grupo completo, multi-marca, ~12-15 lotes
+  lotesSeminuevos:15, // estimacion del grupo (piloto Otero confirma 8 puntos)
   ciudades:['Guadalajara','Tepic','Colima','Manzanillo','Puerto Vallarta','San Luis Potosi','Mazatlan'],
   estados:6, // Jalisco, Nayarit, Colima, SLP, Sinaloa, Aguascalientes
   agencias:42, // 37-42 segun fuente; tomamos 42 (data ventas)
@@ -68,7 +70,7 @@ const INVENTORY={
     Foton:32,
     Peugeot:14
   },
-  // Las 12 sucursales del catalogo.json son una SELECCION; la realidad es 37-42 puntos
+  // Las 12 sucursales destacadas del catalogo.json son una SELECCION; la realidad es 37-42 puntos
   // El directorio /concesionarias muestra las 12 + nota "y X mas en otros estados"
   porSucursal:{
     'bugambilias':95,'galerias':88,'santa-anita':74,'americas':92,'acueducto':85,
@@ -90,7 +92,7 @@ function header(){
       <div class="nav-item ${isOn(['#/catalogo','#/concesionaria'])?'on':''}"><a href="#/catalogo">Comprar ${I.chevD(14)}</a>
         <div class="submenu">
           <a href="#/catalogo?cond=nuevo">Autos nuevos<span class="d">Las 14 marcas del grupo</span></a>
-          <a href="#/catalogo?cond=seminuevo">Seminuevos certificados<span class="d">Con 167 puntos de inspección</span></a>
+          <a href="#/catalogo?cond=seminuevo">Seminuevos certificados<span class="d">+750 unidades multi-marca · 167 puntos de inspección · ~15 lotes</span></a>
           <a href="#/catalogo">Catálogo cross-marca<span class="d">Todo el inventario en un solo lugar</span></a>
           <a href="#/concesionarias">Concesionarias<span class="d">Las 12 del grupo</span></a>
         </div></div>
@@ -101,7 +103,13 @@ function header(){
           <a href="#/autolease">GP Autolease<span class="d">Arrendamiento puro · deducible</span></a>
           <a href="#/seguros">Plasencia Seguros<span class="d">Cobertura amplia desde tu cuenta</span></a>
         </div></div>
-      <div class="nav-item ${isOn(['#/flotillas'])?'on':''}"><a href="#/flotillas">Empresa</a></div>
+      <div class="nav-item ${isOn(['#/flotillas','#/empresa'])?'on':''}"><a href="#/flotillas">Para tu empresa ${I.chevD(14)}</a>
+        <div class="submenu">
+          <a href="#/flotillas">Plasencia Flotillas<span class="d">Compra cross-marca para tu negocio · contrato marco</span></a>
+          <a href="#/autolease">GP Autolease<span class="d">Arrendamiento puro deducible · PFAE y Pymes</span></a>
+          <a href="#/seguros">Seguros corporativos<span class="d">Cobertura para flotilla completa</span></a>
+          <a href="#/flotillas#servicio">Servicio para flotilla<span class="d">Mantenimiento programado en los 42 talleres</span></a>
+        </div></div>
     </nav>
     <div class="hdr-right">
       ${c?`<button class="notif-bell" onclick="go('#/cuenta?t=notificaciones')" aria-label="Notificaciones">${I.bell(20)}${unread?'<span class="dot"></span>':''}</button>
@@ -114,19 +122,22 @@ function header(){
     <a href="#/catalogo" onclick="toggleMobileNav()">${I.car(18)} Comprar</a>
     <a href="#/catalogo?cond=nuevo" onclick="toggleMobileNav()" class="sub">Autos nuevos</a>
     <a href="#/catalogo?cond=seminuevo" onclick="toggleMobileNav()" class="sub">Seminuevos certificados</a>
-    <a href="#/concesionarias" onclick="toggleMobileNav()" class="sub">Las 12 concesionarias</a>
+    <a href="#/concesionarias" onclick="toggleMobileNav()" class="sub">Las 42 agencias</a>
     <a href="#/trade-in" onclick="toggleMobileNav()">${I.trending(18)} Vender o cambiar mi auto</a>
     <a href="#/credito" onclick="toggleMobileNav()">${I.card(18)} Crédito</a>
     <a href="#/autolease" onclick="toggleMobileNav()">${I.key(18)} Autolease</a>
     <a href="#/seguros" onclick="toggleMobileNav()">${I.umbrella(18)} Seguros</a>
-    <a href="#/flotillas" onclick="toggleMobileNav()">${I.briefcase(18)} Para empresas</a>
+    <a href="#/flotillas" onclick="toggleMobileNav()">${I.briefcase(18)} Para tu empresa</a>
+    <a href="#/flotillas" onclick="toggleMobileNav()" class="sub">Plasencia Flotillas</a>
+    <a href="#/autolease" onclick="toggleMobileNav()" class="sub">GP Autolease (PFAE / Pyme)</a>
+    <a href="#/seguros" onclick="toggleMobileNav()" class="sub">Seguros corporativos</a>
     ${c?`<a href="#/cuenta" onclick="toggleMobileNav()">${I.user(18)} Mi Plasencia</a>`:`<button onclick="toggleMobileNav();Auth.open()">${I.user(18)} Iniciar sesión</button><button onclick="toggleMobileNav();Auth.open('signup')" class="conv">Crear cuenta</button>`}
   </div></header>`;
 }
 function toggleMobileNav(){const n=$('#mobileNav');if(n)n.classList.toggle('open')}
 function footer(){return `<footer class="ftr"><div class="ftr-in"><div class="ftr-grid">
   <div class="ftr-logo"><img src="logo-blanco.png" alt="Grupo Plasencia"><p>+${num(INVENTORY.total)} autos · 14 marcas · ${INVENTORY.agencias} agencias en ${INVENTORY.estados} estados del occidente de México · 75 años. El marketplace donde todo el ciclo de tu auto vive en una sola cuenta.</p></div>
-  <div><h4>Comprar</h4><ul><li onclick="go('#/catalogo?cond=nuevo')">Autos nuevos</li><li onclick="go('#/catalogo?cond=seminuevo')">Seminuevos certificados</li><li onclick="go('#/catalogo')">Catálogo cross-marca</li><li onclick="go('#/concesionarias')">Las 12 concesionarias</li></ul></div>
+  <div><h4>Comprar</h4><ul><li onclick="go('#/catalogo?cond=nuevo')">Autos nuevos</li><li onclick="go('#/catalogo?cond=seminuevo')">Seminuevos certificados</li><li onclick="go('#/catalogo')">Catálogo cross-marca</li><li onclick="go('#/concesionarias')">Las 42 agencias</li></ul></div>
   <div><h4>Soluciones</h4><ul><li onclick="go('#/trade-in')">Vender o cambiar tu auto</li><li onclick="go('#/credito')">Plasencia Crédito</li><li onclick="go('#/autolease')">GP Autolease</li><li onclick="go('#/seguros')">Plasencia Seguros</li><li onclick="go('#/flotillas')">Flotillas empresariales</li></ul></div>
   <div><h4>Grupo Plasencia</h4><ul><li>75 años de historia</li><li>${INVENTORY.agencias} agencias en ${INVENTORY.ciudades.length} ciudades del occidente</li><li>14 marcas representadas</li><li>Trabaja con nosotros</li></ul></div>
 </div><div class="bottom"><span>© 2026 Grupo Plasencia Automotriz · Prototipo de producto</span><span style="color:var(--gold)">Marketplace · la experiencia ideal</span></div></div></footer>`;}

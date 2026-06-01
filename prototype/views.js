@@ -40,13 +40,13 @@ home(){
     [I.trending(24),'Vende o cambia el que ya tienes','Sube fotos, recibe oferta firme en 2 minutos. Decide después: efectivo, cambio o esperar.','#/trade-in'],
     [I.card(24),'Págalo como te acomode','Crédito con tasa fija sin afectar tu buró, contado con descuento, o arrendamiento puro si facturas.','#/credito'],
     [I.umbrella(24),'Asegúralo aquí mismo','Cobertura amplia respaldada por GNP. Cotiza, contrata y administra desde tu cuenta.','#/seguros'],
-    [I.briefcase(24),'¿Es para tu empresa?','Flotillas: cotización empresarial cross-marca, contrato marco, mantenimiento en los 12 talleres.','#/flotillas'],
-    [I.wrench(24),'Mantenlo donde lo compraste','Servicio y refacciones en los 12 talleres del grupo. Agenda en línea, ve tu historial completo.'],
+    [I.briefcase(24),'¿Es para tu empresa?','Flotillas: cotización empresarial cross-marca, contrato marco, mantenimiento en los 42 talleres.','#/flotillas'],
+    [I.wrench(24),'Mantenlo donde lo compraste','Servicio y refacciones en los 42 talleres del grupo. Agenda en línea, ve tu historial completo.'],
   ];
   // Entradas por INTENCION del cliente, en su voz
   const INTENT=[
     [I.car(20),'Quiero un auto nuevo','Las 14 marcas, lado a lado',`go('#/catalogo?cond=nuevo')`],
-    [I.shield(20),'Quiero un seminuevo','Con 167 puntos revisados',`go('#/catalogo?cond=seminuevo')`],
+    [I.shield(20),'Quiero un seminuevo','+750 unidades · 167 puntos · multi-marca',`go('#/catalogo?cond=seminuevo')`],
     [I.trending(20),'Quiero vender el mío','Oferta firme en 2 minutos',`go('#/trade-in')`],
     [I.briefcase(20),'Es para mi empresa','Cotización para flotilla',`go('#/flotillas')`],
   ];
@@ -125,19 +125,19 @@ home(){
 
   <section style="background:#fff;border-top:1px solid var(--n200);border-bottom:1px solid var(--n200)"><div class="wrap" style="padding:80px 24px">
     <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap">
-      <div><div class="eyebrow">Destacados de la semana</div><h2 style="margin-top:10px">Selección de las 12 concesionarias</h2></div>
+      <div><div class="eyebrow">Destacados de la semana</div><h2 style="margin-top:10px">Selección de las 42 agencias</h2></div>
       <button class="btn btn-out btn-md" onclick="go('#/catalogo')">Ver todo el catálogo ${I.arrowR(16)}</button>
     </div>
     <div class="vgrid">${dest.map(vcard).join('')}</div>
   </div></section>
 
   <section class="sec"><div class="wrap">
-    <div class="eyebrow gold">12 agencias compitiendo por ti</div>
+    <div class="eyebrow gold">42 agencias compitiendo por ti</div>
     <h2 style="margin-top:10px">Elige con quién quieres tratar.</h2>
     <p class="lede">Cada agencia tiene su propio rating, reseñas y especialidad. Tú decides cuál te entrega — con la misma promesa Plasencia: precio justo, inspección certificada, garantía por escrito.</p>
     <div class="dealers-hero">
       <div class="bg"></div><div class="grad"></div>
-      <div class="ctn"><h2 style="color:#fff">12 agencias. 14 marcas. Una sola promesa.</h2><p>Cambia de agencia sin perder tu historial. Compra en una, da servicio en otra, vende en una tercera. Tu cuenta Plasencia te sigue.</p></div>
+      <div class="ctn"><h2 style="color:#fff">42 agencias. 14 marcas. Una sola promesa.</h2><p>Cambia de agencia sin perder tu historial. Compra en una, da servicio en otra, vende en una tercera. Tu cuenta Plasencia te sigue.</p></div>
     </div>
     <div class="dealer-grid">
       ${topDealers.map(d=>`<div class="dealer" onclick="go('#/concesionaria/${d.id}')">
@@ -149,7 +149,7 @@ home(){
         </div>
       </div>`).join('')}
     </div>
-    <div style="text-align:center;margin-top:28px"><button class="btn btn-out btn-md" onclick="go('#/concesionarias')">Ver las 12 concesionarias ${I.arrowR(16)}</button></div>
+    <div style="text-align:center;margin-top:28px"><button class="btn btn-out btn-md" onclick="go('#/concesionarias')">Ver las 42 agencias ${I.arrowR(16)}</button></div>
   </div></section>
 
   <section class="sec" style="background:#fff;border-top:1px solid var(--n200)"><div class="wrap">
@@ -201,7 +201,7 @@ catalogo(){
     <span class="count" id="fcount"></span>
   </div></div>
   <div class="wrap" style="padding:32px 24px 0">
-    <div class="eyebrow">${FILT.marca==='todas'?`+${num(INVENTORY.total)} unidades · 14 marcas · 12 agencias`:`${INVENTORY.porMarca[FILT.marca]||0} ${FILT.marca} disponibles ahora`}</div>
+    <div class="eyebrow">${FILT.marca==='todas'?`+${num(INVENTORY.total)} unidades · 14 marcas · ${INVENTORY.agencias} agencias en ${INVENTORY.estados} estados`:`${INVENTORY.porMarca[FILT.marca]||0} ${FILT.marca} disponibles en el grupo`}</div>
     <h2 style="font-size:clamp(24px,3vw,34px);font-weight:800;color:var(--navy);margin-top:8px">${FILT.marca==='todas'?'Todo el inventario, lado a lado':FILT.marca+' en el Grupo Plasencia'}</h2>
     <p style="font-size:13px;color:var(--n500);margin-top:6px">Mostramos una selección curada de los autos más buscados. ¿No ves el que quieres? <a style="color:var(--blue-d);text-decoration:underline;cursor:pointer" onclick="Plasi.open('Busco un auto específico que no veo en el catálogo')">Pregúntale a Plasi</a> o <a style="color:var(--blue-d);text-decoration:underline;cursor:pointer" onclick="Flow.openCita()">agenda con un asesor</a>.</p>
   </div>
@@ -267,7 +267,7 @@ tradein(){
     <div>
       <div class="eyebrow gold" style="color:var(--gold)">Vende o cambia tu auto</div>
       <h1 style="margin-top:14px">Tu auto vale más<br><span>de lo que crees.</span></h1>
-      <p class="sub">Oferta firme en 2 minutos. Sin compromiso. Las 12 concesionarias del grupo reciben +200 trade-ins al mes — pagamos mejor porque tenemos a quién venderlo.</p>
+      <p class="sub">Oferta firme en 2 minutos. Sin compromiso. Las 42 agencias del grupo reciben +200 trade-ins al mes — pagamos mejor porque tenemos a quién venderlo.</p>
       <div style="margin-top:24px;display:flex;gap:10px;flex-wrap:wrap">
         <button class="btn btn-gold btn-lg" onclick="Flow.openTradein()">Empezar valuación ${I.arrowR(16)}</button>
         <button class="btn btn-ghost-dark btn-lg" onclick="Plasi.open('¿Cómo funciona el trade-in?')">¿Cómo funciona?</button>
@@ -301,7 +301,7 @@ tradein(){
     </div>
     <div style="margin-top:60px;background:#fff;border:1px solid var(--n200);border-radius:18px;padding:32px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px">
       <div><div class="eyebrow">Por qué Plasencia paga más</div></div>
-      <div><div style="display:flex;align-items:center;gap:10px"><span style="color:var(--green-d)">${I.check(20)}</span><b style="font-family:var(--disp);color:var(--navy)">200+ trade-ins/mes</b></div><p style="font-size:13px;color:var(--n600);margin-top:6px">Volumen en 12 concesionarias da escala para pagar mejor.</p></div>
+      <div><div style="display:flex;align-items:center;gap:10px"><span style="color:var(--green-d)">${I.check(20)}</span><b style="font-family:var(--disp);color:var(--navy)">200+ trade-ins/mes</b></div><p style="font-size:13px;color:var(--n600);margin-top:6px">Volumen en 42 agencias da escala para pagar mejor.</p></div>
       <div><div style="display:flex;align-items:center;gap:10px"><span style="color:var(--green-d)">${I.check(20)}</span><b style="font-family:var(--disp);color:var(--navy)">Inventario propio</b></div><p style="font-size:13px;color:var(--n600);margin-top:6px">Plasencia Seminuevos los re-vende → margen para mejor oferta.</p></div>
     </div>
   </div></section>`;
@@ -420,7 +420,7 @@ flotillas(){
   const BENEF=[
     [I.briefcase(24),'Cotización empresarial','Tarifas preferenciales por volumen, facturación a tu empresa, contrato marco para futuras unidades.'],
     [I.doc(24),'Crédito y arrendamiento','Líneas de crédito para flotillas, deducibilidad fiscal vía GP Autolease, contratos a 24-60 meses.'],
-    [I.wrench(24),'Mantenimiento integral','Servicio programado en las 12 concesionarias del grupo, refacciones priorizadas, uptime garantizado.'],
+    [I.wrench(24),'Mantenimiento integral','Servicio programado en las 42 agencias del grupo, refacciones priorizadas, uptime garantizado.'],
   ];
   return `<section class="flotillas-hero"><div class="wrap">
     <div>

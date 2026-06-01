@@ -267,7 +267,7 @@ pagos(){
 },
 
 servicios(){
-  if(!STATE.servicios.length)return Account._empty('servicios','Sin historial de servicio','Aquí verás cada servicio que hagas en cualquiera de las 12 concesionarias.',[['Agendar servicio','#','conv','Flow.openCita()']]);
+  if(!STATE.servicios.length)return Account._empty('servicios','Sin historial de servicio','Aquí verás cada servicio que hagas en cualquiera de las 42 agencias.',[['Agendar servicio','#','conv','Flow.openCita()']]);
   return STATE.servicios.map(s=>`<div class="card-row">
     <div class="body" style="width:100%">
       <h3>${s.tipo}</h3>
@@ -305,7 +305,7 @@ tradein(){
 },
 
 citas(){
-  if(!STATE.citas.length)return Account._empty('citas','Sin citas agendadas','Agenda test drive, valuación o servicio en cualquiera de las 12 concesionarias.',[['Agendar cita','#','conv','Flow.openCita()']]);
+  if(!STATE.citas.length)return Account._empty('citas','Sin citas agendadas','Agenda test drive, valuación o servicio en cualquiera de las 42 agencias.',[['Agendar cita','#','conv','Flow.openCita()']]);
   return STATE.citas.map(c=>`<div class="card-row">
     <div class="body" style="width:100%">
       <h3>${c.motivo} <span class="bp bp-blue" style="margin-left:6px">${c.dia} · ${c.hora}</span></h3>
@@ -460,7 +460,7 @@ const Plasi={
       <div><div class="nm">Plasi</div><div class="st"><span class="dot"></span>Asistente IA · Dirección de Marketing GP</div></div>
       <button class="x" onclick="Plasi.close()" aria-label="Cerrar">${I.x(18)}</button>
     </div>
-    <div class="plasi-intro"><b>Plasi</b> es la IA institucional del grupo. Conoce el catálogo completo, los 12 talleres, las formas de pago y políticas. Te ayudo a decidir.</div>
+    <div class="plasi-intro"><b>Plasi</b> es la IA institucional del grupo. Conoce el catálogo completo, los 42 talleres, las formas de pago y políticas. Te ayudo a decidir.</div>
     <div class="plasi-msgs" id="plasiMsgs"></div>
     <div class="plasi-in"><input id="plasiIn" placeholder="Pregúntame lo que sea…" onkeydown="if(event.key==='Enter'){Plasi.send(this.value);this.value=''}"><button onclick="var i=document.getElementById('plasiIn');Plasi.send(i.value);i.value=''" aria-label="Enviar">${I.send(18)}</button></div>`;
     document.body.appendChild(el);
@@ -471,7 +471,7 @@ const Plasi={
   greet(seed){
     const m=$('#plasiMsgs');if(!m)return;
     this.history=[];m.innerHTML='';
-    this.say('bot','¡Hola! Soy Plasi, la asistente IA de Grupo Plasencia. Puedo ayudarte a elegir auto, calcular crédito o arrendamiento, valuar el tuyo, contratar seguro o agendar cita en cualquiera de las 12 agencias.');
+    this.say('bot','¡Hola! Soy Plasi, la asistente IA de Grupo Plasencia. Puedo ayudarte a elegir auto, calcular crédito o arrendamiento, valuar el tuyo, contratar seguro o agendar cita en cualquiera de las 42 agencias del grupo.');
     ['¿Qué SUV me conviene para familia de 4?','Quiero cotizar arrendamiento','¿Cuánto vale mi auto actual?','Compara Mazda CX-30 vs Hyundai Tucson'].forEach(s=>this.say('sug',s));
     if(seed)setTimeout(()=>this.send(seed),300);
   },
@@ -527,8 +527,8 @@ const Plasi={
     else if(/vale|valu|trade|cambi|cuanto.*auto/.test(q)){this.say('bot','En 2 minutos te doy oferta firme por tu auto. Tres caminos: efectivo, cambio por seminuevo (con bonus) o mantener oferta 7 días. Abro la valuación.');route(()=>{this.close();Flow.openTradein()})}
     else if(/cita|test drive|prueba|manejo|agend/.test(q)){this.say('bot','Te abro el agendador. Elige agencia, motivo y horario.');route(()=>{this.close();Flow.openCita()})}
     else if(/precio|cost|cuant/.test(q)){this.say('bot','El catálogo va desde $280K (Foton, Changan) hasta $1.5M (Jeep Wrangler, Infiniti). Filtra por precio máximo desde el buscador.');this.say('sug','Ver catálogo')}
-    else if(/concesion|sucur|tienda|12|agenci/.test(q)){this.say('bot','Tenemos 12 agencias en Jalisco y Nayarit, cada una especialista de su marca. Te llevo al directorio.');route(()=>{this.close();go('#/concesionarias')})}
-    else{this.say('bot','Puedo ayudarte con: <b>elegir auto</b>, <b>cotizar crédito o arrendamiento</b>, <b>contratar seguro</b>, <b>valuar tu auto actual</b>, <b>agendar cita</b>, o <b>conocer las 12 agencias</b>. ¿Por dónde empezamos?');this.say('sug','Quiero comprar un auto');this.say('sug','Quiero vender el mío');this.say('sug','Cotizar seguro')}
+    else if(/concesion|sucur|tienda|12|agenci/.test(q)){this.say('bot','Tenemos 42 agencias en 6 estados del occidente, cada una especialista de su marca. Te llevo al directorio.');route(()=>{this.close();go('#/concesionarias')})}
+    else{this.say('bot','Puedo ayudarte con: <b>elegir auto</b>, <b>cotizar crédito o arrendamiento</b>, <b>contratar seguro</b>, <b>valuar tu auto actual</b>, <b>agendar cita</b>, o <b>conocer las 42 agencias</b>. ¿Por dónde empezamos?');this.say('sug','Quiero comprar un auto');this.say('sug','Quiero vender el mío');this.say('sug','Cotizar seguro')}
   },
 };
 window.Plasi=Plasi;
