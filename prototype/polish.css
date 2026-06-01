@@ -407,7 +407,8 @@ img[loading="lazy"].loaded,img[loading="lazy"][src]:not([src=""]){opacity:1}
 .b-card{background:var(--bg-surface);border:1px solid var(--border-subtle);border-radius:var(--r-xl);padding:24px;display:flex;flex-direction:column;gap:8px;transition:all var(--d-base) var(--e-out);position:relative;overflow:hidden}
 .b-card::before{content:"";position:absolute;top:0;right:0;width:80px;height:80px;background:radial-gradient(circle,rgba(236,201,75,.06),transparent 70%);pointer-events:none}
 .b-card:hover{transform:translateY(-3px);box-shadow:var(--sh-md);border-color:var(--border-default)}
-.b-card .b-num{font-family:var(--disp);font-weight:900;font-size:clamp(40px,4vw,56px);line-height:1;letter-spacing:-.03em;color:var(--p-navy);background:linear-gradient(180deg,var(--p-navy),var(--p-slate));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.b-card .b-num{font-family:var(--disp);font-weight:900;font-size:clamp(30px,3.2vw,44px);line-height:.95;letter-spacing:-.025em;color:var(--p-navy);background:linear-gradient(180deg,var(--p-navy),var(--p-slate));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.b-card .b-num.tnum{font-size:clamp(40px,4vw,56px);line-height:1}
 .b-card h3{font-size:15px;color:var(--p-navy);font-weight:800;margin-top:4px;line-height:1.3}
 .b-card p{font-size:13px;color:var(--text-2);line-height:1.55}
 .b-card p b{color:var(--p-navy)}

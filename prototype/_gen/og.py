@@ -56,15 +56,20 @@ y+=58
 draw.text((PAD,y),'M A R K E T P L A C E',font=f_disp_sm,fill=WHITE)
 
 # Headline
-y=240
+y=210
 draw.text((PAD,y),'Tu próximo auto,',font=f_disp_xl,fill=WHITE)
-y+=98
+y+=92
 # Gold gradient texto via stroke + fill
 draw.text((PAD,y),'sin perseguir a nadie.',font=f_disp_xl,fill=GOLD)
+# Subtitle/proof
+y+=104
+draw.text((PAD,y),'Comprar, financiar, asegurar y mantener',font=f_disp_lg,fill=WHITE)
+y+=46
+draw.text((PAD,y),'tu auto — todo en una sola cuenta.',font=f_disp_lg,fill=(220,225,235))
 
-# Stats inferior
-y=H-110
-stats=[('+2,700','autos'),('13','marcas'),('42','agencias'),('6','estados'),('75','años')]
+# Stats inferior (más compactos, en una sola línea visual de respaldo)
+y=H-92
+stats=[('+2,700','autos'),('13','marcas'),('42','agencias'),('7','ciudades'),('75','años')]
 sx=PAD
 for n,l in stats:
     draw.text((sx,y),n,font=f_disp_lg,fill=WHITE)
