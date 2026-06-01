@@ -1,5 +1,17 @@
 // ====== MI PLASENCIA · cuenta rearquitectada por dominios ======
 let ATAB='resumen';
+
+// Helper común para badge de persona vinculada (multi-perfil)
+// Returns HTML de badge tipo "rol-familiar" o "rol-empresa", o '' si es self.
+function personaBadge(o){
+  if(!o||!o.paraquien||o.paraquien==='self')return '';
+  const personas=STATE.personas||[];
+  const titular=o.titular?personas.find(p=>p.id===o.titular):null;
+  const nombre=(titular?.nombre||o.titularNombre||'').replace(/\s*\(.+\)/,'');
+  if(o.paraquien==='family'||o.paraquien==='familiar')return `<span class="rol-badge rol-familiar">${I.user(11)} ${nombre||'Familiar'}</span>`;
+  if(o.paraquien==='company'||o.paraquien==='empresa')return `<span class="rol-badge rol-empresa">${I.briefcase(11)} ${nombre||'Empresa'}</span>`;
+  return '';
+}
 const Account={
 view(){
   if(!STATE.customer){
@@ -88,7 +100,12 @@ resumen(){
     ['Seguros',STATE.seguros.length,'seguros'],
     ['Trade-ins',STATE.tradeins.length,'tradein'],
   ];
-  return `<div class="stats-row">${STATS.map(s=>`<div class="stat-card" style="cursor:pointer" onclick="ATAB='${s[2]}';render()"><div class="l">${s[0]}</div><div class="v tnum">${s[1]}</div></div>`).join('')}</div>
+  // Resumen multi-perfil: cuántos autos hay por persona
+  const garage=STATE.garage||[];
+  const personasUsage={};
+  garage.forEach(g=>{const k=g.paraquien==='self'?'mio':g.titular||g.paraquien;personasUsage[k]=(personasUsage[k]||0)+1});
+  const personasResumen=garage.length>1?`<div style="background:linear-gradient(135deg,var(--p-navy),var(--p-navy-d));color:#fff;border-radius:14px;padding:18px 20px;margin-bottom:20px;display:flex;align-items:center;gap:14px;flex-wrap:wrap"><div style="background:rgba(236,201,75,.18);color:var(--p-gold);width:42px;height:42px;border-radius:11px;display:flex;align-items:center;justify-content:center;flex-shrink:0">${I.user(20)}</div><div style="flex:1;min-width:200px"><div style="font-family:var(--disp);font-weight:800;font-size:15px">Tu cuenta tiene ${garage.length} ${garage.length===1?'auto':'autos'} en total</div><div style="font-size:12.5px;color:rgba(255,255,255,.75);margin-top:2px">${Object.entries(personasUsage).map(([k,n])=>k==='mio'?`${n} a tu nombre`:(STATE.personas||[]).find(p=>p.id===k)?`${n} de ${(STATE.personas.find(p=>p.id===k).nombre||'').replace(/\s*\(.+\)/,'')}`:`${n} compartido`).join(' · ')}</div></div><button class="btn btn-sm" style="background:rgba(255,255,255,.12);color:var(--p-gold);border:1px solid rgba(236,201,75,.3);flex-shrink:0" onclick="ATAB='perfil';render()">Gestionar personas →</button></div>`:'';
+  return `${personasResumen}<div class="stats-row">${STATS.map(s=>`<div class="stat-card" style="cursor:pointer" onclick="ATAB='${s[2]}';render()"><div class="l">${s[0]}</div><div class="v tnum">${s[1]}</div></div>`).join('')}</div>
   <div style="display:grid;grid-template-columns:2fr 1fr;gap:20px;margin-top:24px">
     <div>
       <h3 style="font-family:var(--disp);font-size:18px;color:var(--navy);margin-bottom:12px">Actividad reciente</h3>
@@ -114,7 +131,7 @@ reservas(){
   return STATE.reservas.map(r=>`<div class="card-row">
     <img class="img" src="${r.img}" onerror="this.src='${FALLBACK}'">
     <div class="body">
-      <h3>${r.marca} ${r.modelo} <span class="bp bp-gold" style="margin-left:6px">Apartado</span></h3>
+      <h3>${r.marca} ${r.modelo} <span class="bp bp-gold" style="margin-left:6px">Apartado</span>${personaBadge(r)}</h3>
       <div class="meta">Folio ${r.folio} · ${r.fecha}</div>
       <div class="info-grid">
         <div class="info-cell"><div class="k">Precio</div><div class="v tnum">${mxn(r.precio)}</div></div>
@@ -182,7 +199,7 @@ credito(){
     return `<div class="card-row" style="display:block">
     <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:14px">
       <div>
-        <h3 style="font-size:18px;color:var(--navy)">Línea de crédito Plasencia</h3>
+        <h3 style="font-size:18px;color:var(--navy)">Línea de crédito Plasencia ${personaBadge(cr)}</h3>
         <div style="font-size:12px;color:var(--n500)">Folio ${cr.folio} · Otorgada ${cr.fecha}</div>
         <span class="bp bp-${cr.estado==='pre-aprobado'?(usado>0?'green':'gold'):'green'}" style="margin-top:8px;display:inline-flex">${usado>0?'activo':cr.estado}</span>
       </div>
@@ -214,7 +231,7 @@ autolease(){
     return `<div class="card-row" style="display:block">
     <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:14px;flex-wrap:wrap">
       <div>
-        <h3 style="font-size:18px;color:var(--navy)">GP Autolease</h3>
+        <h3 style="font-size:18px;color:var(--navy)">GP Autolease ${personaBadge(al)}</h3>
         <div style="font-size:12px;color:var(--n500)">Folio ${al.folio} · Inicio ${al.fecha}</div>
         <span class="bp bp-${al.estado==='cotizado'?'gold':'green'}" style="margin-top:8px;display:inline-flex">${al.estado}</span>
       </div>
@@ -243,7 +260,7 @@ seguros(){
   return STATE.seguros.map(s=>`<div class="card-row" style="display:block">
     <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:14px;flex-wrap:wrap">
       <div>
-        <h3 style="font-size:18px;color:var(--navy)">${s.aseguradora}</h3>
+        <h3 style="font-size:18px;color:var(--navy)">${s.aseguradora} ${personaBadge(s)}</h3>
         <div style="font-size:12px;color:var(--n500)">Póliza ${s.poliza} · ${s.modelo||''}</div>
         <span class="bp bp-${s.estado==='vigente'?'green':'gold'}" style="margin-top:8px;display:inline-flex">${s.estado}</span>
       </div>
@@ -271,7 +288,7 @@ pagos(){
   return `<div style="background:#fff;border:1px solid var(--n200);border-radius:14px;overflow:hidden">
     <table style="width:100%;border-collapse:collapse">
       <thead><tr style="background:var(--n50);text-align:left"><th style="padding:14px;font-family:var(--disp);font-size:11px;font-weight:800;color:var(--n500);text-transform:uppercase;letter-spacing:.5px">Fecha</th><th style="padding:14px;font-family:var(--disp);font-size:11px;font-weight:800;color:var(--n500);text-transform:uppercase;letter-spacing:.5px">Concepto</th><th style="padding:14px;font-family:var(--disp);font-size:11px;font-weight:800;color:var(--n500);text-transform:uppercase;letter-spacing:.5px">Método</th><th style="padding:14px;text-align:right;font-family:var(--disp);font-size:11px;font-weight:800;color:var(--n500);text-transform:uppercase;letter-spacing:.5px">Monto</th></tr></thead>
-      <tbody>${STATE.pagos.map(p=>`<tr style="border-top:1px solid var(--n100)"><td style="padding:14px;font-size:13px;color:var(--n600)">${p.fecha}</td><td style="padding:14px;font-size:13px;color:var(--navy);font-weight:600">${p.concepto}</td><td style="padding:14px;font-size:12px;color:var(--n500)">${p.metodo}</td><td style="padding:14px;text-align:right;font-family:var(--disp);font-weight:700;color:var(--navy)" class="tnum">${mxn(p.monto)}</td></tr>`).join('')}</tbody>
+      <tbody>${STATE.pagos.map(p=>`<tr style="border-top:1px solid var(--n100)"><td style="padding:14px;font-size:13px;color:var(--n600)">${p.fecha}</td><td style="padding:14px;font-size:13px;color:var(--navy);font-weight:600">${p.concepto} ${personaBadge(p)}</td><td style="padding:14px;font-size:12px;color:var(--n500)">${p.metodo}</td><td style="padding:14px;text-align:right;font-family:var(--disp);font-weight:700;color:var(--navy)" class="tnum">${mxn(p.monto)}</td></tr>`).join('')}</tbody>
     </table>
   </div>`;
 },
@@ -280,7 +297,7 @@ servicios(){
   if(!STATE.servicios.length)return Account._empty('servicios','Sin historial de servicio','Aquí verás cada servicio que hagas en cualquiera de las 42 agencias.',[['Agendar servicio','#','conv','Flow.openCita()']]);
   return STATE.servicios.map(s=>`<div class="card-row">
     <div class="body" style="width:100%">
-      <h3>${s.tipo}</h3>
+      <h3>${s.tipo} ${personaBadge(s)}</h3>
       <div class="meta">${s.suc} · ${s.fecha} · ${num(s.km)} km</div>
       <div style="font-size:13px;color:var(--n600);margin-top:8px">${s.detalle}</div>
     </div>
@@ -318,7 +335,7 @@ citas(){
   if(!STATE.citas.length)return Account._empty('citas','Sin citas agendadas','Agenda test drive, valuación o servicio en cualquiera de las 42 agencias.',[['Agendar cita','#','conv','Flow.openCita()']]);
   return STATE.citas.map(c=>`<div class="card-row">
     <div class="body" style="width:100%">
-      <h3>${c.motivo} <span class="bp bp-blue" style="margin-left:6px">${c.dia} · ${c.hora}</span></h3>
+      <h3>${c.motivo} <span class="bp bp-blue" style="margin-left:6px">${c.dia} · ${c.hora}</span>${personaBadge(c)}</h3>
       <div class="meta">Folio ${c.folio} · ${c.sucName}</div>
     </div>
     <div class="actions">
@@ -330,7 +347,7 @@ citas(){
 
 notificaciones(){
   if(!STATE.notifs.length)return Account._empty('notificaciones','Sin notificaciones','Aquí aparecerán confirmaciones, recordatorios y alertas.',[]);
-  return STATE.notifs.map(n=>`<div class="notif-card"><div class="nic ${n.ic}">${I.check(18)}</div><div style="flex:1"><div style="font-family:var(--disp);font-size:14px;font-weight:700;color:var(--navy)">${n.t}</div><div style="font-size:12.5px;color:var(--n600);margin-top:2px">${n.d}</div><div class="ntime">${n.time}</div></div></div>`).join('');
+  return STATE.notifs.map(n=>`<div class="notif-card"><div class="nic ${n.ic}">${I.check(18)}</div><div style="flex:1"><div style="font-family:var(--disp);font-size:14px;font-weight:700;color:var(--navy);display:flex;align-items:center;gap:6px;flex-wrap:wrap">${n.t}${personaBadge(n)}</div><div style="font-size:12.5px;color:var(--n600);margin-top:2px">${n.d}</div><div class="ntime">${n.time}</div></div></div>`).join('');
 },
 
 perfil(){
@@ -403,7 +420,7 @@ documentos(){
     <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:10px">
       ${docs.map(d=>`<div style="background:#fff;border:1px solid var(--n200);border-radius:12px;padding:14px;display:flex;align-items:center;gap:12px">
         <div style="width:42px;height:42px;border-radius:10px;background:linear-gradient(135deg,var(--n50),var(--n100));color:var(--navy);display:flex;align-items:center;justify-content:center;flex-shrink:0">${I.doc(20)}</div>
-        <div style="flex:1;min-width:0"><div style="font-family:var(--disp);font-size:14px;font-weight:700;color:var(--navy)">${d.tipo}</div><div style="font-size:11px;color:var(--n500);overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${d.nombre} · ${d.fecha} · ${d.tamano}</div></div>
+        <div style="flex:1;min-width:0"><div style="font-family:var(--disp);font-size:14px;font-weight:700;color:var(--navy);display:flex;align-items:center;gap:6px;flex-wrap:wrap">${d.tipo} ${personaBadge(d)}</div><div style="font-size:11px;color:var(--n500);overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${d.nombre} · ${d.fecha} · ${d.tamano}</div></div>
         <button class="btn btn-out btn-sm" onclick="Flow.openSim('descargarFactura')">${I.doc(14)}</button>
       </div>`).join('')}
     </div></div>`).join('')+`<button class="btn btn-out btn-md" style="margin-top:14px" onclick="toast('Sube documentos desde tu teléfono')">${I.upload(14)} Subir documento</button>`;

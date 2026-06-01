@@ -91,7 +91,7 @@ const Auth={
     const newCar=CARS.find(c=>c.cond==='nuevo')||CARS[0];
     const semiCar=CARS.find(c=>c.cond==='seminuevo')||CARS[1];
     const futCar=CARS.find(c=>c.dest)||CARS[2];
-    if(newCar)STATE.reservas=[{id:uid('res'),folio:'GP-MAZ-260520-103045',carId:newCar.id,marca:newCar.marca,modelo:newCar.modelo,anio:newCar.anio,img:newCar.fotos[0],precio:newCar.precio,apart:5000,fecha:'2026-05-20',estado:'apartado',suc:newCar.suc,milestone:2}];
+    if(newCar)STATE.reservas=[{id:uid('res'),folio:'GP-MAZ-260520-103045',carId:newCar.id,marca:newCar.marca,modelo:newCar.modelo,anio:newCar.anio,img:newCar.fotos[0],precio:newCar.precio,apart:5000,fecha:'2026-05-20',estado:'apartado',suc:newCar.suc,milestone:2,paraquien:'self',titularNombre:''}];
     if(semiCar){
       // Garage con 3 autos en distintos roles · multi-perfil cross-cliente
       const futCar = CARS.find(c=>c.cond==='nuevo' && c.tipo==='SUV') || CARS[3] || CARS[0];
@@ -111,33 +111,38 @@ const Auth={
       {id:'family-mateo',tipo:'familiar',nombre:'Mateo (mi hijo)',email:'mateo@ejemplo.com',relacion:'Hijo',activo:true,fecha:'2026-02-20'},
       {id:'company-mke',tipo:'empresa',nombre:'MKE Operaciones SA de CV',rfc:'MKE190215XYZ',relacion:'Mi empresa (PM)',activo:true,fecha:'2024-11-18'},
     ];
-    STATE.creditos=[{id:uid('cr'),folio:'GP-CR-260512-090000',linea:850000,tasa:13.5,fecha:'2026-05-12',estado:'pre-aprobado',vigencia:18,carId:newCar?.id,saldoUsado:newCar?Math.round(newCar.precio*0.8):0,mensActual:newCar?mensCredito(newCar.precio,20,60):0,proxPago:'2026-06-15',pagosHechos:0,pagosTotal:60}];
-    STATE.leases=[{id:uid('al'),folio:'GP-AL-251020-141500',plazo:36,renta:13980,tipo:'pfae',fecha:'2025-10-20',estado:'activo',mesActual:8,proxRenta:'2026-06-20',mesesPagados:7}];
-    STATE.tradeins=[{id:uid('ti'),folio:'GP-TI-260528-181200',marca:'Volkswagen',modelo:'Jetta',anio:2019,km:78500,oferta:185000,bonus:14800,path:'cambio',fecha:'2026-05-28',estado:'oferta firme',vigencia:5}];
+    STATE.creditos=[{id:uid('cr'),folio:'GP-CR-260512-090000',linea:850000,tasa:13.5,fecha:'2026-05-12',estado:'pre-aprobado',vigencia:18,carId:newCar?.id,saldoUsado:newCar?Math.round(newCar.precio*0.8):0,mensActual:newCar?mensCredito(newCar.precio,20,60):0,proxPago:'2026-06-15',pagosHechos:0,pagosTotal:60,paraquien:'self',titular:'self'}];
+    // Autolease para empresa MKE
+    STATE.leases=[{id:uid('al'),folio:'GP-AL-251020-141500',plazo:36,renta:13980,tipo:'pm',fecha:'2025-10-20',estado:'activo',mesActual:8,proxRenta:'2026-06-20',mesesPagados:7,paraquien:'company',titular:'company-mke',titularNombre:'MKE Operaciones SA de CV'}];
+    STATE.tradeins=[{id:uid('ti'),folio:'GP-TI-260528-181200',marca:'Volkswagen',modelo:'Jetta',anio:2019,km:78500,oferta:185000,bonus:14800,path:'cambio',fecha:'2026-05-28',estado:'oferta firme',vigencia:5,paraquien:'self',titular:'self'}];
     STATE.watchlist=CARS.slice(0,5).map(c=>c.id);
+    // Citas con paraquien (servicio para auto del hijo, entrega para empresa)
     STATE.citas=[
-      {id:uid('c'),folio:'GP-TES-260601-100000',suc:newCar?.suc||'bugambilias',sucName:getSuc(newCar?.suc).nombre,motivo:'Entrega de unidad',dia:'2026-06-01',hora:'11:00',carId:newCar?.id},
-      {id:uid('c'),folio:'GP-SER-260615-160000',suc:semiCar?.suc||'galerias',sucName:getSuc(semiCar?.suc).nombre,motivo:'Servicio',dia:'2026-08-15',hora:'10:00',carId:semiCar?.id},
+      {id:uid('c'),folio:'GP-TES-260601-100000',suc:newCar?.suc||'bugambilias',sucName:getSuc(newCar?.suc).nombre,motivo:'Entrega de unidad',dia:'2026-06-01',hora:'11:00',carId:newCar?.id,paraquien:'self'},
+      {id:uid('c'),folio:'GP-SER-260615-160000',suc:semiCar?.suc||'galerias',sucName:getSuc(semiCar?.suc).nombre,motivo:'Servicio 15,000 km',dia:'2026-08-15',hora:'10:00',carId:semiCar?.id,paraquien:'family',titular:'family-mateo'},
     ];
+    // Pagos con paraquien (lease es de empresa, servicios del auto del hijo)
     STATE.pagos=[
-      {id:uid('p'),fecha:'2026-05-20',concepto:'Apartado '+newCar?.marca+' '+newCar?.modelo,monto:5000,metodo:'Visa •6411',estado:'aplicado'},
-      {id:uid('p'),fecha:'2026-05-15',concepto:'Renta GP Autolease · mes 7',monto:13980,metodo:'Cargo automático',estado:'aplicado'},
-      {id:uid('p'),fecha:'2026-04-15',concepto:'Renta GP Autolease · mes 6',monto:13980,metodo:'Cargo automático',estado:'aplicado'},
-      {id:uid('p'),fecha:'2026-03-12',concepto:'Servicio 15,000 km · Mazda Galerías',monto:2890,metodo:'Visa •6411',estado:'aplicado'},
+      {id:uid('p'),fecha:'2026-05-20',concepto:'Apartado '+newCar?.marca+' '+newCar?.modelo,monto:5000,metodo:'Visa •6411',estado:'aplicado',paraquien:'self'},
+      {id:uid('p'),fecha:'2026-05-15',concepto:'Renta GP Autolease · mes 7 · MKE Operaciones',monto:13980,metodo:'Cargo automático empresa',estado:'aplicado',paraquien:'company',titular:'company-mke'},
+      {id:uid('p'),fecha:'2026-04-15',concepto:'Renta GP Autolease · mes 6 · MKE Operaciones',monto:13980,metodo:'Cargo automático empresa',estado:'aplicado',paraquien:'company',titular:'company-mke'},
+      {id:uid('p'),fecha:'2026-03-12',concepto:'Servicio 15,000 km · auto de Mateo · Mazda Galerías',monto:2890,metodo:'Visa •6411',estado:'aplicado',paraquien:'family',titular:'family-mateo'},
     ];
     STATE.servicios=[
-      {id:uid('s'),fecha:'2026-03-12',tipo:'Servicio 15,000 km',suc:'Mazda Galerías',km:15240,monto:2890,detalle:'Cambio aceite + filtros + alineación'},
-      {id:uid('s'),fecha:'2025-10-08',tipo:'Servicio 10,000 km',suc:'Mazda Galerías',km:10120,monto:2450,detalle:'Cambio aceite + revisión'},
+      {id:uid('s'),fecha:'2026-03-12',tipo:'Servicio 15,000 km',suc:'Mazda Galerías',km:15240,monto:2890,detalle:'Cambio aceite + filtros + alineación',paraquien:'family',titular:'family-mateo'},
+      {id:uid('s'),fecha:'2025-10-08',tipo:'Servicio 10,000 km',suc:'Mazda Galerías',km:10120,monto:2450,detalle:'Cambio aceite + revisión',paraquien:'family',titular:'family-mateo'},
     ];
-    STATE.seguros=[{id:uid('sg'),folio:'GP-SG-260510-120000',aseguradora:'Plasencia Seguros · GNP',poliza:'PLZ-2026-04521',vigencia:'2026-05-10 → 2027-05-10',cobertura:'Amplia Plus',deducible:'$5,000 daños / $15,000 robo',prima:11240,frecuencia:'Anual',carId:semiCar?.id,modelo:semiCar?.marca+' '+semiCar?.modelo+' '+semiCar?.anio,estado:'vigente'}];
+    // Poliza a nombre de Mateo (titular del auto)
+    STATE.seguros=[{id:uid('sg'),folio:'GP-SG-260510-120000',aseguradora:'Plasencia Seguros · GNP',poliza:'PLZ-2026-04521',vigencia:'2026-05-10 → 2027-05-10',cobertura:'Amplia Plus',deducible:'$5,000 daños / $15,000 robo',prima:11240,frecuencia:'Anual',carId:semiCar?.id,modelo:semiCar?.marca+' '+semiCar?.modelo+' '+semiCar?.anio,estado:'vigente',paraquien:'family',titular:'family-mateo',titularNombre:'Mateo (mi hijo)'}];
     STATE.documentos=[
-      {id:uid('d'),tipo:'Factura de compra',nombre:semiCar?`${semiCar.marca} ${semiCar.modelo} ${semiCar.anio}.pdf`:'factura.pdf',fecha:'2025-09-14',tamano:'342 KB',categoria:'compra',carId:semiCar?.carId},
-      {id:uid('d'),tipo:'Tarjeta de circulación',nombre:'tarjeta_circulacion.pdf',fecha:'2025-10-02',tamano:'128 KB',categoria:'vehiculo',carId:semiCar?.carId},
-      {id:uid('d'),tipo:'Póliza de seguro',nombre:'poliza_amplia_plus_2026.pdf',fecha:'2026-05-10',tamano:'956 KB',categoria:'seguro'},
-      {id:uid('d'),tipo:'Contrato de Autolease',nombre:'contrato_autolease_GP-AL-251020.pdf',fecha:'2025-10-20',tamano:'1.2 MB',categoria:'financiero'},
-      {id:uid('d'),tipo:'Identificación',nombre:'INE_anverso_reverso.pdf',fecha:'2025-08-12',tamano:'420 KB',categoria:'personal'},
-      {id:uid('d'),tipo:'Comprobante de domicilio',nombre:'comprobante_cfe_mayo2026.pdf',fecha:'2026-05-08',tamano:'180 KB',categoria:'personal'},
-      {id:uid('d'),tipo:'Constancia fiscal',nombre:'constancia_fiscal_sat.pdf',fecha:'2025-08-12',tamano:'95 KB',categoria:'personal'},
+      {id:uid('d'),tipo:'Factura de compra',nombre:semiCar?`${semiCar.marca} ${semiCar.modelo} ${semiCar.anio} · a nombre de Mateo.pdf`:'factura.pdf',fecha:'2025-09-14',tamano:'342 KB',categoria:'compra',paraquien:'family',titular:'family-mateo'},
+      {id:uid('d'),tipo:'Tarjeta de circulación',nombre:'tarjeta_circulacion_Mateo.pdf',fecha:'2025-10-02',tamano:'128 KB',categoria:'vehiculo',paraquien:'family',titular:'family-mateo'},
+      {id:uid('d'),tipo:'Póliza de seguro',nombre:'poliza_amplia_plus_2026_Mateo.pdf',fecha:'2026-05-10',tamano:'956 KB',categoria:'seguro',paraquien:'family',titular:'family-mateo'},
+      {id:uid('d'),tipo:'Contrato de Autolease',nombre:'contrato_autolease_MKE_GP-AL-251020.pdf',fecha:'2025-10-20',tamano:'1.2 MB',categoria:'financiero',paraquien:'company',titular:'company-mke'},
+      {id:uid('d'),tipo:'Factura PM · empresa',nombre:'factura_RAM_MKE_Operaciones.pdf',fecha:'2024-11-18',tamano:'298 KB',categoria:'compra',paraquien:'company',titular:'company-mke'},
+      {id:uid('d'),tipo:'Identificación',nombre:'INE_anverso_reverso.pdf',fecha:'2025-08-12',tamano:'420 KB',categoria:'personal',paraquien:'self'},
+      {id:uid('d'),tipo:'Comprobante de domicilio',nombre:'comprobante_cfe_mayo2026.pdf',fecha:'2026-05-08',tamano:'180 KB',categoria:'personal',paraquien:'self'},
+      {id:uid('d'),tipo:'Constancia fiscal',nombre:'constancia_fiscal_sat.pdf',fecha:'2025-08-12',tamano:'95 KB',categoria:'personal',paraquien:'self'},
     ];
     STATE.direcciones=[
       {id:uid('a'),etiqueta:'Casa',calle:'Av. Acueducto 1234, int. 5',colonia:'Jardines del Bosque',cp:'45040',municipio:'Zapopan',estado:'Jalisco',default:true,paraEntrega:true,paraFactura:true},
@@ -151,11 +156,13 @@ const Auth={
       {id:uid('cv'),asesor:'Luis Vendedor · Mazda Bugambilias',ultima:'Tu entrega está lista para el 1 de junio. Te confirmo placas en cuanto las tenga.',hora:'Hace 2h',unread:1},
       {id:uid('cv'),asesor:'Plasi · Asistente IA',ultima:'Aquí tienes el catálogo de SUVs que pediste, filtré por seminuevos certificados.',hora:'Hace 1 día',unread:0},
     ];
+    // Notifs realistas mencionando los autos por contexto multi-perfil
     STATE.notifs=[
-      {id:uid('n'),ic:'green',t:'Cita confirmada · Entrega',d:'Mazda Bugambilias · 1 jun 11:00am',time:'Hace 2h'},
-      {id:uid('n'),ic:'gold',t:'Tu Jetta 2019 vale $185,000',d:'Oferta firme vigente 5 días · +$14,800 bonus si lo aplicas',time:'Hoy'},
-      {id:uid('n'),ic:'blue',t:'Próximo pago de crédito · 15 jun',d:mxn(mensCredito(newCar?.precio||450000,20,60))+' · cargo automático Visa •6411',time:'Hace 1 día'},
-      {id:uid('n'),ic:'green',t:'Bienvenido a Plasencia Marketplace',d:'Tu cuenta demo está lista con datos simulados',time:'Hace 3 días'},
+      {id:uid('n'),ic:'green',t:'Cita confirmada · Entrega',d:'Tu '+newCar?.modelo+' está listo · Bugambilias · 1 jun 11:00am',time:'Hace 2h',paraquien:'self'},
+      {id:uid('n'),ic:'blue',t:'Servicio agendado',d:'Mazda Galerías · 15 ago 10:00 · servicio 15,000 km',time:'Hace 5h',paraquien:'family',titular:'family-mateo'},
+      {id:uid('n'),ic:'gold',t:'Tu Jetta 2019 vale $185,000',d:'Oferta firme vigente 5 días · +$14,800 bonus si lo aplicas',time:'Hoy',paraquien:'self'},
+      {id:uid('n'),ic:'blue',t:'Próximo pago de crédito · 15 jun',d:mxn(mensCredito(newCar?.precio||450000,20,60))+' · cargo automático Visa •6411',time:'Hace 1 día',paraquien:'self'},
+      {id:uid('n'),ic:'green',t:'Renta lease pagada',d:'Mes 7 de 36 · '+mxn(13980)+' · cargo automático empresa',time:'Hace 16 días',paraquien:'company',titular:'company-mke'},
     ];
     save();this.close();updateHeader();toast('Bienvenido como invitado');const cb=this.cb;this.cb=null;if(cb)setTimeout(cb,200);else go('#/cuenta');
   },

@@ -162,12 +162,18 @@ _cita(v,step,d){
   const steps=['Concesionaria','Motivo','Día y hora','Confirmación'];
   const sucList=v?[getSuc(v.suc)]:SUCS.slice(0,6);
   const motivos=[['Test drive',I.car(20)],['Ver el auto',I.search(20)],['Cotizar crédito',I.card(20)],['Servicio',I.wrench(20)]];
+  // Si el usuario tiene >1 auto en garage Y la cita no es para un carId específico,
+  // ofrecer selector "¿Para cuál de tus autos?" (multi-perfil)
+  const garage=STATE.garage||[];
+  const showGarageSel = !v && garage.length>1 && d.motivo==='Servicio';
   const days=Array.from({length:5},(_,i)=>{const d=new Date();d.setDate(d.getDate()+i+1);return {iso:d.toISOString().slice(0,10),lbl:['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'][d.getDay()]+' '+d.getDate()}});
   const hours=['10:00','11:30','13:00','15:00','16:30','18:00'];
   const html=`<h2 style="font-size:22px;color:var(--navy)">Agendar cita ${v?`· ${v.marca} ${v.modelo}`:''}</h2>
     ${wizSteps(steps,step)}
     ${step===0?`<div class="choice-grid" style="grid-template-columns:1fr">${sucList.map(s=>`<button class="choice ${d.suc===s.id?'on':''}" onclick="Flow.citaSuc='${s.id}';document.querySelectorAll('.choice').forEach(c=>c.classList.remove('on'));this.classList.add('on')"><div class="check">${I.check(14)}</div><div style="display:flex;gap:12px;align-items:center">${sucLogoHTML(s,'sm')}<div><div class="t">${s.nombre}</div><div class="d">${s.zona} · ${I.star(11)} ${s.rating} · ${num(s.reviews)} reseñas</div></div></div></button>`).join('')}</div>`:''}
-    ${step===1?`<div class="choice-grid">${motivos.map(m=>`<button class="choice ${d.motivo===m[0]?'on':''}" onclick="Flow.citaMot='${m[0]}';document.querySelectorAll('.choice').forEach(c=>c.classList.remove('on'));this.classList.add('on')"><div class="check">${I.check(14)}</div><div class="ic">${m[1]}</div><div class="t">${m[0]}</div></button>`).join('')}</div>`:''}
+    ${step===1?`<div class="choice-grid">${motivos.map(m=>`<button class="choice ${d.motivo===m[0]?'on':''}" onclick="Flow.citaMot='${m[0]}';document.querySelectorAll('.choice').forEach(c=>c.classList.remove('on'));this.classList.add('on');document.getElementById('cita-auto-sel').style.display=Flow.citaMot==='Servicio'?'block':'none'"><div class="check">${I.check(14)}</div><div class="ic">${m[1]}</div><div class="t">${m[0]}</div></button>`).join('')}</div>
+    ${!v&&garage.length>0?`<div id="cita-auto-sel" style="display:${d.motivo==='Servicio'?'block':'none'};margin-top:14px"><div class="field"><label>¿Para cuál de tus autos?</label><select id="cita-car-id">${garage.map(g=>`<option value="${g.id}">${g.marca} ${g.modelo} ${g.anio}${g.rol==='familiar'?' · auto de '+(STATE.personas.find(p=>p.id===g.titular)?.nombre.replace(/\s*\(.+\)/,'')||'familiar'):''}${g.rol==='empresa'?' · '+(STATE.personas.find(p=>p.id===g.titular)?.nombre||'empresa'):''}</option>`).join('')}</select></div></div>`:''}
+    `:''}
     ${step===2?`<div class="field"><label>Día</label><div class="timeslots">${days.map(x=>`<button class="timeslot ${d.dia===x.iso?'on':''}" onclick="Flow.citaDia='${x.iso}';document.querySelectorAll('[data-r=d]').forEach(b=>b.classList.remove('on'));this.classList.add('on')" data-r="d">${x.lbl}</button>`).join('')}</div></div><div class="field"><label>Hora</label><div class="timeslots">${hours.map(h=>`<button class="timeslot ${d.hora===h?'on':''}" onclick="Flow.citaHr='${h}';document.querySelectorAll('[data-r=h]').forEach(b=>b.classList.remove('on'));this.classList.add('on')" data-r="h">${h}</button>`).join('')}</div></div>`:''}
     ${step===3?`<div class="ok-circle">${I.check(28)}</div><h2 style="text-align:center;color:var(--navy);font-size:24px">¡Cita confirmada!</h2><p style="text-align:center;color:var(--n500);margin-top:6px;font-size:14px">Te esperamos. Recibirás recordatorio por WhatsApp.</p>
     <div class="cita-qr-card">
@@ -179,15 +185,15 @@ _cita(v,step,d){
         <div class="folio inline"><div class="k">Folio</div><div class="v">${d.folio}</div></div>
       </div>
     </div>
-    <div class="summary-box"><div class="row"><span>Agencia</span><b>${d.sucName}</b></div><div class="row"><span>Motivo</span><b>${d.motivo}</b></div><div class="row"><span>Día y hora</span><b>${d.dia} · ${d.hora}</b></div></div>`:''}
+    <div class="summary-box"><div class="row"><span>Agencia</span><b>${d.sucName}</b></div><div class="row"><span>Motivo</span><b>${d.motivo}</b></div>${d.carInfo?`<div class="row"><span>Para tu</span><b>${d.carInfo}${d.paraquien==='family'?' (familiar)':d.paraquien==='company'?' (empresa)':''}</b></div>`:''}<div class="row"><span>Día y hora</span><b>${d.dia} · ${d.hora}</b></div></div>`:''}
     <div class="wiz-nav">${step>0&&step<3?`<button class="btn btn-out btn-md" onclick='Flow._cita(${v?JSON.stringify(v.id):'null'},${step-1},${JSON.stringify(d)})'>${I.chevL(14)} Atrás</button>`:'<span></span>'}${step<3?`<button class="btn btn-conv btn-md" onclick='Flow._citaNext(${v?JSON.stringify(v.id):'null'},${step},${JSON.stringify(d)})'>Continuar ${I.chevR(14)}</button>`:`<button class="btn btn-conv btn-md btn-full" onclick='closeModal();go("#/cuenta?t=citas")'>Ver mis citas</button>`}</div>`;
   showModal(html,'lg');
 },
 _citaNext(carId,step,d){
   const v=carId?CARS.find(c=>c.id===carId):null;
   if(step===0){if(!Flow.citaSuc&&v){Flow.citaSuc=v.suc}if(!Flow.citaSuc)return toast('Elige una concesionaria','x');d.suc=Flow.citaSuc;d.sucName=getSuc(d.suc).nombre}
-  if(step===1){if(!Flow.citaMot)return toast('Elige un motivo','x');d.motivo=Flow.citaMot}
-  if(step===2){if(!Flow.citaDia||!Flow.citaHr)return toast('Elige día y hora','x');d.dia=Flow.citaDia;d.hora=Flow.citaHr;const f=folio(d.motivo,'CT');d.folio=f;STATE.citas.unshift({id:uid('c'),folio:f,suc:d.suc,sucName:d.sucName,motivo:d.motivo,dia:d.dia,hora:d.hora,carId:v?.id});STATE.notifs.unshift({id:uid('n'),ic:'blue',t:'Cita agendada',d:`${d.sucName} · ${d.dia} ${d.hora}`,time:'Ahora'});save();updateHeader()}
+  if(step===1){if(!Flow.citaMot)return toast('Elige un motivo','x');d.motivo=Flow.citaMot;const cs=document.getElementById('cita-car-id');if(cs){const g=STATE.garage.find(x=>x.id===cs.value);if(g){d.carIdGarage=g.id;d.paraquien=g.paraquien;d.titular=g.titular;d.carInfo=g.marca+' '+g.modelo+' '+g.anio}}}
+  if(step===2){if(!Flow.citaDia||!Flow.citaHr)return toast('Elige día y hora','x');d.dia=Flow.citaDia;d.hora=Flow.citaHr;const f=folio(d.motivo,'CT');d.folio=f;STATE.citas.unshift({id:uid('c'),folio:f,suc:d.suc,sucName:d.sucName,motivo:d.motivo,dia:d.dia,hora:d.hora,carId:v?.id,paraquien:d.paraquien||'self',titular:d.titular,carInfo:d.carInfo});const carLbl=d.carInfo?` · ${d.carInfo}`:'';STATE.notifs.unshift({id:uid('n'),ic:'blue',t:'Cita agendada',d:`${d.sucName}${carLbl} · ${d.dia} ${d.hora}`,time:'Ahora'});save();updateHeader()}
   this._cita(v,step+1,d);
 },
 
