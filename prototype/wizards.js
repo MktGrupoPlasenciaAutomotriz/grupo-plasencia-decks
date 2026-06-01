@@ -151,9 +151,9 @@ _cita(v,step,d){
     <div class="cita-qr-card">
       <div class="qr-wrap">${qrSVG('GP-CITA|'+d.folio+'|'+d.dia+'|'+d.hora+'|'+(d.suc||''),180)}</div>
       <div class="qr-info">
-        <div class="qr-label">Tu pase digital</div>
-        <h4>Llega y escanea</h4>
-        <p>Muestra este QR en recepción al llegar. El asesor lo escanea y aparece toda tu cita preparada. Sin papeles, sin esperar en fila.</p>
+        <div class="qr-label">${I.spark?I.spark(12):''} Tu pase Plasencia</div>
+        <h4>Escánealo al llegar.</h4>
+        <p>Al entrar a la agencia, escanéalo en el <b>kiosko Plasencia</b> del piso de venta. Tu asesor sabe que llegaste, prepara tu auto de interés y te atiende sin esperar. Te sirvió el digital — el piso te lo entrega.</p>
         <div class="folio inline"><div class="k">Folio</div><div class="v">${d.folio}</div></div>
       </div>
     </div>

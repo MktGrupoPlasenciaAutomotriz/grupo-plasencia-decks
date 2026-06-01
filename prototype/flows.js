@@ -81,11 +81,12 @@ const Auth={
         ${isSignup?`<div class="field"><label>Teléfono (opcional)</label><input id="au_tel" type="tel" placeholder="33 0000 0000"></div>`:''}
         <button class="btn btn-conv btn-lg" onclick="Auth.submit()" style="margin-top:8px">${isSignup?'Crear cuenta':'Iniciar sesión'}</button>
       </div>
-      <div class="auth-demo">¿Solo explorando? <a onclick="Auth.demo()">Continuar como demo →</a></div>
+      <div class="auth-demo">¿Solo explorando? <a onclick="Auth.guest()">Continuar como invitado →</a></div>
     </div>`);
   },
+  guest(){return this.demo()},
   demo(){
-    STATE.customer={nombre:'Cliente Plasencia',email:'demo@plasencia.mx',tel:'33 1234 5678',preap:true,linea:850000,kyc:true,desde:'2025-08-12',points:3480,rfc:'XAXX010101000'};
+    STATE.customer={nombre:'Cliente Plasencia',email:'invitado@plasencia.mx',tel:'33 1234 5678',preap:true,linea:850000,kyc:true,desde:'2025-08-12',points:3480,rfc:'XAXX010101000'};
     // Poblar masivo para demo realista
     const newCar=CARS.find(c=>c.cond==='nuevo')||CARS[0];
     const semiCar=CARS.find(c=>c.cond==='seminuevo')||CARS[1];
@@ -140,13 +141,13 @@ const Auth={
       {id:uid('n'),ic:'blue',t:'Próximo pago de crédito · 15 jun',d:mxn(mensCredito(newCar?.precio||450000,20,60))+' · cargo automático Visa •6411',time:'Hace 1 día'},
       {id:uid('n'),ic:'green',t:'Bienvenido a Plasencia Marketplace',d:'Tu cuenta demo está lista con datos simulados',time:'Hace 3 días'},
     ];
-    save();this.close();updateHeader();toast('Sesión demo iniciada');if(this.cb)setTimeout(this.cb,200);else go('#/cuenta');
+    save();this.close();updateHeader();toast('Bienvenido como invitado');const cb=this.cb;this.cb=null;if(cb)setTimeout(cb,200);else go('#/cuenta');
   },
   submit(){
     const nombre=$('#au_nom')?.value || $('#au_em')?.value?.split('@')[0].replace(/[._]/g,' ').replace(/\b\w/g,c=>c.toUpperCase()) || 'Cliente';
     STATE.customer={nombre,email:$('#au_em')?.value||'demo@plasencia.mx',tel:$('#au_tel')?.value||'',preap:false,kyc:false,desde:new Date().toISOString().slice(0,10),points:0};
     STATE.notifs.unshift({id:uid('n'),ic:'green',t:'Cuenta creada',d:'Completa tu perfil para pre-aprobar crédito.',time:'Ahora'});
-    save();this.close();updateHeader();toast('Cuenta creada');if(this.cb)setTimeout(this.cb,200);else go('#/cuenta?t=perfil');
+    save();const cb=this.cb;this.close();updateHeader();toast('Cuenta creada');if(cb)setTimeout(cb,200);else go('#/cuenta?t=perfil');
   }
 };
 function logout(){if(confirm('¿Cerrar sesión? Tu progreso se conserva.')){STATE.customer=null;save();updateHeader();go('#/');toast('Sesión cerrada')}}

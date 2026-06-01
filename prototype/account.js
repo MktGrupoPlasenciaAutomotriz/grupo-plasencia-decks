@@ -7,7 +7,7 @@ view(){
       <div style="color:var(--n300);margin-bottom:8px;display:inline-flex">${I.user(48)}</div>
       <h2 style="font-size:24px;color:var(--navy)">Inicia sesión para entrar a Mi Plasencia</h2>
       <p style="color:var(--n500);margin-top:8px;max-width:480px;margin-left:auto;margin-right:auto">Tu garage, reservas, crédito, autolease, trade-ins y citas en un solo lugar.</p>
-      <div style="margin-top:24px;display:flex;gap:10px;justify-content:center"><button class="btn btn-conv btn-lg" onclick="Auth.open('signup')">Crear cuenta</button><button class="btn btn-out btn-lg" onclick="Auth.demo()">Continuar como demo</button></div>
+      <div style="margin-top:24px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap"><button class="btn btn-conv btn-lg" onclick="Auth.open('signup')">Crear cuenta</button><button class="btn btn-out btn-lg" onclick="Auth.guest()">Continuar como invitado</button></div>
     </div>`;
   }
   const c=STATE.customer;
