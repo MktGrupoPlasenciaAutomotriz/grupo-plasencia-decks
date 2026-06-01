@@ -6,8 +6,12 @@ const num = n => new Intl.NumberFormat('es-MX').format(n||0);
 const initials = s => (s||'').split(' ').filter(w=>/^[A-ZÁÉÍÓÚ]/.test(w[0]||'')).map(w=>w[0]).slice(0,2).join('').toUpperCase()||'P';
 const FALLBACK='data:image/svg+xml;utf8,'+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="400" height="250"><rect width="400" height="250" fill="#E2E8F0"/><text x="50%" y="50%" font-family="sans-serif" font-size="14" fill="#A0AEC0" text-anchor="middle" dy=".3em">Foto próximamente</text></svg>');
 
-// Mapa marca → logo SVG. "Multimarca" o sin logo = isotipo GP
-const MARCA_LOGOS={Mazda:'mazda',Hyundai:'hyundai',Nissan:'nissan',Chevrolet:'chevrolet',Kia:'kia',Ford:'ford',Jeep:'jeep',RAM:'ram',Dodge:'dodge',Fiat:'fiat',Peugeot:'peugeot',GAC:'gac',GWM:'gwm',Changan:'changan',Buick:'buick',GMC:'gmc',Foton:'foton',Isuzu:'isuzu',Infiniti:'infiniti',Seminuevos:'seminuevos'};
+// Las 13 marcas NUEVAS oficiales que vende el grupo (KO-Estrategico, fuente oficial)
+// NO incluye Nissan/Chevrolet/Kia/Buick/GMC/Foton/Infiniti — esas solo aparecen
+// como seminuevos por trade-ins multi-marca, no son marcas representadas
+const MARCAS_NUEVAS=['Mazda','Hyundai','Ford','Jeep','RAM','Dodge','Fiat','Peugeot','Chrysler','GAC','GWM','Changan','Isuzu'];
+// Mapa marca → logo SVG (solo las 13 reales del grupo + Seminuevos como entidad)
+const MARCA_LOGOS={Mazda:'mazda',Hyundai:'hyundai',Ford:'ford',Jeep:'jeep',RAM:'ram',Dodge:'dodge',Fiat:'fiat',Peugeot:'peugeot',GAC:'gac',GWM:'gwm',Changan:'changan',Isuzu:'isuzu',Seminuevos:'seminuevos'};
 // Mapa: id de sucursal → marca para el logo. Lopez Mateos = Plasencia Seminuevos
 const SUC_MARCA={'bugambilias':'Mazda','galerias':'Mazda','santa-anita':'Mazda','americas':'Mazda','acueducto':'Mazda','plasencia':'Mazda','gonzalez-gallo':'Mazda','hyundai-acueducto':'Hyundai','hyundai-vallarta':'Hyundai','stellantis-lcv':'Stellantis','stellantis-jeep':'Jeep','gac-plasencia':'GAC','lopez-mateos':'Seminuevos'};
 // Stellantis no tiene logo individual: usa Jeep o RAM según contexto, o isotipo GP
@@ -52,23 +56,23 @@ const INVENTORY={
   ciudades:['Guadalajara','Tepic','Colima','Manzanillo','Puerto Vallarta','San Luis Potosi','Mazatlan'],
   estados:6, // Jalisco, Nayarit, Colima, SLP, Sinaloa, Aguascalientes
   agencias:42, // 37-42 segun fuente; tomamos 42 (data ventas)
+  // Solo las 13 marcas NUEVAS oficiales (KO-Estrategico). El grupo NO vende
+  // Nissan/Chevrolet/Kia/Buick/GMC/Infiniti/Foton — pueden aparecer como seminuevos
+  // por trade-ins multi-marca, pero no son marcas representadas con agencia.
   porMarca:{
     Mazda:780,    // 10-11 agencias · CPL mas eficiente · 403 facturas/mes
     Hyundai:420,  // 7 agencias · 121 facturas/mes
-    GWM:165,      // 4 agencias · 319 facturas/4meses
+    GWM:165,      // 4 agencias · 319 facturas en 4 meses
     Ford:140,     // 4-5 agencias
     GAC:155,      // 4 agencias · 39 facturas/mes con escala creciente
     Changan:95,   // 3-4 agencias
-    Stellantis:85,// 2 agencias (Jeep+RAM+Dodge+Fiat+Chrysler+Peugeot)
-    Isuzu:55,     // 2 agencias (comerciales)
-    Chevrolet:30,
-    Buick:18,
-    GMC:10,
-    Nissan:22,    // referencia
-    Kia:18,
-    Infiniti:12,
-    Foton:32,
-    Peugeot:14
+    Jeep:55,      // Stellantis · 1-2 agencias dedicadas
+    RAM:42,       // Stellantis comerciales
+    Fiat:28,      // Stellantis
+    Peugeot:25,   // Stellantis
+    Dodge:18,     // Stellantis
+    Chrysler:8,   // Stellantis
+    Isuzu:55      // 2 agencias (comerciales/pesados)
   },
   // Las 12 sucursales destacadas del catalogo.json son una SELECCION; la realidad es 37-42 puntos
   // El directorio /concesionarias muestra las 12 + nota "y X mas en otros estados"
@@ -91,10 +95,10 @@ function header(){
     <nav class="nav">
       <div class="nav-item ${isOn(['#/catalogo','#/concesionaria'])?'on':''}"><a href="#/catalogo">Comprar ${I.chevD(14)}</a>
         <div class="submenu">
-          <a href="#/catalogo?cond=nuevo">Autos nuevos<span class="d">Las 14 marcas del grupo</span></a>
+          <a href="#/catalogo?cond=nuevo">Autos nuevos<span class="d">Las 13 marcas del grupo</span></a>
           <a href="#/catalogo?cond=seminuevo">Seminuevos certificados<span class="d">+750 unidades multi-marca · 167 puntos de inspección · ~15 lotes</span></a>
           <a href="#/catalogo">Catálogo cross-marca<span class="d">Todo el inventario en un solo lugar</span></a>
-          <a href="#/concesionarias">Concesionarias<span class="d">Las 12 del grupo</span></a>
+          <a href="#/concesionarias">Concesionarias<span class="d">Las ${INVENTORY.agencias} agencias del grupo en ${INVENTORY.estados} estados</span></a>
         </div></div>
       <div class="nav-item ${isOn(['#/trade-in'])?'on':''}"><a href="#/trade-in">Vender o cambiar</a></div>
       <div class="nav-item ${isOn(['#/credito','#/autolease','#/seguros'])?'on':''}"><a href="#/credito">Financiar y proteger ${I.chevD(14)}</a>
@@ -136,10 +140,10 @@ function header(){
 }
 function toggleMobileNav(){const n=$('#mobileNav');if(n)n.classList.toggle('open')}
 function footer(){return `<footer class="ftr"><div class="ftr-in"><div class="ftr-grid">
-  <div class="ftr-logo"><img src="logo-blanco.png" alt="Grupo Plasencia"><p>+${num(INVENTORY.total)} autos · 14 marcas · ${INVENTORY.agencias} agencias en ${INVENTORY.estados} estados del occidente de México · 75 años. El marketplace donde todo el ciclo de tu auto vive en una sola cuenta.</p></div>
+  <div class="ftr-logo"><img src="logo-blanco.png" alt="Grupo Plasencia"><p>+${num(INVENTORY.total)} autos · 13 marcas · ${INVENTORY.agencias} agencias en ${INVENTORY.estados} estados del occidente de México · 75 años. El marketplace donde todo el ciclo de tu auto vive en una sola cuenta.</p></div>
   <div><h4>Comprar</h4><ul><li onclick="go('#/catalogo?cond=nuevo')">Autos nuevos</li><li onclick="go('#/catalogo?cond=seminuevo')">Seminuevos certificados</li><li onclick="go('#/catalogo')">Catálogo cross-marca</li><li onclick="go('#/concesionarias')">Las 42 agencias</li></ul></div>
   <div><h4>Soluciones</h4><ul><li onclick="go('#/trade-in')">Vender o cambiar tu auto</li><li onclick="go('#/credito')">Plasencia Crédito</li><li onclick="go('#/autolease')">GP Autolease</li><li onclick="go('#/seguros')">Plasencia Seguros</li><li onclick="go('#/flotillas')">Flotillas empresariales</li></ul></div>
-  <div><h4>Grupo Plasencia</h4><ul><li>75 años de historia</li><li>${INVENTORY.agencias} agencias en ${INVENTORY.ciudades.length} ciudades del occidente</li><li>14 marcas representadas</li><li>Trabaja con nosotros</li></ul></div>
+  <div><h4>Grupo Plasencia</h4><ul><li>75 años de historia</li><li>${INVENTORY.agencias} agencias en ${INVENTORY.ciudades.length} ciudades del occidente</li><li>13 marcas representadas</li><li>Trabaja con nosotros</li></ul></div>
 </div><div class="bottom"><span>© 2026 Grupo Plasencia Automotriz · Prototipo de producto</span><span style="color:var(--gold)">Marketplace · la experiencia ideal</span></div></div></footer>`;}
 function updateHeader(){const h=$('.hdr');if(h)h.outerHTML=header()}
 

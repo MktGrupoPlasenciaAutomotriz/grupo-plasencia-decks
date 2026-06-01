@@ -45,7 +45,7 @@ const CmdK={
       {g:'Navegación',items:[
         {ic:I.car(16),t:'Ver catálogo completo',hint:'todos',run:()=>go('#/catalogo')},
         {ic:I.shield(16),t:'Seminuevos certificados',hint:'167 puntos',run:()=>go('#/catalogo?cond=seminuevo')},
-        {ic:I.car(16),t:'Autos nuevos',hint:'14 marcas',run:()=>go('#/catalogo?cond=nuevo')},
+        {ic:I.car(16),t:'Autos nuevos',hint:'13 marcas',run:()=>go('#/catalogo?cond=nuevo')},
         {ic:I.building(16),t:'Las 42 agencias',hint:'directorio',run:()=>go('#/concesionarias')},
         {ic:I.user(16),t:'Mi Plasencia',hint:'mi cuenta',run:()=>go('#/cuenta')},
       ]},

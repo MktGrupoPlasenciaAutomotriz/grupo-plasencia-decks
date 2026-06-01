@@ -64,7 +64,7 @@ draw.text((PAD,y),'sin perseguir a nadie.',font=f_disp_xl,fill=GOLD)
 
 # Stats inferior
 y=H-110
-stats=[('+2,700','autos'),('14','marcas'),('42','agencias'),('6','estados'),('75','años')]
+stats=[('+2,700','autos'),('13','marcas'),('42','agencias'),('6','estados'),('75','años')]
 sx=PAD
 for n,l in stats:
     draw.text((sx,y),n,font=f_disp_lg,fill=WHITE)

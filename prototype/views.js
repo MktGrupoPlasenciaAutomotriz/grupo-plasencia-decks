@@ -36,7 +36,7 @@ home(){
   const dest=CARS.filter(c=>c.dest).slice(0,4);
   const topDealers=SUCS.slice().sort((a,b)=>b.reviews-a.reviews).slice(0,6);
   const SOLUC=[
-    [I.car(24),'Encuentra tu próximo auto','Compara nuevos y seminuevos de 14 marcas en un solo catálogo. Filtra por uso, presupuesto o forma de pago.','#/catalogo'],
+    [I.car(24),'Encuentra tu próximo auto','Compara nuevos y seminuevos de 13 marcas en un solo catálogo. Filtra por uso, presupuesto o forma de pago.','#/catalogo'],
     [I.trending(24),'Vende o cambia el que ya tienes','Sube fotos, recibe oferta firme en 2 minutos. Decide después: efectivo, cambio o esperar.','#/trade-in'],
     [I.card(24),'Págalo como te acomode','Crédito con tasa fija sin afectar tu buró, contado con descuento, o arrendamiento puro si facturas.','#/credito'],
     [I.umbrella(24),'Asegúralo aquí mismo','Cobertura amplia respaldada por GNP. Cotiza, contrata y administra desde tu cuenta.','#/seguros'],
@@ -45,7 +45,7 @@ home(){
   ];
   // Entradas por INTENCION del cliente, en su voz
   const INTENT=[
-    [I.car(20),'Quiero un auto nuevo','Las 14 marcas, lado a lado',`go('#/catalogo?cond=nuevo')`],
+    [I.car(20),'Quiero un auto nuevo','Las 13 marcas, lado a lado',`go('#/catalogo?cond=nuevo')`],
     [I.shield(20),'Quiero un seminuevo','+750 unidades · 167 puntos · multi-marca',`go('#/catalogo?cond=seminuevo')`],
     [I.trending(20),'Quiero vender el mío','Oferta firme en 2 minutos',`go('#/trade-in')`],
     [I.briefcase(20),'Es para mi empresa','Cotización para flotilla',`go('#/flotillas')`],
@@ -61,7 +61,7 @@ home(){
   <section class="hero">
     <div class="bg"></div><div class="grad"></div>
     <div class="hero-in fu">
-      <div class="eyebrow gold">El único marketplace con +${num(INVENTORY.total)} autos · 14 marcas · ${INVENTORY.agencias} agencias propias en ${INVENTORY.estados} estados</div>
+      <div class="eyebrow gold">El único marketplace con +${num(INVENTORY.total)} autos · 13 marcas · ${INVENTORY.agencias} agencias propias en ${INVENTORY.estados} estados</div>
       <h1 style="margin-top:14px">Tu próximo auto,<br><span class="y">sin perseguir a nadie.</span></h1>
       <p class="sub">Ningún concesionario individual te puede ofrecer esto. Ningún marketplace digital tampoco. Plasencia sí — porque opera el inventario, las agencias y la postventa. <b style="color:#fff">75 años de músculo</b> al servicio de tu próximo auto.</p>
       <div class="search-shell">
@@ -76,7 +76,7 @@ home(){
       </div>
       <div class="hero-stats">
         <div class="stat"><div class="v tnum">+${num(INVENTORY.total)}</div><div class="l">Autos disponibles</div></div>
-        <div class="stat"><div class="v tnum">14</div><div class="l">Marcas representadas</div></div>
+        <div class="stat"><div class="v tnum">${MARCAS_NUEVAS.length}</div><div class="l">Marcas representadas</div></div>
         <div class="stat"><div class="v tnum">${INVENTORY.agencias}</div><div class="l">Agencias en ${INVENTORY.estados} estados</div></div>
         <div class="stat"><div class="v tnum">75</div><div class="l">Años de respaldo</div></div>
       </div>
@@ -106,9 +106,9 @@ home(){
         <p>No revendedores, no intermediarios. Cobertura en ${INVENTORY.estados} estados del occidente.</p>
       </div>
       <div class="b-card">
-        <div class="b-num tnum">14</div>
+        <div class="b-num tnum">${MARCAS_NUEVAS.length}</div>
         <h3>Marcas representadas</h3>
-        <p>Compara entre todas sin tener que ir a 14 lugares distintos. <b>Único grupo en MX con este alcance.</b></p>
+        <p>Compara entre todas sin tener que ir a 13 lugares distintos. <b>Único grupo en el occidente con este alcance.</b></p>
       </div>
       <div class="b-card">
         <div class="b-num tnum">800</div>
@@ -128,8 +128,8 @@ home(){
   </div></section>
 
   <div class="marcas"><div class="marcas-in">
-    <span class="lbl">+${num(INVENTORY.total)} autos · 14 marcas · ${INVENTORY.agencias} agencias en ${INVENTORY.estados} estados</span>
-    ${MARCAS.map(m=>{const s=marcaLogoSrc(m);const inv=INVENTORY.porMarca[m]||0;const inner=s?`<img src="${s}" alt="${m}">`:`<b style="font-family:var(--disp);font-weight:800;color:var(--n600);font-size:14px">${m}</b>`;return `<button class="marca-chip" onclick="go('#/catalogo?marca=${encodeURIComponent(m)}')" title="${m} · ${inv} autos disponibles">${inner}${inv?`<span class="marca-count tnum">${inv}</span>`:''}</button>`}).join('')}
+    <span class="lbl">Las ${MARCAS_NUEVAS.length} marcas que representa el grupo · +${num(INVENTORY.total)} autos · ${INVENTORY.agencias} agencias</span>
+    ${MARCAS_NUEVAS.map(m=>{const s=marcaLogoSrc(m);const inv=INVENTORY.porMarca[m]||0;const inner=s?`<img src="${s}" alt="${m}">`:`<b style="font-family:var(--disp);font-weight:800;color:var(--n600);font-size:14px">${m}</b>`;return `<button class="marca-chip" onclick="go('#/catalogo?marca=${encodeURIComponent(m)}')" title="${m} · ${inv} autos disponibles">${inner}${inv?`<span class="marca-count tnum">${inv}</span>`:''}</button>`}).join('')}
   </div></div>
 
   <section class="sec"><div class="wrap">
@@ -175,7 +175,7 @@ home(){
     <p class="lede">Cada agencia tiene su propio rating, reseñas y especialidad. Tú decides cuál te entrega — con la misma promesa Plasencia: precio justo, inspección certificada, garantía por escrito.</p>
     <div class="dealers-hero">
       <div class="bg"></div><div class="grad"></div>
-      <div class="ctn"><h2 style="color:#fff">42 agencias. 14 marcas. Una sola promesa.</h2><p>Cambia de agencia sin perder tu historial. Compra en una, da servicio en otra, vende en una tercera. Tu cuenta Plasencia te sigue.</p></div>
+      <div class="ctn"><h2 style="color:#fff">42 agencias. 13 marcas. Una sola promesa.</h2><p>Cambia de agencia sin perder tu historial. Compra en una, da servicio en otra, vende en una tercera. Tu cuenta Plasencia te sigue.</p></div>
     </div>
     <div class="dealer-grid">
       ${topDealers.map(d=>`<div class="dealer" onclick="go('#/concesionaria/${d.id}')">
@@ -239,7 +239,7 @@ catalogo(){
     <span class="count" id="fcount"></span>
   </div></div>
   <div class="wrap" style="padding:32px 24px 0">
-    <div class="eyebrow">${FILT.marca==='todas'?`+${num(INVENTORY.total)} unidades · 14 marcas · ${INVENTORY.agencias} agencias en ${INVENTORY.estados} estados`:`${INVENTORY.porMarca[FILT.marca]||0} ${FILT.marca} disponibles en el grupo`}</div>
+    <div class="eyebrow">${FILT.marca==='todas'?`+${num(INVENTORY.total)} unidades · 13 marcas · ${INVENTORY.agencias} agencias en ${INVENTORY.estados} estados`:`${INVENTORY.porMarca[FILT.marca]||0} ${FILT.marca} disponibles en el grupo`}</div>
     <h2 style="font-size:clamp(24px,3vw,34px);font-weight:800;color:var(--navy);margin-top:8px">${FILT.marca==='todas'?'Todo el inventario, lado a lado':FILT.marca+' en el Grupo Plasencia'}</h2>
     <p style="font-size:13px;color:var(--n500);margin-top:6px">Mostramos una selección curada de los autos más buscados. ¿No ves el que quieres? <a style="color:var(--blue-d);text-decoration:underline;cursor:pointer" onclick="Plasi.open('Busco un auto específico que no veo en el catálogo')">Pregúntale a Plasi</a> o <a style="color:var(--blue-d);text-decoration:underline;cursor:pointer" onclick="Flow.openCita()">agenda con un asesor</a>.</p>
   </div>
@@ -249,7 +249,7 @@ catalogo(){
 // ====== CONCESIONARIAS ======
 concesionarias(){
   return `<div class="wrap" style="padding:40px 24px 0">
-    <div class="eyebrow">+${num(INVENTORY.total)} autos · ${INVENTORY.agencias} agencias · 14 marcas · ${INVENTORY.estados} estados</div>
+    <div class="eyebrow">+${num(INVENTORY.total)} autos · ${INVENTORY.agencias} agencias · 13 marcas · ${INVENTORY.estados} estados</div>
     <h2 style="font-size:clamp(24px,3vw,34px);color:var(--navy);margin-top:8px">Elige con quién quieres tratar.</h2>
     <p class="lede">El grupo opera <b>${INVENTORY.agencias} agencias</b> en ${INVENTORY.ciudades.join(', ')}. Aquí ves las ${SUCS.length} más activas en Guadalajara. <a style="color:var(--blue-d);text-decoration:underline;cursor:pointer" onclick="Plasi.open('¿Tienen agencia en mi ciudad?')">Pregunta por tu ciudad</a> · tu cuenta funciona en cualquiera.</p>
   </div>
@@ -390,8 +390,8 @@ autolease(){
   return `<section class="tradein-hero"><div class="wrap">
     <div>
       <div class="eyebrow gold" style="color:var(--gold)">GP Autolease · único cross-marca en el occidente</div>
-      <h1 style="margin-top:14px">Arrendamiento puro<br><span>de las 14 marcas, en un solo contrato.</span></h1>
-      <p class="sub">¿Necesitas un Mazda CX-5 hoy y un RAM 2500 en 2 años? Con Plasencia, el mismo contrato marco te cubre las <b style="color:#fff">14 marcas del grupo</b>. Renta mensual fija deducible para PFAE y empresas, plazos 24-48m. Al final: renuevas, devuelves o compras. Único Autolease en MX que opera <b style="color:#fff">cross-marca + mantenimiento en los ${INVENTORY.agencias} talleres</b>.</p>
+      <h1 style="margin-top:14px">Arrendamiento puro<br><span>de las 13 marcas, en un solo contrato.</span></h1>
+      <p class="sub">¿Necesitas un Mazda CX-5 hoy y un RAM 2500 en 2 años? Con Plasencia, el mismo contrato marco te cubre las <b style="color:#fff">13 marcas del grupo</b>. Renta mensual fija deducible para PFAE y empresas, plazos 24-48m. Al final: renuevas, devuelves o compras. Único Autolease en MX que opera <b style="color:#fff">cross-marca + mantenimiento en los ${INVENTORY.agencias} talleres</b>.</p>
       <div style="margin-top:24px;display:flex;gap:10px;flex-wrap:wrap">
         <button class="btn btn-gold btn-lg" onclick="Flow.openLease()">Cotizar arrendamiento ${I.arrowR(16)}</button>
         <button class="btn btn-ghost-dark btn-lg" onclick="go('#/credito')">¿Mejor crédito?</button>
