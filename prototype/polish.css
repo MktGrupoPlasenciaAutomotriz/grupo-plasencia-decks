@@ -399,3 +399,173 @@ img[loading="lazy"].loaded,img[loading="lazy"][src]:not([src=""]){opacity:1}
 /* Sectioning */
 .sec{padding:clamp(48px,6vw,96px) 0}
 .wrap{padding:0 clamp(18px,3vw,32px)}
+
+/* ──────────────────────────────────────────────────────────────────────────
+   MOBILE-FIRST FIXES · auditoría pixel-perfect
+   ────────────────────────────────────────────────────────────────────────── */
+
+/* Anti horizontal overflow global */
+html,body{overflow-x:hidden;max-width:100vw}
+*{min-width:0}
+
+/* iOS no-zoom-on-focus: inputs >= 16px en mobile */
+@media(max-width:920px){
+  input,select,textarea,
+  .field input,.field select,.field textarea,
+  .filters input,.filters select,
+  .search-shell input,
+  .plasi-in input,
+  .cmdk-search input{font-size:16px !important}
+}
+
+/* Touch targets >= 44px en mobile (Apple HIG) */
+@media(max-width:760px){
+  .btn-sm{min-height:38px;padding:9px 16px}
+  .btn-md{min-height:44px}
+  .btn-lg{min-height:48px}
+  .like{width:44px !important;height:44px !important}
+  .timeslot,.plazos button{min-height:40px}
+}
+
+/* Grids con fallback auto: cuando el container es chico, colapsan */
+.info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr)) !important;gap:10px}
+@media(max-width:600px){
+  /* Grids inline de account perfil: colapso ordenado */
+  .acct-main [style*="grid-template-columns:repeat(4,1fr)"]{grid-template-columns:repeat(2,minmax(0,1fr)) !important}
+  .acct-main [style*="grid-template-columns:repeat(3,1fr)"]{grid-template-columns:repeat(2,minmax(0,1fr)) !important}
+  .acct-main [style*="grid-template-columns:1fr 1fr"]{grid-template-columns:1fr !important;gap:14px !important}
+  .panel-body table{font-size:12px}
+  .panel-body table td,.panel-body table th{padding:10px 8px !important}
+  /* Quick-form en hero secundario */
+  .flotillas-hero .wrap,.tradein-hero .wrap{grid-template-columns:1fr !important}
+}
+
+/* Skeleton boot responsive */
+@media(max-width:760px){
+  #app > div[style*="grid-template-columns:repeat(4,1fr)"]{grid-template-columns:1fr 1fr !important}
+  #app > div > div[style*="grid-template-columns:repeat(4,1fr)"]{grid-template-columns:1fr 1fr !important}
+}
+
+/* Stat cards perfil + ciclo + flot-benef no quepan: forzar wrap mobile */
+@media(max-width:600px){
+  .ciclo-grid,.flot-benef,.paths-grid,.sol-grid{grid-template-columns:1fr !important}
+  .dealer-grid{grid-template-columns:1fr !important}
+  .vgrid{grid-template-columns:1fr 1fr !important;gap:14px}
+}
+@media(max-width:420px){
+  .vgrid{grid-template-columns:1fr !important}
+}
+
+/* Hero mobile: stats compactas en 2x2 */
+@media(max-width:600px){
+  .hero-stats{grid-template-columns:1fr 1fr !important;gap:8px !important}
+  .hero-stats .stat{padding:14px 12px !important}
+  .hero-stats .v{font-size:20px !important}
+  .hero-stats .l{font-size:10.5px !important}
+}
+
+/* Cockpit mobile: padding reducido */
+@media(max-width:600px){
+  .cockpit{padding:18px !important}
+  .cockpit h1{font-size:22px !important}
+  .cockpit .price{font-size:26px !important}
+  .specs-grid{grid-template-columns:1fr 1fr !important}
+}
+
+/* PDP gallery thumb mobile: scrollable */
+@media(max-width:760px){
+  .gal-thumbs{overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-bottom:4px}
+  .gal-thumbs::-webkit-scrollbar{display:none}
+}
+
+/* Modal wiz-steps en mobile: scroll horizontal si no caben */
+@media(max-width:600px){
+  .wiz-steps{overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-bottom:4px}
+  .wiz-steps::-webkit-scrollbar{display:none}
+  .wiz-step{flex-shrink:0}
+}
+
+/* Modal body sin tocar bordes del sheet */
+@media(max-width:600px){
+  .modal-body{padding:20px 18px max(env(safe-area-inset-bottom),16px)}
+  .summary-box{padding:12px}
+  .summary-box .row{font-size:13.5px}
+}
+
+/* Wallet card en perfil mobile: full width */
+@media(max-width:600px){
+  .acct-wallet{margin-left:0 !important;width:100% !important;display:flex;justify-content:space-between;align-items:center;padding:14px 16px !important}
+  .acct-wallet .v{font-size:22px !important}
+}
+
+/* Plasi panel input bar mobile: 16px font-size (anti zoom iOS) */
+@media(max-width:600px){
+  .plasi-in input{font-size:16px !important;padding:14px 18px !important}
+}
+
+/* Footer mobile mejor stack */
+@media(max-width:600px){
+  .ftr-grid{grid-template-columns:1fr !important;gap:32px !important}
+  .ftr .bottom{flex-direction:column;align-items:flex-start;gap:6px}
+}
+
+/* Quick-form en landings (tradein/flotillas/seguros): full width mobile */
+@media(max-width:760px){
+  .quick-form{padding:18px !important;border-radius:14px !important}
+  .flotillas-hero .wrap,.tradein-hero .wrap{display:flex !important;flex-direction:column;gap:24px}
+}
+
+/* PDP layout mobile: cockpit DEBAJO de gallery, ambos full width */
+@media(max-width:920px){
+  .pdp{grid-template-columns:1fr !important;gap:18px}
+}
+
+/* Modtabs (cockpit) y plazos: touch target mejorado */
+@media(max-width:760px){
+  .modtabs button{min-height:44px;font-size:12.5px}
+  .plazos button{min-height:42px}
+  .choice{padding:14px}
+  .choice .t{font-size:14px}
+}
+
+/* Brand strip touch */
+@media(max-width:760px){
+  .brand-chip{min-height:48px;padding:0 12px}
+  .brand-chip img{max-height:24px}
+}
+
+/* Anti-truncation severa en notif/card meta */
+@media(max-width:600px){
+  .card-row{padding:14px !important}
+  .card-row h3{font-size:15px;line-height:1.3}
+  .card-row .meta{font-size:11.5px;line-height:1.4}
+  .card-row .actions{flex-direction:row !important;flex-wrap:wrap;gap:6px !important}
+  .card-row .actions .btn{flex:1;min-width:120px}
+}
+
+/* Concesionarias dealer mobile: grid 1 col, dealer card vertical */
+@media(max-width:600px){
+  .dealer{flex-direction:column;align-items:flex-start;text-align:left}
+  .dealer .dealer-logo{margin-bottom:10px}
+  .dealer .dealer-info{width:100%}
+}
+
+/* Marcas strip mobile counter más visible */
+@media(max-width:760px){
+  .marca-chip .marca-count{font-size:10px;padding:1px 6px}
+  .marca-chip{height:48px}
+}
+
+/* CmdK mobile padding */
+@media(max-width:600px){
+  .cmdk-search{padding:14px 16px}
+  .cmdk-foot{display:none}
+}
+
+/* Hero hero-in padding refinado mobile */
+@media(max-width:600px){
+  .hero-in{padding:48px 18px 56px !important}
+  .hero p.sub{font-size:14.5px !important;line-height:1.5}
+  .trust-line{margin-top:20px !important;flex-direction:column;gap:8px !important;align-items:flex-start}
+  .trust-line span{font-size:12.5px !important}
+}
