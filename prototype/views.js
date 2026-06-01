@@ -61,9 +61,9 @@ home(){
   <section class="hero">
     <div class="bg"></div><div class="grad"></div>
     <div class="hero-in fu">
-      <div class="eyebrow gold">+${num(INVENTORY.total)} autos · 14 marcas · ${INVENTORY.agencias} agencias en ${INVENTORY.estados} estados</div>
+      <div class="eyebrow gold">El único marketplace con +${num(INVENTORY.total)} autos · 14 marcas · ${INVENTORY.agencias} agencias propias en ${INVENTORY.estados} estados</div>
       <h1 style="margin-top:14px">Tu próximo auto,<br><span class="y">sin perseguir a nadie.</span></h1>
-      <p class="sub">Compara entre 14 marcas y +${num(INVENTORY.total)} unidades en un solo catálogo. Cotiza crédito, valúa tu actual y agenda entrega — desde tu celular, en menos de lo que tarda una llamada al vendedor.</p>
+      <p class="sub">Ningún concesionario individual te puede ofrecer esto. Ningún marketplace digital tampoco. Plasencia sí — porque opera el inventario, las agencias y la postventa. <b style="color:#fff">75 años de músculo</b> al servicio de tu próximo auto.</p>
       <div class="search-shell">
         <div class="si">${I.search(20)}<input placeholder="¿Qué buscas? SUV familiar, pickup de trabajo, sedán económico…" onkeydown="if(event.key==='Enter')go('#/catalogo?q='+encodeURIComponent(this.value))"></div>
         <button class="btn btn-conv btn-lg" onclick="go('#/catalogo')">Ver catálogo</button>
@@ -86,6 +86,44 @@ home(){
   <section class="intents"><div class="wrap">
     <div class="intents-grid">
       ${INTENT.map(it=>`<button class="intent" onclick="${it[3]}"><div class="ic">${it[0]}</div><h3>${it[1]}</h3><p>${it[2]}</p><div class="more">Empezar ${I.chevR(12)}</div></button>`).join('')}
+    </div>
+  </div></section>
+
+  <!-- POR QUÉ PLASENCIA · músculo articulado -->
+  <section class="sec authority"><div class="wrap">
+    <div class="eyebrow">Por qué este marketplace puede existir</div>
+    <h2 style="margin-top:10px">El músculo del occidente, ahora digital.</h2>
+    <p class="lede">Comprar nuevo y seminuevo, financiar, asegurar y dar servicio — todo en una sola cuenta — no es trivial. Requiere inventario propio, agencias propias, talleres propios. <b style="color:var(--navy)">Plasencia es el único grupo en México occidental que opera las tres cosas a la escala que el marketplace digital necesita.</b></p>
+    <div class="bento">
+      <div class="b-card b-big">
+        <div class="b-num tnum">+${num(INVENTORY.total)}</div>
+        <h3>Unidades en piso, ahora mismo</h3>
+        <p>1,950 nuevas + 750 seminuevas multi-marca. <b>Cross-stock entre las ${INVENTORY.agencias} agencias</b>: si el auto que quieres está en Tepic, te lo movemos a tu agencia más cercana en 24-48h sin costo.</p>
+      </div>
+      <div class="b-card b-gold">
+        <div class="b-num tnum">${INVENTORY.agencias}</div>
+        <h3>Agencias propias</h3>
+        <p>No revendedores, no intermediarios. Cobertura en ${INVENTORY.estados} estados del occidente.</p>
+      </div>
+      <div class="b-card">
+        <div class="b-num tnum">14</div>
+        <h3>Marcas representadas</h3>
+        <p>Compara entre todas sin tener que ir a 14 lugares distintos. <b>Único grupo en MX con este alcance.</b></p>
+      </div>
+      <div class="b-card">
+        <div class="b-num tnum">800</div>
+        <h3>Facturas al mes</h3>
+        <p>Volumen real (no solo listings). Eso nos da poder de negociación con bancos, aseguradoras y proveedores — y bajamos precio a ti.</p>
+      </div>
+      <div class="b-card">
+        <div class="b-num tnum">75</div>
+        <h3>Años de respaldo</h3>
+        <p>Fundado en 1951. Garantías que se honran. Talleres que llevan décadas operando.</p>
+      </div>
+      <div class="b-card b-dark">
+        <h3 style="color:#fff">¿Por qué importa para ti?</h3>
+        <p style="color:rgba(255,255,255,.75)">Porque <b style="color:var(--gold)">la escala se traduce en mejores precios, mejor servicio y menos sorpresas</b>. Un concesionario individual te da una marca y un punto. Un marketplace digital te da listings sin garantía. Plasencia te da las dos cosas, en una cuenta, con respaldo de 75 años.</p>
+      </div>
     </div>
   </div></section>
 
@@ -265,9 +303,9 @@ tradein(){
   ];
   return `<section class="tradein-hero"><div class="wrap">
     <div>
-      <div class="eyebrow gold" style="color:var(--gold)">Vende o cambia tu auto</div>
-      <h1 style="margin-top:14px">Tu auto vale más<br><span>de lo que crees.</span></h1>
-      <p class="sub">Oferta firme en 2 minutos. Sin compromiso. Las 42 agencias del grupo reciben +200 trade-ins al mes — pagamos mejor porque tenemos a quién venderlo.</p>
+      <div class="eyebrow gold" style="color:var(--gold)">Vende o cambia tu auto · cualquier marca</div>
+      <h1 style="margin-top:14px">Tu auto vale más<br><span>cuando lo vendes con escala.</span></h1>
+      <p class="sub">Plasencia es el único marketplace que opera <b style="color:#fff">${INVENTORY.agencias} agencias en ${INVENTORY.estados} estados</b> y vende seminuevos <b style="color:#fff">multi-marca</b>. Por eso tu Toyota, Nissan, VW o cualquier marca vale más con nosotros — porque tenemos los 15 lotes donde colocarlo. Oferta firme en 2 minutos.</p>
       <div style="margin-top:24px;display:flex;gap:10px;flex-wrap:wrap">
         <button class="btn btn-gold btn-lg" onclick="Flow.openTradein()">Empezar valuación ${I.arrowR(16)}</button>
         <button class="btn btn-ghost-dark btn-lg" onclick="Plasi.open('¿Cómo funciona el trade-in?')">¿Cómo funciona?</button>
@@ -312,8 +350,8 @@ credito(){
   return `<section class="tradein-hero"><div class="wrap">
     <div>
       <div class="eyebrow gold" style="color:var(--gold)">Plasencia Crédito</div>
-      <h1 style="margin-top:14px">Crédito automotriz<br><span>sin sorpresas.</span></h1>
-      <p class="sub">Pre-aprobación en 2 minutos sin afectar tu buró. Tasa fija 13.5% anual. Plazos 12 a 60 meses. Enganche desde 20%.</p>
+      <h1 style="margin-top:14px">Crédito automotriz<br><span>con tasa que solo el volumen logra.</span></h1>
+      <p class="sub">Movemos <b style="color:#fff">~800 facturas al mes</b> entre las ${INVENTORY.agencias} agencias del grupo. Eso nos da poder de negociación con bancos que ningún concesionario individual tiene — y la tasa preferencial llega a ti: <b style="color:#fff">13.5% fija</b>, plazos 12-60 meses, pre-aprobación en 2 minutos sin afectar buró.</p>
       <div style="margin-top:24px;display:flex;gap:10px;flex-wrap:wrap">
         <button class="btn btn-gold btn-lg" onclick="Flow.openCredito()">Pre-aprobarme ahora ${I.arrowR(16)}</button>
         <button class="btn btn-ghost-dark btn-lg" onclick="go('#/autolease')">¿Mejor arrendamiento?</button>
@@ -351,9 +389,9 @@ credito(){
 autolease(){
   return `<section class="tradein-hero"><div class="wrap">
     <div>
-      <div class="eyebrow gold" style="color:var(--gold)">GP Autolease</div>
-      <h1 style="margin-top:14px">Arrendamiento puro<br><span>sin enganche fuerte.</span></h1>
-      <p class="sub">Renta mensual fija, deducible para PFAE y empresas. Al final del plazo: renuevas, devuelves o compras. Plazos 24 a 48 meses.</p>
+      <div class="eyebrow gold" style="color:var(--gold)">GP Autolease · único cross-marca en el occidente</div>
+      <h1 style="margin-top:14px">Arrendamiento puro<br><span>de las 14 marcas, en un solo contrato.</span></h1>
+      <p class="sub">¿Necesitas un Mazda CX-5 hoy y un RAM 2500 en 2 años? Con Plasencia, el mismo contrato marco te cubre las <b style="color:#fff">14 marcas del grupo</b>. Renta mensual fija deducible para PFAE y empresas, plazos 24-48m. Al final: renuevas, devuelves o compras. Único Autolease en MX que opera <b style="color:#fff">cross-marca + mantenimiento en los ${INVENTORY.agencias} talleres</b>.</p>
       <div style="margin-top:24px;display:flex;gap:10px;flex-wrap:wrap">
         <button class="btn btn-gold btn-lg" onclick="Flow.openLease()">Cotizar arrendamiento ${I.arrowR(16)}</button>
         <button class="btn btn-ghost-dark btn-lg" onclick="go('#/credito')">¿Mejor crédito?</button>
@@ -373,9 +411,9 @@ autolease(){
 seguros(){
   return `<section class="tradein-hero"><div class="wrap">
     <div>
-      <div class="eyebrow gold" style="color:var(--gold)">Plasencia Seguros</div>
-      <h1 style="margin-top:14px">Asegúralo<br><span>en la misma cuenta.</span></h1>
-      <p class="sub">Cobertura amplia respaldada por GNP. Cotiza en 2 minutos, contrata sin papeles físicos y administra tu póliza desde Mi Plasencia. Asistencia 24/7 en todo México.</p>
+      <div class="eyebrow gold" style="color:var(--gold)">Plasencia Seguros · respaldado por GNP</div>
+      <h1 style="margin-top:14px">Cobertura premium<br><span>con tarifa preferencial.</span></h1>
+      <p class="sub">Aseguramos <b style="color:#fff">+${num(INVENTORY.total)} unidades del grupo</b> con GNP. Ese volumen nos da tarifa que ningún broker individual consigue — y bajamos prima a ti. Amplia Plus con auto sustituto, asistencia 24/7 y taller propio en cualquiera de las <b style="color:#fff">${INVENTORY.agencias} agencias</b> sin que tengas que pelear con la aseguradora.</p>
       <div style="margin-top:24px;display:flex;gap:10px;flex-wrap:wrap">
         <button class="btn btn-gold btn-lg" onclick="Flow.openSeguro()">Cotizar mi seguro ${I.arrowR(16)}</button>
         <button class="btn btn-ghost-dark btn-lg" onclick="Plasi.open('¿Qué cubre el seguro Plasencia?')">¿Qué cubre?</button>
@@ -424,9 +462,9 @@ flotillas(){
   ];
   return `<section class="flotillas-hero"><div class="wrap">
     <div>
-      <div class="eyebrow gold" style="color:var(--gold)">Plasencia Flotillas</div>
-      <h1 style="margin-top:14px">Una flota.<br><span>Una sola gestión.</span></h1>
-      <p class="sub">Para Pymes, corporativos y gobierno. Cotización empresarial cross-marca, crédito o arrendamiento, mantenimiento programado y atención dedicada.</p>
+      <div class="eyebrow gold" style="color:var(--gold)">Plasencia Flotillas · único proveedor cross-marca del occidente</div>
+      <h1 style="margin-top:14px">Una flota.<br><span>Catorce marcas. Una sola gestión.</span></h1>
+      <p class="sub">¿Tu flotilla necesita 8 pickups RAM, 4 SUVs Mazda y 2 Hyundai utilitarios? Plasencia es el <b style="color:#fff">único grupo en el occidente</b> que te entrega las 3 marcas con <b style="color:#fff">un solo contrato marco, una sola facturación</b> y servicio en las ${INVENTORY.agencias} agencias propias. Crédito, Autolease o contado.</p>
       <div style="margin-top:24px;display:flex;gap:10px;flex-wrap:wrap">
         <button class="btn btn-gold btn-lg" onclick="Flow.openFlotilla()">Cotizar flotilla ${I.arrowR(16)}</button>
         <button class="btn btn-ghost-dark btn-lg" onclick="alert('Contacto comercial demo')">${I.phone(16)} Llamar a un asesor</button>
