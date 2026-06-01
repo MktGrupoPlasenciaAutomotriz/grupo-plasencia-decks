@@ -54,7 +54,7 @@ home(){
     ['01','Descubre sin presión','Ves nuevos, seminuevos y todas las marcas del grupo en un solo catálogo. Filtra por lo que importa: precio, uso, transmisión.'],
     ['02','Decide con datos','Calcula tu crédito o renta, valúa tu auto actual, agenda test drive. Todo desde tu celular, sin pisar la agencia.'],
     ['03','Aparta sin filas','Reserva con $5,000 reembolsables. Pagas el enganche en línea, firmas digital, te entregamos donde tú digas.'],
-    ['04','Maneja tranquilo','Tu garage, póliza, próximo servicio y pagos en una sola cuenta. Sin perseguir a nadie por WhatsApp.'],
+    ['04','Maneja tranquilo','Tu garage, póliza, próximo servicio y pagos en un solo lugar. Sin perseguir a nadie por WhatsApp.'],
     ['05','Renueva fácil','Cuando quieras cambiar, tu historial cuenta: trade-in con bonus, crédito ya pre-aprobado, todo dentro del grupo.'],
   ];
   return `
@@ -62,7 +62,7 @@ home(){
     <div class="bg"></div><div class="grad"></div>
     <div class="hero-in fu">
       <div class="eyebrow gold">Plasencia Marketplace · desde 1951</div>
-      <h1 style="margin-top:14px">Compra, financia, asegura<br>y mantén tu auto.<br><span class="y">Todo en una sola cuenta.</span></h1>
+      <h1 style="margin-top:14px">Compra, financia, asegura<br>y mantén tu auto.<br><span class="y">Todo en un solo lugar.</span></h1>
       <p class="sub">13 marcas, 42 agencias en 7 ciudades del occidente, 75 años de respaldo. <b style="color:#fff">Aquí encuentras el auto, eliges cómo pagarlo, lo aseguras y le das servicio</b> — sin tener que coordinar entre marcas, bancos, aseguradoras y talleres.</p>
       <div class="search-shell">
         <div class="si">${I.search(20)}<input placeholder="¿Qué buscas? SUV familiar, pickup de trabajo, sedán económico…" onkeydown="if(event.key==='Enter')go('#/catalogo?q='+encodeURIComponent(this.value))"></div>
@@ -122,7 +122,7 @@ home(){
       </div>
       <div class="b-card b-dark">
         <h3 style="color:#fff">Lo difícil empieza después de comprar.</h3>
-        <p style="color:rgba(255,255,255,.78)">Comprar es la parte fácil — todos te venden. Lo difícil es lo de después: que el crédito sea justo, que el seguro responda, que el servicio no sea una pelea. <b style="color:var(--gold)">Aquí lo tenemos todo conectado en una sola cuenta</b> — para que no se te complique.</p>
+        <p style="color:rgba(255,255,255,.78)">Comprar es la parte fácil — todos te venden. Lo difícil es lo de después: que el crédito sea justo, que el seguro responda, que el servicio no sea una pelea. <b style="color:var(--gold)">Aquí lo tenemos todo conectado en un solo lugar</b> — para que no se te complique.</p>
       </div>
     </div>
   </div></section>
@@ -133,7 +133,7 @@ home(){
   </div></div>
 
   <section class="sec"><div class="wrap">
-    <div class="eyebrow">Todo en una cuenta</div>
+    <div class="eyebrow">Todo en un solo lugar</div>
     <h2>Comprar es solo el principio.</h2>
     <p class="lede">Lo difícil empieza después: financiamiento, seguro, servicio, renovar. Aquí tienes todo eso resuelto y en un solo lugar — para que dejes de coordinar y simplemente uses tu auto.</p>
     <div class="sol-grid">

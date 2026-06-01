@@ -140,7 +140,7 @@ function header(){
 }
 function toggleMobileNav(){const n=$('#mobileNav');if(n)n.classList.toggle('open')}
 function footer(){return `<footer class="ftr"><div class="ftr-in"><div class="ftr-grid">
-  <div class="ftr-logo"><img src="logo-blanco.png" alt="Grupo Plasencia"><p>+${num(INVENTORY.total)} autos · 13 marcas · ${INVENTORY.agencias} agencias en ${INVENTORY.estados} estados del occidente de México · 75 años. El marketplace donde todo el ciclo de tu auto vive en una sola cuenta.</p></div>
+  <div class="ftr-logo"><img src="logo-blanco.png" alt="Grupo Plasencia"><p>+${num(INVENTORY.total)} autos · 13 marcas · ${INVENTORY.agencias} agencias en ${INVENTORY.estados} estados del occidente de México · 75 años. El marketplace donde todo el ciclo de tu auto vive en un solo lugar.</p></div>
   <div><h4>Comprar</h4><ul><li onclick="go('#/catalogo?cond=nuevo')">Autos nuevos</li><li onclick="go('#/catalogo?cond=seminuevo')">Seminuevos certificados</li><li onclick="go('#/catalogo')">Catálogo cross-marca</li><li onclick="go('#/concesionarias')">Las 42 agencias</li></ul></div>
   <div><h4>Soluciones</h4><ul><li onclick="go('#/trade-in')">Vender o cambiar tu auto</li><li onclick="go('#/credito')">Plasencia Crédito</li><li onclick="go('#/autolease')">GP Autolease</li><li onclick="go('#/seguros')">Plasencia Seguros</li><li onclick="go('#/flotillas')">Flotillas empresariales</li></ul></div>
   <div><h4>Grupo Plasencia</h4><ul><li>75 años de historia</li><li>${INVENTORY.agencias} agencias en ${INVENTORY.ciudades.length} ciudades del occidente</li><li>13 marcas representadas</li><li>Trabaja con nosotros</li></ul></div>

@@ -63,7 +63,7 @@ draw.text((PAD,y),'Compra, financia, asegura',font=f_disp_xl,fill=WHITE)
 y+=80
 draw.text((PAD,y),'y mantén tu auto.',font=f_disp_xl,fill=WHITE)
 y+=84
-draw.text((PAD,y),'Todo en una sola cuenta.',font=f_disp_xl,fill=GOLD)
+draw.text((PAD,y),'Todo en un solo lugar.',font=f_disp_xl,fill=GOLD)
 
 # Stats al pie · con beneficio claro
 y=H-100
