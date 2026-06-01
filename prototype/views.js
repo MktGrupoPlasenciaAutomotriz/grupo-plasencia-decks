@@ -61,9 +61,9 @@ home(){
   <section class="hero">
     <div class="bg"></div><div class="grad"></div>
     <div class="hero-in fu">
-      <div class="eyebrow gold">Las 13 marcas de Plasencia, en un solo lugar</div>
-      <h1 style="margin-top:14px">Tu próximo auto,<br><span class="y">sin perseguir a nadie.</span></h1>
-      <p class="sub">Compáralas todas, financia como quieras, asegúralo donde lo compras y dale servicio cerca de tu casa. <b style="color:#fff">Sin filas, sin llamadas perdidas, sin tener que ir agencia por agencia.</b></p>
+      <div class="eyebrow gold">Plasencia Marketplace · desde 1951</div>
+      <h1 style="margin-top:14px">Compra, financia, asegura<br>y mantén tu auto.<br><span class="y">Todo en una sola cuenta.</span></h1>
+      <p class="sub">13 marcas, 42 agencias en 7 ciudades del occidente, 75 años de respaldo. <b style="color:#fff">Aquí encuentras el auto, eliges cómo pagarlo, lo aseguras y le das servicio</b> — sin tener que coordinar entre marcas, bancos, aseguradoras y talleres.</p>
       <div class="search-shell">
         <div class="si">${I.search(20)}<input placeholder="¿Qué buscas? SUV familiar, pickup de trabajo, sedán económico…" onkeydown="if(event.key==='Enter')go('#/catalogo?q='+encodeURIComponent(this.value))"></div>
         <button class="btn btn-conv btn-lg" onclick="go('#/catalogo')">Ver catálogo</button>
@@ -75,10 +75,10 @@ home(){
         <span><span class="ico">${I.check(16)}</span>Crédito sin afectar tu buró</span>
       </div>
       <div class="hero-stats">
-        <div class="stat"><div class="v tnum">+${num(INVENTORY.total)}</div><div class="l">Autos disponibles</div></div>
-        <div class="stat"><div class="v tnum">${MARCAS_NUEVAS.length}</div><div class="l">Marcas representadas</div></div>
-        <div class="stat"><div class="v tnum">${INVENTORY.agencias}</div><div class="l">Agencias en ${INVENTORY.estados} estados</div></div>
-        <div class="stat"><div class="v tnum">75</div><div class="l">Años de respaldo</div></div>
+        <div class="stat"><div class="v tnum">+${num(INVENTORY.total)}</div><div class="l">Autos para elegir</div></div>
+        <div class="stat"><div class="v tnum">${MARCAS_NUEVAS.length}</div><div class="l">Marcas en un solo lugar</div></div>
+        <div class="stat"><div class="v tnum">${INVENTORY.agencias}</div><div class="l">Agencias donde estés</div></div>
+        <div class="stat"><div class="v tnum">75</div><div class="l">Años cumpliendo</div></div>
       </div>
     </div>
   </section>

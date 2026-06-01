@@ -37,10 +37,12 @@ def load(font_paths,size):
         except: pass
     return ImageFont.load_default()
 
-f_disp_xl=load(['/System/Library/Fonts/Supplemental/Futura.ttc','/System/Library/Fonts/HelveticaNeue.ttc','/System/Library/Fonts/Helvetica.ttc'],84)
-f_disp_lg=load(['/System/Library/Fonts/HelveticaNeue.ttc','/System/Library/Fonts/Helvetica.ttc'],38)
+f_disp_xl=load(['/System/Library/Fonts/Supplemental/Futura.ttc','/System/Library/Fonts/HelveticaNeue.ttc','/System/Library/Fonts/Helvetica.ttc'],72)
+f_disp_lg=load(['/System/Library/Fonts/HelveticaNeue.ttc','/System/Library/Fonts/Helvetica.ttc'],32)
 f_disp_md=load(['/System/Library/Fonts/HelveticaNeue.ttc','/System/Library/Fonts/Helvetica.ttc'],22)
 f_disp_sm=load(['/System/Library/Fonts/HelveticaNeue.ttc'],18)
+f_disp_stat=load(['/System/Library/Fonts/HelveticaNeue.ttc'],34)
+f_disp_lbl=load(['/System/Library/Fonts/HelveticaNeue.ttc'],14)
 
 GOLD=(236,201,75)
 GOLD_D=(183,121,31)
@@ -55,28 +57,27 @@ draw.line([(PAD,y+34),(PAD+150,y+34)],fill=GOLD,width=2)
 y+=58
 draw.text((PAD,y),'M A R K E T P L A C E',font=f_disp_sm,fill=WHITE)
 
-# Headline
-y=210
-draw.text((PAD,y),'Tu próximo auto,',font=f_disp_xl,fill=WHITE)
-y+=92
-# Gold gradient texto via stroke + fill
-draw.text((PAD,y),'sin perseguir a nadie.',font=f_disp_xl,fill=GOLD)
-# Subtitle/proof
-y+=104
-draw.text((PAD,y),'Comprar, financiar, asegurar y mantener',font=f_disp_lg,fill=WHITE)
-y+=46
-draw.text((PAD,y),'tu auto — todo en una sola cuenta.',font=f_disp_lg,fill=(220,225,235))
+# Headline · propuesta de valor articulada
+y=200
+draw.text((PAD,y),'Compra, financia, asegura',font=f_disp_xl,fill=WHITE)
+y+=80
+draw.text((PAD,y),'y mantén tu auto.',font=f_disp_xl,fill=WHITE)
+y+=84
+draw.text((PAD,y),'Todo en una sola cuenta.',font=f_disp_xl,fill=GOLD)
 
-# Stats inferior (más compactos, en una sola línea visual de respaldo)
-y=H-92
-stats=[('+2,700','autos'),('13','marcas'),('42','agencias'),('7','ciudades'),('75','años')]
+# Stats al pie · con beneficio claro
+y=H-100
+stats=[('+2,700','Autos para elegir'),('13','Marcas'),('42','Agencias'),('75','Años cumpliendo')]
 sx=PAD
+spacing=180
 for n,l in stats:
-    draw.text((sx,y),n,font=f_disp_lg,fill=WHITE)
-    bbox=draw.textbbox((sx,y),n,font=f_disp_lg)
+    draw.text((sx,y),n,font=f_disp_stat,fill=WHITE)
+    bbox=draw.textbbox((sx,y),n,font=f_disp_stat)
     w=bbox[2]-bbox[0]
-    draw.text((sx,y+44),l.upper(),font=f_disp_sm,fill=GOLD)
-    sx+=max(w,140)+30
+    draw.text((sx,y+44),l.upper(),font=f_disp_lbl,fill=GOLD)
+    bbox2=draw.textbbox((sx,y+44),l.upper(),font=f_disp_lbl)
+    w2=bbox2[2]-bbox2[0]
+    sx+=max(w,w2)+44
 
 # Borde gold inferior decorativo
 draw.rectangle([(0,H-6),(W,H)],fill=GOLD)
