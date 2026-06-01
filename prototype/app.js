@@ -38,6 +38,24 @@ const folio=(m,t='GP')=>{const d=new Date();const p=x=>String(x).padStart(2,'0')
 const uid=p=>p+'-'+Math.random().toString(36).slice(2,8);
 
 let CARS=[], MARCAS=[], SUCS=[];
+
+// Inventario PROXY del grupo (datos del benchmark + lote real de Seminuevos Otero)
+// El catalogo.json es una SELECCION curada de ~96. El grupo opera ~1,300 unidades.
+const INVENTORY={
+  total:1305,
+  nuevos:1065,
+  seminuevos:240,
+  porMarca:{
+    Mazda:595,Hyundai:150,Jeep:55,Dodge:18,Chrysler:8,RAM:42,Fiat:28,Peugeot:25,
+    Chevrolet:9,Buick:6,GMC:5,Ford:14,Nissan:12,Kia:10,GAC:65,GWM:18,Changan:14,
+    Foton:22,Isuzu:16,Infiniti:8
+  },
+  porSucursal:{
+    'bugambilias':95,'galerias':88,'santa-anita':74,'americas':92,'acueducto':85,
+    'plasencia':110,'gonzalez-gallo':68,'hyundai-acueducto':82,'hyundai-vallarta':68,
+    'stellantis-lcv':115,'stellantis-jeep':95,'gac-plasencia':65,'lopez-mateos':240
+  }
+};
 const getSuc = id => SUCS.find(s=>s.id===id) || {nombre:'Plasencia',rating:4.8,reviews:0,zona:'',marca:'',desde:2000,autos:0,id:'lopez-mateos'};
 
 // ====== HEADER definitivo · 4 verbos canónicos ======
@@ -87,7 +105,7 @@ function header(){
 }
 function toggleMobileNav(){const n=$('#mobileNav');if(n)n.classList.toggle('open')}
 function footer(){return `<footer class="ftr"><div class="ftr-in"><div class="ftr-grid">
-  <div class="ftr-logo"><img src="logo-blanco.png" alt="Grupo Plasencia"><p>El marketplace de Grupo Plasencia: 12 concesionarias del grupo, 14 marcas y todo el ciclo de tu auto en un solo lugar.</p></div>
+  <div class="ftr-logo"><img src="logo-blanco.png" alt="Grupo Plasencia"><p>+${num(INVENTORY.total)} autos · ${MARCAS.length} marcas · ${SUCS.length} agencias · 75 años. El marketplace donde todo el ciclo de tu auto vive en una sola cuenta.</p></div>
   <div><h4>Comprar</h4><ul><li onclick="go('#/catalogo?cond=nuevo')">Autos nuevos</li><li onclick="go('#/catalogo?cond=seminuevo')">Seminuevos certificados</li><li onclick="go('#/catalogo')">Catálogo cross-marca</li><li onclick="go('#/concesionarias')">Las 12 concesionarias</li></ul></div>
   <div><h4>Soluciones</h4><ul><li onclick="go('#/trade-in')">Vender o cambiar tu auto</li><li onclick="go('#/credito')">Plasencia Crédito</li><li onclick="go('#/autolease')">GP Autolease</li><li onclick="go('#/seguros')">Plasencia Seguros</li><li onclick="go('#/flotillas')">Flotillas empresariales</li></ul></div>
   <div><h4>Grupo Plasencia</h4><ul><li>75 años de historia</li><li>12 concesionarias en Jalisco y Nayarit</li><li>14 marcas representadas</li><li>Trabaja con nosotros</li></ul></div>

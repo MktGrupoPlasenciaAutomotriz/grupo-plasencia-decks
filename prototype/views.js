@@ -75,10 +75,10 @@ home(){
         <span><span class="ico">${I.check(16)}</span>Crédito sin afectar tu buró</span>
       </div>
       <div class="hero-stats">
-        <div class="stat"><div class="v tnum">${CARS.length}</div><div class="l">Autos disponibles</div></div>
-        <div class="stat"><div class="v">${MARCAS.length}</div><div class="l">Marcas del grupo</div></div>
-        <div class="stat"><div class="v">${SUCS.length}</div><div class="l">Concesionarias</div></div>
-        <div class="stat"><div class="v">75</div><div class="l">Años de historia</div></div>
+        <div class="stat"><div class="v tnum">+${num(INVENTORY.total)}</div><div class="l">Autos disponibles</div></div>
+        <div class="stat"><div class="v tnum">${MARCAS.length}</div><div class="l">Marcas representadas</div></div>
+        <div class="stat"><div class="v tnum">${SUCS.length}</div><div class="l">Agencias del grupo</div></div>
+        <div class="stat"><div class="v tnum">75</div><div class="l">Años de respaldo</div></div>
       </div>
     </div>
   </section>
@@ -90,8 +90,8 @@ home(){
   </div></section>
 
   <div class="marcas"><div class="marcas-in">
-    <span class="lbl">Filtra por marca o cómpralas todas</span>
-    ${MARCAS.map(m=>{const s=marcaLogoSrc(m);return s?`<img class="marca-logo" src="${s}" alt="${m}" title="${m}" onclick="go('#/catalogo?marca=${encodeURIComponent(m)}')" onerror="this.outerHTML='<b style=&quot;font-family:var(--disp);font-weight:800;color:var(--n600);font-size:14px;cursor:pointer&quot; onclick=&quot;go(\\&quot;#/catalogo?marca=${encodeURIComponent(m)}\\&quot;)&quot;>${m}</b>'">`:`<b style="font-family:var(--disp);font-weight:800;color:var(--n600);font-size:14px;cursor:pointer" onclick="go('#/catalogo?marca=${encodeURIComponent(m)}')">${m}</b>`}).join('')}
+    <span class="lbl">+${num(INVENTORY.total)} autos · ${MARCAS.length} marcas · ${SUCS.length} agencias</span>
+    ${MARCAS.map(m=>{const s=marcaLogoSrc(m);const inv=INVENTORY.porMarca[m]||0;const inner=s?`<img src="${s}" alt="${m}">`:`<b style="font-family:var(--disp);font-weight:800;color:var(--n600);font-size:14px">${m}</b>`;return `<button class="marca-chip" onclick="go('#/catalogo?marca=${encodeURIComponent(m)}')" title="${m} · ${inv} autos disponibles">${inner}${inv?`<span class="marca-count tnum">${inv}</span>`:''}</button>`}).join('')}
   </div></div>
 
   <section class="sec"><div class="wrap">
@@ -201,28 +201,30 @@ catalogo(){
     <span class="count" id="fcount"></span>
   </div></div>
   <div class="wrap" style="padding:32px 24px 0">
-    <div class="eyebrow">Catálogo · 14 marcas · 12 agencias</div>
+    <div class="eyebrow">${FILT.marca==='todas'?`+${num(INVENTORY.total)} unidades · 14 marcas · 12 agencias`:`${INVENTORY.porMarca[FILT.marca]||0} ${FILT.marca} disponibles ahora`}</div>
     <h2 style="font-size:clamp(24px,3vw,34px);font-weight:800;color:var(--navy);margin-top:8px">${FILT.marca==='todas'?'Todo el inventario, lado a lado':FILT.marca+' en el Grupo Plasencia'}</h2>
+    <p style="font-size:13px;color:var(--n500);margin-top:6px">Mostramos una selección curada de los autos más buscados. ¿No ves el que quieres? <a style="color:var(--blue-d);text-decoration:underline;cursor:pointer" onclick="Plasi.open('Busco un auto específico que no veo en el catálogo')">Pregúntale a Plasi</a> o <a style="color:var(--blue-d);text-decoration:underline;cursor:pointer" onclick="Flow.openCita()">agenda con un asesor</a>.</p>
   </div>
   <div class="wrap" style="padding-bottom:48px"><div id="vgrid" class="vgrid"></div><div id="loadmore" style="text-align:center;margin-top:40px"></div></div>`;
 },
 
 // ====== CONCESIONARIAS ======
 concesionarias(){
+  const totalInv=Object.values(INVENTORY.porSucursal).reduce((a,b)=>a+b,0);
   return `<div class="wrap" style="padding:40px 24px 0">
-    <div class="eyebrow">Las 12 concesionarias del grupo</div>
-    <h2 style="font-size:clamp(24px,3vw,34px);color:var(--navy);margin-top:8px">Tus vendedores en el marketplace.</h2>
-    <p class="lede">Cada concesionaria opera dentro del marketplace bajo la promesa Plasencia. Elige por proximidad, rating o especialidad.</p>
+    <div class="eyebrow">+${num(totalInv)} autos · 12 agencias · 14 marcas</div>
+    <h2 style="font-size:clamp(24px,3vw,34px);color:var(--navy);margin-top:8px">Elige con quién quieres tratar.</h2>
+    <p class="lede">Cada agencia opera dentro del marketplace bajo la promesa Plasencia. Compra en una, da servicio en otra — tu cuenta te sigue.</p>
   </div>
   <div class="wrap" style="padding-bottom:48px;padding-top:24px"><div class="dealer-grid">
-    ${SUCS.map(d=>`<div class="dealer" onclick="go('#/concesionaria/${d.id}')">
+    ${SUCS.map(d=>{const inv=INVENTORY.porSucursal[d.id]||d.autos;return `<div class="dealer" onclick="go('#/concesionaria/${d.id}')">
       ${sucLogoHTML(d,'md')}
       <div class="dealer-info">
         <h4>${d.nombre}</h4><div class="meta">${d.zona} · Especialista ${d.marca} · Desde ${d.desde}</div>
         <div class="rating"><span class="star">${I.star(13)}</span><b>${d.rating}</b><span class="reviews">(${num(d.reviews)} reseñas)</span></div>
-        <div class="autos">${d.autos} ${d.autos===1?'auto':'autos'} disponibles ${I.chevR(12)}</div>
+        <div class="autos"><b class="tnum">${num(inv)}</b> autos disponibles ${I.chevR(12)}</div>
       </div>
-    </div>`).join('')}
+    </div>`}).join('')}
   </div></div>`;
 },
 
@@ -238,14 +240,20 @@ concesionaria(id){
       <div class="rating-row"><span style="display:flex;align-items:center;gap:6px"><b>${d.rating}</b> ${I.star(18)} rating</span><span>${num(d.reviews)} reseñas verificadas</span></div>
     </div>
     <div class="stats">
-      <div><div class="v">${autos.length}</div><div class="l">Autos</div></div>
-      <div><div class="v">${2026-d.desde}</div><div class="l">Años</div></div>
-      <div><div class="v">${d.rating}</div><div class="l">Rating</div></div>
+      <div><div class="v tnum">${num(INVENTORY.porSucursal[d.id]||d.autos)}</div><div class="l">Autos disponibles</div></div>
+      <div><div class="v tnum">${2026-d.desde}</div><div class="l">Años</div></div>
+      <div><div class="v tnum">${d.rating}</div><div class="l">Rating</div></div>
     </div>
   </div></section>
   <div class="wrap" style="padding:40px 24px">
-    <h2 style="font-size:24px;color:var(--navy)">Inventario en ${d.nombre}</h2>
-    ${autos.length?`<div class="vgrid" style="margin-top:24px">${autos.slice(0,12).map(vcard).join('')}</div>`:`<div class="empty"><div class="ic">${I.car(40)}</div><p>Sin autos disponibles en este momento.</p></div>`}
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:14px;flex-wrap:wrap;margin-bottom:8px">
+      <div>
+        <h2 style="font-size:24px;color:var(--navy)">Inventario en ${d.nombre}</h2>
+        <p style="font-size:13px;color:var(--n500);margin-top:4px">Mostramos ${Math.min(12,autos.length)} de ${num(INVENTORY.porSucursal[d.id]||d.autos)} disponibles. ¿Buscas algo específico? <a style="color:var(--blue-d);text-decoration:underline;cursor:pointer" onclick="Plasi.open('Buscar auto en ${d.nombre}')">Pregúntale a Plasi</a>.</p>
+      </div>
+      <button class="btn btn-out btn-md" onclick="Flow.openCita()">${I.cal(14)} Agendar visita</button>
+    </div>
+    ${autos.length?`<div class="vgrid" style="margin-top:24px">${autos.slice(0,12).map(vcard).join('')}</div>`:`<div class="empty"><div class="ic">${I.car(40)}</div><p>Sin autos en la selección curada — el inventario completo lo tiene el asesor.</p><button class="btn btn-conv btn-md" style="margin-top:14px" onclick="Flow.openCita()">Agendar visita</button></div>`}
   </div>`;
 },
 

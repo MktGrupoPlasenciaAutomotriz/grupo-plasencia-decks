@@ -350,6 +350,14 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{outline:none;bor
 .marca-logo{filter:grayscale(.7) opacity(.7);transition:filter var(--d-base) var(--e-out), transform var(--d-base) var(--e-out)}
 .marca-logo:hover{filter:none;transform:scale(1.08)}
 
+/* Marca chip con contador de inventario (autoridad visual) */
+.marca-chip{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:var(--r-full);border:1px solid transparent;background:transparent;transition:all var(--d-base) var(--e-out);cursor:pointer;flex-shrink:0;position:relative}
+.marca-chip img{max-height:24px;max-width:60px;width:auto;object-fit:contain;filter:grayscale(.7) opacity(.7);transition:filter var(--d-base) var(--e-out)}
+.marca-chip .marca-count{font-family:var(--disp);font-weight:800;font-size:11px;color:var(--text-3);background:var(--g-100);padding:2px 8px;border-radius:99px;transition:all var(--d-base) var(--e-out);letter-spacing:.02em}
+.marca-chip:hover{background:var(--bg-surface);border-color:var(--border-default);box-shadow:var(--sh-sm);transform:translateY(-2px)}
+.marca-chip:hover img{filter:none}
+.marca-chip:hover .marca-count{background:linear-gradient(135deg,var(--p-gold-l),#fff);color:var(--p-gold-d);box-shadow:0 0 0 1px rgba(236,201,75,.4)}
+
 /* ──────────────────────────────────────────────────────────────────────────
    A11Y · prefers-reduced-motion respect
    ────────────────────────────────────────────────────────────────────────── */
