@@ -9,25 +9,50 @@ openCheckout(carId){
   ensureAuth(()=>this._checkout(v,0,{trade:0}));
 },
 _checkout(v,step,d){
-  const steps=['Resumen','Datos','Pago','¡Listo!'];
+  const steps=['Cuánto pagas','Datos','Pago','¡Listo!'];
   const apart=5000;
-  const html=`<h2 style="font-size:22px;color:var(--navy)">Apartar ${v.marca} ${v.modelo}</h2>
-    <p style="color:var(--n500);font-size:13px;margin-top:4px">Reserva con $5,000 reembolsables. 7 días para confirmar.</p>
+  const engCompleto=Math.round(v.precio*0.2);
+  // Opciones de pago hoy: apartado fijo, % del precio, o enganche completo
+  const opciones=[
+    {key:'apartado',monto:apart,t:'Solo apartar',d:'Reservas el auto 7 días · 100% reembolsable',badge:'Más rápido'},
+    {key:'10',monto:Math.round(v.precio*0.10),t:'Adelanto 10%',d:'Aseguras el auto + bajas tu mensualidad'},
+    {key:'20',monto:engCompleto,t:'Enganche completo 20%',d:'Listo para firmar contrato y entrega',badge:'Recomendado'},
+    {key:'custom',monto:d.monto||apart,t:'Monto personalizado',d:'Tú decides cuánto adelantas hoy'},
+  ];
+  if(step===0 && !d.opcion)d.opcion='apartado';
+  const opSel=opciones.find(o=>o.key===d.opcion)||opciones[0];
+  const monto=d.opcion==='custom'?(d.monto||apart):opSel.monto;
+  const html=`<h2 style="font-size:22px;color:var(--navy)">${d.opcion==='apartado'?'Apartar':'Avanzar pago de'} ${v.marca} ${v.modelo}</h2>
+    <p style="color:var(--n500);font-size:13px;margin-top:4px">Decide cuánto pagas hoy. Lo demás puedes liquidarlo después.</p>
     ${wizSteps(steps,step)}
     ${step===0?`
-      <div style="display:flex;gap:14px;background:var(--n50);border-radius:12px;padding:14px;border:1px solid var(--n200)">
+      <div style="display:flex;gap:14px;background:var(--n50);border-radius:12px;padding:14px;border:1px solid var(--n200);margin-bottom:18px">
         <img src="${v.fotos[0]}" style="width:100px;height:68px;object-fit:cover;border-radius:8px" onerror="this.src='${FALLBACK}'">
         <div style="flex:1"><div style="font-family:var(--disp);font-weight:700;color:var(--navy)">${v.marca} ${v.modelo}</div><div style="font-size:12px;color:var(--n500)">${v.anio} · ${v.trans} · ${v.fuel}</div><div style="font-family:var(--disp);font-weight:800;color:var(--navy);margin-top:6px" class="tnum">${mxn(v.precio)}</div></div>
       </div>
-      <div class="summary-box">
+      <div class="field"><label>¿Cuánto quieres pagar hoy?</label></div>
+      <div style="display:flex;flex-direction:column;gap:8px">${opciones.map(o=>`<button class="choice ${d.opcion===o.key?'on':''}" style="text-align:left;position:relative" onclick="Flow.coOp='${o.key}';Flow._checkout(${JSON.stringify(v.id)},0,Object.assign(${JSON.stringify(d)},{opcion:'${o.key}'}))">
+        <div class="check">${I.check(14)}</div>
+        ${o.badge?`<span class="bp bp-gold" style="position:absolute;top:14px;right:42px;font-size:9px">${o.badge}</span>`:''}
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:10px">
+          <div><div class="t">${o.t}</div><div class="d">${o.d}</div></div>
+          <div style="font-family:var(--disp);font-weight:800;color:var(--navy);font-size:17px;white-space:nowrap" class="tnum">${o.key==='custom'?(d.opcion==='custom'?mxn(d.monto||apart):'Tú eliges'):mxn(o.monto)}</div>
+        </div>
+      </button>`).join('')}</div>
+      ${d.opcion==='custom'?`<div style="background:var(--n50);border-radius:12px;padding:16px;margin-top:14px">
+        <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--n600);margin-bottom:6px"><span>Mínimo ${mxn(apart)}</span><span>Máximo ${mxn(v.precio)}</span></div>
+        <input type="range" min="${apart}" max="${v.precio}" step="1000" value="${d.monto||apart}" oninput="Flow.coMonto=+this.value;document.getElementById('coMontoLbl').textContent='${mxn(0).slice(0,1)}'+new Intl.NumberFormat('es-MX').format(+this.value);document.getElementById('coPct').textContent=Math.round(+this.value/${v.precio}*100)+'% del precio'" style="width:100%;accent-color:var(--red)">
+        <div style="display:flex;justify-content:space-between;margin-top:10px"><div style="font-family:var(--disp);font-weight:900;font-size:24px;color:var(--navy)" class="tnum" id="coMontoLbl">${mxn(d.monto||apart)}</div><div style="font-size:12px;color:var(--n500);align-self:flex-end" id="coPct">${Math.round((d.monto||apart)/v.precio*100)}% del precio</div></div>
+      </div>`:''}
+      <div class="summary-box" style="margin-top:14px">
         <div class="row"><span>Precio del vehículo</span><b class="tnum">${mxn(v.precio)}</b></div>
-        <div class="row"><span>Apartado reembolsable</span><b class="tnum">${mxn(apart)}</b></div>
         ${d.trade>0?`<div class="row"><span>Trade-in aplicado</span><b style="color:var(--green-d)" class="tnum">−${mxn(d.trade)}</b></div>`:''}
-        <div class="row tot"><span>A pagar ahora</span><b class="tnum">${mxn(apart)}</b></div>
+        <div class="row tot"><span>A pagar ahora</span><b class="tnum">${mxn(monto)}</b></div>
+        ${d.opcion!=='20'?`<div class="row" style="color:var(--n500);font-size:12px"><span>Saldo pendiente</span><b class="tnum">${mxn(v.precio-monto-(d.trade||0))}</b></div>`:''}
       </div>
       <div style="background:#FFF8E5;border:1px solid var(--gold);border-radius:12px;padding:14px;margin-top:14px;display:flex;align-items:flex-start;gap:10px">
         <span style="color:var(--gold-d);flex-shrink:0">${I.trending(20)}</span>
-        <div style="flex:1"><b style="font-family:var(--disp);color:var(--navy);font-size:13px">¿Cambias tu auto actual?</b><div style="font-size:12px;color:var(--n600);margin-top:2px">Aplica tu valuación como enganche o pago parcial.</div></div>
+        <div style="flex:1"><b style="font-family:var(--disp);color:var(--navy);font-size:13px">¿Cambias tu auto actual?</b><div style="font-size:12px;color:var(--n600);margin-top:2px">Aplica tu valuación como pago parcial.</div></div>
         <button class="btn btn-out btn-sm" onclick="closeModal();Flow.openTradein()">Valuar</button>
       </div>
     `:''}
@@ -48,35 +73,62 @@ _checkout(v,step,d){
       <div class="field-row"><div class="field"><label>Vence</label><input value="12/29" readonly></div><div class="field"><label>CVV</label><input value="•••" readonly></div></div>
       <div style="font-size:11px;color:var(--n500);margin-top:6px;display:flex;align-items:center;gap:6px">${I.shield(14)} Demo: no se cobra realmente.</div>
     `:''}
-    ${step===3?`
+    ${step===3?(()=>{const saldo=v.precio-monto-(d.trade||0);const isAp=d.opcion==='apartado';const isEng=d.opcion==='20';return `
       <div class="ok-circle">${I.check(28)}</div>
-      <h2 style="text-align:center;color:var(--navy);font-size:24px">¡Apartado confirmado!</h2>
-      <p style="text-align:center;color:var(--n500);margin-top:6px;font-size:14px">Tu ${v.marca} ${v.modelo} está reservado por 7 días. El asesor te contactará en menos de 2 horas.</p>
-      <div class="folio"><div class="k">Folio de reserva</div><div class="v">${d.folio}</div></div>
-      <div style="background:var(--n50);border-radius:12px;padding:14px;margin-top:14px">
-        <div style="font-family:var(--disp);font-size:11px;font-weight:700;text-transform:uppercase;color:var(--n500);letter-spacing:.5px">Próximos pasos</div>
-        <ol style="margin:8px 0 0 20px;font-size:13px;color:var(--n700);line-height:1.7">
-          <li>Tu asesor te llama hoy mismo para coordinar entrega.</li>
-          <li>Firma de contrato y enganche restante en concesionaria o en línea.</li>
-          <li>Te entregamos tu auto. Bienvenido al grupo.</li>
-        </ol>
+      <h2 style="text-align:center;color:var(--navy);font-size:24px">${isAp?'¡Apartado confirmado!':isEng?'¡Enganche pagado!':'¡Adelanto registrado!'}</h2>
+      <p style="text-align:center;color:var(--n500);margin-top:6px;font-size:14px">Tu ${v.marca} ${v.modelo} está reservado. ${isEng?'Procedemos a firma de contrato y entrega.':'Tu asesor te contacta en menos de 2 horas.'}</p>
+      <div class="folio"><div class="k">Folio</div><div class="v">${d.folio}</div></div>
+      <div class="summary-box">
+        <div class="row"><span>Pagado hoy</span><b class="tnum" style="color:var(--green-d)">${mxn(monto)}</b></div>
+        ${saldo>0?`<div class="row"><span>Saldo pendiente</span><b class="tnum">${mxn(saldo)}</b></div>`:''}
       </div>
-    `:''}
+      <div style="background:var(--n50);border-radius:12px;padding:16px;margin-top:14px">
+        <div style="font-family:var(--disp);font-size:11px;font-weight:700;text-transform:uppercase;color:var(--n500);letter-spacing:.5px">¿Qué sigue?</div>
+        <div style="display:flex;flex-direction:column;gap:8px;margin-top:10px">
+          ${saldo>0?`<button class="btn btn-conv btn-md" onclick='Flow._coMore(${JSON.stringify(v.id)},${monto})'>${I.cash(14)} Pagar más adelanto (${mxn(saldo)} restantes)</button>`:''}
+          <button class="btn btn-out btn-md" onclick='closeModal();Flow.openCita("${v.id}")'>${I.cal(14)} Agendar ${isEng?'entrega':'cita con asesor'}</button>
+          ${!isEng?`<button class="btn btn-out btn-md" onclick='closeModal();Flow.openCredito("${v.id}")'>${I.card(14)} Pre-aprobar el saldo con crédito</button>`:''}
+          <button class="btn btn-ghost btn-md" onclick='closeModal();go("#/auto/${v.id}")'>Volver al detalle del auto</button>
+        </div>
+      </div>
+    `})():''}
     <div class="wiz-nav">
       ${step>0&&step<3?`<button class="btn btn-out btn-md" onclick='Flow._checkout(${JSON.stringify(v.id)},${step-1},${JSON.stringify(d)})'>${I.chevL(14)} Atrás</button>`:'<span></span>'}
-      ${step<3?`<button class="btn btn-conv btn-md" onclick='Flow._checkoutNext(${JSON.stringify(v.id)},${step},${JSON.stringify(d)})'>${step===2?'Pagar '+mxn(apart):'Continuar'} ${I.chevR(14)}</button>`:`<button class="btn btn-conv btn-md btn-full" onclick='closeModal();go("#/cuenta?t=reservas")'>Ver mis reservas</button>`}
+      ${step<3?`<button class="btn btn-conv btn-md" onclick='Flow._checkoutNext(${JSON.stringify(v.id)},${step},${JSON.stringify(d)})'>${step===2?'Pagar '+mxn(monto):'Continuar'} ${I.chevR(14)}</button>`:''}
     </div>`;
   showModal(html,'lg');
 },
 _checkoutNext(id,step,d){
   const v=CARS.find(c=>c.id===id);
+  if(step===0&&d.opcion==='custom'){d.monto=Flow.coMonto||d.monto||5000}
   if(step===2){
     const f=folio(v.marca,'AP');d.folio=f;
-    STATE.reservas.unshift({id:uid('res'),folio:f,carId:v.id,marca:v.marca,modelo:v.modelo,anio:v.anio,img:v.fotos[0],precio:v.precio,apart:5000,fecha:new Date().toISOString().slice(0,10),estado:'apartado',suc:v.suc,milestone:1});
-    STATE.notifs.unshift({id:uid('n'),ic:'green',t:'Reserva confirmada',d:`${v.marca} ${v.modelo} apartado · ${f}`,time:'Ahora'});
+    const engCompleto=Math.round(v.precio*0.2);
+    const monto=d.opcion==='custom'?(d.monto||5000):d.opcion==='apartado'?5000:d.opcion==='20'?engCompleto:Math.round(v.precio*0.10);
+    const isEng=d.opcion==='20';
+    // Si ya existe reserva del mismo auto, actualiza; si no, crea
+    const existing=STATE.reservas.find(r=>r.carId===v.id);
+    if(existing){existing.apart=(existing.apart||0)+monto;existing.milestone=isEng?3:Math.max(existing.milestone||1,2);save()}
+    else{STATE.reservas.unshift({id:uid('res'),folio:f,carId:v.id,marca:v.marca,modelo:v.modelo,anio:v.anio,img:v.fotos[0],precio:v.precio,apart:monto,fecha:new Date().toISOString().slice(0,10),estado:isEng?'enganche-pagado':'apartado',suc:v.suc,milestone:isEng?3:1})}
+    STATE.pagos=STATE.pagos||[];
+    STATE.pagos.unshift({id:uid('p'),fecha:new Date().toISOString().slice(0,10),concepto:`${isEng?'Enganche':'Adelanto'} ${v.marca} ${v.modelo}`,monto,metodo:'Visa •6411',estado:'aplicado'});
+    STATE.notifs.unshift({id:uid('n'),ic:'green',t:isEng?'Enganche pagado':'Reserva confirmada',d:`${v.marca} ${v.modelo} · ${mxn(monto)} · ${f}`,time:'Ahora'});
     save();updateHeader();
   }
   this._checkout(v,step+1,d);
+},
+// Reanuda checkout con un monto adicional para una reserva existente
+_coMore(carId,yaPagado){
+  const v=CARS.find(c=>c.id===carId);if(!v)return;
+  closeModal();
+  setTimeout(()=>this._checkout(v,0,{trade:0,yaPagado,fromReserva:true,opcion:'custom',monto:Math.max(5000,Math.round(v.precio*0.1))}),100);
+},
+// Pago adicional desde reserva del perfil o PDP
+openPagoMas(carId){
+  const v=CARS.find(c=>c.id===carId);if(!v)return;
+  const existing=STATE.reservas.find(r=>r.carId===carId);
+  const yaPagado=existing?(existing.apart||0):0;
+  ensureAuth(()=>this._checkout(v,0,{trade:0,yaPagado,fromReserva:true,opcion:'custom',monto:Math.max(5000,Math.round((v.precio-yaPagado)*0.15))}));
 },
 
 // === CITA ===

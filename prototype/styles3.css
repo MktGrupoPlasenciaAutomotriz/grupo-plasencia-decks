@@ -256,6 +256,40 @@
 @media(max-width:1100px){.stats-row{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:500px){.stats-row{grid-template-columns:1fr 1fr}}
 
+/* === CUENTA con sidebar persistente === */
+.acct-shell{display:grid;grid-template-columns:260px 1fr;gap:32px;padding:24px 24px 80px;align-items:flex-start}
+.acct-side{position:sticky;top:84px;align-self:flex-start}
+.acct-nav{display:flex;flex-direction:column;gap:2px;background:#fff;border:1px solid var(--n200);border-radius:14px;padding:8px;box-shadow:0 1px 3px rgba(0,0,0,.02)}
+.acct-nav button{display:flex;align-items:center;gap:10px;padding:11px 12px;font-family:var(--disp);font-size:13.5px;font-weight:600;color:var(--n600);border-radius:9px;text-align:left;transition:.15s;width:100%;background:none}
+.acct-nav button .ic{display:inline-flex;align-items:center;justify-content:center;color:var(--n500);width:18px;height:18px;flex-shrink:0}
+.acct-nav button .lbl{flex:1}
+.acct-nav button .badge{background:var(--red);color:#fff;font-size:10px;font-weight:800;min-width:18px;height:18px;padding:0 5px;border-radius:99px;display:inline-flex;align-items:center;justify-content:center}
+.acct-nav button:hover{background:var(--n50);color:var(--navy)}
+.acct-nav button:hover .ic{color:var(--navy)}
+.acct-nav button.on{background:linear-gradient(180deg,var(--navy),var(--navy-d));color:#fff;font-weight:700;box-shadow:0 6px 16px rgba(15,26,46,.25)}
+.acct-nav button.on .ic{color:var(--gold)}
+.acct-main{min-width:0;animation:fu .2s ease}
+.panel-head{margin-bottom:24px}
+.panel-head h2{font-family:var(--disp);font-size:26px;font-weight:800;color:var(--navy);line-height:1.1}
+.panel-head p{font-size:14px;color:var(--n600);margin-top:6px;max-width:640px;line-height:1.5}
+.panel-body{display:flex;flex-direction:column;gap:14px}
+
+/* tabs horizontales antiguos: ocultar (los reemplaza el sidebar) */
+.acct-tabs{display:none}
+
+@media(max-width:920px){
+  .acct-shell{grid-template-columns:1fr;gap:18px;padding:18px 18px 60px}
+  .acct-side{position:static;margin:0 -18px}
+  .acct-nav{flex-direction:row;border-radius:0;border-left:0;border-right:0;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding:8px 14px;gap:4px}
+  .acct-nav::-webkit-scrollbar{display:none}
+  .acct-nav button{flex-direction:column;gap:4px;padding:8px 12px;min-width:74px;font-size:11px;flex-shrink:0}
+  .acct-nav button .lbl{font-size:11px;white-space:nowrap}
+  .acct-nav button .ic{width:20px;height:20px}
+  .acct-nav button.on{box-shadow:0 4px 10px rgba(15,26,46,.2)}
+  .panel-head h2{font-size:22px}
+  .panel-head p{font-size:13px}
+}
+
 /* ===== MOBILE OPTIMIZATIONS ===== */
 @media(max-width:760px){
   .hero{min-height:520px}

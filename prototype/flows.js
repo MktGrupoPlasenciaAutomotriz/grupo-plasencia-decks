@@ -22,7 +22,13 @@ function renderCockpit(){
   const {v,mod,plazo,eng}=PDP;
   const mens=mod==='credito'?mensCredito(v.precio,eng,plazo):mod==='arrendamiento'?rentaLease(v.precio,plazo):0;
   const plazos=mod==='arrendamiento'?[24,36,48]:[12,24,36,48,60];
+  const reservado=STATE.reservas?.find(r=>r.carId===v.id);
   c.innerHTML=`
+    ${reservado?`<div style="background:linear-gradient(135deg,var(--gold),var(--gold-d));color:var(--navy);border-radius:14px;padding:14px 16px;margin-bottom:18px;display:flex;align-items:center;gap:12px">
+      <div style="background:rgba(15,26,46,.15);width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0">${I.check(20)}</div>
+      <div style="flex:1;min-width:0"><div style="font-family:var(--disp);font-weight:800;font-size:13px">Ya tienes este auto apartado</div><div style="font-size:12px;opacity:.85;margin-top:2px">Pagado: ${mxn(reservado.apart)} · ${reservado.folio}</div></div>
+      <button class="btn btn-md" style="background:var(--navy);color:#fff;flex-shrink:0" onclick="Flow.openPagoMas('${v.id}')">${I.cash(14)} Pagar más</button>
+    </div>`:''}
     <div class="mk">${v.marca} · ${v.anio}</div>
     <h1>${v.modelo}</h1>
     <div class="v-ver">${v.version||v.trans+' · '+v.fuel}</div>

@@ -43,9 +43,39 @@ view(){
       <div style="font-size:11px;color:rgba(255,255,255,.6);margin-top:2px">1 pt = $1 en servicio</div>
     </div>
   </div></section>
-  <div class="wrap" style="padding:0 24px 60px"><div class="acct-tabs">${TABS.map(t=>`<button class="${ATAB===t[0]?'on':''}" onclick="ATAB='${t[0]}';render()">${t[2]} ${t[1]}${t[3]?` <span class="bp bp-red" style="padding:1px 7px;font-size:10px">${t[3]}</span>`:''}</button>`).join('')}</div>
-    <div style="padding:28px 0">${Account[ATAB]?.()||Account.resumen()}</div>
+  <div class="wrap acct-shell"><aside class="acct-side"><nav class="acct-nav">${TABS.map(t=>`<button class="${ATAB===t[0]?'on':''}" onclick="Account.switchTab('${t[0]}')"><span class="ic">${t[2]}</span><span class="lbl">${t[1]}</span>${t[3]?` <span class="badge">${t[3]}</span>`:''}</button>`).join('')}</nav></aside>
+    <main class="acct-main" id="acctMain">${Account._panel(ATAB)}</main>
   </div>`;
+},
+
+switchTab(tab){
+  ATAB=tab;
+  const url=new URL(location.href);url.hash='#/cuenta?t='+tab;history.replaceState(null,'',url.toString());
+  const m=document.getElementById('acctMain');if(m){m.innerHTML=Account._panel(tab);m.scrollTop=0;window.scrollTo({top:Math.max(0,document.querySelector('.acct-cover')?.offsetHeight-20||0),behavior:'smooth'})}
+  document.querySelectorAll('.acct-nav button').forEach(b=>b.classList.toggle('on',b.textContent.toLowerCase().includes(tab.replace('credito','crédito').replace('autolease','autolease'))||b.getAttribute('onclick')?.includes(`'${tab}'`)));
+},
+
+_panel(tab){
+  const H={
+    resumen:['Resumen','Tu actividad reciente y atajos a lo más usado.'],
+    reservas:['Mis reservas','Autos que ya apartaste. Avanza pago, agenda entrega o consulta detalle sin perder tu progreso.'],
+    garage:['Mi garage','Los autos que ya son tuyos. Servicio, garantía, papeles y trade-in cuando decidas renovar.'],
+    watchlist:['Watchlist','Los autos que guardaste para volver. Compara, cotiza o apártalos cuando estés listo.'],
+    credito:['Mi crédito','Tu línea Plasencia: saldo, mensualidad, próximo pago y estado de cuenta.'],
+    autolease:['Mi autolease','Tu arrendamiento activo: pagos, vigencia, mantenimiento y opciones al cierre.'],
+    seguros:['Mis seguros','Pólizas vigentes y siniestros. Renueva, reporta o cotiza nueva cobertura.'],
+    tradein:['Mi trade-in','Valuaciones activas de tu auto actual. Acepta la oferta, agenda inspección o aplica como enganche.'],
+    citas:['Mis citas','Test drives, entregas y servicios agendados. Reagenda o cancela cuando lo necesites.'],
+    servicios:['Historial de servicio','Cada visita al taller con detalle, factura y kilometraje al momento.'],
+    pagos:['Pagos','Movimientos de tu crédito, lease, seguros y servicios — todo en una vista.'],
+    documentos:['Documentos','Factura, contrato, póliza, tarjeta de circulación, INE — siempre a la mano.'],
+    mensajes:['Mensajes','Conversaciones con tus asesores y con Plasi. Continúa la última.'],
+    referidos:['Programa de referidos','Invita y gana $2,500 en Points cada vez que alguien compre con Plasencia.'],
+    notificaciones:['Notificaciones','Confirmaciones, recordatorios y alertas — todas en un solo lugar.'],
+    perfil:['Mi perfil','Datos personales, direcciones, métodos de pago, preferencias y seguridad.'],
+  };
+  const [t,d]=H[tab]||H.resumen;
+  return `<header class="panel-head"><h2>${t}</h2><p>${d}</p></header><div class="panel-body">${Account[tab]?.()||Account.resumen()}</div>`;
 },
 
 resumen(){
@@ -98,7 +128,7 @@ reservas(){
       </div>
     </div>
     <div class="actions">
-      <button class="btn btn-conv btn-md" onclick="Flow.openSim('pagoEnganche',{monto:${Math.round(r.precio*0.2-r.apart)},modelo:'${r.marca} ${r.modelo}'})">Pagar enganche</button>
+      <button class="btn btn-conv btn-md" onclick="Flow.openPagoMas('${r.carId}')">${I.cash(14)} Avanzar pago</button>
       <button class="btn btn-out btn-md" onclick="Flow.openCita('${r.carId}')">${I.cal(14)} Agendar entrega</button>
       <button class="btn btn-ghost btn-sm" onclick="go('#/auto/${r.carId}')">Ver detalle</button>
     </div>
