@@ -71,7 +71,15 @@ _checkout(v,step,d){
       </div>
       <div class="field" style="margin-top:14px"><label>Número de tarjeta (demo)</label><input value="4242 4242 4242 4242" readonly></div>
       <div class="field-row"><div class="field"><label>Vence</label><input value="12/29" readonly></div><div class="field"><label>CVV</label><input value="•••" readonly></div></div>
-      <div style="font-size:11px;color:var(--n500);margin-top:6px;display:flex;align-items:center;gap:6px">${I.shield(14)} Demo: no se cobra realmente.</div>
+      <div class="accepted-cards-mini">
+        <span class="lbl">Aceptamos:</span>
+        <div class="ml">${I.pay_visa()}</div>
+        <div class="ml">${I.pay_mc()}</div>
+        <div class="ml">${I.pay_amex()}</div>
+        <div class="ml">${I.pay_msi()}</div>
+        <span class="more">+ todos los bancos MX</span>
+      </div>
+      <div style="font-size:11px;color:var(--n500);margin-top:8px;display:flex;align-items:center;gap:6px">${I.shield(14)} Pago seguro · cifrado bancario · no se cobra realmente (demo).</div>
     `:''}
     ${step===3?(()=>{const saldo=v.precio-monto-(d.trade||0);const isAp=d.opcion==='apartado';const isEng=d.opcion==='20';return `
       <div class="ok-circle">${I.check(28)}</div>

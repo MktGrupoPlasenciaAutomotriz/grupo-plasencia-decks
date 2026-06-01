@@ -125,6 +125,28 @@ home(){
         <p style="color:rgba(255,255,255,.78)">Comprar es la parte fácil — todos te venden. Lo difícil es lo de después: que el crédito sea justo, que el seguro responda, que el servicio no sea una pelea. <b style="color:var(--gold)">Aquí lo tenemos todo conectado en un solo lugar</b> — para que no se te complique.</p>
       </div>
     </div>
+
+    <!-- Medios de pago aceptados · trust signal e-commerce -->
+    <div class="payments-strip">
+      <div class="ps-head">
+        <div class="ps-eyebrow">${I.shield(14)} Paga como te acomode</div>
+        <h3>Aceptamos todas las tarjetas, todos los bancos.</h3>
+        <p>Crédito o débito de cualquier banco mexicano. Hasta <b>18 meses sin intereses</b> en bancos participantes. Pago por transferencia (SPEI) sin comisión. Y si lo prefieres, contado con descuento.</p>
+      </div>
+      <div class="ps-logos">
+        <div class="pl">${I.pay_visa()}</div>
+        <div class="pl">${I.pay_mc()}</div>
+        <div class="pl">${I.pay_amex()}</div>
+        <div class="pl">${I.pay_bbva()}</div>
+        <div class="pl">${I.pay_banamex()}</div>
+        <div class="pl">${I.pay_santander()}</div>
+        <div class="pl">${I.pay_banorte()}</div>
+        <div class="pl">${I.pay_hsbc()}</div>
+        <div class="pl">${I.pay_scotia()}</div>
+        <div class="pl">${I.pay_spei()}</div>
+        <div class="pl">${I.pay_msi()}</div>
+      </div>
+    </div>
   </div></section>
 
   <div class="marcas"><div class="marcas-in">

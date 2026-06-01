@@ -408,6 +408,33 @@ img[loading="lazy"].loaded,img[loading="lazy"][src]:not([src=""]){opacity:1}
 .sec{padding:clamp(48px,6vw,96px) 0}
 .wrap{padding:0 clamp(18px,3vw,32px)}
 
+/* Medios de pago strip · trust signal e-commerce */
+.payments-strip{margin-top:48px;background:linear-gradient(135deg,var(--bg-surface),var(--g-50));border:1px solid var(--border-default);border-radius:var(--r-2xl);padding:32px;display:grid;grid-template-columns:1fr 1.4fr;gap:32px;align-items:center;box-shadow:var(--sh-sm)}
+.payments-strip .ps-head .ps-eyebrow{display:inline-flex;align-items:center;gap:6px;font-family:var(--disp);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--p-gold-d);background:linear-gradient(135deg,var(--p-gold-l),#fff);padding:6px 12px;border-radius:99px;border:1px solid rgba(236,201,75,.4)}
+.payments-strip .ps-head h3{font-family:var(--disp);font-size:22px;font-weight:800;color:var(--p-navy);margin-top:14px;letter-spacing:-.02em;line-height:1.2}
+.payments-strip .ps-head p{font-size:13.5px;color:var(--text-2);margin-top:8px;line-height:1.6}
+.payments-strip .ps-head p b{color:var(--p-navy)}
+.payments-strip .ps-logos{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.payments-strip .pl{background:var(--bg-surface);border:1px solid var(--border-subtle);border-radius:var(--r-md);padding:8px;display:flex;align-items:center;justify-content:center;height:48px;transition:all var(--d-base) var(--e-out)}
+.payments-strip .pl:hover{transform:translateY(-2px);box-shadow:var(--sh-sm);border-color:var(--border-default)}
+.payments-strip .pl svg{width:100%;height:auto;max-height:30px}
+@media(max-width:920px){
+  .payments-strip{grid-template-columns:1fr;padding:24px;gap:24px}
+  .payments-strip .ps-logos{grid-template-columns:repeat(3,1fr);gap:8px}
+}
+@media(max-width:500px){
+  .payments-strip .ps-logos{grid-template-columns:repeat(2,1fr)}
+  .payments-strip .ps-head h3{font-size:19px}
+}
+
+/* Mini strip de tarjetas en wizard checkout */
+.accepted-cards-mini{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:12px 14px;background:var(--bg-sunken);border:1px solid var(--border-subtle);border-radius:var(--r-md);margin-top:14px}
+.accepted-cards-mini .lbl{font-size:11px;color:var(--text-3);font-family:var(--disp);font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+.accepted-cards-mini .ml{width:38px;height:24px;display:flex;align-items:center;justify-content:center}
+.accepted-cards-mini .ml svg{width:100%;height:auto;max-height:22px}
+.accepted-cards-mini .more{font-size:11px;color:var(--text-2);font-style:italic;margin-left:auto}
+@media(max-width:480px){.accepted-cards-mini .more{margin-left:0;width:100%}}
+
 /* QR card de confirmación de cita · value exchange trigger */
 .cita-qr-card{display:flex;gap:18px;align-items:center;background:linear-gradient(135deg,var(--g-50),#fff);border:1px solid var(--border-default);border-radius:var(--r-xl);padding:20px;margin-top:18px;box-shadow:var(--sh-sm)}
 .qr-wrap{flex-shrink:0;padding:10px;background:#fff;border-radius:var(--r-md);border:1px solid var(--border-subtle);box-shadow:var(--sh-xs)}
