@@ -61,9 +61,9 @@ home(){
   <section class="hero">
     <div class="bg"></div><div class="grad"></div>
     <div class="hero-in fu">
-      <div class="eyebrow gold">14 marcas · 12 concesionarias · respaldadas por Grupo Plasencia</div>
+      <div class="eyebrow gold">+${num(INVENTORY.total)} autos · 14 marcas · ${INVENTORY.agencias} agencias en ${INVENTORY.estados} estados</div>
       <h1 style="margin-top:14px">Tu próximo auto,<br><span class="y">sin perseguir a nadie.</span></h1>
-      <p class="sub">Compara entre 14 marcas en un solo catálogo. Cotiza crédito, valúa tu actual y agenda entrega — desde tu celular, en menos de lo que tarda una llamada al vendedor.</p>
+      <p class="sub">Compara entre 14 marcas y +${num(INVENTORY.total)} unidades en un solo catálogo. Cotiza crédito, valúa tu actual y agenda entrega — desde tu celular, en menos de lo que tarda una llamada al vendedor.</p>
       <div class="search-shell">
         <div class="si">${I.search(20)}<input placeholder="¿Qué buscas? SUV familiar, pickup de trabajo, sedán económico…" onkeydown="if(event.key==='Enter')go('#/catalogo?q='+encodeURIComponent(this.value))"></div>
         <button class="btn btn-conv btn-lg" onclick="go('#/catalogo')">Ver catálogo</button>
@@ -76,8 +76,8 @@ home(){
       </div>
       <div class="hero-stats">
         <div class="stat"><div class="v tnum">+${num(INVENTORY.total)}</div><div class="l">Autos disponibles</div></div>
-        <div class="stat"><div class="v tnum">${MARCAS.length}</div><div class="l">Marcas representadas</div></div>
-        <div class="stat"><div class="v tnum">${SUCS.length}</div><div class="l">Agencias del grupo</div></div>
+        <div class="stat"><div class="v tnum">14</div><div class="l">Marcas representadas</div></div>
+        <div class="stat"><div class="v tnum">${INVENTORY.agencias}</div><div class="l">Agencias en ${INVENTORY.estados} estados</div></div>
         <div class="stat"><div class="v tnum">75</div><div class="l">Años de respaldo</div></div>
       </div>
     </div>
@@ -90,7 +90,7 @@ home(){
   </div></section>
 
   <div class="marcas"><div class="marcas-in">
-    <span class="lbl">+${num(INVENTORY.total)} autos · ${MARCAS.length} marcas · ${SUCS.length} agencias</span>
+    <span class="lbl">+${num(INVENTORY.total)} autos · 14 marcas · ${INVENTORY.agencias} agencias en ${INVENTORY.estados} estados</span>
     ${MARCAS.map(m=>{const s=marcaLogoSrc(m);const inv=INVENTORY.porMarca[m]||0;const inner=s?`<img src="${s}" alt="${m}">`:`<b style="font-family:var(--disp);font-weight:800;color:var(--n600);font-size:14px">${m}</b>`;return `<button class="marca-chip" onclick="go('#/catalogo?marca=${encodeURIComponent(m)}')" title="${m} · ${inv} autos disponibles">${inner}${inv?`<span class="marca-count tnum">${inv}</span>`:''}</button>`}).join('')}
   </div></div>
 
@@ -210,11 +210,10 @@ catalogo(){
 
 // ====== CONCESIONARIAS ======
 concesionarias(){
-  const totalInv=Object.values(INVENTORY.porSucursal).reduce((a,b)=>a+b,0);
   return `<div class="wrap" style="padding:40px 24px 0">
-    <div class="eyebrow">+${num(totalInv)} autos · 12 agencias · 14 marcas</div>
+    <div class="eyebrow">+${num(INVENTORY.total)} autos · ${INVENTORY.agencias} agencias · 14 marcas · ${INVENTORY.estados} estados</div>
     <h2 style="font-size:clamp(24px,3vw,34px);color:var(--navy);margin-top:8px">Elige con quién quieres tratar.</h2>
-    <p class="lede">Cada agencia opera dentro del marketplace bajo la promesa Plasencia. Compra en una, da servicio en otra — tu cuenta te sigue.</p>
+    <p class="lede">El grupo opera <b>${INVENTORY.agencias} agencias</b> en ${INVENTORY.ciudades.join(', ')}. Aquí ves las ${SUCS.length} más activas en Guadalajara. <a style="color:var(--blue-d);text-decoration:underline;cursor:pointer" onclick="Plasi.open('¿Tienen agencia en mi ciudad?')">Pregunta por tu ciudad</a> · tu cuenta funciona en cualquiera.</p>
   </div>
   <div class="wrap" style="padding-bottom:48px;padding-top:24px"><div class="dealer-grid">
     ${SUCS.map(d=>{const inv=INVENTORY.porSucursal[d.id]||d.autos;return `<div class="dealer" onclick="go('#/concesionaria/${d.id}')">

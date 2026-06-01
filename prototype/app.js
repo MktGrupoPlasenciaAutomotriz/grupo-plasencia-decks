@@ -39,21 +39,41 @@ const uid=p=>p+'-'+Math.random().toString(36).slice(2,8);
 
 let CARS=[], MARCAS=[], SUCS=[];
 
-// Inventario PROXY del grupo (datos del benchmark + lote real de Seminuevos Otero)
-// El catalogo.json es una SELECCION curada de ~96. El grupo opera ~1,300 unidades.
+// Inventario PROXY · datos reales del KO-Estrategico Grupo Plasencia
+// Volumen: ~800 facturas/mes (Mazda 403 + Hyundai 121 + GAC 39 + GWM 80 + estimado resto)
+// Inventario en piso = ~2.5 meses de ventas = ~2,000 unidades activas
+// catalogo.json muestra 96 destacados; el grupo opera ~2,000 a nivel grupo
 const INVENTORY={
-  total:1305,
-  nuevos:1065,
-  seminuevos:240,
+  total:2050,
+  nuevos:1750,
+  seminuevos:300, // Seminuevos opera 7 puntos no 1
+  ciudades:['Guadalajara','Tepic','Colima','Manzanillo','Puerto Vallarta','San Luis Potosi','Mazatlan'],
+  estados:6, // Jalisco, Nayarit, Colima, SLP, Sinaloa, Aguascalientes
+  agencias:42, // 37-42 segun fuente; tomamos 42 (data ventas)
   porMarca:{
-    Mazda:595,Hyundai:150,Jeep:55,Dodge:18,Chrysler:8,RAM:42,Fiat:28,Peugeot:25,
-    Chevrolet:9,Buick:6,GMC:5,Ford:14,Nissan:12,Kia:10,GAC:65,GWM:18,Changan:14,
-    Foton:22,Isuzu:16,Infiniti:8
+    Mazda:780,    // 10-11 agencias · CPL mas eficiente · 403 facturas/mes
+    Hyundai:420,  // 7 agencias · 121 facturas/mes
+    GWM:165,      // 4 agencias · 319 facturas/4meses
+    Ford:140,     // 4-5 agencias
+    GAC:155,      // 4 agencias · 39 facturas/mes con escala creciente
+    Changan:95,   // 3-4 agencias
+    Stellantis:85,// 2 agencias (Jeep+RAM+Dodge+Fiat+Chrysler+Peugeot)
+    Isuzu:55,     // 2 agencias (comerciales)
+    Chevrolet:30,
+    Buick:18,
+    GMC:10,
+    Nissan:22,    // referencia
+    Kia:18,
+    Infiniti:12,
+    Foton:32,
+    Peugeot:14
   },
+  // Las 12 sucursales del catalogo.json son una SELECCION; la realidad es 37-42 puntos
+  // El directorio /concesionarias muestra las 12 + nota "y X mas en otros estados"
   porSucursal:{
     'bugambilias':95,'galerias':88,'santa-anita':74,'americas':92,'acueducto':85,
     'plasencia':110,'gonzalez-gallo':68,'hyundai-acueducto':82,'hyundai-vallarta':68,
-    'stellantis-lcv':115,'stellantis-jeep':95,'gac-plasencia':65,'lopez-mateos':240
+    'stellantis-lcv':115,'stellantis-jeep':95,'gac-plasencia':65,'lopez-mateos':300
   }
 };
 const getSuc = id => SUCS.find(s=>s.id===id) || {nombre:'Plasencia',rating:4.8,reviews:0,zona:'',marca:'',desde:2000,autos:0,id:'lopez-mateos'};
@@ -105,10 +125,10 @@ function header(){
 }
 function toggleMobileNav(){const n=$('#mobileNav');if(n)n.classList.toggle('open')}
 function footer(){return `<footer class="ftr"><div class="ftr-in"><div class="ftr-grid">
-  <div class="ftr-logo"><img src="logo-blanco.png" alt="Grupo Plasencia"><p>+${num(INVENTORY.total)} autos · ${MARCAS.length} marcas · ${SUCS.length} agencias · 75 años. El marketplace donde todo el ciclo de tu auto vive en una sola cuenta.</p></div>
+  <div class="ftr-logo"><img src="logo-blanco.png" alt="Grupo Plasencia"><p>+${num(INVENTORY.total)} autos · 14 marcas · ${INVENTORY.agencias} agencias en ${INVENTORY.estados} estados del occidente de México · 75 años. El marketplace donde todo el ciclo de tu auto vive en una sola cuenta.</p></div>
   <div><h4>Comprar</h4><ul><li onclick="go('#/catalogo?cond=nuevo')">Autos nuevos</li><li onclick="go('#/catalogo?cond=seminuevo')">Seminuevos certificados</li><li onclick="go('#/catalogo')">Catálogo cross-marca</li><li onclick="go('#/concesionarias')">Las 12 concesionarias</li></ul></div>
   <div><h4>Soluciones</h4><ul><li onclick="go('#/trade-in')">Vender o cambiar tu auto</li><li onclick="go('#/credito')">Plasencia Crédito</li><li onclick="go('#/autolease')">GP Autolease</li><li onclick="go('#/seguros')">Plasencia Seguros</li><li onclick="go('#/flotillas')">Flotillas empresariales</li></ul></div>
-  <div><h4>Grupo Plasencia</h4><ul><li>75 años de historia</li><li>12 concesionarias en Jalisco y Nayarit</li><li>14 marcas representadas</li><li>Trabaja con nosotros</li></ul></div>
+  <div><h4>Grupo Plasencia</h4><ul><li>75 años de historia</li><li>${INVENTORY.agencias} agencias en ${INVENTORY.ciudades.length} ciudades del occidente</li><li>14 marcas representadas</li><li>Trabaja con nosotros</li></ul></div>
 </div><div class="bottom"><span>© 2026 Grupo Plasencia Automotriz · Prototipo de producto</span><span style="color:var(--gold)">Marketplace · la experiencia ideal</span></div></div></footer>`;}
 function updateHeader(){const h=$('.hdr');if(h)h.outerHTML=header()}
 
