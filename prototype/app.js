@@ -31,9 +31,41 @@ function sucLogoHTML(suc,size='sm'){
 }
 
 const KEY='plasencia-mkt-v6';
+const SESSION_KEY='plasencia-mkt-session';
+const SESSION_TTL_MS = 30*60*1000; // 30 min de inactividad → desloguea
+
 let STATE = JSON.parse(localStorage.getItem(KEY) || 'null') || {customer:null, reservas:[], garage:[], creditos:[], leases:[], pagos:[], servicios:[], citas:[], tradeins:[], watchlist:[], cotizaciones:[], notifs:[], seguros:[], documentos:[], direcciones:[], referidos:[], conversaciones:[]};
 ['seguros','documentos','direcciones','referidos','conversaciones'].forEach(k=>{if(!STATE[k])STATE[k]=[]});
-const save = ()=>localStorage.setItem(KEY, JSON.stringify(STATE));
+
+// Sesion de login: vive en sessionStorage (se borra al cerrar tab/browser)
+// + TTL de 30 min de inactividad. Para el piloto: cada sesion nueva pide login.
+// El resto del state (reservas, garage, watchlist, demo data) persiste en localStorage.
+STATE.customer = null;
+try{
+  const raw = sessionStorage.getItem(SESSION_KEY);
+  if(raw){
+    const parsed = JSON.parse(raw);
+    if(parsed.customer && parsed.ts && (Date.now() - parsed.ts) < SESSION_TTL_MS){
+      STATE.customer = parsed.customer;
+    }else{
+      sessionStorage.removeItem(SESSION_KEY);
+    }
+  }
+}catch{}
+
+const save = ()=>{
+  const {customer, ...rest} = STATE;
+  // localStorage: TODO menos customer
+  localStorage.setItem(KEY, JSON.stringify({...rest, customer:null}));
+  // sessionStorage: solo customer + timestamp (renovado en cada save)
+  if(customer){
+    sessionStorage.setItem(SESSION_KEY, JSON.stringify({customer, ts:Date.now()}));
+  }else{
+    sessionStorage.removeItem(SESSION_KEY);
+  }
+};
+// Migración: limpia localStorage de versiones previas que tengan customer guardado ahí
+save();
 
 const TASA=0.135;
 const mensCredito=(p,e,n)=>{const cap=p*(1-e/100);const i=TASA/12;return i===0?cap/n:cap*i/(1-Math.pow(1+i,-n))};
@@ -189,7 +221,9 @@ function render(){
 // ====== BOOT ======
 fetch('catalogo.json').then(r=>r.json()).then(data=>{
   CARS=data.cars; SUCS=data.sucursales; MARCAS=[...new Set(CARS.map(c=>c.marca))].sort();
-  window.addEventListener('hashchange',render);render();
+  // Renovar timestamp de sesión en cada navegación (mantiene viva la sesión mientras el usuario interactúe)
+  window.addEventListener('hashchange',()=>{if(STATE.customer)save();render()});
+  render();
 }).catch(e=>{$('#app').innerHTML='<div class="loading">No se pudo cargar el catálogo: '+e+'</div>'});
 
 Object.assign(window,{go,setF:(k,v)=>{FILT[k]=v;FILT.shown=12;applyFilters()},setFoto:(i)=>{PDP.foto=i;$('#galMain').src=PDP.v.fotos[i];$$('.gal-thumbs button').forEach((b,j)=>b.classList.toggle('on',j===i))},setMod:(m)=>{PDP.mod=m;PDP.plazo=m==='arrendamiento'?36:60;renderCockpit()},closeModal,toggleFav,toast});
