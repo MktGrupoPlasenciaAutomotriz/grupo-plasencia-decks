@@ -209,10 +209,26 @@
 @keyframes ptyp{0%,80%,100%{opacity:.3;transform:translateY(0)}40%{opacity:1;transform:translateY(-3px)}}
 .acct-info h2 .acct-nm{display:inline}
 @media(max-width:600px){
-  .plasi-btn{bottom:14px;right:14px;padding:6px 14px 6px 6px}
-  .plasi-btn span{font-size:12.5px;display:none}
-  .plasi-btn .av-iso{width:44px;height:44px;margin:0}
-  .plasi-panel{bottom:0;right:0;left:0;width:100%;max-width:100%;height:100vh;height:100dvh;border-radius:0}
+  /* Botón Plasi en mobile: solo isotipo circular, sin texto */
+  .plasi-btn{bottom:16px;right:16px;padding:0;width:60px;height:60px;border-radius:99px;justify-content:center;gap:0}
+  .plasi-btn span:not(.av-iso){display:none}
+  .plasi-btn .av-iso{width:60px;height:60px;margin:0;animation:plasi-pulse 3s var(--ease) infinite}
+  .plasi-btn .av-iso svg{width:50px;height:50px}
+  /* Panel conversación mobile: fullscreen edge-to-edge, sin radios, header sticky con safe-area */
+  .plasi-panel{bottom:0;right:0;left:0;top:0;width:100%;max-width:100%;height:100vh;height:100dvh;border-radius:0;border:0}
+  .plasi-hd{padding:max(env(safe-area-inset-top),14px) 16px 14px;gap:10px}
+  .plasi-hd .av-iso{width:38px;height:38px}
+  .plasi-hd .nm{font-size:14.5px}
+  .plasi-hd .st{font-size:10.5px}
+  .plasi-hd .x{width:36px;height:36px}
+  .plasi-intro{padding:10px 16px;font-size:11.5px;line-height:1.45}
+  .plasi-msgs{padding:14px;gap:10px}
+  .pmsg{max-width:88%;font-size:14px;padding:10px 14px}
+  .pmsg.bot{box-shadow:0 1px 3px rgba(0,0,0,.04)}
+  .psug{font-size:13px;padding:11px 14px;border-radius:14px}
+  .plasi-in{padding:10px 12px max(env(safe-area-inset-bottom),12px);gap:8px;border-top:1px solid var(--n200);position:sticky;bottom:0}
+  .plasi-in input{font-size:15px;padding:13px 16px;-webkit-appearance:none}
+  .plasi-in button{width:46px;height:46px;flex-shrink:0}
 }
 
 /* FOOTER */
