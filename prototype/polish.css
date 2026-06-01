@@ -133,9 +133,8 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{outline:none;bor
 .bp-gold,.bp-gold *{color:var(--p-gold-d) !important}
 .btn-gold,.btn-gold *,.btn-gold:hover,.btn-gold:hover *{color:var(--p-navy) !important}
 .b-gold h3,.b-gold p{color:var(--p-navy)}
-.pdp-tradein,.pdp-tradein *:not(.btn-conv):not(.btn-conv *){color:var(--p-navy)}
-.mensbox,.mensbox *{color:var(--p-navy)}
-.mensbox .lbl{color:var(--p-gold-d) !important}
+.pdp-tradein h4,.pdp-tradein p{color:var(--p-navy)}
+/* mensbox preservado: tiene fondo NAVY oscuro con texto blanco/gold, NO aplica la regla anti-amarillo */
 .btn-ghost-dark{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.22);color:#fff;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
 .btn-ghost-dark:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.5);transform:translateY(-1px)}
 .btn[disabled],.btn[aria-disabled="true"]{opacity:.45;pointer-events:none}
@@ -408,6 +407,30 @@ img[loading="lazy"].loaded,img[loading="lazy"][src]:not([src=""]){opacity:1}
 /* Sectioning */
 .sec{padding:clamp(48px,6vw,96px) 0}
 .wrap{padding:0 clamp(18px,3vw,32px)}
+
+/* QR card de confirmación de cita · value exchange trigger */
+.cita-qr-card{display:flex;gap:18px;align-items:center;background:linear-gradient(135deg,var(--g-50),#fff);border:1px solid var(--border-default);border-radius:var(--r-xl);padding:20px;margin-top:18px;box-shadow:var(--sh-sm)}
+.qr-wrap{flex-shrink:0;padding:10px;background:#fff;border-radius:var(--r-md);border:1px solid var(--border-subtle);box-shadow:var(--sh-xs)}
+.qr-img{display:block;border-radius:6px}
+.qr-info{flex:1;min-width:0}
+.qr-info .qr-label{font-family:var(--disp);font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--p-gold-d)}
+.qr-info h4{font-family:var(--disp);font-size:18px;font-weight:800;color:var(--p-navy);margin-top:4px;letter-spacing:-.01em}
+.qr-info p{font-size:13px;color:var(--text-2);margin-top:6px;line-height:1.5}
+.folio.inline{margin-top:12px;padding:8px 12px;display:inline-flex;gap:8px;align-items:baseline}
+.folio.inline .k{font-size:10px}
+.folio.inline .v{font-size:13px}
+@media(max-width:600px){
+  .cita-qr-card{flex-direction:column;text-align:center;padding:18px}
+  .qr-info{text-align:center}
+  .folio.inline{display:inline-flex;margin:12px auto 0}
+}
+
+/* Mapa dummy ubicación de agencia */
+.agency-map{margin-top:24px;border-radius:var(--r-xl);overflow:hidden;border:1px solid var(--border-default);position:relative;background:var(--g-100)}
+.agency-map iframe{width:100%;height:280px;border:0;display:block;filter:grayscale(.15) contrast(1.05)}
+.agency-map .map-note{position:absolute;top:12px;left:12px;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);padding:6px 10px;border-radius:99px;font-family:var(--disp);font-size:11px;font-weight:700;color:var(--text-2);box-shadow:var(--sh-sm);display:flex;align-items:center;gap:6px}
+.agency-map .map-note::before{content:"";width:6px;height:6px;background:var(--p-gold);border-radius:99px}
+@media(max-width:600px){.agency-map iframe{height:220px}}
 
 /* AUTHORITY · sección "Por qué Plasencia" · bento grid asimétrico */
 .authority{background:linear-gradient(180deg,var(--bg-canvas),var(--bg-surface));position:relative}

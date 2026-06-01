@@ -147,7 +147,17 @@ _cita(v,step,d){
     ${step===0?`<div class="choice-grid" style="grid-template-columns:1fr">${sucList.map(s=>`<button class="choice ${d.suc===s.id?'on':''}" onclick="Flow.citaSuc='${s.id}';document.querySelectorAll('.choice').forEach(c=>c.classList.remove('on'));this.classList.add('on')"><div class="check">${I.check(14)}</div><div style="display:flex;gap:12px;align-items:center">${sucLogoHTML(s,'sm')}<div><div class="t">${s.nombre}</div><div class="d">${s.zona} · ${I.star(11)} ${s.rating} · ${num(s.reviews)} reseñas</div></div></div></button>`).join('')}</div>`:''}
     ${step===1?`<div class="choice-grid">${motivos.map(m=>`<button class="choice ${d.motivo===m[0]?'on':''}" onclick="Flow.citaMot='${m[0]}';document.querySelectorAll('.choice').forEach(c=>c.classList.remove('on'));this.classList.add('on')"><div class="check">${I.check(14)}</div><div class="ic">${m[1]}</div><div class="t">${m[0]}</div></button>`).join('')}</div>`:''}
     ${step===2?`<div class="field"><label>Día</label><div class="timeslots">${days.map(x=>`<button class="timeslot ${d.dia===x.iso?'on':''}" onclick="Flow.citaDia='${x.iso}';document.querySelectorAll('[data-r=d]').forEach(b=>b.classList.remove('on'));this.classList.add('on')" data-r="d">${x.lbl}</button>`).join('')}</div></div><div class="field"><label>Hora</label><div class="timeslots">${hours.map(h=>`<button class="timeslot ${d.hora===h?'on':''}" onclick="Flow.citaHr='${h}';document.querySelectorAll('[data-r=h]').forEach(b=>b.classList.remove('on'));this.classList.add('on')" data-r="h">${h}</button>`).join('')}</div></div>`:''}
-    ${step===3?`<div class="ok-circle">${I.check(28)}</div><h2 style="text-align:center;color:var(--navy);font-size:24px">¡Cita confirmada!</h2><p style="text-align:center;color:var(--n500);margin-top:6px;font-size:14px">Te esperamos. Recibirás recordatorio por WhatsApp.</p><div class="folio"><div class="k">Folio</div><div class="v">${d.folio}</div></div><div class="summary-box"><div class="row"><span>Concesionaria</span><b>${d.sucName}</b></div><div class="row"><span>Motivo</span><b>${d.motivo}</b></div><div class="row"><span>Día y hora</span><b>${d.dia} · ${d.hora}</b></div></div>`:''}
+    ${step===3?`<div class="ok-circle">${I.check(28)}</div><h2 style="text-align:center;color:var(--navy);font-size:24px">¡Cita confirmada!</h2><p style="text-align:center;color:var(--n500);margin-top:6px;font-size:14px">Te esperamos. Recibirás recordatorio por WhatsApp.</p>
+    <div class="cita-qr-card">
+      <div class="qr-wrap">${qrSVG('GP-CITA|'+d.folio+'|'+d.dia+'|'+d.hora+'|'+(d.suc||''),180)}</div>
+      <div class="qr-info">
+        <div class="qr-label">Tu pase digital</div>
+        <h4>Llega y escanea</h4>
+        <p>Muestra este QR en recepción al llegar. El asesor lo escanea y aparece toda tu cita preparada. Sin papeles, sin esperar en fila.</p>
+        <div class="folio inline"><div class="k">Folio</div><div class="v">${d.folio}</div></div>
+      </div>
+    </div>
+    <div class="summary-box"><div class="row"><span>Agencia</span><b>${d.sucName}</b></div><div class="row"><span>Motivo</span><b>${d.motivo}</b></div><div class="row"><span>Día y hora</span><b>${d.dia} · ${d.hora}</b></div></div>`:''}
     <div class="wiz-nav">${step>0&&step<3?`<button class="btn btn-out btn-md" onclick='Flow._cita(${v?JSON.stringify(v.id):'null'},${step-1},${JSON.stringify(d)})'>${I.chevL(14)} Atrás</button>`:'<span></span>'}${step<3?`<button class="btn btn-conv btn-md" onclick='Flow._citaNext(${v?JSON.stringify(v.id):'null'},${step},${JSON.stringify(d)})'>Continuar ${I.chevR(14)}</button>`:`<button class="btn btn-conv btn-md btn-full" onclick='closeModal();go("#/cuenta?t=citas")'>Ver mis citas</button>`}</div>`;
   showModal(html,'lg');
 },
@@ -189,7 +199,7 @@ _lease(v,step,d){
 _leaseNext(carId,step,d){const v=carId?CARS.find(c=>c.id===carId):null;if(step===0){if(!Flow.leaseTipo)return toast('Elige tipo','x');d.tipo=Flow.leaseTipo}if(step===1){d.plazo=Flow.leasePlazo||36}if(step===2){const f=folio('AL','CT');d.folio=f;const precio=v?v.precio:500000;STATE.leases.unshift({id:uid('al'),folio:f,plazo:d.plazo,renta:rentaLease(precio,d.plazo),tipo:d.tipo,fecha:new Date().toISOString().slice(0,10),estado:'cotizado'});STATE.notifs.unshift({id:uid('n'),ic:'green',t:'Autolease cotizado',d:`Renta estimada ${mxn(rentaLease(precio,d.plazo))}/mes · ${d.plazo}m`,time:'Ahora'});save()}this._lease(v,step+1,d)},
 
 // === TRADE-IN ===
-openTradein(quick=false){this._ti(0,{quick})},
+openTradein(quick=false){ensureAuth(()=>this._ti(0,{quick}))},
 _ti(step,d){
   const steps=['Identifica','Inspección','Oferta','Confirmación'];
   const html=`<h2 style="font-size:22px;color:var(--navy)">Valúa tu auto</h2><p style="color:var(--n500);font-size:13px;margin-top:4px">Oferta firme en 2 minutos. Sin compromiso.</p>${wizSteps(steps,step)}
@@ -280,3 +290,12 @@ _segNext(carId,step,d){
 },
 };
 window.Flow=Flow;
+
+// QR generator (servicio público gratuito · sin librería extra)
+// Para el piloto/demo. En producción real, generar local con qrcode.js o similar.
+function qrSVG(data,size=180){
+  const enc=encodeURIComponent(data);
+  // Servicio quickchart gratis, retorna PNG. Lo envuelvo en <img>.
+  return `<img class="qr-img" src="https://api.qrserver.com/v1/create-qr-code/?size=${size}x${size}&data=${enc}&color=0F1A2E&bgcolor=FFFFFF&margin=8&qzone=2" alt="QR de tu cita" width="${size}" height="${size}" loading="lazy">`;
+}
+window.qrSVG=qrSVG;

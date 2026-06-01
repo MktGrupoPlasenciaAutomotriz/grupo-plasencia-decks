@@ -291,6 +291,13 @@ concesionaria(id){
       <button class="btn btn-out btn-md" onclick="Flow.openCita()">${I.cal(14)} Agendar visita</button>
     </div>
     ${autos.length?`<div class="vgrid" style="margin-top:24px">${autos.slice(0,12).map(vcard).join('')}</div>`:`<div class="empty"><div class="ic">${I.car(40)}</div><p>Sin autos en la selección curada — el inventario completo lo tiene el asesor.</p><button class="btn btn-conv btn-md" style="margin-top:14px" onclick="Flow.openCita()">Agendar visita</button></div>`}
+
+    <h2 style="font-size:20px;color:var(--navy);margin:48px 0 16px">Cómo llegar a ${d.nombre}</h2>
+    <div class="agency-map">
+      <span class="map-note">${I.pin(12)} Ubicación ilustrativa</span>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1865.7825479437428!2d-103.4131841!2d20.6486497!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8428add60c0e3d39%3A0x0!2sAv.%20L%C3%B3pez%20Mateos%2C%20Zapopan!5e0!3m2!1ses!2smx!4v1717263000000" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+    </div>
+    <p style="font-size:12px;color:var(--n500);margin-top:8px">${d.zona} · Llama al asesor para indicaciones precisas, o pídele a Plasi cómo llegar desde tu ubicación.</p>
   </div>`;
 },
 
