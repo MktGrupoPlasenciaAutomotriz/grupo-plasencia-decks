@@ -136,25 +136,48 @@ home(){
       </div>
     </div>
 
-    <!-- Medios de pago aceptados · trust signal e-commerce -->
-    <div class="payments-strip">
-      <div class="ps-head">
-        <div class="ps-eyebrow">${I.shield(14)} Paga como te acomode</div>
-        <h3>Aceptamos todas las tarjetas, todos los bancos.</h3>
-        <p>Crédito o débito de cualquier banco mexicano. Hasta <b>18 meses sin intereses</b> en bancos participantes. Pago por transferencia (SPEI) sin comisión. Y si lo prefieres, contado con descuento.</p>
+    <!-- Medios de pago · bento asimétrico (rediseño Apple/Stripe inspired) -->
+    <div class="pay-bento">
+      <div class="pay-hero">
+        <div class="pay-hero-bg"></div>
+        <div class="pay-hero-content">
+          <div class="ps-eyebrow">${I.shield(14)} Paga como tú prefieras</div>
+          <h3>Cualquier banco. Cualquier tarjeta.<br><span>Hasta 18 MSI.</span></h3>
+          <p>Sin pelearte con tu banco. Sin sobrecargos sorpresa. Si traes transferencia (SPEI), te damos descuento adicional por contado.</p>
+          <div class="pay-feats">
+            <div class="pf"><span class="pf-n">0%</span><span class="pf-l">comisión por transferencia</span></div>
+            <div class="pf"><span class="pf-n">3-18</span><span class="pf-l">meses sin intereses</span></div>
+            <div class="pf"><span class="pf-n">−5%</span><span class="pf-l">descuento de contado</span></div>
+          </div>
+        </div>
       </div>
-      <div class="ps-logos">
-        <div class="pl">${I.pay_visa()}</div>
-        <div class="pl">${I.pay_mc()}</div>
-        <div class="pl">${I.pay_amex()}</div>
-        <div class="pl">${I.pay_bbva()}</div>
-        <div class="pl">${I.pay_banamex()}</div>
-        <div class="pl">${I.pay_santander()}</div>
-        <div class="pl">${I.pay_banorte()}</div>
-        <div class="pl">${I.pay_hsbc()}</div>
-        <div class="pl">${I.pay_scotia()}</div>
-        <div class="pl">${I.pay_spei()}</div>
-        <div class="pl">${I.pay_msi()}</div>
+      <div class="pay-logos">
+        <div class="pl-section">
+          <div class="pl-lbl">Tarjetas internacionales</div>
+          <div class="pl-row">
+            <div class="pl-big">${I.pay_visa()}</div>
+            <div class="pl-big">${I.pay_mc()}</div>
+            <div class="pl-big">${I.pay_amex()}</div>
+          </div>
+        </div>
+        <div class="pl-section">
+          <div class="pl-lbl">Bancos mexicanos</div>
+          <div class="pl-row">
+            <div class="pl-big">${I.pay_bbva()}</div>
+            <div class="pl-big">${I.pay_banamex()}</div>
+            <div class="pl-big">${I.pay_santander()}</div>
+            <div class="pl-big">${I.pay_banorte()}</div>
+            <div class="pl-big">${I.pay_hsbc()}</div>
+            <div class="pl-big">${I.pay_scotia()}</div>
+          </div>
+        </div>
+        <div class="pl-section">
+          <div class="pl-lbl">Otros métodos</div>
+          <div class="pl-row">
+            <div class="pl-big">${I.pay_spei()}</div>
+            <div class="pl-big">${I.pay_msi()}</div>
+          </div>
+        </div>
       </div>
     </div>
   </div></section>
