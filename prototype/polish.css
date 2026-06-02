@@ -217,7 +217,8 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{outline:none;bor
 .modtabs button.on{box-shadow:var(--sh-sm)}
 .plazos button{transition:all var(--d-base) var(--e-out)}
 .plazos button.on{box-shadow:var(--sh-sm)}
-.mensbox{background:linear-gradient(180deg,var(--p-gold-l),#fff);border:1px solid var(--p-gold)}
+/* .mensbox preservado: el original en styles2.css es navy oscuro con texto blanco/gold.
+   NO sobrescribir el background aquí (causaba blanco/amarillo). Solo refinar typography. */
 .mensbox .v{font-weight:900;letter-spacing:-.025em}
 
 /* Sticky bottom bar mobile en PDP */
