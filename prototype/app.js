@@ -176,7 +176,9 @@ function footer(){return `<footer class="ftr"><div class="ftr-in"><div class="ft
   <div><h4>Comprar</h4><ul><li onclick="go('#/catalogo?cond=nuevo')">Autos nuevos</li><li onclick="go('#/catalogo?cond=seminuevo')">Seminuevos certificados</li><li onclick="go('#/catalogo')">Catálogo cross-marca</li><li onclick="go('#/concesionarias')">Las 42 agencias</li></ul></div>
   <div><h4>Soluciones</h4><ul><li onclick="go('#/trade-in')">Vender o cambiar tu auto</li><li onclick="go('#/credito')">Plasencia Crédito</li><li onclick="go('#/autolease')">GP Autolease</li><li onclick="go('#/seguros')">Plasencia Seguros</li><li onclick="go('#/flotillas')">Flotillas empresariales</li></ul></div>
   <div><h4>Grupo Plasencia</h4><ul><li>75 años de historia</li><li>${INVENTORY.agencias} agencias en ${INVENTORY.ciudades.length} ciudades del occidente</li><li>13 marcas representadas</li><li>Trabaja con nosotros</li></ul></div>
-</div><div class="bottom"><span>© 2026 Grupo Plasencia Automotriz · Prototipo de producto</span><span style="color:var(--gold)">Marketplace · la experiencia ideal</span></div></div></footer>`;}
+</div>
+${typeof paymentsCompact==='function'?`<div class="ftr-pay">${paymentsCompact({label:'Pagos aceptados',variant:'dark'})}</div>`:''}
+<div class="bottom"><span>© 2026 Grupo Plasencia Automotriz · Prototipo de producto</span><span style="color:var(--gold)">Marketplace · la experiencia ideal</span></div></div></footer>`;}
 function updateHeader(){const h=$('.hdr');if(h)h.outerHTML=header()}
 
 // ====== TOAST ======

@@ -30,6 +30,16 @@ function vcard(v){
   </article>`;
 }
 
+// Helper compact: strip de medios de pago para footer / PDP / etc.
+function paymentsCompact(opts={}){
+  const {label='Aceptamos',variant='light'}=opts;
+  return `<div class="payments-compact ${variant}">
+    <span class="pc-lbl">${label}</span>
+    <div class="pc-row">${[I.pay_visa(),I.pay_mc(),I.pay_amex(),I.pay_bbva(),I.pay_santander(),I.pay_banorte(),I.pay_msi(),I.pay_spei()].map(l=>`<span class="pc-l">${l}</span>`).join('')}</div>
+  </div>`;
+}
+window.paymentsCompact=paymentsCompact;
+
 const Views={
 // ====== HOME ======
 home(){

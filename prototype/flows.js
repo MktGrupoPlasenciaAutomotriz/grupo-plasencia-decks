@@ -50,7 +50,9 @@ function renderCockpit(){
         <button class="btn btn-out btn-md" onclick="Flow.openTradein()">${I.trending(16)} Mi auto a cuenta</button>
       </div>
       <button class="btn btn-ghost btn-sm btn-full" style="color:var(--blue-d);font-size:12px" onclick="Plasi.open('¿Me ayudas a decidir entre contado, crédito y arrendamiento para el ${v.modelo}?')">${I.chat(14)} Habla con Plasi · ¿cuál me conviene?</button>
-    </div>`;
+    </div>
+    ${typeof paymentsCompact==='function'?paymentsCompact({label:'Aceptamos',variant:'light'}):''}
+    `;
 }
 
 // ====== AUTH ======
