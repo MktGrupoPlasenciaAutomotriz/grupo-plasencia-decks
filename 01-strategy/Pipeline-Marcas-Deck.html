@@ -48,7 +48,17 @@ html, body { width:100%; height:100%; overflow:hidden; background:#0d1117; font-
 .slide.cover { background: var(--gp-navy); color: var(--near-white); }
 
 #progress { opacity:.6; position:fixed; top:0; left:0; height:2px; background: var(--gold); z-index:9999; transition: width .4s cubic-bezier(.4,0,.2,1); }
-#counter { position:fixed; bottom:14px; right:22px; font-size:12px; font-weight:500; color: rgba(255,255,255,.5); z-index:9999; letter-spacing:.5px; font-family: var(--sans); }
+#counter { position:fixed; bottom:14px; right:22px; font-size:12px; font-weight:500; color: rgba(255,255,255,.85); z-index:9999; letter-spacing:.5px; font-family: var(--sans); background:rgba(0,0,0,.5); padding:6px 12px; border-radius:14px; backdrop-filter:blur(8px); }
+.nav-btn { position:fixed; top:50%; transform:translateY(-50%); z-index:9999; width:48px; height:64px; background:rgba(0,0,0,.55); backdrop-filter:blur(8px); color:#FFF; border:none; cursor:pointer; font-size:24px; display:flex; align-items:center; justify-content:center; transition:background .2s; border-radius:8px; font-family:var(--sans); }
+.nav-btn:hover { background:rgba(200,16,46,.85); }
+#nav-prev { left:18px; }
+#nav-next { right:18px; }
+#review-toggle { position:fixed; top:14px; right:22px; z-index:9999; background:rgba(0,0,0,.55); backdrop-filter:blur(8px); color:#FFF; border:none; cursor:pointer; font-size:11px; font-weight:600; font-family:var(--sans); padding:7px 14px; border-radius:14px; letter-spacing:.5px; text-transform:uppercase; transition:background .2s; }
+#review-toggle:hover { background:rgba(200,16,46,.85); }
+body.review-mode { overflow-y:auto; }
+body.review-mode .slide { position:relative !important; opacity:1 !important; visibility:visible !important; transform:none !important; left:auto !important; top:auto !important; margin:0 auto 32px auto; box-shadow:0 8px 32px rgba(0,0,0,.4); }
+body.review-mode #nav-prev, body.review-mode #nav-next, body.review-mode #counter, body.review-mode #progress { display:none; }
+body.review-mode { background:#0A0F1F; padding:32px 0; }
 
 .t-eyebrow { font-family:var(--sans); font-size:10pt; font-weight:700; letter-spacing:4px; text-transform:uppercase; color: var(--gp-red); }
 .t-eyebrow.gold { color: var(--amber); }
@@ -258,14 +268,17 @@ table.sucursal-tbl td.bad { color: var(--gp-red); }
   html, body { overflow:visible; background:#fff; }
   .slide { position:relative !important; opacity:1 !important; visibility:visible !important; transform:none !important; left:auto !important; top:auto !important; page-break-after: always; box-shadow:none; }
   .slide:last-child { page-break-after: avoid; }
-  #progress, #counter { display:none; }
+  #progress, #counter, .nav-btn, #review-toggle { display:none; }
 }
 </style>
 </head>
 <body>
 
 <div id="progress"></div>
-<div id="counter"></div>
+<div id="counter">1 / 10</div>
+<button id="nav-prev" class="nav-btn" title="Anterior (←)">‹</button>
+<button id="nav-next" class="nav-btn" title="Siguiente (→ o Espacio)">›</button>
+<button id="review-toggle" title="Alterna entre modo presentación y vista scroll de todo el deck">Ver todo ↕</button>
 
 <div class="deck" id="deck">
 
@@ -1245,13 +1258,30 @@ function show(i) {
 }
 
 document.addEventListener('keydown', (e) => {
+  if (document.body.classList.contains('review-mode')) return;
   if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') { e.preventDefault(); show(idx + 1); }
   else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); show(idx - 1); }
   else if (e.key === 'Home') { e.preventDefault(); show(0); }
   else if (e.key === 'End') { e.preventDefault(); show(slides.length - 1); }
 });
 
+document.getElementById('nav-prev').addEventListener('click', () => show(idx - 1));
+document.getElementById('nav-next').addEventListener('click', () => show(idx + 1));
+
+const reviewToggle = document.getElementById('review-toggle');
+reviewToggle.addEventListener('click', () => {
+  const isReview = document.body.classList.toggle('review-mode');
+  reviewToggle.textContent = isReview ? 'Modo presentación ▶' : 'Ver todo ↕';
+  if (isReview) {
+    slides.forEach(s => { s.style.transform = 'none'; });
+    window.scrollTo(0, 0);
+  } else {
+    scaleSlides();
+  }
+});
+
 function scaleSlides() {
+  if (document.body.classList.contains('review-mode')) return;
   const baseW = 1280, baseH = 720;
   const scale = Math.min(window.innerWidth / baseW, window.innerHeight / baseH);
   const tx = (window.innerWidth - baseW * scale) / 2;
