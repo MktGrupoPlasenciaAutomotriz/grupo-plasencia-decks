@@ -33,7 +33,8 @@ for f in \
   "Seminuevos-Modelo-Operativo-Deck.html" \
   "Autolease-Definicion-Estrategica-Linea-Negocio.html" \
   "Autolease-Research-Readout.html" \
-  "Vambe-Integration-Status-Memo.html"; do
+  "Vambe-Integration-Status-Memo.html" \
+  "Marketing-Eficiencia-Diagnostico-2025.html"; do
   if [ -f "$SRC/01-strategy/$f" ]; then
     cp "$SRC/01-strategy/$f" "$DEST/01-strategy/$f"
     echo "[OK]  $f"

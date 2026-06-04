@@ -173,3 +173,22 @@ Es downstream de D1, no medición independiente. Solo audita salud del MP fire �
 - "agregar nueva custom dim" → KO-Operativo §Update 24-abr + script `/tmp/create_ga4_dims_phase3.py` (token OAuth en iCloud)
 - "deduplicate Pixel↔CAPI" → `Folio-Cita.md` + verificar `event_id`
 - "qué métrica decirle al Consejo" → `Reglas-Metricas-Plataforma-vs-Negocio.md` (vista Negocio)
+- **"baseline pre-piloto / CPL Mazda 2025 / CAC histórico por agencia"** → `08-baseline/2025-Q3-Q4-DanielGalindo/` (JSONs normalizados con KPIs Ago-Nov 2025 de Daniel Galindo, snapshot histórico para comparativos contra data 2026)
+
+---
+
+## Contexto histórico pre-piloto (baseline)
+
+**Ubicación:** `08-baseline/2025-Q3-Q4-DanielGalindo/`
+
+Snapshot de KPIs de marketing del grupo **antes** del Motor de Atribución (Ago-Nov 2025), elaborado por Daniel Galindo (consultor MKT 2025-2026) y reestructurado en JSONs normalizados. Sirve para:
+
+- Responder preguntas operativas/financieras del grupo (CPL, CAC, plantilla, presupuestos, % co-inversión OEM)
+- Comparar contra data del piloto y futuros snapshots 2026
+- Sustentar reportes ejecutivos al Consejo con cifras pre-piloto verificables
+
+**Archivos disponibles:** marca_mes, agencia_mes, proveedores_agencia, plantilla_marca, madurez_marca, ventas_anuales, presupuestos_marca, pauta_oem, ahorros_compras, funnel_jul_sep_agencia, kpis_por_agencia, seminuevos_q4_2025.
+
+**No es operacional.** No se actualiza con leads vivos. Es snapshot puntual versionado en git.
+
+Para detalles de uso: `08-baseline/README.md` + `_metadata.json` (índice maestro con `consultar_cuando` por archivo).
