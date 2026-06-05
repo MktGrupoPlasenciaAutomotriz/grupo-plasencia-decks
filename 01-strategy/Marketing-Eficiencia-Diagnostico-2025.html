@@ -2,8 +2,8 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Deep Dive · Marketing Economics × Grupo Plasencia · Baseline 2025 · v3.14</title>
-<meta name="description" content="Diagnóstico estratégico de eficiencia de marketing GP. Baseline 2025 reestructurado. v3.14: organigrama nivel 2 reorganizado como 2 grupos paralelos colgando del Consejo (Direcciones Corporativas + Direcciones de Marca al mismo nivel · estructura GP atípica pero AS IS)">
+<title>Deep Dive · Marketing Economics × Grupo Plasencia · Baseline 2025 · v3.15</title>
+<meta name="description" content="Diagnóstico estratégico de eficiencia de marketing GP. Baseline 2025 reestructurado. v3.15: partners externos agregados al organigrama formal · ahora cada Director→Gerencia→Partners está visible · línea sólida = empleados GP · línea punteada amber = relación contractual">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@500;700;800;900&display=swap" rel="stylesheet">
@@ -27,7 +27,7 @@
   @page {
     size: A4; margin: 16mm 16mm 20mm 16mm;
     @bottom-right { content: counter(page); font-family: 'Inter'; font-size: 9pt; color: #718096; }
-    @bottom-left { content: "Confidencial · Dirección de Marketing Corporativo · v3.14"; font-family: 'Inter'; font-size: 8pt; color: #A0AEC0; }
+    @bottom-left { content: "Confidencial · Dirección de Marketing Corporativo · v3.15"; font-family: 'Inter'; font-size: 8pt; color: #A0AEC0; }
     @top-right { content: "Deep Dive · Marketing Economics × Grupo Plasencia · Baseline 2025"; font-family: 'Inter'; font-size: 8pt; color: #A0AEC0; }
   }
   @page :first { @top-right { content: ""; } @bottom-right { content: ""; } @bottom-left { content: ""; } }
@@ -357,6 +357,13 @@
   .orgreal .dir-gte-pair .gte-box strong { display: block; font-size: 7.5pt; }
   .orgreal .dir-gte-pair .gte-box.warn { background: rgba(200,16,46,0.06); border-color: var(--gp-red); }
   .orgreal .dir-gte-pair .gte-box.warn strong { color: var(--gp-red); font-style: italic; }
+  .orgreal .dir-gte-pair .partner-arrow { text-align: center; color: var(--amber); font-size: 6.5pt; font-style: italic; line-height: 0.8; }
+  .orgreal .dir-gte-pair .partners-box { background: rgba(214,158,46,0.08); border: 1px dashed var(--amber); padding: 1.5mm 2mm; text-align: center; font-size: 6.5pt; color: var(--gp-navy); border-radius: 1px; line-height: 1.3; }
+  .orgreal .dir-gte-pair .partners-box strong { display: block; font-size: 7pt; color: var(--gp-navy); margin-bottom: 0.5mm; }
+  .orgreal .dir-gte-pair .partners-box.zero { background: var(--g100); border-color: var(--g400); }
+  .orgreal .dir-gte-pair .partners-box.zero strong { color: var(--g500); font-style: italic; }
+  .orgreal .dir-gte-pair .partners-box.warn { background: rgba(200,16,46,0.06); border-color: var(--gp-red); }
+  .orgreal .dir-gte-pair .partners-box.warn strong { color: var(--gp-red); }
 
   /* MINI-ORGANIGRAMAS POR SILO · estructura BaU Director de Marca */
   .silos-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 4mm; margin: 4mm 0; }
@@ -396,18 +403,18 @@
       <p class="cover-subtitle">Baseline 2025. Fotografía del gasto, radiografía estructural concesionario de marca, hallazgos de auditoría.</p>
       <p class="cover-pull">
         Documento de auditoría inicial del Director MKT (Jesús Pérez Porras, en función desde marzo 2026). Reestructura el levantamiento previo de Daniel Galindo (Ago–Nov 2025) en un marco analítico riguroso siguiendo disciplina Minto + SCR + Answer-First. <strong>El baseline Galindo es autorreporte de las gerentes vía encuestas y formas — NO extracto de libros contables</strong>; cruzar contra contabilidad real es pendiente abierto (ver §6). <strong>No es propuesta de estrategia ni decisiones tomadas</strong> — es la base AS IS sobre la que se construirán las conversaciones de estrategia con el Consejo.
-        <cite>v3.14 · 7 secciones · 2 grupos paralelos bajo Consejo</cite>
+        <cite>v3.15 · 7 secciones · Director→Gerencia→Partners</cite>
       </p>
       <div class="cover-tags">
         <span class="cover-tag">Auditoría AS IS</span>
         <span class="cover-tag accent">Baseline 2025</span>
-        <span class="cover-tag urgent">v3.14 · 2 grupos paralelos</span>
+        <span class="cover-tag urgent">v3.15 · Partners visibles</span>
       </div>
     </div>
     <div>
       <div class="cover-meta">
         <div class="cover-meta-block"><strong>Autor · Función</strong>Director MKT (función nueva mar 2026) en auditoría, estructuración, visioning</div>
-        <div class="cover-meta-block" style="text-align:right;"><strong>Junio 2026 · v3.14</strong>21 páginas · Paper A4</div>
+        <div class="cover-meta-block" style="text-align:right;"><strong>Junio 2026 · v3.15</strong>21 páginas · Paper A4</div>
       </div>
     </div>
   </div>
@@ -867,21 +874,29 @@
         <div class="dir-box">Director Mazda<span class="dir-name tbc">a confirmar</span></div>
         <div class="dir-arrow">│ reporta</div>
         <div class="gte-box"><strong>Florencia Alcaraz</strong>Gerencia Mazda</div>
+        <div class="partner-arrow">┊ contrata</div>
+        <div class="partners-box zero"><strong>IN-HOUSE</strong>0 partners externos</div>
       </div>
       <div class="dir-gte-pair">
         <div class="dir-box">Director Hyundai<span class="dir-name tbc">a confirmar</span></div>
         <div class="dir-arrow">│ reporta</div>
         <div class="gte-box"><strong>Verónica Orozco</strong>Gerencia Hyundai · jun 2026</div>
+        <div class="partner-arrow">┊ contrata</div>
+        <div class="partners-box"><strong>3 partners</strong>Viceversa · Nextilo · Karbot</div>
       </div>
       <div class="dir-gte-pair">
         <div class="dir-box dual">Director Changan<span class="dir-name">Fernando Mora ⚠ comparte con GWM</span></div>
         <div class="dir-arrow">│ reporta</div>
         <div class="gte-box"><strong>Mauricio Castro</strong>Gerencia Changan</div>
+        <div class="partner-arrow">┊ contrata</div>
+        <div class="partners-box"><strong>1 partner</strong>Paola Like (4 ag)</div>
       </div>
       <div class="dir-gte-pair">
         <div class="dir-box">Director Ford<span class="dir-name tbc">a confirmar</span></div>
         <div class="dir-arrow">│ reporta</div>
         <div class="gte-box"><strong>Karen Michel Patiño</strong>Gerencia Ford</div>
+        <div class="partner-arrow">┊ contrata</div>
+        <div class="partners-box warn"><strong>4 partners ⚠</strong>Dazing + 3 · $3.81M/año concentrado en Dazing</div>
       </div>
     </div>
     <div class="dir-gte-grid" style="margin-top:-2mm;">
@@ -889,24 +904,32 @@
         <div class="dir-box dual">Director GWM<span class="dir-name">Fernando Mora ⚠ comparte con Changan</span></div>
         <div class="dir-arrow">│ reporta</div>
         <div class="gte-box warn"><strong>sin gerencia identificada</strong>cross-ag inexistente</div>
+        <div class="partner-arrow">┊ contrata</div>
+        <div class="partners-box"><strong>3 partners</strong>Like · Fabula · Paola Like</div>
       </div>
       <div class="dir-gte-pair">
         <div class="dir-box">Director GAC<span class="dir-name">Jorge Alberto García</span></div>
         <div class="dir-arrow">│ reporta</div>
         <div class="gte-box"><strong>Elia García</strong>Gerencia GAC</div>
+        <div class="partner-arrow">┊ contrata</div>
+        <div class="partners-box"><strong>4 partners</strong>Idea · Galleta · S.Oliveira · Kamote</div>
       </div>
       <div class="dir-gte-pair">
         <div class="dir-box">Director Stellantis<span class="dir-name">Rafael Benítez</span></div>
         <div class="dir-arrow">│ reporta</div>
         <div class="gte-box"><strong>Berenice Pérez</strong>Gerencia Stellantis · jun 2026</div>
+        <div class="partner-arrow">┊ contrata</div>
+        <div class="partners-box warn"><strong>2 partners ⚠</strong>Infinito Lab · Nextilo (dup. cross-marca con Hyundai)</div>
       </div>
       <div class="dir-gte-pair">
         <div class="dir-box">Director <em>Comercial</em> Seminuevos<span class="dir-name">Jonathan Medina</span></div>
         <div class="dir-arrow">│ reporta</div>
         <div class="gte-box"><strong>José Reyes López Rivas</strong>Gerencia Seminuevos</div>
+        <div class="partner-arrow">┊ contrata</div>
+        <div class="partners-box"><strong>3 partners</strong>Maxipublica · Fabula · MercadoLibre</div>
       </div>
     </div>
-    <p class="small" style="text-align:center; color:var(--g600); font-style:italic; margin: 1mm 0 3mm;">↓ Detalle completo del stack BaU de cada silo (4 elementos por silo) ↓</p>
+    <p class="small" style="text-align:center; color:var(--g600); font-style:italic; margin: 1mm 0 3mm;">Línea sólida (gris/verde) = empleados GP · Línea punteada amber = relación contractual con partners externos · 14 partners únicos en total (algunos duplicados cross-marca: Nextilo en HYU+STL · Like/Paola en 3 marcas). Mini-organigramas con equipo interno cross-agencia y personas en concesionarios abajo ↓</p>
   </div>
 
   <div class="silos-grid">
@@ -1424,7 +1447,7 @@
 <!-- ============ CLOSING ============ -->
 <section class="page" style="padding: 0;">
   <div class="closing">
-    <div class="ribbon">Deep Dive · Marketing Economics · v3.14</div>
+    <div class="ribbon">Deep Dive · Marketing Economics · v3.15</div>
     <h2>La fotografía está <em>completa.</em><br>La estrategia <em>comienza.</em></h2>
     <p class="pull">Antes de transformar el marketing del grupo, hay que verlo entero. Este diagnóstico hace visible el 53% del gasto que el levantamiento de Daniel no etiqueta como marketing, muestra dónde está el dinero hoy, identifica las cinco fuentes de ineficiencia, y establece la magnitud de las palancas que la estrategia tendrá que activar.</p>
     <p class="body-text">Lo que sigue no es un plan de recortes ni una propuesta organizacional. Es la construcción de la estrategia que activa las cinco palancas en el orden correcto, con el instrumento correcto — el Centro de Excelencia — y con la atribución unificada como palanca dominante. Este documento se actualiza cuando llegue data 2026, pero los hallazgos cualitativos seguirán vigentes con o sin nuevos números.</p>
