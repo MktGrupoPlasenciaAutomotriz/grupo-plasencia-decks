@@ -2,8 +2,8 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Deep Dive · Marketing Economics × Grupo Plasencia · Baseline 2025 · v2.2</title>
-<meta name="description" content="Diagnóstico estratégico de eficiencia de marketing GP. Baseline 2025 reestructurado. v2.2: estructura Minto + SCR + Answer-First limpia en 7 secciones.">
+<title>Deep Dive · Marketing Economics × Grupo Plasencia · Baseline 2025 · v2.3</title>
+<meta name="description" content="Diagnóstico estratégico de eficiencia de marketing GP. Baseline 2025 reestructurado. v2.3: situación AS IS completa — gasto (§2.3) + radiografía organizacional (§2.4).">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@500;700;800;900&display=swap" rel="stylesheet">
@@ -27,7 +27,7 @@
   @page {
     size: A4; margin: 16mm 16mm 20mm 16mm;
     @bottom-right { content: counter(page); font-family: 'Inter'; font-size: 9pt; color: #718096; }
-    @bottom-left { content: "Confidencial · Dirección de Marketing Corporativo · v2.2"; font-family: 'Inter'; font-size: 8pt; color: #A0AEC0; }
+    @bottom-left { content: "Confidencial · Dirección de Marketing Corporativo · v2.3"; font-family: 'Inter'; font-size: 8pt; color: #A0AEC0; }
     @top-right { content: "Deep Dive · Marketing Economics × Grupo Plasencia · Baseline 2025"; font-family: 'Inter'; font-size: 8pt; color: #A0AEC0; }
   }
   @page :first { @top-right { content: ""; } @bottom-right { content: ""; } @bottom-left { content: ""; } }
@@ -233,6 +233,70 @@
   .closing .signature { margin-top: 12mm; font-size: 9pt; color: rgba(255,255,255,0.5); letter-spacing: 1.5px; }
   .closing .signature strong { color: var(--gold); display: block; font-size: 11pt; letter-spacing: 2.5px; margin-bottom: 1mm; }
 
+  /* ORG CHART AS IS */
+  .orgchart { margin: 4mm 0; }
+  .orgchart-director {
+    background: var(--gp-navy); color: var(--near-white);
+    padding: 5mm 7mm; text-align: center;
+    border-left: 4px solid var(--gold);
+    page-break-inside: avoid;
+  }
+  .orgchart-director .role { font-family: var(--sans); font-size: 9pt; font-weight: 800; letter-spacing: 2px; color: var(--gold); text-transform: uppercase; margin-bottom: 2mm; }
+  .orgchart-director .person { font-family: var(--serif); font-weight: 700; font-size: 13pt; color: var(--near-white); margin-bottom: 2mm; }
+  .orgchart-director .note { font-size: 8.5pt; color: var(--gp-red); font-weight: 600; }
+  .orgchart-director .note strong { color: var(--gold); }
+  .orgchart-gap {
+    text-align: center; padding: 3mm 0; position: relative;
+    font-size: 7.5pt; color: var(--g500); font-style: italic;
+    letter-spacing: 0.5px;
+  }
+  .orgchart-gap::before, .orgchart-gap::after {
+    content: ""; display: block; width: 1px; height: 4mm;
+    background: var(--g400); margin: 0 auto 1mm;
+  }
+  .orgchart-gap::after { margin: 1mm auto 0; }
+  .orgchart-silos {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 2.5mm;
+    margin-top: 1mm;
+  }
+  .silo {
+    background: var(--paper); border: 1px solid var(--g300);
+    border-top: 4px solid var(--g500);
+    padding: 3mm 3mm; font-size: 7.5pt; line-height: 1.4;
+    page-break-inside: avoid;
+  }
+  .silo.hub-maduro { border-top-color: var(--deep-green); background: rgba(72,187,120,0.06); }
+  .silo.hub-minimo { border-top-color: var(--blue); background: rgba(66,153,225,0.05); }
+  .silo.hub-parcial { border-top-color: var(--g500); }
+  .silo.local { border-top-color: var(--gp-red); background: rgba(200,16,46,0.05); }
+  .silo.cuello { border-top-color: var(--amber); background: rgba(214,158,46,0.06); }
+  .silo .silo-marca { font-family: var(--serif); font-weight: 800; font-size: 13pt; color: var(--gp-navy); line-height: 1; margin-bottom: 1mm; letter-spacing: -0.3px; }
+  .silo .silo-tipo { font-size: 7pt; font-weight: 700; color: var(--g500); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 2mm; padding-bottom: 1.5mm; border-bottom: 1px dotted var(--g300); }
+  .silo.hub-maduro .silo-tipo { color: var(--deep-green); }
+  .silo.hub-minimo .silo-tipo { color: var(--deep-blue); }
+  .silo.local .silo-tipo { color: var(--gp-red); }
+  .silo.cuello .silo-tipo { color: #997706; }
+  .silo .silo-line { padding: 0.5mm 0; color: var(--g600); }
+  .silo .silo-line strong { color: var(--gp-navy); }
+  .silo .silo-block { padding: 1mm 0; margin-top: 1.5mm; border-top: 1px dotted var(--g300); }
+  .silo .silo-block .label { font-size: 6.5pt; font-weight: 700; color: var(--g500); text-transform: uppercase; letter-spacing: 0.8px; }
+  .silo .silo-block .val { font-size: 8pt; color: var(--gp-navy); font-weight: 600; }
+  .silo .silo-block .val.warn { color: var(--gp-red); }
+  .orgchart-legend {
+    background: var(--g100); padding: 4mm 5mm; margin-top: 4mm;
+    font-size: 8pt; line-height: 1.7;
+    border-left: 3px solid var(--gp-slate);
+  }
+  .orgchart-legend strong { color: var(--gp-navy); }
+  .orgchart-legend .leg-row { display: flex; gap: 6mm; flex-wrap: wrap; }
+  .orgchart-legend .leg-item { display: flex; align-items: center; gap: 2mm; }
+  .orgchart-legend .leg-dot { width: 3mm; height: 3mm; border-radius: 1px; flex-shrink: 0; }
+  .orgchart-legend .leg-dot.hub-maduro { background: var(--deep-green); }
+  .orgchart-legend .leg-dot.hub-minimo { background: var(--blue); }
+  .orgchart-legend .leg-dot.hub-parcial { background: var(--g500); }
+  .orgchart-legend .leg-dot.local { background: var(--gp-red); }
+  .orgchart-legend .leg-dot.cuello { background: var(--amber); }
+
   @media print { body { background: white; } .page { box-shadow: none; margin: 0; padding: 16mm; } .cover { padding: 0; } }
 </style>
 </head>
@@ -248,18 +312,18 @@
       <p class="cover-subtitle">Baseline 2025. La fotografía del gasto, la lectura de las distorsiones, la respuesta estratégica.</p>
       <p class="cover-pull">
         Este documento es diagnóstico, no estrategia. Reestructura el trabajo previo de Daniel Galindo (Ago–Nov 2025) en un marco analítico riguroso siguiendo disciplina Minto + SCR + Answer-First. La estrategia se construirá sobre esta base y se actualizará cuando llegue data 2026.
-        <cite>v2.2 · 7 secciones · 6 vistas · SCR auténtico</cite>
+        <cite>v2.3 · 7 secciones · gasto + radiografía organizacional</cite>
       </p>
       <div class="cover-tags">
         <span class="cover-tag">Diagnóstico Estratégico</span>
         <span class="cover-tag accent">Baseline 2025</span>
-        <span class="cover-tag urgent">v2.2 · Origen GP vs OEM</span>
+        <span class="cover-tag urgent">v2.3 · Radiografía AS IS</span>
       </div>
     </div>
     <div>
       <div class="cover-meta">
         <div class="cover-meta-block"><strong>Audiencia</strong>Director MKT Corporativo · Insumo para construcción de estrategia</div>
-        <div class="cover-meta-block" style="text-align:right;"><strong>Junio 2026 · v2.2</strong>16 páginas · Paper A4</div>
+        <div class="cover-meta-block" style="text-align:right;"><strong>Junio 2026 · v2.3</strong>18 páginas · Paper A4</div>
       </div>
     </div>
   </div>
@@ -271,12 +335,12 @@
 
   <div class="toc">
     <div class="toc-item"><span class="toc-num">§1</span><span class="toc-title">Answer-First<span class="toc-sub">La tesis del diagnóstico</span></span><span class="toc-page">02</span></div>
-    <div class="toc-item"><span class="toc-num">§2</span><span class="toc-title">Situación · El estado actual<span class="toc-sub">El grupo + contexto interno + fotografía del gasto (6 vistas: distribución · concentración · origen GP vs OEM)</span></span><span class="toc-page">03</span></div>
-    <div class="toc-item"><span class="toc-num">§3</span><span class="toc-title">Complicación · Lo que la fotografía revela<span class="toc-sub">4 distorsiones que la contabilidad actual oculta</span></span><span class="toc-page">07</span></div>
-    <div class="toc-item"><span class="toc-num">§4</span><span class="toc-title">Resolución · Taxonomía + 5 palancas + hipótesis<span class="toc-sub">7 buckets + 4 dimensiones + 5 fuentes + 5 hipótesis</span></span><span class="toc-page">08</span></div>
-    <div class="toc-item"><span class="toc-num">§5</span><span class="toc-title">Caso financiero · Magnitud del diagnóstico<span class="toc-sub">3 escenarios + ROI vs inversión CdE</span></span><span class="toc-page">12</span></div>
-    <div class="toc-item"><span class="toc-num">§6</span><span class="toc-title">Decisiones para pasar a estrategia<span class="toc-sub">4 inputs internos antes de la fase siguiente</span></span><span class="toc-page">13</span></div>
-    <div class="toc-item"><span class="toc-num">§7</span><span class="toc-title">Anexos<span class="toc-sub">Marcas priorizadas, fuentes, limitaciones</span></span><span class="toc-page">14</span></div>
+    <div class="toc-item"><span class="toc-num">§2</span><span class="toc-title">Situación · El estado actual<span class="toc-sub">Grupo + contexto + fotografía del gasto (§2.3 · 6 vistas) + radiografía organizacional AS IS (§2.4)</span></span><span class="toc-page">03</span></div>
+    <div class="toc-item"><span class="toc-num">§3</span><span class="toc-title">Complicación · Lo que la fotografía revela<span class="toc-sub">4 distorsiones que la contabilidad actual oculta</span></span><span class="toc-page">11</span></div>
+    <div class="toc-item"><span class="toc-num">§4</span><span class="toc-title">Resolución · Taxonomía + 5 palancas + hipótesis<span class="toc-sub">7 buckets + 4 dimensiones + 5 fuentes + 5 hipótesis</span></span><span class="toc-page">12</span></div>
+    <div class="toc-item"><span class="toc-num">§5</span><span class="toc-title">Caso financiero · Magnitud del diagnóstico<span class="toc-sub">3 escenarios + ROI vs inversión CdE</span></span><span class="toc-page">14</span></div>
+    <div class="toc-item"><span class="toc-num">§6</span><span class="toc-title">Decisiones para pasar a estrategia<span class="toc-sub">4 inputs internos antes de la fase siguiente</span></span><span class="toc-page">15</span></div>
+    <div class="toc-item"><span class="toc-num">§7</span><span class="toc-title">Anexos<span class="toc-sub">Marcas priorizadas, fuentes, limitaciones</span></span><span class="toc-page">16</span></div>
   </div>
 
   <div class="statement">
@@ -555,12 +619,173 @@
   </div>
 </section>
 
-<!-- ============ PAGE 9: §3 COMPLICACION ============ -->
+<!-- ============ PAGE 9-10: §2.4 RADIOGRAFIA AS IS ============ -->
+<section class="page">
+  <h2 class="section-h2" style="margin-top:0;">2.4 · Radiografía organizacional · cómo está estructurado MKT hoy</h2>
+  <p class="lead">§2.3 muestra el gasto (qué se compra, dónde, quién paga). <strong>§2.4 muestra la estructura</strong> (cómo está organizado el equipo que decide qué comprar). Las dos vistas completan la situación AS IS.</p>
+
+  <div class="orgchart">
+    <div class="orgchart-director">
+      <div class="role">Dirección de Marketing Corporativo</div>
+      <div class="person">Chucho Porras · Director MKT · Marzo 2026</div>
+      <div class="note">⚠ Función NUEVA · sin Hub corporativo establecido · <strong>0 reportes directos</strong></div>
+    </div>
+
+    <div class="orgchart-gap">no hay estructura formal cross-marca · 8 silos operan independientes</div>
+
+    <div class="orgchart-silos">
+      <div class="silo hub-maduro">
+        <div class="silo-marca">Mazda</div>
+        <div class="silo-tipo">✓ Hub maduro</div>
+        <div class="silo-line"><strong>20</strong> personas · <strong>10</strong> agencias</div>
+        <div class="silo-line"><strong>$475K/mes</strong> · $23.8K/persona</div>
+        <div class="silo-line">6 corp + 14 local</div>
+        <div class="silo-block"><div class="label">Gerente</div><div class="val">Florencia Alcaraz</div></div>
+        <div class="silo-block"><div class="label">Proveedor</div><div class="val">IN-HOUSE · sin externos</div></div>
+      </div>
+
+      <div class="silo hub-maduro">
+        <div class="silo-marca">Hyundai</div>
+        <div class="silo-tipo">✓ Hub maduro</div>
+        <div class="silo-line"><strong>11</strong> personas · <strong>7</strong> agencias</div>
+        <div class="silo-line"><strong>$332K/mes</strong> · $30.2K/persona</div>
+        <div class="silo-line">5 corp + 6 local</div>
+        <div class="silo-block"><div class="label">Gerente</div><div class="val">Ana Luisa García</div></div>
+        <div class="silo-block"><div class="label">Proveedor</div><div class="val">Viceversa + Nextilo + Karbot</div></div>
+      </div>
+
+      <div class="silo hub-parcial">
+        <div class="silo-marca">Changan</div>
+        <div class="silo-tipo">Hub parcial</div>
+        <div class="silo-line"><strong>7</strong> personas · <strong>4</strong> agencias</div>
+        <div class="silo-line"><strong>$284K/mes</strong> · <strong style="color:var(--gp-red);">$40.5K/p ⚠</strong></div>
+        <div class="silo-line">1 corp + 6 local</div>
+        <div class="silo-block"><div class="label">Gerente</div><div class="val">Mauricio Castro</div></div>
+        <div class="silo-block"><div class="label">Proveedor</div><div class="val">Paola Like (4 ag)</div></div>
+      </div>
+
+      <div class="silo hub-parcial">
+        <div class="silo-marca">Ford</div>
+        <div class="silo-tipo">Hub parcial</div>
+        <div class="silo-line"><strong>9</strong> personas · <strong>6</strong> agencias</div>
+        <div class="silo-line"><strong>$253K/mes</strong> · $28.1K/persona</div>
+        <div class="silo-line">1 corp + 8 local</div>
+        <div class="silo-block"><div class="label">Gerente</div><div class="val">Karen Michel Patiño</div></div>
+        <div class="silo-block"><div class="label">Proveedor</div><div class="val warn">Dazing+3 · $3.81M/año ⚠</div></div>
+      </div>
+
+      <div class="silo local">
+        <div class="silo-marca">GWM</div>
+        <div class="silo-tipo">⚠ 100% local</div>
+        <div class="silo-line"><strong>7</strong> personas · <strong>4</strong> agencias</div>
+        <div class="silo-line"><strong>$227K/mes</strong> · $32.4K/persona</div>
+        <div class="silo-line"><strong style="color:var(--gp-red);">0 corp</strong> + 7 local</div>
+        <div class="silo-block"><div class="label">Gerente</div><div class="val warn">Sin cross-agencia</div></div>
+        <div class="silo-block"><div class="label">Proveedor</div><div class="val">Like + Fabula + Paola</div></div>
+      </div>
+
+      <div class="silo hub-minimo">
+        <div class="silo-marca">GAC</div>
+        <div class="silo-tipo">Hub mínimo</div>
+        <div class="silo-line"><strong>5</strong> personas · <strong>4</strong> agencias</div>
+        <div class="silo-line"><strong>$133K/mes</strong> · $26.7K/persona</div>
+        <div class="silo-line">1 corp + 4 local</div>
+        <div class="silo-block"><div class="label">Gerente</div><div class="val">Elia García</div></div>
+        <div class="silo-block"><div class="label">Proveedor</div><div class="val">Idea+Galleta+S.Oliveira+Kamote</div></div>
+      </div>
+
+      <div class="silo hub-parcial">
+        <div class="silo-marca">Stellantis</div>
+        <div class="silo-tipo">Hub parcial</div>
+        <div class="silo-line"><strong>1</strong> persona · <strong>2</strong> agencias</div>
+        <div class="silo-line"><strong>$32K/mes</strong> · $32K/persona</div>
+        <div class="silo-line">1 corp + 0 local</div>
+        <div class="silo-block"><div class="label">Gerente</div><div class="val">Alejandra Ramírez</div></div>
+        <div class="silo-block"><div class="label">Proveedor</div><div class="val warn">Infinito Lab + Nextilo ⚠</div></div>
+      </div>
+
+      <div class="silo cuello">
+        <div class="silo-marca">Seminuevos</div>
+        <div class="silo-tipo">⚠ Solo gerente</div>
+        <div class="silo-line"><strong>1</strong> persona · <strong>7</strong> agencias</div>
+        <div class="silo-line"><strong>$42K/mes</strong> · $42K/persona</div>
+        <div class="silo-line">1 corp + <strong style="color:#997706;">0 local</strong></div>
+        <div class="silo-block"><div class="label">Gerente</div><div class="val">José Reyes López Rivas</div></div>
+        <div class="silo-block"><div class="label">Proveedor</div><div class="val">Maxipublica + Fabula + ML</div></div>
+      </div>
+    </div>
+
+    <div class="orgchart-legend">
+      <strong>Leyenda · Tipo de estructura por marca</strong>
+      <div class="leg-row" style="margin-top: 2mm;">
+        <div class="leg-item"><div class="leg-dot hub-maduro"></div><span>Hub maduro · corp cross-agencia + locales (Mazda, Hyundai)</span></div>
+        <div class="leg-item"><div class="leg-dot hub-minimo"></div><span>Hub mínimo · 1 gerente cubre todas (GAC)</span></div>
+        <div class="leg-item"><div class="leg-dot hub-parcial"></div><span>Hub parcial · 1 persona cubre 2 ag (Changan, Ford, Stellantis)</span></div>
+        <div class="leg-item"><div class="leg-dot local"></div><span>⚠ 100% local · anti-modelo (GWM)</span></div>
+        <div class="leg-item"><div class="leg-dot cuello"></div><span>⚠ Cuello · 1 corp sin locales (Seminuevos)</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PAGE 10: §2.4 lecturas + síntesis ============ -->
+<section class="page">
+  <h3 class="section-h3" style="margin-top:0;">Cinco lecturas críticas de la radiografía</h3>
+
+  <div class="evidence">
+    <div class="ev">
+      <div class="ev-num">LECTURA · 01</div>
+      <h4>El Hub corporativo está vacío</h4>
+      <p>Director MKT entró marzo 2026 sin equipo central. <strong>0 personas reportan directamente</strong> a la función corporativa. Los 8 gerentes de marca reportan funcionalmente a Directores de Marca, no a MKT Corporativo. La coordinación cross-marca no existe porque no hay quién la haga.</p>
+    </div>
+    <div class="ev">
+      <div class="ev-num">LECTURA · 02</div>
+      <h4>Mazda y Hyundai ya operan Hub &amp; Spoke</h4>
+      <p>Mazda: <strong>6 corporativas + 14 locales</strong> en 10 agencias. Hyundai: <strong>4 corporativas + 7 locales</strong> en 7 agencias. NO es teoría — es práctica funcionando hoy. <strong>El CdE formaliza al nivel grupo lo que estas dos marcas ya demuestran al nivel marca.</strong></p>
+    </div>
+    <div class="ev">
+      <div class="ev-num">LECTURA · 03</div>
+      <h4>GWM es el anti-modelo</h4>
+      <p>7 personas, 4 agencias, <strong>cero coordinación cross-agencia</strong>. Cada agencia opera independientemente sin función corporativa de marca. Su CAC ($2,295) y conversión reflejan la fragmentación máxima.</p>
+    </div>
+    <div class="ev">
+      <div class="ev-num">LECTURA · 04</div>
+      <h4>Seminuevos es el cuello documentado</h4>
+      <p>1 persona (José Reyes López Rivas) cubre 7 agencias sin locales dedicados. Es Hub puro sin Spokes — <strong>modelo inviable a escala</strong>. Cuello operativo identificado en cinco docs canónicos del grupo.</p>
+    </div>
+    <div class="ev">
+      <div class="ev-num">LECTURA · 05</div>
+      <h4>Cada silo contrata sus proveedores sin coordinación</h4>
+      <p>8 silos contratan <strong>14 proveedores distintos</strong>. Nextilo factura a Hyundai Y Stellantis (duplicidad). Like/Paola Like × 3 entidades en 3 marcas. Dazing concentra $3.81M/año en Ford (único punto de falla).</p>
+    </div>
+    <div class="ev">
+      <div class="ev-num">LECTURA · 06</div>
+      <h4>El gap estructural del AS IS</h4>
+      <p>Entre el Director MKT (1 persona) y los 8 silos de marca <strong>no hay nada</strong> — ni función corporativa, ni capacidades compartidas (data, performance, brand standards, creative ops), ni coordinación de proveedores, ni atribución unificada. Las decisiones cross-marca no se toman porque no hay nivel organizacional donde tomarlas.</p>
+    </div>
+  </div>
+
+  <h3 class="section-h3">Resumen estructural del AS IS</h3>
+  <div class="stat-strip">
+    <div class="s accent"><div class="big">0</div><div class="lbl">Personas en Hub corporativo cross-marca</div></div>
+    <div class="s gold"><div class="big">16</div><div class="lbl">Corporativas cross-agencia (dentro de marca)</div></div>
+    <div class="s"><div class="big">45</div><div class="lbl">Personas locales (1 agencia)</div></div>
+    <div class="s invisible"><div class="big">14</div><div class="lbl">Proveedores externos sin coordinación</div></div>
+  </div>
+
+  <div class="killer" style="margin-top: 5mm;">
+    <span class="label">Síntesis de la radiografía</span>
+    <h3>Marketing Corporativo es un nivel organizacional sin estructura — 1 director, 0 reportes directos, 8 silos verticales que no hablan entre sí.</h3>
+    <p>La fotografía del gasto (§2.3) y la radiografía organizacional (§2.4) muestran la misma realidad desde dos ángulos: <strong>el grupo no tiene función corporativa de marketing operando</strong>. Tiene marcas con sus propias estructuras (algunas maduras, algunas anti-modelo) y un director recién llegado sin equipo. La complicación que sigue interpreta esta realidad.</p>
+  </div>
+</section>
+
+<!-- ============ PAGE 11: §3 COMPLICACION ============ -->
 <section class="page">
   <h1 class="section-title"><span class="num">§3 · Complicación</span>Lo que la fotografía revela.</h1>
 
   <p class="lead">
-    La fotografía de §2 muestra cuatro distorsiones simultáneas que la contabilidad actual no captura. Los tres centros de costo (Digital · Análogo · On-site) son válidos pero <strong>estratégicamente incompletos</strong>: capturan el 47% del gasto real, no el 100%.
+    La fotografía del gasto (§2.3) y la radiografía organizacional (§2.4) muestran cuatro distorsiones simultáneas que la contabilidad actual no captura. Los tres centros de costo (Digital · Análogo · On-site) son válidos pero <strong>estratégicamente incompletos</strong>: capturan el 47% del gasto real, no el 100% — y ninguno refleja que el grupo no tiene función corporativa cross-marca operando.
   </p>
 
   <div class="drivers">
@@ -572,7 +797,7 @@
     <div class="driver">
       <span class="driver-num">2</span>
       <h3>La fragmentación cuesta sin aparecer</h3>
-      <p>14 proveedores activos, 8 gerentes MKT, 36 agencias. Duplicidades verificables: <strong>Nextilo cobra a HYU+STL</strong>, Like × 3 handles en 3 marcas, <strong>Dazing concentra $3.81M en Ford</strong> como único punto de falla. No se ven desde "Digital" porque fees se reportan agregados con la pauta.</p>
+      <p>14 proveedores activos, 8 gerentes MKT, 36 agencias. Duplicidades verificables: <strong>Nextilo cobra a HYU+STL</strong>, Like × 3 handles en 3 marcas, <strong>Dazing concentra $3.81M en Ford</strong> como único punto de falla. La radiografía (§2.4) confirma: <strong>cada silo contrata sin coordinación porque no existe un Hub corporativo que la imponga</strong>.</p>
     </div>
     <div class="driver">
       <span class="driver-num">3</span>
