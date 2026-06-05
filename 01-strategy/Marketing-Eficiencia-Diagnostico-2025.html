@@ -2,8 +2,8 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Deep Dive · Marketing Economics × Grupo Plasencia · Baseline 2025 · v3.10</title>
-<meta name="description" content="Diagnóstico estratégico de eficiencia de marketing GP. Baseline 2025 reestructurado. v3.10: contexto del usuario aplicado E2E · "3 niveles BaU" → "4 elementos bajo el Director" · gerencia como rol líder (no jefe) · "Cada marca contrata" → "Cada Director de Marca contrata" · Hipótesis 4 actualizada con stack completo · concesionario-marca unificado a "concesionario de marca"">
+<title>Deep Dive · Marketing Economics × Grupo Plasencia · Baseline 2025 · v3.11</title>
+<meta name="description" content="Diagnóstico estratégico de eficiencia de marketing GP. Baseline 2025 reestructurado. v3.11: organigrama nivel grupo · Dirección MKT ahora visualmente ANIDADA dentro de Dirección Corp. Finanzas (Pepe Morales) con caja sombreada amber para que la relación de reporte sea crystal clear">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@500;700;800;900&display=swap" rel="stylesheet">
@@ -27,7 +27,7 @@
   @page {
     size: A4; margin: 16mm 16mm 20mm 16mm;
     @bottom-right { content: counter(page); font-family: 'Inter'; font-size: 9pt; color: #718096; }
-    @bottom-left { content: "Confidencial · Dirección de Marketing Corporativo · v3.10"; font-family: 'Inter'; font-size: 8pt; color: #A0AEC0; }
+    @bottom-left { content: "Confidencial · Dirección de Marketing Corporativo · v3.11"; font-family: 'Inter'; font-size: 8pt; color: #A0AEC0; }
     @top-right { content: "Deep Dive · Marketing Economics × Grupo Plasencia · Baseline 2025"; font-family: 'Inter'; font-size: 8pt; color: #A0AEC0; }
   }
   @page :first { @top-right { content: ""; } @bottom-right { content: ""; } @bottom-left { content: ""; } }
@@ -328,6 +328,13 @@
   .orgreal .lvl-label { font-size: 7pt; color: var(--g500); font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; text-align: center; margin: 2mm 0 1mm; }
   .orgreal .connect { text-align: center; color: var(--g400); font-size: 9pt; line-height: 0.8; }
   .orgreal .lateral-note { font-size: 7pt; color: var(--g500); font-style: italic; text-align: center; margin-top: 2mm; }
+  .orgreal .corp-finanzas-stack { display: flex; flex-direction: column; align-items: stretch; gap: 1.5mm; padding: 3mm 3mm; border: 1.5px dashed var(--gold); background: rgba(214,158,46,0.05); border-radius: 1px; min-width: 50mm; max-width: 60mm; }
+  .orgreal .corp-finanzas-stack .stack-label { font-size: 6pt; color: var(--gold); font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; text-align: center; margin-bottom: 1mm; }
+  .orgreal .corp-finanzas-stack .nested-arrow { text-align: center; color: var(--gold); font-size: 8pt; font-weight: 700; }
+  .orgreal .corp-finanzas-stack .node { width: 100%; margin: 0; }
+  .orgreal .corp-finanzas-stack .node.director { background: var(--gp-navy); color: var(--near-white); }
+  .orgreal .corp-finanzas-stack .node.mkt-nested { background: var(--gp-red); color: var(--near-white); border-color: var(--gp-red); }
+  .orgreal .corp-finanzas-stack .node.mkt-nested .name { color: rgba(255,255,255,0.9); }
 
   /* MINI-ORGANIGRAMAS POR SILO · estructura BaU Director de Marca */
   .silos-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 4mm; margin: 4mm 0; }
@@ -367,18 +374,18 @@
       <p class="cover-subtitle">Baseline 2025. Fotografía del gasto, radiografía estructural concesionario de marca, hallazgos de auditoría.</p>
       <p class="cover-pull">
         Documento de auditoría inicial del Director MKT (Jesús Pérez Porras, en función desde marzo 2026). Reestructura el levantamiento previo de Daniel Galindo (Ago–Nov 2025) en un marco analítico riguroso siguiendo disciplina Minto + SCR + Answer-First. <strong>El baseline Galindo es autorreporte de las gerentes vía encuestas y formas — NO extracto de libros contables</strong>; cruzar contra contabilidad real es pendiente abierto (ver §6). <strong>No es propuesta de estrategia ni decisiones tomadas</strong> — es la base AS IS sobre la que se construirán las conversaciones de estrategia con el Consejo.
-        <cite>v3.10 · 7 secciones · contexto BaU aplicado E2E</cite>
+        <cite>v3.11 · 7 secciones · MKT anidado dentro de Finanzas</cite>
       </p>
       <div class="cover-tags">
         <span class="cover-tag">Auditoría AS IS</span>
         <span class="cover-tag accent">Baseline 2025</span>
-        <span class="cover-tag urgent">v3.10 · Contexto BaU E2E</span>
+        <span class="cover-tag urgent">v3.11 · MKT anidado Finanzas</span>
       </div>
     </div>
     <div>
       <div class="cover-meta">
         <div class="cover-meta-block"><strong>Autor · Función</strong>Director MKT (función nueva mar 2026) en auditoría, estructuración, visioning</div>
-        <div class="cover-meta-block" style="text-align:right;"><strong>Junio 2026 · v3.10</strong>21 páginas · Paper A4</div>
+        <div class="cover-meta-block" style="text-align:right;"><strong>Junio 2026 · v3.11</strong>21 páginas · Paper A4</div>
       </div>
     </div>
   </div>
@@ -805,17 +812,18 @@
     </div>
     <div class="connect">│</div>
 
-    <div class="lvl-label">Direcciones corporativas (reportan al Consejo)</div>
-    <div class="lvl">
+    <div class="lvl-label">Direcciones corporativas (todas reportan al Consejo)</div>
+    <div class="lvl" style="align-items: flex-start;">
       <div class="node dirmarca"><div class="role">Otras Direcciones Corporativas</div><span class="name">Operaciones · RRHH · Tecnología · etc. (no incluidas en este diagnóstico)</span></div>
-      <div class="node director" style="background: var(--gp-navy);"><div class="role">Dirección Corporativa de Finanzas</div><span class="name">Pepe Morales · reporta al Consejo</span></div>
-      <div class="node dirmarca"><div class="role">Direcciones de Marca (×8)</div><span class="name">a confirmar — operativas por marca, reportan al Consejo en paralelo a corporativas</span></div>
-    </div>
-    <div class="connect">│ ← MKT vive dentro de Finanzas</div>
 
-    <div class="lvl-label">Dentro de Dirección Corporativa de Finanzas</div>
-    <div class="lvl">
-      <div class="node director"><div class="role">Dirección de Marketing</div><span class="name">Jesús Pérez Porras · mar 2026 · reporta a Pepe Morales · 0 reportes directos todavía</span></div>
+      <div class="corp-finanzas-stack">
+        <div class="stack-label">Dirección Corp. de Finanzas (+ MKT anidado dentro)</div>
+        <div class="node director"><div class="role">Dirección Corporativa de Finanzas</div><span class="name">Pepe Morales · reporta al Consejo</span></div>
+        <div class="nested-arrow">↓ contiene a ↓</div>
+        <div class="node director mkt-nested"><div class="role">Dirección de Marketing</div><span class="name">Jesús Pérez Porras · mar 2026 · reporta a Pepe Morales · 0 reportes directos todavía</span></div>
+      </div>
+
+      <div class="node dirmarca"><div class="role">Direcciones de Marca (×8)</div><span class="name">operativas por marca · reportan al Consejo en paralelo a las direcciones corporativas</span></div>
     </div>
     <div class="connect">┊</div>
     <div class="lateral-note">↕ línea funcional (no jerárquica) Director MKT ↔ Directores y Gerentes de Marca · pendiente de formalizar. <strong>En el AS IS los 3 elementos internos de cada silo (gerencia de marca + equipo interno cross-agencia + personas en concesionarios) reportan a su Director de Marca</strong>, no al Director MKT del grupo. Las agencias/partners externos son relación contractual con el silo, no laboral.</div>
@@ -1338,7 +1346,7 @@
 <!-- ============ CLOSING ============ -->
 <section class="page" style="padding: 0;">
   <div class="closing">
-    <div class="ribbon">Deep Dive · Marketing Economics · v3.10</div>
+    <div class="ribbon">Deep Dive · Marketing Economics · v3.11</div>
     <h2>La fotografía está <em>completa.</em><br>La estrategia <em>comienza.</em></h2>
     <p class="pull">Antes de transformar el marketing del grupo, hay que verlo entero. Este diagnóstico hace visible el 53% del gasto que el levantamiento de Daniel no etiqueta como marketing, muestra dónde está el dinero hoy, identifica las cinco fuentes de ineficiencia, y establece la magnitud de las palancas que la estrategia tendrá que activar.</p>
     <p class="body-text">Lo que sigue no es un plan de recortes ni una propuesta organizacional. Es la construcción de la estrategia que activa las cinco palancas en el orden correcto, con el instrumento correcto — el Centro de Excelencia — y con la atribución unificada como palanca dominante. Este documento se actualiza cuando llegue data 2026, pero los hallazgos cualitativos seguirán vigentes con o sin nuevos números.</p>
