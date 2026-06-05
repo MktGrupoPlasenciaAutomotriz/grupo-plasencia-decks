@@ -2,8 +2,8 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Deep Dive · Marketing Economics × Grupo Plasencia · Baseline 2025 · v3.8</title>
-<meta name="description" content="Diagnóstico estratégico de eficiencia de marketing GP. Baseline 2025 reestructurado. v3.8: §2.3.6 Lectura 2 reescrita en 3 pasos claros (existe rebate · cómo reportó cada marca · qué significa y qué NO significa) sin ambigüedad.">
+<title>Deep Dive · Marketing Economics × Grupo Plasencia · Baseline 2025 · v3.9</title>
+<meta name="description" content="Diagnóstico estratégico de eficiencia de marketing GP. Baseline 2025 reestructurado. v3.9: organigrama §2.4 reconstruido como 8 mini-organigramas (uno por silo concesionario-marca) mostrando los 4 elementos bajo cada Director de Marca: gerencia + equipo cross + concesionarios + partners.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@500;700;800;900&display=swap" rel="stylesheet">
@@ -27,7 +27,7 @@
   @page {
     size: A4; margin: 16mm 16mm 20mm 16mm;
     @bottom-right { content: counter(page); font-family: 'Inter'; font-size: 9pt; color: #718096; }
-    @bottom-left { content: "Confidencial · Dirección de Marketing Corporativo · v3.8"; font-family: 'Inter'; font-size: 8pt; color: #A0AEC0; }
+    @bottom-left { content: "Confidencial · Dirección de Marketing Corporativo · v3.9"; font-family: 'Inter'; font-size: 8pt; color: #A0AEC0; }
     @top-right { content: "Deep Dive · Marketing Economics × Grupo Plasencia · Baseline 2025"; font-family: 'Inter'; font-size: 8pt; color: #A0AEC0; }
   }
   @page :first { @top-right { content: ""; } @bottom-right { content: ""; } @bottom-left { content: ""; } }
@@ -329,6 +329,29 @@
   .orgreal .connect { text-align: center; color: var(--g400); font-size: 9pt; line-height: 0.8; }
   .orgreal .lateral-note { font-size: 7pt; color: var(--g500); font-style: italic; text-align: center; margin-top: 2mm; }
 
+  /* MINI-ORGANIGRAMAS POR SILO · estructura BaU Director de Marca */
+  .silos-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 4mm; margin: 4mm 0; }
+  .silo-org { background: var(--paper); border: 1px solid var(--g300); border-top: 4px solid var(--gp-navy); padding: 3.5mm 4mm; page-break-inside: avoid; }
+  .silo-org.maduro { border-top-color: var(--deep-green); }
+  .silo-org.minimo { border-top-color: var(--blue); }
+  .silo-org.parcial { border-top-color: var(--g500); }
+  .silo-org.anti { border-top-color: var(--gp-red); }
+  .silo-org.cuello { border-top-color: var(--amber); }
+  .silo-org .director { font-family: var(--serif); font-weight: 800; font-size: 11pt; color: var(--gp-navy); padding-bottom: 1.5mm; margin-bottom: 2mm; border-bottom: 1px solid var(--g300); }
+  .silo-org .director .tag { display: inline-block; font-family: var(--sans); font-size: 6.5pt; font-weight: 700; color: var(--g500); text-transform: uppercase; letter-spacing: 1px; margin-left: 2mm; vertical-align: middle; }
+  .silo-org ul { list-style: none; padding: 0; margin: 0; }
+  .silo-org li { padding: 1.5mm 0 1.5mm 5mm; font-size: 8pt; line-height: 1.4; border-left: 2px solid var(--g300); margin-left: 1mm; position: relative; }
+  .silo-org li::before { content: "└"; position: absolute; left: -1mm; top: 0.5mm; color: var(--g400); font-size: 9pt; }
+  .silo-org li:last-child { border-left: 2px solid transparent; }
+  .silo-org li.gerencia { border-left-color: var(--gp-red); }
+  .silo-org li.cross { border-left-color: var(--deep-green); }
+  .silo-org li.conc { border-left-color: var(--blue); }
+  .silo-org li.partners { border-left-color: var(--amber); border-left-style: dashed; }
+  .silo-org li .lbl { font-family: var(--sans); font-size: 6.5pt; font-weight: 700; color: var(--g500); text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 0.5mm; }
+  .silo-org li .val { color: var(--gp-navy); font-weight: 500; }
+  .silo-org li .val strong { color: var(--gp-navy); font-weight: 700; }
+  .silo-org li.warn .val { color: var(--gp-red); font-style: italic; }
+
   @media print { body { background: white; } .page { box-shadow: none; margin: 0; padding: 16mm; } .cover { padding: 0; } }
 </style>
 </head>
@@ -344,18 +367,18 @@
       <p class="cover-subtitle">Baseline 2025. Fotografía del gasto, radiografía estructural concesionario de marca, hallazgos de auditoría.</p>
       <p class="cover-pull">
         Documento de auditoría inicial del Director MKT (Jesús Pérez Porras, en función desde marzo 2026). Reestructura el levantamiento previo de Daniel Galindo (Ago–Nov 2025) en un marco analítico riguroso siguiendo disciplina Minto + SCR + Answer-First. <strong>El baseline Galindo es autorreporte de las gerentes vía encuestas y formas — NO extracto de libros contables</strong>; cruzar contra contabilidad real es pendiente abierto (ver §6). <strong>No es propuesta de estrategia ni decisiones tomadas</strong> — es la base AS IS sobre la que se construirán las conversaciones de estrategia con el Consejo.
-        <cite>v3.8 · 7 secciones · rebate explicado paso a paso</cite>
+        <cite>v3.9 · 7 secciones · 8 mini-organigramas por silo</cite>
       </p>
       <div class="cover-tags">
         <span class="cover-tag">Auditoría AS IS</span>
         <span class="cover-tag accent">Baseline 2025</span>
-        <span class="cover-tag urgent">v3.8 · Rebate explicado</span>
+        <span class="cover-tag urgent">v3.9 · Mini-orgs por silo</span>
       </div>
     </div>
     <div>
       <div class="cover-meta">
         <div class="cover-meta-block"><strong>Autor · Función</strong>Director MKT (función nueva mar 2026) en auditoría, estructuración, visioning</div>
-        <div class="cover-meta-block" style="text-align:right;"><strong>Junio 2026 · v3.8</strong>20 páginas · Paper A4</div>
+        <div class="cover-meta-block" style="text-align:right;"><strong>Junio 2026 · v3.9</strong>21 páginas · Paper A4</div>
       </div>
     </div>
   </div>
@@ -797,20 +820,92 @@
     <div class="connect">┊</div>
     <div class="lateral-note">↕ línea funcional (no jerárquica) Director MKT ↔ Directores y Gerentes de Marca · pendiente de formalizar. <strong>En el AS IS todos en cada silo (gerente + equipo marca + concesionarios) reportan a su Director de Marca</strong>, no al Director MKT del grupo.</div>
 
-    <div class="lvl-label" style="margin-top: 5mm;">Nivel marca · 8 Gerentes (uno por silo · reportan a su Director de Marca · NO al Director MKT)</div>
-    <div class="lvl">
-      <div class="node gerente"><div class="role">Mazda</div><span class="name">Florencia Alcaraz</span></div>
-      <div class="node gerente"><div class="role">Hyundai</div><span class="name">Verónica Orozco</span></div>
-      <div class="node gerente"><div class="role">Changan</div><span class="name">Mauricio Castro</span></div>
-      <div class="node gerente"><div class="role">Ford</div><span class="name">Karen Michel Patiño</span></div>
+    <div class="lvl-label" style="margin-top: 5mm;">Nivel marca · 8 silos concesionario-marca · cada Director de Marca tiene 4 reportes (3 internos + 1 indirecto)</div>
+  </div>
+
+  <div class="silos-grid">
+    <div class="silo-org maduro">
+      <div class="director">Director Mazda<span class="tag">Marca madura</span></div>
+      <ul>
+        <li class="gerencia"><span class="lbl">Gerencia de marca</span><span class="val"><strong>Florencia Alcaraz</strong></span></li>
+        <li class="cross"><span class="lbl">Equipo interno cross-agencia</span><span class="val"><strong>6 personas</strong> dedicadas a Mazda · cubren 10 agencias</span></li>
+        <li class="conc"><span class="lbl">Equipo interno en concesionarios</span><span class="val"><strong>14 personas</strong> locales · 10 sucursales</span></li>
+        <li class="partners"><span class="lbl">Agencias/partners externos</span><span class="val"><em>IN-HOUSE · 0 partners externos</em></span></li>
+      </ul>
     </div>
-    <div class="lvl" style="margin-top: 2mm;">
-      <div class="node gerente"><div class="role">GAC</div><span class="name">Elia García</span></div>
-      <div class="node gerente"><div class="role">Stellantis</div><span class="name">Alejandra Ramírez</span></div>
-      <div class="node gerente"><div class="role">Seminuevos</div><span class="name">José Reyes López</span></div>
-      <div class="node gerente" style="opacity:0.5;"><div class="role">GWM</div><span class="name">sin gerente cross-ag identificado</span></div>
+
+    <div class="silo-org maduro">
+      <div class="director">Director Hyundai<span class="tag">Marca madura</span></div>
+      <ul>
+        <li class="gerencia"><span class="lbl">Gerencia de marca</span><span class="val"><strong>Verónica Orozco</strong> · jun 2026 (reemplazó a Ana Luisa García)</span></li>
+        <li class="cross"><span class="lbl">Equipo interno cross-agencia</span><span class="val"><strong>4 personas</strong> dedicadas a Hyundai · cubren 7 agencias (jun 2026)</span></li>
+        <li class="conc"><span class="lbl">Equipo interno en concesionarios</span><span class="val"><strong>6 personas</strong> locales · 7 sucursales</span></li>
+        <li class="partners"><span class="lbl">Agencias/partners externos</span><span class="val"><strong>3 partners</strong> · Viceversa + Nextilo + Karbot</span></li>
+      </ul>
+    </div>
+
+    <div class="silo-org parcial">
+      <div class="director">Director Changan<span class="tag">Marca parcial · MKT no mapeado</span></div>
+      <ul>
+        <li class="gerencia"><span class="lbl">Gerencia de marca</span><span class="val"><strong>Mauricio Castro</strong></span></li>
+        <li class="cross"><span class="lbl">Equipo interno cross-agencia</span><span class="val"><strong>1 persona</strong> (Mauricio) · cubre 4 agencias</span></li>
+        <li class="conc"><span class="lbl">Equipo interno en concesionarios</span><span class="val"><strong>6 personas</strong> locales · 4 sucursales</span></li>
+        <li class="partners"><span class="lbl">Agencias/partners externos</span><span class="val"><strong>1 partner</strong> · Paola Like (4 ag)</span></li>
+      </ul>
+    </div>
+
+    <div class="silo-org parcial">
+      <div class="director">Director Ford<span class="tag">Marca parcial · MKT no mapeado</span></div>
+      <ul>
+        <li class="gerencia"><span class="lbl">Gerencia de marca</span><span class="val"><strong>Karen Michel Patiño</strong></span></li>
+        <li class="cross"><span class="lbl">Equipo interno cross-agencia</span><span class="val"><strong>1 persona</strong> (Karen) · cubre 2 agencias</span></li>
+        <li class="conc"><span class="lbl">Equipo interno en concesionarios</span><span class="val"><strong>8 personas</strong> locales · 6 sucursales</span></li>
+        <li class="partners warn"><span class="lbl">Agencias/partners externos</span><span class="val"><strong>4 partners</strong> · Dazing+3 · ⚠ $3.81M/año concentrado en Dazing (56% del MKT Ford)</span></li>
+      </ul>
+    </div>
+
+    <div class="silo-org anti">
+      <div class="director">Director GWM<span class="tag">Sin equipo de marca · MKT no mapeado</span></div>
+      <ul>
+        <li class="gerencia warn"><span class="lbl">Gerencia de marca</span><span class="val"><em>Sin gerente cross-agencia identificado</em></span></li>
+        <li class="cross warn"><span class="lbl">Equipo interno cross-agencia</span><span class="val"><strong>0 personas</strong> · no hay cross-ag</span></li>
+        <li class="conc"><span class="lbl">Equipo interno en concesionarios</span><span class="val"><strong>7 personas</strong> locales · 4 sucursales</span></li>
+        <li class="partners"><span class="lbl">Agencias/partners externos</span><span class="val"><strong>3 partners</strong> · Like + Fabula + Paola</span></li>
+      </ul>
+    </div>
+
+    <div class="silo-org minimo">
+      <div class="director">Director GAC<span class="tag">Marca mínima · ✓ rebate transparente</span></div>
+      <ul>
+        <li class="gerencia"><span class="lbl">Gerencia de marca</span><span class="val"><strong>Elia García</strong></span></li>
+        <li class="cross"><span class="lbl">Equipo interno cross-agencia</span><span class="val"><strong>1 persona</strong> (Elia) · cubre 4 agencias</span></li>
+        <li class="conc"><span class="lbl">Equipo interno en concesionarios</span><span class="val"><strong>4 personas</strong> locales · 4 sucursales</span></li>
+        <li class="partners"><span class="lbl">Agencias/partners externos</span><span class="val"><strong>4 partners</strong> · Idea + Galleta + S.Oliveira + Kamote</span></li>
+      </ul>
+    </div>
+
+    <div class="silo-org parcial">
+      <div class="director">Director Stellantis<span class="tag">Marca parcial · MKT no mapeado</span></div>
+      <ul>
+        <li class="gerencia"><span class="lbl">Gerencia de marca</span><span class="val"><strong>Alejandra Ramírez</strong></span></li>
+        <li class="cross"><span class="lbl">Equipo interno cross-agencia</span><span class="val"><strong>1 persona</strong> (Alejandra) · cubre 2 agencias</span></li>
+        <li class="conc warn"><span class="lbl">Equipo interno en concesionarios</span><span class="val"><strong>0 personas</strong> locales</span></li>
+        <li class="partners warn"><span class="lbl">Agencias/partners externos</span><span class="val"><strong>2 partners</strong> · Infinito Lab + Nextilo · ⚠ Nextilo duplicado con Hyundai</span></li>
+      </ul>
+    </div>
+
+    <div class="silo-org cuello">
+      <div class="director">Director Seminuevos<span class="tag">Solo gerente · cuello operativo</span></div>
+      <ul>
+        <li class="gerencia"><span class="lbl">Gerencia de marca</span><span class="val"><strong>José Reyes López Rivas</strong></span></li>
+        <li class="cross"><span class="lbl">Equipo interno cross-agencia</span><span class="val"><strong>1 persona</strong> (José) · cubre 7 agencias</span></li>
+        <li class="conc warn"><span class="lbl">Equipo interno en concesionarios</span><span class="val"><strong>0 personas</strong> locales · ⚠ cuello operativo</span></li>
+        <li class="partners"><span class="lbl">Agencias/partners externos</span><span class="val"><strong>3 partners</strong> · Maxipublica + Fabula + MercadoLibre</span></li>
+      </ul>
     </div>
   </div>
+
+  <p class="small" style="margin-top: 3mm; padding: 3mm 4mm; background: var(--g100); border-left: 3px solid var(--gp-slate);"><strong>Cómo leer cada silo:</strong> bajo cada Director de Marca cuelgan <strong>4 elementos</strong> de la operación BaU. <strong>(a)</strong> Gerencia de marca (en rojo) — el rol con nombre; reporta al Director, no es jefe del equipo. <strong>(b)</strong> Equipo interno cross-agencia (en verde) — personas dedicadas a UNA marca que cubren todas sus agencias. <strong>(c)</strong> Equipo interno en concesionarios (en azul) — personas locales en cada sucursal. <strong>(d)</strong> Agencias/partners externos (línea punteada amber) — proveedores contratados directamente por el silo, no son empleados GP. Los 4 reportan operativamente al Director de Marca; los partners son relación contractual, no laboral.</p>
 
   <h3 class="section-h3" style="margin-top: 6mm;">Reportes directos e indirectos del Director de Marca · por silo</h3>
   <p class="small" style="color:var(--g600); margin-top:-2mm;"><strong>En el AS IS, todos en el silo reportan al Director de Marca</strong>, no al Gerente de Marca. El Gerente de Marca es uno más de los reportes directos del Director, no su jefe jerárquico. <strong>Directos</strong> = empleados GP del silo (gerente + equipo de marca cross-agencia + personas en concesionarios). <strong>Indirectos</strong> = agencias/partners externos contratados, sin relación laboral pero operativa con el silo.</p>
@@ -1243,7 +1338,7 @@
 <!-- ============ CLOSING ============ -->
 <section class="page" style="padding: 0;">
   <div class="closing">
-    <div class="ribbon">Deep Dive · Marketing Economics · v3.8</div>
+    <div class="ribbon">Deep Dive · Marketing Economics · v3.9</div>
     <h2>La fotografía está <em>completa.</em><br>La estrategia <em>comienza.</em></h2>
     <p class="pull">Antes de transformar el marketing del grupo, hay que verlo entero. Este diagnóstico hace visible el 53% del gasto que el levantamiento de Daniel no etiqueta como marketing, muestra dónde está el dinero hoy, identifica las cinco fuentes de ineficiencia, y establece la magnitud de las palancas que la estrategia tendrá que activar.</p>
     <p class="body-text">Lo que sigue no es un plan de recortes ni una propuesta organizacional. Es la construcción de la estrategia que activa las cinco palancas en el orden correcto, con el instrumento correcto — el Centro de Excelencia — y con la atribución unificada como palanca dominante. Este documento se actualiza cuando llegue data 2026, pero los hallazgos cualitativos seguirán vigentes con o sin nuevos números.</p>
