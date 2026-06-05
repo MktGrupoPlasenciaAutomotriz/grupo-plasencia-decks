@@ -2,8 +2,8 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Deep Dive · Marketing Economics × Grupo Plasencia · Baseline 2025 · v3.7</title>
-<meta name="description" content="Diagnóstico estratégico de eficiencia de marketing GP. Baseline 2025 reestructurado. v3.7: el baseline reframeado como autorreporte de gerentes vía encuestas (no libros contables) · pendiente §6 nuevo de validación contra libros · "no está separado en libros" reescrito con honestidad (riesgo de control, no acusación).">
+<title>Deep Dive · Marketing Economics × Grupo Plasencia · Baseline 2025 · v3.8</title>
+<meta name="description" content="Diagnóstico estratégico de eficiencia de marketing GP. Baseline 2025 reestructurado. v3.8: §2.3.6 Lectura 2 reescrita en 3 pasos claros (existe rebate · cómo reportó cada marca · qué significa y qué NO significa) sin ambigüedad.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@500;700;800;900&display=swap" rel="stylesheet">
@@ -27,7 +27,7 @@
   @page {
     size: A4; margin: 16mm 16mm 20mm 16mm;
     @bottom-right { content: counter(page); font-family: 'Inter'; font-size: 9pt; color: #718096; }
-    @bottom-left { content: "Confidencial · Dirección de Marketing Corporativo · v3.7"; font-family: 'Inter'; font-size: 8pt; color: #A0AEC0; }
+    @bottom-left { content: "Confidencial · Dirección de Marketing Corporativo · v3.8"; font-family: 'Inter'; font-size: 8pt; color: #A0AEC0; }
     @top-right { content: "Deep Dive · Marketing Economics × Grupo Plasencia · Baseline 2025"; font-family: 'Inter'; font-size: 8pt; color: #A0AEC0; }
   }
   @page :first { @top-right { content: ""; } @bottom-right { content: ""; } @bottom-left { content: ""; } }
@@ -344,18 +344,18 @@
       <p class="cover-subtitle">Baseline 2025. Fotografía del gasto, radiografía estructural concesionario de marca, hallazgos de auditoría.</p>
       <p class="cover-pull">
         Documento de auditoría inicial del Director MKT (Jesús Pérez Porras, en función desde marzo 2026). Reestructura el levantamiento previo de Daniel Galindo (Ago–Nov 2025) en un marco analítico riguroso siguiendo disciplina Minto + SCR + Answer-First. <strong>El baseline Galindo es autorreporte de las gerentes vía encuestas y formas — NO extracto de libros contables</strong>; cruzar contra contabilidad real es pendiente abierto (ver §6). <strong>No es propuesta de estrategia ni decisiones tomadas</strong> — es la base AS IS sobre la que se construirán las conversaciones de estrategia con el Consejo.
-        <cite>v3.7 · 7 secciones · baseline reframeado como levantamiento</cite>
+        <cite>v3.8 · 7 secciones · rebate explicado paso a paso</cite>
       </p>
       <div class="cover-tags">
         <span class="cover-tag">Auditoría AS IS</span>
         <span class="cover-tag accent">Baseline 2025</span>
-        <span class="cover-tag urgent">v3.7 · Baseline = levantamiento</span>
+        <span class="cover-tag urgent">v3.8 · Rebate explicado</span>
       </div>
     </div>
     <div>
       <div class="cover-meta">
         <div class="cover-meta-block"><strong>Autor · Función</strong>Director MKT (función nueva mar 2026) en auditoría, estructuración, visioning</div>
-        <div class="cover-meta-block" style="text-align:right;"><strong>Junio 2026 · v3.7</strong>20 páginas · Paper A4</div>
+        <div class="cover-meta-block" style="text-align:right;"><strong>Junio 2026 · v3.8</strong>20 páginas · Paper A4</div>
       </div>
     </div>
   </div>
@@ -634,8 +634,18 @@
     </div>
     <div class="driver">
       <span class="driver-num">2</span>
-      <h3>Solo GAC reportó rebate separado en su levantamiento</h3>
-      <p>Su digital BRUTO es $4.36M/año, OEM le devuelve $2.67M (<strong>61.3% del bruto digital</strong>), neto $1.69M. Para <strong>Hyundai y Mazda — que también reciben rebate según pauta_oem.json — el monto NO fue capturado separado en el levantamiento de Daniel</strong> (marca_mes.json sólo tiene el gasto ya neto, no bruto + rebate + neto como GAC). <strong>Esto NO implica que haya pérdida de dinero</strong> — el rebate puede estar llegando correctamente y simplemente no se reportó la separación. Pero <strong>el levantamiento no permite auditar si el rebate efectivo coincide con el acordado</strong>: hay un riesgo de control abierto que sólo se cierra cruzando contra libros contables, acuerdos OEM firmados y movimientos bancarios.</p>
+      <h3>Solo GAC reportó el rebate con visibilidad línea por línea · Mazda y Hyundai lo reportaron ya descontado</h3>
+      <p><strong>Paso 1 · El levantamiento confirma que el rebate existe</strong> (según <em>pauta_oem.json</em>):
+      <br>· Mazda: <strong>30% de co-inversión OEM</strong> en 4 de sus 10 agencias
+      <br>· Hyundai: <strong>20%</strong> en sus 7 agencias
+      <br>· GAC: <strong>15%</strong> en sus 4 agencias</p>
+      <p><strong>Paso 2 · Pero cada marca reportó su gasto digital mensual de manera distinta</strong> (según <em>marca_mes.json</em>):
+      <br>· <strong>GAC</strong> capturó <strong>3 columnas separadas</strong>: digital_bruto ($4.36M) · reembolso OEM ($2.67M, 61.3%) · digital_neto ($1.69M). <strong>Auditable línea por línea.</strong>
+      <br>· <strong>Mazda y Hyundai</strong> reportaron <strong>un solo número</strong>: el gasto ya neto (después de descontar el rebate). No hay bruto, no hay rebate aislado. <strong>No se puede ver cuánto rebate efectivamente entregó OEM.</strong></p>
+      <p><strong>Paso 3 · Qué significa esto · qué NO significa</strong>
+      <br>· <strong>NO implica fuga de dinero.</strong> El rebate puede estar llegando completo y correctamente — simplemente no se separó al reportar en el levantamiento.
+      <br>· <strong>SÍ implica un riesgo de control no auditado:</strong> con esta data sola, GP no puede confirmar si el rebate efectivo coincide con lo que el acuerdo OEM dice que tocaba. El número neto reportado se acepta de buena fe.
+      <br>· <strong>Solo se cierra el riesgo cruzando contra: (a)</strong> libros contables reales · <strong>(b)</strong> acuerdos OEM firmados (% rebate por línea) · <strong>(c)</strong> movimientos bancarios de los reembolsos. <strong>Hasta entonces, no se puede afirmar ni descartar fuga.</strong></p>
     </div>
     <div class="driver">
       <span class="driver-num">3</span>
@@ -645,7 +655,7 @@
     <div class="driver" style="border-left-color: var(--gp-red);">
       <span class="driver-num">?</span>
       <h3>La pregunta para la estrategia</h3>
-      <p>¿Por qué GP está absorbiendo <strong>$22.71M/año</strong> en pauta que parcialmente debería rebatear OEM, y por qué <strong>solo GAC reportó rebate separado</strong> de su rebate? La respuesta operativa exige doble cambio: <strong>(a)</strong> negociar acuerdos OEM faltantes y <strong>(b)</strong> separar el rebate como línea independiente en Mazda y Hyundai (en libros contables y en futuros levantamientos) para hacerlo auditable.</p>
+      <p>¿Por qué GP está absorbiendo <strong>$22.71M/año</strong> en pauta que parcialmente debería rebatear OEM, y por qué <strong>solo GAC reportó el rebate con visibilidad línea por línea</strong>? La respuesta operativa exige triple cambio: <strong>(a)</strong> negociar acuerdos OEM faltantes y subir % donde aplique · <strong>(b)</strong> exigir reporte bruto + rebate + neto en Mazda y Hyundai (como ya hace GAC) en futuros levantamientos y en libros contables · <strong>(c)</strong> validar el rebate reportado contra acuerdos OEM y movimientos bancarios reales para cerrar el riesgo de control.</p>
     </div>
   </div>
 </section>
@@ -1233,7 +1243,7 @@
 <!-- ============ CLOSING ============ -->
 <section class="page" style="padding: 0;">
   <div class="closing">
-    <div class="ribbon">Deep Dive · Marketing Economics · v3.7</div>
+    <div class="ribbon">Deep Dive · Marketing Economics · v3.8</div>
     <h2>La fotografía está <em>completa.</em><br>La estrategia <em>comienza.</em></h2>
     <p class="pull">Antes de transformar el marketing del grupo, hay que verlo entero. Este diagnóstico hace visible el 53% del gasto que el levantamiento de Daniel no etiqueta como marketing, muestra dónde está el dinero hoy, identifica las cinco fuentes de ineficiencia, y establece la magnitud de las palancas que la estrategia tendrá que activar.</p>
     <p class="body-text">Lo que sigue no es un plan de recortes ni una propuesta organizacional. Es la construcción de la estrategia que activa las cinco palancas en el orden correcto, con el instrumento correcto — el Centro de Excelencia — y con la atribución unificada como palanca dominante. Este documento se actualiza cuando llegue data 2026, pero los hallazgos cualitativos seguirán vigentes con o sin nuevos números.</p>
