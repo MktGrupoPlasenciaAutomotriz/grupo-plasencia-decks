@@ -2,8 +2,8 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Deep Dive · Marketing Economics × Grupo Plasencia · Baseline 2025 · v3.0</title>
-<meta name="description" content="Diagnóstico estratégico de eficiencia de marketing GP. Baseline 2025 reestructurado. v3.0: reframe E2E auditor→consejo · concesionario de marca · gaps de mapeo marcados · organigrama formal · hero stats · ausencia estratégica como hallazgo.">
+<title>Deep Dive · Marketing Economics × Grupo Plasencia · Baseline 2025 · v3.1</title>
+<meta name="description" content="Diagnóstico estratégico de eficiencia de marketing GP. Baseline 2025 reestructurado. v3.1: ROAS atribuible parcial del baseline (funnel+KPIs) integrado en hero stats; GAC outlier reforzado con 29.5% atribución.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@500;700;800;900&display=swap" rel="stylesheet">
@@ -27,7 +27,7 @@
   @page {
     size: A4; margin: 16mm 16mm 20mm 16mm;
     @bottom-right { content: counter(page); font-family: 'Inter'; font-size: 9pt; color: #718096; }
-    @bottom-left { content: "Confidencial · Dirección de Marketing Corporativo · v3.0"; font-family: 'Inter'; font-size: 8pt; color: #A0AEC0; }
+    @bottom-left { content: "Confidencial · Dirección de Marketing Corporativo · v3.1"; font-family: 'Inter'; font-size: 8pt; color: #A0AEC0; }
     @top-right { content: "Deep Dive · Marketing Economics × Grupo Plasencia · Baseline 2025"; font-family: 'Inter'; font-size: 8pt; color: #A0AEC0; }
   }
   @page :first { @top-right { content: ""; } @bottom-right { content: ""; } @bottom-left { content: ""; } }
@@ -344,18 +344,18 @@
       <p class="cover-subtitle">Baseline 2025. Fotografía del gasto, radiografía estructural concesionario de marca, hallazgos de auditoría.</p>
       <p class="cover-pull">
         Documento de auditoría inicial del Director MKT (Jesús Pérez Porras, en función desde marzo 2026). Reestructura el trabajo previo de Daniel Galindo (Ago–Nov 2025) en un marco analítico riguroso siguiendo disciplina Minto + SCR + Answer-First. <strong>No es propuesta de estrategia ni decisiones tomadas</strong> — es la base AS IS sobre la que se construirán las conversaciones de estrategia con el Consejo.
-        <cite>v3.0 · 7 secciones · auditoría AS IS concesionario de marca</cite>
+        <cite>v3.1 · 7 secciones · ROAS atribuible parcial del baseline</cite>
       </p>
       <div class="cover-tags">
         <span class="cover-tag">Auditoría AS IS</span>
         <span class="cover-tag accent">Baseline 2025</span>
-        <span class="cover-tag urgent">v3.0 · Concesionario de marca</span>
+        <span class="cover-tag urgent">v3.1 · ROAS atribuible</span>
       </div>
     </div>
     <div>
       <div class="cover-meta">
         <div class="cover-meta-block"><strong>Autor · Función</strong>Director MKT (función nueva mar 2026) en auditoría, estructuración, visioning</div>
-        <div class="cover-meta-block" style="text-align:right;"><strong>Junio 2026 · v3.0</strong>19 páginas · Paper A4</div>
+        <div class="cover-meta-block" style="text-align:right;"><strong>Junio 2026 · v3.1</strong>19 páginas · Paper A4</div>
       </div>
     </div>
   </div>
@@ -801,8 +801,8 @@
     <div class="lateral-note" style="margin-top: 3mm;">Líneas verificadas en plantilla.json + proveedores_agencia.json. Estructura por silo varía según madurez de cada marca (ver fotografía arriba).</div>
   </div>
 
-  <h3 class="section-h3" style="margin-top: 6mm;">Hero stats · solo marcas con MKT mapeado</h3>
-  <p class="small" style="color: var(--g600); margin-top: -2mm;">ROAS bruto = revenue total / gasto MKT total (no es atribución real — todo el revenue, no solo lo atribuible a MKT). Es indicador económico de orden de magnitud, no de eficiencia de campaña.</p>
+  <h3 class="section-h3" style="margin-top: 6mm;">Hero stats por concesionario de marca · ROAS bruto + ROAS atribuible parcial</h3>
+  <p class="small" style="color: var(--g600); margin-top: -2mm;">Dos lecturas: <strong>ROAS bruto</strong> = revenue total / $MKT (todo, no solo atribuible). <strong>ROAS atribuible parcial</strong> = revenue de facturas en funnel digital / $MKT, según baseline Galindo Jul-Sep 2025 anualizado. Las advertencias del baseline (`_metadata.advertencias_criticas`) están documentadas en cada card.</p>
 
   <div class="hero-marcas">
     <div class="hero-card">
@@ -810,10 +810,13 @@
       <div class="hc-tag">Marca madura · stack triple</div>
       <div class="hc-row"><span class="lbl">MKT total /año</span><span class="val">$17.40M</span></div>
       <div class="hc-row"><span class="lbl">Revenue /año</span><span class="val">$5,653M</span></div>
-      <div class="hc-row"><span class="lbl">Uds vendidas /año</span><span class="val">14,129</span></div>
+      <div class="hc-row"><span class="lbl">Uds anuales</span><span class="val">14,129</span></div>
       <div class="hc-row"><span class="lbl">$MKT / unidad</span><span class="val">$1,232</span></div>
       <div class="hc-row"><span class="lbl">MKT % revenue</span><span class="val">0.31%</span></div>
       <div class="hc-row highlight"><span class="lbl">ROAS bruto</span><span class="val">325×</span></div>
+      <div class="hc-row"><span class="lbl">Atribución MKT (kpis 4m)</span><span class="val">5,058 uds</span></div>
+      <div class="hc-row"><span class="lbl">% ventas atribuibles*</span><span class="val">≥100% ⚠</span></div>
+      <div class="hc-row highlight"><span class="lbl">ROAS atribuible*</span><span class="val">≈ bruto (325×)</span></div>
     </div>
 
     <div class="hero-card">
@@ -821,25 +824,35 @@
       <div class="hc-tag">Marca madura · stack triple</div>
       <div class="hc-row"><span class="lbl">MKT total /año</span><span class="val">$14.80M</span></div>
       <div class="hc-row"><span class="lbl">Revenue /año</span><span class="val">$1,793M</span></div>
-      <div class="hc-row"><span class="lbl">Uds vendidas /año</span><span class="val">4,785</span></div>
+      <div class="hc-row"><span class="lbl">Uds anuales</span><span class="val">4,785</span></div>
       <div class="hc-row"><span class="lbl">$MKT / unidad</span><span class="val">$3,093</span></div>
       <div class="hc-row"><span class="lbl">MKT % revenue</span><span class="val">0.83%</span></div>
       <div class="hc-row highlight"><span class="lbl">ROAS bruto</span><span class="val">121×</span></div>
+      <div class="hc-row"><span class="lbl">Atribución MKT (funnel 3m)</span><span class="val">1,419 fact</span></div>
+      <div class="hc-row"><span class="lbl">% ventas atribuibles*</span><span class="val">&gt;100% ⚠</span></div>
+      <div class="hc-row highlight"><span class="lbl">ROAS atribuible*</span><span class="val">cap a 121×</span></div>
     </div>
 
     <div class="hero-card outlier">
       <div class="hc-marca">GAC</div>
-      <div class="hc-tag">Marca mínima · outlier</div>
+      <div class="hc-tag">Marca mínima · outlier verificado</div>
       <div class="hc-row"><span class="lbl">MKT total /año</span><span class="val">$6.93M</span></div>
       <div class="hc-row"><span class="lbl">Revenue /año</span><span class="val">$411M</span></div>
-      <div class="hc-row"><span class="lbl">Uds vendidas /año</span><span class="val">895</span></div>
+      <div class="hc-row"><span class="lbl">Uds anuales</span><span class="val">895</span></div>
       <div class="hc-row"><span class="lbl">$MKT / unidad</span><span class="val">$7,743 ⚠</span></div>
       <div class="hc-row"><span class="lbl">MKT % revenue</span><span class="val">1.69% ⚠</span></div>
       <div class="hc-row highlight"><span class="lbl">ROAS bruto</span><span class="val">59×</span></div>
+      <div class="hc-row"><span class="lbl">Atribución MKT (funnel 3m)</span><span class="val">66 fact</span></div>
+      <div class="hc-row"><span class="lbl">% ventas atribuibles</span><span class="val">29.5%</span></div>
+      <div class="hc-row highlight"><span class="lbl">ROAS atribuible</span><span class="val">17.5× ⚠</span></div>
     </div>
   </div>
 
-  <p class="small" style="margin-top: 3mm; padding: 3mm 4mm; background: var(--g100); border-left: 3px solid var(--gp-slate);"><strong>Lectura cruzada:</strong> Mazda gasta más en términos absolutos ($17.4M) pero captura el mejor ROAS bruto (325×) porque su revenue por unidad es mayor y la intensidad MKT es baja (0.31%). GAC invierte 1.69% del revenue —5.5× más intenso que Mazda— y captura ROAS bruto de 59× (5.5× menos eficiente). Hyundai está en el medio. <strong>Esto NO es ROAS de atribución</strong> (que requeriría aislar revenue atribuible a MKT vs orgánico/recompra/walk-in). El Motor de Atribución MVP es lo que permitirá calcular ROAS real cuando la data 2026 llegue. <strong>Marcas Ford/Stellantis/Changan/GWM/Isuzu no tienen hero stats porque no se mapeó su MKT digital/análogo/on-site.</strong></p>
+  <p class="small" style="margin-top: 3mm; padding: 3mm 4mm; background: var(--g100); border-left: 3px solid var(--gp-slate);"><strong>Lectura cruzada (con advertencias del baseline):</strong>
+  <br>· <strong>Mazda</strong> reporta en kpis_por_agencia.json 5,058 uds atribuidas a MKT en 4 meses (Ago-Nov). Anualizado ≈ 15,174, mayor que las 14,129 uds vendidas totales anuales. <strong>Sobre-conteo:</strong> kpis Mazda incluyen TOTAL de uds vendidas como si todas fueran atribuibles a MKT (conv_rate &gt; 100% en varias agencias lo confirma). Imposible separar atribuible de orgánico con esta data.
+  <br>· <strong>Hyundai</strong> funnel Jul-Sep reporta 1,419 facturas en 3m → anualizado 5,676 vs 4,785 reales. <strong>Advertencia del baseline:</strong> "Hyundai infla leads digitales con los que vienen de la planta". Atribución ≤ 100% solo por límite matemático.
+  <br>· <strong>GAC</strong> es la única marca donde el funnel es defensible: 66 facturas en 3m → ≈264/año. <strong>Solo el 29.5% de sus 895 uds anuales son atribuibles a MKT</strong> — el otro 70% son walk-in / orgánico / referidos. <strong>Su ROAS atribuible real (17.5×) es 3.4× peor que el bruto (59×)</strong>. GAC no solo invierte intensivamente (1.69% revenue), sino que su MKT captura menos ventas que el promedio.
+  <br><br>* Las advertencias confirman que <strong>el baseline NO permite calcular ROAS atribuible limpio para Mazda ni Hyundai</strong>. El Motor de Atribución MVP (operando desde abr 2026) resolverá esto cuando la data 2026 esté disponible. <strong>Ford/Stellantis/Changan/GWM/Isuzu no tienen hero stats — MKT no mapeado.</strong></p>
 </section>
 
 <!-- ============ PAGE 11: §2.4 lecturas + síntesis ============ -->
@@ -923,8 +936,8 @@
     </div>
     <div class="driver">
       <span class="driver-num">4</span>
-      <h3>CACs varían 3.4× cross-marca, 21.6× cross-agencia (en marcas mapeadas)</h3>
-      <p>Sobre Mazda/Hyundai/GAC: Mazda $1,326 vs GAC $4,469 (3.4× cross-marca). <strong>Mazda Colima $532 vs GAC Américas $11,468 (21.6× cross-agencia)</strong>. Las 10 agencias Mazda están todas por debajo del CPA mínimo de Hyundai ($1,666). No es diferencia de mercado pura — es ausencia de mecanismo cross-agencia del grupo que arbitre.</p>
+      <h3>CACs varían 21.6× cross-agencia; ROAS atribuible de GAC es 3.4× peor que el bruto</h3>
+      <p>Sobre Mazda/Hyundai/GAC: Mazda $1,326 vs GAC $4,469 (3.4× cross-marca). <strong>Mazda Colima $532 vs GAC Américas $11,468 (21.6× cross-agencia)</strong>. <strong>Lectura adicional con funnel baseline:</strong> GAC reporta 66 facturas digitales en 3m (Jul-Sep) → solo <strong>29.5% de sus 895 uds anuales son atribuibles a MKT</strong>. Su ROAS atribuible real es <strong>17.5× vs ROAS bruto 59×</strong> (3.4× peor). Mazda y Hyundai tienen funnel/KPIs inflados (advertencias documentadas en baseline); no se puede calcular su atribución limpia. No es diferencia de mercado pura — es ausencia de mecanismo del grupo que arbitre + asimetría real en atribución que GAC sufre y Mazda/Hyundai esconden.</p>
     </div>
     <div class="driver">
       <span class="driver-num">5</span>
@@ -1111,6 +1124,10 @@
     <li style="background: rgba(200,16,46,0.04); border-left: 4px solid var(--gp-red); padding-left: 6mm;">
       <div><h4>⚠ Completar el mapeo de MKT para 5 marcas faltantes</h4><p>Ford · Stellantis · Changan · GWM · Isuzu no tienen MKT digital/análogo/on-site mapeado en el baseline Galindo. <strong>Cualquier propuesta de presupuesto del grupo sin esto es parcial.</strong> ¿Se completa el mapeo antes de armar la estrategia, o se asume que el patrón de Mazda/Hyundai/GAC se generaliza?</p></div>
       <div class="dec-options"><strong>Opciones</strong>A) Mapear primero (mes 1)<br>B) Asumir patrón<br><em>Trade-off: tiempo vs riesgo de extrapolación</em></div>
+    </li>
+    <li style="background: rgba(200,16,46,0.04); border-left: 4px solid var(--gp-red); padding-left: 6mm;">
+      <div><h4>⚠ Validar metodología de atribución del baseline</h4><p>El funnel y KPIs del baseline tienen sobre-conteo: <strong>kpis Mazda</strong> reportan 5,058 uds atribuibles en 4m vs 14,129 anuales (conv_rate &gt; 100% confirma inclusión de no-MKT); <strong>funnel Hyundai</strong> infla leads con los de planta (advertencia documentada). Solo GAC tiene atribución defensible (29.5%). ¿Se reconstruye la metodología de atribución con Motor de Atribución MVP antes de calcular ROAS atribuibles para presupuesto, o se acepta ROAS bruto como proxy mientras tanto?</p></div>
+      <div class="dec-options"><strong>Opciones</strong>A) Reconstruir atribución primero<br>B) ROAS bruto como proxy<br><em>Trade-off: rigor vs velocidad</em></div>
     </li>
     <li>
       <div><h4>Profundidad de la taxonomía</h4><p>¿Diccionario formal de los 5 buckets + 4 dimensiones ahora (3–5 páginas técnicas), o se difiere hasta data 2026?</p></div>
