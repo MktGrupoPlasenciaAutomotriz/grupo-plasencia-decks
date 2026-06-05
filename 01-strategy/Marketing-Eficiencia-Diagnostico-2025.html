@@ -2,8 +2,8 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Deep Dive · Marketing Economics × Grupo Plasencia · Baseline 2025 · v1.1</title>
-<meta name="description" content="Diagnóstico estratégico de eficiencia de marketing de Grupo Plasencia Automotriz. Baseline 2025 reestructurado del trabajo previo de Daniel Galindo. Disciplina Minto + SCR + Answer-First.">
+<title>Deep Dive · Marketing Economics × Grupo Plasencia · Baseline 2025 · v1.2</title>
+<meta name="description" content="Diagnóstico estratégico de eficiencia de marketing de Grupo Plasencia Automotriz. Baseline 2025 reestructurado del trabajo previo de Daniel Galindo. v1.2: fotografía concreta del gasto + lectura taxonómica.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@500;700;800;900&display=swap" rel="stylesheet">
@@ -45,24 +45,9 @@
   @page {
     size: A4;
     margin: 16mm 16mm 20mm 16mm;
-    @bottom-right {
-      content: counter(page);
-      font-family: 'Inter', sans-serif;
-      font-size: 9pt;
-      color: #718096;
-    }
-    @bottom-left {
-      content: "Confidencial · Dirección de Marketing Corporativo · v1.1";
-      font-family: 'Inter', sans-serif;
-      font-size: 8pt;
-      color: #A0AEC0;
-    }
-    @top-right {
-      content: "Deep Dive · Marketing Economics × Grupo Plasencia · Baseline 2025";
-      font-family: 'Inter', sans-serif;
-      font-size: 8pt;
-      color: #A0AEC0;
-    }
+    @bottom-right { content: counter(page); font-family: 'Inter', sans-serif; font-size: 9pt; color: #718096; }
+    @bottom-left { content: "Confidencial · Dirección de Marketing Corporativo · v1.2"; font-family: 'Inter', sans-serif; font-size: 8pt; color: #A0AEC0; }
+    @top-right { content: "Deep Dive · Marketing Economics × Grupo Plasencia · Baseline 2025"; font-family: 'Inter', sans-serif; font-size: 8pt; color: #A0AEC0; }
   }
   @page :first { @top-right { content: ""; } @bottom-right { content: ""; } @bottom-left { content: ""; } }
   @page cover { margin: 0; }
@@ -79,188 +64,42 @@
   }
   .page:last-child { page-break-after: auto; }
 
-  /* ============ COVER ============ */
-  .cover {
-    background: var(--gp-navy);
-    color: var(--near-white);
-    padding: 0;
-    page: cover;
-  }
-  .cover-inner {
-    padding: 32mm 20mm 22mm 20mm;
-    min-height: 297mm;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    background:
-      radial-gradient(ellipse at 100% 0%, rgba(236,201,75,0.12) 0%, transparent 55%),
-      radial-gradient(ellipse at 0% 100%, rgba(200,16,46,0.10) 0%, transparent 55%),
-      var(--gp-navy);
-    position: relative;
-  }
-  .cover-inner::before {
-    content: "";
-    position: absolute;
-    top: 22mm; left: 20mm;
-    width: 64mm; height: 1px;
-    background: var(--gold);
-  }
-  .cover-mark {
-    font-family: var(--sans);
-    font-weight: 700;
-    font-size: 11pt;
-    letter-spacing: 4px;
-    color: var(--gold);
-    text-transform: uppercase;
-  }
+  /* COVER */
+  .cover { background: var(--gp-navy); color: var(--near-white); padding: 0; page: cover; }
+  .cover-inner { padding: 32mm 20mm 22mm 20mm; min-height: 297mm; display: flex; flex-direction: column; justify-content: space-between;
+    background: radial-gradient(ellipse at 100% 0%, rgba(236,201,75,0.12) 0%, transparent 55%), radial-gradient(ellipse at 0% 100%, rgba(200,16,46,0.10) 0%, transparent 55%), var(--gp-navy);
+    position: relative; }
+  .cover-inner::before { content: ""; position: absolute; top: 22mm; left: 20mm; width: 64mm; height: 1px; background: var(--gold); }
+  .cover-mark { font-family: var(--sans); font-weight: 700; font-size: 11pt; letter-spacing: 4px; color: var(--gold); text-transform: uppercase; }
   .cover-mark span { display:block; font-weight:400; color:rgba(255,255,255,0.55); margin-top:4px; letter-spacing:1px; font-size:9pt; }
-  .cover-eyebrow {
-    font-family: var(--sans);
-    font-size: 10pt;
-    font-weight: 700;
-    letter-spacing: 5px;
-    color: var(--gp-red);
-    text-transform: uppercase;
-    margin-top: 12mm;
-  }
-  .cover-title {
-    font-family: var(--serif);
-    font-weight: 800;
-    font-size: 46pt;
-    line-height: 1.02;
-    letter-spacing: -1.5px;
-    margin-top: 6mm;
-    color: var(--near-white);
-  }
+  .cover-eyebrow { font-family: var(--sans); font-size: 10pt; font-weight: 700; letter-spacing: 5px; color: var(--gp-red); text-transform: uppercase; margin-top: 12mm; }
+  .cover-title { font-family: var(--serif); font-weight: 800; font-size: 46pt; line-height: 1.02; letter-spacing: -1.5px; margin-top: 6mm; color: var(--near-white); }
   .cover-title em { font-style: italic; color: var(--gold); font-weight: 700; }
-  .cover-subtitle {
-    font-family: var(--serif);
-    font-weight: 500;
-    font-style: italic;
-    font-size: 16pt;
-    color: var(--gold);
-    margin-top: 7mm;
-    letter-spacing: -0.3px;
-    line-height: 1.3;
-  }
-  .cover-pull {
-    font-family: var(--serif);
-    font-weight: 500;
-    font-style: italic;
-    font-size: 11.5pt;
-    color: rgba(255,255,255,0.85);
-    line-height: 1.5;
-    border-left: 3px solid var(--gp-red);
-    padding-left: 7mm;
-    margin-top: 14mm;
-    max-width: 150mm;
-  }
-  .cover-pull cite {
-    display: block;
-    font-style: normal;
-    font-family: var(--sans);
-    font-weight: 600;
-    font-size: 9pt;
-    letter-spacing: 1.5px;
-    color: var(--gp-red);
-    margin-top: 5mm;
-    text-transform: uppercase;
-  }
+  .cover-subtitle { font-family: var(--serif); font-weight: 500; font-style: italic; font-size: 16pt; color: var(--gold); margin-top: 7mm; letter-spacing: -0.3px; line-height: 1.3; }
+  .cover-pull { font-family: var(--serif); font-weight: 500; font-style: italic; font-size: 11.5pt; color: rgba(255,255,255,0.85); line-height: 1.5; border-left: 3px solid var(--gp-red); padding-left: 7mm; margin-top: 14mm; max-width: 150mm; }
+  .cover-pull cite { display: block; font-style: normal; font-family: var(--sans); font-weight: 600; font-size: 9pt; letter-spacing: 1.5px; color: var(--gp-red); margin-top: 5mm; text-transform: uppercase; }
   .cover-tags { display:flex; gap:5mm; margin-top: 12mm; flex-wrap:wrap; }
-  .cover-tag {
-    font-family: var(--sans);
-    font-size: 8.5pt;
-    font-weight: 600;
-    letter-spacing: 1px;
-    color: rgba(255,255,255,0.85);
-    border: 1px solid rgba(255,255,255,0.25);
-    padding: 4px 10px;
-    border-radius: 999px;
-    text-transform: uppercase;
-  }
+  .cover-tag { font-family: var(--sans); font-size: 8.5pt; font-weight: 600; letter-spacing: 1px; color: rgba(255,255,255,0.85); border: 1px solid rgba(255,255,255,0.25); padding: 4px 10px; border-radius: 999px; text-transform: uppercase; }
   .cover-tag.accent { color: var(--gold); border-color: rgba(236,201,75,0.4); }
   .cover-tag.urgent { color: var(--gp-red); border-color: rgba(200,16,46,0.4); }
-  .cover-meta {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    margin-top: 14mm;
-    border-top: 1px solid rgba(255,255,255,0.15);
-    padding-top: 7mm;
-  }
+  .cover-meta { display: flex; justify-content: space-between; align-items: flex-end; margin-top: 14mm; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 7mm; }
   .cover-meta-block { font-size: 9pt; color: rgba(255,255,255,0.65); line-height: 1.7; }
   .cover-meta-block strong { display:block; color: var(--near-white); font-weight: 700; font-size: 10pt; letter-spacing: .5px; }
 
-  /* ============ TOC ============ */
-  .toc { margin-top: 5mm; }
-  .toc-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    padding: 2.5mm 0;
-    border-bottom: 1px dotted var(--g300);
-    font-size: 10pt;
-  }
-  .toc-num {
-    font-family: var(--serif);
-    font-weight: 800;
-    font-size: 12pt;
-    color: var(--gp-red);
-    width: 13mm;
-    flex-shrink: 0;
-  }
-  .toc-title {
-    flex: 1;
-    color: var(--gp-navy);
-    font-weight: 700;
-    padding-right: 4mm;
-  }
+  /* TOC */
+  .toc { margin-top: 4mm; }
+  .toc-item { display: flex; justify-content: space-between; align-items: baseline; padding: 2.5mm 0; border-bottom: 1px dotted var(--g300); font-size: 10pt; }
+  .toc-num { font-family: var(--serif); font-weight: 800; font-size: 12pt; color: var(--gp-red); width: 13mm; flex-shrink: 0; }
+  .toc-title { flex: 1; color: var(--gp-navy); font-weight: 700; padding-right: 4mm; }
+  .toc-title.new::after { content: " NUEVO"; font-family: var(--sans); font-weight: 800; font-size: 7pt; letter-spacing: 1.5px; color: var(--gp-red); background: rgba(200,16,46,0.08); padding: 2px 5px; border-radius: 3px; margin-left: 5px; }
   .toc-sub { display: block; font-size: 8.5pt; color: var(--g500); font-weight: 400; margin-top: 1mm; }
-  .toc-page {
-    color: var(--g500);
-    font-family: var(--serif);
-    font-style: italic;
-    font-size: 10pt;
-    flex-shrink: 0;
-  }
+  .toc-page { color: var(--g500); font-family: var(--serif); font-style: italic; font-size: 10pt; flex-shrink: 0; }
 
-  /* ============ TYPOGRAPHY ============ */
-  h1.section-title {
-    font-family: var(--serif);
-    font-weight: 800;
-    font-size: 26pt;
-    line-height: 1.05;
-    letter-spacing: -0.8px;
-    color: var(--gp-navy);
-    border-top: 3px solid var(--gp-red);
-    padding-top: 5mm;
-    margin-bottom: 5mm;
-  }
-  h1.section-title .num {
-    display: block;
-    font-family: var(--sans);
-    font-weight: 700;
-    font-size: 9pt;
-    letter-spacing: 4px;
-    color: var(--gp-red);
-    text-transform: uppercase;
-    margin-bottom: 3mm;
-  }
-  h2.section-h2 {
-    font-size: 14pt;
-    font-weight: 800;
-    color: var(--gp-navy);
-    margin-top: 7mm;
-    margin-bottom: 3mm;
-    line-height: 1.2;
-  }
-  h3.section-h3 {
-    font-size: 11pt;
-    font-weight: 700;
-    color: var(--gp-navy);
-    margin-top: 4mm;
-    margin-bottom: 2mm;
-  }
+  /* TYPOGRAPHY */
+  h1.section-title { font-family: var(--serif); font-weight: 800; font-size: 26pt; line-height: 1.05; letter-spacing: -0.8px; color: var(--gp-navy); border-top: 3px solid var(--gp-red); padding-top: 5mm; margin-bottom: 5mm; }
+  h1.section-title .num { display: block; font-family: var(--sans); font-weight: 700; font-size: 9pt; letter-spacing: 4px; color: var(--gp-red); text-transform: uppercase; margin-bottom: 3mm; }
+  h2.section-h2 { font-size: 14pt; font-weight: 800; color: var(--gp-navy); margin-top: 7mm; margin-bottom: 3mm; line-height: 1.2; }
+  h3.section-h3 { font-size: 11pt; font-weight: 700; color: var(--gp-navy); margin-top: 4mm; margin-bottom: 2mm; }
   p { margin: 0 0 3mm 0; }
   strong { font-weight: 700; color: var(--gp-navy); }
   em { font-style: italic; }
@@ -270,660 +109,163 @@
   .small { font-size: 8pt; color: var(--g500); line-height: 1.45; }
   .small strong { color: var(--gp-slate); }
 
-  /* ============ STAT STRIP ============ */
-  .stat-strip {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 3mm;
-    margin: 4mm 0 5mm 0;
-  }
-  .stat-strip .s {
-    background: var(--paper);
-    border: 1px solid var(--g100);
-    border-top: 3px solid var(--gp-navy);
-    padding: 4mm;
-    text-align: left;
-  }
+  /* STAT STRIP */
+  .stat-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3mm; margin: 4mm 0 5mm 0; }
+  .stat-strip .s { background: var(--paper); border: 1px solid var(--g100); border-top: 3px solid var(--gp-navy); padding: 4mm; text-align: left; }
   .stat-strip .s.invisible { border-top-color: var(--amber); }
   .stat-strip .s.accent { border-top-color: var(--gp-red); }
-  .stat-strip .s .big {
-    font-family: var(--serif);
-    font-weight: 900;
-    font-size: 20pt;
-    color: var(--gp-navy);
-    line-height: 1;
-    margin-bottom: 1mm;
-    letter-spacing: -0.5px;
-  }
+  .stat-strip .s.gold { border-top-color: var(--gold); }
+  .stat-strip .s .big { font-family: var(--serif); font-weight: 900; font-size: 20pt; color: var(--gp-navy); line-height: 1; margin-bottom: 1mm; letter-spacing: -0.5px; }
   .stat-strip .s.invisible .big { color: #997706; }
   .stat-strip .s.accent .big { color: var(--gp-red); }
-  .stat-strip .s .lbl {
-    font-size: 7.5pt;
-    color: var(--g500);
-    line-height: 1.3;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    font-weight: 600;
-  }
+  .stat-strip .s.gold .big { color: #997706; }
+  .stat-strip .s .lbl { font-size: 7.5pt; color: var(--g500); line-height: 1.3; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600; }
   .stat-strip.three { grid-template-columns: repeat(3, 1fr); }
   .stat-strip.two { grid-template-columns: repeat(2, 1fr); }
+  .stat-strip.five { grid-template-columns: repeat(5, 1fr); }
 
-  /* ============ DRIVERS / TENSIONS ============ */
-  .drivers {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4mm;
-    margin-top: 4mm;
-  }
-  .driver {
-    background: var(--paper);
-    border: 1px solid var(--g100);
-    border-left: 4px solid var(--gp-red);
-    padding: 5mm 6mm;
-    page-break-inside: avoid;
-  }
-  .driver .driver-num {
-    font-family: var(--serif);
-    font-weight: 900;
-    font-size: 34pt;
-    color: var(--gp-red);
-    line-height: 1;
-    float: left;
-    margin: -1mm 4mm 0 0;
-  }
-  .driver h3 {
-    font-size: 11pt;
-    font-weight: 800;
-    color: var(--gp-navy);
-    margin-bottom: 2mm;
-    line-height: 1.25;
-    overflow: hidden;
-  }
-  .driver p {
-    font-size: 9pt;
-    color: var(--g600);
-    line-height: 1.5;
-    overflow: hidden;
-    margin-bottom: 0;
-  }
+  /* DRIVERS */
+  .drivers { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; margin-top: 4mm; }
+  .driver { background: var(--paper); border: 1px solid var(--g100); border-left: 4px solid var(--gp-red); padding: 5mm 6mm; page-break-inside: avoid; }
+  .driver .driver-num { font-family: var(--serif); font-weight: 900; font-size: 34pt; color: var(--gp-red); line-height: 1; float: left; margin: -1mm 4mm 0 0; }
+  .driver h3 { font-size: 11pt; font-weight: 800; color: var(--gp-navy); margin-bottom: 2mm; line-height: 1.25; overflow: hidden; }
+  .driver p { font-size: 9pt; color: var(--g600); line-height: 1.5; overflow: hidden; margin-bottom: 0; }
   .driver p strong { color: var(--gp-navy); }
 
-  /* ============ STATEMENT (Answer-First) ============ */
-  .statement {
-    background: var(--gp-navy);
-    color: var(--near-white);
-    padding: 12mm 12mm;
-    margin: 5mm 0 6mm 0;
-    border-left: 5px solid var(--gold);
-    page-break-inside: avoid;
-    position: relative;
-  }
-  .statement::before {
-    content: "\201C";
-    position: absolute;
-    top: 3mm;
-    right: 10mm;
-    font-family: var(--serif);
-    font-size: 80pt;
-    color: rgba(236,201,75,0.18);
-    line-height: 1;
-    font-weight: 900;
-  }
-  .statement .label {
-    font-family: var(--sans);
-    font-size: 9pt;
-    font-weight: 800;
-    letter-spacing: 3px;
-    color: var(--gold);
-    text-transform: uppercase;
-    margin-bottom: 4mm;
-    display: block;
-  }
-  .statement .text {
-    font-family: var(--serif);
-    font-style: italic;
-    font-weight: 500;
-    font-size: 13pt;
-    line-height: 1.5;
-    color: var(--near-white);
-    letter-spacing: -0.2px;
-  }
-  .statement .text strong {
-    color: var(--gold);
-    font-weight: 700;
-    font-style: normal;
-    font-family: var(--sans);
-    font-size: 12pt;
-  }
-  .statement .footer-stats {
-    margin-top: 6mm;
-    padding-top: 5mm;
-    border-top: 1px solid rgba(255,255,255,0.18);
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 4mm;
-    font-family: var(--sans);
-    font-style: normal;
-  }
-  .statement .footer-stats .fs-item .v {
-    font-family: var(--serif);
-    font-weight: 800;
-    font-size: 16pt;
-    color: var(--gold);
-    line-height: 1;
-    margin-bottom: 1mm;
-  }
-  .statement .footer-stats .fs-item .l {
-    font-size: 7.5pt;
-    color: rgba(255,255,255,0.7);
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    line-height: 1.3;
-    font-weight: 600;
-  }
+  /* STATEMENT */
+  .statement { background: var(--gp-navy); color: var(--near-white); padding: 11mm 11mm; margin: 5mm 0 6mm 0; border-left: 5px solid var(--gold); page-break-inside: avoid; position: relative; }
+  .statement::before { content: "\201C"; position: absolute; top: 3mm; right: 10mm; font-family: var(--serif); font-size: 80pt; color: rgba(236,201,75,0.18); line-height: 1; font-weight: 900; }
+  .statement .label { font-family: var(--sans); font-size: 9pt; font-weight: 800; letter-spacing: 3px; color: var(--gold); text-transform: uppercase; margin-bottom: 3mm; display: block; }
+  .statement .text { font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 12pt; line-height: 1.55; color: var(--near-white); letter-spacing: -0.2px; }
+  .statement .text strong { color: var(--gold); font-weight: 700; font-style: normal; font-family: var(--sans); font-size: 11pt; }
+  .statement .footer-stats { margin-top: 5mm; padding-top: 4mm; border-top: 1px solid rgba(255,255,255,0.18); display: grid; grid-template-columns: repeat(4, 1fr); gap: 4mm; font-family: var(--sans); font-style: normal; }
+  .statement .footer-stats .fs-item .v { font-family: var(--serif); font-weight: 800; font-size: 15pt; color: var(--gold); line-height: 1; margin-bottom: 1mm; }
+  .statement .footer-stats .fs-item .l { font-size: 7.5pt; color: rgba(255,255,255,0.7); letter-spacing: 0.5px; text-transform: uppercase; line-height: 1.3; font-weight: 600; }
 
-  /* ============ HYPOTHESIS BLOCK ============ */
-  .hypothesis {
-    background: var(--g100);
-    border-left: 4px solid var(--gp-navy);
-    padding: 5mm 6mm;
-    margin: 4mm 0;
-    page-break-inside: avoid;
-  }
-  .hypothesis .label {
-    display: block;
-    font-family: var(--sans);
-    font-size: 8.5pt;
-    font-weight: 800;
-    letter-spacing: 3px;
-    color: var(--gp-red);
-    text-transform: uppercase;
-    margin-bottom: 2mm;
-  }
-  .hypothesis h3 {
-    font-family: var(--serif);
-    font-weight: 800;
-    font-size: 14pt;
-    color: var(--gp-navy);
-    line-height: 1.25;
-    letter-spacing: -0.3px;
-    margin-bottom: 2mm;
-  }
-  .hypothesis p {
-    font-size: 9.5pt;
-    color: var(--g600);
-    line-height: 1.55;
-    margin-bottom: 0;
-  }
+  /* HYPOTHESIS */
+  .hypothesis { background: var(--g100); border-left: 4px solid var(--gp-navy); padding: 5mm 6mm; margin: 4mm 0; page-break-inside: avoid; }
+  .hypothesis .label { display: block; font-family: var(--sans); font-size: 8.5pt; font-weight: 800; letter-spacing: 3px; color: var(--gp-red); text-transform: uppercase; margin-bottom: 2mm; }
+  .hypothesis h3 { font-family: var(--serif); font-weight: 800; font-size: 14pt; color: var(--gp-navy); line-height: 1.25; letter-spacing: -0.3px; margin-bottom: 2mm; }
+  .hypothesis p { font-size: 9.5pt; color: var(--g600); line-height: 1.55; margin-bottom: 0; }
   .hypothesis p strong { color: var(--gp-navy); }
 
-  /* ============ MODEL LAYERS / BUCKETS ============ */
-  .layers {
-    list-style: none;
-    margin: 4mm 0;
-    counter-reset: layer;
-  }
-  .layers li {
-    display: grid;
-    grid-template-columns: 20mm 1fr 28mm;
-    gap: 4mm;
-    padding: 4mm 0;
-    border-bottom: 1px solid var(--g100);
-    page-break-inside: avoid;
-    align-items: center;
-  }
+  /* LAYERS / BUCKETS */
+  .layers { list-style: none; margin: 4mm 0; counter-reset: layer; }
+  .layers li { display: grid; grid-template-columns: 20mm 1fr 28mm; gap: 4mm; padding: 4mm 0; border-bottom: 1px solid var(--g100); page-break-inside: avoid; align-items: center; }
   .layers li:last-child { border-bottom: none; }
-  .layers li .layer-tag {
-    counter-increment: layer;
-    font-family: var(--sans);
-    font-size: 7.5pt;
-    font-weight: 800;
-    letter-spacing: 2px;
-    color: var(--gp-red);
-    text-transform: uppercase;
-  }
-  .layers li .layer-tag::before {
-    content: "Bucket " counter(layer);
-    display: block;
-    font-family: var(--serif);
-    font-style: italic;
-    font-size: 18pt;
-    font-weight: 800;
-    color: var(--gp-navy);
-    letter-spacing: -0.5px;
-    margin-bottom: 1mm;
-  }
+  .layers li .layer-tag { counter-increment: layer; font-family: var(--sans); font-size: 7.5pt; font-weight: 800; letter-spacing: 2px; color: var(--gp-red); text-transform: uppercase; }
+  .layers li .layer-tag::before { content: "Bucket " counter(layer); display: block; font-family: var(--serif); font-style: italic; font-size: 18pt; font-weight: 800; color: var(--gp-navy); letter-spacing: -0.5px; margin-bottom: 1mm; }
   .layers li.invisible .layer-tag { color: var(--amber); }
   .layers li.invisible .layer-tag::before { color: var(--amber); }
-  .layers h4 {
-    font-size: 11pt;
-    font-weight: 800;
-    color: var(--gp-navy);
-    margin: 0 0 1.5mm 0;
-    line-height: 1.25;
-  }
-  .layers p {
-    font-size: 8.5pt;
-    color: var(--g600);
-    margin: 0;
-    line-height: 1.45;
-  }
+  .layers h4 { font-size: 11pt; font-weight: 800; color: var(--gp-navy); margin: 0 0 1.5mm 0; line-height: 1.25; }
+  .layers p { font-size: 8.5pt; color: var(--g600); margin: 0; line-height: 1.45; }
   .layers p strong { color: var(--gp-navy); }
-  .layers .amount {
-    text-align: right;
-    font-family: var(--serif);
-    font-weight: 900;
-    font-size: 15pt;
-    color: var(--gp-navy);
-    letter-spacing: -0.5px;
-  }
-  .layers .amount span {
-    display: block;
-    font-family: var(--sans);
-    font-weight: 600;
-    font-size: 7.5pt;
-    color: var(--g500);
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    margin-top: 1mm;
-  }
+  .layers .amount { text-align: right; font-family: var(--serif); font-weight: 900; font-size: 15pt; color: var(--gp-navy); letter-spacing: -0.5px; }
+  .layers .amount span { display: block; font-family: var(--sans); font-weight: 600; font-size: 7.5pt; color: var(--g500); letter-spacing: 0.5px; text-transform: uppercase; margin-top: 1mm; }
   .layers li.invisible .amount { color: #997706; }
 
-  /* ============ EVIDENCE STRIP ============ */
-  .evidence {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 4mm;
-    margin: 5mm 0;
-  }
-  .ev {
-    background: var(--paper);
-    border: 1px solid var(--g100);
-    border-top: 3px solid var(--gp-red);
-    padding: 5mm;
-    page-break-inside: avoid;
-  }
-  .ev:nth-child(2) { border-top-color: var(--blue); }
-  .ev:nth-child(3) { border-top-color: var(--green); }
-  .ev:nth-child(4) { border-top-color: var(--gp-red); }
-  .ev:nth-child(5) { border-top-color: var(--blue); }
-  .ev:nth-child(6) { border-top-color: var(--green); }
-  .ev .ev-num {
-    font-family: var(--serif);
-    font-weight: 900;
-    font-size: 8.5pt;
-    color: var(--gp-red);
-    letter-spacing: 2px;
-    margin-bottom: 2mm;
-  }
-  .ev:nth-child(2) .ev-num { color: var(--blue); }
-  .ev:nth-child(3) .ev-num { color: var(--deep-green); }
-  .ev:nth-child(4) .ev-num { color: var(--gp-red); }
-  .ev:nth-child(5) .ev-num { color: var(--blue); }
-  .ev:nth-child(6) .ev-num { color: var(--deep-green); }
-  .ev h4 {
-    font-size: 10pt;
-    font-weight: 800;
-    color: var(--gp-navy);
-    margin-bottom: 2mm;
-    line-height: 1.25;
-  }
-  .ev p {
-    font-size: 8.5pt;
-    color: var(--g600);
-    line-height: 1.5;
-    margin: 0;
-  }
-  .ev p strong { color: var(--gp-navy); }
-
-  /* ============ SOURCES / PALANCAS ============ */
+  /* SOURCES */
   .sources { margin-top: 4mm; }
-  .source {
-    background: var(--paper);
-    border: 1px solid var(--g100);
-    padding: 5mm 6mm;
-    margin-bottom: 4mm;
-    border-left: 4px solid var(--gold);
-    page-break-inside: avoid;
-  }
+  .source { background: var(--paper); border: 1px solid var(--g100); padding: 5mm 6mm; margin-bottom: 4mm; border-left: 4px solid var(--gold); page-break-inside: avoid; }
   .source:nth-child(2) { border-left-color: var(--blue); }
   .source:nth-child(3) { border-left-color: var(--green); }
   .source:nth-child(4) { border-left-color: var(--amber); }
   .source:nth-child(5) { border-left-color: var(--gp-red); }
-  .source-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    margin-bottom: 3mm;
-    border-bottom: 1px solid var(--g100);
-    padding-bottom: 2mm;
-  }
-  .source-tag {
-    display: inline-block;
-    font-family: var(--sans);
-    font-size: 8pt;
-    font-weight: 800;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--gp-navy);
-  }
-  .source-magnitude {
-    font-family: var(--serif);
-    font-weight: 900;
-    font-size: 13pt;
-    color: var(--gp-navy);
-    letter-spacing: -0.3px;
-  }
-  .source h4 {
-    font-size: 12pt;
-    font-weight: 800;
-    color: var(--gp-navy);
-    margin: 0 0 2mm 0;
-    line-height: 1.25;
-  }
-  .source .source-body {
-    font-size: 9pt;
-    color: var(--g600);
-    line-height: 1.5;
-    margin-bottom: 2mm;
-  }
+  .source-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 3mm; border-bottom: 1px solid var(--g100); padding-bottom: 2mm; }
+  .source-tag { display: inline-block; font-family: var(--sans); font-size: 8pt; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: var(--gp-navy); }
+  .source-magnitude { font-family: var(--serif); font-weight: 900; font-size: 13pt; color: var(--gp-navy); letter-spacing: -0.3px; }
+  .source h4 { font-size: 12pt; font-weight: 800; color: var(--gp-navy); margin: 0 0 2mm 0; line-height: 1.25; }
+  .source .source-body { font-size: 9pt; color: var(--g600); line-height: 1.5; margin-bottom: 2mm; }
   .source .source-body strong { color: var(--gp-navy); }
-  .source-calc {
-    background: var(--g100);
-    padding: 3mm 4mm;
-    margin-top: 2mm;
-    font-size: 8pt;
-    color: var(--g600);
-    line-height: 1.5;
-    border-radius: 4px;
-  }
+  .source-calc { background: var(--g100); padding: 3mm 4mm; margin-top: 2mm; font-size: 8pt; color: var(--g600); line-height: 1.5; border-radius: 4px; }
   .source-calc strong { color: var(--gp-navy); }
 
-  /* ============ TABLES ============ */
-  table.data {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 4mm 0;
-    font-size: 8.5pt;
-    page-break-inside: avoid;
-  }
-  table.data th {
-    background: var(--gp-navy);
-    color: var(--near-white);
-    font-family: var(--sans);
-    font-weight: 700;
-    font-size: 8pt;
-    letter-spacing: 0.4px;
-    padding: 2.5mm 3mm;
-    text-align: left;
-    text-transform: uppercase;
-  }
+  /* TABLES */
+  table.data { width: 100%; border-collapse: collapse; margin: 4mm 0; font-size: 8.5pt; page-break-inside: avoid; }
+  table.data th { background: var(--gp-navy); color: var(--near-white); font-family: var(--sans); font-weight: 700; font-size: 8pt; letter-spacing: 0.4px; padding: 2.5mm 3mm; text-align: left; text-transform: uppercase; }
   table.data th.num, table.data td.num { text-align: right; }
-  table.data td {
-    padding: 2mm 3mm;
-    border-bottom: 1px solid var(--g100);
-    color: var(--g600);
-  }
+  table.data td { padding: 2mm 3mm; border-bottom: 1px solid var(--g100); color: var(--g600); }
   table.data tr:nth-child(even) td { background: var(--g100); }
   table.data tr:last-child td { border-bottom: none; }
-  table.data tr.total td {
-    background: var(--gp-navy) !important;
-    color: var(--near-white);
-    font-weight: 700;
-    border-bottom: none;
-  }
+  table.data tr.total td { background: var(--gp-navy) !important; color: var(--near-white); font-weight: 700; border-bottom: none; }
   table.data tr.total td strong { color: var(--gold); }
-  table.data tr.subtotal td {
-    background: var(--g300) !important;
-    color: var(--gp-navy);
-    font-weight: 700;
-  }
+  table.data tr.subtotal td { background: var(--g300) !important; color: var(--gp-navy); font-weight: 700; }
   table.data td strong { color: var(--gp-navy); }
   table.data tr:nth-child(even) td strong { color: var(--gp-navy); }
+  table.data tr.outlier td { background: rgba(214,158,46,0.12) !important; }
+  table.data tr.outlier td strong { color: var(--gp-red); }
+  table.data tr.best td { background: rgba(72,187,120,0.10) !important; }
+  table.data tr.best td strong { color: var(--deep-green); }
 
-  /* ============ FINANCIAL ============ */
-  .financial {
-    background: var(--paper);
-    border: 1px solid var(--g100);
-    margin-top: 4mm;
-    page-break-inside: avoid;
-  }
-  .financial-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-  .fin-cell {
-    padding: 5mm;
-    border-right: 1px solid var(--g100);
-    border-bottom: 1px solid var(--g100);
-  }
+  /* DISTRIBUTION BAR (for composition) */
+  .distrib { margin: 4mm 0; }
+  .distrib-row { display: grid; grid-template-columns: 55mm 90mm 1fr; gap: 3mm; align-items: center; padding: 2mm 0; border-bottom: 1px solid var(--g100); }
+  .distrib-row:last-child { border-bottom: none; }
+  .distrib-row.total { background: var(--g100); padding: 3mm; font-weight: 700; }
+  .distrib-row .label-d { font-size: 9pt; color: var(--gp-slate); font-weight: 600; }
+  .distrib-row .label-d strong { color: var(--gp-navy); }
+  .distrib-row .bar-wrap { background: var(--g100); height: 7mm; position: relative; border-radius: 2px; overflow: hidden; }
+  .distrib-row .bar { height: 100%; background: var(--gp-navy); border-radius: 2px; }
+  .distrib-row .bar.b-digital { background: var(--blue); }
+  .distrib-row .bar.b-analogo { background: var(--amber); }
+  .distrib-row .bar.b-onsite { background: var(--green); }
+  .distrib-row .bar.b-plantilla { background: var(--gp-navy); }
+  .distrib-row .bar.b-servicios { background: var(--gp-red); }
+  .distrib-row .bar.b-tech { background: var(--gp-slate); }
+  .distrib-row .value-d { font-family: var(--serif); font-weight: 800; font-size: 11pt; color: var(--gp-navy); text-align: right; letter-spacing: -0.3px; }
+  .distrib-row .value-d span { display: block; font-family: var(--sans); font-weight: 600; font-size: 7.5pt; color: var(--g500); letter-spacing: 0.4px; }
+
+  /* FINANCIAL */
+  .financial { background: var(--paper); border: 1px solid var(--g100); margin-top: 4mm; page-break-inside: avoid; }
+  .financial-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; }
+  .fin-cell { padding: 5mm; border-right: 1px solid var(--g100); border-bottom: 1px solid var(--g100); }
   .fin-cell:nth-child(3n) { border-right: none; }
   .fin-cell:nth-last-child(-n+3) { border-bottom: none; }
-  .fin-cell .label {
-    font-size: 7.5pt;
-    font-weight: 800;
-    letter-spacing: 1.5px;
-    color: var(--g500);
-    text-transform: uppercase;
-    margin-bottom: 2mm;
-  }
-  .fin-cell .value {
-    font-family: var(--serif);
-    font-weight: 900;
-    font-size: 20pt;
-    color: var(--gp-navy);
-    line-height: 1;
-    letter-spacing: -0.5px;
-    margin-bottom: 1mm;
-  }
+  .fin-cell .label { font-size: 7.5pt; font-weight: 800; letter-spacing: 1.5px; color: var(--g500); text-transform: uppercase; margin-bottom: 2mm; }
+  .fin-cell .value { font-family: var(--serif); font-weight: 900; font-size: 20pt; color: var(--gp-navy); line-height: 1; letter-spacing: -0.5px; margin-bottom: 1mm; }
   .fin-cell .value.gold { color: #997706; }
   .fin-cell .value.green { color: var(--deep-green); }
   .fin-cell .value.red { color: var(--gp-red); }
-  .fin-cell p {
-    font-size: 8pt;
-    color: var(--g600);
-    line-height: 1.4;
-    margin: 0;
-  }
+  .fin-cell p { font-size: 8pt; color: var(--g600); line-height: 1.4; margin: 0; }
 
-  .killer {
-    background: var(--gp-navy);
-    color: var(--near-white);
-    padding: 7mm 9mm;
-    margin-top: 5mm;
-    border-left: 4px solid var(--gold);
-    page-break-inside: avoid;
-  }
-  .killer .label {
-    font-size: 9pt;
-    font-weight: 800;
-    letter-spacing: 3px;
-    color: var(--gold);
-    text-transform: uppercase;
-    margin-bottom: 2mm;
-    display: block;
-  }
-  .killer h3 {
-    font-family: var(--serif);
-    font-weight: 800;
-    font-size: 16pt;
-    color: var(--near-white);
-    margin-bottom: 2mm;
-    line-height: 1.25;
-  }
-  .killer p {
-    font-size: 9.5pt;
-    color: rgba(255,255,255,0.82);
-    line-height: 1.55;
-    margin-bottom: 0;
-  }
+  .killer { background: var(--gp-navy); color: var(--near-white); padding: 7mm 9mm; margin-top: 5mm; border-left: 4px solid var(--gold); page-break-inside: avoid; }
+  .killer .label { font-size: 9pt; font-weight: 800; letter-spacing: 3px; color: var(--gold); text-transform: uppercase; margin-bottom: 2mm; display: block; }
+  .killer h3 { font-family: var(--serif); font-weight: 800; font-size: 15pt; color: var(--near-white); margin-bottom: 2mm; line-height: 1.25; }
+  .killer p { font-size: 9.5pt; color: rgba(255,255,255,0.82); line-height: 1.55; margin-bottom: 0; }
   .killer strong { color: var(--gold); }
 
-  /* ============ DECISIONS (internal asks) ============ */
-  .decisions {
-    list-style: none;
-    counter-reset: dec;
-    margin-top: 4mm;
-  }
-  .decisions li {
-    display: grid;
-    grid-template-columns: 12mm 1fr 38mm;
-    gap: 4mm;
-    padding: 4mm 0;
-    border-bottom: 1px solid var(--g100);
-    page-break-inside: avoid;
-    align-items: start;
-  }
+  /* DECISIONS */
+  .decisions { list-style: none; counter-reset: dec; margin-top: 4mm; }
+  .decisions li { display: grid; grid-template-columns: 12mm 1fr 38mm; gap: 4mm; padding: 4mm 0; border-bottom: 1px solid var(--g100); page-break-inside: avoid; align-items: start; }
   .decisions li:last-child { border-bottom: none; }
-  .decisions li::before {
-    counter-increment: dec;
-    content: counter(dec);
-    font-family: var(--serif);
-    font-weight: 900;
-    font-size: 26pt;
-    color: var(--gp-red);
-    line-height: 1;
-  }
-  .decisions h4 {
-    font-size: 11pt;
-    font-weight: 800;
-    color: var(--gp-navy);
-    margin: 0 0 1.5mm 0;
-    line-height: 1.25;
-  }
-  .decisions p {
-    font-size: 9pt;
-    color: var(--g600);
-    margin: 0;
-    line-height: 1.5;
-  }
+  .decisions li::before { counter-increment: dec; content: counter(dec); font-family: var(--serif); font-weight: 900; font-size: 26pt; color: var(--gp-red); line-height: 1; }
+  .decisions h4 { font-size: 11pt; font-weight: 800; color: var(--gp-navy); margin: 0 0 1.5mm 0; line-height: 1.25; }
+  .decisions p { font-size: 9pt; color: var(--g600); margin: 0; line-height: 1.5; }
   .decisions p strong { color: var(--gp-navy); }
-  .dec-options {
-    font-family: var(--sans);
-    font-size: 8pt;
-    color: var(--g500);
-    line-height: 1.5;
-    border-left: 2px solid var(--g300);
-    padding-left: 3mm;
-  }
-  .dec-options strong {
-    display: block;
-    font-weight: 700;
-    color: var(--gp-navy);
-    text-transform: uppercase;
-    font-size: 7.5pt;
-    letter-spacing: 1px;
-    margin-bottom: 1mm;
-  }
+  .dec-options { font-family: var(--sans); font-size: 8pt; color: var(--g500); line-height: 1.5; border-left: 2px solid var(--g300); padding-left: 3mm; }
+  .dec-options strong { display: block; font-weight: 700; color: var(--gp-navy); text-transform: uppercase; font-size: 7.5pt; letter-spacing: 1px; margin-bottom: 1mm; }
 
-  /* ============ ANNEX ============ */
-  .annex-block {
-    background: var(--paper);
-    border: 1px solid var(--g100);
-    padding: 5mm 6mm;
-    margin-bottom: 4mm;
-    page-break-inside: avoid;
-  }
-  .annex-block h3 {
-    font-family: var(--serif);
-    font-weight: 800;
-    font-size: 13pt;
-    color: var(--gp-navy);
-    margin-bottom: 2mm;
-    border-bottom: 1px solid var(--g100);
-    padding-bottom: 2mm;
-  }
-  .annex-block .annex-tag {
-    display: inline-block;
-    font-family: var(--sans);
-    font-size: 8pt;
-    font-weight: 800;
-    letter-spacing: 2px;
-    color: var(--gp-red);
-    text-transform: uppercase;
-    margin-bottom: 2mm;
-  }
+  /* ANNEX */
+  .annex-block { background: var(--paper); border: 1px solid var(--g100); padding: 5mm 6mm; margin-bottom: 4mm; page-break-inside: avoid; }
+  .annex-block h3 { font-family: var(--serif); font-weight: 800; font-size: 13pt; color: var(--gp-navy); margin-bottom: 2mm; border-bottom: 1px solid var(--g100); padding-bottom: 2mm; }
+  .annex-block .annex-tag { display: inline-block; font-family: var(--sans); font-size: 8pt; font-weight: 800; letter-spacing: 2px; color: var(--gp-red); text-transform: uppercase; margin-bottom: 2mm; }
   .annex-block ul { list-style: none; padding: 0; }
-  .annex-block ul li {
-    font-size: 8.5pt;
-    color: var(--g600);
-    padding: 1mm 0 1mm 5mm;
-    position: relative;
-    line-height: 1.5;
-  }
-  .annex-block ul li::before {
-    content: "\25B8";
-    position: absolute;
-    left: 0;
-    color: var(--gp-red);
-  }
+  .annex-block ul li { font-size: 8.5pt; color: var(--g600); padding: 1mm 0 1mm 5mm; position: relative; line-height: 1.5; }
+  .annex-block ul li::before { content: "\25B8"; position: absolute; left: 0; color: var(--gp-red); }
   .annex-block ul li strong { color: var(--gp-navy); }
 
-  /* ============ CLOSING ============ */
-  .closing {
-    background: var(--gp-navy);
-    color: var(--near-white);
-    padding: 28mm 22mm;
-    margin: -16mm;
-    margin-top: 0;
-    min-height: 265mm;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    background:
-      radial-gradient(ellipse at 50% 0%, rgba(236,201,75,0.12) 0%, transparent 60%),
-      radial-gradient(ellipse at 50% 100%, rgba(200,16,46,0.10) 0%, transparent 60%),
-      var(--gp-navy);
-  }
-  .closing .ribbon {
-    font-family: var(--sans);
-    font-size: 9pt;
-    font-weight: 700;
-    letter-spacing: 5px;
-    color: var(--gp-red);
-    text-transform: uppercase;
-    margin-bottom: 10mm;
-  }
-  .closing h2 {
-    font-family: var(--serif);
-    font-weight: 800;
-    font-size: 32pt;
-    color: var(--near-white);
-    margin-bottom: 7mm;
-    line-height: 1.05;
-    letter-spacing: -1px;
-  }
+  /* CLOSING */
+  .closing { background: var(--gp-navy); color: var(--near-white); padding: 28mm 22mm; margin: -16mm; margin-top: 0; min-height: 265mm; display: flex; flex-direction: column; justify-content: center; text-align: center;
+    background: radial-gradient(ellipse at 50% 0%, rgba(236,201,75,0.12) 0%, transparent 60%), radial-gradient(ellipse at 50% 100%, rgba(200,16,46,0.10) 0%, transparent 60%), var(--gp-navy); }
+  .closing .ribbon { font-family: var(--sans); font-size: 9pt; font-weight: 700; letter-spacing: 5px; color: var(--gp-red); text-transform: uppercase; margin-bottom: 10mm; }
+  .closing h2 { font-family: var(--serif); font-weight: 800; font-size: 32pt; color: var(--near-white); margin-bottom: 7mm; line-height: 1.05; letter-spacing: -1px; }
   .closing h2 em { font-style: italic; color: var(--gold); font-weight: 700; }
-  .closing .pull {
-    font-family: var(--serif);
-    font-style: italic;
-    font-size: 13pt;
-    color: var(--gold);
-    line-height: 1.5;
-    max-width: 150mm;
-    margin: 0 auto 8mm auto;
-  }
-  .closing .body-text {
-    font-size: 10.5pt;
-    color: rgba(255,255,255,0.78);
-    max-width: 150mm;
-    margin: 0 auto;
-    line-height: 1.65;
-  }
-  .closing .signature {
-    margin-top: 12mm;
-    font-size: 9pt;
-    color: rgba(255,255,255,0.5);
-    letter-spacing: 1.5px;
-  }
+  .closing .pull { font-family: var(--serif); font-style: italic; font-size: 13pt; color: var(--gold); line-height: 1.5; max-width: 150mm; margin: 0 auto 8mm auto; }
+  .closing .body-text { font-size: 10.5pt; color: rgba(255,255,255,0.78); max-width: 150mm; margin: 0 auto; line-height: 1.65; }
+  .closing .signature { margin-top: 12mm; font-size: 9pt; color: rgba(255,255,255,0.5); letter-spacing: 1.5px; }
   .closing .signature strong { color: var(--gold); display: block; font-size: 11pt; letter-spacing: 2.5px; margin-bottom: 1mm; }
 
-  @media print {
-    body { background: white; }
-    .page { box-shadow: none; margin: 0; padding: 16mm; }
-    .cover { padding: 0; }
-  }
+  @media print { body { background: white; } .page { box-shadow: none; margin: 0; padding: 16mm; } .cover { padding: 0; } }
 </style>
 </head>
 <body>
@@ -933,23 +275,19 @@
   <div class="cover-inner">
     <div>
       <div class="cover-mark">Grupo Plasencia<span>Dirección de Marketing Corporativo · Junio 2026</span></div>
-
       <p class="cover-eyebrow">Deep Dive · Diagnóstico Estratégico</p>
       <h1 class="cover-title">Marketing <em>Economics.</em></h1>
-      <p class="cover-subtitle">Baseline 2025. Punto de partida estructurado para definir la estrategia de transformación del marketing del grupo.</p>
-
+      <p class="cover-subtitle">Baseline 2025. La fotografía completa del gasto, antes de la estrategia.</p>
       <p class="cover-pull">
-        Este documento es diagnóstico, no estrategia. Reestructura el trabajo previo de Daniel Galindo (Ago–Nov 2025) en un marco analítico riguroso que hace visible el 53% del gasto de marketing que la contabilidad actual no captura. La estrategia se construirá sobre esta base, y se actualizará cuando llegue data 2026.
-        <cite>Estructura Minto · SCR · Answer-First · v1.1 conforme al baseline</cite>
+        Este documento es diagnóstico, no estrategia. Reestructura el trabajo previo de Daniel Galindo (Ago–Nov 2025) en un marco analítico riguroso. v1.2 agrega la fotografía concreta del gasto actual (qué se gasta hoy, por marca, agencia y proveedor) antes de la lectura taxonómica. La estrategia se construirá sobre esta base y se actualizará cuando llegue data 2026.
+        <cite>Estructura Minto · SCR · Answer-First · v1.2 con vista fotográfica</cite>
       </p>
-
       <div class="cover-tags">
         <span class="cover-tag">Diagnóstico Estratégico</span>
         <span class="cover-tag accent">Baseline 2025</span>
-        <span class="cover-tag urgent">Versión 1.1 · Cifras del baseline</span>
+        <span class="cover-tag urgent">v1.2 · Fotografía completa</span>
       </div>
     </div>
-
     <div>
       <div class="cover-meta">
         <div class="cover-meta-block">
@@ -957,8 +295,8 @@
           Director MKT Corporativo · Insumo para construcción de estrategia
         </div>
         <div class="cover-meta-block" style="text-align:right;">
-          <strong>Junio 2026 · v1.1</strong>
-          14 páginas · Paper A4
+          <strong>Junio 2026 · v1.2</strong>
+          17 páginas · Paper A4
         </div>
       </div>
     </div>
@@ -968,62 +306,26 @@
 <!-- ============ PAGE 2: TOC + ANSWER-FIRST ============ -->
 <section class="page">
   <h1 class="section-title"><span class="num">Contenido y respuesta primero</span>El diagnóstico, en una página.</h1>
-
   <div class="toc">
-    <div class="toc-item">
-      <span class="toc-num">§1</span>
-      <span class="toc-title">Answer-First<span class="toc-sub">La lectura del diagnóstico en un párrafo</span></span>
-      <span class="toc-page">02</span>
-    </div>
-    <div class="toc-item">
-      <span class="toc-num">§2</span>
-      <span class="toc-title">Situación<span class="toc-sub">El grupo, el contexto interno, la pregunta</span></span>
-      <span class="toc-page">03</span>
-    </div>
-    <div class="toc-item">
-      <span class="toc-num">§3</span>
-      <span class="toc-title">Complicación<span class="toc-sub">Lo que el cuadro contable actual no muestra</span></span>
-      <span class="toc-page">04</span>
-    </div>
-    <div class="toc-item">
-      <span class="toc-num">§4</span>
-      <span class="toc-title">El Modelo · Estructura real del gasto<span class="toc-sub">7 buckets + 4 dimensiones perpendiculares</span></span>
-      <span class="toc-page">06</span>
-    </div>
-    <div class="toc-item">
-      <span class="toc-num">§5</span>
-      <span class="toc-title">El Diagnóstico · 5 fuentes de ineficiencia<span class="toc-sub">Cuantificadas en tres escenarios</span></span>
-      <span class="toc-page">09</span>
-    </div>
-    <div class="toc-item">
-      <span class="toc-num">§6</span>
-      <span class="toc-title">Hipótesis para estrategia<span class="toc-sub">Lo que se desprende, no la estrategia</span></span>
-      <span class="toc-page">11</span>
-    </div>
-    <div class="toc-item">
-      <span class="toc-num">§7</span>
-      <span class="toc-title">Magnitud del diagnóstico<span class="toc-sub">Caso financiero · 3 escenarios</span></span>
-      <span class="toc-page">12</span>
-    </div>
-    <div class="toc-item">
-      <span class="toc-num">§8</span>
-      <span class="toc-title">Decisiones para pasar a estrategia<span class="toc-sub">4 inputs internos antes de la fase siguiente</span></span>
-      <span class="toc-page">13</span>
-    </div>
-    <div class="toc-item">
-      <span class="toc-num">§9</span>
-      <span class="toc-title">Anexos<span class="toc-sub">Marcas, proveedores, fuentes, limitaciones</span></span>
-      <span class="toc-page">14</span>
-    </div>
+    <div class="toc-item"><span class="toc-num">§1</span><span class="toc-title">Answer-First<span class="toc-sub">La lectura del diagnóstico en un párrafo</span></span><span class="toc-page">02</span></div>
+    <div class="toc-item"><span class="toc-num">§2</span><span class="toc-title">Situación<span class="toc-sub">El grupo, el contexto interno, la pregunta</span></span><span class="toc-page">03</span></div>
+    <div class="toc-item"><span class="toc-num">§3</span><span class="toc-title new">Fotografía del gasto actual<span class="toc-sub">Total · por marca · por agencia · por proveedor</span></span><span class="toc-page">04</span></div>
+    <div class="toc-item"><span class="toc-num">§4</span><span class="toc-title">Complicación<span class="toc-sub">Lo que el cuadro contable actual no muestra</span></span><span class="toc-page">07</span></div>
+    <div class="toc-item"><span class="toc-num">§5</span><span class="toc-title">El Modelo · Taxonomía propuesta<span class="toc-sub">7 buckets + 4 dimensiones perpendiculares</span></span><span class="toc-page">08</span></div>
+    <div class="toc-item"><span class="toc-num">§6</span><span class="toc-title">El Diagnóstico · 5 fuentes de ineficiencia<span class="toc-sub">Cuantificadas en tres escenarios</span></span><span class="toc-page">09</span></div>
+    <div class="toc-item"><span class="toc-num">§7</span><span class="toc-title">Hipótesis para estrategia<span class="toc-sub">Lo que se desprende, no la estrategia</span></span><span class="toc-page">11</span></div>
+    <div class="toc-item"><span class="toc-num">§8</span><span class="toc-title">Magnitud · Caso financiero<span class="toc-sub">3 escenarios · ROI vs inversión CdE</span></span><span class="toc-page">12</span></div>
+    <div class="toc-item"><span class="toc-num">§9</span><span class="toc-title">Decisiones para pasar a estrategia<span class="toc-sub">4 inputs internos antes de la fase siguiente</span></span><span class="toc-page">13</span></div>
+    <div class="toc-item"><span class="toc-num">§10</span><span class="toc-title">Anexos<span class="toc-sub">Marcas priorizadas, fuentes, limitaciones</span></span><span class="toc-page">14</span></div>
   </div>
 
   <div class="statement">
     <span class="label">§1 · Answer-First</span>
     <p class="text">
-      Grupo Plasencia gasta <strong>~$61 MDP/año</strong> documentado en marketing conforme al baseline (0.48% del revenue $12,813 MDP); el estimado real con proxies para las marcas sin desglose es <strong>~$74 MDP/año</strong> (0.58%). De ese total, <strong>solo el 47% es visible</strong> en los tres centros de costo actuales — el otro 53% existe en plantilla, fees de agencia, tecnología y estrategia, pero no tiene casilla propia. El grupo opera con <strong>8 silos por marca</strong>, <strong>14 proveedores externos</strong> sin coordinación, <strong>61 personas</strong>, y produce <strong>CACs entre $1,326 y $4,469</strong> — variación de <strong>3.4×</strong> para vender autos al mismo cliente desde el mismo grupo.
+      Grupo Plasencia gasta <strong>~$58.9 MDP/año documentado</strong> en marketing (0.46% del revenue $12,813 MDP); con proxies para marcas sin desglose completo: <strong>~$74 MDP/año</strong> (0.58%). <strong>Mazda y Hyundai concentran el 54%</strong>; GAC es proporcionalmente la más cara (<strong>1.69% de su revenue</strong>, 3.7× más intenso que Mazda). <strong>Solo el 47% del gasto es visible</strong> en los tres centros contables actuales — el otro 53% vive en plantilla (36%), fees agencia (18%), tech y estrategia. CACs entre <strong>$1,326 (Mazda) y $4,469 (GAC)</strong>; a nivel agencia, dispersión de <strong>21.6×</strong> entre Mazda Colima ($532) y GAC Américas ($11,468).
     </p>
     <div class="footer-stats">
-      <div class="fs-item"><div class="v">$60.99M</div><div class="l">Marketing documentado /año</div></div>
+      <div class="fs-item"><div class="v">$58.9M</div><div class="l">Mkt documentado /año</div></div>
       <div class="fs-item"><div class="v">53%</div><div class="l">Sin casilla contable</div></div>
       <div class="fs-item"><div class="v">$19.5M</div><div class="l">Palanca eficiencia /año</div></div>
       <div class="fs-item"><div class="v">+$661M</div><div class="l">+1pp conversión /año</div></div>
@@ -1034,24 +336,13 @@
 <!-- ============ PAGE 3: SITUACION ============ -->
 <section class="page">
   <h1 class="section-title"><span class="num">§2 · Situación</span>El grupo, el contexto, la pregunta.</h1>
-
   <p class="lead">
     Grupo Plasencia Automotriz es un grupo multimarca con <strong>75 años de operación</strong>, 8 marcas OEM activas más Seminuevos, <strong>36 agencias en 6 estados</strong> de Occidente y Bajío Sur, y un revenue 2025 de <strong>$12,813 MDP</strong> (+9.5% YoY).
   </p>
 
   <h2 class="section-h2">2.1 · Mix por marca · Unidades nuevas 2025</h2>
-
   <table class="data">
-    <thead>
-      <tr>
-        <th>Marca</th>
-        <th class="num">Unidades</th>
-        <th class="num">Revenue (MDP)</th>
-        <th class="num">AOV (MXN)</th>
-        <th class="num">Share</th>
-        <th class="num">Var YoY</th>
-      </tr>
-    </thead>
+    <thead><tr><th>Marca</th><th class="num">Unidades</th><th class="num">Revenue (MDP)</th><th class="num">AOV (MXN)</th><th class="num">Share</th><th class="num">Var YoY</th></tr></thead>
     <tbody>
       <tr><td><strong>Mazda</strong></td><td class="num">14,129</td><td class="num">$5,653</td><td class="num">$400,099</td><td class="num">54.3%</td><td class="num">+4.6%</td></tr>
       <tr><td>Hyundai</td><td class="num">4,785</td><td class="num">$1,793</td><td class="num">$374,713</td><td class="num">18.4%</td><td class="num">+10.7%</td></tr>
@@ -1068,496 +359,385 @@
   </table>
 
   <h2 class="section-h2">2.2 · El contexto interno</h2>
-
-  <p>
-    La <strong>Dirección de Marketing Corporativo</strong> se establece formalmente con el ingreso del Director MKT en marzo 2026, después de un intento previo de consultoría externa (Daniel Galindo, sept 2025 – ene 2026) que no logró ejecución de impacto: 4 de 15 proyectos completados, todos administrativos.
-  </p>
-  <p>
-    La estructura actual de marketing son <strong>61 personas distribuidas en 8 silos por marca</strong>, sin función corporativa cross-marca consolidada. El <strong>Motor de Atribución MVP</strong> está en operación desde abril 2026 en 3 marcas piloto y demuestra captación digital con CPA $69–218 vs CAC histórico $1,206 — 5 a 17 veces mejor en captación pura. El <strong>Centro de Excelencia MKT Corporativo AI-powered</strong> está propuesto al Consejo Directivo como infraestructura corporativa permanente.
-  </p>
+  <p>La <strong>Dirección de Marketing Corporativo</strong> se establece formalmente con el ingreso del Director MKT en marzo 2026, después de un intento previo de consultoría externa (Daniel Galindo, sept 2025 – ene 2026) que no logró ejecución de impacto: 4 de 15 proyectos completados, todos administrativos.</p>
+  <p>Estructura actual: <strong>61 personas distribuidas en 8 silos por marca</strong>, sin función corporativa cross-marca consolidada. El <strong>Motor de Atribución MVP</strong> está en operación desde abril 2026 en 3 marcas piloto y demuestra captación con CPA $69–218 vs CAC histórico $1,206. El <strong>Centro de Excelencia MKT Corporativo AI-powered</strong> está propuesto al Consejo Directivo como infraestructura permanente.</p>
 
   <h2 class="section-h2">2.3 · La pregunta que este diagnóstico responde</h2>
-
   <div class="hypothesis">
     <span class="label">La pregunta</span>
     <h3>¿Puede el marketing de Grupo Plasencia ser sustancialmente más eficiente, y si la respuesta es sí, qué tiene que cambiar — estructura, proveedores, presupuesto, o todo lo anterior?</h3>
-    <p>
-      La respuesta requiere primero un diagnóstico riguroso. Sin él, cualquier rediseño es ciego.
-    </p>
+    <p>Antes de responderla hay que ver la fotografía del gasto actual.</p>
   </div>
 </section>
 
-<!-- ============ PAGE 4-5: COMPLICACION ============ -->
+<!-- ============ PAGE 4: FOTOGRAFIA 3.1 + 3.2 ============ -->
 <section class="page">
-  <h1 class="section-title"><span class="num">§3 · Complicación</span>Lo que el cuadro actual no muestra.</h1>
-
+  <h1 class="section-title"><span class="num">§3 · Fotografía del gasto actual</span>En qué se gasta el dinero hoy.</h1>
   <p class="lead">
-    La contabilidad de marketing del grupo usa <strong>tres centros de costo</strong> — Digital, Análogo (ATL/BTL), On-site — que son contable-válidos pero <strong>estratégicamente incompletos</strong>. Capturan el gasto en medios y activación física, pero dejan fuera el <strong>53% del costo real de marketing del grupo</strong> conforme al baseline documentado.
+    Esta sección responde la pregunta concreta antes de interpretarla. Cuatro vistas: <strong>total y composición · por marca · por agencia · por proveedor</strong>. Cifras anualizadas del baseline 2025 (4 meses Ago–Nov × 3 + datos anuales donde aplica).
   </p>
 
-  <div class="stat-strip three">
-    <div class="s">
-      <div class="big">$60.99M</div>
-      <div class="lbl">Marketing documentado /año conforme baseline</div>
+  <h2 class="section-h2">3.1 · Total del grupo · composición del gasto MKT</h2>
+
+  <div class="stat-strip">
+    <div class="s"><div class="big">$58.9M</div><div class="lbl">Marketing documentado /año</div></div>
+    <div class="s accent"><div class="big">0.46%</div><div class="lbl">Del revenue $12,813 MDP</div></div>
+    <div class="s invisible"><div class="big">53%</div><div class="lbl">Sin casilla contable hoy</div></div>
+    <div class="s gold"><div class="big">~$74M</div><div class="lbl">Estimado con proxies marcas faltantes</div></div>
+  </div>
+
+  <div class="distrib">
+    <div class="distrib-row">
+      <div class="label-d"><strong>Plantilla MKT</strong> · 61 personas en 8 silos</div>
+      <div class="bar-wrap"><div class="bar b-plantilla" style="width:36.2%"></div></div>
+      <div class="value-d">$21.35M<span>36.2%</span></div>
     </div>
-    <div class="s invisible">
-      <div class="big">53.3%</div>
-      <div class="lbl">Sin casilla contable propia hoy</div>
+    <div class="distrib-row">
+      <div class="label-d"><strong>Digital · Pauta</strong> · 4 marcas con data confirmada</div>
+      <div class="bar-wrap"><div class="bar b-digital" style="width:22.5%"></div></div>
+      <div class="value-d">$13.27M<span>22.5%</span></div>
     </div>
-    <div class="s accent">
-      <div class="big">0.48%</div>
-      <div class="lbl">Del revenue (vs benchmark sector 5–10%)</div>
+    <div class="distrib-row">
+      <div class="label-d"><strong>Servicios externos · Fees</strong> · 14 proveedores activos</div>
+      <div class="bar-wrap"><div class="bar b-servicios" style="width:17.9%"></div></div>
+      <div class="value-d">$10.56M<span>17.9%</span></div>
+    </div>
+    <div class="distrib-row">
+      <div class="label-d"><strong>On-site · Activaciones + POP</strong> · 3 marcas + POP grupo</div>
+      <div class="bar-wrap"><div class="bar b-onsite" style="width:14.3%"></div></div>
+      <div class="value-d">$8.42M<span>14.3%</span></div>
+    </div>
+    <div class="distrib-row">
+      <div class="label-d"><strong>Análogo · ATL/BTL</strong> · OOH + radio + otros tradicional</div>
+      <div class="bar-wrap"><div class="bar b-analogo" style="width:10.6%"></div></div>
+      <div class="value-d">$6.27M<span>10.6%</span></div>
+    </div>
+    <div class="distrib-row">
+      <div class="label-d"><strong>Tech + Strategy</strong> · estimado (creciendo)</div>
+      <div class="bar-wrap"><div class="bar b-tech" style="width:1.0%"></div></div>
+      <div class="value-d">$0.60M<span>1.0%</span></div>
+    </div>
+    <div class="distrib-row total">
+      <div class="label-d"><strong>TOTAL DOCUMENTADO</strong></div>
+      <div class="bar-wrap" style="background:transparent;"></div>
+      <div class="value-d" style="color:var(--gp-red);">$58.92M<span>100% · 0.46% rev</span></div>
     </div>
   </div>
 
-  <h2 class="section-h2">Cuatro distorsiones simultáneas</h2>
+  <div class="killer" style="margin-top: 6mm;">
+    <span class="label">Lectura primaria de la composición</span>
+    <h3>La línea más grande del marketing del grupo no es pauta — es plantilla.</h3>
+    <p><strong>36.2% va a sueldos</strong> del equipo MKT distribuido en 8 silos por marca. La pauta digital es apenas <strong>22.5%</strong>. Esto contradice la percepción típica de que "marketing = lo que pagamos a Meta y Google". El problema no es lo que paga el grupo a las plataformas; es cómo está organizado el equipo que decide qué pagar.</p>
+  </div>
+</section>
+
+<!-- ============ PAGE 5: FOTOGRAFIA 3.2 (por marca) ============ -->
+<section class="page">
+  <h2 class="section-h2" style="margin-top:0;">3.2 · Por marca · cuánto, en qué, qué % de su revenue</h2>
+
+  <table class="data">
+    <thead>
+      <tr>
+        <th>Marca</th>
+        <th class="num">Digital</th>
+        <th class="num">Análogo</th>
+        <th class="num">On-site</th>
+        <th class="num">Plantilla</th>
+        <th class="num">Servicios</th>
+        <th class="num">TOTAL</th>
+        <th class="num">% Rev</th>
+        <th class="num">$/uds</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Mazda</strong></td><td class="num">$4.41M</td><td class="num">$2.55M</td><td class="num">$4.72M</td><td class="num">$5.71M</td><td class="num">$0.00M</td><td class="num"><strong>$17.40M</strong></td><td class="num">0.31%</td><td class="num">$1,232</td></tr>
+      <tr><td><strong>Hyundai</strong></td><td class="num">$5.63M</td><td class="num">$3.12M</td><td class="num">$0.95M</td><td class="num">$3.99M</td><td class="num">$1.11M</td><td class="num"><strong>$14.80M</strong></td><td class="num">0.83%</td><td class="num">$3,093</td></tr>
+      <tr class="outlier"><td><strong>GAC</strong></td><td class="num">$1.69M</td><td class="num">$0.59M</td><td class="num">$1.81M</td><td class="num">$1.60M</td><td class="num">$1.24M</td><td class="num"><strong>$6.93M</strong></td><td class="num"><strong>1.69% ⚠</strong></td><td class="num"><strong>$7,743 ⚠</strong></td></tr>
+      <tr><td>Ford</td><td class="num">$0.00M</td><td class="num">$0.00M</td><td class="num">$0.00M</td><td class="num">$3.04M</td><td class="num">$3.81M</td><td class="num"><strong>$6.85M</strong></td><td class="num">0.37%</td><td class="num">$3,065</td></tr>
+      <tr><td>Changan</td><td class="num">$0.00M</td><td class="num">$0.00M</td><td class="num">$0.00M</td><td class="num">$3.41M</td><td class="num">$1.58M</td><td class="num"><strong>$4.99M</strong></td><td class="num">1.01%</td><td class="num">$3,750</td></tr>
+      <tr><td>GWM</td><td class="num">$1.54M</td><td class="num">$0.00M</td><td class="num">$0.00M</td><td class="num">$2.72M</td><td class="num">$0.00M</td><td class="num"><strong>$4.25M</strong></td><td class="num">0.97%</td><td class="num">$4,648</td></tr>
+      <tr><td>Seminuevos</td><td class="num">$0.00M</td><td class="num">$0.00M</td><td class="num">$0.00M</td><td class="num">$0.51M</td><td class="num">$1.99M</td><td class="num"><strong>$2.50M</strong></td><td class="num">n/a</td><td class="num">$699</td></tr>
+      <tr><td>Stellantis</td><td class="num">$0.00M</td><td class="num">$0.00M</td><td class="num">$0.00M</td><td class="num">$0.38M</td><td class="num">$0.81M</td><td class="num"><strong>$1.20M</strong></td><td class="num">0.22%</td><td class="num">$1,055</td></tr>
+      <tr><td>Isuzu</td><td class="num" colspan="6"><em>Sin data MKT en baseline</em></td><td class="num">—</td><td class="num">—</td></tr>
+      <tr class="total"><td><strong>TOTAL</strong></td><td class="num"><strong>$13.27M</strong></td><td class="num"><strong>$6.27M</strong></td><td class="num"><strong>$7.48M</strong></td><td class="num"><strong>$21.35M</strong></td><td class="num"><strong>$10.56M</strong></td><td class="num"><strong>$58.92M</strong></td><td class="num"><strong>0.46%</strong></td><td class="num"><strong>$1,991</strong></td></tr>
+    </tbody>
+  </table>
+
+  <p class="small"><strong>Notas críticas:</strong></p>
+  <ul style="list-style: none; padding: 0; font-size: 8.5pt; color: var(--g600); line-height: 1.55;">
+    <li style="padding: 1mm 0 1mm 5mm; position: relative;"><span style="position: absolute; left: 0; color: var(--gp-red);">▸</span> <strong>Mazda y Hyundai concentran el 54.7%</strong> del gasto MKT total ($32.2M de $58.9M)</li>
+    <li style="padding: 1mm 0 1mm 5mm; position: relative;"><span style="position: absolute; left: 0; color: var(--gp-red);">▸</span> <strong>GAC es la outlier proporcional:</strong> 1.69% de su revenue al MKT y $7,743/unidad — <strong>6.3× más caro que Mazda</strong> en intensidad relativa</li>
+    <li style="padding: 1mm 0 1mm 5mm; position: relative;"><span style="position: absolute; left: 0; color: var(--gp-red);">▸</span> <strong>Mazda es la más eficiente por unidad</strong> ($1,232) gracias a su volumen (54% de ventas) y modelo in-house (cero servicios externos contratados)</li>
+    <li style="padding: 1mm 0 1mm 5mm; position: relative;"><span style="position: absolute; left: 0; color: var(--gp-red);">▸</span> <strong>Ford gasta 56% en servicios externos</strong> ($3.81M de $6.85M) — concentración crítica en Dazing</li>
+    <li style="padding: 1mm 0 1mm 5mm; position: relative;"><span style="position: absolute; left: 0; color: var(--gp-red);">▸</span> <strong>Stellantis aparece muy barato</strong> ($1.20M) pero está subreportado — 1 persona estimada, sin desglose digital/análogo</li>
+    <li style="padding: 1mm 0 1mm 5mm; position: relative;"><span style="position: absolute; left: 0; color: var(--gp-red);">▸</span> <strong>Seminuevos opera con 1 persona corporativa</strong> ($42K/mes) para 7 agencias — cuello operativo, no es eficiencia es bajo budget de estructura</li>
+  </ul>
+</section>
+
+<!-- ============ PAGE 6: FOTOGRAFIA 3.3 + 3.4 (agencia + proveedor) ============ -->
+<section class="page">
+  <h2 class="section-h2" style="margin-top:0;">3.3 · Por agencia · CPA acumulado 4 meses (Ago–Nov 2025)</h2>
+  <p class="small" style="margin-bottom: 3mm;">Ordenado del mejor al peor CPA. <strong>CAC = gasto MKT total / unidades vendidas.</strong></p>
+
+  <table class="data">
+    <thead><tr><th class="num">#</th><th>Agencia</th><th>Marca</th><th class="num">Gasto 4m</th><th class="num">Uds 4m</th><th class="num">CPA</th><th class="num">CPL</th></tr></thead>
+    <tbody>
+      <tr class="best"><td class="num">1</td><td><strong>Mazda Colima</strong></td><td>Mazda</td><td class="num">$225,556</td><td class="num">424</td><td class="num"><strong>$532</strong></td><td class="num">$542</td></tr>
+      <tr><td class="num">2</td><td>Mazda Santa Anita</td><td>Mazda</td><td class="num">$321,625</td><td class="num">524</td><td class="num">$614</td><td class="num">$446</td></tr>
+      <tr><td class="num">3</td><td>Mazda Acueducto</td><td>Mazda</td><td class="num">$410,971</td><td class="num">639</td><td class="num">$643</td><td class="num">$596</td></tr>
+      <tr><td class="num">4</td><td>Mazda Américas</td><td>Mazda</td><td class="num">$463,876</td><td class="num">617</td><td class="num">$752</td><td class="num">$631</td></tr>
+      <tr><td class="num">5</td><td>Mazda Tepic</td><td>Mazda</td><td class="num">$278,318</td><td class="num">334</td><td class="num">$833</td><td class="num">$540</td></tr>
+      <tr><td class="num">6</td><td>Mazda Plasencia</td><td>Mazda</td><td class="num">$580,810</td><td class="num">676</td><td class="num">$859</td><td class="num">$671</td></tr>
+      <tr><td class="num">7</td><td>Mazda Vallarta</td><td>Mazda</td><td class="num">$437,207</td><td class="num">450</td><td class="num">$972</td><td class="num">$799</td></tr>
+      <tr><td class="num">8</td><td>Mazda Galerías</td><td>Mazda</td><td class="num">$635,471</td><td class="num">620</td><td class="num">$1,025</td><td class="num">$866</td></tr>
+      <tr><td class="num">9</td><td>Mazda Manzanillo</td><td>Mazda</td><td class="num">$237,828</td><td class="num">229</td><td class="num">$1,039</td><td class="num">$782</td></tr>
+      <tr><td class="num">10</td><td>Mazda González Gallo</td><td>Mazda</td><td class="num">$604,147</td><td class="num">545</td><td class="num">$1,109</td><td class="num">$788</td></tr>
+      <tr><td class="num">11</td><td>Hyundai Plasencia</td><td>Hyundai</td><td class="num">$706,330</td><td class="num">424</td><td class="num">$1,666</td><td class="num">$2,127</td></tr>
+      <tr><td class="num">12</td><td>Hyundai Tepic</td><td>Hyundai</td><td class="num">$344,314</td><td class="num">189</td><td class="num">$1,822</td><td class="num">$1,956</td></tr>
+      <tr><td class="num">13</td><td>Hyundai Santa Anita</td><td>Hyundai</td><td class="num">$427,706</td><td class="num">227</td><td class="num">$1,884</td><td class="num">$2,128</td></tr>
+      <tr><td class="num">14</td><td>Hyundai Colima</td><td>Hyundai</td><td class="num">$478,111</td><td class="num">236</td><td class="num">$2,026</td><td class="num">$2,439</td></tr>
+      <tr><td class="num">15</td><td>GAC Bugambilias</td><td>GAC</td><td class="num">$382,837</td><td class="num">168</td><td class="num">$2,279</td><td class="num">n/d</td></tr>
+      <tr><td class="num">16</td><td>Hyundai Lomas SLP</td><td>Hyundai</td><td class="num">$426,741</td><td class="num">180</td><td class="num">$2,371</td><td class="num">$1,592</td></tr>
+      <tr><td class="num">17</td><td>GAC Colima</td><td>GAC</td><td class="num">$238,950</td><td class="num">82</td><td class="num">$2,914</td><td class="num">n/d</td></tr>
+      <tr><td class="num">18</td><td>Hyundai Vallarta</td><td>Hyundai</td><td class="num">$609,507</td><td class="num">197</td><td class="num">$3,094</td><td class="num">$2,344</td></tr>
+      <tr><td class="num">19</td><td>Hyundai Carretera 57</td><td>Hyundai</td><td class="num">$388,364</td><td class="num">115</td><td class="num">$3,377</td><td class="num">$2,678</td></tr>
+      <tr><td class="num">20</td><td>GAC PTV</td><td>GAC</td><td class="num">$419,585</td><td class="num">82</td><td class="num">$5,117</td><td class="num">n/d</td></tr>
+      <tr class="outlier"><td class="num">21</td><td><strong>GAC Américas</strong></td><td>GAC</td><td class="num">$286,700</td><td class="num">25</td><td class="num"><strong>$11,468 ⚠</strong></td><td class="num">n/d</td></tr>
+    </tbody>
+  </table>
+
+  <div class="stat-strip" style="margin-top: 4mm;">
+    <div class="s"><div class="big">21.6×</div><div class="lbl">Spread CPA del grupo</div></div>
+    <div class="s"><div class="big">2.1×</div><div class="lbl">Spread interno Mazda</div></div>
+    <div class="s"><div class="big">2.0×</div><div class="lbl">Spread interno Hyundai</div></div>
+    <div class="s invisible"><div class="big">5.0×</div><div class="lbl">Spread interno GAC</div></div>
+  </div>
+
+  <p class="small" style="margin-top: 3mm;"><strong>Hallazgos:</strong> Las 10 agencias Mazda están todas por debajo del CPA mínimo de Hyundai ($1,666) — el problema no es solo una marca, es la ausencia de transferencia de mejores prácticas cross-marca. <strong>GAC Américas vendió 25 unidades en 4 meses con $286K de gasto</strong> — caso operativo crítico que merece auditoría individual.</p>
+</section>
+
+<!-- ============ PAGE 7: FOTOGRAFIA 3.4 (proveedor) + RESUMEN ============ -->
+<section class="page">
+  <h2 class="section-h2" style="margin-top:0;">3.4 · Por proveedor · concentración del gasto externo</h2>
+  <p class="small" style="margin-bottom: 3mm;">Los $10.56M anuales en servicios externos se concentran así (consolidado por proveedor primario):</p>
+
+  <table class="data">
+    <thead><tr><th class="num">#</th><th>Proveedor / Stack</th><th>Marca(s)</th><th class="num">Agencias</th><th class="num">$/mes</th><th class="num">$/año</th></tr></thead>
+    <tbody>
+      <tr class="outlier"><td class="num">1</td><td><strong>Dazing</strong> (entidad principal)</td><td>Ford</td><td class="num">3</td><td class="num">$167,300</td><td class="num"><strong>$2.01M</strong></td></tr>
+      <tr><td class="num">2</td><td>Maxipublica + Fabula + ML</td><td>Seminuevos</td><td class="num">5</td><td class="num">$145,571</td><td class="num">$1.75M</td></tr>
+      <tr><td class="num">3</td><td>Paola Like</td><td>Changan, GWM</td><td class="num">5</td><td class="num">$132,000</td><td class="num">$1.58M</td></tr>
+      <tr><td class="num">4</td><td>Dazing + Carlos H. Sol + Daniel Luna</td><td>Ford</td><td class="num">1</td><td class="num">$93,214</td><td class="num">$1.12M</td></tr>
+      <tr><td class="num">5</td><td>Viceversa + Nextilo + Karbot</td><td>Hyundai</td><td class="num">7</td><td class="num">$92,855</td><td class="num">$1.11M</td></tr>
+      <tr><td class="num">6</td><td>Galleta + Sergio Oliveira + Kamote</td><td>GAC</td><td class="num">3</td><td class="num">$71,200</td><td class="num">$0.85M</td></tr>
+      <tr><td class="num">7</td><td><strong>Infinito Lab + Nextilo</strong></td><td>Stellantis</td><td class="num">2</td><td class="num">$67,680</td><td class="num">$0.81M</td></tr>
+      <tr><td class="num">8</td><td>Dazing + Lourdes Berenice</td><td>Ford</td><td class="num">1</td><td class="num">$57,120</td><td class="num">$0.69M</td></tr>
+      <tr><td class="num">9</td><td>Idea + Like</td><td>GAC</td><td class="num">1</td><td class="num">$32,400</td><td class="num">$0.39M</td></tr>
+      <tr><td class="num">10</td><td>Fabula</td><td>GWM, Seminuevos</td><td class="num">3</td><td class="num">$20,375</td><td class="num">$0.24M</td></tr>
+      <tr><td class="num">11</td><td>Like</td><td>GWM</td><td class="num">2</td><td class="num">$0 reportado</td><td class="num">gap data</td></tr>
+      <tr class="total"><td class="num"></td><td><strong>TOTAL EXTERNOS</strong></td><td></td><td class="num"><strong>33</strong></td><td class="num"><strong>$879,715</strong></td><td class="num"><strong>$10.56M</strong></td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="section-h3">Hallazgos críticos a auditar primero</h3>
+  <div class="drivers">
+    <div class="driver" style="border-left-color: var(--gp-red);">
+      <span class="driver-num">!</span>
+      <h3>Dazing concentra $3.81M/año en Ford</h3>
+      <p>Sumando 3 entidades de facturación distintas (Dazing $2.01M + stack Carlos H. Sol/Daniel Luna $1.12M + stack Lourdes Berenice $0.69M). <strong>Único punto de falla operativa</strong> para una marca con $1,842M de revenue.</p>
+    </div>
+    <div class="driver" style="border-left-color: var(--amber);">
+      <span class="driver-num">!</span>
+      <h3>Nextilo cobra a Hyundai Y Stellantis</h3>
+      <p>Aparece en stack Hyundai (Viceversa+Nextilo+Karbot, 7 ag) <strong>y</strong> en stack Stellantis (Infinito Lab+Nextilo, 2 ag). Primera duplicidad cross-marca verificable a separar y auditar.</p>
+    </div>
+    <div class="driver" style="border-left-color: var(--amber);">
+      <span class="driver-num">!</span>
+      <h3>Like / Paola Like × 3 handles</h3>
+      <p>Aparece como tres entidades distintas facturando a Changan (4 ag · Paola Like) + GWM (2 ag · Like) + GAC Americas (1 ag · Like). Probable mismo proveedor con tres entidades de facturación.</p>
+    </div>
+    <div class="driver" style="border-left-color: var(--gp-red);">
+      <span class="driver-num">!</span>
+      <h3>Stack Hyundai fijo sin ajuste por desempeño</h3>
+      <p>Viceversa+Nextilo+Karbot factura <strong>$13,265 fijo</strong> a las 7 agencias Hyundai, independiente del CPA real de cada agencia (rango $1,666 a $3,377). Fee plano sin variable de resultado.</p>
+    </div>
+  </div>
+
+  <h2 class="section-h2" style="margin-top:7mm;">3.5 · Resumen ejecutivo de la fotografía</h2>
+  <div class="killer">
+    <span class="label">Síntesis · La fotografía en una idea</span>
+    <h3>$58.9M/año documentado · 36% en plantilla · CACs entre $532 y $11,468 · 14 proveedores fragmentados · 78% sin co-inversión OEM.</h3>
+    <p>Mazda gasta $17.4M y genera el 54% de las ventas con CAC $1,232. GAC gasta $6.9M y genera el 3.4% de las ventas con CAC $7,743. Hyundai gasta $14.8M para 4,785 unidades. Ford concentra $3.81M en un solo proveedor. <strong>El cuadro contable no muestra ninguna de estas relaciones</strong> porque solo etiqueta el 47% del gasto.</p>
+  </div>
+</section>
+
+<!-- ============ PAGE 8: COMPLICACION ============ -->
+<section class="page">
+  <h1 class="section-title"><span class="num">§4 · Complicación</span>Lo que el cuadro actual no muestra.</h1>
+  <p class="lead">
+    La contabilidad de marketing usa tres centros de costo (Digital · Análogo · On-site) que son válidos pero <strong>estratégicamente incompletos</strong>: capturan el 47% del gasto real, no el 100%.
+  </p>
+
+  <h2 class="section-h2">4.1 · Cuatro distorsiones simultáneas</h2>
 
   <div class="drivers">
     <div class="driver">
       <span class="driver-num">1</span>
       <h3>La mitad del costo es invisible</h3>
-      <p>
-        Los 3 buckets actuales suman <strong>$28.48M/año</strong> (46.7%). Los otros <strong>$32.51M/año</strong> (53.3%) existen pero sin etiqueta de marketing: plantilla (35%), fees agencia (17%), tecnología (&lt;1% creciendo), estrategia (1%). Cualquier discusión de eficiencia basada solo en los 3 centros actuales discute la mitad del problema.
-      </p>
+      <p>3 buckets actuales suman $27.96M (47.5%). Los otros $30.96M (52.5%) son: plantilla $21.35M (36%), fees agencia $10.56M (18%), tech y estrategia $0.60M. Sin etiqueta de marketing.</p>
     </div>
     <div class="driver">
       <span class="driver-num">2</span>
       <h3>La fragmentación cuesta sin aparecer</h3>
-      <p>
-        14 proveedores externos activos, sin coordinación entre marcas. <strong>Nextilo factura simultáneamente a Hyundai (7 ag) y Stellantis (2 ag)</strong> — duplicidad. <strong>Like / Paola Like</strong> aparece como 3 handles facturando a Changan + GWM + GAC Americas. <strong>Galleta + Sergio Oliveira + Kamote</strong> opera como bundle de 3 proveedores para 3 agencias GAC. Estas duplicidades no se ven desde "Digital" porque los fees fijos se reportan agregados con la pauta.
-      </p>
+      <p>14 proveedores activos, 8 gerentes MKT, 36 agencias. Duplicidades verificables (Nextilo cross-marca, Like × 3 handles, Dazing concentrado en Ford). No se ven desde "Digital" porque fees se reportan agregados con la pauta.</p>
     </div>
     <div class="driver">
       <span class="driver-num">3</span>
-      <h3>CACs varían 3.4× dentro del mismo grupo</h3>
-      <p>
-        Para el mismo grupo, mismas plataformas, mismo cliente regional: Mazda $1,326 · Hyundai $2,130 · Ford $3,402 · Changan $3,450 · GAC $4,469. La dispersión <strong>interna</strong> dentro de una sola marca es comparable o peor (GAC tiene 5.0× entre Bugambilias y Americas en 4 meses). No es diferencia de mercado — es ausencia de mecanismo cross-agencia que arbitre ineficiencias.
-      </p>
+      <h3>CACs varían 3.4× entre marcas, 21.6× entre agencias</h3>
+      <p>Mazda $1,326 vs GAC $4,469 (cross-marca). Mazda Colima $532 vs GAC Américas $11,468 (cross-agencia). No es diferencia de mercado — es ausencia de mecanismo que arbitre ineficiencias.</p>
     </div>
     <div class="driver">
       <span class="driver-num">4</span>
       <h3>La palanca OEM no se está cobrando</h3>
-      <p>
-        <strong>78% de las agencias</strong> del grupo financian 100% su pauta sin co-inversión OEM, frente a estándar industria 20–30%. Solo GAC (15%), Hyundai (20%) y 4 Mazdas (30%) tienen acuerdo. Es una palanca pasiva: no requiere reducir nada, solo cobrarla.
-      </p>
-    </div>
-  </div>
-</section>
-
-<section class="page">
-  <h2 class="section-h2" style="margin-top:0;">El costo de no diagnosticar</h2>
-
-  <p class="lead">
-    Mantener el cuadro contable actual sin diagnóstico estructural genera cinco consecuencias verificables, simultáneas y que se refuerzan entre sí.
-  </p>
-
-  <div class="evidence">
-    <div class="ev">
-      <div class="ev-num">CONSECUENCIA · 01</div>
-      <h4>Decisiones sobre el 47% visible</h4>
-      <p>Cualquier propuesta de eficiencia se debate sobre el bucket menor del costo (medios), mientras los buckets mayores (plantilla 35% + servicios 17% = <strong>52%</strong>) quedan intactos.</p>
-    </div>
-    <div class="ev">
-      <div class="ev-num">CONSECUENCIA · 02</div>
-      <h4>Propuestas de recorte mal dirigidas</h4>
-      <p>"Recortar marketing" termina atacando pauta cuando el problema es estructura. Los proyectos de impacto del intento previo (Daniel Galindo) quedaron al 0–11%; los administrativos al 100%.</p>
-    </div>
-    <div class="ev">
-      <div class="ev-num">CONSECUENCIA · 03</div>
-      <h4>Consolidación sin información</h4>
-      <p>No se puede consolidar 14 proveedores → 3–4 porque los fees no están separados de la pauta en facturas. Hay que separar primero, después negociar.</p>
-    </div>
-    <div class="ev">
-      <div class="ev-num">CONSECUENCIA · 04</div>
-      <h4>Discusiones sin convergencia</h4>
-      <p>Los participantes no comparten un cuadro común del gasto. Cada conversación re-define qué es marketing y qué no. Sin baseline compartido, no hay decisión que dure más de una semana.</p>
-    </div>
-    <div class="ev">
-      <div class="ev-num">CONSECUENCIA · 05</div>
-      <h4>Pérdida de ventana competitiva</h4>
-      <p>Stellantis lanzó marketplace con MercadoLibre México en abril 2026. La ventana de 24–36 meses identificada para construir capacidad propia se consume con cada trimestre de discusión sin diagnóstico común.</p>
-    </div>
-    <div class="ev">
-      <div class="ev-num">CONSECUENCIA · 06</div>
-      <h4>Imposibilidad de medir performance</h4>
-      <p>Sin atribución unificada y sin taxonomía completa del costo, no se puede medir el retorno del peso invertido. Cada marca reporta CPL/CPA con metodologías distintas (Hyundai infla con leads de planta; Mazda no).</p>
+      <p><strong>78% de las agencias</strong> financian 100% su pauta sin co-inversión OEM. Solo 4 Mazdas (30%), 7 Hyundai (20%), 4 GAC (15%). Estándar industria 20-30%. Palanca pasiva: no requiere reducir nada, solo cobrarla.</p>
     </div>
   </div>
 
-  <div class="killer">
+  <div class="killer" style="margin-top: 6mm;">
     <span class="label">Síntesis de la Complicación</span>
-    <h3>El problema no es cuánto se gasta en marketing — es cómo se mide y cómo se organiza.</h3>
-    <p>El grupo gasta <strong>0.48% del revenue documentado / 0.58% con proxies</strong>, por debajo del benchmark sectorial 5–10%. La palanca no es recortar el monto agregado; es <strong>hacer visible la mitad invisible</strong> y reorganizar la composición entre los 7 buckets reales.</p>
+    <h3>El problema no es cuánto se gasta — es cómo se mide y cómo se organiza.</h3>
+    <p>Marketing al <strong>0.46% del revenue</strong> está muy por debajo del benchmark sectorial 5–10%. GP no sobre-gasta. La palanca es <strong>hacer visible la mitad invisible</strong> y reorganizar la composición entre los 7 buckets reales.</p>
   </div>
 </section>
 
-<!-- ============ PAGE 6-8: EL MODELO ============ -->
+<!-- ============ PAGE 9: MODELO (taxonomia) ============ -->
 <section class="page">
-  <h1 class="section-title"><span class="num">§4 · El Modelo</span>Estructura real del gasto de marketing.</h1>
-
+  <h1 class="section-title"><span class="num">§5 · El Modelo</span>Taxonomía completa propuesta.</h1>
   <p class="lead">
-    Una taxonomía completa requiere <strong>7 buckets contables</strong> (los 3 actuales + 4 invisibles) más <strong>4 dimensiones perpendiculares de etiquetado cruzado</strong>. Cada gasto se etiqueta simultáneamente con bucket + valores de las 4 dimensiones.
+    La fotografía del §3 muestra qué pasa hoy. Esta sección propone cómo etiquetar el gasto para hacerlo gestionable: <strong>7 buckets contables + 4 dimensiones perpendiculares</strong>.
   </p>
 
-  <h2 class="section-h2">4.1 · Los 7 buckets · conforme al baseline 2025</h2>
+  <h2 class="section-h2">5.1 · Los 7 buckets</h2>
 
   <ul class="layers">
-    <li>
-      <div class="layer-tag">Pauta digital</div>
-      <div>
-        <h4>Digital · Pauta en plataformas</h4>
-        <p>Meta + Google + programmatic. <strong>$13.27M anualizado en 4 marcas con data confirmada</strong> (Hyundai $5.63M, Mazda $4.41M, GAC $1.69M, GWM $1.54M). Ford, Stellantis, Changan, Seminuevos e Isuzu sin desglose pauta vs fee en fuente.</p>
-      </div>
-      <div class="amount">$13.27M<span>21.8% del total</span></div>
-    </li>
-    <li>
-      <div class="layer-tag">ATL / BTL</div>
-      <div>
-        <h4>Análogo · ATL/BTL masivo</h4>
-        <p>OOH + radio + prensa + BTL masivo no-sucursal. <strong>$6.79M anualizado</strong>: Hyundai $3.12M · Mazda $2.55M · GAC $0.59M · GWM $0.53M (sin desglose, total tradicional).</p>
-      </div>
-      <div class="amount">$6.79M<span>11.1% del total</span></div>
-    </li>
-    <li>
-      <div class="layer-tag">Sucursal</div>
-      <div>
-        <h4>On-site · Activaciones + POP físico</h4>
-        <p>Activaciones físicas en sucursal + POP. <strong>$8.42M anualizado</strong>: Mazda $4.72M · GAC $1.81M · Hyundai $0.95M activaciones + $0.94M POP grupo (llaveros, portaplacas, termos, fundas).</p>
-      </div>
-      <div class="amount">$8.42M<span>13.8% del total</span></div>
-    </li>
-    <li class="invisible">
-      <div class="layer-tag">Estructura</div>
-      <div>
-        <h4>Plantilla MKT · la mayor línea</h4>
-        <p><strong>61 personas, $1.78M/mes, $21.35M anualizado</strong>. 8 marcas en silos (Mazda 19 · Hyu 11 · Changan 7 · Ford 8 · GWM 7 · GAC 7 · Sem 1 · STL 1). Hoy en nómina pero no etiquetada como MKT.</p>
-      </div>
-      <div class="amount">$21.35M<span>35.0% — invisible</span></div>
-    </li>
-    <li class="invisible">
-      <div class="layer-tag">Servicios</div>
-      <div>
-        <h4>Fees externos de agencia</h4>
-        <p><strong>14 agencias externas, $879K/mes, $10.56M anualizado</strong> (excluyendo Mazda in-house ya en plantilla). Ford concentra $3.81M/año en Dazing + 3 colaboradores. Separado de la pauta gestionada — hoy se confunden en facturación.</p>
-      </div>
-      <div class="amount">$10.56M<span>17.3% — invisible</span></div>
-    </li>
-    <li class="invisible">
-      <div class="layer-tag">Tech &amp; Data</div>
-      <div>
-        <h4>Tecnología y Datos</h4>
-        <p>SaaS MKT (CRM, atribución, email), APIs (Anthropic, Meta CAPI, GA4 MP), hosting, herramientas creativas. <strong>Hoy marginal pero estratégico</strong> — el Motor de Atribución habilita performance del peso invertido.</p>
-      </div>
-      <div class="amount">$0.20M<span>0.3% — invisible</span></div>
-    </li>
-    <li class="invisible">
-      <div class="layer-tag">Strategy</div>
-      <div>
-        <h4>Estrategia / Research / Brand</h4>
-        <p>Consultorías, estudios externos, brand books, Voz del Cliente, Discovery, Strategy Definition documents. Hoy cargado al sueldo del director e implícito.</p>
-      </div>
-      <div class="amount">$0.40M<span>0.7% — invisible</span></div>
-    </li>
+    <li><div class="layer-tag">Pauta digital</div><div><h4>Digital · Pauta en plataformas</h4><p>Meta + Google + programmatic. 4 marcas con data confirmada en baseline.</p></div><div class="amount">$13.27M<span>22.5%</span></div></li>
+    <li><div class="layer-tag">ATL / BTL</div><div><h4>Análogo · ATL/BTL masivo</h4><p>OOH + radio + prensa + BTL masivo no-sucursal. 3 marcas + GWM total.</p></div><div class="amount">$6.27M<span>10.6%</span></div></li>
+    <li><div class="layer-tag">Sucursal</div><div><h4>On-site · Activaciones + POP</h4><p>Activaciones físicas en sucursal + POP grupo (llaveros, portaplacas, termos).</p></div><div class="amount">$8.42M<span>14.3%</span></div></li>
+    <li class="invisible"><div class="layer-tag">Estructura</div><div><h4>Plantilla MKT · la mayor línea</h4><p>61 personas, $1.78M/mes anualizado. 8 marcas en silos. Hoy en nómina pero no etiquetada como MKT.</p></div><div class="amount">$21.35M<span>36.2% invisible</span></div></li>
+    <li class="invisible"><div class="layer-tag">Servicios</div><div><h4>Fees externos de agencia</h4><p>14 agencias externas, excluyendo Mazda in-house. Ford concentra $3.81M/año en Dazing. Separado de pauta — hoy confundidos en facturación.</p></div><div class="amount">$10.56M<span>17.9% invisible</span></div></li>
+    <li class="invisible"><div class="layer-tag">Tech &amp; Data</div><div><h4>Tecnología y Datos</h4><p>SaaS MKT (CRM, atribución, email), APIs (Anthropic, Meta CAPI), hosting. Marginal hoy pero estratégico — Motor de Atribución habilita performance.</p></div><div class="amount">$0.20M<span>0.3% invisible</span></div></li>
+    <li class="invisible"><div class="layer-tag">Strategy</div><div><h4>Estrategia / Research / Brand</h4><p>Consultorías, estudios externos, brand books, Voz del Cliente, Discovery, Strategy Definition. Hoy cargado al sueldo del director.</p></div><div class="amount">$0.40M<span>0.7% invisible</span></div></li>
   </ul>
 
-  <p class="small">
-    <strong>Total documentado:</strong> $60.99 MDP/año (0.48% del revenue). <strong>Total estimado con proxies</strong> para las 5 marcas sin desglose claro (Ford, Stellantis, Changan, Seminuevos, Isuzu): <strong>~$74 MDP/año</strong> (0.58% del revenue). La tesis del 53% invisible se mantiene con ambos números. Los 3 buckets contables actuales (1–3) son <strong>$28.48M (46.7%)</strong>; los 4 buckets invisibles (4–7) son <strong>$32.51M (53.3%)</strong>.
-  </p>
-</section>
-
-<section class="page">
-  <h2 class="section-h2" style="margin-top:0;">4.2 · Detalle del Bucket 4 · Plantilla MKT</h2>
-
+  <h2 class="section-h2">5.2 · Cuatro dimensiones perpendiculares</h2>
   <table class="data">
-    <thead>
-      <tr>
-        <th>Marca</th>
-        <th class="num">Personas</th>
-        <th class="num">$/mes (MXN)</th>
-        <th class="num">$/persona</th>
-        <th class="num">$/agencia</th>
-        <th>Nota</th>
-      </tr>
-    </thead>
+    <thead><tr><th>Dimensión</th><th>Estado actual GP</th><th>Benchmark sector</th><th>Brecha</th></tr></thead>
     <tbody>
-      <tr><td><strong>Mazda</strong></td><td class="num">19</td><td class="num">$475,745</td><td class="num">$25,039</td><td class="num">$47,575</td><td>In-house, sin proveedores</td></tr>
-      <tr><td>Hyundai</td><td class="num">11</td><td class="num">$332,096</td><td class="num">$30,191</td><td class="num">$47,442</td><td>Mejor ratio colab/agencia</td></tr>
-      <tr><td>Changan</td><td class="num">7</td><td class="num">$283,840</td><td class="num"><strong>$40,549</strong></td><td class="num">$70,960</td><td>Más caro, menos agencias</td></tr>
-      <tr><td>Ford</td><td class="num">8</td><td class="num">$253,324</td><td class="num">$31,666</td><td class="num">$50,665</td><td>—</td></tr>
-      <tr><td>GWM</td><td class="num">7</td><td class="num">$226,542</td><td class="num">$32,363</td><td class="num">$56,636</td><td>Más caro que GAC</td></tr>
-      <tr><td>GAC</td><td class="num">7</td><td class="num">$133,434</td><td class="num"><strong>$19,062</strong></td><td class="num">$33,359</td><td>Más eficiente por agencia</td></tr>
-      <tr><td>Seminuevos</td><td class="num">1</td><td class="num">$42,324</td><td class="num">$42,324</td><td class="num">$6,046</td><td><strong>Cuello operativo</strong> (1 persona / 7 ag)</td></tr>
-      <tr><td>Stellantis</td><td class="num">1</td><td class="num">$32,000</td><td class="num">$32,000</td><td class="num">$16,000</td><td>Estimado</td></tr>
-      <tr class="total"><td><strong>TOTAL</strong></td><td class="num"><strong>61</strong></td><td class="num"><strong>$1,779,305</strong></td><td class="num">$29,170</td><td class="num">$49,419</td><td><strong>$21.35M anualizado</strong></td></tr>
+      <tr><td><strong>Paid / Owned / Earned</strong></td><td>90% / 8% / 2%</td><td>60% / 30% / 10%</td><td>Sin Earned, casi sin Owned</td></tr>
+      <tr><td><strong>Funnel stage</strong></td><td>85% / 10% / 5% / <strong>0% retention</strong></td><td>45% / 27% / 18% / 10%</td><td>Sin marketing de retención</td></tr>
+      <tr><td><strong>Alcance</strong></td><td>5% cross / 95% específico</td><td>25% / 75%</td><td>Sin consolidación cross</td></tr>
+      <tr><td><strong>Tipo de costo</strong></td><td>53% fijo / 47% variable</td><td>30% / 70%</td><td>Fijo alto para sector estacional</td></tr>
     </tbody>
   </table>
 
-  <h2 class="section-h2">4.3 · Detalle del Bucket 5 · Servicios externos · Fees</h2>
-
-  <table class="data">
-    <thead>
-      <tr>
-        <th>Proveedor / Stack</th>
-        <th>Marca</th>
-        <th class="num">Agencias</th>
-        <th class="num">Fee /mes</th>
-        <th class="num">$/año</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr><td>Dazing (+ 3 colaboradores)</td><td>Ford</td><td class="num">5</td><td class="num">$317,634</td><td class="num"><strong>$3.81M</strong></td></tr>
-      <tr><td>Maxipublica + Fabula + ML</td><td>Seminuevos</td><td class="num">7</td><td class="num">$165,946</td><td class="num">$1.99M</td></tr>
-      <tr><td>Paola Like</td><td>Changan</td><td class="num">4</td><td class="num">$132,000</td><td class="num">$1.58M</td></tr>
-      <tr><td>Idea + Like + Galleta + Sergio Oliveira + Kamote</td><td>GAC</td><td class="num">4</td><td class="num">$103,600</td><td class="num">$1.24M</td></tr>
-      <tr><td>Viceversa + Nextilo + Karbot</td><td>Hyundai</td><td class="num">7</td><td class="num">$92,855</td><td class="num">$1.11M</td></tr>
-      <tr><td>Infinito Lab + Nextilo</td><td>Stellantis</td><td class="num">2</td><td class="num">$67,680</td><td class="num">$0.81M</td></tr>
-      <tr><td>Like + Fabula + Paola Like</td><td>GWM</td><td class="num">4</td><td class="num">$0 reportado</td><td class="num">gap</td></tr>
-      <tr class="total"><td><strong>TOTAL EXTERNOS</strong></td><td><strong>7 marcas</strong></td><td class="num"><strong>33 records</strong></td><td class="num"><strong>$879,715</strong></td><td class="num"><strong>$10.56M</strong></td></tr>
-    </tbody>
-  </table>
-
-  <p class="small">
-    <strong>Duplicidades verificables a auditar primero:</strong> Nextilo facturando Hyundai + Stellantis simultáneamente · Like/Paola Like operando como 3 handles en 3 marcas distintas · stack Viceversa+Nextilo+Karbot fijo en $13,265/agencia sin ajuste por desempeño · Ford concentra fee más alto ($317K/mes) en un solo proveedor (Dazing) — único punto de falla. Mazda equipo in-house ($5.17M/año reportado en proveedores) reasignado a Plantilla para evitar doble contabilidad.
-  </p>
+  <p class="small" style="margin-top: 4mm;"><strong>Implicación operativa:</strong> cada gasto en el sistema futuro lleva tags simultáneos. Un gasto de Meta Ads para Mazda en octubre se etiqueta como <em>bucket=1 · paid · acquisition · marca_especifico · variable · mazda · oem=30%</em>. Esto permite cortes hoy imposibles: "% gasto en retención por marca", "% consolidable cross-marca", "elasticidad de la estructura".</p>
 </section>
 
+<!-- ============ PAGE 10-11: DIAGNOSTICO (5 fuentes) ============ -->
 <section class="page">
-  <h2 class="section-h2" style="margin-top:0;">4.4 · Cuatro dimensiones perpendiculares</h2>
-
-  <p>
-    Los 7 buckets responden <em>en qué se gasta</em>. Para gestionar marketing se necesitan cuatro dimensiones perpendiculares de etiquetado cruzado. Cada gasto se etiqueta simultáneamente con bucket + valores de las 4 dimensiones.
-  </p>
-
-  <table class="data">
-    <thead>
-      <tr>
-        <th>Dimensión</th>
-        <th>Estado actual GP</th>
-        <th>Benchmark sector</th>
-        <th>Brecha</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><strong>Paid / Owned / Earned</strong></td>
-        <td>90% Paid · 8% Owned · 2% Earned</td>
-        <td>60% / 30% / 10%</td>
-        <td>Sin Earned, casi sin Owned</td>
-      </tr>
-      <tr>
-        <td><strong>Funnel stage</strong></td>
-        <td>85% Acquisition · 10% Consideration · 5% Conversion · <strong>0% Retention</strong></td>
-        <td>45% / 27% / 18% / 10%</td>
-        <td>Sin marketing de retención</td>
-      </tr>
-      <tr>
-        <td><strong>Alcance</strong></td>
-        <td>5% Cross-marca · 95% Marca-específico</td>
-        <td>25% / 75%</td>
-        <td>Sin consolidación cross</td>
-      </tr>
-      <tr>
-        <td><strong>Tipo de costo</strong></td>
-        <td>52% Fijo estructural · 48% Variable</td>
-        <td>30% / 70%</td>
-        <td>Fijo alto para sector con estacionalidad</td>
-      </tr>
-    </tbody>
-  </table>
-
-  <h2 class="section-h2">Tres hallazgos críticos</h2>
-
-  <div class="drivers">
-    <div class="driver" style="border-left-color: var(--gp-red);">
-      <span class="driver-num" style="color: var(--gp-red);">A</span>
-      <h3>GP no tiene marketing de retención</h3>
-      <p>
-        Con AOV $432K y ciclo automotriz de recompra de 4–5 años, el LTV es la palanca compuesta. Hoy el grupo <strong>cede esa palanca a talleres independientes y refaccionarias</strong>. Cero gasto identificable en retención, lifecycle o reactivación de clientes existentes.
-      </p>
-    </div>
-    <div class="driver" style="border-left-color: var(--blue);">
-      <span class="driver-num" style="color: var(--blue);">B</span>
-      <h3>GP no tiene Earned media</h3>
-      <p>
-        Ni PR estructurado, ni casos de éxito documentados, ni gestión sistemática de reseñas. Cada peso de marketing pelea contra el siguiente <strong>sin efecto compuesto</strong>. No hay capital reputacional acumulándose en el tiempo.
-      </p>
-    </div>
-    <div class="driver" style="border-left-color: var(--amber);">
-      <span class="driver-num" style="color: var(--amber);">C</span>
-      <h3>52% fijo es alto para el sector</h3>
-      <p>
-        Para una industria con 30% de estacionalidad (Q4 = 30% del año), la estructura del gasto debería ser más variable. El CdE Hub &amp; Spoke transferiría capacidad a un Hub pequeño + Spokes ligeros — el efecto es <strong>reducir fijos y aumentar elasticidad</strong> ante estacionalidad.
-      </p>
-    </div>
-  </div>
-
-  <p class="small" style="margin-top: 6mm;">
-    <strong>Implicación operativa:</strong> cada gasto en el sistema futuro debe llevar tags simultáneos. Un gasto de Meta Ads para Mazda en octubre se etiqueta como <em>bucket=1 (Digital) · naturaleza=paid · funnel=acquisition · alcance=marca_especifico · costo=variable · marca=mazda · co_inversion_oem=30%</em>. Esto permite cortes que hoy son imposibles: "% gasto en retención por marca", "% consolidable cross-marca", "elasticidad de la estructura".
-  </p>
-</section>
-
-<!-- ============ PAGE 9-10: EL DIAGNOSTICO ============ -->
-<section class="page">
-  <h1 class="section-title"><span class="num">§5 · El Diagnóstico</span>Cinco fuentes de ineficiencia cuantificadas.</h1>
-
+  <h1 class="section-title"><span class="num">§6 · El Diagnóstico</span>Cinco fuentes de ineficiencia cuantificadas.</h1>
   <p class="lead">
-    El diagnóstico identifica cinco fuentes de ineficiencia mutuamente excluyentes, cada una con su mecánica de palanca y su rango de magnitud (escenarios conservador / realista / optimista). Las primeras cuatro son eficiencia operativa; la quinta es performance del peso invertido y opera en otro orden de magnitud.
+    Cinco fuentes de ineficiencia mutuamente excluyentes, cada una con su mecánica de palanca y rango de magnitud (conservador / realista / optimista). Las primeras cuatro son eficiencia operativa; la quinta es performance del peso invertido.
   </p>
 
   <div class="sources">
-
     <div class="source">
-      <div class="source-header">
-        <span class="source-tag">Fuente 1 · Fragmentación de proveedores</span>
-        <span class="source-magnitude">$3.2–5.2M / año</span>
-      </div>
+      <div class="source-header"><span class="source-tag">Fuente 1 · Fragmentación de proveedores</span><span class="source-magnitude">$3.2–5.2M / año</span></div>
       <h4>14 proveedores externos sin coordinación, con duplicidades verificables</h4>
-      <p class="source-body">
-        Nextilo facturando simultáneamente a Hyundai (7 ag) y Stellantis (2 ag). Like/Paola Like operando como 3 handles distintos en 3 marcas distintas. Galleta + Sergio Oliveira + Kamote como bundle de 3 proveedores para 3 agencias GAC. <strong>Mecánica:</strong> consolidación de 14 → 3–4 socios estratégicos + descuento por volumen (30–40%) + eliminación de duplicidades (15–20%).
-      </p>
-      <div class="source-calc">
-        <strong>Cálculo:</strong> Fees externos $10.56M/año · Reducción 30–50% · <strong>Conservador $3.2M (30%) · Realista $4.2M (40%) · Optimista $5.2M (50% con renegociación agresiva)</strong>
-      </div>
+      <p class="source-body">Nextilo facturando a Hyundai + Stellantis. Like/Paola Like × 3 handles en 3 marcas. Dazing concentra $3.81M en Ford. <strong>Mecánica:</strong> consolidación 14 → 3–4 socios + descuento volumen (30–40%) + eliminación duplicidades (15–20%).</p>
+      <div class="source-calc"><strong>Cálculo:</strong> Fees externos $10.56M/año × reducción 30–50% · <strong>Conservador $3.2M · Realista $4.2M · Optimista $5.2M</strong></div>
     </div>
 
     <div class="source">
-      <div class="source-header">
-        <span class="source-tag">Fuente 2 · Pauta OEM no negociada</span>
-        <span class="source-magnitude">$3.9–5.5M / año</span>
-      </div>
+      <div class="source-header"><span class="source-tag">Fuente 2 · Pauta OEM no negociada</span><span class="source-magnitude">$3.9–5.5M / año</span></div>
       <h4>78% de las agencias del grupo financian 100% su pauta</h4>
-      <p class="source-body">
-        Estándar industria es 20–30% de co-inversión OEM. Solo <strong>4 Mazdas (30%)</strong>, las 7 Hyundai (20%) y las 4 GAC (15%) tienen acuerdo. Quedan sin co-inversión: Changan (4 ag), Ford (5), GWM (4), Stellantis (2), Seminuevos (7), y 6 Mazdas restantes. <strong>Mecánica:</strong> negociar 20% OEM con marcas sin acuerdo + subir 6 Mazdas a 30% como las otras 4 + subir Hyundai 20% → 25%.
-      </p>
-      <div class="source-calc">
-        <strong>Cálculo:</strong> Changan ($525K × 20% = $105K) + Ford (~$4.9M × 20% = $980K) + GWM ($2.06M × 20% = $410K) + Stellantis ($812K × 20% = $162K) + 6 Mazdas a 30% (~$1,740K) + Hyundai +5pp ($510K) · <strong>Conservador $3.9M · Realista $4.5M · Optimista $5.5M</strong>
-      </div>
+      <p class="source-body">Estándar industria 20–30% co-inversión OEM. Solo 4 Mazdas (30%), 7 Hyundai (20%), 4 GAC (15%) tienen acuerdo. <strong>Mecánica:</strong> negociar 20% con marcas sin acuerdo + subir 6 Mazdas a 30% + Hyundai 20→25%.</p>
+      <div class="source-calc"><strong>Cálculo:</strong> Changan ($105K) + Ford ($980K) + GWM ($410K) + Stellantis ($162K) + 6 Mazdas ($1,740K) + Hyundai +5pp ($510K) · <strong>Conservador $3.9M · Realista $4.5M · Optimista $5.5M</strong></div>
     </div>
 
     <div class="source">
-      <div class="source-header">
-        <span class="source-tag">Fuente 3 · Plantilla fragmentada</span>
-        <span class="source-magnitude">$5.0–11.0M / año</span>
-      </div>
-      <h4>61 personas en 8 silos · 8 gerentes MKT · dispersión costo/persona 2.1×</h4>
-      <p class="source-body">
-        Changan paga <strong>$40,549/persona</strong> vs GAC <strong>$19,062/persona</strong> — 2.1× diferencia para roles probablemente equivalentes. 8 gerentes × ~5 agencias cada uno = silos por marca, no funciones cross. <strong>Mecánica:</strong> Hub &amp; Spoke híbrido. Hub corporativo (6–7 personas senior con capacidades cross: Performance, Data, Brand, Creative Ops, Strategy) + Spokes (1 Brand Owner por marca activa = 8 personas). Total objetivo: 30 personas en 18 meses.
-      </p>
-      <div class="source-calc">
-        <strong>Cálculo:</strong> Plantilla actual $21.35M/año · Post Hub &amp; Spoke (30 personas × $35K prom × 12) = $12.6M/año · <strong>Conservador $5.0M (si quedan 40 personas) · Realista $8.75M · Optimista $11.0M</strong>
-      </div>
+      <div class="source-header"><span class="source-tag">Fuente 3 · Plantilla fragmentada</span><span class="source-magnitude">$5.0–11.0M / año</span></div>
+      <h4>61 personas en 8 silos · dispersión costo/persona 2.1×</h4>
+      <p class="source-body">Changan $40,549/persona vs GAC $19,062/persona. 8 gerentes × ~5 agencias = silos sin funciones cross. <strong>Mecánica:</strong> Hub corporativo (6–7 senior cross-marca: Performance, Data, Brand, Creative Ops, Strategy) + Spokes (1 Brand Owner × marca = 8) = 14–15 personas. Objetivo 30 personas en 18 meses.</p>
+      <div class="source-calc"><strong>Cálculo:</strong> Plantilla actual $21.35M/año · Post Hub&amp;Spoke (30 × $35K × 12) = $12.6M/año · <strong>Conservador $5.0M (40 personas) · Realista $8.75M · Optimista $11.0M</strong></div>
     </div>
 
     <div class="source">
-      <div class="source-header">
-        <span class="source-tag">Fuente 4 · Sin central de medios</span>
-        <span class="source-magnitude">$1.5–3.2M / año</span>
-      </div>
+      <div class="source-header"><span class="source-tag">Fuente 4 · Sin central de medios</span><span class="source-magnitude">$1.5–3.2M / año</span></div>
       <h4>Pauta dispersa · sin comisión central · sin IVA acreditable sistemático</h4>
-      <p class="source-body">
-        Industria automotriz MX usa central de medios para Meta + Google con descuento por volumen 5–8% sobre digital. Recuperación de IVA acreditable sobre digital (16%) hoy se pierde inconsistentemente. <strong>Mecánica:</strong> consolidar la compra de pauta digital del grupo a una central interna o vendor único, capturar comisión + recuperación de IVA.
-      </p>
-      <div class="source-calc">
-        <strong>Cálculo:</strong> Pauta digital documentada $13.27M/año (con proxies $18–22M) · Comisión 5–8% = $0.66–1.06M · IVA 16% recuperable parcialmente = $1.0–2.1M · <strong>Conservador $1.5M · Realista $2.5M · Optimista $3.2M</strong>
-      </div>
+      <p class="source-body">Industria automotriz MX usa central de medios con descuento volumen 5–8% sobre digital. Recuperación IVA acreditable (16%) hoy se pierde inconsistentemente. <strong>Mecánica:</strong> consolidar compra pauta digital a central interna, capturar comisión + IVA.</p>
+      <div class="source-calc"><strong>Cálculo:</strong> Pauta digital documentada $13.27M · Comisión 5–8% = $0.66–1.06M · IVA 16% recuperable = $1.0–2.1M · <strong>Conservador $1.5M · Realista $2.5M · Optimista $3.2M</strong></div>
     </div>
-
   </div>
 </section>
 
 <section class="page">
   <div class="sources">
     <div class="source" style="border-left-color: var(--gp-red); border-left-width: 6px;">
-      <div class="source-header">
-        <span class="source-tag" style="color: var(--gp-red);">Fuente 5 · Sin atribución unificada</span>
-        <span class="source-magnitude" style="color: var(--gp-red);">+$330–1,983M / año</span>
-      </div>
+      <div class="source-header"><span class="source-tag" style="color: var(--gp-red);">Fuente 5 · Sin atribución unificada</span><span class="source-magnitude" style="color: var(--gp-red);">+$330–1,983M / año</span></div>
       <h4>La palanca dominante por orden de magnitud — no es ahorro, es revenue incremental</h4>
-      <p class="source-body">
-        Tasa de conversión digital del grupo: <strong>4.3%</strong>. Mazda alcanza 22% — jala el promedio. El resto está &lt;8%. <strong>Killer fact documentado:</strong> +1 punto porcentual de conversión digital = +$661 MDP/año de revenue incremental. El Motor de Atribución MVP ya construido (CRM + Worker + D1 + GTM + CAPI + GA4 MP + Clarity) habilita esto. El piloto demuestra captación con CPA $69–218 vs CAC histórico $1,206 — el cuello no es captación, es el handoff downstream a vendedor.
-      </p>
-      <div class="source-calc">
-        <strong>Cálculo:</strong> Conservador +0.5pp conv = +$330M · Realista +1pp = +$661M · Optimista +3pp (alcanzar baseline Mazda en otras marcas) = +$1,983M
-      </div>
+      <p class="source-body">Tasa conversión digital del grupo <strong>4.3%</strong>. Mazda 22% · resto &lt;8%. <strong>Killer fact:</strong> +1pp conversión = +$661 MDP/año revenue incremental. Motor de Atribución MVP ya construido (CRM + Worker + D1 + GTM + CAPI + GA4 MP + Clarity). Captación demostrada con CPA $69–218 vs CAC histórico $1,206. Cuello: handoff downstream a vendedor.</p>
+      <div class="source-calc"><strong>Cálculo:</strong> Conservador +0.5pp = +$330M · Realista +1pp = +$661M · Optimista +3pp (alcanzar baseline Mazda en otras marcas) = +$1,983M</div>
     </div>
   </div>
 
   <div class="killer">
     <span class="label">Síntesis del Diagnóstico</span>
     <h3>Cuatro palancas de eficiencia ($19.5M/año) y una palanca de performance ($661M/año).</h3>
-    <p>Las primeras cuatro son <strong>ahorro operativo</strong>. La quinta es <strong>revenue incremental</strong>. La palanca 5 vale <strong>34× lo que valen las cuatro de eficiencia juntas</strong>. Esta es la asimetría que determina la prioridad de cualquier estrategia derivada del diagnóstico.</p>
+    <p>Las primeras cuatro son <strong>ahorro operativo</strong>. La quinta es <strong>revenue incremental</strong>. La palanca 5 vale <strong>34× lo que valen las cuatro de eficiencia juntas</strong>. Esta asimetría determina la prioridad de cualquier estrategia derivada del diagnóstico.</p>
   </div>
 </section>
 
-<!-- ============ PAGE 11: HIPOTESIS ============ -->
+<!-- ============ PAGE 12: HIPOTESIS ============ -->
 <section class="page">
-  <h1 class="section-title"><span class="num">§6 · Hipótesis para estrategia</span>Lo que se desprende del diagnóstico.</h1>
-
-  <p class="lead">
-    Este apartado <strong>no es la estrategia</strong>. Son las hipótesis que el diagnóstico habilita y que la fase de estrategia tendrá que validar, ordenar y traducir en plan ejecutable.
-  </p>
+  <h1 class="section-title"><span class="num">§7 · Hipótesis para estrategia</span>Lo que se desprende del diagnóstico.</h1>
+  <p class="lead">No es la estrategia. Son hipótesis que el diagnóstico habilita y que la fase estratégica tendrá que validar, ordenar y traducir en plan ejecutable.</p>
 
   <div class="hypothesis">
     <span class="label">Hipótesis 1</span>
     <h3>El problema no es cuánto se gasta, es cómo se ordena.</h3>
-    <p>
-      Con marketing al <strong>0.48–0.58% del revenue</strong> vs benchmark sectorial 5–10%, GP no está sobre-gastando. La palanca de eficiencia no es recortar el monto agregado; es reordenar la composición del gasto entre los 7 buckets, internalizar capacidades hoy disperas en 14 proveedores, y trasladar parte del fijo a variable.
-    </p>
+    <p>Con marketing al 0.46% del revenue vs benchmark 5–10%, GP no sobre-gasta. La palanca es <strong>reordenar la composición</strong> entre los 7 buckets, internalizar capacidades dispersas en 14 proveedores, y trasladar parte del fijo a variable.</p>
   </div>
-
   <div class="hypothesis">
     <span class="label">Hipótesis 2</span>
     <h3>La consolidación es estructural, no presupuestal.</h3>
-    <p>
-      Los <strong>$19.5M/año</strong> de eficiencia operativa están en estructura (plantilla fragmentada, fees duplicados, falta de central de medios, OEM no negociada). <strong>No están en pauta</strong>. Cualquier estrategia que ataque la pauta primero deja sin tocar el 70% del problema.
-    </p>
+    <p>Los $19.5M/año de eficiencia operativa están en <strong>estructura</strong> (plantilla, fees, central medios, OEM). <strong>No están en pauta</strong>. Cualquier estrategia que ataque pauta primero deja sin tocar el 70% del problema.</p>
   </div>
-
   <div class="hypothesis">
     <span class="label">Hipótesis 3</span>
     <h3>El retorno marginal de performance es 34× mayor que el de eficiencia.</h3>
-    <p>
-      Eficiencia operativa escenario realista: <strong>$19.5M/año</strong>. Performance del peso invertido con +1pp conversión: <strong>+$661M/año</strong>. Toda la conversación de eficiencia operativa vale menos del 3% del valor de mover la conversión digital un solo punto porcentual. <strong>La estrategia debe priorizar conversion + atribución sobre cualquier programa de ahorro operativo</strong>, sin descartar este último.
-    </p>
+    <p>Eficiencia operativa realista: $19.5M/año. Performance del peso invertido (+1pp conversión): +$661M/año. Toda la conversación de eficiencia vale menos del 3% del valor de mover la conversión digital 1 punto. La estrategia debe priorizar <strong>conversion + atribución</strong>.</p>
   </div>
-
   <div class="hypothesis">
     <span class="label">Hipótesis 4</span>
     <h3>El Centro de Excelencia es vehículo, no objetivo.</h3>
-    <p>
-      El CdE Hub &amp; Spoke híbrido es <strong>el instrumento</strong> que materializa las 5 palancas. No es un objetivo en sí mismo. Si la estrategia se discute como "crear el CdE", se vuelve organizacional. Si se discute como "activar las 5 palancas", el CdE aparece como consecuencia natural del diseño.
-    </p>
+    <p>El CdE Hub &amp; Spoke híbrido es <strong>el instrumento</strong> que materializa las 5 palancas. No es un fin. Si se discute como "crear el CdE" se vuelve organizacional; si se discute como "activar las 5 palancas", el CdE aparece como consecuencia natural.</p>
   </div>
-
   <div class="hypothesis">
     <span class="label">Hipótesis 5</span>
     <h3>La secuencia importa más que el contenido.</h3>
-    <p>
-      Las 5 palancas son interdependientes y tienen rendimientos crecientes en cierto orden: <strong>(1)</strong> hacer visible el 53% invisible · <strong>(2)</strong> negociar OEM (quick win sin recortes) · <strong>(3)</strong> consolidar central de medios · <strong>(4)</strong> auditar proveedores (análisis sin tocar plantilla) · <strong>(5)</strong> activar atribución cross-marca (Hub-light, palanca revenue) · <strong>(6)</strong> reorganizar plantilla (lo más costoso políticamente, va al final).
-    </p>
+    <p>Orden óptimo: (1) hacer visible el 53% invisible · (2) negociar OEM (quick win sin recortes) · (3) consolidar central medios · (4) auditar proveedores · (5) activar atribución cross-marca · (6) reorganizar plantilla (lo más costoso políticamente). Saltarse pasos destruye el capital político para las palancas posteriores.</p>
   </div>
-
 </section>
 
-<!-- ============ PAGE 12: CASO FINANCIERO ============ -->
+<!-- ============ PAGE 13: CASO FINANCIERO ============ -->
 <section class="page">
-  <h1 class="section-title"><span class="num">§7 · Magnitud del diagnóstico</span>Caso financiero en tres escenarios.</h1>
+  <h1 class="section-title"><span class="num">§8 · Magnitud del diagnóstico</span>Caso financiero en tres escenarios.</h1>
+  <p class="lead">Expresa la magnitud de las palancas identificadas, no el plan estratégico. La estrategia (siguiente fase) determinará secuencia, inversión específica y ROI por iniciativa.</p>
 
-  <p class="lead">
-    El caso financiero expresa la magnitud de las palancas identificadas, no el plan estratégico. La estrategia (siguiente fase) determinará secuencia, inversión específica y ROI por iniciativa.
-  </p>
-
-  <h2 class="section-h2">7.1 · Las 5 palancas · tres escenarios</h2>
-
+  <h2 class="section-h2">8.1 · Las 5 palancas · tres escenarios</h2>
   <table class="data">
-    <thead>
-      <tr>
-        <th>Palanca</th>
-        <th class="num">Conservador</th>
-        <th class="num">Realista</th>
-        <th class="num">Optimista</th>
-      </tr>
-    </thead>
+    <thead><tr><th>Palanca</th><th class="num">Conservador</th><th class="num">Realista</th><th class="num">Optimista</th></tr></thead>
     <tbody>
       <tr><td>1. Consolidación proveedores</td><td class="num">$3.2M</td><td class="num">$4.2M</td><td class="num">$5.2M</td></tr>
       <tr><td>2. Pauta OEM negociada</td><td class="num">$3.9M</td><td class="num">$4.5M</td><td class="num">$5.5M</td></tr>
@@ -1569,40 +749,15 @@
     </tbody>
   </table>
 
-  <h2 class="section-h2">7.2 · ROI vs inversión CdE Fase 1</h2>
-
+  <h2 class="section-h2">8.2 · ROI vs inversión CdE Fase 1</h2>
   <div class="financial">
     <div class="financial-grid">
-      <div class="fin-cell">
-        <div class="label">Inversión CdE Fase 1</div>
-        <div class="value red">$5M</div>
-        <p>$320–400K MXN/mes · escenario híbrido del Strategy Definition canónico</p>
-      </div>
-      <div class="fin-cell">
-        <div class="label">Retorno neto · Conservador</div>
-        <div class="value">$8.6M</div>
-        <p>Solo eficiencia operativa · ROI 2.7×</p>
-      </div>
-      <div class="fin-cell">
-        <div class="label">Retorno neto · Realista</div>
-        <div class="value gold">$14.95M</div>
-        <p>Solo eficiencia operativa · ROI 4.0×</p>
-      </div>
-      <div class="fin-cell">
-        <div class="label">ROI total · Conservador con conversión</div>
-        <div class="value green">69×</div>
-        <p>$5M inversión · +$330M revenue + $13.6M ahorro</p>
-      </div>
-      <div class="fin-cell">
-        <div class="label">ROI total · Realista con conversión</div>
-        <div class="value green">136×</div>
-        <p>$5M inversión · +$661M revenue + $19.95M ahorro</p>
-      </div>
-      <div class="fin-cell">
-        <div class="label">ROI total · Optimista</div>
-        <div class="value green">401×</div>
-        <p>$5M inversión · +$1,983M revenue + $24.9M ahorro</p>
-      </div>
+      <div class="fin-cell"><div class="label">Inversión CdE Fase 1</div><div class="value red">$5M</div><p>$320–400K MXN/mes · escenario híbrido</p></div>
+      <div class="fin-cell"><div class="label">Retorno neto · Conservador</div><div class="value">$8.6M</div><p>Solo eficiencia · ROI 2.7×</p></div>
+      <div class="fin-cell"><div class="label">Retorno neto · Realista</div><div class="value gold">$14.95M</div><p>Solo eficiencia · ROI 4.0×</p></div>
+      <div class="fin-cell"><div class="label">ROI total · Conservador</div><div class="value green">69×</div><p>$5M inv · +$330M rev + $13.6M ahorro</p></div>
+      <div class="fin-cell"><div class="label">ROI total · Realista</div><div class="value green">136×</div><p>$5M inv · +$661M rev + $19.95M ahorro</p></div>
+      <div class="fin-cell"><div class="label">ROI total · Optimista</div><div class="value green">401×</div><p>$5M inv · +$1,983M rev + $24.9M ahorro</p></div>
     </div>
   </div>
 
@@ -1613,89 +768,47 @@
   </div>
 </section>
 
-<!-- ============ PAGE 13: DECISIONES ============ -->
+<!-- ============ PAGE 14: DECISIONES ============ -->
 <section class="page">
-  <h1 class="section-title"><span class="num">§8 · Decisiones para pasar a estrategia</span>Cuatro inputs internos antes de la fase siguiente.</h1>
-
-  <p class="lead">
-    Este documento es <strong>diagnóstico</strong>, no estrategia. Pasar a la fase estratégica requiere cuatro decisiones internas del Director MKT — no son Ask al Consejo, son inputs que definen cómo se construye el siguiente documento.
-  </p>
+  <h1 class="section-title"><span class="num">§9 · Decisiones para pasar a estrategia</span>Cuatro inputs internos antes de la fase siguiente.</h1>
+  <p class="lead">Este documento es <strong>diagnóstico</strong>, no estrategia. Pasar a la fase estratégica requiere cuatro decisiones internas del Director MKT — no son Ask al Consejo, son inputs que definen cómo se construye el siguiente documento.</p>
 
   <ul class="decisions">
     <li>
-      <div>
-        <h4>Profundidad de la taxonomía</h4>
-        <p>¿Se documenta el diccionario formal de los 7 buckets + 4 dimensiones perpendiculares (3–5 páginas técnicas) ahora, o se difiere hasta tener data 2026 que lo poble?</p>
-      </div>
-      <div class="dec-options">
-        <strong>Opciones</strong>
-        A) Diccionario ahora<br>
-        B) Diferir a 2026<br>
-        <em>Trade-off: 1 día vs re-clasificación inmediata del baseline</em>
-      </div>
+      <div><h4>Profundidad de la taxonomía</h4><p>¿Diccionario formal de los 7 buckets + 4 dimensiones perpendiculares ahora (3–5 páginas técnicas), o se difiere hasta data 2026?</p></div>
+      <div class="dec-options"><strong>Opciones</strong>A) Diccionario ahora<br>B) Diferir a 2026<br><em>Trade-off: 1 día vs re-clasificación inmediata</em></div>
     </li>
     <li>
-      <div>
-        <h4>Granularidad del análisis por palanca</h4>
-        <p>¿Cada una de las 5 palancas se desarrolla como sub-documento estratégico independiente (5 papers temáticos), o se mantienen consolidadas en el documento principal de estrategia?</p>
-      </div>
-      <div class="dec-options">
-        <strong>Opciones</strong>
-        A) 5 sub-documentos<br>
-        B) Consolidado<br>
-        <em>Trade-off: avance paralelo por interlocutor vs narrativa única</em>
-      </div>
+      <div><h4>Granularidad del análisis por palanca</h4><p>¿Cada palanca como sub-documento estratégico independiente (5 papers), o consolidadas en el documento principal de estrategia?</p></div>
+      <div class="dec-options"><strong>Opciones</strong>A) 5 sub-documentos<br>B) Consolidado<br><em>Trade-off: avance paralelo vs narrativa única</em></div>
     </li>
     <li>
-      <div>
-        <h4>Audiencia objetivo de la fase estratégica</h4>
-        <p>¿La estrategia se diseña para presentar a Consejo Directivo, a Pepe Morales 1:1, o como hoja de ruta operativa propia del Director MKT? Cada audiencia define un nivel de detalle, un tono y una defensibilidad distintas.</p>
-      </div>
-      <div class="dec-options">
-        <strong>Opciones</strong>
-        A) Consejo<br>
-        B) Pepe 1:1<br>
-        C) Uso interno<br>
-        <em>Trade-off: ambición política vs velocidad de ejecución</em>
-      </div>
+      <div><h4>Audiencia objetivo</h4><p>¿La estrategia se diseña para Consejo Directivo, Pepe Morales 1:1, o como hoja de ruta operativa propia del Director MKT? Cada audiencia define nivel de detalle, tono y defensibilidad distintos.</p></div>
+      <div class="dec-options"><strong>Opciones</strong>A) Consejo<br>B) Pepe 1:1<br>C) Uso interno<br><em>Trade-off: ambición política vs velocidad</em></div>
     </li>
     <li>
-      <div>
-        <h4>Integración con baseline 2026</h4>
-        <p>Cuando llegue data 2026, ¿se actualiza este diagnóstico in-place (v1.2, v1.3…) o se mantiene este como snapshot histórico y se produce un diagnóstico nuevo?</p>
-      </div>
-      <div class="dec-options">
-        <strong>Opciones</strong>
-        A) Updates in-place<br>
-        B) Snapshots versionados<br>
-        <em>Trade-off: documento vivo vs trazabilidad histórica</em>
-      </div>
+      <div><h4>Integración con baseline 2026</h4><p>Cuando llegue data 2026, ¿se actualiza este diagnóstico in-place (v1.3, v1.4) o snapshot histórico + nuevo diagnóstico?</p></div>
+      <div class="dec-options"><strong>Opciones</strong>A) Updates in-place<br>B) Snapshots versionados<br><em>Trade-off: documento vivo vs trazabilidad</em></div>
     </li>
   </ul>
 </section>
 
-<!-- ============ PAGE 14: ANEXOS ============ -->
+<!-- ============ PAGE 15: ANEXOS ============ -->
 <section class="page">
-  <h1 class="section-title"><span class="num">§9 · Anexos</span>Marcas, proveedores, fuentes, limitaciones.</h1>
+  <h1 class="section-title"><span class="num">§10 · Anexos</span>Marcas, fuentes, limitaciones.</h1>
 
   <div class="annex-block">
     <span class="annex-tag">Anexo A · Marcas en orden de prioridad por palanca</span>
     <table class="data">
-      <thead>
-        <tr>
-          <th>Marca</th>
-          <th>Palanca dominante</th>
-          <th class="num">Magnitud</th>
-        </tr>
-      </thead>
+      <thead><tr><th>Marca</th><th>Palanca dominante</th><th class="num">Magnitud</th></tr></thead>
       <tbody>
-        <tr><td><strong>GAC</strong></td><td>CAC 3.4× peor que Mazda + dispersión interna 5.0×</td><td class="num">$2–4M/año</td></tr>
-        <tr><td><strong>Hyundai</strong></td><td>Tasa pérdida 57.1% · conversión &lt;10%</td><td class="num">$5–10M/año</td></tr>
+        <tr><td><strong>GAC</strong></td><td>CAC 3.4× peor · dispersión interna 5.0× · 1.69% rev (más alto del grupo)</td><td class="num">$2–4M/año</td></tr>
+        <tr><td><strong>Hyundai</strong></td><td>Tasa pérdida 57.1% · conversión &lt;10% · gasta $14.8M en 4,785 unidades</td><td class="num">$5–10M/año</td></tr>
         <tr><td><strong>Ford</strong></td><td>100% GP sin OEM + $3.81M/año concentrado en Dazing</td><td class="num">$1.5–2M/año</td></tr>
-        <tr><td><strong>Stellantis</strong></td><td>Plantilla mínima sobre 2 agencias · fees consolidables</td><td class="num">$0.5–1M/año</td></tr>
+        <tr><td><strong>Stellantis</strong></td><td>Plantilla mínima · datos subreportados · fees consolidables</td><td class="num">$0.5–1M/año</td></tr>
         <tr><td><strong>Mazda</strong></td><td>6 de 10 agencias sin co-inversión OEM</td><td class="num">$1.5–2M/año</td></tr>
         <tr><td><strong>Changan</strong></td><td>Plantilla más cara del grupo $40K/persona</td><td class="num">$0.7–1M/año</td></tr>
-        <tr><td><strong>GWM</strong></td><td>4 agencias sin co-inversión OEM</td><td class="num">$0.4–0.6M/año</td></tr>
+        <tr><td><strong>GWM</strong></td><td>4 agencias sin OEM + data faltante en fees</td><td class="num">$0.4–0.6M/año</td></tr>
         <tr><td><strong>Seminuevos</strong></td><td>1 persona para 7 agencias = cuello operativo</td><td class="num">capacidad</td></tr>
       </tbody>
     </table>
@@ -1705,35 +818,28 @@
     <span class="annex-tag">Anexo B · Datos fuente</span>
     <h3>Todo el análisis cuantitativo se basa en JSONs versionados</h3>
     <ul>
-      <li><strong>08-baseline/2025-Q3-Q4-DanielGalindo/marca_mes.json</strong> · Performance marca × mes Ago–Nov 2025</li>
-      <li><strong>08-baseline/2025-Q3-Q4-DanielGalindo/agencia_mes.json</strong> · Detalle por agencia × mes (84 records)</li>
-      <li><strong>08-baseline/2025-Q3-Q4-DanielGalindo/proveedores_agencia.json</strong> · Fees y proveedores · 43 records</li>
-      <li><strong>08-baseline/2025-Q3-Q4-DanielGalindo/plantilla_marca.json</strong> · Costos plantilla · 8 marcas · 61 personas</li>
-      <li><strong>08-baseline/2025-Q3-Q4-DanielGalindo/pauta_oem.json</strong> · Co-inversión OEM por marca/agencia</li>
-      <li><strong>08-baseline/2025-Q3-Q4-DanielGalindo/ventas_anuales.json</strong> · Ventas 2024 vs 2025 + estacionalidad</li>
-      <li><strong>08-baseline/2025-Q3-Q4-DanielGalindo/ahorros_compras.json</strong> · Compras 2025</li>
-      <li><strong>08-baseline/2025-Q3-Q4-DanielGalindo/kpis_por_agencia.json</strong> · CPL/CPA × 4 meses · 26 records</li>
-      <li><strong>08-baseline/2025-Q3-Q4-DanielGalindo/_metadata.json</strong> · Índice ejecutivo + quality flags</li>
-    </ul>
-    <h3 style="margin-top: 5mm;">Documentos canónicos referenciados</h3>
-    <ul>
-      <li><strong>01-strategy/Strategy-Definition-MKT-Corporativo-AI-powered.md</strong> · Tesis Centro de Excelencia</li>
-      <li><strong>01-strategy/Experiencia-Plasencia-Automotriz-Framing.md</strong> · Frame Endorsed Brands</li>
-      <li><strong>01-strategy/Atribucion-Piloto-Hallazgos-noche12.md</strong> · Cierre 6 semanas piloto</li>
-      <li><strong>00-context/KO-Estrategico.md</strong> · Datos cuantitativos del negocio</li>
+      <li><strong>08-baseline/2025-Q3-Q4-DanielGalindo/marca_mes.json</strong> · Performance marca × mes</li>
+      <li><strong>agencia_mes.json</strong> · Detalle agencia × mes (84 records)</li>
+      <li><strong>proveedores_agencia.json</strong> · Fees y proveedores (43 records)</li>
+      <li><strong>plantilla_marca.json</strong> · 8 marcas · 61 personas</li>
+      <li><strong>pauta_oem.json</strong> · Co-inversión OEM por marca/agencia</li>
+      <li><strong>ventas_anuales.json</strong> · 2024 vs 2025</li>
+      <li><strong>ahorros_compras.json</strong> · POP 2025 ($943,497 negociado / 27.45% ahorro)</li>
+      <li><strong>kpis_por_agencia.json</strong> · CPL/CPA × 4 meses (26 records)</li>
+      <li><strong>_metadata.json</strong> · Índice ejecutivo + quality flags</li>
     </ul>
   </div>
 
   <div class="annex-block">
     <span class="annex-tag">Anexo C · Limitaciones del diagnóstico</span>
     <ul>
-      <li><strong>Periodo Ago–Nov 2025 (4 meses):</strong> Q4 tiene estacionalidad +30% por Buen Fin · extrapolación anual conservadora</li>
-      <li><strong>Ford, Stellantis, Changan, Seminuevos, Isuzu sin desglose pauta vs fee:</strong> Bucket 1 documenta solo 4 marcas; total estimado usa proxy lineal proporcional al volumen</li>
-      <li><strong>Hyundai infla con leads de planta:</strong> CPL/CPA Hyundai no estrictamente comparable con Mazda</li>
-      <li><strong>GWM solo totales del periodo:</strong> sin desglose mensual ni proveedores documentados</li>
+      <li><strong>Periodo Ago–Nov 2025:</strong> Q4 +30% por Buen Fin · extrapolación conservadora</li>
+      <li><strong>Ford, Stellantis, Changan, Seminuevos, Isuzu sin desglose pauta vs fee:</strong> Bucket 1 documenta solo 4 marcas; estimado con proxy lineal por volumen</li>
+      <li><strong>Hyundai infla con leads de planta:</strong> CPL/CPA no estrictamente comparable con Mazda</li>
+      <li><strong>GWM solo totales del periodo</strong> sin desglose mensual ni proveedores</li>
       <li><strong>Presupuestos no comparables entre marcas:</strong> Mazda/GWM incluyen Servicio/Refacciones; Hyundai solo publicitario; GAC solo pauta</li>
-      <li><strong>Sueldos individuales en archivo confidencial:</strong> documento confidencial de Daniel tiene nómina por persona · no incluido aquí</li>
-      <li><strong>Mazda equipo in-house ($5.17M/año reportado en proveedores):</strong> reasignado a Plantilla para evitar doble contabilidad</li>
+      <li><strong>Mazda equipo in-house</strong> ($5.17M/año reportado en proveedores) reasignado a Plantilla para evitar doble contabilidad</li>
+      <li><strong>Stellantis subreportado:</strong> 1 persona estimada · sin desglose digital · CAC $1,058 es proxy</li>
     </ul>
   </div>
 </section>
@@ -1741,17 +847,13 @@
 <!-- ============ CLOSING ============ -->
 <section class="page" style="padding: 0;">
   <div class="closing">
-    <div class="ribbon">Deep Dive · Marketing Economics · v1.1</div>
-    <h2>El cuadro está <em>completo.</em><br>La estrategia <em>comienza.</em></h2>
-    <p class="pull">
-      Antes de transformar el marketing del grupo, hay que verlo entero. Este diagnóstico hace visible el 53% del gasto que la contabilidad actual no etiqueta como marketing, mide las cinco fuentes de ineficiencia que el orden actual produce, y establece la magnitud de las palancas que la estrategia tendrá que activar.
-    </p>
-    <p class="body-text">
-      Lo que sigue no es un plan de recortes ni una propuesta organizacional. Es la construcción de la estrategia que activa las cinco palancas en el orden correcto, con el instrumento correcto — el Centro de Excelencia — y con la atribución unificada como palanca dominante. Este documento se actualiza cuando llegue data 2026, pero los hallazgos cualitativos seguirán vigentes con o sin nuevos números.
-    </p>
+    <div class="ribbon">Deep Dive · Marketing Economics · v1.2</div>
+    <h2>La fotografía está <em>completa.</em><br>La estrategia <em>comienza.</em></h2>
+    <p class="pull">Antes de transformar el marketing del grupo, hay que verlo entero. Este diagnóstico hace visible el 53% del gasto que la contabilidad actual no etiqueta como marketing, muestra dónde está el dinero hoy (por marca, agencia y proveedor), y establece la magnitud de las palancas que la estrategia tendrá que activar.</p>
+    <p class="body-text">Lo que sigue no es un plan de recortes ni una propuesta organizacional. Es la construcción de la estrategia que activa las cinco palancas en el orden correcto, con el instrumento correcto — el Centro de Excelencia — y con la atribución unificada como palanca dominante. Este documento se actualiza cuando llegue data 2026, pero los hallazgos cualitativos seguirán vigentes con o sin nuevos números.</p>
     <div class="signature">
       <strong>Dirección de Marketing Corporativo</strong>
-      Grupo Plasencia Automotriz · Junio 2026 · v1.1
+      Grupo Plasencia Automotriz · Junio 2026 · v1.2
     </div>
   </div>
 </section>
