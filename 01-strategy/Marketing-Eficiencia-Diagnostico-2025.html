@@ -2,8 +2,8 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Deep Dive · Marketing Economics × Grupo Plasencia · Baseline 2025 · v3.12</title>
-<meta name="description" content="Diagnóstico estratégico de eficiencia de marketing GP. Baseline 2025 reestructurado. v3.12: agregada fila intermedia 8 pares Director de Marca → Gerencia de Marca en el organigrama formal · ahora se ve la línea jerárquica completa Consejo → Dir Marca → Gerencia">
+<title>Deep Dive · Marketing Economics × Grupo Plasencia · Baseline 2025 · v3.13</title>
+<meta name="description" content="Diagnóstico estratégico de eficiencia de marketing GP. Baseline 2025 reestructurado. v3.13: nombres de Directores actualizados (Fernando Mora · Changan+GWM · Jorge A. García · Rafael Benítez · Jonathan Medina) · Stellantis cambio de gerencia (Alejandra Ramírez → Berenice Pérez) · Seminuevos como Director Comercial">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@500;700;800;900&display=swap" rel="stylesheet">
@@ -27,7 +27,7 @@
   @page {
     size: A4; margin: 16mm 16mm 20mm 16mm;
     @bottom-right { content: counter(page); font-family: 'Inter'; font-size: 9pt; color: #718096; }
-    @bottom-left { content: "Confidencial · Dirección de Marketing Corporativo · v3.12"; font-family: 'Inter'; font-size: 8pt; color: #A0AEC0; }
+    @bottom-left { content: "Confidencial · Dirección de Marketing Corporativo · v3.13"; font-family: 'Inter'; font-size: 8pt; color: #A0AEC0; }
     @top-right { content: "Deep Dive · Marketing Economics × Grupo Plasencia · Baseline 2025"; font-family: 'Inter'; font-size: 8pt; color: #A0AEC0; }
   }
   @page :first { @top-right { content: ""; } @bottom-right { content: ""; } @bottom-left { content: ""; } }
@@ -338,6 +338,10 @@
   .orgreal .dir-gte-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2.5mm; margin: 2mm 0 4mm; }
   .orgreal .dir-gte-pair { display: flex; flex-direction: column; align-items: stretch; gap: 1mm; }
   .orgreal .dir-gte-pair .dir-box { background: var(--g200); border: 1px solid var(--g500); padding: 1.5mm 2mm; text-align: center; font-size: 7pt; font-weight: 700; color: var(--gp-navy); border-radius: 1px; }
+  .orgreal .dir-gte-pair .dir-box .dir-name { display: block; font-size: 6pt; font-weight: 500; color: var(--g600); font-style: italic; margin-top: 0.5mm; }
+  .orgreal .dir-gte-pair .dir-box .dir-name.tbc { color: var(--g500); }
+  .orgreal .dir-gte-pair .dir-box.dual { background: rgba(214,158,46,0.1); border-color: var(--amber); }
+  .orgreal .dir-gte-pair .dir-box.dual .dir-name { color: #997706; font-weight: 700; }
   .orgreal .dir-gte-pair .dir-arrow { text-align: center; color: var(--g500); font-size: 7pt; line-height: 0.8; }
   .orgreal .dir-gte-pair .gte-box { background: rgba(72,187,120,0.1); border: 1px solid var(--deep-green); padding: 1.5mm 2mm; text-align: center; font-size: 7pt; color: var(--gp-navy); border-radius: 1px; }
   .orgreal .dir-gte-pair .gte-box strong { display: block; font-size: 7.5pt; }
@@ -382,18 +386,18 @@
       <p class="cover-subtitle">Baseline 2025. Fotografía del gasto, radiografía estructural concesionario de marca, hallazgos de auditoría.</p>
       <p class="cover-pull">
         Documento de auditoría inicial del Director MKT (Jesús Pérez Porras, en función desde marzo 2026). Reestructura el levantamiento previo de Daniel Galindo (Ago–Nov 2025) en un marco analítico riguroso siguiendo disciplina Minto + SCR + Answer-First. <strong>El baseline Galindo es autorreporte de las gerentes vía encuestas y formas — NO extracto de libros contables</strong>; cruzar contra contabilidad real es pendiente abierto (ver §6). <strong>No es propuesta de estrategia ni decisiones tomadas</strong> — es la base AS IS sobre la que se construirán las conversaciones de estrategia con el Consejo.
-        <cite>v3.12 · 7 secciones · 8 pares Director→Gerencia visibles</cite>
+        <cite>v3.13 · 7 secciones · Directores nombrados</cite>
       </p>
       <div class="cover-tags">
         <span class="cover-tag">Auditoría AS IS</span>
         <span class="cover-tag accent">Baseline 2025</span>
-        <span class="cover-tag urgent">v3.12 · Director→Gerencia</span>
+        <span class="cover-tag urgent">v3.13 · Directores nombrados</span>
       </div>
     </div>
     <div>
       <div class="cover-meta">
         <div class="cover-meta-block"><strong>Autor · Función</strong>Director MKT (función nueva mar 2026) en auditoría, estructuración, visioning</div>
-        <div class="cover-meta-block" style="text-align:right;"><strong>Junio 2026 · v3.12</strong>21 páginas · Paper A4</div>
+        <div class="cover-meta-block" style="text-align:right;"><strong>Junio 2026 · v3.13</strong>21 páginas · Paper A4</div>
       </div>
     </div>
   </div>
@@ -618,7 +622,7 @@
       <tr><td>Ford</td><td class="num">9</td><td class="num">1</td><td class="num">8</td><td class="num">4</td><td class="num">6</td><td class="num">$253,324</td><td>Karen Michel Patiño · Dazing + 3 ($3.81M/año concentrado)</td></tr>
       <tr class="outlier"><td>GWM</td><td class="num">7</td><td class="num"><strong>0</strong></td><td class="num">7</td><td class="num">3</td><td class="num">4</td><td class="num">$226,542</td><td>Sin responsable cross-agencia · Like + Fabula + Paola</td></tr>
       <tr class="best"><td>GAC</td><td class="num">5</td><td class="num">1</td><td class="num">4</td><td class="num">4</td><td class="num">4</td><td class="num">$133,434</td><td>Elia García · Idea + Galleta + S.Oliveira + Kamote</td></tr>
-      <tr><td>Stellantis</td><td class="num">1</td><td class="num">1</td><td class="num">0</td><td class="num">2</td><td class="num">2</td><td class="num">$32,000</td><td>Alejandra Ramírez · Infinito Lab + Nextilo (dup. cross-marca)</td></tr>
+      <tr><td>Stellantis</td><td class="num">1</td><td class="num">1</td><td class="num">0</td><td class="num">2</td><td class="num">2</td><td class="num">$32,000</td><td>Berenice Pérez · Infinito Lab + Nextilo (dup. cross-marca)</td></tr>
       <tr class="outlier"><td>Seminuevos</td><td class="num">1</td><td class="num">1</td><td class="num">0</td><td class="num">3</td><td class="num">7</td><td class="num">$42,324</td><td>José Reyes López Rivas · Maxipublica + Fabula + ML</td></tr>
       <tr class="total"><td><strong>TOTAL</strong></td><td class="num"><strong>60*</strong></td><td class="num"><strong>15*</strong></td><td class="num"><strong>45</strong></td><td class="num"><strong>14 partners únicos</strong></td><td class="num"><strong>44</strong></td><td class="num"><strong>$1,779,305</strong></td><td><em>*jun 2026 · 61/16 a dic 2025</em></td></tr>
     </tbody>
@@ -779,7 +783,7 @@
         <div class="silo-line"><strong>1</strong> persona · <strong>2</strong> concesionarios</div>
         <div class="silo-line"><strong>$32K/mes</strong> plantilla · estimado</div>
         <div class="silo-line">1 marca + 0 conc.</div>
-        <div class="silo-block"><div class="label">Gerente marca</div><div class="val">Alejandra Ramírez</div></div>
+        <div class="silo-block"><div class="label">Gerente marca</div><div class="val">Berenice Pérez</div></div>
         <div class="silo-block"><div class="label">Agencias/partners</div><div class="val warn">Infinito Lab + Nextilo ⚠</div></div>
       </div>
 
@@ -839,44 +843,44 @@
     <div class="lvl-label" style="margin-top: 5mm;">Nivel marca · 8 Directores de Marca → 8 Gerencias de Marca (uno por silo · cuelgan de "Direcciones de Marca ×8" arriba)</div>
     <div class="dir-gte-grid">
       <div class="dir-gte-pair">
-        <div class="dir-box">Director Mazda</div>
+        <div class="dir-box">Director Mazda<span class="dir-name tbc">a confirmar</span></div>
         <div class="dir-arrow">│ reporta</div>
         <div class="gte-box"><strong>Florencia Alcaraz</strong>Gerencia Mazda</div>
       </div>
       <div class="dir-gte-pair">
-        <div class="dir-box">Director Hyundai</div>
+        <div class="dir-box">Director Hyundai<span class="dir-name tbc">a confirmar</span></div>
         <div class="dir-arrow">│ reporta</div>
         <div class="gte-box"><strong>Verónica Orozco</strong>Gerencia Hyundai · jun 2026</div>
       </div>
       <div class="dir-gte-pair">
-        <div class="dir-box">Director Changan</div>
+        <div class="dir-box dual">Director Changan<span class="dir-name">Fernando Mora ⚠ comparte con GWM</span></div>
         <div class="dir-arrow">│ reporta</div>
         <div class="gte-box"><strong>Mauricio Castro</strong>Gerencia Changan</div>
       </div>
       <div class="dir-gte-pair">
-        <div class="dir-box">Director Ford</div>
+        <div class="dir-box">Director Ford<span class="dir-name tbc">a confirmar</span></div>
         <div class="dir-arrow">│ reporta</div>
         <div class="gte-box"><strong>Karen Michel Patiño</strong>Gerencia Ford</div>
       </div>
     </div>
     <div class="dir-gte-grid" style="margin-top:-2mm;">
       <div class="dir-gte-pair">
-        <div class="dir-box">Director GWM</div>
+        <div class="dir-box dual">Director GWM<span class="dir-name">Fernando Mora ⚠ comparte con Changan</span></div>
         <div class="dir-arrow">│ reporta</div>
         <div class="gte-box warn"><strong>sin gerencia identificada</strong>cross-ag inexistente</div>
       </div>
       <div class="dir-gte-pair">
-        <div class="dir-box">Director GAC</div>
+        <div class="dir-box">Director GAC<span class="dir-name">Jorge Alberto García</span></div>
         <div class="dir-arrow">│ reporta</div>
         <div class="gte-box"><strong>Elia García</strong>Gerencia GAC</div>
       </div>
       <div class="dir-gte-pair">
-        <div class="dir-box">Director Stellantis</div>
+        <div class="dir-box">Director Stellantis<span class="dir-name">Rafael Benítez</span></div>
         <div class="dir-arrow">│ reporta</div>
-        <div class="gte-box"><strong>Alejandra Ramírez</strong>Gerencia Stellantis</div>
+        <div class="gte-box"><strong>Berenice Pérez</strong>Gerencia Stellantis · jun 2026</div>
       </div>
       <div class="dir-gte-pair">
-        <div class="dir-box">Director Seminuevos</div>
+        <div class="dir-box">Director <em>Comercial</em> Seminuevos<span class="dir-name">Jonathan Medina</span></div>
         <div class="dir-arrow">│ reporta</div>
         <div class="gte-box"><strong>José Reyes López Rivas</strong>Gerencia Seminuevos</div>
       </div>
@@ -886,7 +890,7 @@
 
   <div class="silos-grid">
     <div class="silo-org maduro">
-      <div class="director">Director Mazda<span class="tag">Marca madura</span></div>
+      <div class="director">Director Mazda · <em>a confirmar</em><span class="tag">Marca madura</span></div>
       <ul>
         <li class="gerencia"><span class="lbl">Gerencia de marca</span><span class="val"><strong>Florencia Alcaraz</strong></span></li>
         <li class="cross"><span class="lbl">Equipo interno cross-agencia</span><span class="val"><strong>6 personas</strong> dedicadas a Mazda · cubren 10 agencias</span></li>
@@ -896,7 +900,7 @@
     </div>
 
     <div class="silo-org maduro">
-      <div class="director">Director Hyundai<span class="tag">Marca madura</span></div>
+      <div class="director">Director Hyundai · <em>a confirmar</em><span class="tag">Marca madura</span></div>
       <ul>
         <li class="gerencia"><span class="lbl">Gerencia de marca</span><span class="val"><strong>Verónica Orozco</strong> · jun 2026 (reemplazó a Ana Luisa García)</span></li>
         <li class="cross"><span class="lbl">Equipo interno cross-agencia</span><span class="val"><strong>4 personas</strong> dedicadas a Hyundai · cubren 7 agencias (jun 2026)</span></li>
@@ -906,7 +910,7 @@
     </div>
 
     <div class="silo-org parcial">
-      <div class="director">Director Changan<span class="tag">Marca parcial · MKT no mapeado</span></div>
+      <div class="director">Director Changan · Fernando Mora<span class="tag">Marca parcial · MKT no mapeado</span></div>
       <ul>
         <li class="gerencia"><span class="lbl">Gerencia de marca</span><span class="val"><strong>Mauricio Castro</strong></span></li>
         <li class="cross"><span class="lbl">Equipo interno cross-agencia</span><span class="val"><strong>1 persona</strong> (Mauricio) · cubre 4 agencias</span></li>
@@ -916,7 +920,7 @@
     </div>
 
     <div class="silo-org parcial">
-      <div class="director">Director Ford<span class="tag">Marca parcial · MKT no mapeado</span></div>
+      <div class="director">Director Ford · <em>a confirmar</em><span class="tag">Marca parcial · MKT no mapeado</span></div>
       <ul>
         <li class="gerencia"><span class="lbl">Gerencia de marca</span><span class="val"><strong>Karen Michel Patiño</strong></span></li>
         <li class="cross"><span class="lbl">Equipo interno cross-agencia</span><span class="val"><strong>1 persona</strong> (Karen) · cubre 2 agencias</span></li>
@@ -926,7 +930,7 @@
     </div>
 
     <div class="silo-org anti">
-      <div class="director">Director GWM<span class="tag">Sin equipo de marca · MKT no mapeado</span></div>
+      <div class="director">Director GWM · Fernando Mora<span class="tag">Sin equipo de marca · MKT no mapeado · ⚠ mismo Director que Changan</span></div>
       <ul>
         <li class="gerencia warn"><span class="lbl">Gerencia de marca</span><span class="val"><em>Sin gerente cross-agencia identificado</em></span></li>
         <li class="cross warn"><span class="lbl">Equipo interno cross-agencia</span><span class="val"><strong>0 personas</strong> · no hay cross-ag</span></li>
@@ -936,7 +940,7 @@
     </div>
 
     <div class="silo-org minimo">
-      <div class="director">Director GAC<span class="tag">Marca mínima · ✓ rebate transparente</span></div>
+      <div class="director">Director GAC · Jorge Alberto García<span class="tag">Marca mínima · ✓ rebate transparente</span></div>
       <ul>
         <li class="gerencia"><span class="lbl">Gerencia de marca</span><span class="val"><strong>Elia García</strong></span></li>
         <li class="cross"><span class="lbl">Equipo interno cross-agencia</span><span class="val"><strong>1 persona</strong> (Elia) · cubre 4 agencias</span></li>
@@ -946,9 +950,9 @@
     </div>
 
     <div class="silo-org parcial">
-      <div class="director">Director Stellantis<span class="tag">Marca parcial · MKT no mapeado</span></div>
+      <div class="director">Director Stellantis · Rafael Benítez<span class="tag">Marca parcial · MKT no mapeado</span></div>
       <ul>
-        <li class="gerencia"><span class="lbl">Gerencia de marca</span><span class="val"><strong>Alejandra Ramírez</strong></span></li>
+        <li class="gerencia"><span class="lbl">Gerencia de marca</span><span class="val"><strong>Berenice Pérez</strong></span></li>
         <li class="cross"><span class="lbl">Equipo interno cross-agencia</span><span class="val"><strong>1 persona</strong> (Alejandra) · cubre 2 agencias</span></li>
         <li class="conc warn"><span class="lbl">Equipo interno en concesionarios</span><span class="val"><strong>0 personas</strong> locales</span></li>
         <li class="partners warn"><span class="lbl">Agencias/partners externos</span><span class="val"><strong>2 partners</strong> · Infinito Lab + Nextilo · ⚠ Nextilo duplicado con Hyundai</span></li>
@@ -956,7 +960,7 @@
     </div>
 
     <div class="silo-org cuello">
-      <div class="director">Director Seminuevos<span class="tag">Solo gerente · cuello operativo</span></div>
+      <div class="director">Director Comercial Seminuevos · Jonathan Medina<span class="tag">Solo gerente · cuello operativo</span></div>
       <ul>
         <li class="gerencia"><span class="lbl">Gerencia de marca</span><span class="val"><strong>José Reyes López Rivas</strong></span></li>
         <li class="cross"><span class="lbl">Equipo interno cross-agencia</span><span class="val"><strong>1 persona</strong> (José) · cubre 7 agencias</span></li>
@@ -975,14 +979,14 @@
       <tr><th>Director de Marca · silo</th><th>Gerente de Marca</th><th class="num">Equipo de marca</th><th class="num">Concesionarios</th><th class="num">Total directos</th><th>Indirectos · partners</th></tr>
     </thead>
     <tbody>
-      <tr class="best"><td><strong>Director Mazda</strong></td><td>Florencia Alcaraz</td><td class="num">6 (incl. gerente)</td><td class="num">14</td><td class="num"><strong>20</strong></td><td><em>0 · in-house</em></td></tr>
-      <tr><td><strong>Director Hyundai</strong> · jun 2026</td><td>Verónica Orozco</td><td class="num">4 (incl. gerente)</td><td class="num">6</td><td class="num"><strong>10</strong></td><td>3 (Viceversa, Nextilo, Karbot)</td></tr>
-      <tr class="outlier"><td><strong>Director Changan</strong></td><td>Mauricio Castro</td><td class="num">1 (gerente)</td><td class="num">6</td><td class="num"><strong>7</strong></td><td>1 (Paola Like, 4 ag)</td></tr>
-      <tr><td><strong>Director Ford</strong></td><td>Karen Michel Patiño</td><td class="num">1 (gerente)</td><td class="num">8</td><td class="num"><strong>9</strong></td><td>4 (Dazing+3 · $3.81M concentrado)</td></tr>
-      <tr class="outlier"><td><strong>Director GWM</strong></td><td><em>sin gerente cross-ag</em></td><td class="num"><strong>0</strong></td><td class="num">7</td><td class="num"><strong>7</strong></td><td>3 (Like, Fabula, Paola)</td></tr>
-      <tr class="best"><td><strong>Director GAC</strong></td><td>Elia García</td><td class="num">1 (gerente)</td><td class="num">4</td><td class="num"><strong>5</strong></td><td>4 (Idea, Galleta, S.Oliveira, Kamote)</td></tr>
-      <tr><td><strong>Director Stellantis</strong></td><td>Alejandra Ramírez</td><td class="num">1 (gerente)</td><td class="num">0</td><td class="num"><strong>1</strong></td><td>2 (Infinito Lab + Nextilo · dup.)</td></tr>
-      <tr class="outlier"><td><strong>Director Seminuevos</strong></td><td>José Reyes López Rivas</td><td class="num">1 (gerente)</td><td class="num"><strong>0</strong></td><td class="num"><strong>1</strong></td><td>3 (Maxipublica, Fabula, ML)</td></tr>
+      <tr class="best"><td><strong>Director Mazda</strong> · <em>a confirmar</em></td><td>Florencia Alcaraz</td><td class="num">6 (incl. gerente)</td><td class="num">14</td><td class="num"><strong>20</strong></td><td><em>0 · in-house</em></td></tr>
+      <tr><td><strong>Director Hyundai</strong> · <em>a confirmar</em></td><td>Verónica Orozco (jun 2026)</td><td class="num">4 (incl. gerente)</td><td class="num">6</td><td class="num"><strong>10</strong></td><td>3 (Viceversa, Nextilo, Karbot)</td></tr>
+      <tr class="outlier"><td><strong>Director Changan</strong> · Fernando Mora ⚠ mismo de GWM</td><td>Mauricio Castro</td><td class="num">1 (gerente)</td><td class="num">6</td><td class="num"><strong>7</strong></td><td>1 (Paola Like, 4 ag)</td></tr>
+      <tr><td><strong>Director Ford</strong> · <em>a confirmar</em></td><td>Karen Michel Patiño</td><td class="num">1 (gerente)</td><td class="num">8</td><td class="num"><strong>9</strong></td><td>4 (Dazing+3 · $3.81M concentrado)</td></tr>
+      <tr class="outlier"><td><strong>Director GWM</strong> · Fernando Mora ⚠ mismo de Changan</td><td><em>sin gerente cross-ag</em></td><td class="num"><strong>0</strong></td><td class="num">7</td><td class="num"><strong>7</strong></td><td>3 (Like, Fabula, Paola)</td></tr>
+      <tr class="best"><td><strong>Director GAC</strong> · Jorge Alberto García</td><td>Elia García</td><td class="num">1 (gerente)</td><td class="num">4</td><td class="num"><strong>5</strong></td><td>4 (Idea, Galleta, S.Oliveira, Kamote)</td></tr>
+      <tr><td><strong>Director Stellantis</strong> · Rafael Benítez</td><td>Berenice Pérez (jun 2026)</td><td class="num">1 (gerente)</td><td class="num">0</td><td class="num"><strong>1</strong></td><td>2 (Infinito Lab + Nextilo · dup.)</td></tr>
+      <tr class="outlier"><td><strong>Director Comercial Seminuevos</strong> · Jonathan Medina</td><td>José Reyes López Rivas</td><td class="num">1 (gerente)</td><td class="num"><strong>0</strong></td><td class="num"><strong>1</strong></td><td>3 (Maxipublica, Fabula, ML)</td></tr>
       <tr class="total"><td><strong>TOTAL · 8 silos</strong></td><td>7 gerentes identificados</td><td class="num"><strong>15*</strong></td><td class="num"><strong>45</strong></td><td class="num"><strong>60*</strong></td><td><strong>14 partners únicos</strong></td></tr>
     </tbody>
   </table>
@@ -1399,7 +1403,7 @@
 <!-- ============ CLOSING ============ -->
 <section class="page" style="padding: 0;">
   <div class="closing">
-    <div class="ribbon">Deep Dive · Marketing Economics · v3.12</div>
+    <div class="ribbon">Deep Dive · Marketing Economics · v3.13</div>
     <h2>La fotografía está <em>completa.</em><br>La estrategia <em>comienza.</em></h2>
     <p class="pull">Antes de transformar el marketing del grupo, hay que verlo entero. Este diagnóstico hace visible el 53% del gasto que el levantamiento de Daniel no etiqueta como marketing, muestra dónde está el dinero hoy, identifica las cinco fuentes de ineficiencia, y establece la magnitud de las palancas que la estrategia tendrá que activar.</p>
     <p class="body-text">Lo que sigue no es un plan de recortes ni una propuesta organizacional. Es la construcción de la estrategia que activa las cinco palancas en el orden correcto, con el instrumento correcto — el Centro de Excelencia — y con la atribución unificada como palanca dominante. Este documento se actualiza cuando llegue data 2026, pero los hallazgos cualitativos seguirán vigentes con o sin nuevos números.</p>
