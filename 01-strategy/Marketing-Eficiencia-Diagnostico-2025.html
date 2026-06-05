@@ -2,8 +2,8 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Deep Dive · Marketing Economics × Grupo Plasencia · Baseline 2025 · v2.4</title>
-<meta name="description" content="Diagnóstico estratégico de eficiencia de marketing GP. Baseline 2025 reestructurado. v2.4: corrección honesta — buckets reales (sin tech+strategy inventado) + radiografía marca-concesionario + P/O/E explicado.">
+<title>Deep Dive · Marketing Economics × Grupo Plasencia · Baseline 2025 · v3.0</title>
+<meta name="description" content="Diagnóstico estratégico de eficiencia de marketing GP. Baseline 2025 reestructurado. v3.0: reframe E2E auditor→consejo · concesionario de marca · gaps de mapeo marcados · organigrama formal · hero stats · ausencia estratégica como hallazgo.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@500;700;800;900&display=swap" rel="stylesheet">
@@ -27,7 +27,7 @@
   @page {
     size: A4; margin: 16mm 16mm 20mm 16mm;
     @bottom-right { content: counter(page); font-family: 'Inter'; font-size: 9pt; color: #718096; }
-    @bottom-left { content: "Confidencial · Dirección de Marketing Corporativo · v2.4"; font-family: 'Inter'; font-size: 8pt; color: #A0AEC0; }
+    @bottom-left { content: "Confidencial · Dirección de Marketing Corporativo · v3.0"; font-family: 'Inter'; font-size: 8pt; color: #A0AEC0; }
     @top-right { content: "Deep Dive · Marketing Economics × Grupo Plasencia · Baseline 2025"; font-family: 'Inter'; font-size: 8pt; color: #A0AEC0; }
   }
   @page :first { @top-right { content: ""; } @bottom-right { content: ""; } @bottom-left { content: ""; } }
@@ -297,6 +297,38 @@
   .orgchart-legend .leg-dot.local { background: var(--gp-red); }
   .orgchart-legend .leg-dot.cuello { background: var(--amber); }
 
+  /* HERO STATS POR MARCA */
+  .hero-marcas { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3mm; margin: 4mm 0; page-break-inside: avoid; }
+  .hero-card { background: var(--paper); border: 1px solid var(--g300); border-top: 4px solid var(--gp-navy); padding: 4mm; }
+  .hero-card.outlier { border-top-color: var(--gp-red); }
+  .hero-card .hc-marca { font-family: var(--serif); font-weight: 800; font-size: 16pt; color: var(--gp-navy); letter-spacing: -0.5px; line-height: 1; margin-bottom: 1mm; }
+  .hero-card .hc-tag { font-size: 7pt; font-weight: 700; color: var(--g500); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 3mm; padding-bottom: 2mm; border-bottom: 1px dotted var(--g300); }
+  .hero-card.outlier .hc-tag { color: var(--gp-red); }
+  .hero-card .hc-row { display: flex; justify-content: space-between; padding: 1.5mm 0; font-size: 8pt; border-bottom: 1px dotted var(--g200); }
+  .hero-card .hc-row:last-child { border-bottom: none; }
+  .hero-card .hc-row .lbl { color: var(--g600); }
+  .hero-card .hc-row .val { color: var(--gp-navy); font-weight: 700; font-family: var(--mono); font-size: 8.5pt; }
+  .hero-card .hc-row.highlight { background: var(--g100); padding: 2mm 2mm; margin: 1mm -2mm 0; }
+  .hero-card .hc-row.highlight .lbl { font-weight: 700; color: var(--gp-navy); }
+  .hero-card .hc-row.highlight .val { color: var(--gp-red); font-size: 11pt; font-family: var(--serif); }
+
+  /* ORGANIGRAMA REAL */
+  .orgreal { margin: 5mm 0; font-family: var(--sans); font-size: 8pt; page-break-inside: avoid; }
+  .orgreal .lvl { display: flex; justify-content: center; gap: 3mm; flex-wrap: wrap; margin: 2mm 0; }
+  .orgreal .node { background: var(--paper); border: 1px solid var(--g400); padding: 2.5mm 4mm; text-align: center; min-width: 28mm; border-radius: 1px; }
+  .orgreal .node.consejo { background: var(--gp-navy); color: var(--near-white); border-color: var(--gold); border-width: 2px; }
+  .orgreal .node.director { background: var(--gp-red); color: var(--near-white); border-color: var(--gp-red); }
+  .orgreal .node.dirmarca { background: var(--g200); color: var(--g700); border-style: dashed; font-style: italic; }
+  .orgreal .node.gerente { background: rgba(72,187,120,0.1); border-color: var(--deep-green); }
+  .orgreal .node.equipo { background: rgba(66,153,225,0.08); border-color: var(--blue); }
+  .orgreal .node.conc { background: var(--paper); border-color: var(--g500); }
+  .orgreal .node.partner { background: rgba(214,158,46,0.08); border-color: var(--amber); border-style: dashed; }
+  .orgreal .node .role { font-weight: 800; font-size: 8pt; letter-spacing: 0.5px; text-transform: uppercase; line-height: 1.2; }
+  .orgreal .node .name { display: block; font-size: 7.5pt; font-weight: 500; margin-top: 0.5mm; opacity: 0.9; text-transform: none; letter-spacing: 0; font-style: normal; }
+  .orgreal .lvl-label { font-size: 7pt; color: var(--g500); font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; text-align: center; margin: 2mm 0 1mm; }
+  .orgreal .connect { text-align: center; color: var(--g400); font-size: 9pt; line-height: 0.8; }
+  .orgreal .lateral-note { font-size: 7pt; color: var(--g500); font-style: italic; text-align: center; margin-top: 2mm; }
+
   @media print { body { background: white; } .page { box-shadow: none; margin: 0; padding: 16mm; } .cover { padding: 0; } }
 </style>
 </head>
@@ -306,24 +338,24 @@
 <section class="page cover">
   <div class="cover-inner">
     <div>
-      <div class="cover-mark">Grupo Plasencia<span>Dirección de Marketing Corporativo · Junio 2026</span></div>
-      <p class="cover-eyebrow">Deep Dive · Diagnóstico Estratégico</p>
+      <div class="cover-mark">Grupo Plasencia<span>Auditoría inicial de la Dirección de Marketing · Junio 2026</span></div>
+      <p class="cover-eyebrow">Deep Dive · Diagnóstico AS IS</p>
       <h1 class="cover-title">Marketing <em>Economics.</em></h1>
-      <p class="cover-subtitle">Baseline 2025. La fotografía del gasto, la lectura de las distorsiones, la respuesta estratégica.</p>
+      <p class="cover-subtitle">Baseline 2025. Fotografía del gasto, radiografía estructural concesionario de marca, hallazgos de auditoría.</p>
       <p class="cover-pull">
-        Este documento es diagnóstico, no estrategia. Reestructura el trabajo previo de Daniel Galindo (Ago–Nov 2025) en un marco analítico riguroso siguiendo disciplina Minto + SCR + Answer-First. La estrategia se construirá sobre esta base y se actualizará cuando llegue data 2026.
-        <cite>v2.4 · 7 secciones · gasto + estructura marca-concesionario</cite>
+        Documento de auditoría inicial del Director MKT (Jesús Pérez Porras, en función desde marzo 2026). Reestructura el trabajo previo de Daniel Galindo (Ago–Nov 2025) en un marco analítico riguroso siguiendo disciplina Minto + SCR + Answer-First. <strong>No es propuesta de estrategia ni decisiones tomadas</strong> — es la base AS IS sobre la que se construirán las conversaciones de estrategia con el Consejo.
+        <cite>v3.0 · 7 secciones · auditoría AS IS concesionario de marca</cite>
       </p>
       <div class="cover-tags">
-        <span class="cover-tag">Diagnóstico Estratégico</span>
+        <span class="cover-tag">Auditoría AS IS</span>
         <span class="cover-tag accent">Baseline 2025</span>
-        <span class="cover-tag urgent">v2.4 · Marca-concesionario</span>
+        <span class="cover-tag urgent">v3.0 · Concesionario de marca</span>
       </div>
     </div>
     <div>
       <div class="cover-meta">
-        <div class="cover-meta-block"><strong>Audiencia</strong>Director MKT Corporativo · Insumo para construcción de estrategia</div>
-        <div class="cover-meta-block" style="text-align:right;"><strong>Junio 2026 · v2.4</strong>18 páginas · Paper A4</div>
+        <div class="cover-meta-block"><strong>Autor · Función</strong>Director MKT (función nueva mar 2026) en auditoría, estructuración, visioning</div>
+        <div class="cover-meta-block" style="text-align:right;"><strong>Junio 2026 · v3.0</strong>19 páginas · Paper A4</div>
       </div>
     </div>
   </div>
@@ -334,25 +366,25 @@
   <h1 class="section-title"><span class="num">Contenido y respuesta primero</span>El diagnóstico, en una página.</h1>
 
   <div class="toc">
-    <div class="toc-item"><span class="toc-num">§1</span><span class="toc-title">Answer-First<span class="toc-sub">La tesis del diagnóstico</span></span><span class="toc-page">02</span></div>
-    <div class="toc-item"><span class="toc-num">§2</span><span class="toc-title">Situación · El estado actual<span class="toc-sub">Grupo + contexto + fotografía del gasto (§2.3 · 6 vistas) + radiografía organizacional AS IS (§2.4)</span></span><span class="toc-page">03</span></div>
-    <div class="toc-item"><span class="toc-num">§3</span><span class="toc-title">Complicación · Lo que la fotografía revela<span class="toc-sub">4 distorsiones que la contabilidad actual oculta</span></span><span class="toc-page">11</span></div>
-    <div class="toc-item"><span class="toc-num">§4</span><span class="toc-title">Resolución · Taxonomía + 5 palancas + hipótesis<span class="toc-sub">5 buckets reales + 4 dimensiones + 5 fuentes + 5 hipótesis</span></span><span class="toc-page">12</span></div>
-    <div class="toc-item"><span class="toc-num">§5</span><span class="toc-title">Caso financiero · Magnitud del diagnóstico<span class="toc-sub">3 escenarios + ROI vs inversión CdE</span></span><span class="toc-page">14</span></div>
-    <div class="toc-item"><span class="toc-num">§6</span><span class="toc-title">Decisiones para pasar a estrategia<span class="toc-sub">4 inputs internos antes de la fase siguiente</span></span><span class="toc-page">15</span></div>
+    <div class="toc-item"><span class="toc-num">§1</span><span class="toc-title">Answer-First<span class="toc-sub">Hallazgos clave de la auditoría inicial</span></span><span class="toc-page">02</span></div>
+    <div class="toc-item"><span class="toc-num">§2</span><span class="toc-title">Situación · El estado actual<span class="toc-sub">Grupo + contexto + fotografía del gasto (§2.3) + radiografía estructural concesionario de marca (§2.4)</span></span><span class="toc-page">03</span></div>
+    <div class="toc-item"><span class="toc-num">§3</span><span class="toc-title">Complicación · Lo que la auditoría revela<span class="toc-sub">5 hallazgos que la contabilidad actual oculta</span></span><span class="toc-page">11</span></div>
+    <div class="toc-item"><span class="toc-num">§4</span><span class="toc-title">Resolución · Marco propuesto + hipótesis de trabajo<span class="toc-sub">5 buckets reales + 4 dimensiones + 5 fuentes + 5 hipótesis (a discutir, no decididas)</span></span><span class="toc-page">12</span></div>
+    <div class="toc-item"><span class="toc-num">§5</span><span class="toc-title">Magnitud del diagnóstico<span class="toc-sub">3 escenarios de oportunidad cuantificada</span></span><span class="toc-page">14</span></div>
+    <div class="toc-item"><span class="toc-num">§6</span><span class="toc-title">Pendientes que el diagnóstico deja abiertos<span class="toc-sub">4 inputs que el Director MKT necesita resolver antes de proponer al Consejo</span></span><span class="toc-page">15</span></div>
     <div class="toc-item"><span class="toc-num">§7</span><span class="toc-title">Anexos<span class="toc-sub">Marcas priorizadas, fuentes, limitaciones</span></span><span class="toc-page">16</span></div>
   </div>
 
   <div class="statement">
-    <span class="label">§1 · Answer-First</span>
+    <span class="label">§1 · Hallazgos de la auditoría inicial</span>
     <p class="text">
-      Grupo Plasencia gasta <strong>~$58.3 MDP/año documentado</strong> en marketing (0.46% del revenue $12,813 MDP); con proxies para marcas sin desglose: ~$74 MDP/año (0.58%). <strong>Mazda y Hyundai concentran el 54%</strong>; GAC es proporcionalmente la más cara (<strong>1.69% de su revenue</strong>, 3.7× más intenso que Mazda). <strong>Solo el 48% del gasto es visible</strong> en los tres centros contables actuales — el otro 52% vive en plantilla (37%) y fees de agencia (18%). CACs entre <strong>$1,326 (Mazda) y $4,469 (GAC)</strong>; cross-agencia, dispersión de <strong>21.6×</strong>. El diagnóstico identifica 4 palancas de eficiencia (~$19.5M/año) y 1 palanca de performance (+$661M/año por +1pp conversión). ROI 4× eficiencia · 130× con conversión sobre inversión CdE $5M.
+      <strong>Lo que la auditoría AS IS encontró con la data que Daniel Galindo dejó mapeada:</strong> de las 8 marcas de GP, solo <strong>3 (Mazda, Hyundai, GAC) tienen MKT digital/análogo/on-site mapeado</strong>; 5 (Ford, Stellantis, Changan, GWM, Isuzu) tienen únicamente plantilla y ventas. Sobre lo mapeado: <strong>$41.6 MDP/año</strong> en MKT total (≈0.50% del revenue de esas marcas, $8.3 MMM). <strong>Mazda + Hyundai concentran 77%</strong> del mapeado; GAC es la más intensa (<strong>1.69% de su revenue</strong>, 3.7× más que Mazda). <strong>Plantilla MKT del grupo $21.4M/año (61 personas)</strong> es la única línea mapeada para las 8 marcas. CACs en marcas mapeadas: <strong>$1,326 (Mazda) a $4,469 (GAC)</strong>; cross-agencia, dispersión de <strong>21.6×</strong>. Estructuralmente, GP opera como <strong>8 operaciones concesionarias de marca</strong> independientes; el nivel corporativo de MKT del grupo es función nueva (Director MKT mar 2026) sin equipo. <strong>Verificación cualitativa del Director MKT:</strong> no se identifican esfuerzos en strategy, customer experience, service design, brand strategy ni research — todo el gasto y plantilla son tácticos-operativos.
     </p>
     <div class="footer-stats">
-      <div class="fs-item"><div class="v">$58.3M</div><div class="l">Mkt documentado /año</div></div>
-      <div class="fs-item"><div class="v">53%</div><div class="l">Sin casilla contable</div></div>
-      <div class="fs-item"><div class="v">$19.5M</div><div class="l">Palanca eficiencia /año</div></div>
-      <div class="fs-item"><div class="v">+$661M</div><div class="l">+1pp conversión /año</div></div>
+      <div class="fs-item"><div class="v">$41.6M</div><div class="l">MKT mapeado · 3 marcas + Seminuevos</div></div>
+      <div class="fs-item"><div class="v">5</div><div class="l">Marcas con gaps de mapeo</div></div>
+      <div class="fs-item"><div class="v">21.6×</div><div class="l">Dispersión CAC cross-agencia</div></div>
+      <div class="fs-item"><div class="v">8</div><div class="l">Concesionarios de marca sin coordinación</div></div>
     </div>
   </div>
 </section>
@@ -383,7 +415,7 @@
   </table>
 
   <h4 class="subsection-h4">2.2 · El contexto interno</h4>
-  <p>La <strong>Dirección de Marketing Corporativo</strong> se establece formalmente con el ingreso del Director MKT en marzo 2026, después de un intento previo de consultoría externa (Daniel Galindo, sept 2025 – ene 2026) que completó 4 de 15 proyectos, todos administrativos. Estructura actual: <strong>61 personas distribuidas en 8 silos por marca</strong>, sin función corporativa cross-marca consolidada. El <strong>Motor de Atribución MVP</strong> está en operación desde abril 2026 en 3 marcas piloto y demuestra captación con CPA $69–218 vs CAC histórico $1,206. El <strong>Centro de Excelencia MKT Corporativo AI-powered</strong> está propuesto al Consejo Directivo como infraestructura permanente.</p>
+  <p>La <strong>Dirección de Marketing Corporativo del grupo</strong> es función nueva: el Director MKT ingresó en marzo 2026 después de un intento previo de consultoría externa (Daniel Galindo, sept 2025 – ene 2026) que completó 4 de 15 proyectos, todos administrativos. <strong>Hoy el rol está en función inicial de auditoría, estructuración y visioning</strong> — sin equipo cross-marca ni decisiones tomadas. Estructura operativa actual: <strong>61 personas distribuidas en 8 operaciones concesionarias de marca</strong>, cada una con su propio stack BaU. En paralelo, el <strong>Motor de Atribución MVP</strong> opera desde abril 2026 en 3 marcas piloto y demuestra captación con CPA $69–218 vs CAC histórico $1,206. El <strong>Centro de Excelencia MKT AI-powered</strong> se ha presentado como una hipótesis de trabajo al Consejo Directivo; no está aprobado como decisión.</p>
 </section>
 
 <!-- ============ PAGE 4: §2.3.1 + §2.3.2 ============ -->
@@ -399,19 +431,20 @@
   <h4 class="subsection-h4">2.3.1 · Total del grupo y composición</h4>
 
   <div class="stat-strip">
-    <div class="s"><div class="big">$58.3M</div><div class="lbl">Marketing documentado /año</div></div>
-    <div class="s accent"><div class="big">0.46%</div><div class="lbl">Del revenue $12,813 MDP</div></div>
-    <div class="s invisible"><div class="big">52%</div><div class="lbl">Sin casilla contable hoy</div></div>
-    <div class="s gold"><div class="big">~$74M</div><div class="lbl">Estimado con proxies marcas faltantes</div></div>
+    <div class="s"><div class="big">$41.6M</div><div class="lbl">MKT mapeado · 3 marcas + Seminuevos</div></div>
+    <div class="s accent"><div class="big">0.50%</div><div class="lbl">Sobre revenue de esas marcas</div></div>
+    <div class="s invisible"><div class="big">5</div><div class="lbl">Marcas con gaps · no se mapeó MKT digital</div></div>
+    <div class="s gold"><div class="big">$21.4M</div><div class="lbl">Plantilla MKT del grupo · 61 personas (única línea mapeada en 8 marcas)</div></div>
   </div>
 
   <div class="distrib">
-    <div class="distrib-row"><div class="label-d"><strong>Plantilla MKT</strong> · 61 personas en 8 silos</div><div class="bar-wrap"><div class="bar b-plantilla" style="width:36.6%"></div></div><div class="value-d">$21.35M<span>36.6%</span></div></div>
-    <div class="distrib-row"><div class="label-d"><strong>Digital · Pauta</strong> · 4 marcas con data confirmada</div><div class="bar-wrap"><div class="bar b-digital" style="width:22.8%"></div></div><div class="value-d">$13.27M<span>22.8%</span></div></div>
-    <div class="distrib-row"><div class="label-d"><strong>Servicios externos · Fees</strong> · 14 proveedores activos</div><div class="bar-wrap"><div class="bar b-servicios" style="width:18.1%"></div></div><div class="value-d">$10.56M<span>18.1%</span></div></div>
-    <div class="distrib-row"><div class="label-d"><strong>On-site · Activaciones + POP</strong> · 3 marcas + POP grupo</div><div class="bar-wrap"><div class="bar b-onsite" style="width:14.4%"></div></div><div class="value-d">$8.42M<span>14.4%</span></div></div>
-    <div class="distrib-row"><div class="label-d"><strong>Análogo · ATL/BTL</strong> · OOH + radio + otros tradicional</div><div class="bar-wrap"><div class="bar b-analogo" style="width:10.8%"></div></div><div class="value-d">$6.27M<span>10.8%</span></div></div>
-    <div class="distrib-row total"><div class="label-d"><strong>TOTAL DOCUMENTADO</strong></div><div class="bar-wrap" style="background:transparent;"></div><div class="value-d" style="color:var(--gp-red);">$58.32M<span>100% · 0.46% rev</span></div></div>
+    <div class="distrib-row"><div class="label-d"><strong>Plantilla MKT</strong> · 61 personas · única línea mapeada en 8 marcas</div><div class="bar-wrap"><div class="bar b-plantilla" style="width:51.3%"></div></div><div class="value-d">$21.35M<span>51.3%</span></div></div>
+    <div class="distrib-row"><div class="label-d"><strong>Digital · Pauta</strong> · solo Mazda+Hyundai+GAC mapeadas</div><div class="bar-wrap"><div class="bar b-digital" style="width:28.2%"></div></div><div class="value-d">$11.73M<span>28.2%</span></div></div>
+    <div class="distrib-row"><div class="label-d"><strong>On-site · Activaciones + POP</strong> · solo Mazda+Hyundai+GAC</div><div class="bar-wrap"><div class="bar b-onsite" style="width:18.0%"></div></div><div class="value-d">$7.48M<span>18.0%</span></div></div>
+    <div class="distrib-row"><div class="label-d"><strong>Análogo · ATL/BTL</strong> · solo Mazda+Hyundai+GAC</div><div class="bar-wrap"><div class="bar b-analogo" style="width:15.0%"></div></div><div class="value-d">$6.26M<span>15.0%</span></div></div>
+    <div class="distrib-row"><div class="label-d"><strong>Servicios externos · Fees</strong> · solo proveedores de marcas mapeadas</div><div class="bar-wrap"><div class="bar b-servicios" style="width:10.4%"></div></div><div class="value-d">$4.34M<span>10.4%</span></div></div>
+    <div class="distrib-row total"><div class="label-d"><strong>TOTAL MAPEADO · 3 marcas con MKT completo + plantilla 8 marcas</strong></div><div class="bar-wrap" style="background:transparent;"></div><div class="value-d" style="color:var(--gp-red);">$41.62M<span>100% mapeado</span></div></div>
+    <div class="distrib-row" style="background: var(--g100); padding: 3mm 4mm;"><div class="label-d" style="color:var(--g600); font-style:italic;"><strong>NO MAPEADO ⚠</strong> · Ford · Stellantis · Changan · GWM · Isuzu</div><div class="bar-wrap" style="background:transparent;"></div><div class="value-d" style="color:var(--g500);">— sin data MKT digital/análogo/on-site</div></div>
   </div>
 
   <h4 class="subsection-h4">2.3.2 · Por marca · cuánto, en qué, qué % de su revenue</h4>
@@ -421,15 +454,12 @@
       <tr><th>Marca</th><th class="num">Digital</th><th class="num">Análogo</th><th class="num">On-site</th><th class="num">Plantilla</th><th class="num">Servicios</th><th class="num">TOTAL</th><th class="num">% Rev</th><th class="num">$/uds</th></tr>
     </thead>
     <tbody>
-      <tr><td><strong>Mazda</strong></td><td class="num">$4.41M</td><td class="num">$2.55M</td><td class="num">$4.72M</td><td class="num">$5.71M</td><td class="num">$0.00M</td><td class="num"><strong>$17.40M</strong></td><td class="num">0.31%</td><td class="num">$1,232</td></tr>
-      <tr><td><strong>Hyundai</strong></td><td class="num">$5.63M</td><td class="num">$3.12M</td><td class="num">$0.95M</td><td class="num">$3.99M</td><td class="num">$1.11M</td><td class="num"><strong>$14.80M</strong></td><td class="num">0.83%</td><td class="num">$3,093</td></tr>
-      <tr class="outlier"><td><strong>GAC</strong></td><td class="num">$1.69M</td><td class="num">$0.59M</td><td class="num">$1.81M</td><td class="num">$1.60M</td><td class="num">$1.24M</td><td class="num"><strong>$6.93M</strong></td><td class="num"><strong>1.69% ⚠</strong></td><td class="num"><strong>$7,743 ⚠</strong></td></tr>
-      <tr><td>Ford</td><td class="num">$0.00M</td><td class="num">$0.00M</td><td class="num">$0.00M</td><td class="num">$3.04M</td><td class="num">$3.81M</td><td class="num"><strong>$6.85M</strong></td><td class="num">0.37%</td><td class="num">$3,065</td></tr>
-      <tr><td>Changan</td><td class="num">$0.00M</td><td class="num">$0.00M</td><td class="num">$0.00M</td><td class="num">$3.41M</td><td class="num">$1.58M</td><td class="num"><strong>$4.99M</strong></td><td class="num">1.01%</td><td class="num">$3,750</td></tr>
-      <tr><td>GWM</td><td class="num">$1.54M</td><td class="num">$0.00M</td><td class="num">$0.00M</td><td class="num">$2.72M</td><td class="num">$0.00M</td><td class="num"><strong>$4.25M</strong></td><td class="num">0.97%</td><td class="num">$4,648</td></tr>
-      <tr><td>Seminuevos</td><td class="num">$0.00M</td><td class="num">$0.00M</td><td class="num">$0.00M</td><td class="num">$0.51M</td><td class="num">$1.99M</td><td class="num"><strong>$2.50M</strong></td><td class="num">n/a</td><td class="num">$699</td></tr>
-      <tr><td>Stellantis</td><td class="num">$0.00M</td><td class="num">$0.00M</td><td class="num">$0.00M</td><td class="num">$0.38M</td><td class="num">$0.81M</td><td class="num"><strong>$1.20M</strong></td><td class="num">0.22%</td><td class="num">$1,055</td></tr>
-      <tr class="total"><td><strong>TOTAL</strong></td><td class="num"><strong>$13.27M</strong></td><td class="num"><strong>$6.27M</strong></td><td class="num"><strong>$7.48M</strong></td><td class="num"><strong>$21.35M</strong></td><td class="num"><strong>$10.56M</strong></td><td class="num"><strong>$58.92M</strong></td><td class="num"><strong>0.46%</strong></td><td class="num"><strong>$1,991</strong></td></tr>
+      <tr class="best"><td><strong>Mazda</strong> ✓</td><td class="num">$4.41M</td><td class="num">$2.55M</td><td class="num">$4.72M</td><td class="num">$5.71M</td><td class="num">$0.00M</td><td class="num"><strong>$17.40M</strong></td><td class="num">0.31%</td><td class="num">$1,232</td></tr>
+      <tr class="best"><td><strong>Hyundai</strong> ✓</td><td class="num">$5.63M</td><td class="num">$3.12M</td><td class="num">$0.95M</td><td class="num">$3.99M</td><td class="num">$1.11M</td><td class="num"><strong>$14.80M</strong></td><td class="num">0.83%</td><td class="num">$3,093</td></tr>
+      <tr class="outlier"><td><strong>GAC</strong> ✓</td><td class="num">$1.69M</td><td class="num">$0.59M</td><td class="num">$1.81M</td><td class="num">$1.60M</td><td class="num">$1.24M</td><td class="num"><strong>$6.93M</strong></td><td class="num"><strong>1.69% ⚠</strong></td><td class="num"><strong>$7,743 ⚠</strong></td></tr>
+      <tr><td>Seminuevos (solo plantilla+servicios)</td><td colspan="3" class="num" style="color:var(--g500);"><em>no se mapeó MKT digital/análogo/on-site</em></td><td class="num">$0.51M</td><td class="num">$1.99M</td><td class="num">$2.50M*</td><td class="num">n/a</td><td class="num">$699*</td></tr>
+      <tr><td colspan="9" style="background:var(--g100); font-size:8.5pt; color:var(--g600); padding:2.5mm 4mm;"><strong>Marcas sin MKT digital/análogo/on-site mapeado por Daniel Galindo (excluidas del análisis cuantitativo):</strong> Ford · Stellantis · Changan · GWM · Isuzu. Solo se cuenta con plantilla y ventas anuales. No se incluyen en totales para evitar comparativos engañosos.</td></tr>
+      <tr class="total"><td><strong>TOTAL · solo marcas con MKT mapeado</strong></td><td class="num"><strong>$11.73M</strong></td><td class="num"><strong>$6.26M</strong></td><td class="num"><strong>$7.48M</strong></td><td class="num"><strong>$11.81M</strong></td><td class="num"><strong>$4.34M</strong></td><td class="num"><strong>$41.62M</strong></td><td class="num">leer por marca</td><td class="num">leer por marca</td></tr>
     </tbody>
   </table>
 </section>
@@ -523,7 +553,7 @@
 <!-- ============ PAGE 7: §2.3.5 PLANTILLA EN DETALLE ============ -->
 <section class="page">
   <h4 class="subsection-h4" style="margin-top:0;">2.3.5 · Plantilla en detalle · drill-down de la mayor línea ($21.35M · 36.6%)</h4>
-  <p class="lead">La plantilla MKT es <strong>la línea más grande del gasto</strong>. La fuente nominal registra <strong>61 personas únicas en 8 silos marca-concesionario</strong>. El hallazgo más importante <strong>no es el conteo — es la estructura BaU</strong>: dos marcas (Mazda y Hyundai) ya operan un modelo Hub &amp; Spoke <em>dentro de su silo marca-concesionario</em> (equipo de marca cross-agencia + personas en concesionarios). El resto opera solo con personas en concesionarios o con un solo gerente.</p>
+  <p class="lead">La plantilla MKT es <strong>la línea más grande del gasto</strong>. La fuente nominal registra <strong>61 personas únicas en 8 silos marca-concesionario</strong>. El hallazgo más importante <strong>no es el conteo — es la estructura BaU</strong>: dos marcas (Mazda y Hyundai) ya operan un modelo Hub &amp; Spoke <em>dentro de su silo marca-concesionario</em> con los <strong>3 niveles completos: equipo de marca cross-agencia + personas en concesionarios + agencias/partners externos</strong>. El resto opera con stack incompleto.</p>
 
   <h3 class="section-h3">Cuatro patrones organizacionales marca-concesionario identificados</h3>
   <table class="data">
@@ -544,7 +574,7 @@
     </thead>
     <tbody>
       <tr class="best"><td><strong>Mazda</strong></td><td class="num">20</td><td class="num">6</td><td class="num">14</td><td class="num">10</td><td class="num">$475,745</td><td class="num"><strong>$23,787</strong></td><td>Florencia Alejandra Alcaraz (clave 251082, en 10 ag)</td></tr>
-      <tr><td><strong>Hyundai</strong></td><td class="num">11</td><td class="num">5</td><td class="num">6</td><td class="num">7</td><td class="num">$332,096</td><td class="num">$30,191</td><td>Ana Luisa García Ortiz (clave 240800, en 7 ag)</td></tr>
+      <tr><td><strong>Hyundai</strong></td><td class="num">11</td><td class="num">5</td><td class="num">6</td><td class="num">7</td><td class="num">$332,096</td><td class="num">$30,191</td><td>Verónica Orozco (gerente actual jun 2026 · reemplazó a Ana Luisa García)</td></tr>
       <tr class="outlier"><td>Changan</td><td class="num">7</td><td class="num">1</td><td class="num">6</td><td class="num">4</td><td class="num">$283,840</td><td class="num"><strong>$40,549 ⚠</strong></td><td>Mauricio Castro Ortega (Bugambilias local)</td></tr>
       <tr><td>Ford</td><td class="num">9</td><td class="num">1</td><td class="num">8</td><td class="num">6</td><td class="num">$253,324</td><td class="num">$28,147</td><td>Karen Michel Patiño (clave 251064, en 2 ag)</td></tr>
       <tr class="outlier"><td>GWM</td><td class="num">7</td><td class="num"><strong>0</strong></td><td class="num">7</td><td class="num">4</td><td class="num">$226,542</td><td class="num">$32,363</td><td>Sin responsable cross-agencia</td></tr>
@@ -555,12 +585,12 @@
     </tbody>
   </table>
 
-  <p class="small" style="margin-top: 3mm;"><strong>Equipos de marca cross-agencia identificados.</strong> Mazda (6 personas cubriendo las 10 agencias): José Carlos Hernández Rojas · Ana Gloria Islas Ramos · Florencia Alejandra Alcaraz · José Ángel Morales Gudiño · Mariel Sosa Olvera · Gerardo González Cabrera. Hyundai (4 personas cubriendo las 7 agencias): Ana Luisa García Ortiz · Octavio Marín · Nancy Rubio Ayala · Christopher Gallegos. Estas personas viven dentro del silo marca-concesionario (no son nivel corporativo del grupo).</p>
+  <p class="small" style="margin-top: 3mm;"><strong>Equipos de marca cross-agencia identificados (jun 2026).</strong> Mazda (6 personas cubriendo las 10 agencias): José Carlos Hernández Rojas · Ana Gloria Islas Ramos · Florencia Alejandra Alcaraz · José Ángel Morales Gudiño · Mariel Sosa Olvera · Gerardo González Cabrera. Hyundai (4 personas cubriendo las 7 agencias): <strong>Verónica Orozco (gerente)</strong> · Octavio Marín · Nancy Rubio Ayala · Christopher Gallegos. <em>Nota:</em> plantilla.json refleja snapshot dic 2025 con 5 personas; verificación jun 2026 confirma 4 tras cambio de gerencia (Verónica Orozco entró, Ana Luisa García salió). Estas personas viven dentro del silo concesionario de marca (no son nivel corporativo del grupo).</p>
 
   <div class="killer" style="margin-top: 5mm;">
-    <span class="label">Hallazgo crítico · el modelo Hub &amp; Spoke ya existe a nivel marca</span>
-    <h3>Mazda y Hyundai ya operan Hub &amp; Spoke <em>dentro de su silo marca-concesionario</em>. El CdE replica ese patrón al nivel grupo.</h3>
-    <p>No es modelo teórico ni replicado de afuera — es <strong>evidencia empírica del propio grupo</strong>. Mazda absorbe 10 agencias con 6 personas equipo marca + 14 en concesionarios y logra el costo/persona más eficiente ($23,787). Hyundai hace lo mismo con 4 marca + 7 concesionarios. GWM (sin equipo de marca cross-agencia) y Seminuevos (sin gente en concesionarios) son los anti-modelos.</p>
+    <span class="label">Hallazgo crítico · el stack triple ya existe a nivel marca</span>
+    <h3>Mazda y Hyundai ya operan el stack triple completo (equipo de marca + concesionarios + agencias/partners) <em>dentro de su silo marca-concesionario</em>.</h3>
+    <p>No es modelo teórico — es <strong>evidencia empírica del propio grupo</strong>. <strong>Mazda</strong>: 6 equipo de marca + 14 en concesionarios + IN-HOUSE (sin partners externos), cubriendo 10 agencias con el costo/persona más eficiente ($23,787). <strong>Hyundai</strong>: 5 equipo de marca + 6 en concesionarios + 3 agencias externas (Viceversa, Nextilo, Karbot), cubriendo 7 agencias. Ambas tienen los <strong>3 niveles operando</strong>. GWM (sin equipo de marca) y Seminuevos (sin gente en concesionarios) son los anti-modelos: operan stack incompleto.</p>
   </div>
 </section>
 
@@ -620,13 +650,13 @@
 
 <!-- ============ PAGE 9-10: §2.4 RADIOGRAFIA AS IS ============ -->
 <section class="page">
-  <h2 class="section-h2" style="margin-top:0;">2.4 · Radiografía estructural · marca-concesionario hoy</h2>
-  <p class="lead">§2.3 muestra el gasto. <strong>§2.4 muestra cómo está estructurado el equipo que lo decide.</strong> La operación BaU es <strong>marca-concesionario</strong>: cada marca opera como mini-grupo con tres niveles propios (equipo de marca cross-agencia + equipo por concesionario + agencias/partners externos). El nivel CORPORATIVO del grupo —que coordinaría cross-marca— está vacío.</p>
+  <h2 class="section-h2" style="margin-top:0;">2.4 · Radiografía estructural · operación concesionaria de marca AS IS</h2>
+  <p class="lead">§2.3 muestra el gasto. <strong>§2.4 muestra cómo está estructurado el equipo que lo decide.</strong> La operación BaU de GP es <strong>concesionaria de marca</strong>: cada marca opera como mini-grupo independiente, bajo su propio contrato OEM-concesionario, con tres niveles propios dentro del silo (equipo de marca cross-agencia + equipo por concesionario + agencias/partners externos). El nivel corporativo de MKT del grupo es función nueva (Director MKT, mar 2026) en auditoría — sin equipo, sin decisiones operando todavía.</p>
 
   <div class="orgchart">
     <div class="orgchart-director">
       <div class="role">Dirección de Marketing Corporativo · Nivel Grupo</div>
-      <div class="person">Chucho Porras · Director MKT · Marzo 2026</div>
+      <div class="person">Jesús Pérez Porras · Director MKT · Marzo 2026</div>
       <div class="note">⚠ Único nivel corporativo del grupo · función NUEVA · <strong>0 reportes directos · sin equipo cross-marca</strong></div>
     </div>
 
@@ -649,15 +679,15 @@
         <div class="silo-line"><strong>11</strong> personas · <strong>7</strong> concesionarios</div>
         <div class="silo-line"><strong>$332K/mes</strong> · $30.2K/persona</div>
         <div class="silo-line">5 marca + 6 conc.</div>
-        <div class="silo-block"><div class="label">Gerente marca</div><div class="val">Ana Luisa García</div></div>
+        <div class="silo-block"><div class="label">Gerente marca</div><div class="val">Verónica Orozco</div></div>
         <div class="silo-block"><div class="label">Agencias/partners</div><div class="val">Viceversa + Nextilo + Karbot</div></div>
       </div>
 
       <div class="silo hub-parcial">
         <div class="silo-marca">Changan</div>
-        <div class="silo-tipo">Marca parcial</div>
+        <div class="silo-tipo">Marca parcial · MKT no mapeado</div>
         <div class="silo-line"><strong>7</strong> personas · <strong>4</strong> concesionarios</div>
-        <div class="silo-line"><strong>$284K/mes</strong> · <strong style="color:var(--gp-red);">$40.5K/p ⚠</strong></div>
+        <div class="silo-line"><strong>$284K/mes</strong> plantilla · $40.5K/p</div>
         <div class="silo-line">1 marca + 6 conc.</div>
         <div class="silo-block"><div class="label">Gerente marca</div><div class="val">Mauricio Castro</div></div>
         <div class="silo-block"><div class="label">Agencias/partners</div><div class="val">Paola Like (4 ag)</div></div>
@@ -665,9 +695,9 @@
 
       <div class="silo hub-parcial">
         <div class="silo-marca">Ford</div>
-        <div class="silo-tipo">Marca parcial</div>
+        <div class="silo-tipo">Marca parcial · MKT no mapeado</div>
         <div class="silo-line"><strong>9</strong> personas · <strong>6</strong> concesionarios</div>
-        <div class="silo-line"><strong>$253K/mes</strong> · $28.1K/persona</div>
+        <div class="silo-line"><strong>$253K/mes</strong> plantilla · $28.1K/p</div>
         <div class="silo-line">1 marca + 8 conc.</div>
         <div class="silo-block"><div class="label">Gerente marca</div><div class="val">Karen Michel Patiño</div></div>
         <div class="silo-block"><div class="label">Agencias/partners</div><div class="val warn">Dazing+3 · $3.81M/año ⚠</div></div>
@@ -675,9 +705,9 @@
 
       <div class="silo local">
         <div class="silo-marca">GWM</div>
-        <div class="silo-tipo">⚠ Sin equipo de marca</div>
+        <div class="silo-tipo">Sin equipo marca · MKT no mapeado</div>
         <div class="silo-line"><strong>7</strong> personas · <strong>4</strong> concesionarios</div>
-        <div class="silo-line"><strong>$227K/mes</strong> · $32.4K/persona</div>
+        <div class="silo-line"><strong>$227K/mes</strong> plantilla · $32.4K/p</div>
         <div class="silo-line"><strong style="color:var(--gp-red);">0 marca</strong> + 7 conc.</div>
         <div class="silo-block"><div class="label">Gerente marca</div><div class="val warn">Sin equipo cross-ag</div></div>
         <div class="silo-block"><div class="label">Agencias/partners</div><div class="val">Like + Fabula + Paola</div></div>
@@ -695,9 +725,9 @@
 
       <div class="silo hub-parcial">
         <div class="silo-marca">Stellantis</div>
-        <div class="silo-tipo">Marca parcial</div>
+        <div class="silo-tipo">Marca parcial · MKT no mapeado</div>
         <div class="silo-line"><strong>1</strong> persona · <strong>2</strong> concesionarios</div>
-        <div class="silo-line"><strong>$32K/mes</strong> · $32K/persona</div>
+        <div class="silo-line"><strong>$32K/mes</strong> plantilla · estimado</div>
         <div class="silo-line">1 marca + 0 conc.</div>
         <div class="silo-block"><div class="label">Gerente marca</div><div class="val">Alejandra Ramírez</div></div>
         <div class="silo-block"><div class="label">Agencias/partners</div><div class="val warn">Infinito Lab + Nextilo ⚠</div></div>
@@ -715,59 +745,146 @@
     </div>
 
     <div class="orgchart-legend">
-      <strong>Leyenda · Madurez de la estructura marca-concesionario</strong>
+      <strong>Leyenda · Madurez de la estructura concesionario de marca</strong>
       <div class="leg-row" style="margin-top: 2mm;">
-        <div class="leg-item"><div class="leg-dot hub-maduro"></div><span>Marca madura · equipo marca cross-ag + concesionarios robustos (Mazda, Hyundai)</span></div>
-        <div class="leg-item"><div class="leg-dot hub-minimo"></div><span>Marca mínima · 1 gerente cubre todas + concesionarios (GAC)</span></div>
+        <div class="leg-item"><div class="leg-dot hub-maduro"></div><span>Marca madura · stack triple completo (Mazda, Hyundai)</span></div>
+        <div class="leg-item"><div class="leg-dot hub-minimo"></div><span>Marca mínima · 1 gerente + concesionarios (GAC)</span></div>
         <div class="leg-item"><div class="leg-dot hub-parcial"></div><span>Marca parcial · 1 persona marca + concesionarios (Changan, Ford, Stellantis)</span></div>
-        <div class="leg-item"><div class="leg-dot local"></div><span>⚠ Sin equipo de marca · solo concesionarios (GWM)</span></div>
-        <div class="leg-item"><div class="leg-dot cuello"></div><span>⚠ Solo gerente · sin equipo marca robusto ni concesionarios (Seminuevos)</span></div>
+        <div class="leg-item"><div class="leg-dot local"></div><span>Sin equipo de marca · solo concesionarios (GWM)</span></div>
+        <div class="leg-item"><div class="leg-dot cuello"></div><span>Solo gerente · sin equipo marca robusto ni concesionarios (Seminuevos)</span></div>
       </div>
-      <p class="small" style="margin-top: 3mm; color: var(--g600);"><strong>Cómo leer los 3 niveles BaU:</strong> <strong>Equipo de marca cross-agencia</strong> = personas dedicadas a UNA marca que cubren todas sus agencias (analistas, performance, brand de marca). <strong>Equipo por concesionario</strong> = personas locales en cada agencia (1–2 por sucursal). <strong>Agencias/partners externos</strong> = proveedores terceros contratados. Ninguno de los tres es nivel corporativo del grupo — los tres viven dentro del silo marca-concesionario.</p>
+      <p class="small" style="margin-top: 3mm; color: var(--g600);"><strong>Cómo leer los 3 niveles BaU de cada operación concesionaria:</strong> <strong>Equipo de marca cross-agencia</strong> = personas dedicadas a UNA marca que cubren todas sus agencias. <strong>Equipo por concesionario</strong> = personas locales en cada agencia. <strong>Agencias/partners externos</strong> = proveedores terceros. Los tres viven dentro del silo concesionario de marca; ninguno es nivel corporativo del grupo. <strong>"MKT no mapeado"</strong> en algunos silos = Daniel Galindo solo capturó plantilla y ventas; gasto digital/análogo/on-site pendiente de mapear.</p>
     </div>
   </div>
 </section>
 
-<!-- ============ PAGE 10: §2.4 lecturas + síntesis ============ -->
+<!-- ============ PAGE 10: §2.4 ORGANIGRAMA FORMAL ============ -->
 <section class="page">
-  <h3 class="section-h3" style="margin-top:0;">Seis lecturas críticas de la radiografía marca-concesionario</h3>
+  <h3 class="section-h3" style="margin-top:0;">Organigrama formal · líneas de reporte AS IS</h3>
+  <p class="lead">Misma información que la fotografía, vista como jerarquía formal. Líneas marcadas <em>"a confirmar"</em> son las que no están documentadas en el baseline.</p>
+
+  <div class="orgreal">
+    <div class="lvl-label">Nivel grupo</div>
+    <div class="lvl">
+      <div class="node consejo"><div class="role">Consejo Directivo · GP</div></div>
+    </div>
+    <div class="connect">│</div>
+
+    <div class="lvl">
+      <div class="node dirmarca"><div class="role">Direcciones de Marca (×8)</div><span class="name">a confirmar — uno por marca presumiblemente</span></div>
+      <div class="node director"><div class="role">Dirección MKT Corporativa</div><span class="name">Jesús Pérez Porras · mar 2026 · 0 reportes directos</span></div>
+    </div>
+    <div class="connect">│</div>
+    <div class="lateral-note">↕ línea funcional entre Director MKT y Gerentes de Marca pendiente de formalizar</div>
+
+    <div class="lvl-label" style="margin-top: 5mm;">Nivel marca · 8 silos concesionarios de marca</div>
+    <div class="lvl">
+      <div class="node gerente"><div class="role">Mazda</div><span class="name">Florencia Alcaraz</span></div>
+      <div class="node gerente"><div class="role">Hyundai</div><span class="name">Verónica Orozco</span></div>
+      <div class="node gerente"><div class="role">Changan</div><span class="name">Mauricio Castro</span></div>
+      <div class="node gerente"><div class="role">Ford</div><span class="name">Karen Michel Patiño</span></div>
+    </div>
+    <div class="lvl" style="margin-top: 2mm;">
+      <div class="node gerente"><div class="role">GAC</div><span class="name">Elia García</span></div>
+      <div class="node gerente"><div class="role">Stellantis</div><span class="name">Alejandra Ramírez</span></div>
+      <div class="node gerente"><div class="role">Seminuevos</div><span class="name">José Reyes López</span></div>
+      <div class="node gerente" style="opacity:0.5;"><div class="role">GWM</div><span class="name">sin gerente cross-ag identificado</span></div>
+    </div>
+    <div class="connect">│</div>
+
+    <div class="lvl-label" style="margin-top: 5mm;">Niveles BaU dentro de cada silo concesionario de marca</div>
+    <div class="lvl">
+      <div class="node equipo"><div class="role">Equipo de marca cross-agencia</div><span class="name">16 personas total (donde existe)</span></div>
+      <div class="node conc"><div class="role">Equipo en concesionario</div><span class="name">45 personas en 44 agencias</span></div>
+      <div class="node partner"><div class="role">Agencias / partners externos</div><span class="name">14 proveedores contratados independientemente por cada marca</span></div>
+    </div>
+    <div class="lateral-note" style="margin-top: 3mm;">Líneas verificadas en plantilla.json + proveedores_agencia.json. Estructura por silo varía según madurez de cada marca (ver fotografía arriba).</div>
+  </div>
+
+  <h3 class="section-h3" style="margin-top: 6mm;">Hero stats · solo marcas con MKT mapeado</h3>
+  <p class="small" style="color: var(--g600); margin-top: -2mm;">ROAS bruto = revenue total / gasto MKT total (no es atribución real — todo el revenue, no solo lo atribuible a MKT). Es indicador económico de orden de magnitud, no de eficiencia de campaña.</p>
+
+  <div class="hero-marcas">
+    <div class="hero-card">
+      <div class="hc-marca">Mazda</div>
+      <div class="hc-tag">Marca madura · stack triple</div>
+      <div class="hc-row"><span class="lbl">MKT total /año</span><span class="val">$17.40M</span></div>
+      <div class="hc-row"><span class="lbl">Revenue /año</span><span class="val">$5,653M</span></div>
+      <div class="hc-row"><span class="lbl">Uds vendidas /año</span><span class="val">14,129</span></div>
+      <div class="hc-row"><span class="lbl">$MKT / unidad</span><span class="val">$1,232</span></div>
+      <div class="hc-row"><span class="lbl">MKT % revenue</span><span class="val">0.31%</span></div>
+      <div class="hc-row highlight"><span class="lbl">ROAS bruto</span><span class="val">325×</span></div>
+    </div>
+
+    <div class="hero-card">
+      <div class="hc-marca">Hyundai</div>
+      <div class="hc-tag">Marca madura · stack triple</div>
+      <div class="hc-row"><span class="lbl">MKT total /año</span><span class="val">$14.80M</span></div>
+      <div class="hc-row"><span class="lbl">Revenue /año</span><span class="val">$1,793M</span></div>
+      <div class="hc-row"><span class="lbl">Uds vendidas /año</span><span class="val">4,785</span></div>
+      <div class="hc-row"><span class="lbl">$MKT / unidad</span><span class="val">$3,093</span></div>
+      <div class="hc-row"><span class="lbl">MKT % revenue</span><span class="val">0.83%</span></div>
+      <div class="hc-row highlight"><span class="lbl">ROAS bruto</span><span class="val">121×</span></div>
+    </div>
+
+    <div class="hero-card outlier">
+      <div class="hc-marca">GAC</div>
+      <div class="hc-tag">Marca mínima · outlier</div>
+      <div class="hc-row"><span class="lbl">MKT total /año</span><span class="val">$6.93M</span></div>
+      <div class="hc-row"><span class="lbl">Revenue /año</span><span class="val">$411M</span></div>
+      <div class="hc-row"><span class="lbl">Uds vendidas /año</span><span class="val">895</span></div>
+      <div class="hc-row"><span class="lbl">$MKT / unidad</span><span class="val">$7,743 ⚠</span></div>
+      <div class="hc-row"><span class="lbl">MKT % revenue</span><span class="val">1.69% ⚠</span></div>
+      <div class="hc-row highlight"><span class="lbl">ROAS bruto</span><span class="val">59×</span></div>
+    </div>
+  </div>
+
+  <p class="small" style="margin-top: 3mm; padding: 3mm 4mm; background: var(--g100); border-left: 3px solid var(--gp-slate);"><strong>Lectura cruzada:</strong> Mazda gasta más en términos absolutos ($17.4M) pero captura el mejor ROAS bruto (325×) porque su revenue por unidad es mayor y la intensidad MKT es baja (0.31%). GAC invierte 1.69% del revenue —5.5× más intenso que Mazda— y captura ROAS bruto de 59× (5.5× menos eficiente). Hyundai está en el medio. <strong>Esto NO es ROAS de atribución</strong> (que requeriría aislar revenue atribuible a MKT vs orgánico/recompra/walk-in). El Motor de Atribución MVP es lo que permitirá calcular ROAS real cuando la data 2026 llegue. <strong>Marcas Ford/Stellantis/Changan/GWM/Isuzu no tienen hero stats porque no se mapeó su MKT digital/análogo/on-site.</strong></p>
+</section>
+
+<!-- ============ PAGE 11: §2.4 lecturas + síntesis ============ -->
+<section class="page">
+  <h3 class="section-h3" style="margin-top:0;">Seis lecturas críticas de la radiografía concesionario de marca</h3>
 
   <div class="evidence">
     <div class="ev">
       <div class="ev-num">LECTURA · 01</div>
-      <h4>El nivel corporativo del grupo está vacío</h4>
-      <p>El Director MKT (Chucho Porras) entró marzo 2026 como único nivel corporativo del grupo. <strong>0 personas reportan directamente · 0 capacidades cross-marca operando</strong>. Los 8 gerentes de marca reportan funcionalmente a Directores de Marca dentro de su silo marca-concesionario, no a MKT Corporativo del grupo. La coordinación cross-marca no existe porque no hay nivel donde tomarla.</p>
+      <h4>El nivel corporativo del grupo es función nueva en auditoría</h4>
+      <p>El Director MKT (Jesús Pérez Porras) entró marzo 2026. <strong>0 reportes directos</strong>, sin equipo cross-marca todavía. Los 8 gerentes de marca reportan funcionalmente a sus respectivos Directores de Marca dentro del silo concesionario, no al Director MKT del grupo (línea funcional pendiente de formalizar). El rol está hoy en función inicial de auditoría, estructuración y visioning.</p>
     </div>
     <div class="ev">
       <div class="ev-num">LECTURA · 02</div>
-      <h4>Mazda y Hyundai ya operan Hub &amp; Spoke <em>a nivel marca</em></h4>
-      <p>Mazda: <strong>6 personas equipo de marca cross-agencia + 14 en concesionarios</strong>, cubriendo 10 agencias. Hyundai: <strong>5 marca + 6 concesionarios</strong> en 7 agencias. NO es teoría — es práctica funcionando dentro de su silo marca-concesionario. <strong>El CdE replica al nivel grupo lo que estas dos marcas ya demuestran al nivel marca.</strong></p>
+      <h4>Mazda y Hyundai operan el stack triple <em>a nivel marca</em></h4>
+      <p>Ambas operan los <strong>3 niveles BaU</strong> dentro de su silo concesionario de marca:
+      <br><strong>Mazda:</strong> 6 equipo de marca cross-agencia + 14 en concesionarios + <em>IN-HOUSE</em> (sin partners externos) — 10 agencias.
+      <br><strong>Hyundai:</strong> 4 equipo de marca cross-agencia (jun 2026) + 6 en concesionarios + <em>3 agencias/partners</em> (Viceversa, Nextilo, Karbot) — 7 agencias.
+      <br>Es práctica funcionando dentro del silo. Cualquier propuesta de coordinación cross-marca a futuro tendría una referencia interna verificable.</p>
     </div>
     <div class="ev">
       <div class="ev-num">LECTURA · 03</div>
-      <h4>GWM no tiene equipo de marca</h4>
-      <p>7 personas <strong>todas en concesionarios</strong>, 4 agencias, <strong>0 cross-agencia</strong>. Sin gerente de marca con equipo, sin coordinación dentro del propio silo. Su CAC ($2,295) y conversión reflejan la fragmentación máxima del nivel marca.</p>
+      <h4>GWM opera sin equipo de marca cross-agencia</h4>
+      <p>7 personas todas en concesionarios, 4 agencias, 0 cross-agencia identificado en plantilla. Sin gerente de marca con equipo dedicado. <em>Nota: data MKT de GWM no fue mapeada por Daniel Galindo más allá de plantilla — se requiere verificación adicional para confirmar si la ausencia de equipo cross-ag es estructural o gap de captura.</em></p>
     </div>
     <div class="ev">
       <div class="ev-num">LECTURA · 04</div>
-      <h4>Seminuevos es el cuello documentado</h4>
-      <p>1 persona (José Reyes López Rivas) cubre 7 concesionarios sin equipo de marca robusto ni gente en concesionarios. <strong>Modelo inviable a escala</strong>. Cuello operativo identificado en cinco docs canónicos del grupo.</p>
+      <h4>Seminuevos opera con 1 persona para 7 concesionarios</h4>
+      <p>José Reyes López Rivas cubre 7 concesionarios sin equipo de marca robusto ni personas dedicadas en concesionarios. Cuello operativo identificado en docs canónicos del grupo. <strong>Esto sí es estructural y verificable.</strong></p>
     </div>
     <div class="ev">
       <div class="ev-num">LECTURA · 05</div>
       <h4>Cada marca contrata sus partners sin coordinación cross-marca</h4>
-      <p>8 silos marca-concesionario contratan <strong>14 agencias/partners externos distintos</strong>. Nextilo factura a Hyundai Y Stellantis (duplicidad cross-marca). Like/Paola Like × 3 entidades en 3 marcas. Dazing concentra $3.81M/año en Ford (único punto de falla). No existe nivel corporativo del grupo que arbitre o consolide.</p>
+      <p>Los silos concesionarios contratan <strong>14 agencias/partners externos distintos</strong>. Duplicidades verificables: Nextilo factura a Hyundai Y Stellantis. Like/Paola Like × 3 entidades en 3 marcas. Dazing concentra $3.81M/año en Ford como único punto de falla. No existe arbitraje del grupo porque no existe nivel del grupo operando.</p>
     </div>
     <div class="ev">
       <div class="ev-num">LECTURA · 06</div>
-      <h4>El gap estructural del AS IS</h4>
-      <p>Entre el Director MKT (único nivel corporativo del grupo) y los 8 equipos de marca <strong>no hay nivel intermedio</strong>. Cada marca opera independiente como su propio mini-grupo bajo su contrato OEM-concesionario. <strong>No existen capacidades del grupo</strong> (data unificada, performance cross-marca, brand standards comunes, creative ops compartido, atribución consolidada). Lo que para el outside parece "Grupo Plasencia" es operativamente 8 mini-grupos sin coordinación.</p>
+      <h4>Ningún esfuerzo identificado en strategy, CX, service design, brand strategy ni research</h4>
+      <p>Verificación cualitativa del Director MKT durante la auditoría (mar–jun 2026): la plantilla y el gasto MKT del grupo son <strong>100% tácticos-operativos</strong>. Roles identificables: gerentes de marca, analistas digitales, ejecutivos de cuenta, personas en concesionarios. No se encuentran roles ni gasto asignado a customer experience, service design, brand strategy, research/voice of customer, visión estratégica del grupo. <em>Este hallazgo es testimonial del auditor; documentación cuantitativa pendiente.</em></p>
     </div>
   </div>
 
-  <h3 class="section-h3">Resumen estructural del AS IS · BaU marca-concesionario</h3>
+  <h3 class="section-h3">Resumen estructural del AS IS</h3>
   <div class="stat-strip">
-    <div class="s accent"><div class="big">0</div><div class="lbl">Personas en nivel corporativo del grupo (cross-marca)</div></div>
+    <div class="s accent"><div class="big">1</div><div class="lbl">Director MKT del grupo (función nueva mar 2026)</div></div>
     <div class="s gold"><div class="big">16</div><div class="lbl">Equipo de marca cross-agencia (dentro de marca)</div></div>
     <div class="s"><div class="big">45</div><div class="lbl">Personas en concesionarios (1 agencia c/u)</div></div>
     <div class="s invisible"><div class="big">14</div><div class="lbl">Agencias/partners externos sin coordinación cross-marca</div></div>
@@ -775,55 +892,65 @@
 
   <div class="killer" style="margin-top: 5mm;">
     <span class="label">Síntesis de la radiografía</span>
-    <h3>Lo que parece "Grupo Plasencia" es operativamente 8 mini-grupos marca-concesionario sin coordinación. El único nivel corporativo del grupo es 1 director sin equipo.</h3>
-    <p>La fotografía del gasto (§2.3) y la radiografía estructural (§2.4) muestran la misma realidad desde dos ángulos: <strong>el grupo no tiene capacidades de marketing del grupo operando</strong>. Tiene 8 marcas que operan como mini-grupos independientes (algunas con equipo de marca robusto cross-agencia, otras sin él) y un director recién llegado sin equipo. La complicación que sigue interpreta esta realidad.</p>
+    <h3>GP opera como 8 mini-grupos concesionarios de marca independientes. El nivel corporativo de MKT del grupo es función nueva, en auditoría, sin equipo. No hay esfuerzos estratégicos del grupo identificados todavía.</h3>
+    <p>La fotografía del gasto (§2.3) muestra qué se compra; la radiografía estructural (§2.4) muestra cómo está organizado el equipo que lo decide. Las dos vistas describen el AS IS con los datos que Daniel Galindo dejó mapeados (3 marcas con MKT digital/análogo/on-site; 5 marcas solo con plantilla y ventas). La complicación de §3 interpreta lo que estos hallazgos implican.</p>
   </div>
 </section>
 
 <!-- ============ PAGE 11: §3 COMPLICACION ============ -->
 <section class="page">
-  <h1 class="section-title"><span class="num">§3 · Complicación</span>Lo que la fotografía revela.</h1>
+  <h1 class="section-title"><span class="num">§3 · Complicación</span>Lo que la auditoría revela.</h1>
 
   <p class="lead">
-    La fotografía del gasto (§2.3) y la radiografía estructural marca-concesionario (§2.4) muestran cuatro distorsiones simultáneas que la contabilidad actual no captura. Los tres centros de costo (Digital · Análogo · On-site) son válidos pero <strong>estratégicamente incompletos</strong>: capturan el 48% del gasto real, no el 100% — y ninguno refleja que el grupo no tiene capacidades corporativas cross-marca operando.
+    La fotografía del gasto (§2.3) y la radiografía estructural concesionario de marca (§2.4) muestran <strong>cinco hallazgos simultáneos</strong> que la contabilidad y la estructura actual no capturan. Los tres centros de costo (Digital · Análogo · On-site) son válidos pero estratégicamente incompletos. La auditoría además identifica un vacío que no aparece en ningún reporte financiero: <strong>el grupo gasta en ejecución, no en diseño estratégico</strong>.
   </p>
 
   <div class="drivers">
     <div class="driver">
       <span class="driver-num">1</span>
-      <h3>La mitad del costo es invisible</h3>
-      <p>3 buckets contables actuales suman <strong>$27.96M (47.9%)</strong>. Los otros <strong>$30.36M (52.1%)</strong> son: <strong>plantilla $21.35M (36.6%)</strong> y <strong>fees de agencia $10.56M (18.1%)</strong>. Sin etiqueta de marketing. Cualquier discusión de eficiencia basada solo en los 3 centros actuales debate el 48% del problema.</p>
+      <h3>Solo 3 de 8 marcas tienen MKT mapeado</h3>
+      <p>Mazda, Hyundai y GAC son las únicas con MKT digital/análogo/on-site mapeado por Daniel Galindo. Ford, Stellantis, Changan, GWM e Isuzu tienen solo plantilla y ventas. <strong>Cualquier análisis cuantitativo cross-grupo sin esta data adicional sub-representa más de la mitad del portafolio de marcas.</strong> Antes de tomar decisiones de presupuesto del grupo, el mapeo debe completarse.</p>
     </div>
     <div class="driver">
       <span class="driver-num">2</span>
-      <h3>La fragmentación cuesta sin aparecer</h3>
-      <p>14 proveedores activos, 8 gerentes MKT, 36 agencias. Duplicidades verificables: <strong>Nextilo cobra a HYU+STL</strong>, Like × 3 handles en 3 marcas, <strong>Dazing concentra $3.81M en Ford</strong> como único punto de falla. La radiografía (§2.4) confirma: <strong>cada silo contrata sin coordinación porque no existe un Hub corporativo que la imponga</strong>.</p>
+      <h3>La mitad del costo mapeado es invisible contablemente</h3>
+      <p>Sobre las marcas con MKT mapeado ($41.6M), 3 buckets contables (digital + análogo + on-site) suman $25.5M (61%). Los otros $16.1M (39%) son <strong>plantilla MKT ($11.8M) + fees de agencia ($4.3M)</strong>, hoy sin etiqueta de marketing. Cualquier discusión de eficiencia basada solo en los 3 centros actuales debate ⅔ del problema mapeado.</p>
     </div>
     <div class="driver">
       <span class="driver-num">3</span>
-      <h3>CACs varían 3.4× cross-marca, 21.6× cross-agencia</h3>
-      <p>Mazda $1,326 vs GAC $4,469 (3.4× cross-marca). <strong>Mazda Colima $532 vs GAC Américas $11,468 (21.6× cross-agencia)</strong>. Las 10 agencias Mazda están todas por debajo del CPA mínimo de Hyundai ($1,666). No es diferencia de mercado — es ausencia de mecanismo cross-agencia que arbitre ineficiencias.</p>
+      <h3>La fragmentación cuesta sin aparecer</h3>
+      <p>14 agencias/partners externos contratados independientemente por cada silo concesionario de marca. Duplicidades verificables: <strong>Nextilo cobra a Hyundai Y Stellantis</strong>, Like × 3 handles en 3 marcas, <strong>Dazing concentra $3.81M en Ford</strong> como único punto de falla. No existe arbitraje del grupo porque no existe nivel del grupo operando.</p>
     </div>
     <div class="driver">
       <span class="driver-num">4</span>
-      <h3>La palanca OEM no se está cobrando</h3>
-      <p><strong>78% de las agencias</strong> financian 100% su pauta sin co-inversión OEM. Estándar industria 20–30%. Sobre la pauta documentada de $27.01M, <strong>GP financia el 84.1% ($22.71M) y OEM solo rebatea el 15.9% ($4.30M)</strong>. Sobre el total MKT, solo 7.1% es reembolsable (ver §2.3.6). Adicionalmente, <strong>solo GAC tiene rebate transparente</strong> — Mazda y Hyundai reciben rebate pero no está separado en contabilidad.</p>
+      <h3>CACs varían 3.4× cross-marca, 21.6× cross-agencia (en marcas mapeadas)</h3>
+      <p>Sobre Mazda/Hyundai/GAC: Mazda $1,326 vs GAC $4,469 (3.4× cross-marca). <strong>Mazda Colima $532 vs GAC Américas $11,468 (21.6× cross-agencia)</strong>. Las 10 agencias Mazda están todas por debajo del CPA mínimo de Hyundai ($1,666). No es diferencia de mercado pura — es ausencia de mecanismo cross-agencia del grupo que arbitre.</p>
+    </div>
+    <div class="driver">
+      <span class="driver-num">5</span>
+      <h3>La palanca OEM no se está cobrando (en marcas mapeadas)</h3>
+      <p>Sobre la pauta documentada de $27.01M (Mazda + Hyundai + GAC + GWM-pauta), <strong>GP financia el 84.1% ($22.71M) y OEM rebatea solo el 15.9% ($4.30M)</strong>. Benchmark industria es 20–30% de co-inversión OEM. Adicionalmente, <strong>solo GAC tiene rebate transparente en contabilidad</strong> — Mazda y Hyundai reciben rebate pero no está separado en libros (ver §2.3.6).</p>
+    </div>
+    <div class="driver" style="background: rgba(200,16,46,0.04); border-left: 4px solid var(--gp-red); padding-left: 6mm;">
+      <span class="driver-num" style="color: var(--gp-red);">!</span>
+      <h3>El gasto y plantilla son 100% tácticos-operativos · 0 esfuerzos identificados en strategy/CX/diseño</h3>
+      <p><strong>Verificación cualitativa del Director MKT durante la auditoría:</strong> no se identifican esfuerzos, gasto ni roles asignados a customer experience, service design, brand strategy (más allá de activación), research/voice of customer, ni visión estratégica del grupo. Todo el gasto MKT mapeado y toda la plantilla MKT son ejecución (gerencia de marca, analítica digital, ejecutivos de cuenta, locales en concesionarios). <em>Hallazgo testimonial; cuantificación pendiente.</em> Este vacío de capacidad estratégica es el contexto que enmarca los 5 hallazgos anteriores: ninguno se diseñó intencionalmente, todos son resultado de operar sin esa capa.</p>
     </div>
   </div>
 
   <div class="killer" style="margin-top: 6mm;">
     <span class="label">Síntesis de la complicación</span>
-    <h3>El problema no es cuánto se gasta — es cómo se mide y cómo se organiza.</h3>
-    <p>Marketing al <strong>0.46% del revenue</strong> está muy por debajo del benchmark sectorial 5–10%. GP no sobre-gasta. La palanca es <strong>hacer visible la mitad invisible</strong> y reorganizar la composición entre los 5 buckets reales.</p>
+    <h3>El problema no es cuánto se gasta — es qué no se mapeó, cómo se mide lo mapeado, cómo se organiza, y la ausencia de capacidad estratégica del grupo.</h3>
+    <p>Sobre las 3 marcas mapeadas, MKT está al 0.50% del revenue de esas marcas (muy por debajo del benchmark sectorial 5–10%). GP no sobre-gasta en lo que se ve. La palanca es <strong>completar el mapeo de las 5 marcas faltantes</strong>, <strong>hacer visible la mitad invisible</strong>, <strong>reorganizar la composición</strong> entre los 5 buckets reales, y <strong>construir capacidad estratégica</strong> donde hoy no la hay.</p>
   </div>
 </section>
 
 <!-- ============ PAGE 8: §4.1 RESOLUCION · TAXONOMIA ============ -->
 <section class="page">
-  <h1 class="section-title"><span class="num">§4 · Resolución</span>Taxonomía + 5 palancas + hipótesis.</h1>
+  <h1 class="section-title"><span class="num">§4 · Resolución</span>Marco propuesto + hipótesis de trabajo.</h1>
 
   <p class="lead">
-    La complicación tiene una sola respuesta estratégica: <strong>hacer visible el 100% del gasto</strong> (taxonomía) y <strong>activar las 5 palancas de valor</strong> que la fotografía revela. Esta sección integra ambos.
+    Esta sección propone un <strong>marco analítico</strong> (taxonomía + dimensiones) y <strong>cinco hipótesis de trabajo</strong> que el Director MKT considera relevantes para la conversación futura con el Consejo. <strong>NO son decisiones tomadas</strong>; son propuestas a discutir, validar o descartar con el Consejo Directivo cuando se presente el siguiente entregable.
   </p>
 
   <h4 class="subsection-h4">4.1 · Taxonomía propuesta · 5 buckets reales + 4 dimensiones perpendiculares</h4>
@@ -925,7 +1052,7 @@
   <div class="hypothesis">
     <span class="label">Hipótesis 4</span>
     <h3>El Centro de Excelencia es vehículo, no objetivo · y no es novedad teórica.</h3>
-    <p>El CdE Hub &amp; Spoke híbrido es <strong>el instrumento</strong> que materializa las 5 palancas. Si se discute como "crear el CdE" se vuelve organizacional; si se discute como "activar las 5 palancas", el CdE aparece como consecuencia natural. <strong>Evidencia empírica del propio grupo (§2.3.5 + §2.4):</strong> Mazda ya opera Hub &amp; Spoke <em>dentro de su silo marca-concesionario</em> (6 equipo de marca + 14 en concesionarios cubriendo 10 agencias) y Hyundai también (5 + 6 en 7 agencias). <strong>El CdE no inventa el modelo — construye el nivel corporativo del grupo replicando lo que Mazda y Hyundai ya demuestran al nivel marca.</strong></p>
+    <p>El CdE Hub &amp; Spoke híbrido es <strong>el instrumento</strong> que materializa las 5 palancas. Si se discute como "crear el CdE" se vuelve organizacional; si se discute como "activar las 5 palancas", el CdE aparece como consecuencia natural. <strong>Evidencia empírica del propio grupo (§2.3.5 + §2.4):</strong> Mazda opera el stack triple completo (6 equipo de marca + 14 en concesionarios + IN-HOUSE en 10 agencias) y Hyundai también (5 + 6 + 3 agencias externas en 7 agencias). <strong>El CdE no inventa el modelo — construye el nivel corporativo del grupo replicando lo que Mazda y Hyundai ya demuestran al nivel marca con su stack triple.</strong></p>
   </div>
 
   <div class="hypothesis">
@@ -937,8 +1064,8 @@
 
 <!-- ============ PAGE 12: §5 CASO FINANCIERO ============ -->
 <section class="page">
-  <h1 class="section-title"><span class="num">§5 · Caso financiero</span>Magnitud del diagnóstico.</h1>
-  <p class="lead">Expresa la magnitud de las palancas identificadas, no el plan estratégico. La estrategia (siguiente fase) determinará secuencia, inversión específica y ROI por iniciativa.</p>
+  <h1 class="section-title"><span class="num">§5 · Magnitud del diagnóstico</span>Tamaño de lo identificado, no propuesta de inversión.</h1>
+  <p class="lead">Expresa <strong>la magnitud cuantificable de las palancas identificadas en marcas mapeadas</strong>, no un plan estratégico ni una solicitud de presupuesto. La estrategia (siguiente fase) determinará secuencia, inversión específica y ROI por iniciativa, y será presentada al Consejo. Cifras sobre Mazda + Hyundai + GAC; las 5 marcas no mapeadas no se incluyen.</p>
 
   <h4 class="subsection-h4">5.1 · Las 5 palancas · tres escenarios</h4>
 
@@ -977,10 +1104,14 @@
 
 <!-- ============ PAGE 13: §6 DECISIONES ============ -->
 <section class="page">
-  <h1 class="section-title"><span class="num">§6 · Decisiones para pasar a estrategia</span>Cuatro inputs internos antes de la fase siguiente.</h1>
-  <p class="lead">Este documento es <strong>diagnóstico</strong>, no estrategia. Pasar a la fase estratégica requiere cuatro decisiones internas del Director MKT — no son Ask al Consejo, son inputs que definen cómo se construye el siguiente documento.</p>
+  <h1 class="section-title"><span class="num">§6 · Pendientes del diagnóstico</span>Cinco preguntas que el Director MKT resuelve antes de proponer estrategia.</h1>
+  <p class="lead">Este documento es <strong>auditoría inicial · diagnóstico AS IS</strong>, no estrategia. Pasar a la fase estratégica (la que sí se presentará al Consejo) requiere resolver primero estos pendientes — <strong>no son asks al Consejo, son notas internas del Director MKT</strong> que definen cómo se construye el siguiente entregable.</p>
 
   <ul class="decisions">
+    <li style="background: rgba(200,16,46,0.04); border-left: 4px solid var(--gp-red); padding-left: 6mm;">
+      <div><h4>⚠ Completar el mapeo de MKT para 5 marcas faltantes</h4><p>Ford · Stellantis · Changan · GWM · Isuzu no tienen MKT digital/análogo/on-site mapeado en el baseline Galindo. <strong>Cualquier propuesta de presupuesto del grupo sin esto es parcial.</strong> ¿Se completa el mapeo antes de armar la estrategia, o se asume que el patrón de Mazda/Hyundai/GAC se generaliza?</p></div>
+      <div class="dec-options"><strong>Opciones</strong>A) Mapear primero (mes 1)<br>B) Asumir patrón<br><em>Trade-off: tiempo vs riesgo de extrapolación</em></div>
+    </li>
     <li>
       <div><h4>Profundidad de la taxonomía</h4><p>¿Diccionario formal de los 5 buckets + 4 dimensiones ahora (3–5 páginas técnicas), o se difiere hasta data 2026?</p></div>
       <div class="dec-options"><strong>Opciones</strong>A) Diccionario ahora<br>B) Diferir a 2026<br><em>Trade-off: 1 día vs re-clasificación inmediata</em></div>
