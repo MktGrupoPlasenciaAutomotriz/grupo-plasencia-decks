@@ -851,19 +851,20 @@
      §05 — Always-On
 ============================================================ -->
 <section class="page">
-  <h1 class="section-title"><span class="num">Sección 05</span>Always-on y toggle de oferta mensual</h1>
+  <h1 class="section-title"><span class="num">Sección 05</span>Por qué tu marca estará en línea los 365 días — y no solo cuando el OEM da bono</h1>
 
-  <h3>Qué es always-on (y por qué importa)</h3>
-  <p><strong>Always-on</strong> significa que la marca tiene presencia digital constante 365 días al año, sin depender del bono mensual del OEM. La SPA, el catálogo, los anuncios viven todo el año capturando la demanda existente del mercado.</p>
+  <h3>El problema que probablemente ya conoces</h3>
+  <p>Tu marca depende hoy del bono que el OEM (Changan, Hyundai, GAC, lo que sea) te suelta cada mes. Si este mes hay bono, prendes la campaña. Si no hay bono, te quedas mudo. Los meses sin bono son meses sin leads digitales. Tu pipeline depende de un calendario que no controlas.</p>
+
+  <h3>Cómo resolvemos esto en el piloto</h3>
+  <p>El piloto funciona en dos capas que conviven sin pelearse:</p>
 
   <ul>
-    <li><strong>Por qué importa.</strong> El cliente que decide comprar un auto investiga aproximadamente 2 a 3 semanas <em>antes</em> de pisar la agencia. Si tu marca solo aparece digitalmente el día del bono, pierdes al cliente que estaba investigando 2 semanas antes.</li>
-    <li><strong>El costo de no tener always-on.</strong> Dependes 100% del bono mensual del OEM. Si este mes el OEM no da bono, no tienes presencia digital. Los meses sin bono = cero leads digitales. Volatilidad operativa y financiera.</li>
-    <li><strong>Cómo se ve en el piloto.</strong> SPA evergreen (catálogo + mensualidades de referencia + programas oficiales sin vigencia limitada como Garantía, Mantenimiento, etc.) + Meta Ads Andromeda con creatives brand-led que rotan continuamente sin necesidad de aprobaciones mensuales.</li>
+    <li><strong>Capa always-on (siempre prendida).</strong> Tu página web vive con el catálogo completo, mensualidades de referencia y programas oficiales (garantía, mantenimiento, etc.) los 365 días. Los anuncios viven con creatividad de marca rotando. El cliente que está investigando 2 o 3 semanas antes de pisar tu agencia te encuentra <strong>aunque no haya bono este mes</strong>.</li>
+    <li><strong>Capa de oferta mensual (se prende y se apaga sin tirar el always-on).</strong> Cuando el OEM te da el bono del mes, prendo un toggle: aparece un banner promo, un sello "OFERTA VIGENTE" en cada card del catálogo, y la creatividad de los anuncios rota a versión bono. Cuando termina el mes, apago el toggle y todo vuelve a always-on sin downtime.</li>
   </ul>
 
-  <h3>El toggle de oferta mensual</h3>
-  <p>Cuando la marca <strong>sí</strong> tiene oferta comercial mensual (bono X, tasa preferencial, mes de la marca), se activa el <strong>toggle promo sobre el always-on sin perderlo</strong>:</p>
+  <h3>Qué pasa cuando prendo y apago el toggle</h3>
 
   <table>
     <thead>
@@ -883,12 +884,12 @@
     </tbody>
   </table>
 
-  <h3>Cómo se opera el toggle (técnico)</h3>
-  <p>El toggle vive en el JSON del catálogo, campo <code>oferta_vigente: true|false</code> por modelo, con campos asociados (<code>oferta_titulo</code>, <code>bono_pesos</code>, <code>mensualidad_oferta</code>, <code>enganche_desde</code>, <code>plazo_meses</code>, <code>vigencia</code>). La Dirección Corporativa actualiza el JSON, GitHub Pages re-deploya la SPA y la rotación entra en menos de 60 segundos. Cero downtime. Documentación operativa: <em>03-tech/Pivote-2-Playbook-Multimarca.md</em>.</p>
+  <h3>Cómo se opera el toggle</h3>
+  <p>Es un cambio de configuración del lado de mi equipo. Activación o desactivación en menos de un minuto, sin tirar la página. (Si tu Coordinador de Sistemas quiere el detalle técnico, está en §11.)</p>
 
-  <h3>Calendario de coordinación</h3>
+  <h3>Calendario de coordinación contigo</h3>
   <ul>
-    <li><strong>Día 25 del mes anterior.</strong> La marca pasa la oferta del mes siguiente al Director MKT Corporativo (bono $, tasa %, plazo meses, modelos aplicables, vigencia, términos legales).</li>
+    <li><strong>Día 25 del mes anterior.</strong> Tu Gerente de Marca me pasa la oferta del mes siguiente: cuánto es el bono, cuál es la tasa, qué plazo, en qué modelos aplica, cuándo vence, qué términos legales tiene.</li>
     <li><strong>Día 26–30 del mes anterior.</strong> Corporativo prepara el toggle, prepara nuevos creatives Andromeda con la oferta, prepara copy.</li>
     <li><strong>Día 1 del mes nuevo.</strong> Toggle ON. Creatives rotados. Banner activo en SPA.</li>
     <li><strong>Día último del mes (o fin de vigencia).</strong> Toggle OFF. Vuelve a always-on. Sin pérdida de presencia.</li>
@@ -995,46 +996,49 @@
      §08 — Reporting + Día 90
 ============================================================ -->
 <section class="page">
-  <h1 class="section-title"><span class="num">Sección 08</span>Reporting durante el piloto y criterios al día 90</h1>
+  <h1 class="section-title"><span class="num">Sección 08</span>Qué vas a saber cada lunes, cada mes, y al día 90</h1>
 
-  <h3>Reporting semanal — operativo</h3>
-  <p>Entregado por el Director MKT Corporativo / Acompañamiento operativo vía email + sync en Teams. Audiencia: Gerente de Marketing de la marca + Gerente Comercial.</p>
+  <p class="lead">El piloto vive y muere con la transparencia hacia ti. Si no sabes qué está pasando, no puedes decidir. Esto es lo que llega a tu correo o a tu Teams cada semana y cada mes.</p>
+
+  <h3>Cada lunes — reporte operativo para tu Gerente de Marketing y tu Gerente Comercial</h3>
+  <p>Yo lo entrego, Emmanuel acompaña. Vía correo + sync de 30 min en Teams si lo quieres. Contenido:</p>
 
   <ol>
-    <li><strong>Inversión vs piloto.</strong> Gastado vs comprometido, días corridos vs cap 90.</li>
-    <li><strong>Pipeline digital.</strong> Leads recibidos, etapa actual en kanban, tiempos de respuesta del vendedor.</li>
-    <li><strong>Performance de ads.</strong> CPL, CTR, CPM, frecuencia, top creatives, top audiencias.</li>
-    <li><strong>Conversión web.</strong> Visitas SPA, tasa de generate_lead, tasa de cita, drop-offs.</li>
-    <li><strong>Conciliación con pipeline tradicional.</strong> Leads digitales vs ventas reales del mes (atribución modelo lite/full).</li>
-    <li><strong>Pendientes y bloqueos.</strong> Qué necesita Corporativo de la marca para optimizar la semana siguiente.</li>
+    <li><strong>Cuánto llevamos gastado vs el piloto.</strong> Días corridos vs los 90 del cap.</li>
+    <li><strong>Cuántos leads llegaron esta semana</strong> y en qué etapa del kanban están.</li>
+    <li><strong>Cuánto te están tardando tus vendedores</strong> en contestar. Si alguno se descuelga, está señalado.</li>
+    <li><strong>Cómo performaron los anuncios</strong>: cuánto te costó cada lead, qué creatividad funcionó mejor, qué audiencia jaló.</li>
+    <li><strong>Cuántos visitaron la página web y cuántos llenaron el formulario.</strong> Dónde se cayeron.</li>
+    <li><strong>Comparación con tu pipeline tradicional</strong>: cuántas ventas reales del mes vinieron del piloto vs de tus otros canales.</li>
+    <li><strong>Qué necesito de tu lado</strong> esta semana para que la siguiente sea mejor.</li>
   </ol>
 
-  <h3>Reporting mensual — ejecutivo</h3>
-  <p>Entregado al Director que fondea (Pepe Plasencia o equivalente para la marca). Audiencia: Dirección General de la marca.</p>
+  <h3>El día 1 de cada mes — reporte ejecutivo para ti</h3>
+  <p>1 página. Diseñado para que lo leas en 5 minutos antes de tu primera junta del mes. Contiene:</p>
   <ul>
-    <li>Resumen del mes en una página.</li>
-    <li>ROI estimado conservador del piloto (leads × tasa de cierre histórica × ticket promedio).</li>
-    <li>Recomendación para el mes siguiente: continuar, ajustar, escalar, parar.</li>
+    <li>El resumen del mes en una imagen.</li>
+    <li>El ROI estimado del piloto en pesos (cuánto invertiste, cuántos leads, cuántas ventas atribuibles, cuánto facturaste).</li>
+    <li>Mi recomendación para el mes siguiente, en una oración.</li>
   </ul>
 
-  <h3>Criterios de decisión al día 90</h3>
-  <p>Al cierre de los 90 días, la Dirección Corporativa entrega un <strong>paper ejecutivo</strong> con la decisión recomendada. La decisión la firma el Director que fondeó + Director MKT Corporativo. El piloto NO continúa por inercia — al día 90 hay decisión explícita.</p>
+  <h3>El día 90 — la decisión que firmamos juntos</h3>
+  <p>Te entrego un paper ejecutivo con la lectura completa de los 90 días y mi recomendación. La firmamos los dos: tú y yo. <strong>El piloto no continúa por inercia.</strong> Hay 4 caminos posibles:</p>
 
   <table>
     <thead>
-      <tr><th style="width:25%">Decisión</th><th style="width:75%">Cuándo aplica</th></tr>
+      <tr><th style="width:28%">Si decidimos…</th><th style="width:72%">Es porque los números dicen esto</th></tr>
     </thead>
     <tbody>
-      <tr><td><span class="badge badge--green">Escalar</span><br>$30K → $50K-$100K/mes</td><td>CPL menor a $300 · conversión web→cita mayor a 15% · vendedores respondiendo en &lt;2h · cierre piloto mayor a 5% del pipeline digital</td></tr>
-      <tr><td><span class="badge badge--gold">Continuar +<br>optimizar</span></td><td>CPL $300-$600 · conversión 8-15% · oportunidad clara de optimización (creatives, copy, segmentación, sucursal underperformer)</td></tr>
-      <tr><td><span class="badge badge--red">Pausar +<br>revisar fundamentos</span></td><td>CPL mayor a $600 · conversión menor a 8% · vendedores no respondiendo · fotos/catálogo causando empty states. Antes de gastar más, arreglar entregables de la marca</td></tr>
-      <tr><td><span class="badge badge--gray">Salir del piloto</span></td><td>La marca decide que el digital no es prioridad estratégica este año, o prefiere modelo de agencia tradicional</td></tr>
+      <tr><td><span class="badge badge--green">Escalar</span><br>De $30K a $50-$100K/mes</td><td>Cada lead te costó menos de $300, 15% de los que entraron a la web te dieron sus datos, tus vendedores contestaron en menos de 2 horas, y al menos 5 de cada 100 leads se cerraron en venta. La tesis funcionó — ahora le metemos más combustible.</td></tr>
+      <tr><td><span class="badge badge--gold">Continuar +<br>optimizar</span></td><td>El CPL anduvo entre $300 y $600, la conversión web-a-cita entre 8% y 15%, y vimos una palanca clara de mejora (mejor creatividad, mejor audiencia, una sucursal con bajo rendimiento). Seguimos al mismo nivel y trabajamos esa palanca.</td></tr>
+      <tr><td><span class="badge badge--red">Pausar +<br>revisar fundamentos</span></td><td>El CPL pasó de $600, la conversión cayó debajo de 8%, los vendedores no contestaron a tiempo, o las fotos del catálogo no llegaron. Antes de gastar más dinero, arreglamos los entregables tuyos. No es punitivo, es proteger la inversión.</td></tr>
+      <tr><td><span class="badge badge--gray">Salir del piloto</span></td><td>Tu marca decide que el digital no es prioridad estratégica este trimestre, o prefiere volver al modelo de agencia tradicional. Te entrego el reporte final, apago la página web, y los activos se quedan con el Grupo. Sin drama.</td></tr>
     </tbody>
   </table>
 
   <div class="callout">
-    <span class="callout-label">Compromiso de la Dirección Corporativa</span>
-    <p>El reporting es <strong>auditable</strong>. Todos los datos provienen de fuentes verificables (Meta Ads Manager, GA4, CRM del Grupo, archivos de Viceversa). La marca puede pedir acceso de lectura a las plataformas en cualquier momento. No hay caja negra.</p>
+    <span class="callout-label">El reporting es auditable, sin caja negra</span>
+    <p>Todos los números que ves en mis reportes vienen de fuentes que tu equipo puede verificar: Meta Ads Manager, Google Analytics, el CRM del Grupo, los archivos de Viceversa. Si en algún momento quieres acceso de lectura a esas plataformas directamente, te lo doy. Esa es la diferencia entre operar dentro del Grupo y contratar un proveedor que te entrega un PDF mensual con números que solo él puede validar.</p>
   </div>
 </section>
 
@@ -1115,51 +1119,63 @@
      §10 — FAQ + contacto
 ============================================================ -->
 <section class="page">
-  <h1 class="section-title"><span class="num">Sección 10</span>FAQ y punto único de entrada</h1>
+  <h1 class="section-title"><span class="num">Sección 10</span>Lo que probablemente me vas a preguntar</h1>
+
+  <p class="lead">Las preguntas que he recibido de tus colegas — Pepe Reyes en Seminuevos, Vero en Hyundai, Bere en Stellantis — cuando les pasé esto. Si te queda otra, escríbeme directo por WhatsApp.</p>
 
   <div class="faq-item">
     <p class="faq-q">¿Y si quiero entrar al piloto solo con una sucursal, no con toda la marca?</p>
-    <p class="faq-a">Aplica. Mismo monto mínimo $30K/mes. La SPA se configura con esa sucursal como única opción del selector. Cuando la siguiente sucursal entre, se suma al routing WhatsApp + selector sin re-deploy.</p>
+    <p class="faq-a">Aplica. Mismo $30K/mes mínimo. Tu página web aparece con esa sucursal como única opción para el cliente. Cuando metas otra sucursal después, la sumo al sistema sin tirar nada ni cobrarte más por la configuración.</p>
   </div>
 
   <div class="faq-item">
-    <p class="faq-q">¿Y si mi marca tiene varias líneas (autos nuevos + seminuevos + flotilla)?</p>
-    <p class="faq-a">Hyundai opera así hoy: $30K combinado para autos nuevos Personal + Flotilla con una sola SPA, selector "Personal vs Flotilla", routing WhatsApp dinámico. Seminuevos opera aparte con cuenta propia. Si tu marca quiere replicar este patrón, no se suma más a la inversión mínima — usas la misma cuenta y SPA con tags <code>linea_negocio</code>.</p>
+    <p class="faq-q">Tengo varias líneas (autos nuevos + seminuevos + flotilla). ¿Cómo se manejan?</p>
+    <p class="faq-a">Hyundai opera así hoy: $30K combinado entre autos nuevos personales y flotilla, con una sola página donde el cliente elige al inicio "es para mí" o "es para mi empresa". Seminuevos opera aparte con su propia cuenta porque es un negocio distinto. Si tu marca quiere lo mismo, no te cobro más por la inversión mínima — uso el mismo presupuesto y misma página con etiquetas.</p>
   </div>
 
   <div class="faq-item">
     <p class="faq-q">¿El piloto incluye Google Ads, TikTok Ads, otras plataformas?</p>
-    <p class="faq-a">Hoy NO. El piloto es Meta Ads + landing + CRM. Google Ads está activo en otras cuentas del Grupo (Toyota, etc.) pero el piloto que documenta este SOP es específico Meta + landing. Escalar a Google es decisión post-día 90 — con presupuesto adicional.</p>
+    <p class="faq-a">Hoy no. Solo Meta Ads (Facebook + Instagram) + página web + kanban. Google Ads está activo en otras cuentas del Grupo (Toyota, etc.) pero el piloto es específicamente Meta + landing porque ahí es donde el experimento se está corriendo. Sumar Google es decisión que tomamos al día 90 si los números dan — con presupuesto adicional.</p>
   </div>
 
   <div class="faq-item">
-    <p class="faq-q">¿Quién es dueño de la cuenta de Meta Ads que opera mi marca?</p>
-    <p class="faq-a">Grupo Plasencia (la entidad agencia del Grupo, no Viceversa). Viceversa solo recibe la factura de Meta para reembolsar. El Pixel, la audiencias acumuladas y los aprendizajes del algoritmo se quedan con el Grupo si la marca decide salir del piloto.</p>
+    <p class="faq-q">¿De quién es la cuenta de Meta Ads que opera mi marca?</p>
+    <p class="faq-a">De Grupo Plasencia. No de Viceversa, no de una agencia, no mía. Viceversa solo recibe la factura para reembolsar. El Pixel, las audiencias acumuladas y el aprendizaje del algoritmo se quedan con el Grupo si decides salir.</p>
   </div>
 
   <div class="faq-item">
-    <p class="faq-q">¿Qué pasa con la SPA y el kanban si decido salir del piloto al día 90?</p>
-    <p class="faq-a">La SPA se apaga (DNS revertido al sitio que tenías antes). El kanban guarda histórico de oportunidades para que la marca cierre las que quedaron en pipeline. El Pixel y las audiencias siguen siendo del Grupo. La marca recibe export final del pipeline si lo pide.</p>
+    <p class="faq-q">¿Qué pasa con la página web y el kanban si decido salir al día 90?</p>
+    <p class="faq-a">La página la apago — revertimos el DNS al sitio que tenías antes, en minutos. El kanban guarda el histórico de los leads que quedaron abiertos para que tu equipo cierre las cuentas pendientes. Las audiencias acumuladas siguen siendo del Grupo. Te mando el export final del pipeline si lo pides.</p>
   </div>
 
   <div class="faq-item">
-    <p class="faq-q">¿La marca puede ver el kanban en vivo?</p>
-    <p class="faq-a">Sí. Gerente Comercial y Director Comercial reciben acceso al kanban con scope de su marca + sus sucursales. Vendedores reciben acceso con scope de su sucursal exclusivamente.</p>
+    <p class="faq-q">¿Puedo ver el kanban en vivo?</p>
+    <p class="faq-a">Sí. Tú y tu Director Comercial reciben acceso con vista de toda tu marca y todas tus sucursales. Tus gerentes de sucursal ven solo su sucursal. Tus vendedores ven solo los leads que les toca atender.</p>
   </div>
 
   <div class="faq-item">
-    <p class="faq-q">¿Quién aprueba copies y creatives antes de publicar?</p>
-    <p class="faq-a">El Punto de contacto de marketing de la marca aprueba por correo o por sync semanal. Si pasan 48 horas sin respuesta, Corporativo asume aprobación tácita y publica. El estándar del piloto: copies y creatives siguen brand guidelines de la marca + framework Andromeda — si la marca tiene material crítico, lo declara antes del go-live.</p>
+    <p class="faq-q">¿Quién aprueba los copies y creativos antes de publicar?</p>
+    <p class="faq-a">Tu Gerente de Marketing aprueba por correo o en el sync semanal. Si pasan 48 horas sin respuesta de su parte, doy por aprobado y publico — para no frenar la operación. Si hay material crítico que sí necesita firma, me lo declaras antes del kickoff y lo dejamos por escrito.</p>
   </div>
 
   <div class="faq-item">
-    <p class="faq-q">¿Pueden los vendedores tradicionales (no digitales) recibir leads del piloto?</p>
-    <p class="faq-a">No. La promesa del piloto es respuesta &lt;2h vía WhatsApp del vendedor digital. Un vendedor de piso sin acceso al kanban no cumple esa promesa. Si la marca quiere que los leads vayan a vendedores de piso, no aplica al piloto — es modelo distinto.</p>
+    <p class="faq-q">¿Mis vendedores tradicionales (no digitales) pueden recibir leads del piloto?</p>
+    <p class="faq-a">No. La promesa al cliente final es contacto en menos de 2 horas por WhatsApp. Un vendedor de piso sin acceso al kanban no la cumple. Si prefieres que los leads vayan a vendedores tradicionales, este no es el modelo que necesitas — y te lo digo honestamente para que no entres a algo que no te va a funcionar.</p>
   </div>
 
   <div class="faq-item">
-    <p class="faq-q">¿Cómo se compara este modelo con mi agencia actual de marketing digital?</p>
-    <p class="faq-a">La agencia actual probablemente cobra fee mensual + comisión sobre la pauta + entrega leads de LeadGen Ads / WhatsApp Ads (ver §02). El piloto corporativo no cobra fee — solo la pauta + 8% Viceversa. La operación la hace la Dirección Corporativa con stack propio del Grupo. La data se queda con el Grupo, no con un tercero. La decisión de continuar al día 90 es de la marca, no del proveedor.</p>
+    <p class="faq-q">¿En qué se diferencia esto de mi agencia actual?</p>
+    <p class="faq-a">Tu agencia probablemente te cobra fee fijo mensual + comisión sobre la pauta, te entrega leads de Facebook Forms o WhatsApp Ads (el modelo de volumen que explico en §02), y opera con su propio stack que no controlas. Yo no cobro fee. La operación la hace mi equipo con el stack del Grupo. La data se queda contigo y con el Grupo, no con un tercero. Y al día 90 tú decides si seguimos — no yo.</p>
+  </div>
+
+  <div class="faq-item">
+    <p class="faq-q">¿Qué pasa si mis vendedores digitales no contestan a tiempo?</p>
+    <p class="faq-a">Lo veo en el reporte del lunes y te lo digo. Si pasa una semana sin que mejore, escalo contigo o con tu Director Comercial. Esto le pasó a GAC en su primera semana y se resolvió en 48 horas cuando el Gerente de Bugámbilias reasignó vendedores. No es punitivo — es la única manera de proteger los $30K que metiste.</p>
+  </div>
+
+  <div class="faq-item">
+    <p class="faq-q">¿Y si no tenemos diseñador interno?</p>
+    <p class="faq-a">Generamos los creativos con IA bajo tus lineamientos de marca. Te firmo un acuerdo explícito de que la fidelidad al 100% al pie de la letra no se garantiza sin equipo humano dedicado. Eso protege a tu marca y me protege a mí. Si después decides asignar diseñador, pasamos el brief y cambias al modo equipo-humano sin re-hacer el setup.</p>
   </div>
 
   <div class="signature">
