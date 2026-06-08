@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>SOP · Condiciones del Piloto de Marketing Corporativo — Onboarding de marca/sucursal · Grupo Plasencia</title>
+<meta name="description" content="Standard Operating Procedure de la Dirección de Marketing Corporativo de Grupo Plasencia para incorporar marcas o sucursales nuevas al piloto operativo (hoy activo en Hyundai, Stellantis, Seminuevos y GAC). Dirigido a Directores de marca, Gerentes de marca, Gerentes Comerciales y Gerentes de Ventas. Define inversión mínima, entregables, accesos, contactos, escenarios financieros de referencia, intención estratégica (SPA catálogo ecommerce vs LeadGen/WhatsApp Ads — calidad de prospección vs volumen), modelo always-on con toggle de oferta mensual, plan de onboarding técnico día -5 a día 0, reporting y criterios de salida al día 90.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@500;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gp-red: #C8102E;
+    --gp-navy: #1E2740;
+    --gp-slate: #2D3748;
+    --green: #48BB78;
+    --deep-green: #276749;
+    --blue: #4299E1;
+    --deep-blue: #2B6CB0;
+    --amber: #D69E2E;
+    --gold: #ECC94B;
+    --sem-gold: #FBC645;
+    --bg: #F0F4F8;
+    --paper: #FFFFFF;
+    --near-white: #F7FAFC;
+    --g100: #EDF2F7;
+    --g200: #E2E8F0;
+    --g300: #CBD5E0;
+    --g400: #A0AEC0;
+    --g500: #718096;
+    --g600: #4A5568;
+    --g700: #2D3748;
+    --text: #2D3748;
+    --serif: 'Playfair Display', Georgia, serif;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html, body { background:var(--bg); }
+  body {
+    font-family: var(--sans);
+    color: var(--text);
+    line-height: 1.55;
+    font-size: 10pt;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  @page {
+    size: A4;
+    margin: 18mm 18mm 22mm 18mm;
+    @bottom-right { content: counter(page); font-family: 'Inter', sans-serif; font-size: 9pt; color: #718096; }
+    @bottom-left  { content: "Confidencial · Grupo Plasencia · Dirección de Marketing Corporativo"; font-family: 'Inter', sans-serif; font-size: 8pt; color: #A0AEC0; }
+    @top-right    { content: "SOP · Onboarding al Piloto de Marketing Corporativo"; font-family: 'Inter', sans-serif; font-size: 8pt; color: #A0AEC0; }
+  }
+  @page :first { @top-right { content: ""; } @bottom-right { content: ""; } @bottom-left { content: ""; } }
+  @page cover { margin: 0; }
+
+  .page {
+    background: var(--paper);
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0 auto 8mm auto;
+    padding: 18mm 18mm 22mm 18mm;
+    position: relative;
+    page-break-after: always;
+    box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 4px 24px rgba(30,39,64,.08);
+  }
+  .page:last-child { page-break-after: auto; }
+
+  /* ============ COVER ============ */
+  .cover { background: var(--gp-navy); color: var(--near-white); padding: 0; page: cover; }
+  .cover-inner {
+    padding: 36mm 22mm 24mm 22mm;
+    min-height: 297mm;
+    display: flex; flex-direction: column; justify-content: space-between;
+    background:
+      radial-gradient(ellipse at 100% 0%, rgba(236,201,75,0.16) 0%, transparent 55%),
+      radial-gradient(ellipse at 0% 100%, rgba(200,16,46,0.10) 0%, transparent 55%),
+      var(--gp-navy);
+    position: relative;
+  }
+  .cover-inner::before {
+    content: ""; position: absolute; top: 24mm; left: 22mm;
+    width: 64mm; height: 1px; background: var(--gold);
+  }
+  .cover-mark {
+    font-family: var(--sans); font-weight: 700; font-size: 11pt; letter-spacing: 4px;
+    color: var(--gold); text-transform: uppercase;
+  }
+  .cover-mark span { display:block; font-weight:400; color:rgba(255,255,255,0.55); margin-top:4px; letter-spacing:1px; font-size:9pt; }
+  .cover-eyebrow {
+    font-family: var(--sans); font-size: 10pt; font-weight: 700; letter-spacing: 5px;
+    color: var(--gp-red); text-transform: uppercase; margin-top: 14mm;
+  }
+  .cover-title {
+    font-family: var(--serif); font-weight: 800; font-size: 56pt; line-height: 1.00;
+    letter-spacing: -2px; margin-top: 8mm; color: var(--near-white);
+  }
+  .cover-title em { font-style: italic; color: var(--gold); font-weight: 700; }
+  .cover-title-after {
+    font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 15pt;
+    color: rgba(255,255,255,0.7); margin-top: 5mm; letter-spacing: -0.2px;
+  }
+  .cover-subtitle {
+    font-family: var(--serif); font-weight: 500; font-style: italic; font-size: 16pt;
+    color: var(--gold); margin-top: 12mm; letter-spacing: -0.3px; line-height: 1.3;
+  }
+  .cover-pull {
+    font-family: var(--serif); font-weight: 500; font-style: italic; font-size: 12pt;
+    color: rgba(255,255,255,0.85); line-height: 1.55;
+    border-left: 3px solid var(--gp-red); padding-left: 8mm; margin-top: 14mm; max-width: 150mm;
+  }
+  .cover-pull cite {
+    display: block; font-style: normal; font-family: var(--sans); font-weight: 600;
+    font-size: 9pt; letter-spacing: 1.5px; color: var(--gp-red); margin-top: 6mm; text-transform: uppercase;
+  }
+  .cover-tags { display:flex; gap:6mm; margin-top: 12mm; flex-wrap:wrap; }
+  .cover-tag {
+    font-family: var(--sans); font-size: 9pt; font-weight: 600; letter-spacing: 1px;
+    color: rgba(255,255,255,0.85); border: 1px solid rgba(255,255,255,0.25);
+    padding: 4px 10px; border-radius: 999px; text-transform: uppercase;
+  }
+  .cover-tag.accent { color: var(--gold); border-color: rgba(236,201,75,0.4); }
+  .cover-tag.urgent { color: var(--gp-red); border-color: rgba(200,16,46,0.4); }
+  .cover-meta {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    margin-top: 14mm; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 8mm;
+  }
+  .cover-meta-block { font-size: 9pt; color: rgba(255,255,255,0.65); line-height: 1.7; }
+  .cover-meta-block strong { display:block; color: var(--near-white); font-weight: 700; font-size: 10pt; letter-spacing: .5px; }
+
+  /* ============ TOC ============ */
+  .toc { margin-top: 6mm; }
+  .toc-item {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding: 3mm 0; border-bottom: 1px dotted var(--g300); font-size: 10.5pt;
+  }
+  .toc-num {
+    font-family: var(--serif); font-weight: 800; font-size: 13pt; color: var(--gp-red);
+    width: 14mm; flex-shrink: 0;
+  }
+  .toc-title { flex: 1; color: var(--gp-navy); font-weight: 700; padding-right: 4mm; }
+  .toc-sub { display: block; font-size: 9pt; color: var(--g500); font-weight: 400; margin-top: 1mm; }
+  .toc-page { color: var(--g500); font-family: var(--serif); font-style: italic; font-size: 11pt; flex-shrink: 0; }
+
+  /* ============ TYPOGRAPHY ============ */
+  h1.section-title {
+    font-family: var(--serif); font-weight: 800; font-size: 28pt; line-height: 1.08;
+    letter-spacing: -0.8px; color: var(--gp-navy);
+    border-top: 3px solid var(--gp-red); padding-top: 6mm; margin-bottom: 6mm;
+  }
+  h1.section-title .num {
+    display: block; font-family: var(--sans); font-weight: 700; font-size: 9pt;
+    letter-spacing: 4px; color: var(--gp-red); text-transform: uppercase; margin-bottom: 2mm;
+  }
+  h2 {
+    font-family: var(--serif); font-weight: 700; font-size: 17pt; line-height: 1.2;
+    color: var(--gp-navy); margin-top: 8mm; margin-bottom: 3mm; letter-spacing: -0.3px;
+  }
+  h3 {
+    font-family: var(--sans); font-weight: 700; font-size: 11.5pt; color: var(--gp-navy);
+    margin-top: 6mm; margin-bottom: 2.5mm; letter-spacing: -0.1px;
+  }
+  h4 {
+    font-family: var(--sans); font-weight: 700; font-size: 9.5pt; color: var(--gp-red);
+    text-transform: uppercase; letter-spacing: 1.4px; margin-top: 5mm; margin-bottom: 2mm;
+  }
+  p { margin-bottom: 3mm; font-size: 10pt; color: var(--g700); }
+  p.lead { font-size: 11.5pt; color: var(--gp-navy); line-height: 1.5; margin-bottom: 5mm; font-weight: 500; }
+  strong { color: var(--gp-navy); font-weight: 700; }
+  em { font-style: italic; }
+  a { color: var(--deep-blue); text-decoration: none; border-bottom: 1px dotted var(--deep-blue); }
+  a:hover { border-bottom-style: solid; }
+  ul, ol { margin: 3mm 0 4mm 5mm; }
+  li { margin-bottom: 1.5mm; font-size: 10pt; color: var(--g700); line-height: 1.5; }
+
+  /* ============ CALLOUTS ============ */
+  .callout {
+    background: var(--g100); border-left: 4px solid var(--gp-navy);
+    padding: 4mm 5mm; margin: 4mm 0; border-radius: 0 4px 4px 0;
+  }
+  .callout--red { border-left-color: var(--gp-red); background: rgba(200,16,46,0.04); }
+  .callout--gold { border-left-color: var(--amber); background: rgba(214,158,46,0.06); }
+  .callout--green { border-left-color: var(--deep-green); background: rgba(72,187,120,0.06); }
+  .callout--navy { background: var(--gp-navy); color: var(--near-white); border-left-color: var(--gold); }
+  .callout--navy p, .callout--navy strong { color: var(--near-white); }
+  .callout--navy strong { color: var(--gold); }
+  .callout-label {
+    font-family: var(--sans); font-weight: 700; font-size: 8.5pt; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--gp-red); margin-bottom: 2mm; display: block;
+  }
+  .callout--gold .callout-label { color: var(--amber); }
+  .callout--green .callout-label { color: var(--deep-green); }
+  .callout--navy .callout-label { color: var(--gold); }
+
+  /* ============ TABLAS ============ */
+  table {
+    width: 100%; border-collapse: collapse; margin: 4mm 0 5mm 0; font-size: 9.5pt;
+    background: var(--paper);
+  }
+  th {
+    background: var(--gp-navy); color: var(--near-white);
+    font-family: var(--sans); font-weight: 700; font-size: 8.5pt; letter-spacing: 1.2px;
+    text-transform: uppercase; padding: 3mm 3mm; text-align: left; vertical-align: middle;
+    border-right: 1px solid rgba(255,255,255,0.1);
+  }
+  th:last-child { border-right: none; }
+  td {
+    padding: 3mm 3mm; border-bottom: 1px solid var(--g200);
+    vertical-align: top; line-height: 1.5; color: var(--g700);
+  }
+  tr:nth-child(even) td { background: var(--g100); }
+  td strong { color: var(--gp-navy); }
+  td.num { text-align: right; font-variant-numeric: tabular-nums; font-weight: 600; color: var(--gp-navy); }
+  td.center { text-align: center; }
+
+  /* ============ BADGES ============ */
+  .badge {
+    display: inline-block; padding: 1.5mm 3mm; border-radius: 999px;
+    font-size: 8.5pt; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase;
+    vertical-align: middle;
+  }
+  .badge--red { background: var(--gp-red); color: #fff; }
+  .badge--navy { background: var(--gp-navy); color: #fff; }
+  .badge--gold { background: var(--gold); color: var(--gp-navy); }
+  .badge--green { background: var(--green); color: #fff; }
+  .badge--gray { background: var(--g300); color: var(--g700); }
+
+  /* ============ KPI CARDS ============ */
+  .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4mm; margin: 5mm 0; }
+  .kpi { background: var(--g100); border-top: 3px solid var(--gp-red); padding: 4mm; border-radius: 0 0 4px 4px; }
+  .kpi-num { font-family: var(--serif); font-weight: 800; font-size: 22pt; color: var(--gp-navy); line-height: 1; }
+  .kpi-label { font-size: 8.5pt; color: var(--g500); margin-top: 2mm; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
+  .kpi-sub { font-size: 9pt; color: var(--g600); margin-top: 1.5mm; }
+
+  /* ============ CHECKLIST ============ */
+  .checklist { list-style: none; margin: 4mm 0 0 0; }
+  .checklist li {
+    padding: 3mm 0 3mm 9mm; border-bottom: 1px solid var(--g200); position: relative;
+    font-size: 10pt; line-height: 1.5;
+  }
+  .checklist li::before {
+    content: "□"; position: absolute; left: 1mm; top: 3mm;
+    color: var(--gp-red); font-weight: 800; font-size: 14pt; line-height: 1;
+  }
+  .checklist li.blocker::before { color: var(--gp-red); content: "⬛"; font-size: 11pt; }
+  .checklist li strong { color: var(--gp-navy); }
+  .checklist li .checklist-desc { display:block; font-size: 9pt; color: var(--g500); margin-top: 1mm; }
+
+  /* ============ COMPARATIVO ============ */
+  .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm; margin: 5mm 0; }
+  .compare-col {
+    border-radius: 4px; padding: 5mm; background: var(--g100);
+    border-top: 3px solid var(--g500);
+  }
+  .compare-col.win { background: rgba(72,187,120,0.05); border-top-color: var(--deep-green); }
+  .compare-col.lose { background: rgba(200,16,46,0.03); border-top-color: var(--gp-red); }
+  .compare-col h4 { margin-top: 0; }
+  .compare-col.win h4 { color: var(--deep-green); }
+  .compare-col.lose h4 { color: var(--gp-red); }
+  .compare-col p:last-child { margin-bottom: 0; }
+
+  /* ============ FAQ ============ */
+  .faq-item { border-top: 1px solid var(--g200); padding: 4mm 0; }
+  .faq-item:first-of-type { border-top: 2px solid var(--gp-navy); }
+  .faq-q { font-weight: 700; color: var(--gp-navy); margin-bottom: 1.5mm; font-size: 10pt; }
+  .faq-a { font-size: 9.5pt; color: var(--g600); line-height: 1.55; }
+
+  /* ============ FOOTER NOTE ============ */
+  .note { font-size: 8.5pt; color: var(--g500); line-height: 1.5; font-style: italic; margin: 5mm 0 0 0; padding-top: 3mm; border-top: 1px solid var(--g200); }
+
+  /* ============ FIRMA ============ */
+  .signature {
+    background: var(--gp-navy); color: var(--near-white); border-radius: 4px;
+    padding: 8mm; margin-top: 8mm;
+  }
+  .signature h3 { color: var(--gold); margin-top: 0; font-family: var(--serif); font-weight: 700; font-size: 14pt; }
+  .signature p { color: rgba(255,255,255,0.8); margin-bottom: 2mm; }
+  .signature strong { color: var(--near-white); }
+  .signature .contact-block {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 6mm; margin-top: 5mm;
+    border-top: 1px solid rgba(255,255,255,0.15); padding-top: 5mm;
+  }
+  .signature .contact-name { font-weight: 700; color: var(--gold); font-size: 11pt; }
+  .signature .contact-role { font-size: 9pt; color: rgba(255,255,255,0.7); margin-top: 1mm; }
+
+  /* ============ DIAGRAMA TEXTO ============ */
+  .ascii-diagram {
+    font-family: 'SF Mono', Consolas, Monaco, monospace; font-size: 9pt;
+    background: var(--gp-navy); color: var(--near-white); padding: 6mm; border-radius: 4px;
+    line-height: 1.55; margin: 4mm 0; white-space: pre; overflow-x: auto;
+  }
+
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     COVER
+============================================================ -->
+<section class="page cover">
+  <div class="cover-inner">
+    <div>
+      <div class="cover-mark">SOP — Standard Operating Procedure
+        <span>Versión 1.0 · 8 de junio de 2026 · Documento vivo</span>
+      </div>
+      <div class="cover-eyebrow">Condiciones del Piloto</div>
+      <div class="cover-title">Onboarding<br><em>de una marca</em><br>al piloto.</div>
+      <div class="cover-title-after">Cómo se incorpora una marca o sucursal nueva al piloto de marketing<br>corporativo del Grupo, con el mismo rigor con el que opera hoy<br>Hyundai, Stellantis, Seminuevos y GAC.</div>
+      <div class="cover-subtitle">$30,000 al mes piso. 90 días para decidir.<br>Una decisión informada al final, no una factura más al mes.</div>
+    </div>
+
+    <div>
+      <div class="cover-pull">
+        Las agencias prometen leads. Nosotros prometemos un proceso comercial digital trazable extremo a extremo, decisiones basadas en data y la oportunidad real de que tu marca aprenda qué funciona en su categoría — sin contratar agencia.
+        <cite>— Dirección de Marketing Corporativo, Grupo Plasencia</cite>
+      </div>
+
+      <div class="cover-tags">
+        <span class="cover-tag accent">Directores de Marca</span>
+        <span class="cover-tag accent">Gerentes de Marca</span>
+        <span class="cover-tag accent">Gerentes Comerciales</span>
+        <span class="cover-tag accent">Gerentes de Ventas</span>
+        <span class="cover-tag urgent">Decisión: entrar o no al piloto</span>
+      </div>
+
+      <div class="cover-meta">
+        <div class="cover-meta-block">
+          <strong>Emisor</strong>
+          Dirección de Marketing Corporativo<br>Grupo Plasencia Automotriz · Guadalajara
+        </div>
+        <div class="cover-meta-block">
+          <strong>Punto de contacto único</strong>
+          Chucho Porras · Director MKT Corporativo<br>Emmanuel Ramírez · Acompañamiento operativo
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     TOC
+============================================================ -->
+<section class="page">
+  <h1 class="section-title"><span class="num">Tabla de contenido</span>Cómo leer este documento</h1>
+
+  <p class="lead">Este SOP es la <strong>fuente única</strong> de las condiciones para incorporar una marca o sucursal al piloto de marketing corporativo. Está escrito para que cualquier director o gerente del Grupo lo pueda leer en 25 minutos y tomar una decisión informada sobre si su marca entra, qué tiene que aportar, qué recibe a cambio y qué pasa al día 90.</p>
+
+  <div class="toc">
+    <div class="toc-item"><div class="toc-num">01</div><div class="toc-title">Para quién es este documento y qué resuelve <span class="toc-sub">Audiencia · resultado esperado · contexto operativo del piloto vigente</span></div><div class="toc-page">3</div></div>
+    <div class="toc-item"><div class="toc-num">02</div><div class="toc-title">La pregunta estratégica detrás del piloto <span class="toc-sub">Por qué SPA con catálogo tipo e-commerce y no LeadGen Ads ni WhatsApp Ads — calidad de prospección vs volumen</span></div><div class="toc-page">4</div></div>
+    <div class="toc-item"><div class="toc-num">03</div><div class="toc-title">Condiciones financieras del piloto <span class="toc-sub">$30,000 MXN netos/mes piso · 90 días · esquema Viceversa · forma de pago</span></div><div class="toc-page">6</div></div>
+    <div class="toc-item"><div class="toc-num">04</div><div class="toc-title">Checklist de entregables de la marca <span class="toc-sub">Brand · personas · catálogo y precios · fotos · diseño · estructura humana</span></div><div class="toc-page">7</div></div>
+    <div class="toc-item"><div class="toc-num">05</div><div class="toc-title">Always-on y toggle de oferta mensual <span class="toc-sub">Qué significa always-on · cómo se prende y apaga la oferta sin perder presencia</span></div><div class="toc-page">10</div></div>
+    <div class="toc-item"><div class="toc-num">06</div><div class="toc-title">Lo que provee la Dirección de MKT Corporativo <span class="toc-sub">Stack · CRM · operación diaria · documentación</span></div><div class="toc-page">11</div></div>
+    <div class="toc-item"><div class="toc-num">07</div><div class="toc-title">Plan de onboarding técnico: día -5 a día 0 <span class="toc-sub">5 días hábiles a go-live · bloqueos típicos · consecuencias</span></div><div class="toc-page">12</div></div>
+    <div class="toc-item"><div class="toc-num">08</div><div class="toc-title">Reporting durante el piloto y criterios al día 90 <span class="toc-sub">Reportes semanales · reporte ejecutivo mensual · 4 decisiones posibles</span></div><div class="toc-page">13</div></div>
+    <div class="toc-item"><div class="toc-num">09</div><div class="toc-title">Anexo: escenarios financieros de referencia <span class="toc-sub">Plazos, tasas, enganches y supuestos sobre los que se calculan las mensualidades publicadas en cada SPA</span></div><div class="toc-page">14</div></div>
+    <div class="toc-item"><div class="toc-num">10</div><div class="toc-title">FAQ y contacto único de entrada al piloto <span class="toc-sub">Preguntas frecuentes · cómo agendar la primera reunión</span></div><div class="toc-page">15</div></div>
+  </div>
+</section>
+
+<!-- ============================================================
+     §01 — Para quién es
+============================================================ -->
+<section class="page">
+  <h1 class="section-title"><span class="num">Sección 01</span>Para quién es este documento y qué resuelve</h1>
+
+  <p class="lead">El piloto de marketing corporativo opera hoy en 4 líneas de negocio del Grupo. Este documento es el <strong>onboarding estándar</strong> para que la marca número cinco entre en las mismas condiciones, sin reinventar el proceso.</p>
+
+  <h3>Audiencia primaria</h3>
+  <ul>
+    <li><strong>Director de Marca</strong> (Hyundai, Stellantis, GAC, Toyota, Honda, Ford, Mazda, Volvo, etc.) que evalúa si su línea de negocio entra al piloto este trimestre.</li>
+    <li><strong>Gerente de Marca / Gerente de Marketing de la marca</strong> que va a ser el punto de contacto operativo con la Dirección Corporativa durante el piloto.</li>
+    <li><strong>Gerente Comercial / Director Comercial</strong> que define la oferta comercial mensual y autoriza el flujo de leads digitales a sus vendedores.</li>
+    <li><strong>Gerente de Ventas de sucursal</strong> que supervisa al vendedor digital asignado al kanban del piloto.</li>
+  </ul>
+
+  <h3>Qué resuelve</h3>
+  <p>En el Grupo conviven 5 modelos distintos de operar marketing digital por marca: agencia A, agencia B, "Karbot/WhatsApp form", "el chavo del sobrino", redes manejadas por el gerente. <strong>Ninguno aprende, todos cobran por mes, ninguno entrega data trazable.</strong> El piloto corporativo es la alternativa: un solo modelo, operado desde la Dirección, con stack propio del Grupo, data acumulada como activo del Grupo y costo conocido. Este SOP es lo que se firma para entrar.</p>
+
+  <h3>Qué <em>no</em> resuelve este documento</h3>
+  <ul>
+    <li>No es la estrategia anual de marketing de la marca — es el contrato operativo del piloto.</li>
+    <li>No es un contrato legal — es un acuerdo de trabajo entre Dirección Corporativa y la marca, validado por Contraloría.</li>
+    <li>No reemplaza la postventa, el showroom, ni los esfuerzos de marca tradicional. Es <strong>la capa digital faltante</strong> sobre lo que ya funciona en piso.</li>
+  </ul>
+
+  <div class="callout callout--navy">
+    <span class="callout-label">Contexto del piloto vigente (al 8 de junio de 2026)</span>
+    <p>El piloto opera hoy en producción en 4 líneas: <strong>Hyundai</strong> (Plasencia + Santa Anita), <strong>Stellantis</strong> (RAM, Jeep, Peugeot, Dodge, Fiat — Plasencia + Santa Anita), <strong>Seminuevos</strong> multi-sucursal (Mazda Acueducto, Américas, Galerías, González Gallo, Plasencia, Santa Anita + López Mateos + Bugámbilias) y <strong>GAC</strong> (Bugámbilias + Américas). Stack en operación, métricas siendo capturadas, vendedores digitales asignados, kanban respondiendo. La marca que entra ahora <strong>se monta sobre infraestructura ya validada</strong>.</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     §02 — La pregunta estratégica detrás del piloto
+============================================================ -->
+<section class="page">
+  <h1 class="section-title"><span class="num">Sección 02</span>La pregunta estratégica detrás del piloto</h1>
+
+  <p class="lead">Antes de hablar de dinero, contactos, fotos o vendedores, este SOP necesita que el director de marca entienda por qué el piloto se monta sobre <strong>SPA con catálogo tipo e-commerce</strong> y no sobre <strong>LeadGen Ads</strong> ni sobre <strong>WhatsApp Ads</strong>, que son los formatos más usados hoy en automotriz en México y son lo que probablemente ya tiene contratado con su agencia actual.</p>
+
+  <h3>Las tres opciones disponibles</h3>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width:18%">Formato</th>
+        <th style="width:30%">Cómo funciona</th>
+        <th style="width:22%">Qué optimiza Meta</th>
+        <th style="width:30%">Quién decide qué se publica</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>LeadGen Ads</strong><br><span class="badge badge--gray">Volumen</span></td>
+        <td>Form nativo dentro de Facebook/Instagram. El usuario nunca sale del feed. Llena nombre, teléfono, modelo de interés. El lead cae a un CRM o a un Excel.</td>
+        <td>Volumen de formularios completados. Sin señales de intención real.</td>
+        <td>La agencia o el gerente. La marca apenas valida copy.</td>
+      </tr>
+      <tr>
+        <td><strong>WhatsApp Ads</strong> (Click-to-WA)<br><span class="badge badge--gray">Volumen</span></td>
+        <td>El usuario hace click y aterriza directo en una conversación de WhatsApp con la agencia o el bot Karbot. Cero contexto previo del auto.</td>
+        <td>Volumen de chats iniciados. Optimiza por interacción, no por compra.</td>
+        <td>La agencia define el chat. El bot pregunta lo mismo a todos.</td>
+      </tr>
+      <tr>
+        <td><strong>SPA Catálogo E-comm</strong><br><span class="badge badge--navy">Calidad</span></td>
+        <td>El usuario aterriza en un catálogo navegable estilo Mercado Libre. Filtra, compara, abre la ficha del auto que le interesa, ve precio, mensualidad de referencia, programas, sucursales. Solo deja sus datos cuando <strong>ya decidió por qué auto pregunta</strong>.</td>
+        <td>Optimiza por <strong>VisitaSucursal / Compra</strong> vía Pixel + CAPI. Le devuelve a Meta la señal de quién realmente compró, no solo quién dio un teléfono.</td>
+        <td>La marca + el Grupo. Lo que aparece en el catálogo es lo que el OEM autoriza y lo que el inventario respalda.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>El trade-off es real: volumen vs calidad de prospección</h3>
+
+  <div class="compare">
+    <div class="compare-col lose">
+      <h4>LeadGen / WhatsApp Ads — Volumen sin calidad</h4>
+      <p><strong>Lo que ves en el reporte:</strong> 800 leads/mes. CPL barato. Gerente comercial feliz al ver el número.</p>
+      <p><strong>Lo que pasa de verdad:</strong> 600 leads no contestan el teléfono. 150 dieron datos por curiosidad. 30 calificaron. <strong>5–8 compraron.</strong> El vendedor se quema persiguiendo gente que nunca tuvo intención. La marca paga por leads que no convierten y nunca aprende qué prospecto sí compra.</p>
+      <p><strong>Lo que Meta aprende:</strong> nada útil. Le seguimos pidiendo "más como estos" y nos manda más volumen igual de tibio.</p>
+    </div>
+    <div class="compare-col win">
+      <h4>SPA Catálogo E-comm — Volumen menor, intención alta</h4>
+      <p><strong>Lo que ves en el reporte:</strong> 150–250 leads/mes. CPL mayor. Inicialmente parece "menos".</p>
+      <p><strong>Lo que pasa de verdad:</strong> 90% contesta el teléfono porque el lead específicamente pidió información de <em>un</em> auto. 40% agenda cita. <strong>15–25 compran.</strong> Misma o mayor cantidad de unidades vendidas con menos leads y menos quema del vendedor.</p>
+      <p><strong>Lo que Meta aprende:</strong> patrón de los que sí compraron (CAPI con evento <em>VisitaSucursal</em>). Pide más como esos. El CPL <strong>baja con el tiempo</strong> porque el algoritmo empieza a optimizar por compradores reales, no por curiosos.</p>
+    </div>
+  </div>
+
+  <div class="callout callout--gold">
+    <span class="callout-label">El insight estratégico</span>
+    <p>Las plataformas hoy optimizan por <strong>el evento que tú les regreses</strong>. Si solo les regresas "el usuario llenó un form", optimizan por gente dispuesta a llenar forms — no por gente dispuesta a comprar. Si les regresas "el usuario vino a la sucursal" o "el usuario compró", optimizan por eso. <strong>El catálogo e-commerce es el único formato que produce esa señal de manera limpia</strong>, porque captura la intención específica del auto antes del lead. El piloto Motor de Atribución MVP del Grupo existe precisamente para regresarle a Meta esa señal.</p>
+  </div>
+
+  <h3>Lo que esto significa para la marca que evalúa entrar</h3>
+  <ul>
+    <li><strong>El piloto va a empezar con menos leads que tu LeadGen actual.</strong> Eso es intencional. Vamos a buscar volumen <em>después</em> de que el algoritmo aprenda quién sí compra en tu marca.</li>
+    <li><strong>Tu vendedor digital va a contestar leads mejor calificados.</strong> Quien deje sus datos en el catálogo ya investigó modelo, precio y sucursal. La conversación arranca 3 pasos adelante.</li>
+    <li><strong>Vas a tener data propia.</strong> Pixel, CAPI, GA4 y CRM acumulan información del comprador real de tu marca. Esa data se queda con el Grupo, no con la agencia, y se vuelve activo permanente.</li>
+    <li><strong>Al día 90 vas a poder decidir si escalas, ajustas o sales</strong> — con números reales, no con la promesa del proveedor.</li>
+  </ul>
+</section>
+
+<!-- ============================================================
+     §03 — Condiciones financieras
+============================================================ -->
+<section class="page">
+  <h1 class="section-title"><span class="num">Sección 03</span>Condiciones financieras del piloto</h1>
+
+  <h3>Inversión mínima</h3>
+  <p>El piso de entrada al piloto es <strong>$30,000 MXN netos al mes</strong> por marca, durante <strong>90 días de campañas activas</strong>. La marca decide internamente cómo se distribuye esa cifra entre sus sucursales — administrativamente, no a nivel de cuenta publicitaria.</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Concepto</th>
+        <th class="center">Mensual</th>
+        <th class="center">90 días</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Neto en publicidad (piso)</td><td class="num">$30,000</td><td class="num">$90,000</td></tr>
+      <tr><td>Comisión Viceversa (8%)</td><td class="num">$2,400</td><td class="num">$7,200</td></tr>
+      <tr><td>IVA 16% sobre (neto + comisión)</td><td class="num">$5,184</td><td class="num">$15,552</td></tr>
+      <tr><td><strong>Total bruto a pagar</strong></td><td class="num"><strong>$37,584</strong></td><td class="num"><strong>$112,752</strong></td></tr>
+    </tbody>
+  </table>
+
+  <p>Los $30K son <strong>piso, no techo</strong>. Las marcas vigentes del piloto operan con presupuestos que combinan sucursales — Hyundai opera $30K consolidado entre Plasencia y Santa Anita; Stellantis opera $30K consolidado entre Mariano Otero y Santa Anita; Seminuevos opera $40K repartido entre 4 lotes. La razón es algorítmica: una sola cuenta de Meta Ads aprende más rápido que cuatro cuentas separadas con el mismo presupuesto fragmentado.</p>
+
+  <h3>Esquema administrativo Viceversa</h3>
+  <p>Viceversa Digital centraliza el pago de medios. <strong>No opera campañas.</strong> Su única función es simplificar la factura: una sola factura mensual al Grupo en lugar de N facturas a Meta con N razones sociales. Validado por Contraloría (Marcela García Estrada).</p>
+
+  <ul>
+    <li><strong>Cuenta de transferencia.</strong> BBVA · 0188151873 · CLABE 012320001881518734 · Beneficiario: JAVIER EMMANUEL RAMIREZ TORRES.</li>
+    <li><strong>Constancias fiscales.</strong> Antes del primer transfer, mandar la constancia de situación fiscal de la(s) razón(es) social(es) fondeadoras a <a href="mailto:jaime@viceversadigital.com">jaime@viceversadigital.com</a> con copia al Director MKT Corporativo.</li>
+    <li><strong>Comisión Viceversa.</strong> 8% sobre el neto + IVA sobre (neto + comisión). Ya incluida en la tabla.</li>
+  </ul>
+
+  <h3>Forma de pago</h3>
+  <p>Parcial o total a discreción del fondeador. <strong>Lo recomendado: transfer completo al inicio del mes.</strong> Si el presupuesto se interrumpe a media campaña, el algoritmo de Meta Ads pierde la fase de aprendizaje (los primeros 7 días estables) y el CPL sube. Pausas a media semana cuestan más caro que el ahorro del cash-flow diferido.</p>
+
+  <h3>Vigencia del compromiso</h3>
+  <p><strong>90 días de campañas activas</strong>, no 90 días calendario. Si se interrumpe el gasto, esos días no cuentan al cap. Al día 90 hay <strong>decisión explícita</strong> (continuar, escalar, ajustar, salir) — el piloto NO continúa por inercia.</p>
+
+  <div class="callout callout--red">
+    <span class="callout-label">Lo que el piloto NO incluye</span>
+    <p>El piso de $30K cubre exclusivamente <strong>compra de medios en Meta Ads</strong> (Facebook + Instagram) + comisión Viceversa + IVA. No incluye Google Ads, TikTok Ads, programática, OOH, radio ni TV — esos canales se evalúan post-día 90 según resultados. No incluye creativos producidos por equipo humano dedicado (ver §04.D). No incluye agencia de medios — la opera la Dirección Corporativa.</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     §04 — Checklist de entregables — A · brand y personas
+============================================================ -->
+<section class="page">
+  <h1 class="section-title"><span class="num">Sección 04 · A</span>Entregables de la marca — Brand &amp; Personas</h1>
+
+  <p class="lead">El piloto se puede arrancar en <strong>5 días hábiles</strong> si los entregables de las subsecciones A–F están completos. Si falta uno crítico, se documenta y se procede con degradación explícita — la marca asume el costo en CRO o en time-to-launch.</p>
+
+  <h3>A · Identidad y guidelines de marca</h3>
+  <ul class="checklist">
+    <li><strong>Brand guidelines / Manual de marca</strong> — logo en alta resolución (PNG transparente + SVG), paleta oficial, tipografías corporativas, tono de voz, do's &amp; don'ts. <span class="checklist-desc">Si no existe: el Grupo extrae lo público del sitio del OEM y documenta la decisión como "best effort" con riesgo conocido de off-brand.</span></li>
+    <li><strong>Concepto rector o "big idea" de marca</strong> <em>(opcional pero recomendado)</em> — referencia: <a href="Seminuevos-Sin-Sorpresas-Paper-Ejecutivo.html">"Sin Sorpresas" de Seminuevos</a>. <span class="checklist-desc">No se le pide a la marca un paper de 30 páginas. Sí se le pide la frase que captura cómo se diferencia del competidor en el mindset del comprador.</span></li>
+    <li><strong>Design system / UI kit digital</strong> <em>(opcional)</em> — tokens de color, spacing, tipografía, componentes en código. <span class="checklist-desc">Si la marca no tiene: se hereda el Design System Grupo Plasencia en operación, adaptado con la paleta y tipografía de la marca.</span></li>
+  </ul>
+
+  <h3>B · Conocimiento del cliente — quién compra esta marca</h3>
+  <ul class="checklist">
+    <li><strong>Buyer / User personas documentadas</strong> <em>(deseable)</em> — quién compra, demografía, JTBD, mindset, pains, drivers. <span class="checklist-desc">Si no las hay: el Grupo construye personas a partir de la data del pipeline + research público + entrevistas a vendedores de la marca. Toma 5–7 días extra al onboarding. Ver referencias en <a href="Personas-Stellantis-Pivote2.md">Stellantis</a> y Hyundai.</span></li>
+    <li class="blocker"><strong>Segmentos comerciales reales y mindsets</strong> — cómo la marca segmenta hoy a su cliente (familias, flotilla, comerciantes, primerizos, recompra, etc.). <span class="checklist-desc">BLOQUEANTE. Sin esto el catálogo no se puede organizar por intención, ni los copies Andromeda pueden segmentar audiencias.</span></li>
+  </ul>
+
+  <div class="callout">
+    <span class="callout-label">Por qué importa</span>
+    <p>El catálogo de la SPA se construye con <strong>tabs por intención</strong> (Personal / Familia / Comercial / Lifestyle, según la marca). Sin saber cómo la marca segmenta a su comprador, esos tabs los inventa el Grupo y se vuelven genéricos. Con segmentos reales, las tabs ordenan el catálogo de forma que el cliente encuentra su auto sin filtrar — y la conversión sube. STL usa <em>Lifestyle / Familia / Comercial</em>; Hyundai usa <em>Personal / Flotilla</em>; GAC usa <em>Personal / Flotilla</em>.</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     §04 — C · Catálogo y precios (bloqueante)
+============================================================ -->
+<section class="page">
+  <h1 class="section-title"><span class="num">Sección 04 · B</span>Entregables de la marca — Catálogo, precios y fotos</h1>
+
+  <h3>C · Catálogo y precios — fuente de verdad <span class="badge badge--red">Bloqueante</span></h3>
+  <p>Este bloque es el más estricto. La Dirección de Marketing Corporativo tiene <strong>prohibido inventar</strong> precios, mensualidades, tasas, bonos o promociones. Todo lo que se publica en el catálogo y en los anuncios proviene de la marca. Si la marca no entrega, el piloto no arranca.</p>
+
+  <ul class="checklist">
+    <li class="blocker"><strong>Lista de precios oficial vigente</strong> — PDF, Excel o link al sitio del OEM. Es la fuente legal de precios MSRP o de lista. <span class="checklist-desc">Sin esto la SPA no se publica. El precio que aparece en la card es exactamente el de la lista oficial.</span></li>
+    <li class="blocker"><strong>Catálogo de modelos a publicar</strong> — qué modelos sí, qué no (descontinuados, sin inventario, no-target). Min/max 5–13 modelos. <span class="checklist-desc">Más de 13 diluye la conversión. Menos de 5 hace que el catálogo se vea pobre.</span></li>
+    <li class="blocker"><strong>Mensualidades, plazos, tasas, enganches</strong> — escenario financiero oficial. Si la marca tiene financiera propia o convenio bancario, ese dato. <span class="checklist-desc">El piloto publica la mensualidad de referencia en cada card. El escenario sobre el que se calcula DEBE estar declarado por la marca y se imprime literal en el disclaimer del sitio (ver §09).</span></li>
+    <li><strong>Programas y beneficios oficiales por modelo</strong> — bonos, seguros, garantías extendidas, mantenimiento sin costo. Texto literal autorizado por la marca. <span class="checklist-desc">Prohibido inventar nombres comerciales como "All-Inclusive" o "Mes de la Marca" si no están en el material oficial.</span></li>
+    <li><strong>Vigencias y términos legales de toda promoción</strong> — fecha límite, "sujeto a", restricciones, exclusiones. <span class="checklist-desc">Aparecen literales en el footer legal de la SPA y en el PDF de confirmación.</span></li>
+  </ul>
+
+  <div class="callout callout--red">
+    <span class="callout-label">Regla absoluta del piloto</span>
+    <p>Está prohibido inventar precios, programas, mensualidades, tasas o promociones. La marca es la única fuente de verdad. Si la marca no manda la lista, el piloto no arranca — punto. Esta regla protege a la marca legalmente y al cliente comercialmente: el catálogo y los anuncios reflejan la oferta real autorizada.</p>
+  </div>
+
+  <h3>D · Activos visuales del catálogo</h3>
+  <p>El orden de prioridad para fotos del catálogo de la SPA:</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width:6%">#</th>
+        <th style="width:22%">Opción</th>
+        <th style="width:18%">Calidad CRO</th>
+        <th style="width:24%">Quién provee</th>
+        <th style="width:30%">Ejemplo en piloto vigente</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>A</strong></td><td><strong>Product shots de piso de venta</strong></td><td><span class="badge badge--green">Óptima</span></td><td>La marca, idealmente fotógrafo profesional dedicado</td><td>Seminuevos (181 autos con fotos de piso) · GAC (showroom propio)</td></tr>
+      <tr><td><strong>B</strong></td><td>Fotos oficiales del sitio del OEM o distribuidor</td><td><span class="badge badge--gold">Aceptable</span></td><td>La marca confirma autorización de uso</td><td>Hyundai (5 modelos con fotos del CDN del distribuidor oficial)</td></tr>
+      <tr><td><strong>C</strong></td><td>Fotos oficiales del sitio del concesionario</td><td><span class="badge badge--gold">Aceptable</span></td><td>La marca</td><td>Algunas marcas con showroom virtual propio</td></tr>
+      <tr><td><strong>D</strong></td><td><em>Sin fotos</em></td><td><span class="badge badge--red">Inaceptable</span></td><td>—</td><td>SPA con empty state. La conversión web cae ~30-50% según data interna del piloto. Documentado como degradación atribuible a la marca.</td></tr>
+    </tbody>
+  </table>
+
+  <h3>E · Creativos para los anuncios (carruseles, reels, statics)</h3>
+  <p>Dos rutas posibles, definidas antes del go-live:</p>
+
+  <div class="compare">
+    <div class="compare-col win">
+      <h4>E.1 · La marca tiene diseñador interno</h4>
+      <p>La Dirección Corporativa entrega un <strong>brief Andromeda 2026</strong> (framework de creatividad Meta Ads del Grupo) + concepto rector + sucursales + ofertas vigentes. El diseñador de la marca produce los assets y los devuelve para que el Grupo los suba a Meta Ads. Resultado: fidelidad de marca alta + iteración semanal de creatives.</p>
+    </div>
+    <div class="compare-col lose">
+      <h4>E.2 · La marca no tiene diseñador</h4>
+      <p>Se firma acuerdo expreso: <em>"los creativos se generan con IA bajo lineamientos de la marca. No se garantiza fidelidad al pie de la letra. La única forma de garantizarla es un equipo humano dedicado que la marca debe aportar de su estructura. Mientras tanto, la Dirección Corporativa ejecuta con la mejor IA disponible y revisión manual."</em> Sin este acuerdo firmado, las campañas no se activan.</p>
+    </div>
+  </div>
+
+  <p class="note">SPAs vigentes como referencia visual del estándar que recibirá la marca: <a href="https://seminuevos.grupoplasencia.com/">seminuevos.grupoplasencia.com</a> · <a href="https://hyundai.grupoplasencia.com/">hyundai.grupoplasencia.com</a> · <a href="https://stellantis.grupoplasencia.com/">stellantis.grupoplasencia.com</a> · <a href="https://gac.grupoplasencia.com/">gac.grupoplasencia.com</a>. Si la marca quiere ver el catálogo con la mejor calidad visual lograda, revisar Seminuevos primero — es la "Opción A" en producción.</p>
+</section>
+
+<!-- ============================================================
+     §04 — F · Estructura humana
+============================================================ -->
+<section class="page">
+  <h1 class="section-title"><span class="num">Sección 04 · C</span>Entregables de la marca — Estructura humana asignada</h1>
+
+  <p class="lead">El piloto le promete al cliente final <strong>"te contacto en menos de 2 horas vía WhatsApp"</strong>. Si la marca no asigna quién cumple esa promesa, los leads llegan al kanban y se mueren ahí. Es el bloqueo más común detectado en onboarding — y el más fácil de prevenir.</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width:26%">Rol</th>
+        <th style="width:8%">Mín.</th>
+        <th style="width:38%">Qué hace en el piloto</th>
+        <th style="width:28%">Datos que entrega</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Vendedor digital de sucursal</strong><br><span class="badge badge--red">Bloqueante</span></td>
+        <td class="center">1 por sucursal</td>
+        <td>Recibe la oportunidad en el kanban, contesta en &lt;2h vía WhatsApp, califica, agenda cita, mueve la card en el pipeline. La promesa al cliente la cumple esta persona.</td>
+        <td>Nombre completo · número de WhatsApp activo · correo · sucursal asignada · PIN de 6 dígitos para CRM</td>
+      </tr>
+      <tr>
+        <td><strong>Gerente Comercial / de Ventas de sucursal</strong></td>
+        <td class="center">1 por sucursal</td>
+        <td>Supervisa el pipeline, escala bloqueos, autoriza ofertas excepcionales, reasigna leads si el vendedor digital no responde.</td>
+        <td>Nombre · WhatsApp · correo · PIN · alcance (qué sucursal/línea ve)</td>
+      </tr>
+      <tr>
+        <td><strong>Punto de contacto comercial (OEM/estrategia)</strong></td>
+        <td class="center">1 por marca</td>
+        <td>Define la oferta comercial mensual, autoriza copies, valida que la marca esté representada correctamente.</td>
+        <td>Nombre · correo · teléfono · cargo</td>
+      </tr>
+      <tr>
+        <td><strong>Punto de contacto de marketing de la marca</strong></td>
+        <td class="center">1 por marca</td>
+        <td>Pasa el catálogo, las fotos, los assets, los lineamientos. Aprueba creativos antes de publicar.</td>
+        <td>Nombre · correo · teléfono · cargo</td>
+      </tr>
+      <tr>
+        <td><strong>Diseñador (interno o externo)</strong></td>
+        <td class="center">1 deseable</td>
+        <td>Adapta los creativos al brief Andromeda y a los lineamientos visuales de la marca. Si no existe, ver §04.E.2.</td>
+        <td>Nombre · correo · formato preferido de brief</td>
+      </tr>
+      <tr>
+        <td><strong>Director / responsable que autoriza el fondeo</strong></td>
+        <td class="center">1</td>
+        <td>Decide la razón social que paga, valida las facturas Viceversa, autoriza presupuesto adicional si la marca decide escalar.</td>
+        <td>Nombre · correo · cargo · RFC de razón social</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout callout--red">
+    <span class="callout-label">Caso real reciente</span>
+    <p>El onboarding de GAC al piloto (junio 2026) arrancó <strong>parcialmente bloqueado</strong> por este punto: en D1 (base de datos del CRM) no había vendedores digitales con WhatsApp confirmado para las 2 sucursales del piloto. El routing de notificación WhatsApp degeneró temporalmente a "solo el Director MKT recibe la notificación" hasta que la marca asignó vendedores con PIN activo. Documentado en <em>Memory/project_gac_pivote2_estructural.md</em>.</p>
+  </div>
+
+  <h3>Permisos del kanban y notificación WhatsApp dinámica</h3>
+  <p>El CRM/Kanban tiene control de acceso por PIN y por sucursal. Cada vez que un lead entra a una sucursal específica, el worker dispara una notificación WhatsApp al vendedor digital + gerente comercial de esa sucursal con: folio, datos del cliente, modelo de interés, tipo de uso (Personal/Flotilla), origen del tráfico. La marca recibe documentación de este flujo (<em>03-tech/Routing-WhatsApp-Notif-Por-Marca.md</em>) antes del go-live.</p>
+</section>
+
+<!-- ============================================================
+     §05 — Always-On
+============================================================ -->
+<section class="page">
+  <h1 class="section-title"><span class="num">Sección 05</span>Always-on y toggle de oferta mensual</h1>
+
+  <h3>Qué es always-on (y por qué importa)</h3>
+  <p><strong>Always-on</strong> significa que la marca tiene presencia digital constante 365 días al año, sin depender del bono mensual del OEM. La SPA, el catálogo, los anuncios viven todo el año capturando la demanda existente del mercado.</p>
+
+  <ul>
+    <li><strong>Por qué importa.</strong> El cliente que decide comprar un auto investiga aproximadamente 2 a 3 semanas <em>antes</em> de pisar la agencia. Si tu marca solo aparece digitalmente el día del bono, pierdes al cliente que estaba investigando 2 semanas antes.</li>
+    <li><strong>El costo de no tener always-on.</strong> Dependes 100% del bono mensual del OEM. Si este mes el OEM no da bono, no tienes presencia digital. Los meses sin bono = cero leads digitales. Volatilidad operativa y financiera.</li>
+    <li><strong>Cómo se ve en el piloto.</strong> SPA evergreen (catálogo + mensualidades de referencia + programas oficiales sin vigencia limitada como Garantía, Mantenimiento, etc.) + Meta Ads Andromeda con creatives brand-led que rotan continuamente sin necesidad de aprobaciones mensuales.</li>
+  </ul>
+
+  <h3>El toggle de oferta mensual</h3>
+  <p>Cuando la marca <strong>sí</strong> tiene oferta comercial mensual (bono X, tasa preferencial, mes de la marca), se activa el <strong>toggle promo sobre el always-on sin perderlo</strong>:</p>
+
+  <table>
+    <thead>
+      <tr><th style="width:18%">Activación</th><th style="width:42%">Qué se prende</th><th style="width:40%">Qué NO se apaga</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Toggle promo <span class="badge badge--green">ON</span></strong></td>
+        <td>Badge "OFERTA VIGENTE" en cards del catálogo · Banner promo sticky en hero · Copy de ads rota a versión oferta-led · CTA cards apunta a oferta · Mensualidad oferta sobre mensualidad de lista</td>
+        <td>La SPA sigue mostrando el catálogo evergreen completo · El always-on de ads sigue corriendo · El catálogo no cambia · El pipeline sigue captando</td>
+      </tr>
+      <tr>
+        <td><strong>Toggle promo <span class="badge badge--gray">OFF</span></strong></td>
+        <td>Vuelve a copy brand-led, sin badges de promo, sin banner sticky</td>
+        <td>Idéntico al estado always-on continuo</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Cómo se opera el toggle (técnico)</h3>
+  <p>El toggle vive en el JSON del catálogo, campo <code>oferta_vigente: true|false</code> por modelo, con campos asociados (<code>oferta_titulo</code>, <code>bono_pesos</code>, <code>mensualidad_oferta</code>, <code>enganche_desde</code>, <code>plazo_meses</code>, <code>vigencia</code>). La Dirección Corporativa actualiza el JSON, GitHub Pages re-deploya la SPA y la rotación entra en menos de 60 segundos. Cero downtime. Documentación operativa: <em>03-tech/Pivote-2-Playbook-Multimarca.md</em>.</p>
+
+  <h3>Calendario de coordinación</h3>
+  <ul>
+    <li><strong>Día 25 del mes anterior.</strong> La marca pasa la oferta del mes siguiente al Director MKT Corporativo (bono $, tasa %, plazo meses, modelos aplicables, vigencia, términos legales).</li>
+    <li><strong>Día 26–30 del mes anterior.</strong> Corporativo prepara el toggle, prepara nuevos creatives Andromeda con la oferta, prepara copy.</li>
+    <li><strong>Día 1 del mes nuevo.</strong> Toggle ON. Creatives rotados. Banner activo en SPA.</li>
+    <li><strong>Día último del mes (o fin de vigencia).</strong> Toggle OFF. Vuelve a always-on. Sin pérdida de presencia.</li>
+  </ul>
+
+  <p class="note">Si la marca no pasa la oferta a tiempo, el piloto NO se pausa. Sigue corriendo en modo always-on brand-led. El toggle se queda OFF hasta que la oferta esté validada. Esta es la ventaja operativa del modelo: la marca puede no tener oferta este mes y la presencia digital no se cae.</p>
+</section>
+
+<!-- ============================================================
+     §06 — Lo que provee Corporativo
+============================================================ -->
+<section class="page">
+  <h1 class="section-title"><span class="num">Sección 06</span>Lo que provee la Dirección de MKT Corporativo</h1>
+
+  <p class="lead">Esta es la parte del piloto que la marca <strong>no tiene que armar</strong>. Todo lo siguiente está construido, en producción y operando hoy para las 4 marcas vigentes. La marca número 5 se monta sobre la misma infraestructura.</p>
+
+  <h3>A · Activos digitales (SPA, Worker, CRM)</h3>
+  <ul>
+    <li><strong>SPA evergreen multi-sucursal</strong> con catálogo, filtros, tabs por intención, modal de registro, sucursal selector obligatorio con preselect uso-obvio, PDF de confirmación dinámico con asesor + sucursal asignados.</li>
+    <li><strong>Stack técnico.</strong> Cloudflare Worker + D1 SQLite (intake de leads + routing dinámico WhatsApp), GitHub Pages para hosting estático, GTM container compartido del Grupo con tags Pixel/CAPI segmentados por marca.</li>
+    <li><strong>Tracking implacable.</strong> Meta Pixel client-side + CAPI server-side con dedup vía <code>event_id</code>, GA4 client-side, eventos custom del embudo (<code>view_item</code>, <code>add_to_cart</code>, <code>generate_lead</code>, <code>Schedule</code>, <code>VisitaSucursal</code>) firmados por marca.</li>
+  </ul>
+
+  <h3>B · CRM operativo y notificación</h3>
+  <ul>
+    <li><strong>Kanban + Pipeline</strong> en <a href="https://crm.grupoplasencia.com/">crm.grupoplasencia.com</a> con cards por lead, badges 3 niveles (línea de negocio · marca dealer · submarca), filtro Flotilla universal, conciliación con pipeline tradicional, stat de "días activos" de campaña, control de acceso por PIN + sucursal.</li>
+    <li><strong>Notificación WhatsApp dinámica</strong> al vendedor + gerente comercial de la sucursal asignada, en el momento del registro del lead. No batch, no email. Directo al WA con folio + datos cliente.</li>
+    <li><strong>Reportes</strong> de pipeline con conversión por etapa, CPL por canal, tiempo de respuesta del vendedor, tasa de cita, tasa de cierre.</li>
+  </ul>
+
+  <h3>C · Operación diaria de medios</h3>
+  <ul>
+    <li><strong>Cuenta Meta Ads de la marca</strong> operada por la Dirección Corporativa. La cuenta es del Grupo Plasencia, no de Viceversa. Estructura <strong>Andromeda 2026</strong> con DEGREES_OF_FREEDOM, Advantage+ Creative, multivariante 5×5×5, dedup CAPI con event_id.</li>
+    <li><strong>Optimización continua.</strong> Revisión de creatives, copies, segmentación, frecuencia. Rotación semanal de assets. Reporting consolidado.</li>
+    <li><strong>Reporting financiero.</strong> Conciliación contra Viceversa + facturación mensual cerrada.</li>
+  </ul>
+
+  <h3>D · Documentación y memoria del piloto</h3>
+  <ul>
+    <li><strong>Sesión de trabajo documentada</strong> por sprint en el repo de documentación corporativa, con todos los commits, qué cambió en producción, qué quedó pendiente.</li>
+    <li><strong>Memoria viva por marca</strong> en el repo Memory: pivotes, decisiones, métricas, pendientes.</li>
+    <li><strong>Cross-link estricto</strong>: SOP ↔ Compra de Medios Viceversa ↔ Pivote 2 Playbook Multimarca ↔ Concepto Rector de cada marca. La marca puede auditar todo lo que se hizo cuando quiera.</li>
+  </ul>
+
+  <div class="callout callout--green">
+    <span class="callout-label">Ventaja competitiva del modelo</span>
+    <p>El stack del piloto es <strong>propiedad del Grupo</strong>. Si la marca decide salir al día 90, el Pixel acumulado, las audiencias, el CRM, los aprendizajes del algoritmo y la documentación se quedan dentro del Grupo. La marca puede llevarse la decisión, pero el activo institucional se queda — ningún proveedor externo lo tiene.</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     §07 — Plan -5 a 0
+============================================================ -->
+<section class="page">
+  <h1 class="section-title"><span class="num">Sección 07</span>Plan de onboarding técnico — día -5 a día 0</h1>
+
+  <p class="lead">Si los entregables de la §04 están completos al día -5, el piloto está LIVE el día 0. Cinco días hábiles. Sin negociación, sin slippage.</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width:8%">Día</th>
+        <th style="width:22%">Quién</th>
+        <th style="width:70%">Qué</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>−5</strong></td><td>Marca</td><td>Entrega todos los entregables de §04 + datos de §04.C a Chucho Porras (Director MKT Corporativo) y Emmanuel Ramírez.</td></tr>
+      <tr><td><strong>−4</strong></td><td>Corporativo</td><td>Audita entregables, marca P0 bloqueantes faltantes, configura repos (SPA + worker + GTM), prepara JSON del catálogo con la lista de precios de la marca.</td></tr>
+      <tr><td><strong>−3</strong></td><td>Corporativo</td><td>Construye SPA evergreen para la marca, configura routing WA dinámico por sucursal, sube assets, prepara PDF dinámico de confirmación.</td></tr>
+      <tr><td><strong>−2</strong></td><td>Corporativo</td><td>Configura Meta Ads (cuenta marca, Pixel, CAPI dataset, audiencias semilla), pre-aprueba creativos Andromeda con la marca.</td></tr>
+      <tr><td><strong>−1</strong></td><td>Marca + Corporativo</td><td><strong>QA E2E.</strong> Lead de prueba en SPA → llega a kanban → notifica vía WhatsApp al vendedor real → vendedor responde con WA real al lead de prueba. Si pasa, se autoriza go-live.</td></tr>
+      <tr><td><strong>0</strong></td><td>Corporativo</td><td>Activa Meta Ads Core. Stack vivo. Primeros leads orgánicos + paid empiezan a llegar.</td></tr>
+      <tr><td><strong>+1 a +90</strong></td><td>Corporativo + Marca</td><td>Operación diaria + reporting semanal + toggle promo mensual + sync con la marca.</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Bloqueos típicos — y consecuencias documentadas</h3>
+
+  <table>
+    <thead>
+      <tr><th style="width:30%">Bloqueo</th><th style="width:30%">Consecuencia</th><th style="width:40%">Cómo aparece en el reporting</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Marca no manda lista de precios oficial</td><td>Piloto NO arranca</td><td>"Bloqueado por entregable de la marca — pendiente lista de precios"</td></tr>
+      <tr><td>Marca no asigna vendedores digitales con WA confirmado</td><td>Piloto arranca pero los leads se mueren en el kanban</td><td>"Lead recibido, sin contacto del vendedor en &lt;2h — caso GAC junio 2026"</td></tr>
+      <tr><td>Marca no tiene fotos de inventario</td><td>SPA con empty states. CRO baja 30-50%</td><td>"Conversión web→cita degradada por ausencia de assets visuales — atribuible a la marca"</td></tr>
+      <tr><td>Marca no tiene diseñador y no firma acuerdo IA</td><td>Ads no se publican</td><td>"Pre-launch en pausa — pendiente acuerdo de diseño con la marca"</td></tr>
+      <tr><td>Marca paga tarde (Viceversa sin fondeo)</td><td>Ads no se prenden o se pausan a media campaña</td><td>"Pause forzado: presupuesto no disponible — algoritmo Meta Ads en re-aprendizaje, CPL ↑↑"</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ============================================================
+     §08 — Reporting + Día 90
+============================================================ -->
+<section class="page">
+  <h1 class="section-title"><span class="num">Sección 08</span>Reporting durante el piloto y criterios al día 90</h1>
+
+  <h3>Reporting semanal — operativo</h3>
+  <p>Entregado por el Director MKT Corporativo / Acompañamiento operativo vía email + sync en Teams. Audiencia: Gerente de Marketing de la marca + Gerente Comercial.</p>
+
+  <ol>
+    <li><strong>Inversión vs piloto.</strong> Gastado vs comprometido, días corridos vs cap 90.</li>
+    <li><strong>Pipeline digital.</strong> Leads recibidos, etapa actual en kanban, tiempos de respuesta del vendedor.</li>
+    <li><strong>Performance de ads.</strong> CPL, CTR, CPM, frecuencia, top creatives, top audiencias.</li>
+    <li><strong>Conversión web.</strong> Visitas SPA, tasa de generate_lead, tasa de cita, drop-offs.</li>
+    <li><strong>Conciliación con pipeline tradicional.</strong> Leads digitales vs ventas reales del mes (atribución modelo lite/full).</li>
+    <li><strong>Pendientes y bloqueos.</strong> Qué necesita Corporativo de la marca para optimizar la semana siguiente.</li>
+  </ol>
+
+  <h3>Reporting mensual — ejecutivo</h3>
+  <p>Entregado al Director que fondea (Pepe Plasencia o equivalente para la marca). Audiencia: Dirección General de la marca.</p>
+  <ul>
+    <li>Resumen del mes en una página.</li>
+    <li>ROI estimado conservador del piloto (leads × tasa de cierre histórica × ticket promedio).</li>
+    <li>Recomendación para el mes siguiente: continuar, ajustar, escalar, parar.</li>
+  </ul>
+
+  <h3>Criterios de decisión al día 90</h3>
+  <p>Al cierre de los 90 días, la Dirección Corporativa entrega un <strong>paper ejecutivo</strong> con la decisión recomendada. La decisión la firma el Director que fondeó + Director MKT Corporativo. El piloto NO continúa por inercia — al día 90 hay decisión explícita.</p>
+
+  <table>
+    <thead>
+      <tr><th style="width:25%">Decisión</th><th style="width:75%">Cuándo aplica</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><span class="badge badge--green">Escalar</span><br>$30K → $50K-$100K/mes</td><td>CPL menor a $300 · conversión web→cita mayor a 15% · vendedores respondiendo en &lt;2h · cierre piloto mayor a 5% del pipeline digital</td></tr>
+      <tr><td><span class="badge badge--gold">Continuar +<br>optimizar</span></td><td>CPL $300-$600 · conversión 8-15% · oportunidad clara de optimización (creatives, copy, segmentación, sucursal underperformer)</td></tr>
+      <tr><td><span class="badge badge--red">Pausar +<br>revisar fundamentos</span></td><td>CPL mayor a $600 · conversión menor a 8% · vendedores no respondiendo · fotos/catálogo causando empty states. Antes de gastar más, arreglar entregables de la marca</td></tr>
+      <tr><td><span class="badge badge--gray">Salir del piloto</span></td><td>La marca decide que el digital no es prioridad estratégica este año, o prefiere modelo de agencia tradicional</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    <span class="callout-label">Compromiso de la Dirección Corporativa</span>
+    <p>El reporting es <strong>auditable</strong>. Todos los datos provienen de fuentes verificables (Meta Ads Manager, GA4, CRM del Grupo, archivos de Viceversa). La marca puede pedir acceso de lectura a las plataformas en cualquier momento. No hay caja negra.</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     §09 — Anexo: escenarios financieros (transparencia)
+============================================================ -->
+<section class="page">
+  <h1 class="section-title"><span class="num">Sección 09</span>Anexo · Escenarios financieros de referencia sobre los que se publican las mensualidades</h1>
+
+  <p class="lead">Este anexo es <strong>obligatorio</strong>. El piloto publica una "mensualidad de referencia" en cada card del catálogo y en cada anuncio. La marca debe entender exactamente <strong>sobre qué escenario se calcula esa mensualidad</strong>, porque ese escenario se imprime literal en el disclaimer del sitio + del PDF de confirmación. El disclaimer protege a la marca y al cliente.</p>
+
+  <h3>Reglas comunes a todas las marcas vigentes</h3>
+  <ul>
+    <li>Las mensualidades publicadas <strong>NO las calcula la Dirección Corporativa de manera independiente</strong>. Cuando una marca pasa un catálogo con mensualidades ya calculadas, se publican literales con el escenario que la marca declara.</li>
+    <li>Cuando la marca pasa solo precio y el escenario financiero (plazo, tasa, enganche), Corporativo calcula la mensualidad con fórmula estándar y el escenario se imprime en el disclaimer.</li>
+    <li>Toda mensualidad publicada lleva la leyenda canónica: <em>"precio de lista de referencia con fines ilustrativos e informativos · no constituye oferta vinculante · la oferta comercial real depende de la cotización personalizada del asesor"</em>.</li>
+    <li>Los intereses del financiamiento causan IVA adicional. Crédito sujeto a aprobación bancaria. Esto aparece en todos los footers.</li>
+  </ul>
+
+  <h3>Escenarios documentados en producción al 8 de junio de 2026</h3>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width:14%">Marca</th>
+        <th style="width:10%">Plazo</th>
+        <th style="width:14%">Tasa</th>
+        <th style="width:12%">Enganche</th>
+        <th style="width:14%">CAT (sin IVA)</th>
+        <th style="width:36%">Origen del escenario · disclaimer literal en SPA</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Hyundai</strong></td>
+        <td>—</td>
+        <td>—</td>
+        <td>—</td>
+        <td>—</td>
+        <td>Las mensualidades del catálogo Hyundai son las que la Gerente de Marketing de la marca pasó en su material (catálogo v2 Vero). El escenario financiero específico no se publica numéricamente — se declara que "Tasa, enganche, plazo y mensualidad finales se confirman con tu asesor durante el contacto". La marca aprobó esta redacción.</td>
+      </tr>
+      <tr>
+        <td><strong>Stellantis</strong></td>
+        <td>—</td>
+        <td>STM Financial</td>
+        <td>—</td>
+        <td>20.5% promedio ponderado al 23-mar-2026</td>
+        <td>Mensualidades del catálogo STL pasadas por la Gerente de Marketing de la marca. Financiera oficial STM Financial S.A. de C.V. SOFOM E.R. (Grupo Financiero Inbursa). CAT promedio de referencia 20.5% sin IVA ponderado. Disclaimer literal del footer STL.</td>
+      </tr>
+      <tr>
+        <td><strong>GAC</strong></td>
+        <td>72 meses</td>
+        <td>14.49% anual fija</td>
+        <td>35%</td>
+        <td>33%</td>
+        <td>Escenario declarado en lista oficial GAC junio 2026. Bonos por modelo: $20,000-$160,000 MXN. Tasa autorizada por modelo varía (0%, 10.99%, 13.99%, 15.99% según oferta). CXA desde 0% en todos los modelos. Vigencia 30-junio-2026. Disclaimer literal del footer GAC.</td>
+      </tr>
+      <tr>
+        <td><strong>Seminuevos</strong></td>
+        <td>—</td>
+        <td>14.9% referencia</td>
+        <td>25% desde</td>
+        <td>—</td>
+        <td>Tasa de referencia 14.9% · enganche desde 25%. Disclaimer del card promo Seminuevos. Promoción aplicable por unidad. Sujeta a disponibilidad y cambios sin previo aviso.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout callout--gold">
+    <span class="callout-label">Lo que la marca nueva debe entregar antes del go-live</span>
+    <p>Antes del día -5, la marca declara explícitamente: <strong>(1) qué plazo</strong> usar para la mensualidad de referencia · <strong>(2) qué tasa</strong> (financiera oficial o tasa promedio de banco) · <strong>(3) qué enganche</strong> mínimo asumir · <strong>(4) si la marca tiene CAT publicable</strong> · <strong>(5) cuál es la financiera oficial</strong>. Esa declaración aparece literal en el disclaimer del footer de la SPA y en el PDF. Si la marca no quiere declarar escenario, se publica la mensualidad sin disclaimer numérico y se redacta como "Tasa, enganche, plazo y mensualidad finales se confirman con tu asesor" — el modelo Hyundai.</p>
+  </div>
+
+  <p class="note">Este anexo se actualiza cada vez que una marca cambia su escenario financiero (ej. cambio de financiera, nueva tasa preferencial, cambio en el plazo estándar). La fuente de verdad permanente del escenario vigente por marca es el footer público de cada SPA — siempre coincide con esta tabla.</p>
+</section>
+
+<!-- ============================================================
+     §10 — FAQ + contacto
+============================================================ -->
+<section class="page">
+  <h1 class="section-title"><span class="num">Sección 10</span>FAQ y punto único de entrada</h1>
+
+  <div class="faq-item">
+    <p class="faq-q">¿Y si quiero entrar al piloto solo con una sucursal, no con toda la marca?</p>
+    <p class="faq-a">Aplica. Mismo monto mínimo $30K/mes. La SPA se configura con esa sucursal como única opción del selector. Cuando la siguiente sucursal entre, se suma al routing WhatsApp + selector sin re-deploy.</p>
+  </div>
+
+  <div class="faq-item">
+    <p class="faq-q">¿Y si mi marca tiene varias líneas (autos nuevos + seminuevos + flotilla)?</p>
+    <p class="faq-a">Hyundai opera así hoy: $30K combinado para autos nuevos Personal + Flotilla con una sola SPA, selector "Personal vs Flotilla", routing WhatsApp dinámico. Seminuevos opera aparte con cuenta propia. Si tu marca quiere replicar este patrón, no se suma más a la inversión mínima — usas la misma cuenta y SPA con tags <code>linea_negocio</code>.</p>
+  </div>
+
+  <div class="faq-item">
+    <p class="faq-q">¿El piloto incluye Google Ads, TikTok Ads, otras plataformas?</p>
+    <p class="faq-a">Hoy NO. El piloto es Meta Ads + landing + CRM. Google Ads está activo en otras cuentas del Grupo (Toyota, etc.) pero el piloto que documenta este SOP es específico Meta + landing. Escalar a Google es decisión post-día 90 — con presupuesto adicional.</p>
+  </div>
+
+  <div class="faq-item">
+    <p class="faq-q">¿Quién es dueño de la cuenta de Meta Ads que opera mi marca?</p>
+    <p class="faq-a">Grupo Plasencia (la entidad agencia del Grupo, no Viceversa). Viceversa solo recibe la factura de Meta para reembolsar. El Pixel, la audiencias acumuladas y los aprendizajes del algoritmo se quedan con el Grupo si la marca decide salir del piloto.</p>
+  </div>
+
+  <div class="faq-item">
+    <p class="faq-q">¿Qué pasa con la SPA y el kanban si decido salir del piloto al día 90?</p>
+    <p class="faq-a">La SPA se apaga (DNS revertido al sitio que tenías antes). El kanban guarda histórico de oportunidades para que la marca cierre las que quedaron en pipeline. El Pixel y las audiencias siguen siendo del Grupo. La marca recibe export final del pipeline si lo pide.</p>
+  </div>
+
+  <div class="faq-item">
+    <p class="faq-q">¿La marca puede ver el kanban en vivo?</p>
+    <p class="faq-a">Sí. Gerente Comercial y Director Comercial reciben acceso al kanban con scope de su marca + sus sucursales. Vendedores reciben acceso con scope de su sucursal exclusivamente.</p>
+  </div>
+
+  <div class="faq-item">
+    <p class="faq-q">¿Quién aprueba copies y creatives antes de publicar?</p>
+    <p class="faq-a">El Punto de contacto de marketing de la marca aprueba por correo o por sync semanal. Si pasan 48 horas sin respuesta, Corporativo asume aprobación tácita y publica. El estándar del piloto: copies y creatives siguen brand guidelines de la marca + framework Andromeda — si la marca tiene material crítico, lo declara antes del go-live.</p>
+  </div>
+
+  <div class="faq-item">
+    <p class="faq-q">¿Pueden los vendedores tradicionales (no digitales) recibir leads del piloto?</p>
+    <p class="faq-a">No. La promesa del piloto es respuesta &lt;2h vía WhatsApp del vendedor digital. Un vendedor de piso sin acceso al kanban no cumple esa promesa. Si la marca quiere que los leads vayan a vendedores de piso, no aplica al piloto — es modelo distinto.</p>
+  </div>
+
+  <div class="faq-item">
+    <p class="faq-q">¿Cómo se compara este modelo con mi agencia actual de marketing digital?</p>
+    <p class="faq-a">La agencia actual probablemente cobra fee mensual + comisión sobre la pauta + entrega leads de LeadGen Ads / WhatsApp Ads (ver §02). El piloto corporativo no cobra fee — solo la pauta + 8% Viceversa. La operación la hace la Dirección Corporativa con stack propio del Grupo. La data se queda con el Grupo, no con un tercero. La decisión de continuar al día 90 es de la marca, no del proveedor.</p>
+  </div>
+
+  <div class="signature">
+    <h3>Punto único de entrada al piloto</h3>
+    <p>Si tu marca quiere entrar al piloto, agenda discovery de 60 minutos. Salimos con plan de 5 días hábiles para go-live, si los entregables de §04 están listos.</p>
+    <div class="contact-block">
+      <div>
+        <div class="contact-name">Chucho Porras</div>
+        <div class="contact-role">Director MKT Corporativo<br>Grupo Plasencia Automotriz</div>
+      </div>
+      <div>
+        <div class="contact-name">Emmanuel Ramírez</div>
+        <div class="contact-role">Acompañamiento operativo<br>Sync administrativo Viceversa</div>
+      </div>
+    </div>
+    <p class="note" style="border-top:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.55);margin-top:5mm;padding-top:3mm;">Documento vivo. La versión más reciente vive en el repositorio de documentación corporativa del Grupo. Cross-links operativos: <em>03-tech/Compra-de-Medios-Viceversa.md</em> · <em>03-tech/Pivote-2-Playbook-Multimarca.md</em> · <em>03-tech/Routing-WhatsApp-Notif-Por-Marca.md</em> · <em>03-tech/Kanban-Sistema-Badges.md</em> · <em>03-tech/Conciliacion-Pipeline-vs-GA4.md</em>.</p>
+  </div>
+</section>
+
+</body>
+</html>

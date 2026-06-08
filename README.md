@@ -7,10 +7,11 @@ Mirror publico de los decks estrategicos de la Direccion de Marketing Corporativ
 Publicado via GitHub Pages:
 **https://mktgrupoplasenciaautomotriz.github.io/grupo-plasencia-decks/**
 
-## Decks
+## Decks y SOPs
 
-| Deck | URL |
+| Documento | URL |
 |------|-----|
+| **SOP &middot; Condiciones del Piloto de Marketing Corporativo (onboarding marca/sucursal)** | `/01-strategy/SOP-Onboarding-Piloto-Marketing-Marca.html` |
 | Centro de Excelencia MKT Corporativo AI-powered (Consejo v2) | `/01-strategy/Centro-Excelencia-MKT-Consejo-Deck.html` |
 | Motor de Atribucion MVP &middot; Playbook Operativo | `/01-strategy/Motor-de-Atribucion-MVP-Playbook-Operativo.html` |
 | Driving Growth &middot; Resumen Ejecutivo | `/01-strategy/Driving-Growth-Executive-Summary.html` |
