@@ -340,7 +340,7 @@
   <div class="cover-inner">
     <div>
       <div class="cover-mark">SOP — Brief operativo de implementación
-        <span>Versión 1.6 · 8 de junio de 2026 · Documento vivo de uso interno · Grupo Plasencia Automotriz</span>
+        <span>Versión 1.7 · 8 de junio de 2026 · Documento vivo de uso interno · Grupo Plasencia Automotriz</span>
       </div>
       <div class="cover-eyebrow">Piloto Motor de Atribución MVP</div>
       <div class="cover-title">Onboarding<br><em>de una marca</em><br>automotriz del<br>Grupo al piloto.</div>
@@ -393,8 +393,9 @@
     <div class="toc-item"><div class="toc-num">04</div><div class="toc-title">Insumos que aporta tu marca <span class="toc-sub">Brand y personas (lo que típicamente da el OEM) · productos evergreen + escenario financiero · cadencia de oferta mensual del OEM · fotos · creativos · estructura humana · AS IS baseline. Lo que NO te pido (concepto rector, diseño, replicación de componentes UI del OEM) lo entrega el Centro de Excelencia en §06.</span></div><div class="toc-page">7</div></div>
     <div class="toc-item"><div class="toc-num">05</div><div class="toc-title">Always-on y toggle de oferta mensual <span class="toc-sub">Qué significa always-on · cómo se prende y apaga la oferta sin perder presencia</span></div><div class="toc-page">11</div></div>
     <div class="toc-item"><div class="toc-num">06</div><div class="toc-title">Lo que entrega el Centro de Excelencia durante el piloto <span class="toc-sub">Concepto rector y strategy definition · sistema de diseño adaptado + replicación de componentes UI del OEM · página web · kanban · WhatsApp dinámico · Meta Ads Andromeda + toggle oferta del OEM · reportes y conciliación · visibilidad sin caja negra · salida sin lock-in</span></div><div class="toc-page">12</div></div>
+    <div class="toc-item"><div class="toc-num">06·B</div><div class="toc-title">Arquitectura de la solución y el flywheel de aprendizaje del algoritmo <span class="toc-sub">Diagrama técnico de las 5 capas · cómo CAPI server-side envía eventos del pipeline a las plataformas publicitarias · cuando tus vendedores mueven el kanban, ellos mismos provocan la optimización del algoritmo · por qué esto no es plug-and-play</span></div><div class="toc-page">13</div></div>
     <div class="toc-item"><div class="toc-num">07</div><div class="toc-title">Plan de onboarding técnico: día -10 a día 0 (happy path) <span class="toc-sub">10 días hábiles a go-live bajo happy path · bloqueos típicos · disclaimer de fecha no compromiso</span></div><div class="toc-page">13</div></div>
-    <div class="toc-item"><div class="toc-num">08</div><div class="toc-title">Reporting durante el piloto y criterios al día 90 <span class="toc-sub">Reportes semanales · reporte ejecutivo mensual · 4 decisiones posibles</span></div><div class="toc-page">13</div></div>
+    <div class="toc-item"><div class="toc-num">08</div><div class="toc-title">Reporting durante el piloto y criterios al día 90 <span class="toc-sub">Reportes quincenales · reporte ejecutivo mensual · 4 decisiones posibles</span></div><div class="toc-page">13</div></div>
     <div class="toc-item"><div class="toc-num">09</div><div class="toc-title">Anexo: escenarios financieros de referencia <span class="toc-sub">Plazos, tasas, enganches y supuestos sobre los que se calculan las mensualidades publicadas en cada SPA</span></div><div class="toc-page">14</div></div>
     <div class="toc-item"><div class="toc-num">10</div><div class="toc-title">FAQ y contacto único de entrada al piloto <span class="toc-sub">Preguntas frecuentes · cómo agendar la primera reunión</span></div><div class="toc-page">15</div></div>
     <div class="toc-item"><div class="toc-num">11</div><div class="toc-title">Apéndice técnico — para tu equipo de IT, Marketing y Sistemas <span class="toc-sub">La jerga técnica que el cuerpo principal omite a propósito · stack completo · skills internas del Centro de Excelencia</span></div><div class="toc-page">16</div></div>
@@ -451,7 +452,7 @@
     <li>Stack de tracking server-side (Pixel, CAPI, GA4, GTM) con eventos del embudo de extremo a extremo.</li>
     <li>Cuenta Meta Ads operada bajo framework Andromeda 2026 con rotación semanal de creativos.</li>
     <li>Acceso al CRM kanban con notificación WhatsApp dinámica al vendedor digital de la sucursal correspondiente.</li>
-    <li>Reporte operativo semanal cada lunes a tu Gerente de Marketing y Comercial. Reporte ejecutivo mensual a ti como Director.</li>
+    <li>Reporte operativo quincenal a tu Gerente de Marketing y Comercial. Reporte ejecutivo mensual a ti como Director.</li>
     <li>Paper ejecutivo de cierre al día 90 con recomendación firmada por ambas direcciones.</li>
   </ul>
 
@@ -462,7 +463,7 @@
   <ol>
     <li>Agendamos kickoff de 60 minutos entre tu Gerente de Marca y mi equipo (Emmanuel + yo). En el kickoff cubrimos §04 entregable por entregable y definimos fecha tentativa del día -10.</li>
     <li>Tu equipo entrega los insumos de §04. El día -10 arranca el cronograma de implementación.</li>
-    <li>Día 0: go-live. Reporting semanal entra en cadencia el primer lunes después del go-live.</li>
+    <li>Día 0: go-live. Reporting quincenal entra en cadencia los primeros 15 días después del go-live.</li>
   </ol>
 </section>
 
@@ -966,7 +967,7 @@
 </section>
 
 <!-- ============================================================
-     §06 — Lo que recibes cada semana (lenguaje humano)
+     §06 — Lo que recibes durante la operación (lenguaje humano)
 ============================================================ -->
 <section class="page">
   <h1 class="section-title"><span class="num">Sección 06</span>Qué entrega mi equipo durante la implementación y la operación</h1>
@@ -1014,6 +1015,113 @@
 </section>
 
 <!-- ============================================================
+     §06·B — Arquitectura de la solución + flywheel de aprendizaje
+============================================================ -->
+<section class="page">
+  <h1 class="section-title"><span class="num">Sección 06 · B</span>Arquitectura de la solución y el flywheel de aprendizaje del algoritmo</h1>
+
+  <p class="lead">Esta página existe para que veas que la operación no es plug-and-play, aunque mi equipo la apalanque con IA. Son cinco capas que conviven en producción y que <strong>solo tienen sentido cuando trabajan juntas</strong>. Es importante que la marca lo entienda — no para que opere el stack, sino para que dimensione lo que está recibiendo.</p>
+
+  <h3>Las cinco capas que operan tu piloto</h3>
+  <div class="ascii-diagram">      CAPA 1 — CAPTURA                  CAPA 2 — INGESTA                CAPA 3 — ATRIBUCIÓN
+ ┌─────────────────────────┐      ┌─────────────────────────┐      ┌─────────────────────────┐
+ │  SPA marca.grupoplas... │      │  Cloudflare Worker      │      │  Meta Pixel + CAPI      │
+ │  Catálogo evergreen     │ ───▶ │  Base de datos D1       │ ───▶ │  GA4 client + GA4 MP    │
+ │  Intent tabs            │      │  7 tablas auditables    │      │  GTM container          │
+ │  Modal de registro      │      │  Dedup + folio canónico │      │  11 eventos del embudo  │
+ │  PDF confirmación       │      │  Conciliación diaria    │      │  event_id dedup         │
+ └─────────────────────────┘      └────────────┬────────────┘      └────────────┬────────────┘
+                                                │                               │
+                                                │ notif WhatsApp <60s          │ eventos
+                                                ▼                               │ server-side
+                                       CAPA 4 — OPERACIÓN                       │
+                                 ┌─────────────────────────┐                    │
+                                 │  Kanban multi-marca     │                    │
+                                 │  Vendedor digital       │                    │
+                                 │  Gerente comercial      │                    │
+                                 │  WhatsApp con folio     │                    │
+                                 │  Drag&drop entre etapas │                    │
+                                 │  POR CONTACTAR → CITA → │                    │
+                                 │  VISITA → COTIZACIÓN →  │                    │
+                                 │  CIERRE → FACTURA       │                    │
+                                 └────────────┬────────────┘                    │
+                                              │                                 │
+                                              │ cada movimiento dispara         │
+                                              │ un evento server-side al        │
+                                              ▼ stack de atribución             │
+                                       CAPA 5 — APRENDIZAJE                     │
+                                 ┌─────────────────────────┐                    │
+                                 │  Meta Ads + Google Ads  │ ◀──────────────────┘
+                                 │  Reciben eventos del    │
+                                 │  pipeline real:         │
+                                 │   • Schedule (cita)     │
+                                 │   • VisitaSucursal      │
+                                 │   • Cotización          │
+                                 │   • Compra              │
+                                 │  Algoritmo optimiza por │
+                                 │  compradores reales →   │
+                                 │  CPL baja con el tiempo │
+                                 └─────────────────────────┘</div>
+
+  <h3>El flywheel — por qué importa el pipeline al algoritmo</h3>
+  <p>Esto es la parte que normalmente no se ve, y es lo que distingue el modelo del piloto de cualquier modelo de agencia tradicional.</p>
+
+  <p><strong>Cuando uno de tus vendedores mueve una card en el kanban</strong> (por ejemplo: cuando el cliente confirma cita, cuando pisa la sucursal, cuando le mandan la cotización, cuando firma la compra), <strong>el sistema dispara automáticamente un evento server-side</strong> a Meta y a Google diciéndoles "este lead específico avanzó a esta etapa". Esos eventos se envían vía <em>Conversions API</em> (CAPI) de Meta y <em>Measurement Protocol</em> de GA4, ambos lado servidor — no dependen del navegador del cliente ni de cookies que se borran.</p>
+
+  <p><strong>Resultado: el algoritmo de las plataformas aprende quién sí compra de verdad</strong>, no solo quién dio un formulario. Como las plataformas ahora reciben señales de compradores reales atribuidos a tu marca y a tu campaña, optimizan la pauta para traer más gente como esos compradores reales. La consecuencia operativa concreta: <strong>el costo por lead va bajando semana a semana porque el algoritmo se está calibrando con la realidad de tu venta, no con la noción de "alguien que llenó un form"</strong>.</p>
+
+  <div class="callout callout--navy">
+    <span class="callout-label">El insight comercial del modelo</span>
+    <p><strong>Mientras tus vendedores muevan el pipeline en el kanban, ellos mismos provocan la optimización del algoritmo.</strong> No tienes que hacer nada extra. No tienes que ir a Meta Ads Manager a configurar conversiones. No tienes que esperar a que la agencia te entregue un reporte de cierre el día 30. El acto operativo de tu vendedor de mover la card es el acto de aprendizaje del algoritmo. Es por eso que el piloto pone tanto peso en que los vendedores digitales tengan asignación clara, WhatsApp activo y disciplina de actualización — porque el algoritmo aprende de lo que ellos hacen, no de lo que mi equipo le diga.</p>
+  </div>
+
+  <h3>Por qué esto no es plug-and-play, en una página</h3>
+  <p>Cada capa tiene sus reglas, sus errores típicos y sus dependencias con las otras. Para que el lector dimensione lo que está operando:</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width:22%">Capa</th>
+        <th style="width:33%">Lo que se ve</th>
+        <th style="width:45%">Lo que NO se ve (pero sostiene la capa)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>1 · Captura</strong></td>
+        <td>Una página web bonita con catálogo y formulario</td>
+        <td>Catálogo evergreen + toggle de oferta · sucursal selector obligatorio · accesibilidad WCAG 2.2 AA · mobile-first iOS HIG + Material 3 · validación anti-bot · folio canónico que la marca jamás verá pero que es la llave de todo el stack</td>
+      </tr>
+      <tr>
+        <td><strong>2 · Ingesta</strong></td>
+        <td>Los leads aparecen en el kanban</td>
+        <td>Worker con retry exponencial · base D1 con 7 tablas relacionales · dedup automático · folio canónico GP-{MARCA}-{AAMMDD}-{HHMMSS} · auditoría diaria con 3 cruces externos · cero fugas de infra · backfill automatizado · webhook Meta Lead Gen con HMAC + cron de respaldo cada 2 min</td>
+      </tr>
+      <tr>
+        <td><strong>3 · Atribución</strong></td>
+        <td>Sale en el reporte que "estos leads vinieron de Meta"</td>
+        <td>Pixel propio de tu marca · CAPI server-side con dedup vía event_id · GA4 dual (client + Measurement Protocol server-side) · 11 eventos custom del embudo · GTM container compartido del Grupo hostname-scoped · dashboard ejecutivo multi-canal reconciliado con 5 fuentes externas</td>
+      </tr>
+      <tr>
+        <td><strong>4 · Operación</strong></td>
+        <td>El kanban con cards moviéndose</td>
+        <td>Notificación WhatsApp dinámica resuelta por sucursal + tipo de uso · routing por lógica resolveNotifPins extensible por marca · badges 3 niveles · filtro Flotilla universal · control de acceso por PIN + sucursal · conciliación con pipeline tradicional por aliases</td>
+      </tr>
+      <tr>
+        <td><strong>5 · Aprendizaje</strong></td>
+        <td>El CPL va bajando</td>
+        <td>Framework Andromeda 2026 (DEGREES_OF_FREEDOM, Advantage+ Creative) · multivariante 5×5×5 · rotación semanal de creativos · audiencias semilla + lookalikes acumulados como activo del Grupo · cuenta Meta Ads del Grupo (no de Viceversa, no de agencia)</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout callout--gold">
+    <span class="callout-label">Una nota soft, como contexto</span>
+    <p>Si la marca quisiera replicar esta arquitectura con un partner externo, no es trivial ni barato. El stack equivale a contratar simultáneamente una agencia digital, un equipo de desarrollo web, un equipo de UX/UI, una consultoría de tracking server-side, una operación de CRM custom y un reporting ejecutivo cross-canal — y eso bajo un contrato único. Las cotizaciones típicas que recibimos cuando comparamos partners externos para alcance equivalente se mueven entre 5× y 7× en velocidad de entrega y aproximadamente <strong>230× en costo</strong> respecto al modelo apalancado por IA con la que opera el Centro de Excelencia. La razón es que la IA absorbe el costo de los perfiles que tradicionalmente requieren células de 5-7 personas y plazos de 5-7 meses. <strong>Esto no aplica como argumento de venta — es contexto para que dimensiones lo que está corriendo bajo tu piloto y por qué lo institucional del Grupo es el lugar donde tiene sentido que viva.</strong></p>
+  </div>
+</section>
+
+<!-- ============================================================
      §07 — Plan -10 a 0 (happy path)
 ============================================================ -->
 <section class="page">
@@ -1038,7 +1146,7 @@
       <tr><td><strong>−2</strong></td><td>Corporativo</td><td>Aplica feedback de la marca. Última iteración de copies / fotos / disclaimers. Cierra audiencias Meta Ads. Pre-aprobación de creativos Andromeda con la marca.</td></tr>
       <tr><td><strong>−1</strong></td><td>Marca + Corporativo</td><td><strong>QA E2E.</strong> Lead de prueba en SPA → llega a kanban → notifica vía WhatsApp al vendedor real → vendedor responde con WhatsApp real al lead de prueba. Si pasa, se autoriza go-live.</td></tr>
       <tr><td><strong>0</strong></td><td>Corporativo</td><td>Activa Meta Ads Core. Stack vivo. Primeros leads orgánicos + paid empiezan a llegar.</td></tr>
-      <tr><td><strong>+1 a +90</strong></td><td>Corporativo + Marca</td><td>Operación diaria + reporting semanal + toggle promo mensual + sync con la marca.</td></tr>
+      <tr><td><strong>+1 a +90</strong></td><td>Corporativo + Marca</td><td>Operación diaria + reporting quincenal + toggle promo mensual + sync con la marca.</td></tr>
     </tbody>
   </table>
 
@@ -1073,17 +1181,17 @@
 
   <p class="lead">Cadencia de reportes durante los 90 días de operación, audiencias de cada uno y el cierre formal al cumplir el periodo.</p>
 
-  <h3>Cada lunes — reporte operativo para tu Gerente de Marketing y tu Gerente Comercial</h3>
-  <p>Yo lo entrego, Emmanuel acompaña. Vía correo + sync de 30 min en Teams si lo quieres. Contenido:</p>
+  <h3>Quincenal — reporte operativo para tu Gerente de Marketing y tu Gerente Comercial</h3>
+  <p>Yo lo entrego cada quincena (días 1 y 15, o el lunes hábil más cercano). Emmanuel acompaña. Vía correo + sync de 30 min en Teams si lo quieres. La cadencia quincenal le da al piloto suficiente data acumulada para conclusiones útiles y a tu equipo respiración entre reportes. Contenido:</p>
 
   <ol>
     <li><strong>Cuánto llevamos gastado vs el piloto.</strong> Días corridos vs los 90 del cap.</li>
-    <li><strong>Cuántos leads llegaron esta semana</strong> y en qué etapa del kanban están.</li>
+    <li><strong>Cuántos leads llegaron en la quincena</strong> y en qué etapa del kanban están.</li>
     <li><strong>Cuánto te están tardando tus vendedores</strong> en contestar. Si alguno se descuelga, está señalado.</li>
     <li><strong>Cómo performaron los anuncios</strong>: cuánto te costó cada lead, qué creatividad funcionó mejor, qué audiencia jaló.</li>
     <li><strong>Cuántos visitaron la página web y cuántos llenaron el formulario.</strong> Dónde se cayeron.</li>
     <li><strong>Comparación con tu pipeline tradicional</strong>: cuántas ventas reales del mes vinieron del piloto vs de tus otros canales.</li>
-    <li><strong>Qué necesito de tu lado</strong> esta semana para que la siguiente sea mejor.</li>
+    <li><strong>Qué necesito de tu lado</strong> la siguiente quincena para que mejore.</li>
   </ol>
 
   <h3>El día 1 de cada mes — reporte ejecutivo para ti</h3>
@@ -1228,7 +1336,7 @@
 
   <div class="faq-item">
     <p class="faq-q">¿Quién aprueba los copies y creativos antes de publicar?</p>
-    <p class="faq-a">Tu Gerente de Marketing aprueba por correo o en el sync semanal. Si pasan 48 horas sin respuesta de su parte, doy por aprobado y publico — para no frenar la operación. Si hay material crítico que sí necesita firma, me lo declaras antes del kickoff y lo dejamos por escrito.</p>
+    <p class="faq-a">Tu Gerente de Marketing aprueba por correo o en el sync quincenal. Si pasan 48 horas sin respuesta de su parte, doy por aprobado y publico — para no frenar la operación. Si hay material crítico que sí necesita firma, me lo declaras antes del kickoff y lo dejamos por escrito.</p>
   </div>
 
   <div class="faq-item">
@@ -1255,7 +1363,7 @@
     <h3>Siguientes pasos para arrancar la implementación</h3>
     <p><strong>1. Kickoff de 60 minutos.</strong> Tu Gerente de Marca, tu punto de contacto comercial y mi equipo (Emmanuel + yo). Agendamos por WhatsApp o correo. En el kickoff cubrimos §04 entregable por entregable y definimos fecha tentativa del día -10.</p>
     <p><strong>2. Entrega de insumos.</strong> Tu equipo entrega los entregables de §04 (brand, catálogo, precios, fotos, estructura humana, AS IS). El día -10 arranca el cronograma de implementación.</p>
-    <p><strong>3. Go-live día 0.</strong> 10 días hábiles después de la entrega completa, bajo happy path. Reporting semanal entra en cadencia el primer lunes posterior al go-live.</p>
+    <p><strong>3. Go-live día 0.</strong> 10 días hábiles después de la entrega completa, bajo happy path. Reporting quincenal entra en cadencia los primeros 15 días posteriores al go-live.</p>
     <div class="contact-block">
       <div>
         <div class="contact-name">Chucho Porras</div>
