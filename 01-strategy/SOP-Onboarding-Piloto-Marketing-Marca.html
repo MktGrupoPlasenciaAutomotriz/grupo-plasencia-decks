@@ -2,8 +2,8 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>SOP · Condiciones del Piloto de Marketing Corporativo — Onboarding de marca/sucursal · Grupo Plasencia</title>
-<meta name="description" content="Standard Operating Procedure de la Dirección de Marketing Corporativo de Grupo Plasencia para incorporar marcas o sucursales nuevas al piloto operativo (hoy activo en Hyundai, Stellantis, Seminuevos y GAC). Dirigido a Directores de marca, Gerentes de marca, Gerentes Comerciales y Gerentes de Ventas. Define inversión mínima, entregables, accesos, contactos, escenarios financieros de referencia, intención estratégica (SPA catálogo ecommerce vs LeadGen/WhatsApp Ads — calidad de prospección vs volumen), modelo always-on con toggle de oferta mensual, plan de onboarding técnico día -5 a día 0, reporting y criterios de salida al día 90.">
+<title>SOP · Incorporación de una marca al Piloto de Marketing Digital Corporativo · Grupo Plasencia</title>
+<meta name="description" content="Standard Operating Procedure de la Dirección de Marketing Corporativo de Grupo Plasencia Automotriz para la incorporación operativa de una marca-concesionaria al piloto Motor de Atribución MVP. Define inversión, insumos requeridos de la marca, cronograma de implementación y contacto.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@500;700;800;900&display=swap" rel="stylesheet">
@@ -52,7 +52,7 @@
     margin: 20mm 18mm 22mm 18mm;
     @bottom-right { content: counter(page); font-family: 'Inter', sans-serif; font-size: 8.5pt; color: #718096; font-weight: 500; }
     @bottom-left  { content: "Confidencial · Grupo Plasencia · MKT Corporativo"; font-family: 'Inter', sans-serif; font-size: 7.5pt; color: #A0AEC0; letter-spacing: 0.3px; }
-    @top-right    { content: "SOP · Piloto Marketing Corporativo"; font-family: 'Inter', sans-serif; font-size: 7.5pt; color: #A0AEC0; letter-spacing: 0.3px; }
+    @top-right    { content: "SOP · Piloto de Marketing Digital Corporativo"; font-family: 'Inter', sans-serif; font-size: 7.5pt; color: #A0AEC0; letter-spacing: 0.3px; }
   }
   @page :first { @top-right { content: ""; } @bottom-right { content: ""; } @bottom-left { content: ""; } }
   @page cover { margin: 0; }
@@ -69,7 +69,6 @@
   }
   .page:last-child { page-break-after: auto; }
 
-  /* ============ COVER ============ */
   .cover { background: var(--gp-navy); color: var(--near-white); padding: 0; page: cover; }
   .cover-inner {
     padding: 34mm 24mm 26mm 24mm;
@@ -95,37 +94,14 @@
     color: var(--gold); text-transform: uppercase; margin-top: 13mm;
   }
   .cover-title {
-    font-family: var(--serif); font-weight: 800; font-size: 48pt; line-height: 1.02;
+    font-family: var(--serif); font-weight: 800; font-size: 44pt; line-height: 1.05;
     letter-spacing: -1.5px; margin-top: 7mm; color: var(--near-white);
   }
-  .cover-title em { font-style: italic; color: var(--gold); font-weight: 700; }
   .cover-title-after {
     font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 13.5pt;
-    color: rgba(255,255,255,0.72); margin-top: 7mm; letter-spacing: -0.1px; line-height: 1.45;
+    color: rgba(255,255,255,0.78); margin-top: 8mm; letter-spacing: -0.1px; line-height: 1.5;
     max-width: 152mm;
   }
-  .cover-subtitle {
-    font-family: var(--serif); font-weight: 500; font-style: italic; font-size: 13.5pt;
-    color: var(--gold); margin-top: 13mm; letter-spacing: -0.2px; line-height: 1.42;
-    max-width: 152mm;
-  }
-  .cover-pull {
-    font-family: var(--serif); font-weight: 500; font-style: italic; font-size: 12pt;
-    color: rgba(255,255,255,0.88); line-height: 1.55;
-    border-left: 3px solid var(--gp-red); padding-left: 7mm; margin-top: 14mm; max-width: 152mm;
-  }
-  .cover-pull cite {
-    display: block; font-style: normal; font-family: var(--sans); font-weight: 600;
-    font-size: 8.5pt; letter-spacing: 1.8px; color: var(--gold); margin-top: 6mm; text-transform: uppercase;
-  }
-  .cover-tags { display:flex; gap:5mm; margin-top: 11mm; flex-wrap:wrap; }
-  .cover-tag {
-    font-family: var(--sans); font-size: 8pt; font-weight: 600; letter-spacing: 0.8px;
-    color: rgba(255,255,255,0.85); border: 1px solid rgba(255,255,255,0.22);
-    padding: 4px 11px; border-radius: 999px; text-transform: uppercase;
-  }
-  .cover-tag.accent { color: var(--gold); border-color: rgba(236,201,75,0.42); }
-  .cover-tag.urgent { color: var(--gp-red); border-color: rgba(200,16,46,0.42); }
   .cover-meta {
     display: flex; justify-content: space-between; align-items: flex-end; gap: 10mm;
     margin-top: 13mm; border-top: 1px solid rgba(255,255,255,0.16); padding-top: 8mm;
@@ -133,25 +109,9 @@
   .cover-meta-block { font-size: 9pt; color: rgba(255,255,255,0.82); line-height: 1.65; flex: 1; }
   .cover-meta-block strong { display:block; color: var(--gold); font-weight: 700; font-size: 9pt; letter-spacing: 1.4px; margin-bottom: 2mm; text-transform: uppercase; }
 
-  /* ============ TOC ============ */
-  .toc { margin-top: 7mm; }
-  .toc-item {
-    display: flex; justify-content: space-between; align-items: baseline;
-    padding: 4mm 0; border-bottom: 1px dotted var(--g300);
-    page-break-inside: avoid;
-  }
-  .toc-num {
-    font-family: var(--serif); font-weight: 800; font-size: 13pt; color: var(--gp-red);
-    width: 14mm; flex-shrink: 0; line-height: 1.2;
-  }
-  .toc-title { flex: 1; color: var(--gp-navy); font-weight: 700; padding-right: 4mm; font-size: 11pt; line-height: 1.35; }
-  .toc-sub { display: block; font-size: 9pt; color: var(--g600); font-weight: 400; margin-top: 1.5mm; line-height: 1.45; letter-spacing: 0.1px; }
-  .toc-page { color: var(--g600); font-family: var(--serif); font-style: italic; font-size: 10.5pt; flex-shrink: 0; }
-
-  /* ============ TYPOGRAPHY ============ */
   h1.section-title {
-    font-family: var(--serif); font-weight: 800; font-size: 26pt; line-height: 1.1;
-    letter-spacing: -0.8px; color: var(--gp-navy);
+    font-family: var(--serif); font-weight: 800; font-size: 24pt; line-height: 1.1;
+    letter-spacing: -0.6px; color: var(--gp-navy);
     border-top: 3px solid var(--gp-red); padding-top: 7mm; margin-bottom: 7mm;
     page-break-after: avoid;
   }
@@ -159,67 +119,30 @@
     display: block; font-family: var(--sans); font-weight: 700; font-size: 9pt;
     letter-spacing: 3.5px; color: var(--gp-red); text-transform: uppercase; margin-bottom: 3mm;
   }
-  h2 {
-    font-family: var(--serif); font-weight: 700; font-size: 16pt; line-height: 1.25;
-    color: var(--gp-navy); margin-top: 9mm; margin-bottom: 3mm; letter-spacing: -0.3px;
-    page-break-after: avoid;
-  }
   h3 {
     font-family: var(--sans); font-weight: 700; font-size: 11.5pt; color: var(--gp-navy);
     margin-top: 7mm; margin-bottom: 3mm; letter-spacing: -0.1px; line-height: 1.35;
     page-break-after: avoid; break-after: avoid;
     page-break-inside: avoid; break-inside: avoid;
   }
-  h3 + p, h3 + ul, h3 + ol, h3 + table, h3 + .callout, h3 + .arch {
+  h3 + p, h3 + ul, h3 + ol, h3 + table, h3 + .callout {
     page-break-before: avoid; break-before: avoid;
   }
-  h3:first-of-type { margin-top: 5mm; }
-  h4 {
-    font-family: var(--sans); font-weight: 700; font-size: 9pt; color: var(--gp-red);
-    text-transform: uppercase; letter-spacing: 1.5px; margin-top: 6mm; margin-bottom: 2.5mm;
-    page-break-after: avoid;
-  }
+  h3:first-of-type { margin-top: 3mm; }
   p { margin-bottom: 3.5mm; font-size: 10.5pt; color: var(--g700); line-height: 1.6; }
   p.lead { font-size: 11.5pt; color: var(--gp-navy); line-height: 1.55; margin-bottom: 6mm; font-weight: 500; letter-spacing: -0.05px; }
   strong { color: var(--gp-navy); font-weight: 700; }
   em { font-style: italic; }
-  a { color: var(--deep-blue); text-decoration: none; border-bottom: 1px solid rgba(43,108,176,0.5); transition: border-color 0.15s; }
-  a:hover { border-bottom-color: var(--deep-blue); }
+  a { color: var(--deep-blue); text-decoration: none; border-bottom: 1px solid rgba(43,108,176,0.5); }
   ul, ol { margin: 3mm 0 4.5mm 6mm; }
   li { margin-bottom: 2mm; font-size: 10.5pt; color: var(--g700); line-height: 1.6; }
-  li::marker { color: var(--gp-red); }
-  ol li::marker { color: var(--gp-red); font-weight: 700; }
 
-  /* ============ CALLOUTS ============ */
-  .callout {
-    background: var(--g100); border-left: 4px solid var(--gp-navy);
-    padding: 5mm 6mm; margin: 5mm 0; border-radius: 0 4px 4px 0;
-    page-break-inside: avoid;
-  }
-  .callout p { margin-bottom: 2mm; font-size: 10pt; line-height: 1.6; }
-  .callout p:last-child { margin-bottom: 0; }
-  .callout--red { border-left-color: var(--gp-red); background: rgba(200,16,46,0.04); }
-  .callout--gold { border-left-color: var(--amber); background: rgba(214,158,46,0.06); }
-  .callout--green { border-left-color: var(--deep-green); background: rgba(72,187,120,0.06); }
-  .callout--navy { background: var(--gp-navy); color: var(--near-white); border-left-color: var(--gold); }
-  .callout--navy p, .callout--navy strong { color: var(--near-white); }
-  .callout--navy strong { color: var(--gold); }
-  .callout-label {
-    font-family: var(--sans); font-weight: 700; font-size: 8pt; letter-spacing: 2.2px;
-    text-transform: uppercase; color: var(--gp-red); margin-bottom: 2.5mm; display: block;
-  }
-  .callout--gold .callout-label { color: #975A16; }
-  .callout--green .callout-label { color: var(--deep-green); }
-  .callout--navy .callout-label { color: var(--gold); }
-
-  /* ============ TABLAS ============ */
   table {
     width: 100%; border-collapse: collapse; margin: 5mm 0 6mm 0; font-size: 9.5pt;
     background: var(--paper);
-    page-break-inside: auto;
   }
   thead { display: table-header-group; }
-  tr { page-break-inside: avoid; page-break-after: auto; }
+  tr { page-break-inside: avoid; }
   th {
     background: var(--gp-navy); color: var(--near-white);
     font-family: var(--sans); font-weight: 700; font-size: 8pt; letter-spacing: 1.3px;
@@ -234,66 +157,22 @@
   tr:nth-child(even) td { background: var(--g100); }
   td strong { color: var(--gp-navy); }
   td.num { text-align: right; font-variant-numeric: tabular-nums; font-weight: 600; color: var(--gp-navy); }
-  td.center { text-align: center; }
 
-  /* ============ BADGES ============ */
-  .badge {
-    display: inline-block; padding: 1mm 3mm; border-radius: 999px;
-    font-size: 8pt; font-weight: 700; letter-spacing: 0.7px; text-transform: uppercase;
-    vertical-align: middle; line-height: 1.3;
-  }
-  .badge--red { background: var(--gp-red); color: #fff; }
-  .badge--navy { background: var(--gp-navy); color: #fff; }
-  .badge--gold { background: var(--gold); color: var(--gp-navy); }
-  .badge--green { background: var(--green); color: #fff; }
-  .badge--gray { background: var(--g300); color: var(--g700); }
-
-  /* ============ KPI CARDS ============ */
-  .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4mm; margin: 5mm 0; page-break-inside: avoid; }
-  .kpi { background: var(--g100); border-top: 3px solid var(--gp-red); padding: 5mm 4mm; border-radius: 0 0 4px 4px; }
-  .kpi-num { font-family: var(--serif); font-weight: 800; font-size: 24pt; color: var(--gp-navy); line-height: 1; letter-spacing: -0.5px; }
-  .kpi-label { font-size: 8pt; color: var(--g600); margin-top: 3mm; text-transform: uppercase; letter-spacing: 1.1px; font-weight: 700; }
-  .kpi-sub { font-size: 9pt; color: var(--g700); margin-top: 1.5mm; line-height: 1.45; }
-
-  /* ============ CHECKLIST ============ */
-  .checklist { list-style: none; margin: 4mm 0 0 0; }
-  .checklist li {
-    padding: 3.5mm 0 3.5mm 10mm; border-bottom: 1px solid var(--g200); position: relative;
-    font-size: 10.5pt; line-height: 1.55;
+  .insumo {
+    border-left: 3px solid var(--gp-navy); padding: 3mm 0 3mm 6mm; margin-bottom: 5mm;
     page-break-inside: avoid;
   }
-  .checklist li::before {
-    content: "□"; position: absolute; left: 1mm; top: 3.5mm;
-    color: var(--gp-navy); font-weight: 400; font-size: 14pt; line-height: 1;
+  .insumo-num {
+    font-family: var(--serif); font-weight: 800; font-size: 11pt; color: var(--gp-red);
+    letter-spacing: 1px; margin-bottom: 1mm;
   }
-  .checklist li.blocker::before { color: var(--gp-red); content: "■"; font-size: 11pt; top: 4.5mm; }
-  .checklist li strong { color: var(--gp-navy); }
-  .checklist li .checklist-desc { display:block; font-size: 9pt; color: var(--g600); margin-top: 1.5mm; line-height: 1.5; }
-
-  /* ============ COMPARATIVO ============ */
-  .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 6mm; margin: 6mm 0; page-break-inside: avoid; }
-  .compare-col {
-    border-radius: 4px; padding: 6mm; background: var(--g100);
-    border-top: 3px solid var(--g500);
+  .insumo-title {
+    font-family: var(--sans); font-weight: 700; font-size: 11pt; color: var(--gp-navy);
+    margin-bottom: 2mm; line-height: 1.35;
   }
-  .compare-col.win { background: rgba(72,187,120,0.06); border-top-color: var(--deep-green); }
-  .compare-col.lose { background: rgba(200,16,46,0.04); border-top-color: var(--gp-red); }
-  .compare-col h4 { margin-top: 0; margin-bottom: 3mm; }
-  .compare-col.win h4 { color: var(--deep-green); }
-  .compare-col.lose h4 { color: var(--gp-red); }
-  .compare-col p { font-size: 10pt; line-height: 1.6; margin-bottom: 3mm; }
-  .compare-col p:last-child { margin-bottom: 0; }
+  .insumo-body { font-size: 10pt; color: var(--g700); line-height: 1.55; }
+  .insumo-body em { color: var(--g600); }
 
-  /* ============ FAQ ============ */
-  .faq-item { border-top: 1px solid var(--g200); padding: 5mm 0; page-break-inside: avoid; }
-  .faq-item:first-of-type { border-top: 2px solid var(--gp-navy); }
-  .faq-q { font-weight: 700; color: var(--gp-navy); margin-bottom: 2mm; font-size: 10.5pt; line-height: 1.4; }
-  .faq-a { font-size: 10pt; color: var(--g600); line-height: 1.6; }
-
-  /* ============ FOOTER NOTE ============ */
-  .note { font-size: 8.5pt; color: var(--g600); line-height: 1.55; font-style: italic; margin: 5mm 0 0 0; padding-top: 3.5mm; border-top: 1px solid var(--g200); }
-
-  /* ============ FIRMA ============ */
   .signature {
     background: var(--gp-navy); color: var(--near-white); border-radius: 6px;
     padding: 9mm 9mm 9mm 9mm; margin-top: 9mm;
@@ -313,1049 +192,145 @@
   .signature .contact-name { font-weight: 700; color: var(--gold); font-size: 11.5pt; letter-spacing: -0.2px; }
   .signature .contact-role { font-size: 9.5pt; color: rgba(255,255,255,0.85); margin-top: 1.5mm; line-height: 1.55; }
 
-  /* ============ DIAGRAMA TEXTO ============ */
-  .ascii-diagram {
-    font-family: 'SF Mono', Consolas, Monaco, monospace; font-size: 9pt;
-    background: var(--gp-navy); color: var(--near-white); padding: 6mm; border-radius: 4px;
-    line-height: 1.55; margin: 5mm 0; white-space: pre; overflow-x: auto;
-    page-break-inside: avoid;
-  }
+  .note { font-size: 8.5pt; color: var(--g600); line-height: 1.55; font-style: italic; margin: 5mm 0 0 0; padding-top: 3.5mm; border-top: 1px solid var(--g200); }
 
-  /* ============ DIAGRAMA ARQUITECTURA (boxes grid, sin scroll, A4 friendly) ============ */
-  .arch { margin: 6mm 0 5mm 0; page-break-inside: avoid; }
-  .arch-row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 2.5mm; margin-bottom: 3mm; }
-  .arch-box { background: var(--paper); border: 1px solid var(--g200); border-top: 3px solid var(--gp-navy); border-radius: 4px; padding: 3.5mm 3mm; min-height: 38mm; position: relative; }
-  .arch-box .arch-num { font-family: var(--serif); font-weight: 800; font-size: 10pt; color: var(--gp-red); letter-spacing: 1px; margin-bottom: 1mm; }
-  .arch-box .arch-title { font-family: var(--sans); font-weight: 700; font-size: 9pt; color: var(--gp-navy); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 2mm; line-height: 1.25; }
-  .arch-box .arch-body { font-size: 8.5pt; color: var(--g700); line-height: 1.45; }
-  .arch-box.accent { border-top-color: var(--gp-red); }
-  .arch-flow { background: var(--gp-navy); color: var(--near-white); padding: 4mm 5mm; border-radius: 4px; font-size: 9pt; line-height: 1.6; }
-  .arch-flow strong { color: var(--gold); }
-
-  /* ============ INLINE CODE ============ */
-  code { font-family: 'SF Mono', Consolas, Monaco, monospace; font-size: 0.9em; background: var(--g100); padding: 1px 5px; border-radius: 3px; color: var(--gp-navy); border: 1px solid var(--g200); }
-
-  /* ============ SCREEN VIEW ============ */
   @media screen { body { padding: 12mm 0; } }
-
-  /* ============ PRINT ============ */
   @media print {
     body { background: white; }
     .page { box-shadow: none; margin: 0 auto; }
   }
-
 </style>
 </head>
 <body>
 
-<!-- ============================================================
-     COVER
-============================================================ -->
+<!-- COVER -->
 <section class="page cover">
   <div class="cover-inner">
     <div>
-      <div class="cover-mark">SOP — Brief operativo de implementación
-        <span>Versión 2.0 · 8 de junio de 2026 · SOP de la Dirección de Marketing Corporativo · Grupo Plasencia Automotriz</span>
+      <div class="cover-mark">SOP — Standard Operating Procedure
+        <span>Versión 3.0 · 8 de junio de 2026 · Dirección de Marketing Corporativo · Grupo Plasencia Automotriz</span>
       </div>
-      <div class="cover-eyebrow">Piloto Motor de Atribución MVP</div>
-      <div class="cover-title">SOP de incorporación de una marca al Piloto de Marketing Digital Corporativo.</div>
-      <div class="cover-title-after">Estándar de trabajo de la Dirección de Marketing Corporativo del Grupo Plasencia Automotriz para incorporar una de sus marcas-concesionarias al piloto operativo — formalmente <em>Motor de Atribución MVP</em> — del modelo de marketing digital corporativo. Hoy en producción bajo este mismo estándar en Hyundai, Stellantis, Seminuevos y GAC.</div>
-      <div class="cover-subtitle">Documento operativo "marketing al marketing" — para que los equipos involucrados en la incorporación de una marca al piloto compartan el mismo entendimiento de qué entrega la Dirección Corporativa, qué aporta la marca y cómo se decide al cierre.</div>
+      <div class="cover-eyebrow">Piloto de Marketing Digital Corporativo</div>
+      <div class="cover-title">Incorporación de una marca al piloto.</div>
+      <div class="cover-title-after">Documento operativo para la incorporación de una marca-concesionaria del Grupo Plasencia Automotriz al piloto operativo del modelo de marketing digital corporativo, formalmente denominado <em>Motor de Atribución MVP</em>. Hoy en producción bajo este mismo estándar en Hyundai, Stellantis, Seminuevos y GAC.</div>
     </div>
 
-    <div>
-      <div class="cover-pull">
-        Este documento define los insumos que aporta la marca, lo que la Dirección de Marketing Corporativo entrega durante los 90 días de operación, y el mecanismo de decisión al cierre. Es el mismo estándar con el que el piloto opera hoy en Hyundai, Stellantis, Seminuevos y GAC. Documento informativo "marketing al marketing"; no es propuesta comercial.
-        <cite>— Dirección de Marketing Corporativo · Grupo Plasencia Automotriz</cite>
+    <div class="cover-meta">
+      <div class="cover-meta-block">
+        <strong>Emite</strong>
+        Dirección de Marketing Corporativo<br>Grupo Plasencia Automotriz · Guadalajara
       </div>
-
-      <div class="cover-tags">
-        <span class="cover-tag accent">Director de Marca</span>
-        <span class="cover-tag accent">Gerente de Marca</span>
-        <span class="cover-tag accent">Gerentes Comerciales</span>
-        <span class="cover-tag accent">Gerentes de Ventas de sucursal</span>
-        <span class="cover-tag">Documento interno · uso operativo</span>
-      </div>
-
-      <div class="cover-meta">
-        <div class="cover-meta-block">
-          <strong>Emite</strong>
-          Centro de Excelencia · Dirección MKT Corporativo<br>Chucho Porras · Director · Grupo Plasencia Automotriz
-        </div>
-        <div class="cover-meta-block">
-          <strong>Acompaña</strong>
-          Emmanuel Ramírez · Implementación y administración<br>Coordinación operativa diaria + sync Viceversa
-        </div>
+      <div class="cover-meta-block">
+        <strong>Contacto operativo</strong>
+        Chucho Porras · Director MKT Corporativo<br>Emmanuel Ramírez · Implementación y administración
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============================================================
-     TOC
-============================================================ -->
+<!-- §01 — INSUMOS QUE APORTA LA MARCA -->
 <section class="page">
-  <h1 class="section-title"><span class="num">Tabla de contenido</span>Cómo leer este documento</h1>
+  <h1 class="section-title"><span class="num">Sección 01</span>Insumos que aporta la marca para el arranque</h1>
 
-  <p class="lead">Este SOP es la <strong>fuente única</strong> de las condiciones para incorporar una <strong>marca-concesionaria automotriz</strong> del Grupo Plasencia (Changan, Ford, GAC, GWM, Hyundai, Isuzu, Mazda, Stellantis y Seminuevos, etc.) — o una de sus sucursales — al piloto de marketing corporativo. Está escrito para que cualquier director o gerente comercial del Grupo lo pueda leer en 25 minutos y tomar una decisión informada sobre si su marca entra, qué tiene que aportar, qué recibe a cambio y qué pasa al día 90.</p>
+  <p class="lead">Los siguientes insumos son condición operativa para la implementación del piloto. La entrega completa habilita el cronograma de 10 días hábiles bajo happy path (ver §03). Insumos pendientes desplazan proporcionalmente la fecha de go-live.</p>
 
-  <div class="toc">
-    <div class="toc-item"><div class="toc-num">00</div><div class="toc-title">En 30 segundos · La decisión que te estoy pidiendo <span class="toc-sub">Si solo tienes tiempo de leer una página, lee esta. Qué decides, qué cuesta, qué ganas, qué pierdes si no entras</span></div><div class="toc-page">3</div></div>
-    <div class="toc-item"><div class="toc-num">01</div><div class="toc-title">Qué es el Piloto Motor de Atribución MVP y por qué le beneficia a la marca entrar ahora <span class="toc-sub">Definición canónica · 4 hipótesis estratégicas · lo que el piloto NO es · audiencia · encuadre Centro de Excelencia interno</span></div><div class="toc-page">4</div></div>
-    <div class="toc-item"><div class="toc-num">01·B</div><div class="toc-title">El piloto en producción al 8 de junio de 2026 <span class="toc-sub">4 líneas operando · qué ya está validado · qué sigue validándose · por qué tu marca entra ahora</span></div><div class="toc-page">5</div></div>
-    <div class="toc-item"><div class="toc-num">02</div><div class="toc-title">La pregunta estratégica detrás del piloto <span class="toc-sub">Por qué SPA con catálogo tipo e-commerce y no LeadGen Ads ni WhatsApp Ads — calidad de prospección vs volumen</span></div><div class="toc-page">6</div></div>
-    <div class="toc-item"><div class="toc-num">03</div><div class="toc-title">Condiciones financieras del piloto <span class="toc-sub">$30,000 MXN netos/mes piso · 90 días · esquema Viceversa · forma de pago</span></div><div class="toc-page">6</div></div>
-    <div class="toc-item"><div class="toc-num">04</div><div class="toc-title">Insumos que aporta tu marca <span class="toc-sub">Brand y personas (lo que típicamente da el OEM) · productos evergreen + escenario financiero · cadencia de oferta mensual del OEM · fotos · creativos · estructura humana · AS IS baseline. Lo que NO te pido (concepto rector, diseño, replicación de componentes UI del OEM) lo entrega el Centro de Excelencia en §06.</span></div><div class="toc-page">7</div></div>
-    <div class="toc-item"><div class="toc-num">05</div><div class="toc-title">Always-on y toggle de oferta mensual <span class="toc-sub">Qué significa always-on · cómo se prende y apaga la oferta sin perder presencia</span></div><div class="toc-page">11</div></div>
-    <div class="toc-item"><div class="toc-num">06</div><div class="toc-title">Lo que entrega el Centro de Excelencia durante el piloto <span class="toc-sub">Concepto rector y strategy definition · sistema de diseño adaptado + replicación de componentes UI del OEM · página web · kanban · WhatsApp dinámico · Meta Ads Andromeda + toggle oferta del OEM · reportes y conciliación · visibilidad sin caja negra · salida sin lock-in</span></div><div class="toc-page">12</div></div>
-    <div class="toc-item"><div class="toc-num">06·B</div><div class="toc-title">Arquitectura de la solución y el flywheel de aprendizaje del algoritmo <span class="toc-sub">Diagrama técnico de las 5 capas · cómo CAPI server-side envía eventos del pipeline a las plataformas publicitarias · cuando tus vendedores mueven el kanban, ellos mismos provocan la optimización del algoritmo · por qué esto no es plug-and-play</span></div><div class="toc-page">13</div></div>
-    <div class="toc-item"><div class="toc-num">07</div><div class="toc-title">Plan de onboarding técnico: día -10 a día 0 (happy path) <span class="toc-sub">10 días hábiles a go-live bajo happy path · bloqueos típicos · disclaimer de fecha no compromiso</span></div><div class="toc-page">13</div></div>
-    <div class="toc-item"><div class="toc-num">08</div><div class="toc-title">Reporting durante el piloto y criterios al día 90 <span class="toc-sub">Reportes quincenales · reporte ejecutivo mensual · 4 decisiones posibles</span></div><div class="toc-page">13</div></div>
-    <div class="toc-item"><div class="toc-num">09</div><div class="toc-title">Anexo: escenarios financieros de referencia <span class="toc-sub">Plazos, tasas, enganches y supuestos sobre los que se calculan las mensualidades publicadas en cada SPA</span></div><div class="toc-page">14</div></div>
-    <div class="toc-item"><div class="toc-num">10</div><div class="toc-title">FAQ y contacto único de entrada al piloto <span class="toc-sub">Preguntas frecuentes · cómo agendar la primera reunión</span></div><div class="toc-page">15</div></div>
-    <div class="toc-item"><div class="toc-num">11</div><div class="toc-title">Apéndice técnico — para tu equipo de IT, Marketing y Sistemas <span class="toc-sub">La jerga técnica que el cuerpo principal omite a propósito · stack completo · skills internas del Centro de Excelencia</span></div><div class="toc-page">16</div></div>
+  <div class="insumo">
+    <div class="insumo-num">01</div>
+    <div class="insumo-title">Lista de precios oficial vigente del OEM</div>
+    <div class="insumo-body">PDF, Excel o link al sitio del OEM. Fuente legal de precios MSRP o de lista. La Dirección Corporativa no improvisa precios; los publicados en la página y los anuncios corresponden exactamente al material oficial del OEM.</div>
   </div>
 
-  <div class="callout callout--gold" style="margin-top:6mm;">
-    <span class="callout-label">Cómo te recomiendo leerlo</span>
-    <p><strong>Si tienes 2 minutos</strong>, lee §00 (la página que sigue). <strong>Si tienes 10 minutos</strong>, lee §00 + §03 (costo) + §06 (qué recibes) + §00 otra vez. <strong>Si tienes 25 minutos</strong>, lee el documento completo. <strong>El §11 es para tu equipo técnico, no para ti</strong> — si quieres que tu Coordinador de Sistemas lo audite, pásaselo aparte.</p>
+  <div class="insumo">
+    <div class="insumo-num">02</div>
+    <div class="insumo-title">Selección de catálogo evergreen para el always-on</div>
+    <div class="insumo-body">Entre 5 y 13 modelos que la marca prioriza como oferta general durante 90+ días, con bono y mensualidad de referencia anclados. Por cada modelo: precio de lista, mensualidad de referencia, escenario financiero (plazo, tasa, enganche, CAT, financiera oficial), programas evergreen del OEM (garantía, mantenimiento, asistencia, etc.) en texto literal autorizado.</div>
+  </div>
+
+  <div class="insumo">
+    <div class="insumo-num">03</div>
+    <div class="insumo-title">Cadencia de oferta comercial mensual del OEM</div>
+    <div class="insumo-body">Cómo recibe la marca la circular del mes del OEM (boletín, brief, material gráfico), con qué antelación y qué tan predecible es. Compromiso: el Gerente de Marca envía la oferta del mes siguiente cada día 25 del mes en curso para activar el toggle de promo el día 1 sin interrumpir el always-on.</div>
+  </div>
+
+  <div class="insumo">
+    <div class="insumo-num">04</div>
+    <div class="insumo-title">Segmentos comerciales reales de venta</div>
+    <div class="insumo-body">Cómo segmenta hoy el equipo de ventas a su cliente (familias, flotilla, comerciantes, primerizos, recompra, etc.). Define la organización del catálogo por intención en la página.</div>
+  </div>
+
+  <div class="insumo">
+    <div class="insumo-num">05</div>
+    <div class="insumo-title">Vendedores digitales asignados por sucursal</div>
+    <div class="insumo-body">Uno por sucursal mínimo. Nombre, WhatsApp activo, correo, sucursal asignada. La Dirección Corporativa habilita PIN de 6 dígitos para acceso al CRM. Sin asignación, los leads ingresan al kanban sin atención y se pierden.</div>
+  </div>
+
+  <div class="insumo">
+    <div class="insumo-num">06</div>
+    <div class="insumo-title">Punto de contacto único de marketing</div>
+    <div class="insumo-body">Persona con autoridad para aprobar copies, creativos, disclaimers y banners. SLA de respuesta esperado durante la operación: 48 horas. Sin respuesta en ese plazo, la Dirección Corporativa asume aprobación tácita para no detener la operación.</div>
+  </div>
+
+  <div class="insumo">
+    <div class="insumo-num">07</div>
+    <div class="insumo-title">AS IS del funnel digital actual</div>
+    <div class="insumo-body">Métricas baseline de los últimos 3 a 6 meses: inversión digital por plataforma, volumen de leads por canal, CPL, funnel por etapas con retenciones, tasas de conversión, CAC sobre cierre facturado, atribución actual. Proceso de ventas digital actual (herramientas, SLA de primer contacto, calificación, handoffs, conciliación con facturación). Operación comercial actual (cadencia de ofertas del OEM, parrilla de contenido). Sin baseline AS IS no es posible declarar éxito o fracaso del piloto al día 90 con rigor.</div>
+  </div>
+
+  <div class="insumo">
+    <div class="insumo-num">08</div>
+    <div class="insumo-title">Constancia de situación fiscal a Viceversa</div>
+    <div class="insumo-body">De la(s) razón(es) social(es) fondeadoras, enviada a <a href="mailto:jaime@viceversadigital.com">jaime@viceversadigital.com</a> con copia al Director MKT Corporativo, antes del primer transfer. Habilita la facturación administrativa del esquema Viceversa.</div>
   </div>
 </section>
 
-<!-- ============================================================
-     §00 — 30 segundos: la decisión que te pido
-============================================================ -->
+<!-- §02 — INVERSIÓN Y §03 — IMPLEMENTACIÓN -->
 <section class="page">
-  <h1 class="section-title"><span class="num">Sección 00 · Resumen ejecutivo</span>Resumen del piloto en una página</h1>
-
-  <p class="lead" style="font-size:13pt;">Esta página resume en una sola vista el alcance del piloto Motor de Atribución MVP aplicado a una marca-concesionaria automotriz del Grupo: los insumos que aporta la marca, lo que entrega la Dirección de Marketing Corporativo durante los 90 días de operación, y el mecanismo de decisión al cierre. El resto del documento amplía cada tema con más detalle para consulta operativa.</p>
-
-  <h3>Alcance del piloto</h3>
-  <p>Implementación de la plataforma de captura, atribución y operación de medios paid del piloto Motor de Atribución MVP para una de las marcas-concesionarias automotrices del Grupo Plasencia (Changan, Ford, GAC, GWM, Hyundai, Isuzu, Mazda, Stellantis o Seminuevos), incluyendo sucursales. Mismo estándar con el que el piloto opera hoy en Hyundai, Stellantis, Seminuevos y GAC. Duración: 90 días desde el go-live. Al cierre, decisión firmada por la marca y la Dirección Corporativa: escalar, continuar, ajustar o salir.</p>
+  <h1 class="section-title"><span class="num">Sección 02</span>Inversión, cronograma y decisión al día 90</h1>
 
   <h3>Inversión y administración</h3>
-  <ul>
-    <li><strong>$30,000 MXN netos al mes</strong> en publicidad digital, durante 90 días de campaña activa. La distribución entre sucursales la define la marca administrativamente.</li>
-    <li>+ 8% de comisión administrativa de Viceversa + IVA. Bruto referencial: <strong>$37,584/mes</strong>. En 90 días: <strong>$112,752</strong>.</li>
-    <li>La Dirección Corporativa no cobra fee ni retainer. Desarrollo, diseño, operación de medios, CRM y reporting están incluidos dentro del piloto.</li>
-  </ul>
-
-  <h3>Insumos que aporta la marca</h3>
-  <p>Detalle completo en §04. En resumen, los puntos críticos para arrancar son:</p>
-  <ul>
-    <li>Lista de precios oficial vigente del OEM (la marca es la única fuente de verdad).</li>
-    <li><strong>Selección estratégica de catálogo evergreen</strong> — qué modelos prioriza la marca como su oferta general always-on por 90+ días, con bono y mensualidad anclados. Es la decisión comercial del gerente de marca sobre qué impulsar como lineup principal.</li>
-    <li><strong>Mecánica y cadencia de la oferta comercial mensual del OEM</strong>, con compromiso de que el Gerente de Marca envíe la circular del mes siguiente cada día 25 del mes en curso para activar el toggle de promo encima del evergreen.</li>
-    <li>Segmentos comerciales reales con los que opera el equipo de ventas (familias, flotilla, comerciantes, etc.) para organizar el catálogo por intención en la página.</li>
-    <li>Vendedores digitales asignados por sucursal, con WhatsApp activo y PIN para el CRM.</li>
-    <li>Punto de contacto único de marketing con autoridad para aprobar copies y creativos.</li>
-    <li>Documentación del AS IS del funnel digital actual (métricas, proceso de ventas, operación comercial) para tener baseline contra el cual medir el piloto al día 90.</li>
-    <li>Constancia de situación fiscal de la(s) razón(es) social(es) fondeadoras enviada a Viceversa antes del primer transfer.</li>
-  </ul>
-
-  <h3>Insumos que produce la Dirección Corporativa (no se piden a la marca)</h3>
-  <ul>
-    <li>Concepto rector y strategy definition de la marca dentro del piloto.</li>
-    <li>Sistema de diseño y UI kit digital. Si el OEM no lo entrega, la Dirección hereda el Sistema de Diseño Digital del Grupo Plasencia y lo adapta con paleta y tipografía del OEM oficial.</li>
-    <li>Replicación de componentes UI del sitio web oficial del OEM cuando faltan en el manual de marca.</li>
-    <li>Construcción de buyer personas si el OEM corporativo no las entregó (la Dirección las arma con data del pipeline + entrevistas a vendedores de la marca + material público del OEM).</li>
-  </ul>
-
-  <h3>Lo que entrega la Dirección durante la implementación y la operación</h3>
-  <ul>
-    <li>Página web pública en <code>marca.grupoplasencia.com</code> con catálogo, captura de leads, modal de registro y PDF de confirmación dinámico.</li>
-    <li>Stack de tracking server-side (Pixel, Conversions API, GA4, GTM) con los eventos del embudo de extremo a extremo.</li>
-    <li>Cuenta Meta Ads operada bajo framework Andromeda 2026 con rotación periódica de creativos.</li>
-    <li>Acceso al CRM kanban con notificación WhatsApp dinámica al vendedor digital de la sucursal correspondiente.</li>
-    <li>Reporte operativo quincenal al Gerente de Marketing y al Gerente Comercial de la marca. Reporte ejecutivo mensual al Director.</li>
-    <li>Paper ejecutivo de cierre al día 90 con recomendación firmada por ambas direcciones.</li>
-  </ul>
-
-  <h3>Plan de implementación bajo happy path</h3>
-  <p>10 días hábiles desde el día en que el equipo de la marca entrega los insumos completos hasta el día 0 (go-live), asumiendo que las revisiones internas de la marca ocurren dentro del SLA de 48 horas establecido. La fecha de go-live se desplaza proporcionalmente si los insumos o las revisiones se retrasan; el desplazamiento se documenta en el reporting como dependencia de la marca, no como compromiso de la Dirección Corporativa.</p>
-
-  <h3>Próximos pasos para arrancar</h3>
-  <ol>
-    <li>Kickoff de 60 minutos entre el Gerente de Marca y el equipo de la Dirección Corporativa. Se cubre §04 entregable por entregable y se define fecha tentativa para el día -10.</li>
-    <li>El equipo de la marca entrega los insumos de §04. El día -10 arranca el cronograma de implementación.</li>
-    <li>Día 0: go-live. La cadencia quincenal de reporting entra en operación 15 días después del go-live.</li>
-  </ol>
-</section>
-
-<!-- ============================================================
-     §01 — Qué es el piloto, para qué sirve, qué valida
-============================================================ -->
-<section class="page">
-  <h1 class="section-title"><span class="num">Sección 01</span>Qué es el Piloto Motor de Atribución MVP y por qué le beneficia a la marca entrar ahora</h1>
-
-  <p class="lead">Antes de hablar de inversión, entregables y timeline, este SOP necesita que la marca entrante entienda <strong>en qué está entrando</strong>. El piloto no es una campaña digital con otro nombre. Es la prueba operacional de una capacidad corporativa que Grupo Plasencia está validando para <strong>institucionalizar como infraestructura permanente del Grupo</strong>.</p>
-
-  <h3>El Piloto Motor de Atribución MVP — definición canónica</h3>
-  <p>El Motor de Atribución MVP es la infraestructura propia que Grupo Plasencia construyó entre marzo y abril de 2026 para <strong>medir, optimizar y atribuir su inversión de marketing extremo a extremo</strong> — desde el clic en el anuncio hasta la factura en piso — con costo de plataforma marginal (debajo de USD 100 mensuales) y sin dependencia de agencias ni de stacks SaaS de tercero. Hoy opera en producción en 4 líneas de negocio del Grupo. Cada marca que entra al piloto se monta sobre la misma infraestructura, con su propia cuenta Meta Ads, su propio Pixel/CAPI, su propio dataset, su propio kanban — pero la <strong>plataforma es compartida y mejora con cada marca que se suma</strong>.</p>
-
-  <h3>Para qué sirve — la pregunta que el piloto contesta</h3>
-  <p>Hoy en el Grupo conviven 5 modelos distintos de operar marketing digital por marca: agencia A, agencia B, "Karbot/WhatsApp form", "el chavo del sobrino", redes manejadas por el gerente. <strong>Ninguno aprende cross-marca. Todos cobran por mes. Ninguno entrega data trazable hasta facturación.</strong> La pregunta que el piloto contesta — y que el Consejo recibirá como recomendación de gobierno corporativo — es:</p>
-
-  <div class="callout callout--navy">
-    <span class="callout-label">La pregunta del piloto</span>
-    <p>¿Puede Grupo Plasencia operar el marketing digital de sus 8 marcas + Seminuevos con <strong>una sola Dirección Corporativa, una sola plataforma técnica, una sola lógica de atribución y un solo modelo de ventas digitales</strong>, manteniendo autonomía comercial de cada marca, con costo marginal por marca incorporada y con visibilidad de oportunidad a cierre que hoy no existe en ninguna marca del Grupo?</p>
-  </div>
-
-  <h3>Los 4 pilares de la propuesta estratégica del piloto</h3>
-  <p>El piloto está articulado sobre 4 pilares que sostienen el argumento que la Dirección lleva al Consejo (ver <em>Strategy Definition</em> del Motor de Atribución MVP). El piloto produce evidencia para sostener o ajustar estos 4 pilares en cada marca que se incorpora.</p>
-  <ol>
-    <li><strong>Pilar 1 — Motor de Atribución como infraestructura corporativa permanente.</strong> El stack actual (Worker + D1 + Conversions API + dashboard multi-canal + conciliación diaria) pasa de activo del piloto a infraestructura corporativa con SLA, documentación auditable y responsable formal.</li>
-    <li><strong>Pilar 2 — Revenue Operations bajo gobierno corporativo.</strong> Marketing, ventas digitales y datos operan bajo una sola dirección con métricas compartidas y trazabilidad de oportunidad a cierre. El cuello identificado en el piloto no está en marketing sino en la articulación marketing → ventas digitales → piso.</li>
-    <li><strong>Pilar 3 — Escalamiento progresivo cross-brand con gates de cierre.</strong> El paso de marcas se condiciona a métricas verificables (asignación de vendedor >95%, conversión cita → visita >30%, ≥1 cierre atribuido por marca y por mes). Cada marca incorporada llega con el modelo operativo correcto.</li>
-    <li><strong>Pilar 4 — Capacidad apalancada por inteligencia artificial.</strong> El modelo operativo del piloto demostró que un perfil correctamente calibrado con asistencia de IA entrega capacidades que tradicionalmente requieren células de 5 a 7 personas y plazos de 5 a 7 meses. La palanca se institucionaliza como ventaja sostenible.</li>
-  </ol>
-
-  <h3>Lo que el piloto NO es (encuadre para directivos)</h3>
-  <ul>
-    <li>NO es un incremento de presupuesto de marketing. La inversión incremental ($30K MXN/marca/mes durante 90 días) se ubica por debajo de los umbrales de aprobación habituales. El argumento no es gastar más; es <strong>decidir cómo se gobierna lo que ya se gasta</strong>.</li>
-    <li>NO es una reorganización masiva ni implica reducción de plantilla. Las concesionarias mantienen autonomía operativa. Lo que se centraliza es el gobierno de datos, atribución y ventas digitales — no la operación comercial local.</li>
-    <li>NO sustituye el rol del piso de venta. El piso sigue cerrando. Lo que cambia: ahora recibe oportunidades calificadas con contexto y trazabilidad, no formularios opacos.</li>
-    <li>NO es dependencia tecnológica de un proveedor externo. La infraestructura es propia del Grupo, auditable y portable. Cero lock-in con consultoras ni plataformas SaaS caras.</li>
-    <li>NO es un proyecto de 3 meses. Los 90 días son la ventana de validación, no el ciclo de vida. Si la validación es positiva, el piloto se institucionaliza como capacidad corporativa permanente del Grupo.</li>
-  </ul>
-
-  <h3>Audiencia de este SOP</h3>
-  <ul>
-    <li><strong>Directores de Marca</strong> que evalúan entrada al piloto este trimestre.</li>
-    <li><strong>Gerentes de Marca y Gerentes de Marketing de la marca</strong> — punto de contacto operativo con Corporativo.</li>
-    <li><strong>Gerentes Comerciales y Directores Comerciales</strong> — definen la oferta comercial mensual y autorizan el flujo de leads digitales a sus vendedores.</li>
-    <li><strong>Gerentes de Ventas de sucursal</strong> — supervisan a los vendedores digitales asignados al kanban.</li>
-  </ul>
-</section>
-
-<!-- ============================================================
-     §01.5 — Qué se está validando hoy (estado del piloto vigente)
-============================================================ -->
-<section class="page">
-  <h1 class="section-title"><span class="num">Sección 01 · B</span>El piloto en producción al 8 de junio de 2026 — lo que ya está validado y lo que falta</h1>
-
-  <p class="lead">El piloto opera hoy en 4 líneas de negocio. La marca que entra ahora <strong>se monta sobre infraestructura ya validada</strong> en 4 dominios y aporta evidencia adicional para validar las hipótesis pendientes en los otros 3.</p>
-
-  <h3>Líneas de negocio operando al día de hoy</h3>
-  <table>
-    <thead>
-      <tr>
-        <th style="width:20%">Línea</th>
-        <th style="width:30%">Sucursales en el piloto</th>
-        <th style="width:25%">Estado</th>
-        <th style="width:25%">Validando</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr><td><strong>Seminuevos</strong></td><td>8 sucursales GDL (López Mateos, Bugámbilias, Acueducto, Américas, Galerías, González Gallo, Plasencia, Santa Anita)</td><td>LIVE desde 16 abr 2026 · Caso canónico del piloto</td><td>Hipótesis 1 (infra) y 2 (RevOps) ya con evidencia</td></tr>
-      <tr><td><strong>Hyundai</strong></td><td>Plasencia + Santa Anita</td><td>LIVE post Pivote 2 (mayo-jun 2026)</td><td>Hipótesis 1 (clone del modelo cross-marca) y 3 (gates de cierre)</td></tr>
-      <tr><td><strong>Stellantis</strong></td><td>5 submarcas (RAM, Jeep, Peugeot, Dodge, Fiat) en Plasencia + Santa Anita</td><td>LIVE Pivote 2 evergreen multi-marca</td><td>Hipótesis 1 (clone) y 3 (multi-submarca con gates)</td></tr>
-      <tr><td><strong>GAC</strong></td><td>Bugámbilias + Américas</td><td>Pivote 2 estructural (junio 2026)</td><td>Hipótesis 1 (clone más reciente) y prueba de tiempo de onboarding</td></tr>
-    </tbody>
-  </table>
-
-  <h3>Lo que ya está validado en el piloto (evidencia)</h3>
-  <ul>
-    <li><strong>La infraestructura es escalable cross-marca con costo marginal.</strong> 4 SPAs operando en producción · 1 Worker compartido · 1 base D1 con 7 tablas auditables · 1 GTM container con tags Pixel + CAPI por marca · costo de plataforma debajo de USD 100/mes para las 4 marcas combinadas.</li>
-    <li><strong>La captura unificada funciona.</strong> Cada lead recibe folio canónico <code>GP-{MARCA}-{AAMMDD}-{HHMMSS}</code> y se persiste en D1 con dedup automático. Conciliación diaria con cruces externos cierra al 100%, sin fugas de infraestructura.</li>
-    <li><strong>La atribución server-side funciona.</strong> Eventos Meta CAPI + GA4 Measurement Protocol con dedup vía <code>event_id</code>. Las plataformas optimizan por compradores reales, no por curiosos.</li>
-    <li><strong>El modelo de IA + Director MKT Corporativo entrega lo que antes requería 5-7 personas.</strong> Comparativo con propuestas de tercero para alcance equivalente ubica la diferencia en aproximadamente 230× en costo y 5-7× en velocidad de entrega.</li>
-  </ul>
-
-  <h3>Lo que sigue validándose (hipótesis activas)</h3>
-  <ul>
-    <li><strong>Conversión cita → visita real &gt; 30% por marca.</strong> En medición. Lectura post día 90 por cohorte de marca.</li>
-    <li><strong>Asignación de vendedor &gt; 95% al momento del lead.</strong> En medición. Caso GAC junio 2026 reveló bloqueo cuando la marca no asigna vendedores digitales — fix operativo en curso.</li>
-    <li><strong>≥1 cierre atribuido por marca por mes durante la ventana de medición.</strong> Próxima lectura: HYU + STL post-julio 2026, SEM continuo, GAC post-septiembre 2026.</li>
-    <li><strong>El piloto se replica con &lt;10 días hábiles de onboarding.</strong> Ver §07 del SOP. Cada marca nueva mide el tiempo real y lo aporta como evidencia.</li>
-  </ul>
-
-  <div class="callout callout--gold">
-    <span class="callout-label">Por qué tu marca entra ahora</span>
-    <p>Si tu marca entra al piloto, no está siendo conejillo de indias — está aportando la quinta cohorte de evidencia a un experimento que ya tiene infraestructura validada y métricas iniciales sólidas. Al día 90 de tu marca, la lectura cross-marca le permite al Consejo decidir con evidencia mucho más robusta que con el piloto inicial de 3 marcas. <strong>Cada marca incorporada es una réplica que fortalece la decisión corporativa</strong>.</p>
-  </div>
-</section>
-
-<!-- ============================================================
-     §02 — La pregunta estratégica detrás del piloto
-============================================================ -->
-<section class="page">
-  <h1 class="section-title"><span class="num">Sección 02</span>La migración de volumen a calidad de prospección</h1>
-
-  <p class="lead">El piloto materializa una migración que la Dirección Corporativa ya completó en Hyundai y Stellantis, y que está aplicando hoy en GAC y Seminuevos: pasar del modelo tradicional de LeadGen Ads y WhatsApp Ads operado por agencias externas — orientado a volumen de formularios — a un modelo de catálogo digital tipo e-commerce operado por la Dirección, orientado a calidad de prospección y atribución hasta cierre.</p>
-
-  <h3>Modelo tradicional vs. modelo del piloto</h3>
-
-  <table>
-    <thead>
-      <tr>
-        <th style="width:28%">Dimensión</th>
-        <th style="width:36%">Modelo tradicional (BAU de la marca antes del piloto)</th>
-        <th style="width:36%">Modelo del piloto (post-migración)</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><strong>Formato de pauta</strong></td>
-        <td>LeadGen Ads + Click-to-WhatsApp Ads, operados por agencia externa.</td>
-        <td>Catálogo digital evergreen estilo e-commerce + Conversions API server-side, operados por la Dirección Corporativa.</td>
-      </tr>
-      <tr>
-        <td><strong>Qué optimizan las plataformas</strong></td>
-        <td>Volumen de formularios completados. Sin señales de intención real.</td>
-        <td>Eventos del pipeline (cita, visita, cotización, compra) atribuidos por marca.</td>
-      </tr>
-      <tr>
-        <td><strong>Calidad del lead</strong></td>
-        <td>Alto volumen, baja intención. Mayoría no contesta el teléfono.</td>
-        <td>Menor volumen, alta intención. El cliente eligió el auto antes de dejar datos.</td>
-      </tr>
-      <tr>
-        <td><strong>Data acumulada</strong></td>
-        <td>Se queda con la agencia externa. La marca depende de su reporte.</td>
-        <td>Se queda con el Grupo Plasencia. Pixel, audiencias y aprendizaje algorítmico son activo institucional.</td>
-      </tr>
-    </tbody>
-  </table>
-
-  <h3>Por qué esta migración ya se completó en Hyundai y Stellantis</h3>
-  <p>El piloto comenzó con Hyundai y Stellantis operando inicialmente bajo el modelo LeadGen tradicional. Conforme el Motor de Atribución se consolidó, ambas marcas migraron al modelo de catálogo evergreen (Pivote 2). La consecuencia operativa documentada en el reporting interno: las plataformas pasaron de optimizar por volumen de formularios a optimizar por eventos del pipeline real reportados vía Conversions API server-side. El costo por lead inicial es mayor, pero el costo por cliente facturado se reduce conforme el algoritmo se calibra con la realidad de cierre de cada marca.</p>
-
-  <div class="callout">
-    <span class="callout-label">El insight estratégico que sostiene el piloto</span>
-    <p>Las plataformas publicitarias optimizan exclusivamente por el evento que la marca les regresa. Si solo reciben "el usuario llenó un formulario", optimizan por gente dispuesta a llenar formularios. Si reciben "el usuario vino a la sucursal" o "el usuario compró", optimizan por gente con perfil de comprador real. El catálogo digital evergreen, combinado con Conversions API server-side y el kanban operativo, es la arquitectura que produce esa señal de manera limpia y la regresa a las plataformas en tiempo real.</p>
-  </div>
-
-  <h3>Implicaciones operativas para la marca que se incorpora</h3>
-  <ul>
-    <li>El volumen inicial de leads es menor al del modelo LeadGen tradicional. Es esperado: el catálogo filtra por intención antes del lead.</li>
-    <li>Los vendedores digitales reciben leads mejor calificados, con modelo, precio y sucursal ya elegidos por el cliente.</li>
-    <li>El Pixel, las audiencias y el aprendizaje algorítmico se acumulan como activo del Grupo, no de una agencia externa.</li>
-    <li><strong>Al día 90 vas a poder decidir si escalas, ajustas o sales</strong> — con números reales, no con la promesa del proveedor.</li>
-  </ul>
-</section>
-
-<!-- ============================================================
-     §03 — Condiciones financieras
-============================================================ -->
-<section class="page">
-  <h1 class="section-title"><span class="num">Sección 03</span>Condiciones financieras del piloto</h1>
-
-  <h3>Inversión mínima</h3>
-  <p>El piso de entrada al piloto es <strong>$30,000 MXN netos al mes</strong> por marca, durante <strong>90 días de campañas activas</strong>. La marca decide internamente cómo se distribuye esa cifra entre sus sucursales — administrativamente, no a nivel de cuenta publicitaria.</p>
-
   <table>
     <thead>
       <tr>
         <th>Concepto</th>
-        <th class="center">Mensual</th>
-        <th class="center">90 días</th>
+        <th class="num">Mensual</th>
+        <th class="num">90 días</th>
       </tr>
     </thead>
     <tbody>
-      <tr><td>Neto en publicidad (piso)</td><td class="num">$30,000</td><td class="num">$90,000</td></tr>
-      <tr><td>Comisión Viceversa (8%)</td><td class="num">$2,400</td><td class="num">$7,200</td></tr>
+      <tr><td>Neto en publicidad digital (piso)</td><td class="num">$30,000</td><td class="num">$90,000</td></tr>
+      <tr><td>Comisión administrativa Viceversa (8%)</td><td class="num">$2,400</td><td class="num">$7,200</td></tr>
       <tr><td>IVA 16% sobre (neto + comisión)</td><td class="num">$5,184</td><td class="num">$15,552</td></tr>
-      <tr><td><strong>Total bruto a pagar</strong></td><td class="num"><strong>$37,584</strong></td><td class="num"><strong>$112,752</strong></td></tr>
+      <tr><td><strong>Bruto a pagar</strong></td><td class="num"><strong>$37,584</strong></td><td class="num"><strong>$112,752</strong></td></tr>
     </tbody>
   </table>
+  <p>Cifras en pesos mexicanos. La distribución de los $30,000 netos entre sucursales la define la marca administrativamente. Viceversa Digital centraliza el pago de medios y emite factura única mensual al Grupo. Detalle del esquema en <em>03-tech/Compra-de-Medios-Viceversa.md</em>.</p>
 
-  <p>Los $30K son <strong>piso, no techo</strong>. Las marcas vigentes del piloto operan con presupuestos que combinan sucursales — Hyundai opera $30K consolidado entre Plasencia y Santa Anita; Stellantis opera $30K consolidado entre Mariano Otero y Santa Anita; Seminuevos opera $40K repartido entre 4 lotes. La razón es algorítmica: una sola cuenta de Meta Ads aprende más rápido que cuatro cuentas separadas con el mismo presupuesto fragmentado.</p>
-
-  <h3>Esquema administrativo Viceversa</h3>
-  <p>Viceversa Digital centraliza el pago de medios. <strong>No opera campañas.</strong> Su única función es simplificar la factura: una sola factura mensual al Grupo en lugar de N facturas a Meta con N razones sociales. Validado por Contraloría (Marcela García Estrada).</p>
-
-  <ul>
-    <li><strong>Cuenta de transferencia.</strong> BBVA · 0188151873 · CLABE 012320001881518734 · Beneficiario: JAVIER EMMANUEL RAMIREZ TORRES.</li>
-    <li><strong>Constancias fiscales.</strong> Antes del primer transfer, mandar la constancia de situación fiscal de la(s) razón(es) social(es) fondeadoras a <a href="mailto:jaime@viceversadigital.com">jaime@viceversadigital.com</a> con copia al Director MKT Corporativo.</li>
-    <li><strong>Comisión Viceversa.</strong> 8% sobre el neto + IVA sobre (neto + comisión). Ya incluida en la tabla.</li>
-  </ul>
-
-  <h3>Forma de pago</h3>
-  <p>Parcial o total a discreción del fondeador. <strong>Lo recomendado: transfer completo al inicio del mes.</strong> Si el presupuesto se interrumpe a media campaña, el algoritmo de Meta Ads pierde la fase de aprendizaje (los primeros 7 días estables) y el CPL sube. Pausas a media semana cuestan más caro que el ahorro del cash-flow diferido.</p>
-
-  <h3>Vigencia del compromiso</h3>
-  <p><strong>90 días de campañas activas</strong>, no 90 días calendario. Si se interrumpe el gasto, esos días no cuentan al cap. Al día 90 hay <strong>decisión explícita</strong> (continuar, escalar, ajustar, salir) — el piloto NO continúa por inercia.</p>
-
-  <div class="callout callout--red">
-    <span class="callout-label">Lo que el piloto NO incluye</span>
-    <p>El piso de $30K cubre exclusivamente <strong>compra de medios en Meta Ads</strong> (Facebook + Instagram) + comisión Viceversa + IVA. No incluye Google Ads, TikTok Ads, programática, OOH, radio ni TV — esos canales se evalúan post-día 90 según resultados. No incluye creativos producidos por equipo humano dedicado (ver §04.D). No incluye agencia de medios — la opera la Dirección Corporativa.</p>
-  </div>
-</section>
-
-<!-- ============================================================
-     §04 — Checklist de entregables — A · brand y personas
-============================================================ -->
-<section class="page">
-  <h1 class="section-title"><span class="num">Sección 04 · A</span>Insumos que aporta tu marca · Brand, personas y mindsets</h1>
-
-  <p class="lead">El piloto se puede arrancar en <strong>10 días hábiles bajo happy path</strong> si los entregables de las subsecciones A–F están completos y las revisiones de marca, autorizaciones de contenido, validación de catálogo y oferta llegan dentro de los SLAs declarados. Si falta uno crítico, se documenta y se procede con degradación explícita. Si las revisiones se retrasan, la fecha de go-live se desplaza proporcionalmente y los 10 días dejan de aplicar (ver §07 para el disclaimer formal).</p>
-
-  <div class="callout callout--navy" style="margin-bottom: 6mm;">
-    <span class="callout-label">Cómo leer esta sección</span>
-    <p>Estos entregables son <strong>insumos que aporta tu marca</strong>, no salidas del piloto. La estrategia, el concepto rector, las personas si faltan, el sistema de diseño y los componentes UI son cosas que <strong>el Centro de Excelencia produce</strong> durante la implementación (ver §06). Lo que aquí pido es información de marca que ya existe en tu lado o en el OEM y que necesito para poder construir el resto.</p>
-  </div>
-
-  <h3>A · Identidad y guidelines de marca</h3>
-  <ul class="checklist">
-    <li><strong>Logo en alta resolución</strong> — PNG transparente + SVG, versiones header / footer / PDF. <span class="checklist-desc">Si solo está en JPG o en baja resolución, lo descargo del sitio web oficial del OEM (Hyundai México, Stellantis, GAC, Changan, etc.).</span></li>
-    <li><strong>Paleta oficial + tipografías corporativas + tono de voz</strong> — del manual de marca del OEM si existe. <span class="checklist-desc">Si no me llega de tu lado, lo replico del sitio web oficial del OEM y/o del brand pack que el OEM publica para distribuidores. Cero bloqueo, lo resuelvo yo.</span></li>
-    <li><strong>Componentes UI o design system digital del OEM</strong> <em>(si existe)</em> — botones, cards, tipografía digital, componentes web. <span class="checklist-desc">Si tu OEM no entrega UI kit propio, replico componentes del sitio web oficial del OEM y los acoplo al <strong>Sistema de Diseño Digital del Grupo Plasencia</strong> que ya está en operación en las 4 marcas vigentes. El SPA hereda esa base.</span></li>
-  </ul>
-
-  <h3>B · Conocimiento del cliente — lo que típicamente envía el OEM</h3>
-  <ul class="checklist">
-    <li><strong>Buyer personas + research de mercado del OEM</strong> <em>(si el OEM ya te lo envió)</em> — el OEM corporativo normalmente comparte personas, mindsets, JTBD y research de mercado con sus distribuidores. <span class="checklist-desc">Si lo tienes, ideal — me ahorra 5-7 días de research. Si no me llega, el Centro de Excelencia construye personas con data del pipeline + entrevistas a tus vendedores + material público del OEM. No es bloqueo. Referencias internas: Stellantis 5 personas por submarca · Hyundai 5 personas por modelo.</span></li>
-    <li class="blocker"><strong>Segmentos comerciales reales con los que opera tu equipo de ventas</strong> — cómo tu marca segmenta hoy a su cliente (familias, flotilla, comerciantes, primerizos, recompra, etc.). <span class="checklist-desc">Indispensable. Sin esto el catálogo de la SPA no se puede organizar por intención y los copies Andromeda no pueden segmentar audiencias. Lo más rápido: una llamada de 30 minutos con tu Gerente Comercial.</span></li>
-  </ul>
-
-  <div class="callout">
-    <span class="callout-label">Por qué importa el segmento comercial</span>
-    <p>El catálogo de la SPA se construye con <strong>tabs por intención</strong> (Personal / Familia / Comercial / Lifestyle, según la marca). Sin saber cómo segmentas hoy a tu comprador, los tabs los inventa el Centro de Excelencia y se vuelven genéricos. Con segmentos reales, las tabs ordenan el catálogo de forma que el cliente encuentra su auto sin filtrar — y la conversión sube. STL usa <em>Lifestyle / Familia / Comercial</em>; Hyundai usa <em>Personal / Flotilla</em>; GAC usa <em>Personal / Flotilla</em>; Seminuevos usa <em>por marca + tipo</em>.</p>
-  </div>
-
-  <div class="callout callout--gold">
-    <span class="callout-label">Lo que NO te pido (el Centro de Excelencia lo entrega)</span>
-    <p><strong>Concepto rector / big idea / strategy definition</strong> de tu marca dentro del piloto. Esto es trabajo estratégico que produce el Centro de Excelencia aplicando disciplina Strategy Definition (Minto + SCR + Answer-First) sobre los insumos que aportas: personas, segmentos, posicionamiento del OEM, data del piloto. Caso de referencia ya producido por el Centro: <a href="Seminuevos-Sin-Sorpresas-Paper-Ejecutivo.html">"Sin Sorpresas" de Seminuevos</a>. El concepto rector de tu marca lo entrego como parte del piloto, no es algo que te pida.</p>
-  </div>
-</section>
-
-<!-- ============================================================
-     §04 — C · Catálogo y precios (bloqueante)
-============================================================ -->
-<section class="page">
-  <h1 class="section-title"><span class="num">Sección 04 · B</span>Insumos que aporta la marca · Catálogo evergreen y oferta mensual del OEM</h1>
-
-  <p class="lead">Esta sección documenta uno de los aprendizajes del <strong>Pivote 2</strong> aplicado en Hyundai, Stellantis, GAC y Seminuevos. La operación digital del piloto se sostiene sobre un <strong>catálogo evergreen</strong> que vive en la página y en los anuncios los 365 días, desacoplado del calendario de circulares mensuales del OEM. Encima de ese always-on, cuando la marca activa una oferta comercial del mes, la Dirección activa un toggle de promo sin reiniciar el aprendizaje del algoritmo de medios (ver §05).</p>
-
-  <div class="callout callout--navy" style="margin-bottom:6mm;">
-    <span class="callout-label">Qué entendemos por "evergreen" en el contexto del piloto</span>
-    <p>Evergreen es el <strong>subconjunto estratégico de modelos que el gerente de marca designa como always-on por al menos 90 días</strong>, con bono y mensualidad de referencia anclados. Es la oferta general que la marca decide impulsar como su lineup principal — no es "todo lo que vende" ni "lo que tiene en inventario". El propósito operativo es <strong>desacoplar la página y la pauta del calendario de circulares OEM</strong>: en Stellantis, por ejemplo, la circular VTAS-* del mes puede llegar hasta 15 días tarde, lo que en el modelo anterior obligaba a pausar campañas y resetear el aprendizaje de Meta cada vez. Con catálogo evergreen, el algoritmo nunca pierde calibración, y cuando la marca activa la promo mensual, se monta encima del always-on sin interrumpirlo.</p>
-  </div>
-
-  <h3>C · Lista de precios oficial vigente <span class="badge badge--red">Indispensable</span></h3>
-  <ul class="checklist">
-    <li class="blocker"><strong>Lista de precios oficial del OEM</strong> — PDF, Excel o link al sitio del OEM. Fuente legal de precios MSRP o de lista. <span class="checklist-desc">Sin este insumo la página no se publica. El precio que aparece en cada card es exactamente el de la lista oficial; la Dirección no improvisa precios.</span></li>
-  </ul>
-
-  <h3>D · Selección de catálogo evergreen para el always-on <span class="badge badge--red">Indispensable</span></h3>
-  <p>De toda la lineup del OEM, qué modelos selecciona la marca como su oferta general de 90+ días que sostendrá el always-on digital.</p>
-  <ul class="checklist">
-    <li class="blocker"><strong>Selección estratégica de modelos evergreen</strong> — qué modelos prioriza la marca como su oferta-base 365 días (entre 5 y 13 modelos según experiencia del piloto). <span class="checklist-desc">Referencia del Pivote 2 vigente: Hyundai (Vero) seleccionó 8 modelos como always-on; Stellantis (Berenice) seleccionó 13 cubriendo las 5 submarcas; GAC seleccionó la lineup completa por volumen acotado; Seminuevos opera sobre inventario dinámico multimarca. La selección la define el gerente de marca con base en su estrategia comercial — no es algo que la Dirección de Marketing Corporativo decida unilateralmente.</span></li>
-    <li class="blocker"><strong>Por cada modelo evergreen: precio de lista + mensualidad de referencia + escenario financiero</strong> — plazo, tasa, enganche, CAT publicable, financiera oficial. <span class="checklist-desc">El escenario aparece literal en el disclaimer (ver §09). En Hyundai, Vero declaró "confirma con asesor" sin numérico publicado. Stellantis publica con financiera STM (CAT 20.5%). GAC con 72 meses / 14.49% / 35% enganche / CAT 33%. Seminuevos con tasa de referencia 14.9% y enganche desde 25%.</span></li>
-    <li><strong>Programas y beneficios evergreen oficiales por modelo</strong> — los que están todo el año, distintos de los del bono mensual (garantía, mantenimiento sin costo, asistencia vial, protección de llantas, cargador de casa, seguro 1 año, etc.). Texto literal autorizado por el OEM. <span class="checklist-desc">Referencia Hyundai evergreen: "Bono Flexible · Garantía 7 años · Protección Llantas 5 años". Referencia GAC: "Garantía 5 años o 150,000 km · Cambios de aceite sin costo 3 años". La Dirección publica exclusivamente lo que está en el material oficial del OEM o lo que la marca autoriza por escrito.</span></li>
-    <li><strong>Vigencias y términos legales evergreen</strong> — restricciones, exclusiones, "sujeto a aprobación crediticia". <span class="checklist-desc">Aparecen literales en el footer legal de la página y en el PDF de confirmación que recibe el cliente.</span></li>
-  </ul>
-
-  <h3>E · Cadencia de oferta comercial mensual del OEM <span class="badge badge--red">Indispensable</span></h3>
-  <p>Cómo recibe la marca la circular del mes del OEM y cómo la hace llegar a la Dirección para que se active el toggle de promo encima del evergreen.</p>
-  <ul class="checklist">
-    <li class="blocker"><strong>Mecánica de recepción de la oferta del OEM</strong> — cómo le llega a la marca la circular del mes (boletín, brief, material gráfico ya listo, sólo términos comerciales), con qué antelación, qué tan predecible es la cadencia. <span class="checklist-desc">En Stellantis la circular VTAS-* puede llegar hasta 15 días tarde — por eso el evergreen es indispensable para sostener el always-on. La Dirección requiere saber el patrón real del OEM para planear el toggle.</span></li>
-    <li class="blocker"><strong>Compromiso de día 25</strong> — el Gerente de Marca pasa la oferta del mes siguiente cada día 25 del mes en curso (bono $, tasa %, plazo meses, modelos aplicables, vigencia, términos legales del OEM). <span class="checklist-desc">Día 26 a 30: la Dirección prepara el toggle y los creativos Andromeda. Día 1: activación. Día último: apagado. Si la oferta no llega a tiempo, el toggle queda OFF y la operación continúa sobre evergreen, sin pausa ni reset del algoritmo.</span></li>
-    <li><strong>Histórico de los últimos 3-6 meses de ofertas del OEM</strong> <em>(deseable)</em> — qué bonos dieron, qué tasas, en qué modelos, qué tan agresivos fueron. <span class="checklist-desc">Permite a la Dirección calibrar expectativas de performance del piloto en los primeros 90 días contra el patrón histórico del OEM.</span></li>
-  </ul>
-
-  <p class="note">Todo lo que se publica en la página y los anuncios (precios, mensualidades, programas, garantías, vigencias) proviene exclusivamente del material oficial del OEM o de lo que la marca autoriza por escrito. Esta es una regla operativa interna de la Dirección Corporativa para proteger legalmente a la marca y mantener consistencia entre lo digital y lo que el cliente encuentra en piso.</p>
-
-  <h3>F · Activos visuales del catálogo</h3>
-  <p>El orden de prioridad para fotos del catálogo evergreen de la SPA:</p>
-
+  <h3>Cronograma de implementación — 10 días hábiles bajo happy path</h3>
   <table>
     <thead>
       <tr>
-        <th style="width:6%">#</th>
-        <th style="width:22%">Opción</th>
-        <th style="width:18%">Calidad CRO</th>
-        <th style="width:24%">Quién provee</th>
-        <th style="width:30%">Ejemplo en piloto vigente</th>
+        <th style="width:12%">Día</th>
+        <th style="width:88%">Actividad</th>
       </tr>
     </thead>
     <tbody>
-      <tr><td><strong>A</strong></td><td><strong>Product shots de piso de venta</strong></td><td><span class="badge badge--green">Óptima</span></td><td>La marca, idealmente fotógrafo profesional dedicado</td><td>Seminuevos (181 autos con fotos de piso) · GAC (showroom propio)</td></tr>
-      <tr><td><strong>B</strong></td><td>Fotos oficiales del sitio del OEM o distribuidor</td><td><span class="badge badge--gold">Aceptable</span></td><td>La marca confirma autorización de uso</td><td>Hyundai (5 modelos con fotos del CDN del distribuidor oficial)</td></tr>
-      <tr><td><strong>C</strong></td><td>Fotos oficiales del sitio del concesionario</td><td><span class="badge badge--gold">Aceptable</span></td><td>La marca</td><td>Algunas marcas con showroom virtual propio</td></tr>
-      <tr><td><strong>D</strong></td><td><em>Sin fotos</em></td><td><span class="badge badge--red">Inaceptable</span></td><td>—</td><td>SPA con empty state. La conversión web cae ~30-50% según data interna del piloto. Documentado como degradación atribuible a la marca.</td></tr>
+      <tr><td><strong>−10</strong></td><td>La marca entrega los insumos de §01. Kickoff de 60 minutos con el Gerente de Marca y el equipo de la Dirección Corporativa.</td></tr>
+      <tr><td><strong>−9 a −5</strong></td><td>La Dirección Corporativa construye la página, configura tracking (Pixel, Conversions API, GA4, GTM), prepara cuenta Meta Ads y staging de campañas Andromeda 2026.</td></tr>
+      <tr><td><strong>−4 a −3</strong></td><td>Ventana de revisión de la marca: SPA staging, copies, creativos, disclaimer financiero. SLA de respuesta: 48 horas.</td></tr>
+      <tr><td><strong>−2</strong></td><td>Aplicación de feedback de la marca y última iteración.</td></tr>
+      <tr><td><strong>−1</strong></td><td>QA end-to-end con lead de prueba real.</td></tr>
+      <tr><td><strong>0</strong></td><td>Go-live. Activación de Meta Ads Core.</td></tr>
+      <tr><td><strong>+1 a +90</strong></td><td>Operación diaria. Reporting quincenal al Gerente de Marketing y Comercial. Reporte ejecutivo mensual al Director. Toggle de promo mensual según oferta del OEM.</td></tr>
     </tbody>
   </table>
+  <p class="note">Los 10 días son estimación bajo happy path. Asumen entregables completos al día -10 y revisiones de la marca dentro del SLA de 48 horas. Insumos o revisiones que se retrasen desplazan la fecha de go-live proporcionalmente. La Dirección Corporativa documenta los desplazamientos en el reporting como dependencia de la marca.</p>
 
-  <h3>G · Creativos para los anuncios (carruseles, reels, statics)</h3>
-  <p>Dos rutas posibles, definidas antes del go-live:</p>
-
-  <div class="compare">
-    <div class="compare-col win">
-      <h4>E.1 · La marca tiene diseñador interno</h4>
-      <p>La Dirección Corporativa entrega un <strong>brief Andromeda 2026</strong> (framework de creatividad Meta Ads del Grupo) + concepto rector + sucursales + ofertas vigentes. El diseñador de la marca produce los assets y los devuelve para que el Grupo los suba a Meta Ads. Resultado: fidelidad de marca alta + iteración semanal de creatives.</p>
-    </div>
-    <div class="compare-col lose">
-      <h4>E.2 · La marca no tiene diseñador</h4>
-      <p>Se firma acuerdo expreso: <em>"los creativos se generan con IA bajo lineamientos de la marca. No se garantiza fidelidad al pie de la letra. La única forma de garantizarla es un equipo humano dedicado que la marca debe aportar de su estructura. Mientras tanto, la Dirección Corporativa ejecuta con la mejor IA disponible y revisión manual."</em> Sin este acuerdo firmado, las campañas no se activan.</p>
-    </div>
-  </div>
-
-  <p class="note">SPAs vigentes como referencia visual del estándar que recibirá la marca: <a href="https://seminuevos.grupoplasencia.com/">seminuevos.grupoplasencia.com</a> · <a href="https://hyundai.grupoplasencia.com/">hyundai.grupoplasencia.com</a> · <a href="https://stellantis.grupoplasencia.com/">stellantis.grupoplasencia.com</a> · <a href="https://gac.grupoplasencia.com/">gac.grupoplasencia.com</a>. Si la marca quiere ver el catálogo con la mejor calidad visual lograda, revisar Seminuevos primero — es la "Opción A" en producción.</p>
-</section>
-
-<!-- ============================================================
-     §04 — F · Estructura humana
-============================================================ -->
-<section class="page">
-  <h1 class="section-title"><span class="num">Sección 04 · C</span>Entregables de la marca — Estructura humana asignada</h1>
-
-  <p class="lead">El piloto le promete al cliente final <strong>"te contacto en menos de 2 horas vía WhatsApp"</strong>. Si la marca no asigna quién cumple esa promesa, los leads llegan al kanban y se mueren ahí. Es el bloqueo más común detectado en onboarding — y el más fácil de prevenir.</p>
-
-  <table>
-    <thead>
-      <tr>
-        <th style="width:26%">Rol</th>
-        <th style="width:8%">Mín.</th>
-        <th style="width:38%">Qué hace en el piloto</th>
-        <th style="width:28%">Datos que entrega</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><strong>Vendedor digital de sucursal</strong><br><span class="badge badge--red">Bloqueante</span></td>
-        <td class="center">1 por sucursal</td>
-        <td>Recibe la oportunidad en el kanban, contesta en &lt;2h vía WhatsApp, califica, agenda cita, mueve la card en el pipeline. La promesa al cliente la cumple esta persona.</td>
-        <td>Nombre completo · número de WhatsApp activo · correo · sucursal asignada · PIN de 6 dígitos para CRM</td>
-      </tr>
-      <tr>
-        <td><strong>Gerente Comercial / de Ventas de sucursal</strong></td>
-        <td class="center">1 por sucursal</td>
-        <td>Supervisa el pipeline, escala bloqueos, autoriza ofertas excepcionales, reasigna leads si el vendedor digital no responde.</td>
-        <td>Nombre · WhatsApp · correo · PIN · alcance (qué sucursal/línea ve)</td>
-      </tr>
-      <tr>
-        <td><strong>Punto de contacto comercial (OEM/estrategia)</strong></td>
-        <td class="center">1 por marca</td>
-        <td>Define la oferta comercial mensual, autoriza copies, valida que la marca esté representada correctamente.</td>
-        <td>Nombre · correo · teléfono · cargo</td>
-      </tr>
-      <tr>
-        <td><strong>Punto de contacto de marketing de la marca</strong></td>
-        <td class="center">1 por marca</td>
-        <td>Pasa el catálogo, las fotos, los assets, los lineamientos. Aprueba creativos antes de publicar.</td>
-        <td>Nombre · correo · teléfono · cargo</td>
-      </tr>
-      <tr>
-        <td><strong>Diseñador (interno o externo)</strong></td>
-        <td class="center">1 deseable</td>
-        <td>Adapta los creativos al brief Andromeda y a los lineamientos visuales de la marca. Si no existe, ver §04.E.2.</td>
-        <td>Nombre · correo · formato preferido de brief</td>
-      </tr>
-      <tr>
-        <td><strong>Director / responsable que autoriza el fondeo</strong></td>
-        <td class="center">1</td>
-        <td>Decide la razón social que paga, valida las facturas Viceversa, autoriza presupuesto adicional si la marca decide escalar.</td>
-        <td>Nombre · correo · cargo · RFC de razón social</td>
-      </tr>
-    </tbody>
-  </table>
-
-  <h3>Permisos del kanban y notificación WhatsApp dinámica</h3>
-  <p>El CRM/Kanban tiene control de acceso por PIN y por sucursal. Cada vez que un lead entra a una sucursal específica, el worker dispara una notificación WhatsApp al vendedor digital + gerente comercial de esa sucursal con: folio, datos del cliente, modelo de interés, tipo de uso (Personal/Flotilla), origen del tráfico. La marca recibe documentación de este flujo (<em>03-tech/Routing-WhatsApp-Notif-Por-Marca.md</em>) antes del go-live.</p>
-</section>
-
-<!-- ============================================================
-     §04 — D · AS IS de la marca (baseline, proceso, operación)
-============================================================ -->
-<section class="page">
-  <h1 class="section-title"><span class="num">Sección 04 · D</span>Entregables de la marca — AS IS (baseline · proceso · operación comercial)</h1>
-
-  <p class="lead">El piloto se evalúa al día 90 comparando contra un baseline. <strong>Sin AS IS documentado, no hay con qué comparar.</strong> Esta subsección es lo que la marca debe documentar antes del kickoff — no es un reporte estratégico, es un censo honesto de cómo opera hoy. Pueden ser bullets en un correo o un PDF de 3 páginas; lo importante es que cubra los 3 bloques.</p>
-
-  <h3>D.1 · Métricas de baseline del funnel digital actual</h3>
-  <p>Período mínimo recomendado: <strong>últimos 3 meses</strong> (idealmente últimos 6 meses). Si la marca no las tiene todas, lo que se tenga + declaración explícita de qué falta.</p>
-
-  <ul class="checklist">
-    <li><strong>Inversión digital total/mes</strong> — por plataforma (Meta Ads, Google Ads, TikTok, programática, otras) y por marca/sucursal si aplica.</li>
-    <li><strong>Volumen de leads/mes</strong> — desglosado por canal (paid Meta, paid Google, orgánico web, orgánico redes, WhatsApp directo, walk-in registrado digital, referidos).</li>
-    <li><strong>CPL — Costo por Lead</strong> por plataforma y promedio ponderado.</li>
-    <li><strong>Funnel por etapas + retención (drop-off) por etapa</strong> — visitas → leads → primer contacto → calificados → cita agendada → visita real a la sucursal → cotización → cierre ganado → factura. Cuántos pasan de una etapa a la siguiente.</li>
-    <li><strong>Tasas de conversión</strong> — la global (lead → factura) y la de cada etapa.</li>
-    <li><strong>CAC — Costo de Adquisición de Cliente</strong> calculado sobre <em>cierre ganado facturado</em>, no sobre lead. Inversión digital total ÷ unidades facturadas atribuibles a digital.</li>
-    <li><strong>Atribución actual</strong> — cómo determinan hoy que una venta vino de digital (último click, primer click, declarado por el vendedor, conciliación manual mensual).</li>
-    <li><strong>Comparativo con benchmarks internos</strong> — si la marca tiene comparativos con otras marcas del Grupo o con su propio histórico de 12 meses atrás.</li>
-  </ul>
-
-  <h3>D.2 · Proceso de ventas digital actual</h3>
-  <p>Mapa honesto de cómo se atiende hoy un lead digital de principio a fin.</p>
-
-  <ul class="checklist">
-    <li><strong>Cómo reciben los leads</strong> — form web, formulario de LeadGen Ads, WhatsApp Ads (chat directo), llamada telefónica, walk-in registrado en sucursal, otro. Quién es el primer eslabón humano que ve el lead.</li>
-    <li><strong>Herramientas en uso</strong> — CRM (cuál: Salesforce, Plasencia CX, HubSpot, otro), Excel/Google Sheets, Karbot, hoja de papel, WhatsApp Business sin CRM, bot conversacional. Lista todas las que conviven.</li>
-    <li><strong>Quién atiende los leads</strong> — equipo dedicado digital (vendedores digitales), gerente comercial, vendedor de piso "el que esté libre", call center externo, agencia. Roles y nombres si los hay.</li>
-    <li><strong>SLA actual de primer contacto</strong> — &lt;15 min · &lt;1h · &lt;2h · mismo día · día siguiente · no medido. Y qué % cumple ese SLA hoy.</li>
-    <li><strong>Cómo califican</strong> — script de calificación, BANT, instinto del vendedor, sin proceso. Qué preguntan al cliente para decidir si vale la pena agendar.</li>
-    <li><strong>Cómo agendan cita</strong> — el vendedor agenda directo, hay calendario compartido, lo registra el gerente. Cómo confirman la cita el día anterior.</li>
-    <li><strong>Cómo registran la visita real</strong> — el vendedor lo registra en CRM, el gerente al cerrar el día, walk-in declarado, no se registra.</li>
-    <li><strong>Cómo cierran la venta</strong> — cotización formal, contrato, financiera, entrega. Roles que intervienen.</li>
-    <li><strong>Handoffs entre roles</strong> — quién pasa el lead al siguiente eslabón, cómo (WhatsApp, llamada, CRM update, papel), tiempo promedio de handoff, cuántos se pierden en handoff.</li>
-    <li><strong>Conciliación con facturación</strong> — cómo determinan al cierre del mes cuántas facturas vinieron del canal digital. Quién lo hace, cuándo, qué confiabilidad le dan.</li>
-  </ul>
-
-  <h3>D.3 · Operación comercial actual — ofertas y parrilla de contenido</h3>
-  <p>Cómo se planea hoy lo que se comunica al mercado.</p>
-
-  <ul class="checklist">
-    <li><strong>Cadencia de ofertas comerciales del OEM</strong> — el OEM (Hyundai, Stellantis, GAC, Changan, etc.) pasa ofertas mensualmente, quincenalmente, ad-hoc, sin cadencia. Qué tan predecible es.</li>
-    <li><strong>Cómo recibe la marca la oferta</strong> — material gráfico listo, brief para producir, sólo términos comerciales. Qué tan adaptable es a digital.</li>
-    <li><strong>Antelación con que la marca conoce la oferta del mes</strong> — la marca conoce el bono del mes el día 1 del mes, el día 25 del mes anterior, el día 15. Esa antelación define la calidad de la activación digital.</li>
-    <li><strong>Parrilla / calendario editorial de contenido</strong> — la marca tiene calendario editorial de redes orgánicas y paid, no lo tiene, lo hace la agencia, lo hace marketing internamente. Cadencia de publicación orgánica.</li>
-    <li><strong>Coordinación entre always-on y ofertas mensuales</strong> — la marca hoy hace always-on de marca + activaciones puntuales de oferta, o solo activaciones puntuales sin always-on. Cómo se coordinan.</li>
-    <li><strong>Quién valida lo que sale al mercado</strong> — el gerente de marketing local, el OEM, ambos, una agencia con aprobación tácita. Cuántas rondas de revisión típicas y cuánto demoran.</li>
-    <li><strong>Tipos de creatividad usados hoy</strong> — videos, statics, carruseles, lives, influencer, UGC, brochure digitalizado. Qué funciona mejor según percepción de la marca.</li>
-    <li><strong>Reto principal de la marca con su operación comercial digital actual</strong> — declarado por el responsable de marketing en una oración. Esto es el "para qué quiero entrar al piloto".</li>
-  </ul>
-
-  <div class="callout callout--gold">
-    <span class="callout-label">Por qué importa esto al día 90</span>
-    <p>El criterio de éxito del piloto al día 90 (§08) compara las métricas del piloto contra el baseline de §04.D.1. <strong>Si el baseline no está documentado, el piloto NO puede declararse éxito o fracaso con rigor</strong> — sería opinión, no decisión basada en datos. La Dirección Corporativa puede ofrecer benchmarks de otras marcas del Grupo y benchmarks de mercado como sustituto, pero la comparación honesta es contra el propio AS IS de la marca. Documentarlo es a favor de la marca.</p>
-  </div>
-</section>
-
-<!-- ============================================================
-     §05 — Always-On
-============================================================ -->
-<section class="page">
-  <h1 class="section-title"><span class="num">Sección 05</span>Por qué tu marca estará en línea los 365 días — y no solo cuando el OEM da bono</h1>
-
-  <h3>El problema que probablemente ya conoces</h3>
-  <p>Tu marca depende hoy del bono que el OEM (Changan, Hyundai, GAC, lo que sea) te suelta cada mes. Si este mes hay bono, prendes la campaña. Si no hay bono, te quedas mudo. Los meses sin bono son meses sin leads digitales. Tu pipeline depende de un calendario que no controlas.</p>
-
-  <h3>Cómo resolvemos esto en el piloto</h3>
-  <p>El piloto funciona en dos capas que conviven sin pelearse:</p>
-
-  <ul>
-    <li><strong>Capa always-on (siempre prendida).</strong> Tu página web vive con el catálogo completo, mensualidades de referencia y programas oficiales (garantía, mantenimiento, etc.) los 365 días. Los anuncios viven con creatividad de marca rotando. El cliente que está investigando 2 o 3 semanas antes de pisar tu agencia te encuentra <strong>aunque no haya bono este mes</strong>.</li>
-    <li><strong>Capa de oferta mensual (se prende y se apaga sin tirar el always-on).</strong> Cuando el OEM te da el bono del mes, prendo un toggle: aparece un banner promo, un sello "OFERTA VIGENTE" en cada card del catálogo, y la creatividad de los anuncios rota a versión bono. Cuando termina el mes, apago el toggle y todo vuelve a always-on sin downtime.</li>
-  </ul>
-
-  <h3>Qué pasa cuando prendo y apago el toggle</h3>
-
-  <table>
-    <thead>
-      <tr><th style="width:18%">Activación</th><th style="width:42%">Qué se prende</th><th style="width:40%">Qué NO se apaga</th></tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><strong>Toggle promo <span class="badge badge--green">ON</span></strong></td>
-        <td>Badge "OFERTA VIGENTE" en cards del catálogo · Banner promo sticky en hero · Copy de ads rota a versión oferta-led · CTA cards apunta a oferta · Mensualidad oferta sobre mensualidad de lista</td>
-        <td>La SPA sigue mostrando el catálogo evergreen completo · El always-on de ads sigue corriendo · El catálogo no cambia · El pipeline sigue captando</td>
-      </tr>
-      <tr>
-        <td><strong>Toggle promo <span class="badge badge--gray">OFF</span></strong></td>
-        <td>Vuelve a copy brand-led, sin badges de promo, sin banner sticky</td>
-        <td>Idéntico al estado always-on continuo</td>
-      </tr>
-    </tbody>
-  </table>
-
-  <h3>Cómo se opera el toggle</h3>
-  <p>Es un cambio de configuración del lado de la Dirección Corporativa. Activación o desactivación en menos de un minuto, sin downtime de la página. (Detalle técnico para el responsable de sistemas de la marca en §11.)</p>
-
-  <h3>Calendario de coordinación contigo</h3>
-  <ul>
-    <li><strong>Día 25 del mes anterior.</strong> Tu Gerente de Marca me pasa la oferta del mes siguiente: cuánto es el bono, cuál es la tasa, qué plazo, en qué modelos aplica, cuándo vence, qué términos legales tiene.</li>
-    <li><strong>Día 26–30 del mes anterior.</strong> Corporativo prepara el toggle, prepara nuevos creatives Andromeda con la oferta, prepara copy.</li>
-    <li><strong>Día 1 del mes nuevo.</strong> Toggle ON. Creatives rotados. Banner activo en SPA.</li>
-    <li><strong>Día último del mes (o fin de vigencia).</strong> Toggle OFF. Vuelve a always-on. Sin pérdida de presencia.</li>
-  </ul>
-
-  <p class="note">Si la marca no pasa la oferta a tiempo, el piloto NO se pausa. Sigue corriendo en modo always-on brand-led. El toggle se queda OFF hasta que la oferta esté validada. Esta es la ventaja operativa del modelo: la marca puede no tener oferta este mes y la presencia digital no se cae.</p>
-</section>
-
-<!-- ============================================================
-     §06 — Lo que recibes durante la operación (lenguaje humano)
-============================================================ -->
-<section class="page">
-  <h1 class="section-title"><span class="num">Sección 06</span>Qué entrega el piloto durante la implementación y la operación</h1>
-
-  <p class="lead">Alcance operativo del servicio, en lenguaje claro. El detalle técnico está al final en el Apéndice §11 — para que el responsable de sistemas de tu marca pueda auditarlo si lo requiere.</p>
-
-  <h3>1 · Concepto rector y strategy definition de tu marca dentro del piloto</h3>
-  <p>Trabajo estratégico del Centro de Excelencia aplicando disciplina Strategy Definition (Minto + SCR + Answer-First) sobre los insumos que aportaste (personas, segmentos comerciales, posicionamiento del OEM, lineup evergreen) + la data que el piloto va capturando. <strong>Es output del piloto, no input que te pido.</strong> Caso de referencia ya producido por el Centro: <a href="Seminuevos-Sin-Sorpresas-Paper-Ejecutivo.html">"Sin Sorpresas" de Seminuevos</a>. Para tu marca lo entrego al cierre del onboarding como base de las bajadas tonales de copy, banner promo, brief Andromeda y mensajería en redes.</p>
-
-  <h3>2 · Sistema de diseño adaptado + replicación de componentes UI del OEM</h3>
-  <p>Si tu marca no tiene UI kit propio, el Centro de Excelencia hereda el <strong>Sistema de Diseño Digital del Grupo Plasencia</strong> que ya está en operación en las 4 marcas vigentes — tokens de color, spacing, tipografía, componentes — y lo adapta con la paleta y tipografía oficial de tu OEM (Hyundai navy + tipografía Hyundai Sans, Stellantis paletas por submarca, GAC oficial, etc.). Si faltan componentes específicos, los replico del sitio web oficial del OEM. No es algo que te pida — es algo que produzco.</p>
-
-  <h3>3 · Una página web para tu marca, lista para captar</h3>
-  <p>Te construyo una página web pública en <code>marca.grupoplasencia.com</code> donde el cliente entra, ve tu catálogo como en un Mercado Libre — con fotos, precios, mensualidades de referencia, ofertas vigentes — elige el auto que le interesa, escoge la sucursal a la que quiere ir, y deja sus datos solo cuando ya decidió por qué auto pregunta.</p>
-  <p>La página se ve perfecta en celular y en computadora. Cuando tu marca lanza una oferta mensual, prendemos un banner; cuando la oferta termina, lo apagamos sin tocar el resto.</p>
-
-  <h3>4 · Un kanban donde tu equipo ve y atiende los leads</h3>
-  <p>Cada lead que entra cae automáticamente en <a href="https://crm.grupoplasencia.com/">crm.grupoplasencia.com</a>, un tablero estilo Trello donde tu Gerente de Ventas, tus gerentes de sucursal y tus vendedores digitales ven los leads en tiempo real. Cada uno ve solo lo que le corresponde según su acceso.</p>
-  <p>Cada card muestra: cliente, sucursal, modelo de interés, tipo de uso (personal o flotilla), de qué anuncio vino, días que lleva sin contacto. Mueven la card entre etapas conforme avanzan: por contactar → contactado → cita → visita → cotización → cerrado.</p>
-
-  <h3>5 · WhatsApp directo a tu vendedor digital cuando llega un lead</h3>
-  <p>El sistema le manda WhatsApp al vendedor digital de la sucursal correcta en menos de un minuto desde el registro del lead, con folio, datos del cliente, modelo, sucursal y origen. Tu vendedor puede contestar de inmediato — la promesa al cliente final es contacto en menos de 2 horas, y este flujo es lo que la hace posible.</p>
-
-  <h3>6 · Cuenta Meta Ads de la marca operada por la Dirección Corporativa (Andromeda 2026 + toggle de oferta del OEM)</h3>
-  <p>La cuenta de Facebook e Instagram Ads de la marca se opera con un framework propio del Grupo (Andromeda 2026) que aprende qué creatividad funciona y rota. La marca aporta la oferta del mes y los lineamientos; la Dirección Corporativa se encarga de creatividad, audiencias, segmentación, optimización y rotación. La cuenta es propiedad del Grupo Plasencia, no de Viceversa ni de una agencia externa.</p>
-
-  <h3>7 · Reportes y conciliación contable</h3>
-  <ul>
-    <li><strong>Cada lunes</strong>, reporte ejecutivo de la semana al Gerente de Marketing de tu marca: inversión vs piloto, leads recibidos, etapa actual en el kanban, tiempos de respuesta del vendedor, performance de los anuncios, pendientes.</li>
-    <li><strong>El día 1 de cada mes</strong>, reporte ejecutivo de 1 página a ti como Director que fondea, con la recomendación del mes que viene.</li>
-    <li><strong>Cada mes</strong>, Emmanuel cierra la conciliación administrativa con Viceversa: factura, IVA, evidencia de pauta.</li>
-    <li><strong>El día 90</strong>, paper ejecutivo de cierre con la recomendación firmada por ti y por mí: escalar, continuar, ajustar, salir.</li>
-  </ul>
-
-  <h3>8 · Visibilidad total — sin caja negra</h3>
-  <p>La marca puede solicitar acceso de lectura a Meta Ads Manager y a Google Analytics en cualquier momento. También puede solicitar acceso al repositorio de documentación corporativa donde se registra todo lo que se hace para la marca: commits, decisiones, sesiones de trabajo. La auditabilidad es del Grupo Plasencia, no de la Dirección Corporativa de forma exclusiva.</p>
-
-  <h3>9 · Si decides salir al día 90, te llevas lo tuyo</h3>
-  <p>Si tu marca decide salir del piloto al día 90, te llevas el reporte final con el pipeline completo. La página web la apagamos (revertimos el DNS al sitio que tenías antes). Las audiencias acumuladas y el aprendizaje algorítmico se quedan con el Grupo — no se las puedes llevar a una agencia, pero <strong>tampoco un proveedor externo te puede llevar lo tuyo</strong> a la fuga. No hay lock-in en ninguna dirección.</p>
-
-  <div class="callout callout--navy">
-    <span class="callout-label">Alcance institucional del servicio</span>
-    <p>El servicio cubre desarrollo, diseño, infraestructura, operación de medios, CRM y reporting bajo un solo alcance interno. Costo de plataforma combinado debajo de USD 100 mensuales para las cuatro marcas del piloto vigente. El Centro de Excelencia no cobra fee ni retainer; el desembolso de tu marca es exclusivamente la pauta de medios + comisión administrativa Viceversa + IVA (detalle en §03).</p>
-  </div>
-</section>
-
-<!-- ============================================================
-     §06·B — Arquitectura de la solución + flywheel de aprendizaje
-============================================================ -->
-<section class="page">
-  <h1 class="section-title"><span class="num">Sección 06 · B</span>Arquitectura de la solución y el flywheel de aprendizaje del algoritmo</h1>
-
-  <p class="lead">Esta página documenta la arquitectura de la solución. Son cinco capas que trabajan juntas y que sostienen la operación del piloto. La marca no requiere conocer el detalle técnico para que la operación funcione: la Dirección Corporativa se hace cargo del stack. Se incluye en el SOP para que el responsable de sistemas o de IT de la marca tenga visibilidad de la arquitectura si lo requiere para auditoría o gobernanza.</p>
-
-  <h3>Las cinco capas que operan el piloto</h3>
-  <div class="arch">
-    <div class="arch-row">
-      <div class="arch-box">
-        <div class="arch-num">01</div>
-        <div class="arch-title">Captura</div>
-        <div class="arch-body">Página web pública con catálogo evergreen, tabs por intención, modal de registro de un paso y PDF de confirmación dinámico.</div>
-      </div>
-      <div class="arch-box">
-        <div class="arch-num">02</div>
-        <div class="arch-title">Ingesta</div>
-        <div class="arch-body">Cloudflare Worker recibe cada lead, base de datos D1 con 7 tablas auditables, dedup automático, folio canónico, conciliación diaria.</div>
-      </div>
-      <div class="arch-box">
-        <div class="arch-num">03</div>
-        <div class="arch-title">Atribución</div>
-        <div class="arch-body">Pixel + Conversions API server-side hacia Meta. Measurement Protocol server-side hacia GA4. 11 eventos del embudo con dedup por event_id.</div>
-      </div>
-      <div class="arch-box">
-        <div class="arch-num">04</div>
-        <div class="arch-title">Operación</div>
-        <div class="arch-body">Kanban multi-marca con notificación WhatsApp al vendedor digital de la sucursal asignada. Drag &amp; drop entre etapas: por contactar → cita → visita → cotización → cierre → factura.</div>
-      </div>
-      <div class="arch-box accent">
-        <div class="arch-num">05</div>
-        <div class="arch-title">Aprendizaje</div>
-        <div class="arch-body">Meta Ads y Google Ads reciben eventos del pipeline real (cita, visita, cotización, compra). El algoritmo optimiza por compradores reales en lugar de por leads superficiales.</div>
-      </div>
-    </div>
-    <div class="arch-flow">
-      <strong>Flujo:</strong> cada lead capturado en la capa 1 ingresa al stack en la capa 2 y dispara los eventos de la capa 3. Los vendedores digitales atienden en la capa 4. Cuando un vendedor mueve una card entre etapas del kanban, el sistema dispara automáticamente eventos server-side a la capa 5, lo que cierra el ciclo: el aprendizaje del algoritmo se calibra con la realidad operativa de la venta de la marca.
-    </div>
-  </div>
-
-  <h3>Cómo aprende el algoritmo conforme operan tus vendedores</h3>
-  <p>Esta es una parte interesante del modelo que vale la pena explicar, porque es lo que hace que la operación vaya mejorando sola con el tiempo.</p>
-
-  <p>Cada vez que uno de tus vendedores actualiza el estatus de un lead en el kanban —por ejemplo cuando confirma una cita, registra que el cliente pisó la sucursal, le envía cotización o cierra la venta— el sistema envía automáticamente esa información a las plataformas publicitarias (Meta y Google). Lo hace por una vía técnica que se llama <em>Conversions API</em>, del lado del servidor, lo que le da mucha más estabilidad y precisión que las formas tradicionales de tracking que dependen del navegador del cliente.</p>
-
-  <p>El resultado es que las plataformas reciben señales muy precisas de quién sí avanzó en el embudo de tu marca y quién terminó comprando. Con esa información, los algoritmos optimizan la pauta para mostrar tus anuncios a personas con perfil similar a tus compradores reales. La consecuencia práctica es que <strong>el costo por lead va mejorando conforme avanza el piloto</strong>, porque las plataformas están aprendiendo de la realidad de tu venta y no solo de quién dio un formulario.</p>
-
-  <div class="callout callout--navy">
-    <span class="callout-label">Lo bonito del modelo</span>
-    <p>Conforme tus vendedores van trabajando los leads en el kanban, el algoritmo se va calibrando solo en paralelo. Tú no tienes que hacer nada extra: ni configurar conversiones en Meta Ads Manager, ni esperar reportes mensuales para que la agencia ajuste audiencias. El simple acto de tu equipo de mover las cards de etapa en etapa es lo que va entrenando al algoritmo. Por eso el piloto pone atención en que los vendedores digitales tengan asignación clara, WhatsApp activo y la disciplina de actualizar el kanban — porque su trabajo diario es lo que va haciendo que el modelo aprenda con el tiempo.</p>
-  </div>
-
-  <h3>Lo que cada capa contiene, resumido</h3>
-  <p>Cada capa tiene su propia complejidad y depende de las otras para funcionar. Esta tabla te da una idea de lo que hay en cada una, de manera resumida:</p>
-
-  <table>
-    <thead>
-      <tr>
-        <th style="width:22%">Capa</th>
-        <th style="width:33%">Lo visible para la marca</th>
-        <th style="width:45%">Lo que opera por detrás para que funcione</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><strong>1 · Captura</strong></td>
-        <td>Una página web bonita con catálogo y formulario</td>
-        <td>Catálogo evergreen + toggle de oferta · sucursal selector obligatorio · accesibilidad WCAG 2.2 AA · mobile-first iOS HIG + Material 3 · validación anti-bot · folio canónico que la marca jamás verá pero que es la llave de todo el stack</td>
-      </tr>
-      <tr>
-        <td><strong>2 · Ingesta</strong></td>
-        <td>Los leads aparecen en el kanban</td>
-        <td>Worker con retry exponencial · base D1 con 7 tablas relacionales · dedup automático · folio canónico GP-{MARCA}-{AAMMDD}-{HHMMSS} · auditoría diaria con 3 cruces externos · cero fugas de infra · backfill automatizado · webhook Meta Lead Gen con HMAC + cron de respaldo cada 2 min</td>
-      </tr>
-      <tr>
-        <td><strong>3 · Atribución</strong></td>
-        <td>Sale en el reporte que "estos leads vinieron de Meta"</td>
-        <td>Pixel propio de tu marca · CAPI server-side con dedup vía event_id · GA4 dual (client + Measurement Protocol server-side) · 11 eventos custom del embudo · GTM container compartido del Grupo hostname-scoped · dashboard ejecutivo multi-canal reconciliado con 5 fuentes externas</td>
-      </tr>
-      <tr>
-        <td><strong>4 · Operación</strong></td>
-        <td>El kanban con cards moviéndose</td>
-        <td>Notificación WhatsApp dinámica resuelta por sucursal + tipo de uso · routing por lógica resolveNotifPins extensible por marca · badges 3 niveles · filtro Flotilla universal · control de acceso por PIN + sucursal · conciliación con pipeline tradicional por aliases</td>
-      </tr>
-      <tr>
-        <td><strong>5 · Aprendizaje</strong></td>
-        <td>El CPL va bajando</td>
-        <td>Framework Andromeda 2026 (DEGREES_OF_FREEDOM, Advantage+ Creative) · multivariante 5×5×5 · rotación semanal de creativos · audiencias semilla + lookalikes acumulados como activo del Grupo · cuenta Meta Ads del Grupo (no de Viceversa, no de agencia)</td>
-      </tr>
-    </tbody>
-  </table>
-
-  <div class="callout callout--gold">
-    <span class="callout-label">Solo como contexto</span>
-    <p>Si en algún momento tu marca evaluara armar algo similar con un proveedor externo, vale la pena saber que es una arquitectura que normalmente requeriría contratar varias capacidades por separado: una agencia digital, un equipo de desarrollo web, diseño UX/UI, una consultoría de tracking, una operación de CRM y un equipo de reporting. La razón por la que el Centro de Excelencia puede ofrecerlo todo bajo un solo alcance interno es que apalancamos buena parte de la operación con IA, lo que nos permite trabajar con tiempos y costos significativamente más eficientes que los de un proveedor tradicional. Lo comparto como contexto, no como argumento — simplemente para que tengas una idea más completa de lo que está corriendo bajo tu piloto.</p>
-  </div>
-</section>
-
-<!-- ============================================================
-     §07 — Plan -10 a 0 (happy path)
-============================================================ -->
-<section class="page">
-  <h1 class="section-title"><span class="num">Sección 07</span>Plan de onboarding técnico — día -10 a día 0 (happy path)</h1>
-
-  <p class="lead">Si los entregables de §04 están completos al día -10 y las revisiones internas de la marca (contenido, brand, autorizaciones de catálogo y oferta) llegan dentro de los SLAs declarados, el piloto está LIVE el día 0. <strong>10 días hábiles bajo happy path.</strong> Si las revisiones de la marca se retrasan, la fecha se desplaza proporcionalmente.</p>
-
-  <table>
-    <thead>
-      <tr>
-        <th style="width:8%">Día</th>
-        <th style="width:22%">Quién</th>
-        <th style="width:70%">Qué</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr><td><strong>−10</strong></td><td>Marca</td><td>Entrega todos los entregables de §04 (brand, personas, catálogo y precios, fotos, diseñador o acuerdo IA, estructura humana, AS IS de baseline, AS IS proceso de ventas digital, AS IS operación comercial). Se agenda kickoff de 60 minutos con el Director MKT Corporativo.</td></tr>
-      <tr><td><strong>−9</strong></td><td>Corporativo</td><td>Audita entregables, marca P0 bloqueantes, define escenario financiero para el disclaimer de mensualidades (§09), configura repos privados (SPA + worker + GTM), prepara JSON del catálogo desde la lista de precios de la marca.</td></tr>
-      <tr><td><strong>−8 a −7</strong></td><td>Corporativo</td><td>Construye SPA evergreen para la marca, configura routing WA dinámico por sucursal, sube assets, prepara PDF dinámico de confirmación, prepara cuenta Meta Ads (Pixel, CAPI dataset, audiencias semilla) y staging de campañas Andromeda.</td></tr>
-      <tr><td><strong>−6 a −5</strong></td><td>Corporativo</td><td>Drafts de creativos Andromeda 2026 (videos, statics, copies multivariante 5×5×5). Si la marca tiene diseñador interno, se le pasa brief para que adapte; si no, se generan con IA bajo el acuerdo firmado.</td></tr>
-      <tr><td><strong>−4 a −3</strong></td><td>Marca</td><td><strong>Ventana de revisión de marca.</strong> Marketing de la marca revisa SPA staging, copies, creatives, footer legal, disclaimer financiero. Punto de contacto comercial valida que oferta y programas estén bien representados. <strong>SLA marca: respuesta en 48 horas.</strong> Si pasa este plazo sin respuesta, Corporativo asume aprobación tácita.</td></tr>
-      <tr><td><strong>−2</strong></td><td>Corporativo</td><td>Aplica feedback de la marca. Última iteración de copies / fotos / disclaimers. Cierra audiencias Meta Ads. Pre-aprobación de creativos Andromeda con la marca.</td></tr>
-      <tr><td><strong>−1</strong></td><td>Marca + Corporativo</td><td><strong>QA E2E.</strong> Lead de prueba en SPA → llega a kanban → notifica vía WhatsApp al vendedor real → vendedor responde con WhatsApp real al lead de prueba. Si pasa, se autoriza go-live.</td></tr>
-      <tr><td><strong>0</strong></td><td>Corporativo</td><td>Activa Meta Ads Core. Stack vivo. Primeros leads orgánicos + paid empiezan a llegar.</td></tr>
-      <tr><td><strong>+1 a +90</strong></td><td>Corporativo + Marca</td><td>Operación diaria + reporting quincenal + toggle promo mensual + sync con la marca.</td></tr>
-    </tbody>
-  </table>
-
-  <div class="callout callout--gold">
-    <span class="callout-label">Disclaimer formal de la Dirección MKT Corporativa</span>
-    <p>Los 10 días hábiles <strong>NO son fecha compromiso</strong> por parte de la Dirección de Marketing Corporativa. Son una estimación bajo <em>happy path</em> que asume: (a) los entregables de §04 están completos y entregados al día -10, (b) las revisiones internas de la marca (contenido, brand guidelines, autorizaciones de catálogo y oferta) ocurren dentro de los SLAs de respuesta declarados, y (c) no hay re-trabajo por cambios de fondo solicitados por la marca posteriores al brief inicial. <strong>Los insumos de producto, catálogo y oferta no dependen de la Dirección Corporativa</strong> — dependen de la marca como cliente interno. Si esos insumos se retrasan o requieren múltiples rondas de revisión, la fecha de go-live se desplaza proporcionalmente y los 10 días dejan de aplicar. La Dirección Corporativa documenta los desplazamientos en el reporting y los atribuye a la marca para preservar transparencia operativa.</p>
-  </div>
-
-  <h3>Bloqueos típicos — y consecuencias documentadas</h3>
-
-  <table>
-    <thead>
-      <tr><th style="width:30%">Bloqueo</th><th style="width:30%">Consecuencia</th><th style="width:40%">Cómo aparece en el reporting</th></tr>
-    </thead>
-    <tbody>
-      <tr><td>Marca no manda lista de precios oficial</td><td>Piloto NO arranca</td><td>"Bloqueado por entregable de la marca — pendiente lista de precios"</td></tr>
-      <tr><td>Marca no asigna vendedores digitales con WA confirmado</td><td>Piloto arranca pero los leads se mueren en el kanban</td><td>"Lead recibido, sin contacto del vendedor en &lt;2h — caso GAC junio 2026"</td></tr>
-      <tr><td>Marca no tiene fotos de inventario</td><td>SPA con empty states. CRO baja 30-50%</td><td>"Conversión web→cita degradada por ausencia de assets visuales — atribuible a la marca"</td></tr>
-      <tr><td>Marca no tiene diseñador y no firma acuerdo IA</td><td>Ads no se publican</td><td>"Pre-launch en pausa — pendiente acuerdo de diseño con la marca"</td></tr>
-      <tr><td>Marca no documenta AS IS (baseline, proceso, oferta)</td><td>No hay con qué comparar el piloto al día 90</td><td>"Sin baseline AS IS: no es posible declarar éxito o fracaso del piloto con rigor — atribuible a la marca"</td></tr>
-      <tr><td>Marca tarda más de 48h en revisar staging / creativos</td><td>Go-live se desplaza proporcionalmente</td><td>"Slip de fecha: revisión de marca en ronda N — atribuible a la marca, no compromiso de Corporativo"</td></tr>
-      <tr><td>Marca paga tarde (Viceversa sin fondeo)</td><td>Ads no se prenden o se pausan a media campaña</td><td>"Pause forzado: presupuesto no disponible — algoritmo Meta Ads en re-aprendizaje, CPL ↑↑"</td></tr>
-    </tbody>
-  </table>
-</section>
-
-<!-- ============================================================
-     §08 — Reporting + Día 90
-============================================================ -->
-<section class="page">
-  <h1 class="section-title"><span class="num">Sección 08</span>Reporting durante la operación y decisión al día 90</h1>
-
-  <p class="lead">Cadencia de reportes durante los 90 días de operación, audiencias de cada uno y el cierre formal al cumplir el periodo.</p>
-
-  <h3>Quincenal — reporte operativo para tu Gerente de Marketing y tu Gerente Comercial</h3>
-  <p>La Dirección Corporativa lo entrega cada quincena (días 1 y 15, o el lunes hábil más cercano). Vía correo, con opción de sync de 30 minutos en Teams si la marca lo solicita. La cadencia quincenal acumula data suficiente para conclusiones útiles y da margen de respiración entre reportes. Contenido:</p>
-
-  <ol>
-    <li><strong>Cuánto llevamos gastado vs el piloto.</strong> Días corridos vs los 90 del cap.</li>
-    <li><strong>Cuántos leads llegaron en la quincena</strong> y en qué etapa del kanban están.</li>
-    <li><strong>Cuánto te están tardando tus vendedores</strong> en contestar. Si alguno se descuelga, está señalado.</li>
-    <li><strong>Cómo performaron los anuncios</strong>: cuánto te costó cada lead, qué creatividad funcionó mejor, qué audiencia jaló.</li>
-    <li><strong>Cuántos visitaron la página web y cuántos llenaron el formulario.</strong> Dónde se cayeron.</li>
-    <li><strong>Comparación con tu pipeline tradicional</strong>: cuántas ventas reales del mes vinieron del piloto vs de tus otros canales.</li>
-    <li><strong>Qué necesito de tu lado</strong> la siguiente quincena para que mejore.</li>
-  </ol>
-
-  <h3>El día 1 de cada mes — reporte ejecutivo para ti</h3>
-  <p>1 página. Diseñado para que lo leas en 5 minutos antes de tu primera junta del mes. Contiene:</p>
-  <ul>
-    <li>El resumen del mes en una imagen.</li>
-    <li>El ROI estimado del piloto en pesos (cuánto invertiste, cuántos leads, cuántas ventas atribuibles, cuánto facturaste).</li>
-    <li>Mi recomendación para el mes siguiente, en una oración.</li>
-  </ul>
-
-  <h3>El día 90 — la decisión que firmamos juntos</h3>
-  <p>Te entrego un paper ejecutivo con la lectura completa de los 90 días y mi recomendación. La firmamos los dos: tú y yo. <strong>El piloto no continúa por inercia.</strong> Hay 4 caminos posibles:</p>
-
-  <table>
-    <thead>
-      <tr><th style="width:28%">Si decidimos…</th><th style="width:72%">Es porque los números dicen esto</th></tr>
-    </thead>
-    <tbody>
-      <tr><td><span class="badge badge--green">Escalar</span><br>De $30K a $50-$100K/mes</td><td>Cada lead te costó menos de $300, 15% de los que entraron a la web te dieron sus datos, tus vendedores contestaron en menos de 2 horas, y al menos 5 de cada 100 leads se cerraron en venta. La tesis funcionó — ahora le metemos más combustible.</td></tr>
-      <tr><td><span class="badge badge--gold">Continuar +<br>optimizar</span></td><td>El CPL anduvo entre $300 y $600, la conversión web-a-cita entre 8% y 15%, y vimos una palanca clara de mejora (mejor creatividad, mejor audiencia, una sucursal con bajo rendimiento). Seguimos al mismo nivel y trabajamos esa palanca.</td></tr>
-      <tr><td><span class="badge badge--red">Pausar +<br>revisar fundamentos</span></td><td>El CPL pasó de $600, la conversión cayó debajo de 8%, los vendedores no contestaron a tiempo, o las fotos del catálogo no llegaron. Antes de gastar más dinero, arreglamos los entregables tuyos. No es punitivo, es proteger la inversión.</td></tr>
-      <tr><td><span class="badge badge--gray">Salir del piloto</span></td><td>Tu marca decide que el digital no es prioridad estratégica este trimestre, o prefiere volver al modelo de agencia tradicional. Te entrego el reporte final, apago la página web, y los activos se quedan con el Grupo. Sin drama.</td></tr>
-    </tbody>
-  </table>
-
-  <div class="callout">
-    <span class="callout-label">El reporting es auditable, sin caja negra</span>
-    <p>Todos los números que ves en mis reportes vienen de fuentes que tu equipo puede verificar: Meta Ads Manager, Google Analytics, el CRM del Grupo, los archivos de Viceversa. Si en algún momento quieres acceso de lectura a esas plataformas directamente, te lo doy. Esa es la diferencia entre operar dentro del Grupo y contratar un proveedor que te entrega un PDF mensual con números que solo él puede validar.</p>
-  </div>
-</section>
-
-<!-- ============================================================
-     §09 — Anexo: escenarios financieros (transparencia)
-============================================================ -->
-<section class="page">
-  <h1 class="section-title"><span class="num">Sección 09</span>Anexo · Escenarios financieros de referencia sobre los que se publican las mensualidades</h1>
-
-  <p class="lead">Este anexo es <strong>obligatorio</strong>. El piloto publica una "mensualidad de referencia" en cada card del catálogo y en cada anuncio. La marca debe entender exactamente <strong>sobre qué escenario se calcula esa mensualidad</strong>, porque ese escenario se imprime literal en el disclaimer del sitio + del PDF de confirmación. El disclaimer protege a la marca y al cliente.</p>
-
-  <h3>Reglas comunes a todas las marcas vigentes</h3>
-  <ul>
-    <li>Las mensualidades publicadas <strong>NO las calcula la Dirección Corporativa de manera independiente</strong>. Cuando una marca pasa un catálogo con mensualidades ya calculadas, se publican literales con el escenario que la marca declara.</li>
-    <li>Cuando la marca pasa solo precio y el escenario financiero (plazo, tasa, enganche), Corporativo calcula la mensualidad con fórmula estándar y el escenario se imprime en el disclaimer.</li>
-    <li>Toda mensualidad publicada lleva la leyenda canónica: <em>"precio de lista de referencia con fines ilustrativos e informativos · no constituye oferta vinculante · la oferta comercial real depende de la cotización personalizada del asesor"</em>.</li>
-    <li>Los intereses del financiamiento causan IVA adicional. Crédito sujeto a aprobación bancaria. Esto aparece en todos los footers.</li>
-  </ul>
-
-  <h3>Escenarios documentados en producción al 8 de junio de 2026</h3>
-
-  <table>
-    <thead>
-      <tr>
-        <th style="width:14%">Marca</th>
-        <th style="width:10%">Plazo</th>
-        <th style="width:14%">Tasa</th>
-        <th style="width:12%">Enganche</th>
-        <th style="width:14%">CAT (sin IVA)</th>
-        <th style="width:36%">Origen del escenario · disclaimer literal en SPA</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><strong>Hyundai</strong></td>
-        <td>—</td>
-        <td>—</td>
-        <td>—</td>
-        <td>—</td>
-        <td>Las mensualidades del catálogo Hyundai son las que la Gerente de Marketing de la marca pasó en su material (catálogo v2 Vero). El escenario financiero específico no se publica numéricamente — se declara que "Tasa, enganche, plazo y mensualidad finales se confirman con tu asesor durante el contacto". La marca aprobó esta redacción.</td>
-      </tr>
-      <tr>
-        <td><strong>Stellantis</strong></td>
-        <td>—</td>
-        <td>STM Financial</td>
-        <td>—</td>
-        <td>20.5% promedio ponderado al 23-mar-2026</td>
-        <td>Mensualidades del catálogo STL pasadas por la Gerente de Marketing de la marca. Financiera oficial STM Financial S.A. de C.V. SOFOM E.R. (Grupo Financiero Inbursa). CAT promedio de referencia 20.5% sin IVA ponderado. Disclaimer literal del footer STL.</td>
-      </tr>
-      <tr>
-        <td><strong>GAC</strong></td>
-        <td>72 meses</td>
-        <td>14.49% anual fija</td>
-        <td>35%</td>
-        <td>33%</td>
-        <td>Escenario declarado en lista oficial GAC junio 2026. Bonos por modelo: $20,000-$160,000 MXN. Tasa autorizada por modelo varía (0%, 10.99%, 13.99%, 15.99% según oferta). CXA desde 0% en todos los modelos. Vigencia 30-junio-2026. Disclaimer literal del footer GAC.</td>
-      </tr>
-      <tr>
-        <td><strong>Seminuevos</strong></td>
-        <td>—</td>
-        <td>14.9% referencia</td>
-        <td>25% desde</td>
-        <td>—</td>
-        <td>Tasa de referencia 14.9% · enganche desde 25%. Disclaimer del card promo Seminuevos. Promoción aplicable por unidad. Sujeta a disponibilidad y cambios sin previo aviso.</td>
-      </tr>
-    </tbody>
-  </table>
-
-  <div class="callout callout--gold">
-    <span class="callout-label">Lo que la marca nueva debe entregar antes del go-live</span>
-    <p>Antes del día -5, la marca declara explícitamente: <strong>(1) qué plazo</strong> usar para la mensualidad de referencia · <strong>(2) qué tasa</strong> (financiera oficial o tasa promedio de banco) · <strong>(3) qué enganche</strong> mínimo asumir · <strong>(4) si la marca tiene CAT publicable</strong> · <strong>(5) cuál es la financiera oficial</strong>. Esa declaración aparece literal en el disclaimer del footer de la SPA y en el PDF. Si la marca no quiere declarar escenario, se publica la mensualidad sin disclaimer numérico y se redacta como "Tasa, enganche, plazo y mensualidad finales se confirman con tu asesor" — el modelo Hyundai.</p>
-  </div>
-
-  <p class="note">Este anexo se actualiza cada vez que una marca cambia su escenario financiero (ej. cambio de financiera, nueva tasa preferencial, cambio en el plazo estándar). La fuente de verdad permanente del escenario vigente por marca es el footer público de cada SPA — siempre coincide con esta tabla.</p>
-</section>
-
-<!-- ============================================================
-     §10 — FAQ + contacto
-============================================================ -->
-<section class="page">
-  <h1 class="section-title"><span class="num">Sección 10</span>Preguntas frecuentes durante la implementación</h1>
-
-  <p class="lead">Consolidado de preguntas operativas que Pepe Reyes (Seminuevos), Vero (Hyundai) y Bere (Stellantis) plantearon durante la implementación de sus respectivos pilotos. Si tienes otra, escríbeme.</p>
-
-  <div class="faq-item">
-    <p class="faq-q">¿Y si quiero entrar al piloto solo con una sucursal, no con toda la marca?</p>
-    <p class="faq-a">Aplica. Mismo $30K/mes mínimo. Tu página web aparece con esa sucursal como única opción para el cliente. Cuando metas otra sucursal después, la sumo al sistema sin tirar nada ni cobrarte más por la configuración.</p>
-  </div>
-
-  <div class="faq-item">
-    <p class="faq-q">Tengo varias líneas (autos nuevos + seminuevos + flotilla). ¿Cómo se manejan?</p>
-    <p class="faq-a">Hyundai opera así hoy: $30K combinado entre autos nuevos personales y flotilla, con una sola página donde el cliente elige al inicio "es para mí" o "es para mi empresa". Seminuevos opera aparte con su propia cuenta porque es un negocio distinto. Si tu marca quiere lo mismo, no te cobro más por la inversión mínima — uso el mismo presupuesto y misma página con etiquetas.</p>
-  </div>
-
-  <div class="faq-item">
-    <p class="faq-q">¿El piloto incluye Google Ads, TikTok Ads, otras plataformas?</p>
-    <p class="faq-a">Hoy no. Solo Meta Ads (Facebook + Instagram) + página web + kanban. Google Ads está activo en otras cuentas del Grupo pero el piloto es específicamente Meta + landing porque ahí es donde el experimento se está corriendo. Sumar Google es decisión que tomamos al día 90 si los números dan — con presupuesto adicional.</p>
-  </div>
-
-  <div class="faq-item">
-    <p class="faq-q">¿De quién es la cuenta de Meta Ads que opera mi marca?</p>
-    <p class="faq-a">De Grupo Plasencia. No de Viceversa, no de una agencia, no mía. Viceversa solo recibe la factura para reembolsar. El Pixel, las audiencias acumuladas y el aprendizaje del algoritmo se quedan con el Grupo si decides salir.</p>
-  </div>
-
-  <div class="faq-item">
-    <p class="faq-q">¿Qué pasa con la página web y el kanban si decido salir al día 90?</p>
-    <p class="faq-a">La página la apago — revertimos el DNS al sitio que tenías antes, en minutos. El kanban guarda el histórico de los leads que quedaron abiertos para que tu equipo cierre las cuentas pendientes. Las audiencias acumuladas siguen siendo del Grupo. Te mando el export final del pipeline si lo pides.</p>
-  </div>
-
-  <div class="faq-item">
-    <p class="faq-q">¿Puedo ver el kanban en vivo?</p>
-    <p class="faq-a">Sí. Tú y tu Director Comercial reciben acceso con vista de toda tu marca y todas tus sucursales. Tus gerentes de sucursal ven solo su sucursal. Tus vendedores ven solo los leads que les toca atender.</p>
-  </div>
-
-  <div class="faq-item">
-    <p class="faq-q">¿Quién aprueba los copies y creativos antes de publicar?</p>
-    <p class="faq-a">Tu Gerente de Marketing aprueba por correo o en el sync quincenal. Si pasan 48 horas sin respuesta de su parte, doy por aprobado y publico — para no frenar la operación. Si hay material crítico que sí necesita firma, me lo declaras antes del kickoff y lo dejamos por escrito.</p>
-  </div>
-
-  <div class="faq-item">
-    <p class="faq-q">¿Mis vendedores tradicionales (no digitales) pueden recibir leads del piloto?</p>
-    <p class="faq-a">No. La promesa al cliente final es contacto en menos de 2 horas por WhatsApp. Un vendedor de piso sin acceso al kanban no la cumple. Si prefieres que los leads vayan a vendedores tradicionales, este no es el modelo que necesitas — y te lo digo honestamente para que no entres a algo que no te va a funcionar.</p>
-  </div>
-
-  <div class="faq-item">
-    <p class="faq-q">¿En qué se diferencia esto de mi agencia actual?</p>
-    <p class="faq-a">La agencia tradicional típicamente cobra fee fijo mensual + comisión sobre la pauta, entrega leads de Facebook Forms o WhatsApp Ads (el modelo de volumen descrito en §02), y opera con su propio stack al que la marca no tiene acceso. La Dirección Corporativa no cobra fee. La operación se realiza con el stack del Grupo. La data se queda con la marca y con el Grupo, no con un tercero. Al día 90 la marca decide si continúa.</p>
-  </div>
-
-  <div class="faq-item">
-    <p class="faq-q">¿Qué pasa si mis vendedores digitales no contestan a tiempo?</p>
-    <p class="faq-a">Lo veo en el reporte del lunes y te lo digo. Si pasa una semana sin que mejore, escalo contigo o con tu Director Comercial. Esto le pasó a GAC en su primera semana y se resolvió en 48 horas cuando el Gerente de Bugámbilias reasignó vendedores. No es punitivo — es la única manera de proteger los $30K que metiste.</p>
-  </div>
-
-  <div class="faq-item">
-    <p class="faq-q">¿Y si no tenemos diseñador interno?</p>
-    <p class="faq-a">Generamos los creativos con IA bajo tus lineamientos de marca. Te firmo un acuerdo explícito de que la fidelidad al 100% al pie de la letra no se garantiza sin equipo humano dedicado. Eso protege a tu marca y me protege a mí. Si después decides asignar diseñador, pasamos el brief y cambias al modo equipo-humano sin re-hacer el setup.</p>
-  </div>
+  <h3>Decisión al día 90</h3>
+  <p>Al cumplirse los 90 días de operación, la Dirección Corporativa entrega un paper ejecutivo con la lectura del periodo y la recomendación firmada por el Director que fondeó y el Director MKT Corporativo. Caminos posibles: escalar la inversión, continuar al mismo nivel optimizando, pausar para revisar entregables de la marca, o salir del piloto. El piloto no continúa por inercia.</p>
 
   <div class="signature">
-    <h3>Siguientes pasos para arrancar la implementación</h3>
-    <p><strong>1. Kickoff de 60 minutos.</strong> Asisten el Gerente de Marca, el punto de contacto comercial de la marca y el equipo de la Dirección Corporativa (Chucho Porras + Emmanuel Ramírez). Se agenda por WhatsApp o correo. En el kickoff se cubre §04 entregable por entregable y se define fecha tentativa para el día -10.</p>
-    <p><strong>2. Entrega de insumos.</strong> Tu equipo entrega los entregables de §04 (brand, catálogo, precios, fotos, estructura humana, AS IS). El día -10 arranca el cronograma de implementación.</p>
-    <p><strong>3. Go-live día 0.</strong> 10 días hábiles después de la entrega completa, bajo happy path. Reporting quincenal entra en cadencia los primeros 15 días posteriores al go-live.</p>
+    <h3>Activación del proceso</h3>
+    <p>Para iniciar la incorporación de una marca al piloto, la marca solicita kickoff de 60 minutos a los contactos operativos a continuación. En el kickoff se cubre §01 entregable por entregable y se define fecha tentativa del día -10.</p>
     <div class="contact-block">
       <div>
         <div class="contact-name">Chucho Porras</div>
@@ -1363,98 +338,10 @@
       </div>
       <div>
         <div class="contact-name">Emmanuel Ramírez</div>
-        <div class="contact-role">Acompañamiento operativo<br>Sync administrativo Viceversa</div>
+        <div class="contact-role">Implementación y administración<br>Sync operativo Viceversa</div>
       </div>
     </div>
-    <p class="note" style="border-top:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.55);margin-top:5mm;padding-top:3mm;">Documento vivo. La versión más reciente vive en el repositorio de documentación corporativa del Grupo. Cross-links operativos: <em>03-tech/Compra-de-Medios-Viceversa.md</em> · <em>03-tech/Pivote-2-Playbook-Multimarca.md</em> · <em>03-tech/Routing-WhatsApp-Notif-Por-Marca.md</em> · <em>03-tech/Kanban-Sistema-Badges.md</em> · <em>03-tech/Conciliacion-Pipeline-vs-GA4.md</em>.</p>
   </div>
-</section>
-
-<!-- ============================================================
-     §11 — Apéndice técnico (para tu equipo de IT / Marketing)
-============================================================ -->
-<section class="page">
-  <h1 class="section-title"><span class="num">Sección 11 · Apéndice técnico</span>Para tu equipo de IT, Marketing y Sistemas</h1>
-
-  <p class="lead">Esta página NO es para ti, Director. Es para que tu responsable de IT, tu Gerente de Marketing técnico o tu Coordinador de Sistemas pueda auditar la propuesta con el rigor que pediría un área de Compras antes de aprobar a un proveedor externo. Si tu equipo te pregunta "¿con qué stack opera esto?", aquí está la respuesta.</p>
-
-  <h3>Infraestructura</h3>
-  <ul>
-    <li>Hosting estático en GitHub Pages, SSL automático, CDN global, despliegue continuo desde repo privado por marca.</li>
-    <li>Subdominio <code>marca.grupoplasencia.com</code> con DNS del Grupo. Revertible en minutos.</li>
-    <li>Cloudflare Worker (lead intake + routing dinámico WhatsApp) con base de datos D1 SQLite, 7 tablas relacionales auditables, folio canónico <code>GP-{MARCA}-{AAMMDD}-{HHMMSS}</code>.</li>
-    <li>Webhook Meta Lead Gen con HMAC y cron de respaldo cada 2 minutos.</li>
-    <li>Conciliación diaria con 3 cruces externos contra D1, backfill automatizado, cierre al 100%.</li>
-    <li>Costo plataforma combinado &lt; USD 100/mes para todas las marcas del piloto.</li>
-  </ul>
-
-  <h3>Tracking y atribución server-side</h3>
-  <ul>
-    <li>Pixel Meta dedicado por marca, dataset segmentado.</li>
-    <li>Meta Conversions API server-side (v24.0) con deduplicación vía <code>event_id</code> (formato <code>{folio}_Lead</code>, <code>{folio}_Schedule</code>).</li>
-    <li>GA4 Measurement Protocol server-side con dedup contra el cliente.</li>
-    <li>Eventos custom del embudo: <code>view_item</code>, <code>add_to_cart</code>, <code>generate_lead</code>, <code>Schedule</code>, <code>VisitaSucursal</code>, <code>PromotionViewed</code>, <code>IntentSelected</code>, <code>SelectSucursal</code>, <code>InitiateCheckout</code>, <code>ModalAbandonment</code>, <code>Search</code>.</li>
-    <li>Google Tag Manager container compartido del Grupo (<code>GTM-WKV7LZ7T</code>), tags Pixel/CAPI por marca, hostname-scoped, versionado y publicación auditada.</li>
-    <li><code>dataLayer</code> enriquecido con 16 campos canónicos por evento (folio, marca, sucursal, modelo, precio, mensualidad, programa, intent_active, source, has_results, filter_combination, etc).</li>
-  </ul>
-
-  <h3>Frontend</h3>
-  <ul>
-    <li>SPA en JavaScript vanilla, single-file, &lt;50KB (compatible con restricción Shopify Custom Liquid si aplica replicación a tienda).</li>
-    <li>JSON del catálogo editable por la marca (precio, mensualidad, programas, oferta_vigente, bono, vigencia, fotos).</li>
-    <li>Mobile-first responsive, iOS Human Interface Guidelines + Material Design 3.</li>
-    <li>WCAG 2.2 AA: contraste, touch targets &gt;44pt, ARIA labels, keyboard navigation.</li>
-    <li>PDF de confirmación dinámico con jsPDF.</li>
-    <li>QA visual e2e: mobile real 390×844, desktop 1440×900 y 1920×1080.</li>
-  </ul>
-
-  <h3>Backend</h3>
-  <ul>
-    <li>Worker en JavaScript con routing dinámico WhatsApp, resolución asesor+sucursal por payload, validación HMAC, retry exponencial, logs persistentes.</li>
-    <li>Integraciones server-side: Meta CAPI v24.0, GA4 MP, Twilio para WhatsApp Business, webhook Vambe si aplica, Shopify Admin si aplica.</li>
-    <li>Worker versionado con commits + version IDs trazados, deploy idempotente, rollback inmediato.</li>
-    <li>Lógica <code>resolveNotifPins</code> por marca (<code>resolveHyundaiNotifPins</code>, <code>resolveGacNotifPins</code>, etc.) extensible a la marca nueva en &lt;1 día de desarrollo.</li>
-  </ul>
-
-  <h3>CRM corporativo custom</h3>
-  <ul>
-    <li>Kanban multi-marca en <a href="https://crm.grupoplasencia.com/">crm.grupoplasencia.com</a>.</li>
-    <li>Badges 3 niveles: línea de negocio (AUTOS NUEVOS / SEMINUEVOS / FLOTILLA) → marca dealer (HYU / STL / GAC / etc.) → submarca (RAM / Jeep / Peugeot / etc.).</li>
-    <li>Filtro Flotilla universal cross-marca para Dirección comercial.</li>
-    <li>Control de acceso por PIN de 6 dígitos + scope por sucursal.</li>
-    <li>Stat "días activos" de campaña por línea de negocio.</li>
-    <li>Conciliación con pipeline tradicional vía aliases (caso STL Mariano Otero resuelto).</li>
-  </ul>
-
-  <h3>Operación Meta Ads</h3>
-  <ul>
-    <li>Framework Andromeda 2026 propio del Grupo.</li>
-    <li>Estructura DEGREES_OF_FREEDOM con Advantage+ Creative (image_touchups + video_auto_crop + brightness_and_contrast + text_optimizations + image_templates OPT_IN).</li>
-    <li>Multivariante 5×5×5 (5 bodies + 5 titles + 5 descriptions).</li>
-    <li>Cuenta de la marca operada por la Dirección Corporativa — la cuenta es del Grupo Plasencia.</li>
-    <li>Audiencias semilla, lookalikes y custom audiences propios de la marca, acumulados como activo del Grupo.</li>
-  </ul>
-
-  <h3>Documentación y cross-links auditables</h3>
-  <ul>
-    <li>Repo de documentación corporativa <code>grupo-plasencia-docs</code> con: sesión por sprint en <code>04-sessions/</code>, doc técnica en <code>03-tech/</code>, estrategia en <code>01-strategy/</code>, KO operativo en <code>00-context/</code>.</li>
-    <li>Memoria viva por marca en repo <code>Memory/</code>.</li>
-    <li>Cross-links operativos: <em>Compra-de-Medios-Viceversa.md</em> · <em>Pivote-2-Playbook-Multimarca.md</em> · <em>Routing-WhatsApp-Notif-Por-Marca.md</em> · <em>Kanban-Sistema-Badges.md</em> · <em>Conciliacion-Pipeline-vs-GA4.md</em>.</li>
-    <li>Acceso de lectura al repo disponible a petición de tu marca.</li>
-  </ul>
-
-  <h3>Skills internas operativas del Centro de Excelencia (referencia)</h3>
-  <ul>
-    <li><strong>meta-ads-andromeda</strong> — framework de creatividad y estructura de campañas Meta Ads 2026.</li>
-    <li><strong>mobile-perfect-playbook</strong> — iOS HIG + Material 3 + WCAG 2.2 + CWV 2026.</li>
-    <li><strong>responsive-craft</strong> — escalonamiento intrinsic CSS → container queries → media queries.</li>
-    <li><strong>business-strategy-os</strong> — Value Equation Hormozi, Grand Slam Offer, LTV/CAC.</li>
-    <li><strong>growth-engineering-os</strong> — RARRA, PLG, growth loops, ICE score.</li>
-    <li><strong>funnel-optimization</strong> — diagnóstico vía MCPs, benchmarks, biggest leak.</li>
-    <li><strong>gp-documentation</strong> — reglas de documentación del proyecto Grupo Plasencia.</li>
-  </ul>
-
-  <p class="note">Si tu equipo necesita más detalle o evidencia técnica antes del kickoff, escríbeme y te conecto con el responsable correspondiente del Centro de Excelencia.</p>
 </section>
 
 </body>
