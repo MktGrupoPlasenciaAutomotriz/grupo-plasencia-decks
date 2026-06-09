@@ -89,10 +89,10 @@
     font-family: var(--sans); font-weight: 700; font-size: 10pt; letter-spacing: 3.5px;
     color: var(--gold); text-transform: uppercase; line-height: 1.4;
   }
-  .cover-mark span { display:block; font-weight:400; color:rgba(255,255,255,0.55); margin-top:6px; letter-spacing:0.8px; font-size:8.5pt; text-transform:none; }
+  .cover-mark span { display:block; font-weight:400; color:rgba(255,255,255,0.7); margin-top:6px; letter-spacing:0.8px; font-size:8.5pt; text-transform:none; }
   .cover-eyebrow {
     font-family: var(--sans); font-size: 9.5pt; font-weight: 700; letter-spacing: 4.5px;
-    color: var(--gp-red); text-transform: uppercase; margin-top: 13mm;
+    color: var(--gold); text-transform: uppercase; margin-top: 13mm;
   }
   .cover-title {
     font-family: var(--serif); font-weight: 800; font-size: 48pt; line-height: 1.02;
@@ -116,7 +116,7 @@
   }
   .cover-pull cite {
     display: block; font-style: normal; font-family: var(--sans); font-weight: 600;
-    font-size: 8.5pt; letter-spacing: 1.6px; color: var(--gp-red); margin-top: 6mm; text-transform: uppercase;
+    font-size: 8.5pt; letter-spacing: 1.8px; color: var(--gold); margin-top: 6mm; text-transform: uppercase;
   }
   .cover-tags { display:flex; gap:5mm; margin-top: 11mm; flex-wrap:wrap; }
   .cover-tag {
@@ -130,8 +130,8 @@
     display: flex; justify-content: space-between; align-items: flex-end; gap: 10mm;
     margin-top: 13mm; border-top: 1px solid rgba(255,255,255,0.16); padding-top: 8mm;
   }
-  .cover-meta-block { font-size: 9pt; color: rgba(255,255,255,0.68); line-height: 1.65; flex: 1; }
-  .cover-meta-block strong { display:block; color: var(--near-white); font-weight: 700; font-size: 10pt; letter-spacing: 0.6px; margin-bottom: 1mm; }
+  .cover-meta-block { font-size: 9pt; color: rgba(255,255,255,0.82); line-height: 1.65; flex: 1; }
+  .cover-meta-block strong { display:block; color: var(--gold); font-weight: 700; font-size: 9pt; letter-spacing: 1.4px; margin-bottom: 2mm; text-transform: uppercase; }
 
   /* ============ TOC ============ */
   .toc { margin-top: 7mm; }
@@ -145,8 +145,8 @@
     width: 14mm; flex-shrink: 0; line-height: 1.2;
   }
   .toc-title { flex: 1; color: var(--gp-navy); font-weight: 700; padding-right: 4mm; font-size: 11pt; line-height: 1.35; }
-  .toc-sub { display: block; font-size: 9pt; color: var(--g500); font-weight: 400; margin-top: 1.5mm; line-height: 1.45; letter-spacing: 0.1px; }
-  .toc-page { color: var(--g500); font-family: var(--serif); font-style: italic; font-size: 10.5pt; flex-shrink: 0; }
+  .toc-sub { display: block; font-size: 9pt; color: var(--g600); font-weight: 400; margin-top: 1.5mm; line-height: 1.45; letter-spacing: 0.1px; }
+  .toc-page { color: var(--g600); font-family: var(--serif); font-style: italic; font-size: 10.5pt; flex-shrink: 0; }
 
   /* ============ TYPOGRAPHY ============ */
   h1.section-title {
@@ -179,8 +179,8 @@
   p.lead { font-size: 11.5pt; color: var(--gp-navy); line-height: 1.55; margin-bottom: 6mm; font-weight: 500; letter-spacing: -0.05px; }
   strong { color: var(--gp-navy); font-weight: 700; }
   em { font-style: italic; }
-  a { color: var(--deep-blue); text-decoration: none; border-bottom: 1px dotted var(--deep-blue); }
-  a:hover { border-bottom-style: solid; }
+  a { color: var(--deep-blue); text-decoration: none; border-bottom: 1px solid rgba(43,108,176,0.5); transition: border-color 0.15s; }
+  a:hover { border-bottom-color: var(--deep-blue); }
   ul, ol { margin: 3mm 0 4.5mm 6mm; }
   li { margin-bottom: 2mm; font-size: 10.5pt; color: var(--g700); line-height: 1.6; }
   li::marker { color: var(--gp-red); }
@@ -204,7 +204,7 @@
     font-family: var(--sans); font-weight: 700; font-size: 8pt; letter-spacing: 2.2px;
     text-transform: uppercase; color: var(--gp-red); margin-bottom: 2.5mm; display: block;
   }
-  .callout--gold .callout-label { color: var(--amber); }
+  .callout--gold .callout-label { color: #975A16; }
   .callout--green .callout-label { color: var(--deep-green); }
   .callout--navy .callout-label { color: var(--gold); }
 
@@ -248,8 +248,8 @@
   .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4mm; margin: 5mm 0; page-break-inside: avoid; }
   .kpi { background: var(--g100); border-top: 3px solid var(--gp-red); padding: 5mm 4mm; border-radius: 0 0 4px 4px; }
   .kpi-num { font-family: var(--serif); font-weight: 800; font-size: 24pt; color: var(--gp-navy); line-height: 1; letter-spacing: -0.5px; }
-  .kpi-label { font-size: 8pt; color: var(--g500); margin-top: 3mm; text-transform: uppercase; letter-spacing: 1.1px; font-weight: 600; }
-  .kpi-sub { font-size: 9pt; color: var(--g600); margin-top: 1.5mm; line-height: 1.45; }
+  .kpi-label { font-size: 8pt; color: var(--g600); margin-top: 3mm; text-transform: uppercase; letter-spacing: 1.1px; font-weight: 700; }
+  .kpi-sub { font-size: 9pt; color: var(--g700); margin-top: 1.5mm; line-height: 1.45; }
 
   /* ============ CHECKLIST ============ */
   .checklist { list-style: none; margin: 4mm 0 0 0; }
@@ -264,7 +264,7 @@
   }
   .checklist li.blocker::before { color: var(--gp-red); content: "■"; font-size: 11pt; top: 4.5mm; }
   .checklist li strong { color: var(--gp-navy); }
-  .checklist li .checklist-desc { display:block; font-size: 9pt; color: var(--g500); margin-top: 1.5mm; line-height: 1.5; }
+  .checklist li .checklist-desc { display:block; font-size: 9pt; color: var(--g600); margin-top: 1.5mm; line-height: 1.5; }
 
   /* ============ COMPARATIVO ============ */
   .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 6mm; margin: 6mm 0; page-break-inside: avoid; }
@@ -287,7 +287,7 @@
   .faq-a { font-size: 10pt; color: var(--g600); line-height: 1.6; }
 
   /* ============ FOOTER NOTE ============ */
-  .note { font-size: 8.5pt; color: var(--g500); line-height: 1.55; font-style: italic; margin: 5mm 0 0 0; padding-top: 3.5mm; border-top: 1px solid var(--g200); }
+  .note { font-size: 8.5pt; color: var(--g600); line-height: 1.55; font-style: italic; margin: 5mm 0 0 0; padding-top: 3.5mm; border-top: 1px solid var(--g200); }
 
   /* ============ FIRMA ============ */
   .signature {
@@ -307,7 +307,7 @@
     border-top: 1px solid rgba(255,255,255,0.16); padding-top: 6mm;
   }
   .signature .contact-name { font-weight: 700; color: var(--gold); font-size: 11.5pt; letter-spacing: -0.2px; }
-  .signature .contact-role { font-size: 9.5pt; color: rgba(255,255,255,0.72); margin-top: 1.5mm; line-height: 1.55; }
+  .signature .contact-role { font-size: 9.5pt; color: rgba(255,255,255,0.85); margin-top: 1.5mm; line-height: 1.55; }
 
   /* ============ DIAGRAMA TEXTO ============ */
   .ascii-diagram {
@@ -340,7 +340,7 @@
   <div class="cover-inner">
     <div>
       <div class="cover-mark">SOP — Brief operativo de implementación
-        <span>Versión 1.5 · 8 de junio de 2026 · Documento vivo de uso interno · Grupo Plasencia Automotriz</span>
+        <span>Versión 1.5.1 · 8 de junio de 2026 · Documento vivo de uso interno · Grupo Plasencia Automotriz</span>
       </div>
       <div class="cover-eyebrow">Piloto Motor de Atribución MVP</div>
       <div class="cover-title">Onboarding<br><em>de una marca</em><br>automotriz del<br>Grupo al piloto.</div>
