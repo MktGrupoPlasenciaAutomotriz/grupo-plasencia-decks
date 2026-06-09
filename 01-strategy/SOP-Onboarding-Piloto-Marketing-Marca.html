@@ -340,7 +340,7 @@
   <div class="cover-inner">
     <div>
       <div class="cover-mark">SOP — Brief operativo de implementación
-        <span>Versión 1.7 · 8 de junio de 2026 · Documento vivo de uso interno · Grupo Plasencia Automotriz</span>
+        <span>Versión 1.7.1 · 8 de junio de 2026 · Documento vivo de uso interno · Grupo Plasencia Automotriz</span>
       </div>
       <div class="cover-eyebrow">Piloto Motor de Atribución MVP</div>
       <div class="cover-title">Onboarding<br><em>de una marca</em><br>automotriz del<br>Grupo al piloto.</div>
@@ -411,9 +411,9 @@
      §00 — 30 segundos: la decisión que te pido
 ============================================================ -->
 <section class="page">
-  <h1 class="section-title"><span class="num">Sección 00 · Resumen operativo</span>Qué necesito de tu lado para arrancar la implementación</h1>
+  <h1 class="section-title"><span class="num">Sección 00 · Resumen ejecutivo</span>Resumen del piloto en una página</h1>
 
-  <p class="lead" style="font-size:13pt;">Si solo tienes tiempo de leer una página, lee esta. El resto del documento la sustenta. Asume el contexto: el piloto es un servicio que el Centro de Excelencia opera; lo solicitaste para tu marca; este SOP es el brief operativo con el que arranco.</p>
+  <p class="lead" style="font-size:13pt;">Esta página es el resumen ejecutivo. En unos minutos te da el panorama general del piloto que vamos a operar juntos para tu marca: lo que estaremos coordinando con tu equipo para arrancar, lo que mi equipo se encarga de entregar durante los 90 días, y cómo vamos a ir midiendo los resultados. El resto del documento amplía cada tema con más detalle, por si en algún momento quieres consultar algo en particular.</p>
 
   <h3>El alcance del servicio en una imagen</h3>
   <p>Implementación de la <strong>plataforma de captura, atribución y operación de medios paid</strong> del piloto Motor de Atribución MVP para una de tus marcas-concesionarias automotrices (Changan, Hyundai, Stellantis, GAC, GWM, Toyota, Mazda, Ford, Honda, Seminuevos), incluyendo sucursales. Mismo estándar con el que opero hoy Hyundai, Stellantis, Seminuevos y GAC. Duración del piloto: 90 días desde el go-live. Al cierre, decisión firmada en conjunto: escalar, continuar, ajustar o salir.</p>
@@ -425,8 +425,8 @@
     <li>El Centro de Excelencia no cobra fee. La operación, el desarrollo, el diseño y el reporting están incluidos en el alcance del piloto.</li>
   </ul>
 
-  <h3>Lo que necesito de ti para arrancar</h3>
-  <p>El detalle completo está en §04. Para esta vista de resumen, lo que bloquea el arranque es:</p>
+  <h3>Lo que vamos a estar coordinando con tu equipo</h3>
+  <p>El detalle completo está en §04. Como resumen, los puntos principales que necesitamos tener listos para arrancar son:</p>
   <ul>
     <li>Lista de precios oficial vigente del OEM (la marca es la única fuente de verdad — tengo prohibido inventar precios o programas).</li>
     <li><strong>Selección de productos evergreen</strong> que viven en la SPA los 365 días (5-13 modelos) + escenario financiero por modelo (plazo, tasa, enganche, programas evergreen del OEM como garantía, mantenimiento, asistencia).</li>
@@ -438,7 +438,7 @@
     <li>Constancia de situación fiscal de la(s) razón(es) social(es) fondeadoras enviada a Viceversa antes del primer transfer.</li>
   </ul>
 
-  <h3>Lo que NO te pido (lo entrega el Centro de Excelencia)</h3>
+  <h3>Lo que mi equipo se encarga de armar (no necesitamos de tu lado)</h3>
   <ul>
     <li>Concepto rector / strategy definition de tu marca dentro del piloto.</li>
     <li>Sistema de diseño / UI kit digital. Si tu OEM no lo tiene, hereda el del Grupo + se adapta con paleta/tipografía del OEM oficial.</li>
@@ -748,9 +748,9 @@
     <li><strong>Histórico de los últimos 3-6 meses de ofertas del OEM</strong> <em>(deseable)</em> — qué bonos dieron, qué tasas, en qué modelos, qué tan agresivos fueron. <span class="checklist-desc">Me ayuda a calibrar expectativas de performance en los primeros 90 días vs lo que el OEM viene haciendo.</span></li>
   </ul>
 
-  <div class="callout callout--red">
-    <span class="callout-label">Regla absoluta del piloto (anti-invención)</span>
-    <p>Está <strong>prohibido inventar precios, programas, mensualidades, tasas, bonos, promociones, garantías, kilometrajes</strong> o cualquier término comercial que no esté en material oficial del OEM. Tu marca y el OEM son las únicas fuentes de verdad. Esta regla ya nos salvó una vez: en el Pivote 2 de HYU detecté que se había metido el término "All-Inclusive" que no aparecía en el material de Vero. Lo eliminé y reemplacé por la pill literal del OEM. La regla protege legalmente a tu marca y comercialmente al cliente.</p>
+  <div class="callout">
+    <span class="callout-label">Compromiso de fidelidad al material oficial del OEM</span>
+    <p>Como criterio de operación, todo lo que publicamos en la página y en los anuncios (precios, mensualidades, programas, garantías, vigencias) proviene exclusivamente del material oficial que envía el OEM o que tu marca autoriza. Mi equipo no improvisa ni traduce a lenguaje propio términos comerciales que no estén en el material original — es un cuidado que protege legalmente a tu marca y mantiene la consistencia entre lo que comunicamos digitalmente y lo que el cliente encuentra en piso. Si en algún momento detectamos una redacción que se desvía de tu material oficial, la ajustamos. Nos pasó por ejemplo en Hyundai con un término que se había incorporado en una iteración temprana y que no aparecía en el material de Vero — lo corregimos en cuanto lo detectamos.</p>
   </div>
 
   <h3>F · Activos visuales del catálogo</h3>
@@ -1020,7 +1020,7 @@
 <section class="page">
   <h1 class="section-title"><span class="num">Sección 06 · B</span>Arquitectura de la solución y el flywheel de aprendizaje del algoritmo</h1>
 
-  <p class="lead">Esta página existe para que veas que la operación no es plug-and-play, aunque mi equipo la apalanque con IA. Son cinco capas que conviven en producción y que <strong>solo tienen sentido cuando trabajan juntas</strong>. Es importante que la marca lo entienda — no para que opere el stack, sino para que dimensione lo que está recibiendo.</p>
+  <p class="lead">Esta página te muestra cómo está armada la solución por dentro. Son cinco capas que trabajan juntas y que sostienen la operación del piloto. No necesitas conocer el detalle técnico para que tu marca funcione — mi equipo se encarga de eso. La incluyo aquí simplemente para que tengas visibilidad de lo que está corriendo debajo y puedas compartirla con tu equipo de sistemas si en algún momento les interesa revisarla.</p>
 
   <h3>Las cinco capas que operan tu piloto</h3>
   <div class="ascii-diagram">      CAPA 1 — CAPTURA                  CAPA 2 — INGESTA                CAPA 3 — ATRIBUCIÓN
@@ -1063,27 +1063,27 @@
                                  │  CPL baja con el tiempo │
                                  └─────────────────────────┘</div>
 
-  <h3>El flywheel — por qué importa el pipeline al algoritmo</h3>
-  <p>Esto es la parte que normalmente no se ve, y es lo que distingue el modelo del piloto de cualquier modelo de agencia tradicional.</p>
+  <h3>Cómo aprende el algoritmo conforme operan tus vendedores</h3>
+  <p>Esta es una parte interesante del modelo que vale la pena explicar, porque es lo que hace que la operación vaya mejorando sola con el tiempo.</p>
 
-  <p><strong>Cuando uno de tus vendedores mueve una card en el kanban</strong> (por ejemplo: cuando el cliente confirma cita, cuando pisa la sucursal, cuando le mandan la cotización, cuando firma la compra), <strong>el sistema dispara automáticamente un evento server-side</strong> a Meta y a Google diciéndoles "este lead específico avanzó a esta etapa". Esos eventos se envían vía <em>Conversions API</em> (CAPI) de Meta y <em>Measurement Protocol</em> de GA4, ambos lado servidor — no dependen del navegador del cliente ni de cookies que se borran.</p>
+  <p>Cada vez que uno de tus vendedores actualiza el estatus de un lead en el kanban —por ejemplo cuando confirma una cita, registra que el cliente pisó la sucursal, le envía cotización o cierra la venta— el sistema envía automáticamente esa información a las plataformas publicitarias (Meta y Google). Lo hace por una vía técnica que se llama <em>Conversions API</em>, del lado del servidor, lo que le da mucha más estabilidad y precisión que las formas tradicionales de tracking que dependen del navegador del cliente.</p>
 
-  <p><strong>Resultado: el algoritmo de las plataformas aprende quién sí compra de verdad</strong>, no solo quién dio un formulario. Como las plataformas ahora reciben señales de compradores reales atribuidos a tu marca y a tu campaña, optimizan la pauta para traer más gente como esos compradores reales. La consecuencia operativa concreta: <strong>el costo por lead va bajando semana a semana porque el algoritmo se está calibrando con la realidad de tu venta, no con la noción de "alguien que llenó un form"</strong>.</p>
+  <p>El resultado es que las plataformas reciben señales muy precisas de quién sí avanzó en el embudo de tu marca y quién terminó comprando. Con esa información, los algoritmos optimizan la pauta para mostrar tus anuncios a personas con perfil similar a tus compradores reales. La consecuencia práctica es que <strong>el costo por lead va mejorando conforme avanza el piloto</strong>, porque las plataformas están aprendiendo de la realidad de tu venta y no solo de quién dio un formulario.</p>
 
   <div class="callout callout--navy">
-    <span class="callout-label">El insight comercial del modelo</span>
-    <p><strong>Mientras tus vendedores muevan el pipeline en el kanban, ellos mismos provocan la optimización del algoritmo.</strong> No tienes que hacer nada extra. No tienes que ir a Meta Ads Manager a configurar conversiones. No tienes que esperar a que la agencia te entregue un reporte de cierre el día 30. El acto operativo de tu vendedor de mover la card es el acto de aprendizaje del algoritmo. Es por eso que el piloto pone tanto peso en que los vendedores digitales tengan asignación clara, WhatsApp activo y disciplina de actualización — porque el algoritmo aprende de lo que ellos hacen, no de lo que mi equipo le diga.</p>
+    <span class="callout-label">Lo bonito del modelo</span>
+    <p>Conforme tus vendedores van trabajando los leads en el kanban, el algoritmo se va calibrando solo en paralelo. Tú no tienes que hacer nada extra: ni configurar conversiones en Meta Ads Manager, ni esperar reportes mensuales para que la agencia ajuste audiencias. El simple acto de tu equipo de mover las cards de etapa en etapa es lo que va entrenando al algoritmo. Por eso el piloto pone atención en que los vendedores digitales tengan asignación clara, WhatsApp activo y la disciplina de actualizar el kanban — porque su trabajo diario es lo que va haciendo que el modelo aprenda con el tiempo.</p>
   </div>
 
-  <h3>Por qué esto no es plug-and-play, en una página</h3>
-  <p>Cada capa tiene sus reglas, sus errores típicos y sus dependencias con las otras. Para que el lector dimensione lo que está operando:</p>
+  <h3>Lo que cada capa contiene, resumido</h3>
+  <p>Cada capa tiene su propia complejidad y depende de las otras para funcionar. Esta tabla te da una idea de lo que hay en cada una, de manera resumida:</p>
 
   <table>
     <thead>
       <tr>
         <th style="width:22%">Capa</th>
-        <th style="width:33%">Lo que se ve</th>
-        <th style="width:45%">Lo que NO se ve (pero sostiene la capa)</th>
+        <th style="width:33%">Lo visible para la marca</th>
+        <th style="width:45%">Lo que opera por detrás para que funcione</th>
       </tr>
     </thead>
     <tbody>
@@ -1116,8 +1116,8 @@
   </table>
 
   <div class="callout callout--gold">
-    <span class="callout-label">Una nota soft, como contexto</span>
-    <p>Si la marca quisiera replicar esta arquitectura con un partner externo, no es trivial ni barato. El stack equivale a contratar simultáneamente una agencia digital, un equipo de desarrollo web, un equipo de UX/UI, una consultoría de tracking server-side, una operación de CRM custom y un reporting ejecutivo cross-canal — y eso bajo un contrato único. Las cotizaciones típicas que recibimos cuando comparamos partners externos para alcance equivalente se mueven entre 5× y 7× en velocidad de entrega y aproximadamente <strong>230× en costo</strong> respecto al modelo apalancado por IA con la que opera el Centro de Excelencia. La razón es que la IA absorbe el costo de los perfiles que tradicionalmente requieren células de 5-7 personas y plazos de 5-7 meses. <strong>Esto no aplica como argumento de venta — es contexto para que dimensiones lo que está corriendo bajo tu piloto y por qué lo institucional del Grupo es el lugar donde tiene sentido que viva.</strong></p>
+    <span class="callout-label">Solo como contexto</span>
+    <p>Si en algún momento tu marca evaluara armar algo similar con un proveedor externo, vale la pena saber que es una arquitectura que normalmente requeriría contratar varias capacidades por separado: una agencia digital, un equipo de desarrollo web, diseño UX/UI, una consultoría de tracking, una operación de CRM y un equipo de reporting. La razón por la que el Centro de Excelencia puede ofrecerlo todo bajo un solo alcance interno es que apalancamos buena parte de la operación con IA, lo que nos permite trabajar con tiempos y costos significativamente más eficientes que los de un proveedor tradicional. Lo comparto como contexto, no como argumento — simplemente para que tengas una idea más completa de lo que está corriendo bajo tu piloto.</p>
   </div>
 </section>
 
