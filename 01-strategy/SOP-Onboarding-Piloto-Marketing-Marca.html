@@ -2,8 +2,8 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>SOP · Incorporación de una marca al Piloto de Marketing Digital Corporativo · Grupo Plasencia</title>
-<meta name="description" content="Standard Operating Procedure de la Dirección de Marketing Corporativo de Grupo Plasencia Automotriz para la incorporación operativa de una marca-concesionaria al piloto Motor de Atribución MVP. Define inversión, insumos requeridos de la marca, cronograma de implementación y contacto.">
+<title>SOP MKT-001 · Incorporación de una marca al Piloto de Marketing Digital Corporativo · Grupo Plasencia</title>
+<meta name="description" content="Standard Operating Procedure (SOP) de la Dirección de Marketing Corporativo de Grupo Plasencia Automotriz que define el procedimiento de incorporación de una marca-concesionaria al piloto Motor de Atribución MVP. Documento operativo de uso interno.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@500;700;800;900&display=swap" rel="stylesheet">
@@ -11,21 +11,14 @@
   :root {
     --gp-red: #C8102E;
     --gp-navy: #1E2740;
-    --gp-slate: #2D3748;
-    --green: #48BB78;
-    --deep-green: #276749;
-    --blue: #4299E1;
-    --deep-blue: #2B6CB0;
-    --amber: #D69E2E;
     --gold: #ECC94B;
-    --sem-gold: #FBC645;
+    --amber: #D69E2E;
     --bg: #F0F4F8;
     --paper: #FFFFFF;
     --near-white: #F7FAFC;
     --g100: #EDF2F7;
     --g200: #E2E8F0;
     --g300: #CBD5E0;
-    --g400: #A0AEC0;
     --g500: #718096;
     --g600: #4A5568;
     --g700: #2D3748;
@@ -50,9 +43,9 @@
   @page {
     size: A4;
     margin: 20mm 18mm 22mm 18mm;
-    @bottom-right { content: counter(page); font-family: 'Inter', sans-serif; font-size: 8.5pt; color: #718096; font-weight: 500; }
-    @bottom-left  { content: "Confidencial · Grupo Plasencia · MKT Corporativo"; font-family: 'Inter', sans-serif; font-size: 7.5pt; color: #A0AEC0; letter-spacing: 0.3px; }
-    @top-right    { content: "SOP · Piloto de Marketing Digital Corporativo"; font-family: 'Inter', sans-serif; font-size: 7.5pt; color: #A0AEC0; letter-spacing: 0.3px; }
+    @bottom-right { content: counter(page) " / " counter(pages); font-family: 'Inter', sans-serif; font-size: 8.5pt; color: #718096; font-weight: 500; }
+    @bottom-left  { content: "SOP MKT-001 · v3.2 · Confidencial · Grupo Plasencia Automotriz"; font-family: 'Inter', sans-serif; font-size: 7.5pt; color: #A0AEC0; letter-spacing: 0.3px; }
+    @top-right    { content: "SOP MKT-001 · Incorporación de una marca al Piloto de Marketing Digital Corporativo"; font-family: 'Inter', sans-serif; font-size: 7.5pt; color: #A0AEC0; letter-spacing: 0.3px; }
   }
   @page :first { @top-right { content: ""; } @bottom-right { content: ""; } @bottom-left { content: ""; } }
   @page cover { margin: 0; }
@@ -94,105 +87,80 @@
     color: var(--gold); text-transform: uppercase; margin-top: 13mm;
   }
   .cover-title {
-    font-family: var(--serif); font-weight: 800; font-size: 44pt; line-height: 1.05;
-    letter-spacing: -1.5px; margin-top: 7mm; color: var(--near-white);
+    font-family: var(--serif); font-weight: 800; font-size: 38pt; line-height: 1.08;
+    letter-spacing: -1.2px; margin-top: 7mm; color: var(--near-white);
   }
   .cover-title-after {
-    font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 13.5pt;
+    font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 12.5pt;
     color: rgba(255,255,255,0.78); margin-top: 8mm; letter-spacing: -0.1px; line-height: 1.5;
     max-width: 152mm;
   }
-  .cover-meta {
-    display: flex; justify-content: space-between; align-items: flex-end; gap: 10mm;
-    margin-top: 13mm; border-top: 1px solid rgba(255,255,255,0.16); padding-top: 8mm;
+
+  .cover-control {
+    margin-top: 14mm; border-top: 1px solid rgba(255,255,255,0.18); padding-top: 8mm;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 7mm 12mm;
   }
-  .cover-meta-block { font-size: 9pt; color: rgba(255,255,255,0.82); line-height: 1.65; flex: 1; }
-  .cover-meta-block strong { display:block; color: var(--gold); font-weight: 700; font-size: 9pt; letter-spacing: 1.4px; margin-bottom: 2mm; text-transform: uppercase; }
+  .cover-control-item { font-size: 9pt; color: rgba(255,255,255,0.78); line-height: 1.55; }
+  .cover-control-item strong { display:block; color: var(--gold); font-weight: 700; font-size: 8pt; letter-spacing: 1.6px; margin-bottom: 1.5mm; text-transform: uppercase; }
 
   h1.section-title {
-    font-family: var(--serif); font-weight: 800; font-size: 24pt; line-height: 1.1;
-    letter-spacing: -0.6px; color: var(--gp-navy);
-    border-top: 3px solid var(--gp-red); padding-top: 7mm; margin-bottom: 7mm;
+    font-family: var(--serif); font-weight: 800; font-size: 22pt; line-height: 1.15;
+    letter-spacing: -0.5px; color: var(--gp-navy);
+    border-top: 3px solid var(--gp-red); padding-top: 7mm; margin-bottom: 6mm;
     page-break-after: avoid;
   }
   h1.section-title .num {
     display: block; font-family: var(--sans); font-weight: 700; font-size: 9pt;
     letter-spacing: 3.5px; color: var(--gp-red); text-transform: uppercase; margin-bottom: 3mm;
   }
-  h3 {
-    font-family: var(--sans); font-weight: 700; font-size: 11.5pt; color: var(--gp-navy);
+  h2 {
+    font-family: var(--sans); font-weight: 700; font-size: 12pt; color: var(--gp-navy);
     margin-top: 7mm; margin-bottom: 3mm; letter-spacing: -0.1px; line-height: 1.35;
+    page-break-after: avoid;
+  }
+  h2:first-of-type { margin-top: 2mm; }
+  h2 .h-num { color: var(--gp-red); font-weight: 800; margin-right: 4mm; font-variant-numeric: tabular-nums; }
+  h3 {
+    font-family: var(--sans); font-weight: 700; font-size: 10.5pt; color: var(--gp-navy);
+    margin-top: 5mm; margin-bottom: 2mm; letter-spacing: -0.05px; line-height: 1.35;
     page-break-after: avoid; break-after: avoid;
-    page-break-inside: avoid; break-inside: avoid;
   }
-  h3 + p, h3 + ul, h3 + ol, h3 + table, h3 + .callout {
-    page-break-before: avoid; break-before: avoid;
-  }
-  h3:first-of-type { margin-top: 3mm; }
-  p { margin-bottom: 3.5mm; font-size: 10.5pt; color: var(--g700); line-height: 1.6; }
-  p.lead { font-size: 11.5pt; color: var(--gp-navy); line-height: 1.55; margin-bottom: 6mm; font-weight: 500; letter-spacing: -0.05px; }
+  h3 .h-num { color: var(--gp-red); font-weight: 700; margin-right: 3mm; font-variant-numeric: tabular-nums; }
+  p { margin-bottom: 3mm; font-size: 10.5pt; color: var(--g700); line-height: 1.6; }
   strong { color: var(--gp-navy); font-weight: 700; }
   em { font-style: italic; }
-  a { color: var(--deep-blue); text-decoration: none; border-bottom: 1px solid rgba(43,108,176,0.5); }
-  ul, ol { margin: 3mm 0 4.5mm 6mm; }
-  li { margin-bottom: 2mm; font-size: 10.5pt; color: var(--g700); line-height: 1.6; }
+  a { color: var(--gp-navy); text-decoration: none; border-bottom: 1px solid rgba(30,39,64,0.4); }
+  ul, ol { margin: 2mm 0 4mm 6mm; }
+  li { margin-bottom: 1.5mm; font-size: 10.5pt; color: var(--g700); line-height: 1.55; }
 
   table {
-    width: 100%; border-collapse: collapse; margin: 5mm 0 6mm 0; font-size: 9.5pt;
+    width: 100%; border-collapse: collapse; margin: 4mm 0 5mm 0; font-size: 9.5pt;
     background: var(--paper);
   }
   thead { display: table-header-group; }
   tr { page-break-inside: avoid; }
   th {
     background: var(--gp-navy); color: var(--near-white);
-    font-family: var(--sans); font-weight: 700; font-size: 8pt; letter-spacing: 1.3px;
-    text-transform: uppercase; padding: 3.5mm 3.5mm; text-align: left; vertical-align: middle;
+    font-family: var(--sans); font-weight: 700; font-size: 8pt; letter-spacing: 1.2px;
+    text-transform: uppercase; padding: 3mm 3.5mm; text-align: left; vertical-align: middle;
     border-right: 1px solid rgba(255,255,255,0.1); line-height: 1.35;
   }
   th:last-child { border-right: none; }
   td {
-    padding: 3.5mm 3.5mm; border-bottom: 1px solid var(--g200);
+    padding: 3mm 3.5mm; border-bottom: 1px solid var(--g200);
     vertical-align: top; line-height: 1.55; color: var(--g700); font-size: 9.5pt;
   }
   tr:nth-child(even) td { background: var(--g100); }
   td strong { color: var(--gp-navy); }
   td.num { text-align: right; font-variant-numeric: tabular-nums; font-weight: 600; color: var(--gp-navy); }
+  td.code { font-family: 'SF Mono', Consolas, Monaco, monospace; font-size: 8.5pt; color: var(--gp-navy); font-weight: 600; }
 
-  .insumo {
-    border-left: 3px solid var(--gp-navy); padding: 3mm 0 3mm 6mm; margin-bottom: 5mm;
-    page-break-inside: avoid;
-  }
-  .insumo-num {
-    font-family: var(--serif); font-weight: 800; font-size: 11pt; color: var(--gp-red);
-    letter-spacing: 1px; margin-bottom: 1mm;
-  }
-  .insumo-title {
-    font-family: var(--sans); font-weight: 700; font-size: 11pt; color: var(--gp-navy);
-    margin-bottom: 2mm; line-height: 1.35;
-  }
-  .insumo-body { font-size: 10pt; color: var(--g700); line-height: 1.55; }
-  .insumo-body em { color: var(--g600); }
+  .nota { font-size: 9pt; color: var(--g600); line-height: 1.55; font-style: italic; margin: 4mm 0 4mm 0; padding: 3mm 4mm; background: var(--g100); border-left: 3px solid var(--g500); }
 
-  .signature {
-    background: var(--gp-navy); color: var(--near-white); border-radius: 6px;
-    padding: 9mm 9mm 9mm 9mm; margin-top: 9mm;
-    page-break-inside: avoid;
-    background:
-      radial-gradient(ellipse at 100% 0%, rgba(236,201,75,0.08) 0%, transparent 60%),
-      var(--gp-navy);
-  }
-  .signature h3 { color: var(--gold); margin-top: 0; margin-bottom: 4mm; font-family: var(--serif); font-weight: 700; font-size: 14pt; letter-spacing: -0.3px; }
-  .signature p { color: rgba(255,255,255,0.82); margin-bottom: 3mm; font-size: 10pt; line-height: 1.6; }
-  .signature p:last-of-type { margin-bottom: 0; }
-  .signature strong { color: var(--near-white); }
-  .signature .contact-block {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 8mm; margin-top: 6mm;
-    border-top: 1px solid rgba(255,255,255,0.16); padding-top: 6mm;
-  }
-  .signature .contact-name { font-weight: 700; color: var(--gold); font-size: 11.5pt; letter-spacing: -0.2px; }
-  .signature .contact-role { font-size: 9.5pt; color: rgba(255,255,255,0.85); margin-top: 1.5mm; line-height: 1.55; }
+  code { font-family: 'SF Mono', Consolas, Monaco, monospace; font-size: 0.9em; background: var(--g100); padding: 1px 5px; border-radius: 3px; color: var(--gp-navy); }
 
-  .note { font-size: 8.5pt; color: var(--g600); line-height: 1.55; font-style: italic; margin: 5mm 0 0 0; padding-top: 3.5mm; border-top: 1px solid var(--g200); }
+  .version-table th { font-size: 7.5pt; }
+  .version-table td { font-size: 9pt; }
 
   @media screen { body { padding: 12mm 0; } }
   @media print {
@@ -208,169 +176,238 @@
   <div class="cover-inner">
     <div>
       <div class="cover-mark">SOP — Standard Operating Procedure
-        <span>Versión 3.0 · 8 de junio de 2026 · Dirección de Marketing Corporativo · Grupo Plasencia Automotriz</span>
+        <span>Documento operativo · Uso interno · Confidencial</span>
       </div>
-      <div class="cover-eyebrow">Piloto de Marketing Digital Corporativo</div>
+      <div class="cover-eyebrow">Dirección de Marketing Corporativo</div>
       <div class="cover-title">Incorporación de una marca al Piloto de Marketing Digital Corporativo.</div>
-      <div class="cover-title-after">Documento operativo para la incorporación de una marca-concesionaria del Grupo Plasencia Automotriz al piloto operativo del modelo de marketing digital corporativo, formalmente denominado <em>Motor de Atribución MVP</em>. Hoy en producción bajo este mismo estándar en Hyundai, Stellantis, Seminuevos y GAC.</div>
+      <div class="cover-title-after">Procedimiento operativo estandarizado para la incorporación de una marca-concesionaria del Grupo Plasencia Automotriz al piloto operativo del modelo de marketing digital corporativo, formalmente denominado <em>Motor de Atribución MVP</em>.</div>
     </div>
 
-    <div class="cover-meta">
-      <div class="cover-meta-block">
-        <strong>Emite</strong>
-        Dirección de Marketing Corporativo<br>Grupo Plasencia Automotriz · Guadalajara
+    <div class="cover-control">
+      <div class="cover-control-item">
+        <strong>Código</strong>
+        SOP MKT-001
       </div>
-      <div class="cover-meta-block">
-        <strong>Responsable</strong>
-        Jesús Pérez Porras · Director de Marketing Corporativo<br>Grupo Plasencia Automotriz
+      <div class="cover-control-item">
+        <strong>Versión</strong>
+        3.2
+      </div>
+      <div class="cover-control-item">
+        <strong>Fecha de emisión</strong>
+        8 de junio de 2026
+      </div>
+      <div class="cover-control-item">
+        <strong>Próxima revisión</strong>
+        Trimestral
+      </div>
+      <div class="cover-control-item">
+        <strong>Elaboró y aprueba</strong>
+        Jesús Pérez Porras<br>Director de Marketing Corporativo
+      </div>
+      <div class="cover-control-item">
+        <strong>Aplica a</strong>
+        Marcas-concesionarias del<br>Grupo Plasencia Automotriz
       </div>
     </div>
   </div>
 </section>
 
-<!-- §01 — QUÉ ES EL MOTOR DE ATRIBUCIÓN -->
+<!-- §1 — PROPÓSITO + §2 ALCANCE + §3 DEFINICIONES + §4 RESPONSABILIDADES -->
 <section class="page">
-  <h1 class="section-title"><span class="num">Sección 01</span>El Piloto Motor de Atribución MVP</h1>
+  <h1 class="section-title"><span class="num">Sección 1</span>Propósito</h1>
+  <p>Estandarizar el procedimiento mediante el cual una marca-concesionaria del Grupo Plasencia Automotriz se incorpora al piloto operativo del modelo de marketing digital corporativo (<em>Motor de Atribución MVP</em>) administrado por la Dirección de Marketing Corporativo. El presente documento define los insumos que la marca debe aportar, la mecánica de inversión, el cronograma de implementación y los criterios de decisión al día 90.</p>
 
-  <h3>Qué es</h3>
-  <p>El Motor de Atribución MVP es la infraestructura propia que la Dirección de Marketing Corporativo del Grupo Plasencia Automotriz construyó entre marzo y abril de 2026 para medir, optimizar y atribuir la inversión de marketing de las marcas-concesionarias del Grupo extremo a extremo — desde el clic en el anuncio hasta la factura en piso — con infraestructura técnica propia y costo de plataforma marginal (por debajo de USD 100 mensuales para las cuatro marcas vigentes combinadas). Opera bajo el modelo de marketing digital corporativo y se documenta como capacidad permanente del Grupo en el <em>Strategy Definition</em> entregado al Consejo.</p>
+  <h1 class="section-title"><span class="num">Sección 2</span>Alcance</h1>
+  <p>Aplica a las 8 marcas OEM operadas por Grupo Plasencia Automotriz — Changan, Ford, GAC, GWM, Hyundai, Isuzu, Mazda y Stellantis — y a la unidad de Seminuevos. Cada marca puede incorporarse al piloto bajo este mismo procedimiento. El cumplimiento de las disposiciones de este SOP es condición para la activación operativa del piloto en la marca incorporada.</p>
 
-  <h3>Para qué sirve</h3>
-  <p>El Grupo Plasencia opera 8 marcas OEM (Changan, Ford, GAC, GWM, Hyundai, Isuzu, Mazda y Stellantis) más la unidad de Seminuevos, con 42 concesionarias. La inversión de marketing del Grupo asciende aproximadamente a $100 millones anuales. Hasta marzo de 2026, esa inversión se medía de forma fragmentada: cada marca operaba con agencia propia, formatos de captura distintos, CRMs independientes y eventos de conversión que en cerca del 40% de los casos no llegaban a las plataformas publicitarias. La pauta se optimizaba por volumen de formularios y clics, no por compradores reales. El Motor de Atribución unifica esa medición bajo una sola infraestructura corporativa, devuelve a las plataformas señales del pipeline real vía Conversions API server-side, y permite a la dirección decidir asignación de presupuesto con trazabilidad de oportunidad a cierre.</p>
+  <h1 class="section-title"><span class="num">Sección 3</span>Definiciones</h1>
+  <table>
+    <thead>
+      <tr><th style="width:28%">Término</th><th>Definición operativa</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Motor de Atribución MVP</strong></td><td>Infraestructura corporativa propia (Cloudflare Worker + base de datos D1 + Conversions API server-side + dashboard ejecutivo) que mide, optimiza y atribuye la inversión de marketing del Grupo extremo a extremo. Construida marzo-abril 2026. Costo de plataforma combinado por debajo de USD 100 mensuales para las cuatro marcas vigentes.</td></tr>
+      <tr><td><strong>Catálogo evergreen</strong></td><td>Subconjunto estratégico de modelos (entre 5 y 13) que el Gerente de Marca designa como oferta always-on por al menos 90 días, con bono y mensualidad de referencia anclados. Sostiene el aprendizaje continuo del algoritmo de Meta y desacopla la operación digital del calendario de circulares OEM mensuales.</td></tr>
+      <tr><td><strong>Toggle de oferta mensual</strong></td><td>Mecanismo de activación de la oferta comercial del mes que el OEM entrega a la marca. Se activa el día 1 del mes sobre el catálogo evergreen sin interrumpir el always-on y se desactiva al cierre del mes o de la vigencia.</td></tr>
+      <tr><td><strong>CSF</strong></td><td>Constancia de Situación Fiscal emitida por el SAT. Insumo requerido para la facturación administrativa por Viceversa Digital.</td></tr>
+      <tr><td><strong>Viceversa Digital</strong></td><td>Tercero administrador de la compra de medios del piloto. Centraliza el pago de medios digitales y emite factura única mensual a la marca por la pauta consumida más comisión administrativa.</td></tr>
+      <tr><td><strong>Día 0</strong></td><td>Fecha de go-live. Activación de la cuenta Meta Ads operativa de la marca incorporada al piloto.</td></tr>
+      <tr><td><strong>Happy path</strong></td><td>Escenario de implementación que asume entregables completos al día -10 y revisiones de la marca dentro del SLA de 48 horas.</td></tr>
+    </tbody>
+  </table>
 
-  <h3>Hipótesis que valida el piloto</h3>
-  <p>El piloto pone a prueba cuatro pilares formulados en el Strategy Definition para llevarse al Consejo como propuesta de institucionalización. Cada marca incorporada aporta evidencia adicional para confirmar o ajustar estos pilares.</p>
-  <ol>
-    <li><strong>Infraestructura corporativa permanente.</strong> El stack técnico (Cloudflare Worker + base D1 + Conversions API + dashboard multi-canal + conciliación diaria) puede pasar de activo del piloto a infraestructura corporativa con SLA, documentación auditable y responsable formal, escalable cross-marca con costo marginal.</li>
-    <li><strong>Revenue Operations bajo gobierno corporativo.</strong> Marketing, ventas digitales y datos pueden operar bajo una sola dirección con métricas compartidas y trazabilidad de oportunidad a cierre. El cuello identificado en el piloto inicial no está en marketing sino en la articulación entre marketing, ventas digitales y piso de venta.</li>
-    <li><strong>Escalamiento progresivo cross-brand con gates de cierre.</strong> La incorporación de marcas se condiciona a métricas verificables (asignación de vendedor superior al 95%, conversión cita-visita superior al 30%, al menos un cierre atribuido por marca y por mes), no a calendario. Esta lógica protege al Grupo de escalar fragmentación.</li>
-    <li><strong>Capacidad apalancada por inteligencia artificial.</strong> Un perfil correctamente calibrado con asistencia de IA entrega capacidades que tradicionalmente requieren células de 5 a 7 personas y plazos de 5 a 7 meses. Esta palanca se institucionaliza como ventaja sostenible.</li>
-  </ol>
-
-  <h3>Cómo opera el ecosistema</h3>
-  <p>El Motor de Atribución es un sistema de cinco capas que opera como ciclo cerrado entre adquisición, conversión y plataformas publicitarias.</p>
-  <ol>
-    <li><strong>Captura unificada.</strong> Una landing dedicada por unidad de negocio con catálogo dinámico y formulario único. Cada oportunidad recibe folio canónico <code>GP-{MARCA}-{AAMMDD}-{HHMMSS}</code> que actúa como llave de cruce entre todos los sistemas del Grupo.</li>
-    <li><strong>Ingesta y persistencia auditable.</strong> Cloudflare Worker recibe cada lead por endpoint único, normaliza, deduplica y persiste en base D1. Siete tablas relacionales registran leads, pipeline, eventos, vendedores, sucursales, auditoría e ingesta. Todo consultable en tiempo real y respaldado por logs persistentes.</li>
-    <li><strong>Atribución server-side.</strong> Eventos a Meta Conversions API y a GA4 Measurement Protocol con deduplicación automática vía <code>event_id</code>. Las plataformas reciben señales del pipeline real (cita, visita, cotización, cierre) y optimizan por compradores reales en lugar de por volumen de formularios.</li>
-    <li><strong>Operación cross-marca en kanban corporativo.</strong> Los leads llegan al kanban multi-marca con notificación WhatsApp dinámica al vendedor digital de la sucursal asignada. Los vendedores mueven la card entre etapas del pipeline; cada movimiento dispara automáticamente el evento server-side correspondiente al stack de atribución.</li>
-    <li><strong>Dashboard ejecutivo y conciliación.</strong> Dashboard multi-canal con corte diario, cinco fuentes externas reconciliadas, conciliación diaria con tres cruces externos contra D1 y backfill automatizado.</li>
-  </ol>
-
-  <p class="note">Estado al 8 de junio de 2026: el piloto opera en producción en Hyundai (Plasencia + Santa Anita), Stellantis (5 submarcas), Seminuevos (8 sucursales en Guadalajara) y GAC (Bugámbilias + Américas). Documentación operativa completa en el repositorio de documentación corporativa del Grupo (<em>grupo-plasencia-docs</em>).</p>
+  <h1 class="section-title"><span class="num">Sección 4</span>Responsabilidades</h1>
+  <table>
+    <thead>
+      <tr><th style="width:33%">Rol</th><th>Responsabilidad operativa</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Director de la marca</strong></td><td>Autoriza la incorporación al piloto, el monto de fondeo y la razón social fondeadora. Firma la decisión al día 90.</td></tr>
+      <tr><td><strong>Gerente de Marca</strong></td><td>Punto único de contacto operativo con la Dirección de Marketing Corporativo. Entrega los insumos de §5.1, aprueba copies, creativos y disclaimers, envía la oferta del mes el día 25.</td></tr>
+      <tr><td><strong>Gerente Comercial / Gerente de Ventas</strong></td><td>Asigna vendedores digitales por sucursal con WhatsApp y PIN para CRM. Define los segmentos comerciales de venta. Supervisa la operación del pipeline en el kanban.</td></tr>
+      <tr><td><strong>Director de Marketing Corporativo</strong></td><td>Responsable único de la implementación operativa del piloto. Aprueba el SOP, supervisa el cronograma, emite el paper ejecutivo de cierre al día 90.</td></tr>
+      <tr><td><strong>Coordinación administrativa Viceversa</strong></td><td>Coordina el flujo CSF y la conciliación mensual con Viceversa Digital. Persona asignada: Emmanuel Ramírez.</td></tr>
+    </tbody>
+  </table>
 </section>
 
-<!-- §02 — INSUMOS QUE APORTA LA MARCA -->
+<!-- §5 PROCEDIMIENTO · 5.1 Insumos -->
 <section class="page">
-  <h1 class="section-title"><span class="num">Sección 02</span>Insumos que aporta la marca para el arranque</h1>
+  <h1 class="section-title"><span class="num">Sección 5</span>Procedimiento</h1>
 
-  <p class="lead">Los siguientes ocho insumos son condición operativa para la incorporación de una marca al piloto descrito en §01. La entrega completa habilita el cronograma de 10 días hábiles bajo happy path (ver §03). Insumos pendientes desplazan proporcionalmente la fecha de go-live.</p>
+  <h2><span class="h-num">5.1</span>Insumos que aporta la marca para el arranque</h2>
+  <p>La entrega completa de los siguientes ocho insumos es condición operativa para la activación del cronograma de implementación de 10 días hábiles bajo happy path (§5.3). Insumos pendientes desplazan proporcionalmente la fecha de go-live.</p>
 
-  <div class="insumo">
-    <div class="insumo-num">01</div>
-    <div class="insumo-title">Lista de precios oficial vigente del OEM</div>
-    <div class="insumo-body">PDF, Excel o link al sitio del OEM. Fuente legal de precios MSRP o de lista. La Dirección Corporativa no improvisa precios; los publicados en la página y los anuncios corresponden exactamente al material oficial del OEM.</div>
-  </div>
+  <h3><span class="h-num">5.1.1</span>Lista de precios oficial vigente del OEM</h3>
+  <p>PDF, Excel o link al sitio del OEM. Fuente legal de precios MSRP o de lista. La Dirección no improvisa precios; los publicados corresponden exactamente al material oficial del OEM.</p>
 
-  <div class="insumo">
-    <div class="insumo-num">02</div>
-    <div class="insumo-title">Selección de catálogo evergreen para el always-on</div>
-    <div class="insumo-body">Entre 5 y 13 modelos que la marca prioriza como oferta general durante 90+ días, con bono y mensualidad de referencia anclados. Por cada modelo: precio de lista, mensualidad de referencia, escenario financiero (plazo, tasa, enganche, CAT, financiera oficial), programas evergreen del OEM (garantía, mantenimiento, asistencia, etc.) en texto literal autorizado.</div>
-  </div>
+  <h3><span class="h-num">5.1.2</span>Selección de catálogo evergreen para el always-on</h3>
+  <p>Entre 5 y 13 modelos que la marca prioriza como oferta general durante 90+ días, con bono y mensualidad de referencia anclados. Por cada modelo: precio de lista, mensualidad de referencia, escenario financiero (plazo, tasa, enganche, CAT, financiera oficial), programas evergreen del OEM (garantía, mantenimiento, asistencia) en texto literal autorizado.</p>
 
-  <div class="insumo">
-    <div class="insumo-num">03</div>
-    <div class="insumo-title">Cadencia de oferta comercial mensual del OEM</div>
-    <div class="insumo-body">Cómo recibe la marca la circular del mes del OEM (boletín, brief, material gráfico), con qué antelación y qué tan predecible es. Compromiso: el Gerente de Marca envía la oferta del mes siguiente cada día 25 del mes en curso para activar el toggle de promo el día 1 sin interrumpir el always-on.</div>
-  </div>
+  <h3><span class="h-num">5.1.3</span>Cadencia de oferta comercial mensual del OEM</h3>
+  <p>Mecánica de recepción de la circular del mes del OEM (formato, antelación, predictibilidad). Compromiso: el Gerente de Marca envía la oferta del mes siguiente cada día 25 del mes en curso (bono, tasa, plazo, modelos aplicables, vigencia, términos legales) para activar el toggle de promo el día 1 sin interrumpir el always-on.</p>
 
-  <div class="insumo">
-    <div class="insumo-num">04</div>
-    <div class="insumo-title">Segmentos comerciales reales de venta</div>
-    <div class="insumo-body">Cómo segmenta hoy el equipo de ventas a su cliente (familias, flotilla, comerciantes, primerizos, recompra, etc.). Define la organización del catálogo por intención en la página.</div>
-  </div>
+  <h3><span class="h-num">5.1.4</span>Segmentos comerciales reales de venta</h3>
+  <p>Cómo segmenta hoy el equipo de ventas al cliente (familias, flotilla, comerciantes, primerizos, recompra, etc.). Define la organización del catálogo por intención en la página web.</p>
 
-  <div class="insumo">
-    <div class="insumo-num">05</div>
-    <div class="insumo-title">Vendedores digitales asignados por sucursal</div>
-    <div class="insumo-body">Uno por sucursal mínimo. Nombre, WhatsApp activo, correo, sucursal asignada. La Dirección Corporativa habilita PIN de 6 dígitos para acceso al CRM. Sin asignación, los leads ingresan al kanban sin atención y se pierden.</div>
-  </div>
+  <h3><span class="h-num">5.1.5</span>Vendedores digitales asignados por sucursal</h3>
+  <p>Uno por sucursal mínimo. Nombre, WhatsApp activo, correo, sucursal asignada. La Dirección habilita PIN de 6 dígitos para acceso al CRM. Sin asignación, los leads ingresan al kanban sin atención y se pierden.</p>
 
-  <div class="insumo">
-    <div class="insumo-num">06</div>
-    <div class="insumo-title">Punto de contacto único de marketing</div>
-    <div class="insumo-body">Persona con autoridad para aprobar copies, creativos, disclaimers y banners. SLA de respuesta esperado durante la operación: 48 horas. Sin respuesta en ese plazo, la Dirección Corporativa asume aprobación tácita para no detener la operación.</div>
-  </div>
+  <h3><span class="h-num">5.1.6</span>Punto de contacto único de marketing</h3>
+  <p>Persona con autoridad para aprobar copies, creativos, disclaimers y banners. SLA de respuesta esperado durante la operación: 48 horas. Sin respuesta en ese plazo, la Dirección asume aprobación tácita para no detener la operación.</p>
 
-  <div class="insumo">
-    <div class="insumo-num">07</div>
-    <div class="insumo-title">AS IS del funnel digital actual</div>
-    <div class="insumo-body">Métricas baseline de los últimos 3 a 6 meses: inversión digital por plataforma, volumen de leads por canal, CPL, funnel por etapas con retenciones, tasas de conversión, CAC sobre cierre facturado, atribución actual. Proceso de ventas digital actual (herramientas, SLA de primer contacto, calificación, handoffs, conciliación con facturación). Operación comercial actual (cadencia de ofertas del OEM, parrilla de contenido). Sin baseline AS IS no es posible declarar éxito o fracaso del piloto al día 90 con rigor.</div>
-  </div>
+  <h3><span class="h-num">5.1.7</span>AS IS del funnel digital actual</h3>
+  <p>Métricas baseline de los últimos 3 a 6 meses: inversión digital por plataforma, volumen de leads por canal, CPL, funnel por etapas con retenciones, tasas de conversión, CAC sobre cierre facturado, atribución actual. Proceso de ventas digital actual (herramientas, SLA de primer contacto, calificación, handoffs, conciliación con facturación). Operación comercial actual (cadencia de ofertas del OEM, parrilla de contenido). Sin baseline AS IS no es posible declarar éxito o fracaso del piloto al día 90 con rigor.</p>
 
-  <div class="insumo">
-    <div class="insumo-num">08</div>
-    <div class="insumo-title">Constancia de situación fiscal a Viceversa</div>
-    <div class="insumo-body">De la(s) razón(es) social(es) fondeadoras, enviada a <a href="mailto:jaime@viceversadigital.com">jaime@viceversadigital.com</a> con copia al Director MKT Corporativo, antes del primer transfer. Habilita la facturación administrativa del esquema Viceversa.</div>
-  </div>
+  <h3><span class="h-num">5.1.8</span>Envío de Constancia de Situación Fiscal (CSF) a Viceversa</h3>
+  <p>La marca envía la CSF actualizada de la(s) razón(es) social(es) fondeadoras directamente a Viceversa Digital al correo <a href="mailto:jaime@viceversadigital.com">jaime@viceversadigital.com</a>, con copia a la coordinación administrativa de la Dirección. Este envío habilita a Viceversa para emitir la factura administrativa correspondiente. Se realiza antes del primer transfer y debe actualizarse cuando exista cambio de razón social fondeadora.</p>
 </section>
 
-<!-- §02 — INVERSIÓN Y §03 — IMPLEMENTACIÓN -->
+<!-- §5.2 INVERSIÓN Y MECÁNICA DE PAGO -->
 <section class="page">
-  <h1 class="section-title"><span class="num">Sección 03</span>Inversión, cronograma y decisión al día 90</h1>
+  <h1 class="section-title"><span class="num">Sección 5 (cont.)</span>Procedimiento</h1>
 
-  <h3>Inversión y administración</h3>
+  <h2><span class="h-num">5.2</span>Inversión y mecánica de pago vía Viceversa</h2>
+  <p>La inversión piso del piloto es de <strong>$30,000 MXN netos mensuales en pauta de medios digitales</strong>, durante 90 días de campaña activa. Sobre ese monto neto se suman la comisión administrativa de Viceversa Digital y el IVA correspondiente, dado que Viceversa es el tercero que administra la compra de medios y emite la factura al Grupo.</p>
+
   <table>
     <thead>
       <tr>
-        <th>Concepto</th>
-        <th class="num">Mensual</th>
-        <th class="num">90 días</th>
+        <th style="width:48%">Concepto</th>
+        <th class="num" style="width:17%">Tasa</th>
+        <th class="num" style="width:17%">Mensual</th>
+        <th class="num" style="width:18%">90 días</th>
       </tr>
     </thead>
     <tbody>
-      <tr><td>Neto en publicidad digital (piso)</td><td class="num">$30,000</td><td class="num">$90,000</td></tr>
-      <tr><td>Comisión administrativa Viceversa (8%)</td><td class="num">$2,400</td><td class="num">$7,200</td></tr>
-      <tr><td>IVA 16% sobre (neto + comisión)</td><td class="num">$5,184</td><td class="num">$15,552</td></tr>
-      <tr><td><strong>Bruto a pagar</strong></td><td class="num"><strong>$37,584</strong></td><td class="num"><strong>$112,752</strong></td></tr>
+      <tr>
+        <td><strong>Pauta efectiva en publicidad digital</strong> · Monto que efectivamente se invierte en Meta Ads para la marca</td>
+        <td class="num">—</td>
+        <td class="num">$30,000.00</td>
+        <td class="num">$90,000.00</td>
+      </tr>
+      <tr>
+        <td>Comisión administrativa Viceversa Digital · Cobrada sobre la pauta neta por la administración de la compra de medios</td>
+        <td class="num">8%</td>
+        <td class="num">$2,400.00</td>
+        <td class="num">$7,200.00</td>
+      </tr>
+      <tr>
+        <td>IVA · Aplicado sobre (pauta + comisión)</td>
+        <td class="num">16%</td>
+        <td class="num">$5,184.00</td>
+        <td class="num">$15,552.00</td>
+      </tr>
+      <tr>
+        <td><strong>Total bruto a pagar a Viceversa por la marca</strong></td>
+        <td class="num">—</td>
+        <td class="num"><strong>$37,584.00</strong></td>
+        <td class="num"><strong>$112,752.00</strong></td>
+      </tr>
     </tbody>
   </table>
-  <p>Cifras en pesos mexicanos. La distribución de los $30,000 netos entre sucursales la define la marca administrativamente. Viceversa Digital centraliza el pago de medios y emite factura única mensual al Grupo. La administración del esquema y la sincronización operativa con Viceversa (constancias fiscales, conciliación mensual, evidencia de pauta) la coordina <strong>Emmanuel Ramírez</strong>, contacto operativo de la Dirección Corporativa para este flujo. Detalle del esquema en <em>03-tech/Compra-de-Medios-Viceversa.md</em>.</p>
 
-  <h3>Cronograma de implementación — 10 días hábiles bajo happy path</h3>
+  <p>Cifras en pesos mexicanos. De los <strong>$37,584 MXN brutos mensuales</strong> que la marca paga a Viceversa, únicamente <strong>$30,000 MXN se aplican como pauta efectiva</strong> en las plataformas publicitarias para la marca. La diferencia de <strong>$7,584 MXN mensuales</strong> corresponde a la comisión administrativa de Viceversa (8% sobre la pauta neta = $2,400) más el IVA correspondiente (16% sobre pauta más comisión = $5,184).</p>
+
+  <h3><span class="h-num">5.2.1</span>Flujo administrativo de pago</h3>
+  <ol>
+    <li>La marca envía su CSF actualizada a Viceversa Digital (procedimiento §5.1.8).</li>
+    <li>Viceversa emite factura mensual a la marca por $37,584 MXN brutos.</li>
+    <li>La marca transfiere $37,584 MXN a Viceversa en la fecha de corte mensual.</li>
+    <li>Viceversa aplica $30,000 MXN como pauta directa en las cuentas publicitarias de la marca operadas por la Dirección de Marketing Corporativo.</li>
+    <li>Viceversa retiene $2,400 MXN como comisión administrativa y entera $5,184 MXN al SAT como IVA recaudado.</li>
+    <li>La conciliación administrativa mensual entre Viceversa, la Dirección de Marketing Corporativo y la marca se ejecuta dentro de los primeros 5 días hábiles del mes siguiente.</li>
+  </ol>
+
+  <h3><span class="h-num">5.2.2</span>Distribución entre sucursales</h3>
+  <p>La distribución de los $30,000 MXN netos de pauta entre las sucursales de la marca la define la marca administrativamente. La Dirección de Marketing Corporativo recibe esa distribución como entrada para configurar las cuentas publicitarias y los kanbanes operativos por sucursal.</p>
+
+  <div class="nota">La coordinación operativa del flujo administrativo con Viceversa (envío y vigencia de CSF, conciliación mensual, evidencia de pauta) la ejecuta Emmanuel Ramírez por la Dirección de Marketing Corporativo. Documentación completa del esquema en <code>03-tech/Compra-de-Medios-Viceversa.md</code>.</div>
+</section>
+
+<!-- §5.3 CRONOGRAMA + §5.4 OPERACIÓN + §5.5 CIERRE -->
+<section class="page">
+  <h1 class="section-title"><span class="num">Sección 5 (cont.)</span>Procedimiento</h1>
+
+  <h2><span class="h-num">5.3</span>Cronograma de implementación · 10 días hábiles bajo happy path</h2>
   <table>
     <thead>
       <tr>
-        <th style="width:12%">Día</th>
-        <th style="width:88%">Actividad</th>
+        <th style="width:14%">Día</th>
+        <th style="width:30%">Responsable</th>
+        <th style="width:56%">Actividad</th>
       </tr>
     </thead>
     <tbody>
-      <tr><td><strong>−10</strong></td><td>La marca entrega los insumos de §01. Kickoff de 60 minutos con el Gerente de Marca y el equipo de la Dirección Corporativa.</td></tr>
-      <tr><td><strong>−9 a −5</strong></td><td>La Dirección Corporativa construye la página, configura tracking (Pixel, Conversions API, GA4, GTM), prepara cuenta Meta Ads y staging de campañas Andromeda 2026.</td></tr>
-      <tr><td><strong>−4 a −3</strong></td><td>Ventana de revisión de la marca: SPA staging, copies, creativos, disclaimer financiero. SLA de respuesta: 48 horas.</td></tr>
-      <tr><td><strong>−2</strong></td><td>Aplicación de feedback de la marca y última iteración.</td></tr>
-      <tr><td><strong>−1</strong></td><td>QA end-to-end con lead de prueba real.</td></tr>
-      <tr><td><strong>0</strong></td><td>Go-live. Activación de Meta Ads Core.</td></tr>
-      <tr><td><strong>+1 a +90</strong></td><td>Operación diaria. Reporting quincenal al Gerente de Marketing y Comercial. Reporte ejecutivo mensual al Director. Toggle de promo mensual según oferta del OEM.</td></tr>
+      <tr><td><strong>−10</strong></td><td>Gerente de Marca</td><td>Entrega completa de los insumos §5.1 a la Dirección. Kickoff operativo de 60 minutos.</td></tr>
+      <tr><td><strong>−9 a −5</strong></td><td>Dirección MKT Corporativo</td><td>Construcción de la página web de la marca, configuración del stack de tracking (Pixel, Conversions API, GA4, GTM), preparación de cuenta Meta Ads y staging de campañas Andromeda 2026.</td></tr>
+      <tr><td><strong>−4 a −3</strong></td><td>Gerente de Marca</td><td>Ventana de revisión: SPA staging, copies, creativos y disclaimer financiero. SLA de respuesta: 48 horas.</td></tr>
+      <tr><td><strong>−2</strong></td><td>Dirección MKT Corporativo</td><td>Aplicación del feedback de la marca y última iteración.</td></tr>
+      <tr><td><strong>−1</strong></td><td>Ambos</td><td>QA end-to-end con lead de prueba real (registro en página, ingreso a kanban, notificación WhatsApp, respuesta del vendedor digital).</td></tr>
+      <tr><td><strong>0</strong></td><td>Dirección MKT Corporativo</td><td>Go-live. Activación de Meta Ads Core. Inicio del periodo de 90 días.</td></tr>
     </tbody>
   </table>
-  <p class="note">Los 10 días son estimación bajo happy path. Asumen entregables completos al día -10 y revisiones de la marca dentro del SLA de 48 horas. Insumos o revisiones que se retrasen desplazan la fecha de go-live proporcionalmente. La Dirección Corporativa documenta los desplazamientos en el reporting como dependencia de la marca.</p>
+  <div class="nota">Los 10 días hábiles son estimación bajo happy path. Asumen entregables completos al día −10 y revisiones de la marca dentro del SLA de 48 horas. Insumos o revisiones que se retrasen desplazan la fecha de go-live proporcionalmente.</div>
 
-  <h3>Decisión al día 90</h3>
-  <p>Al cumplirse los 90 días de operación, la Dirección Corporativa entrega un paper ejecutivo con la lectura del periodo y la recomendación firmada por el Director que fondeó y el Director MKT Corporativo. Caminos posibles: escalar la inversión, continuar al mismo nivel optimizando, pausar para revisar entregables de la marca, o salir del piloto. El piloto no continúa por inercia.</p>
+  <h2><span class="h-num">5.4</span>Operación y reporting durante los 90 días</h2>
+  <table>
+    <thead>
+      <tr><th style="width:24%">Frecuencia</th><th style="width:32%">Destinatario</th><th style="width:44%">Contenido</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Diaria</strong></td><td>Vendedores digitales asignados</td><td>Notificación WhatsApp dinámica al registro de cada lead. Atención dentro de 2 horas de recibido.</td></tr>
+      <tr><td><strong>Quincenal (días 1 y 15)</strong></td><td>Gerente de Marketing y Gerente Comercial de la marca</td><td>Reporte operativo: inversión vs. piloto, leads por etapa, tiempos de respuesta del vendedor, performance de pauta, conversión web, conciliación con pipeline tradicional, pendientes.</td></tr>
+      <tr><td><strong>Mensual (día 1)</strong></td><td>Director de la marca</td><td>Reporte ejecutivo de una página: resumen del mes, ROI estimado, recomendación.</td></tr>
+      <tr><td><strong>Mensual</strong></td><td>Conciliación administrativa con Viceversa</td><td>Factura, IVA, evidencia de pauta. Ejecutada por la coordinación administrativa (Emmanuel Ramírez) dentro de los primeros 5 días hábiles del mes siguiente.</td></tr>
+      <tr><td><strong>Día 25 de cada mes</strong></td><td>Dirección MKT Corporativo</td><td>El Gerente de Marca envía la oferta comercial del OEM del mes siguiente para activación del toggle de promo el día 1.</td></tr>
+    </tbody>
+  </table>
 
-  <div class="signature">
-    <h3>Activación del proceso</h3>
-    <p>Para iniciar la incorporación de una marca al piloto, el Gerente de Marca solicita kickoff de 60 minutos al responsable a continuación. En el kickoff se cubre §02 entregable por entregable y se define fecha tentativa del día -10.</p>
-    <div class="contact-block">
-      <div>
-        <div class="contact-name">Jesús Pérez Porras</div>
-        <div class="contact-role">Director de Marketing Corporativo<br>Grupo Plasencia Automotriz</div>
-      </div>
-      <div></div>
-    </div>
-  </div>
+  <h2><span class="h-num">5.5</span>Cierre y decisión al día 90</h2>
+  <p>Al cumplirse los 90 días de operación, la Dirección de Marketing Corporativo entrega un paper ejecutivo con la lectura del periodo y la recomendación firmada por el Director que fondeó y el Director de Marketing Corporativo. El piloto no continúa por inercia. Los caminos posibles son: escalar la inversión, continuar al mismo nivel optimizando, pausar para revisar entregables de la marca, o salir del piloto.</p>
+
+  <h1 class="section-title"><span class="num">Sección 6</span>Referencias</h1>
+  <ul>
+    <li><code>03-tech/Compra-de-Medios-Viceversa.md</code> · Esquema administrativo Viceversa Digital, cuentas publicitarias, datos de transferencia.</li>
+    <li><code>03-tech/Pivote-2-Playbook-Multimarca.md</code> · Patrón operativo evergreen + toggle de oferta mensual.</li>
+    <li><code>03-tech/Routing-WhatsApp-Notif-Por-Marca.md</code> · Configuración del routing dinámico de notificaciones por sucursal.</li>
+    <li><code>03-tech/Kanban-Sistema-Badges.md</code> · Estructura del kanban corporativo multi-marca.</li>
+    <li><code>01-strategy/Motor-Atribucion-Consejo-Strategy-Definition.md</code> · Strategy Definition del Motor de Atribución MVP.</li>
+  </ul>
+
+  <h1 class="section-title"><span class="num">Sección 7</span>Control de cambios</h1>
+  <table class="version-table">
+    <thead>
+      <tr><th style="width:12%">Versión</th><th style="width:18%">Fecha</th><th style="width:30%">Elaboró / Aprueba</th><th>Cambio</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>3.2</td><td>8 de junio de 2026</td><td>Jesús Pérez Porras · Director MKT Corporativo</td><td>Reestructura a formato SOP estándar (propósito, alcance, definiciones, responsabilidades, procedimiento, referencias, control de cambios). Clarificación del flujo CSF a Viceversa y desglose de la inversión bruta vs. pauta efectiva.</td></tr>
+      <tr><td>3.1</td><td>8 de junio de 2026</td><td>Jesús Pérez Porras · Director MKT Corporativo</td><td>Adición de §1 contexto del Motor de Atribución MVP, hipótesis y ecosistema de cinco capas.</td></tr>
+      <tr><td>3.0</td><td>8 de junio de 2026</td><td>Jesús Pérez Porras · Director MKT Corporativo</td><td>Refactor a SOP literal de 3 páginas A4 sin antesala estratégica.</td></tr>
+      <tr><td>2.0</td><td>8 de junio de 2026</td><td>Jesús Pérez Porras · Director MKT Corporativo</td><td>Limpieza de marcas no pertenecientes al portafolio. Voz institucional. §02 reescrita como migración HYU/STL ya completada.</td></tr>
+      <tr><td>1.0</td><td>8 de junio de 2026</td><td>Jesús Pérez Porras · Director MKT Corporativo</td><td>Emisión inicial del SOP de incorporación de marcas al piloto.</td></tr>
+    </tbody>
+  </table>
 </section>
 
 </body>
