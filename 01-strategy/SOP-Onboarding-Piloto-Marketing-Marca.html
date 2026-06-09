@@ -234,7 +234,46 @@
   </table>
   <p>El cumplimiento integral de las disposiciones de este procedimiento es condición operativa para la activación del piloto en la marca incorporada.</p>
 
-  <h1 class="section-title"><span class="num">Sección 3</span>Definiciones</h1>
+  <h1 class="section-title"><span class="num">Sección 3</span>Resultado operativo para la marca incorporada</h1>
+  <p>Esta sección documenta lo que obtiene la marca al incorporarse al piloto y lo que cambia en su operación digital durante el periodo de noventa días.</p>
+
+  <h3>3.1 Activos digitales que recibe la marca</h3>
+  <ul>
+    <li>Página web pública de la marca en el subdominio <code>marca.grupoplasencia.com</code>, con catálogo navegable, mensualidades de referencia, programas oficiales, selector de sucursal y formulario de captura de leads.</li>
+    <li>Cuenta de Meta Ads (Facebook e Instagram) propia de la marca, operada por la Dirección de Marketing Corporativo con framework Andromeda 2026.</li>
+    <li>Acceso al CRM corporativo del Grupo en <code>crm.grupoplasencia.com</code>, con visibilidad por rol (Director, Gerente Comercial, vendedor de sucursal).</li>
+    <li>Stack de tracking propio de la marca: Pixel de Meta, dataset de Conversions API, propiedad de Google Analytics 4. Los aprendizajes algorítmicos acumulados se quedan como activo del Grupo.</li>
+    <li>PDF de confirmación dinámico que recibe el cliente al registrarse, con asesor y sucursal asignados.</li>
+  </ul>
+
+  <h3>3.2 Lo que cambia para la operación de venta digital de la marca</h3>
+  <p>Bajo el modelo tradicional (LeadGen Ads o WhatsApp Ads operados por agencia externa), los leads llegan en alto volumen pero con baja intención, lo que se traduce en bajos porcentajes de respuesta del cliente y carga operativa elevada para el vendedor. Bajo el modelo del piloto, el volumen es menor pero la intención del lead es significativamente mayor: el cliente eligió el modelo, vio el precio, vio la sucursal y dejó sus datos solo cuando estuvo decidido a pedir información de ese auto específico. La consecuencia operativa es que el vendedor digital atiende menos leads pero los atiende mejor calificados, con conversación que arranca varios pasos adelante.</p>
+  <p>La Dirección de Marketing Corporativo retorna a las plataformas publicitarias los eventos del pipeline real (cita agendada, visita a sucursal, cotización, cierre) mediante Conversions API server-side, de manera que el algoritmo de Meta y Google aprende a optimizar por compradores reales y no por volumen de formularios.</p>
+
+  <h3>3.3 Visibilidad y trazabilidad para la dirección de la marca</h3>
+  <p>La marca obtiene por primera vez visibilidad continua y auditable del funnel digital: cuántas personas vieron la página, cuántas dejaron datos, cuántas fueron contactadas, cuántas agendaron cita, cuántas visitaron la sucursal, cuántas compraron. La trazabilidad llega hasta el cierre facturado, permitiendo a la dirección de la marca conocer el costo por cliente atribuido al digital y compararlo contra el costo por cliente de su pipeline tradicional.</p>
+
+  <h3>3.4 Decisión informada al cierre del periodo</h3>
+  <p>Al día 90 la dirección de la marca recibe un paper ejecutivo con la lectura completa del periodo y la recomendación de los siguientes pasos. La decisión de continuar, escalar, ajustar o salir del piloto se firma con base en evidencia operativa real generada en su propia marca, no en proyecciones ni promesas.</p>
+
+  <h1 class="section-title"><span class="num">Sección 4</span>Cómo funciona el ecosistema operativo del piloto</h1>
+  <p>Esta sección describe el flujo completo del modelo desde la entrada de un anuncio hasta el cierre facturado, en lenguaje operativo. Su lectura es recomendada para la dirección de la marca y para el equipo comercial que ejecuta el piloto en sucursal.</p>
+
+  <h3>4.1 Recorrido del cliente</h3>
+  <p>El cliente potencial ve un anuncio de Meta Ads (Facebook o Instagram) de la marca. Hace clic y aterriza en la página web pública de la marca alojada en el subdominio <code>marca.grupoplasencia.com</code>. Navega el catálogo organizado por intención de compra, abre la ficha del modelo que le interesa, revisa precio de lista, mensualidad de referencia, programas oficiales y sucursales disponibles. Cuando decide pedir información, completa un formulario de un solo paso con sus datos básicos y la sucursal de su preferencia. Recibe inmediatamente un PDF de confirmación con folio único, asesor asignado y sucursal asignada.</p>
+
+  <h3>4.2 Recorrido del vendedor digital</h3>
+  <p>En el momento en que el cliente envía su formulario, el vendedor digital de la sucursal seleccionada recibe en menos de 60 segundos un mensaje de WhatsApp Business con el folio del lead, los datos del cliente, el modelo de interés y el origen del tráfico (qué anuncio lo trajo). El vendedor responde al cliente dentro de las dos horas siguientes vía WhatsApp, lo califica, agenda cita en la sucursal y registra el avance en el CRM corporativo mediante la aplicación accesible desde navegador en <code>crm.grupoplasencia.com</code>, autenticándose con su PIN personal. El vendedor mueve la card del lead entre las columnas del kanban — por contactar, contactado, cita agendada, visita, cotización, cierre, factura — conforme avanza la oportunidad. Cada movimiento del vendedor en el kanban dispara automáticamente un evento al sistema, sin que el vendedor tenga que hacer nada adicional.</p>
+
+  <h3>4.3 Recorrido del Gerente Comercial y de la dirección de la marca</h3>
+  <p>El Gerente Comercial de la marca accede al CRM con su PIN personal y ve la operación completa de su marca (todas las sucursales): cuántos leads ingresaron en el día, cuántos han sido contactados, en qué etapa del embudo se encuentran, qué vendedores responden a tiempo y cuáles se descuelgan. El Director Comercial tiene visibilidad de la operación cross-marca cuando aplica (por ejemplo, todas las cards etiquetadas como flotilla a través de varias marcas).</p>
+  <p>La Dirección de la marca recibe quincenalmente, los días 1 y 15 de cada mes, un reporte operativo de la quincena y, mensualmente el día 1, un reporte ejecutivo de una página con el resumen del mes y la recomendación.</p>
+
+  <h3>4.4 El ciclo de aprendizaje algorítmico</h3>
+  <p>Cada vez que un vendedor mueve una card en el kanban a una etapa más avanzada del embudo (cita confirmada, visita a sucursal, cotización entregada, cierre facturado), el sistema dispara automáticamente un evento server-side a Meta y a Google con la información de ese avance específico. Las plataformas publicitarias reciben así señales del pipeline real de la marca — quién avanzó, quién compró, qué perfil tienen los compradores reales — y optimizan la pauta para mostrar los anuncios a personas con perfil similar a los compradores reales acumulados. La consecuencia operativa es que el costo por lead va bajando con el paso de las semanas, porque el algoritmo se está calibrando con la realidad de cierre de la marca y no con la noción genérica de "alguien que llenó un formulario".</p>
+  <p>Este ciclo se sostiene mientras los vendedores digitales mantengan la disciplina de actualizar el kanban en tiempo real. El trabajo operativo cotidiano del vendedor es lo que entrena al algoritmo; no requiere intervención técnica adicional de la marca ni de la Dirección de Marketing Corporativo.</p>
+
+  <h1 class="section-title"><span class="num">Sección 5</span>Definiciones</h1>
   <table>
     <thead>
       <tr><th style="width:28%">Término</th><th>Definición operativa</th></tr>
@@ -250,7 +289,7 @@
     </tbody>
   </table>
 
-  <h1 class="section-title"><span class="num">Sección 4</span>Responsabilidades</h1>
+  <h1 class="section-title"><span class="num">Sección 6</span>Responsabilidades</h1>
   <table>
     <thead>
       <tr><th style="width:33%">Rol</th><th>Responsabilidad operativa</th></tr>
@@ -267,48 +306,48 @@
 
 <!-- §5 PROCEDIMIENTO · 5.1 Insumos -->
 <section class="page">
-  <h1 class="section-title"><span class="num">Sección 5</span>Procedimiento</h1>
+  <h1 class="section-title"><span class="num">Sección 7</span>Procedimiento</h1>
 
-  <h2><span class="h-num">5.1</span>Insumos que aporta la marca para el arranque</h2>
-  <p>La entrega completa de los siguientes ocho insumos es condición operativa para la activación del cronograma de implementación de 10 días hábiles bajo happy path (§5.3). Insumos pendientes desplazan proporcionalmente la fecha de go-live.</p>
+  <h2><span class="h-num">7.1</span>Insumos que aporta la marca para el arranque</h2>
+  <p>La entrega completa de los siguientes ocho insumos es condición operativa para la activación del cronograma de implementación de 10 días hábiles bajo happy path (§7.3). Insumos pendientes desplazan proporcionalmente la fecha de go-live.</p>
 
-  <h3><span class="h-num">5.1.1</span>Lista de precios oficial vigente del OEM</h3>
+  <h3><span class="h-num">7.1.1</span>Lista de precios oficial vigente del OEM</h3>
   <p>PDF, Excel o link al sitio del OEM. Fuente legal de precios MSRP o de lista. La Dirección no improvisa precios; los publicados corresponden exactamente al material oficial del OEM.</p>
 
-  <h3><span class="h-num">5.1.2</span>Selección de catálogo evergreen para el always-on</h3>
+  <h3><span class="h-num">7.1.2</span>Selección de catálogo evergreen para el always-on</h3>
   <p>Entre 5 y 13 modelos que la marca prioriza como oferta general durante 90+ días, con bono y mensualidad de referencia anclados. Por cada modelo: precio de lista, mensualidad de referencia, escenario financiero (plazo, tasa, enganche, CAT, financiera oficial), programas evergreen del OEM (garantía, mantenimiento, asistencia) en texto literal autorizado.</p>
 
-  <h3><span class="h-num">5.1.3</span>Cadencia de oferta comercial mensual del OEM</h3>
+  <h3><span class="h-num">7.1.3</span>Cadencia de oferta comercial mensual del OEM</h3>
   <p>Mecánica de recepción de la circular del mes del OEM (formato, antelación, predictibilidad). La marca documenta cómo recibe esta información de su OEM para que la Dirección pueda planear la activación del toggle de promo en el calendario operativo.</p>
   <p>Cadencia ideal: el Gerente de Marca envía la oferta del mes siguiente al cierre del día 25 del mes en curso (bono, tasa, plazo, modelos aplicables, vigencia, términos legales). La Dirección prepara el toggle entre los días 26 y 30 y lo activa el día 1 del mes nuevo.</p>
   <p><strong>Tolerancia operativa.</strong> La operación digital del piloto no depende de que la oferta mensual llegue en tiempo y forma. Cuando la circular del OEM se retrasa, la marca no la recibe a tiempo o decide no activar promo en un mes determinado, el toggle permanece apagado y la operación continúa sobre el catálogo evergreen definido en §5.1.2 sin interrupción ni pérdida de aprendizaje algorítmico. Esta tolerancia es justamente la razón por la cual el piloto se construyó sobre la base evergreen: la operación digital del piloto se sostiene en la oferta general que la marca prioriza durante 90+ días, no en la circular mensual del OEM. La promo mensual es un valor agregado que se monta encima cuando aplica, no un requisito operativo.</p>
 
-  <h3><span class="h-num">5.1.4</span>Definición de ICP, buyer personas y arquetipos de cliente de la marca</h3>
+  <h3><span class="h-num">7.1.4</span>Definición de ICP, buyer personas y arquetipos de cliente de la marca</h3>
   <p>Documentación formal del Ideal Customer Profile (ICP), las buyer personas y los arquetipos de cliente que la marca y/o el OEM tienen ya definidos. Incluye perfil demográfico, psicográfico, jobs-to-be-done, pains, drivers y comportamiento de compra. Este insumo es típicamente material que el corporativo del OEM comparte con sus distribuidores como parte del onboarding de marca; cuando existe, la marca lo aporta tal cual.</p>
   <p>La Dirección de Marketing Corporativo utiliza este insumo para tres efectos operativos en la implementación del piloto: organización del catálogo por intención en la página web, segmentación de audiencias en el framework Andromeda 2026 para Meta Ads, y definición de las bajadas tonales de copy y creatividad por persona.</p>
   <p>En caso de que la marca o el OEM no tengan ICP o buyer personas formalmente documentados, la Dirección los construye con base en data del pipeline acumulada en el piloto, entrevistas a vendedores y material público disponible del OEM. La construcción interna añade entre 5 y 7 días al cronograma de implementación de §5.3.</p>
 
-  <h3><span class="h-num">5.1.5</span>Asignación de vendedores digitales por sucursal y alta en el CRM corporativo</h3>
+  <h3><span class="h-num">7.1.5</span>Asignación de vendedores digitales por sucursal y alta en el CRM corporativo</h3>
   <p>Cada sucursal de la marca incorporada debe contar con al menos un vendedor digital asignado al piloto. Por cada vendedor designado se entrega a la Dirección: nombre completo, número de WhatsApp Business activo, correo corporativo, sucursal a la que está adscrito y nombre del Gerente Comercial al que reporta.</p>
   <p><strong>Ecosistema operativo en el que se da de alta al vendedor.</strong> El piloto opera con un CRM corporativo propio del Grupo, accesible desde navegador en <a href="https://crm.grupoplasencia.com/">crm.grupoplasencia.com</a>. El sistema funciona bajo el modelo kanban (tablero con columnas por etapa del embudo: por contactar, contactado, cita agendada, visita, cotización, cierre, factura), y los leads ingresan automáticamente desde la página web de la marca. Cada vez que ingresa un lead, el sistema dispara una notificación de WhatsApp al vendedor digital de la sucursal correspondiente — en menos de 60 segundos desde el registro — con el folio del lead, datos del cliente, modelo de interés y origen del tráfico. El vendedor responde al cliente dentro de las 2 horas siguientes, lo califica, agenda cita y mueve la card del lead entre etapas del kanban conforme avanza la oportunidad. Los movimientos del vendedor en el kanban son los que disparan los eventos server-side a las plataformas publicitarias (§1 del SOP).</p>
   <p><strong>PIN de acceso.</strong> Cada vendedor, Gerente Comercial y Director Comercial accede al CRM corporativo mediante un PIN personal de seis dígitos que la Dirección de Marketing Corporativo emite una vez recibidos los datos de los vendedores designados por la marca. El PIN funciona como credencial individual de identificación y otorga al usuario un nivel de acceso por rol: los vendedores ven exclusivamente los leads de su sucursal, los gerentes ven los de su marca y todas sus sucursales, y los directores ven la operación completa del piloto. Esta segmentación protege la confidencialidad operativa entre sucursales y permite trazar la auditoría de cada movimiento en el kanban.</p>
   <p>Sin asignación de vendedores digitales por sucursal, los leads ingresan al kanban sin atención asignada y se pierden en las primeras 24 horas. Este insumo es el bloqueo operativo más frecuente detectado en la incorporación de las marcas vigentes del piloto.</p>
 
-  <h3><span class="h-num">5.1.6</span>Punto de contacto único de marketing</h3>
+  <h3><span class="h-num">7.1.6</span>Punto de contacto único de marketing</h3>
   <p>Persona con autoridad para aprobar copies, creativos, disclaimers y banners. SLA de respuesta esperado durante la operación: 48 horas. Sin respuesta en ese plazo, la Dirección asume aprobación tácita para no detener la operación.</p>
 
-  <h3><span class="h-num">5.1.7</span>AS IS del funnel digital actual</h3>
+  <h3><span class="h-num">7.1.7</span>AS IS del funnel digital actual</h3>
   <p>Métricas baseline de los últimos 3 a 6 meses: inversión digital por plataforma, volumen de leads por canal, CPL, funnel por etapas con retenciones, tasas de conversión, CAC sobre cierre facturado, atribución actual. Proceso de ventas digital actual (herramientas, SLA de primer contacto, calificación, handoffs, conciliación con facturación). Operación comercial actual (cadencia de ofertas del OEM, parrilla de contenido). Sin baseline AS IS no es posible declarar éxito o fracaso del piloto al día 90 con rigor.</p>
 
-  <h3><span class="h-num">5.1.8</span>Envío de Constancia de Situación Fiscal (CSF) a Viceversa</h3>
+  <h3><span class="h-num">7.1.8</span>Envío de Constancia de Situación Fiscal (CSF) a Viceversa</h3>
   <p>La marca envía la CSF actualizada de la(s) razón(es) social(es) fondeadoras directamente a Viceversa Digital al correo <a href="mailto:jaime@viceversadigital.com">jaime@viceversadigital.com</a>, con copia a la coordinación administrativa de la Dirección. Este envío habilita a Viceversa para emitir la factura administrativa correspondiente. Se realiza antes del primer transfer y debe actualizarse cuando exista cambio de razón social fondeadora.</p>
 </section>
 
 <!-- §5.2 INVERSIÓN Y MECÁNICA DE PAGO -->
 <section class="page">
-  <h1 class="section-title"><span class="num">Sección 5 (cont.)</span>Procedimiento</h1>
+  <h1 class="section-title"><span class="num">Sección 7 (cont.)</span>Procedimiento</h1>
 
-  <h2><span class="h-num">5.2</span>Inversión y mecánica de pago vía Viceversa</h2>
+  <h2><span class="h-num">7.2</span>Inversión y mecánica de pago vía Viceversa</h2>
   <p>La inversión piso del piloto es de <strong>$30,000 MXN netos mensuales en pauta de medios digitales</strong>, durante 90 días de campaña activa. Sobre ese monto neto se suman la comisión administrativa de Viceversa Digital y el IVA correspondiente, dado que Viceversa es el tercero que administra la compra de medios y emite la factura al Grupo.</p>
 
   <table>
@@ -350,7 +389,7 @@
 
   <p>Cifras en pesos mexicanos. De los <strong>$37,584 MXN brutos mensuales</strong> que la marca paga a Viceversa, únicamente <strong>$30,000 MXN se aplican como pauta efectiva</strong> en las plataformas publicitarias para la marca. La diferencia de <strong>$7,584 MXN mensuales</strong> corresponde a la comisión administrativa de Viceversa (8% sobre la pauta neta = $2,400) más el IVA correspondiente (16% sobre pauta más comisión = $5,184).</p>
 
-  <h3><span class="h-num">5.2.1</span>Flujo administrativo de pago</h3>
+  <h3><span class="h-num">7.2.1</span>Flujo administrativo de pago</h3>
   <ol>
     <li>La marca envía su CSF actualizada a Viceversa Digital (procedimiento §5.1.8).</li>
     <li>Viceversa emite factura mensual a la marca por $37,584 MXN brutos.</li>
@@ -360,10 +399,10 @@
     <li>La conciliación administrativa mensual entre Viceversa, la Dirección de Marketing Corporativo y la marca se ejecuta dentro de los primeros 5 días hábiles del mes siguiente.</li>
   </ol>
 
-  <h3><span class="h-num">5.2.2</span>Distribución entre sucursales</h3>
+  <h3><span class="h-num">7.2.2</span>Distribución entre sucursales</h3>
   <p>La distribución de los $30,000 MXN netos de pauta entre las sucursales de la marca la define la marca administrativamente. La Dirección de Marketing Corporativo recibe esa distribución como entrada para configurar las cuentas publicitarias y los kanbanes operativos por sucursal.</p>
 
-  <h3><span class="h-num">5.2.3</span>Datos para transferencia a Viceversa</h3>
+  <h3><span class="h-num">7.2.3</span>Datos para transferencia a Viceversa</h3>
   <table>
     <thead>
       <tr><th style="width:32%">Campo</th><th>Valor</th></tr>
@@ -383,9 +422,9 @@
 
 <!-- §5.3 CRONOGRAMA + §5.4 OPERACIÓN + §5.5 CIERRE -->
 <section class="page">
-  <h1 class="section-title"><span class="num">Sección 5 (cont.)</span>Procedimiento</h1>
+  <h1 class="section-title"><span class="num">Sección 7 (cont.)</span>Procedimiento</h1>
 
-  <h2><span class="h-num">5.3</span>Cronograma de implementación · 10 días hábiles bajo happy path</h2>
+  <h2><span class="h-num">7.3</span>Cronograma de implementación · 10 días hábiles bajo happy path</h2>
   <table>
     <thead>
       <tr>
@@ -405,7 +444,7 @@
   </table>
   <div class="nota">Los 10 días hábiles son estimación bajo happy path. Asumen entregables completos al día −10 y revisiones de la marca dentro del SLA de 48 horas. Insumos o revisiones que se retrasen desplazan la fecha de go-live proporcionalmente.</div>
 
-  <h2><span class="h-num">5.4</span>Operación y reporting durante los 90 días</h2>
+  <h2><span class="h-num">7.4</span>Operación y reporting durante los 90 días</h2>
   <table>
     <thead>
       <tr><th style="width:24%">Frecuencia</th><th style="width:32%">Destinatario</th><th style="width:44%">Contenido</th></tr>
@@ -419,10 +458,10 @@
     </tbody>
   </table>
 
-  <h2><span class="h-num">5.5</span>Cierre y decisión al día 90</h2>
+  <h2><span class="h-num">7.5</span>Cierre y decisión al día 90</h2>
   <p>Al cumplirse los 90 días de operación, la Dirección de Marketing Corporativo entrega un paper ejecutivo con la lectura del periodo y la recomendación firmada por el Director que fondeó y el Director de Marketing Corporativo. El piloto no continúa por inercia. Los caminos posibles son: escalar la inversión, continuar al mismo nivel optimizando, pausar para revisar entregables de la marca, o salir del piloto.</p>
 
-  <h1 class="section-title"><span class="num">Sección 6</span>Referencias</h1>
+  <h1 class="section-title"><span class="num">Sección 8</span>Referencias</h1>
   <ul>
     <li><code>03-tech/Compra-de-Medios-Viceversa.md</code> · Esquema administrativo Viceversa Digital, cuentas publicitarias, datos de transferencia.</li>
     <li><code>03-tech/Pivote-2-Playbook-Multimarca.md</code> · Patrón operativo evergreen + toggle de oferta mensual.</li>
@@ -431,7 +470,7 @@
     <li><code>01-strategy/Motor-Atribucion-Consejo-Strategy-Definition.md</code> · Strategy Definition del Motor de Atribución MVP.</li>
   </ul>
 
-  <h1 class="section-title"><span class="num">Sección 7</span>Control de cambios</h1>
+  <h1 class="section-title"><span class="num">Sección 9</span>Control de cambios</h1>
   <table class="version-table">
     <thead>
       <tr><th style="width:12%">Versión</th><th style="width:18%">Fecha</th><th style="width:30%">Elaboró / Aprueba</th><th>Cambio</th></tr>
