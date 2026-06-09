@@ -167,7 +167,11 @@
   h3 {
     font-family: var(--sans); font-weight: 700; font-size: 11.5pt; color: var(--gp-navy);
     margin-top: 7mm; margin-bottom: 3mm; letter-spacing: -0.1px; line-height: 1.35;
-    page-break-after: avoid;
+    page-break-after: avoid; break-after: avoid;
+    page-break-inside: avoid; break-inside: avoid;
+  }
+  h3 + p, h3 + ul, h3 + ol, h3 + table, h3 + .callout, h3 + .arch {
+    page-break-before: avoid; break-before: avoid;
   }
   h3:first-of-type { margin-top: 5mm; }
   h4 {
@@ -351,11 +355,11 @@
   <div class="cover-inner">
     <div>
       <div class="cover-mark">SOP — Brief operativo de implementación
-        <span>Versión 1.9 · 8 de junio de 2026 · Documento operativo de uso interno · Grupo Plasencia Automotriz</span>
+        <span>Versión 2.0 · 8 de junio de 2026 · SOP de la Dirección de Marketing Corporativo · Grupo Plasencia Automotriz</span>
       </div>
       <div class="cover-eyebrow">Piloto Motor de Atribución MVP</div>
-      <div class="cover-title">Onboarding<br><em>de una marca</em><br>automotriz del<br>Grupo al piloto.</div>
-      <div class="cover-title-after">Documento interno del Centro de Excelencia de Marketing Corporativo para arrancar<br>la implementación del piloto en una de las <strong>marcas-concesionarias automotrices</strong><br>del Grupo Plasencia (Hyundai, Stellantis, GAC, Changan, GWM, Toyota, Ford, Mazda,<br>Honda, Seminuevos, etc., con sus respectivas sucursales). Hoy en producción en<br>Hyundai, Stellantis, Seminuevos y GAC bajo este mismo SOP.</div>
+      <div class="cover-title">SOP de incorporación de una marca al piloto.</div>
+      <div class="cover-title-after">Estándar de trabajo de la Dirección de Marketing Corporativo del Grupo Plasencia Automotriz para incorporar una de sus marcas-concesionarias al Piloto Motor de Atribución MVP. Hoy en producción bajo este mismo estándar en Hyundai, Stellantis, Seminuevos y GAC.</div>
       <div class="cover-subtitle">Documento operativo "marketing al marketing" — para que los equipos involucrados en la incorporación de una marca al piloto compartan el mismo entendimiento de qué entrega la Dirección Corporativa, qué aporta la marca y cómo se decide al cierre.</div>
     </div>
 
@@ -397,7 +401,7 @@
 
   <div class="toc">
     <div class="toc-item"><div class="toc-num">00</div><div class="toc-title">En 30 segundos · La decisión que te estoy pidiendo <span class="toc-sub">Si solo tienes tiempo de leer una página, lee esta. Qué decides, qué cuesta, qué ganas, qué pierdes si no entras</span></div><div class="toc-page">3</div></div>
-    <div class="toc-item"><div class="toc-num">01</div><div class="toc-title">Qué es el Piloto Motor de Atribución MVP y por qué tu marca entra <span class="toc-sub">Definición canónica · 4 hipótesis estratégicas · lo que el piloto NO es · audiencia · encuadre Centro de Excelencia interno</span></div><div class="toc-page">4</div></div>
+    <div class="toc-item"><div class="toc-num">01</div><div class="toc-title">Qué es el Piloto Motor de Atribución MVP y por qué le beneficia a la marca entrar ahora <span class="toc-sub">Definición canónica · 4 hipótesis estratégicas · lo que el piloto NO es · audiencia · encuadre Centro de Excelencia interno</span></div><div class="toc-page">4</div></div>
     <div class="toc-item"><div class="toc-num">01·B</div><div class="toc-title">El piloto en producción al 8 de junio de 2026 <span class="toc-sub">4 líneas operando · qué ya está validado · qué sigue validándose · por qué tu marca entra ahora</span></div><div class="toc-page">5</div></div>
     <div class="toc-item"><div class="toc-num">02</div><div class="toc-title">La pregunta estratégica detrás del piloto <span class="toc-sub">Por qué SPA con catálogo tipo e-commerce y no LeadGen Ads ni WhatsApp Ads — calidad de prospección vs volumen</span></div><div class="toc-page">6</div></div>
     <div class="toc-item"><div class="toc-num">03</div><div class="toc-title">Condiciones financieras del piloto <span class="toc-sub">$30,000 MXN netos/mes piso · 90 días · esquema Viceversa · forma de pago</span></div><div class="toc-page">6</div></div>
@@ -482,7 +486,7 @@
      §01 — Qué es el piloto, para qué sirve, qué valida
 ============================================================ -->
 <section class="page">
-  <h1 class="section-title"><span class="num">Sección 01</span>Qué es el Piloto Motor de Atribución MVP y por qué tu marca entra</h1>
+  <h1 class="section-title"><span class="num">Sección 01</span>Qué es el Piloto Motor de Atribución MVP y por qué le beneficia a la marca entrar ahora</h1>
 
   <p class="lead">Antes de hablar de inversión, entregables y timeline, este SOP necesita que la marca entrante entienda <strong>en qué está entrando</strong>. El piloto no es una campaña digital con otro nombre. Es la prueba operacional de una capacidad corporativa que Grupo Plasencia está validando para <strong>institucionalizar como infraestructura permanente del Grupo</strong>.</p>
 
@@ -576,70 +580,57 @@
      §02 — La pregunta estratégica detrás del piloto
 ============================================================ -->
 <section class="page">
-  <h1 class="section-title"><span class="num">Sección 02</span>La pregunta estratégica detrás del piloto</h1>
+  <h1 class="section-title"><span class="num">Sección 02</span>La migración de volumen a calidad de prospección</h1>
 
-  <p class="lead">Antes de hablar de dinero, contactos, fotos o vendedores, este SOP necesita que el director de marca entienda por qué el piloto se monta sobre <strong>SPA con catálogo tipo e-commerce</strong> y no sobre <strong>LeadGen Ads</strong> ni sobre <strong>WhatsApp Ads</strong>, que son los formatos más usados hoy en automotriz en México y son lo que probablemente ya tiene contratado con su agencia actual.</p>
+  <p class="lead">El piloto materializa una migración que la Dirección Corporativa ya completó en Hyundai y Stellantis, y que está aplicando hoy en GAC y Seminuevos: pasar del modelo tradicional de LeadGen Ads y WhatsApp Ads operado por agencias externas — orientado a volumen de formularios — a un modelo de catálogo digital tipo e-commerce operado por la Dirección, orientado a calidad de prospección y atribución hasta cierre.</p>
 
-  <h3>Las tres opciones disponibles</h3>
+  <h3>Modelo tradicional vs. modelo del piloto</h3>
 
   <table>
     <thead>
       <tr>
-        <th style="width:18%">Formato</th>
-        <th style="width:30%">Cómo funciona</th>
-        <th style="width:22%">Qué optimiza Meta</th>
-        <th style="width:30%">Quién decide qué se publica</th>
+        <th style="width:28%">Dimensión</th>
+        <th style="width:36%">Modelo tradicional (BAU de la marca antes del piloto)</th>
+        <th style="width:36%">Modelo del piloto (post-migración)</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td><strong>LeadGen Ads</strong><br><span class="badge badge--gray">Volumen</span></td>
-        <td>Form nativo dentro de Facebook/Instagram. El usuario nunca sale del feed. Llena nombre, teléfono, modelo de interés. El lead cae a un CRM o a un Excel.</td>
+        <td><strong>Formato de pauta</strong></td>
+        <td>LeadGen Ads + Click-to-WhatsApp Ads, operados por agencia externa.</td>
+        <td>Catálogo digital evergreen estilo e-commerce + Conversions API server-side, operados por la Dirección Corporativa.</td>
+      </tr>
+      <tr>
+        <td><strong>Qué optimizan las plataformas</strong></td>
         <td>Volumen de formularios completados. Sin señales de intención real.</td>
-        <td>La agencia o el gerente. La marca apenas valida copy.</td>
+        <td>Eventos del pipeline (cita, visita, cotización, compra) atribuidos por marca.</td>
       </tr>
       <tr>
-        <td><strong>WhatsApp Ads</strong> (Click-to-WA)<br><span class="badge badge--gray">Volumen</span></td>
-        <td>El usuario hace click y aterriza directo en una conversación de WhatsApp con la agencia o el bot Karbot. Cero contexto previo del auto.</td>
-        <td>Volumen de chats iniciados. Optimiza por interacción, no por compra.</td>
-        <td>La agencia define el chat. El bot pregunta lo mismo a todos.</td>
+        <td><strong>Calidad del lead</strong></td>
+        <td>Alto volumen, baja intención. Mayoría no contesta el teléfono.</td>
+        <td>Menor volumen, alta intención. El cliente eligió el auto antes de dejar datos.</td>
       </tr>
       <tr>
-        <td><strong>SPA Catálogo E-comm</strong><br><span class="badge badge--navy">Calidad</span></td>
-        <td>El usuario aterriza en un catálogo navegable estilo Mercado Libre. Filtra, compara, abre la ficha del auto que le interesa, ve precio, mensualidad de referencia, programas, sucursales. Solo deja sus datos cuando <strong>ya decidió por qué auto pregunta</strong>.</td>
-        <td>Optimiza por <strong>VisitaSucursal / Compra</strong> vía Pixel + CAPI. Le devuelve a Meta la señal de quién realmente compró, no solo quién dio un teléfono.</td>
-        <td>La marca + el Grupo. Lo que aparece en el catálogo es lo que el OEM autoriza y lo que el inventario respalda.</td>
+        <td><strong>Data acumulada</strong></td>
+        <td>Se queda con la agencia externa. La marca depende de su reporte.</td>
+        <td>Se queda con el Grupo Plasencia. Pixel, audiencias y aprendizaje algorítmico son activo institucional.</td>
       </tr>
     </tbody>
   </table>
 
-  <h3>El trade-off es real: volumen vs calidad de prospección</h3>
+  <h3>Por qué esta migración ya se completó en Hyundai y Stellantis</h3>
+  <p>El piloto comenzó con Hyundai y Stellantis operando inicialmente bajo el modelo LeadGen tradicional. Conforme el Motor de Atribución se consolidó, ambas marcas migraron al modelo de catálogo evergreen (Pivote 2). La consecuencia operativa documentada en el reporting interno: las plataformas pasaron de optimizar por volumen de formularios a optimizar por eventos del pipeline real reportados vía Conversions API server-side. El costo por lead inicial es mayor, pero el costo por cliente facturado se reduce conforme el algoritmo se calibra con la realidad de cierre de cada marca.</p>
 
-  <div class="compare">
-    <div class="compare-col lose">
-      <h4>LeadGen / WhatsApp Ads — Volumen sin calidad</h4>
-      <p><strong>Lo que ves en el reporte:</strong> 800 leads/mes. CPL barato. Gerente comercial feliz al ver el número.</p>
-      <p><strong>Lo que pasa de verdad:</strong> 600 leads no contestan el teléfono. 150 dieron datos por curiosidad. 30 calificaron. <strong>5–8 compraron.</strong> El vendedor se quema persiguiendo gente que nunca tuvo intención. La marca paga por leads que no convierten y nunca aprende qué prospecto sí compra.</p>
-      <p><strong>Lo que Meta aprende:</strong> nada útil. Le seguimos pidiendo "más como estos" y nos manda más volumen igual de tibio.</p>
-    </div>
-    <div class="compare-col win">
-      <h4>SPA Catálogo E-comm — Volumen menor, intención alta</h4>
-      <p><strong>Lo que ves en el reporte:</strong> 150–250 leads/mes. CPL mayor. Inicialmente parece "menos".</p>
-      <p><strong>Lo que pasa de verdad:</strong> 90% contesta el teléfono porque el lead específicamente pidió información de <em>un</em> auto. 40% agenda cita. <strong>15–25 compran.</strong> Misma o mayor cantidad de unidades vendidas con menos leads y menos quema del vendedor.</p>
-      <p><strong>Lo que Meta aprende:</strong> patrón de los que sí compraron (CAPI con evento <em>VisitaSucursal</em>). Pide más como esos. El CPL <strong>baja con el tiempo</strong> porque el algoritmo empieza a optimizar por compradores reales, no por curiosos.</p>
-    </div>
+  <div class="callout">
+    <span class="callout-label">El insight estratégico que sostiene el piloto</span>
+    <p>Las plataformas publicitarias optimizan exclusivamente por el evento que la marca les regresa. Si solo reciben "el usuario llenó un formulario", optimizan por gente dispuesta a llenar formularios. Si reciben "el usuario vino a la sucursal" o "el usuario compró", optimizan por gente con perfil de comprador real. El catálogo digital evergreen, combinado con Conversions API server-side y el kanban operativo, es la arquitectura que produce esa señal de manera limpia y la regresa a las plataformas en tiempo real.</p>
   </div>
 
-  <div class="callout callout--gold">
-    <span class="callout-label">El insight estratégico</span>
-    <p>Las plataformas hoy optimizan por <strong>el evento que tú les regreses</strong>. Si solo les regresas "el usuario llenó un form", optimizan por gente dispuesta a llenar forms — no por gente dispuesta a comprar. Si les regresas "el usuario vino a la sucursal" o "el usuario compró", optimizan por eso. <strong>El catálogo e-commerce es el único formato que produce esa señal de manera limpia</strong>, porque captura la intención específica del auto antes del lead. El piloto Motor de Atribución MVP del Grupo existe precisamente para regresarle a Meta esa señal.</p>
-  </div>
-
-  <h3>Lo que esto significa para la marca que evalúa entrar</h3>
+  <h3>Implicaciones operativas para la marca que se incorpora</h3>
   <ul>
-    <li><strong>El piloto va a empezar con menos leads que tu LeadGen actual.</strong> Eso es intencional. Vamos a buscar volumen <em>después</em> de que el algoritmo aprenda quién sí compra en tu marca.</li>
-    <li><strong>Tu vendedor digital va a contestar leads mejor calificados.</strong> Quien deje sus datos en el catálogo ya investigó modelo, precio y sucursal. La conversación arranca 3 pasos adelante.</li>
-    <li><strong>Vas a tener data propia.</strong> Pixel, CAPI, GA4 y CRM acumulan información del comprador real de tu marca. Esa data se queda con el Grupo, no con la agencia, y se vuelve activo permanente.</li>
+    <li>El volumen inicial de leads es menor al del modelo LeadGen tradicional. Es esperado: el catálogo filtra por intención antes del lead.</li>
+    <li>Los vendedores digitales reciben leads mejor calificados, con modelo, precio y sucursal ya elegidos por el cliente.</li>
+    <li>El Pixel, las audiencias y el aprendizaje algorítmico se acumulan como activo del Grupo, no de una agencia externa.</li>
     <li><strong>Al día 90 vas a poder decidir si escalas, ajustas o sales</strong> — con números reales, no con la promesa del proveedor.</li>
   </ul>
 </section>
@@ -764,10 +755,7 @@
     <li><strong>Histórico de los últimos 3-6 meses de ofertas del OEM</strong> <em>(deseable)</em> — qué bonos dieron, qué tasas, en qué modelos, qué tan agresivos fueron. <span class="checklist-desc">Permite a la Dirección calibrar expectativas de performance del piloto en los primeros 90 días contra el patrón histórico del OEM.</span></li>
   </ul>
 
-  <div class="callout">
-    <span class="callout-label">Compromiso de fidelidad al material oficial del OEM</span>
-    <p>Como criterio operativo, todo lo que la Dirección publica en la página y en los anuncios (precios, mensualidades, programas, garantías, vigencias) proviene exclusivamente del material oficial del OEM o de lo que la marca autoriza por escrito. La Dirección no improvisa ni traduce a lenguaje propio términos comerciales que no estén en el material original — es un cuidado que protege legalmente a la marca y mantiene consistencia entre lo digital y lo que el cliente encuentra en piso. Si en alguna iteración se detecta una redacción que se desvía del material oficial, se ajusta en el mismo sprint. Caso documentado en Hyundai: un término se había incorporado en una iteración temprana y no aparecía en el material de Vero; se corrigió en cuanto se detectó.</p>
-  </div>
+  <p class="note">Todo lo que se publica en la página y los anuncios (precios, mensualidades, programas, garantías, vigencias) proviene exclusivamente del material oficial del OEM o de lo que la marca autoriza por escrito. Esta es una regla operativa interna de la Dirección Corporativa para proteger legalmente a la marca y mantener consistencia entre lo digital y lo que el cliente encuentra en piso.</p>
 
   <h3>F · Activos visuales del catálogo</h3>
   <p>El orden de prioridad para fotos del catálogo evergreen de la SPA:</p>
@@ -863,11 +851,6 @@
       </tr>
     </tbody>
   </table>
-
-  <div class="callout callout--red">
-    <span class="callout-label">Caso real reciente</span>
-    <p>El onboarding de GAC al piloto (junio 2026) arrancó <strong>parcialmente bloqueado</strong> por este punto: en D1 (base de datos del CRM) no había vendedores digitales con WhatsApp confirmado para las 2 sucursales del piloto. El routing de notificación WhatsApp degeneró temporalmente a "solo el Director MKT recibe la notificación" hasta que la marca asignó vendedores con PIN activo. Documentado en <em>Memory/project_gac_pivote2_estructural.md</em>.</p>
-  </div>
 
   <h3>Permisos del kanban y notificación WhatsApp dinámica</h3>
   <p>El CRM/Kanban tiene control de acceso por PIN y por sucursal. Cada vez que un lead entra a una sucursal específica, el worker dispara una notificación WhatsApp al vendedor digital + gerente comercial de esa sucursal con: folio, datos del cliente, modelo de interés, tipo de uso (Personal/Flotilla), origen del tráfico. La marca recibe documentación de este flujo (<em>03-tech/Routing-WhatsApp-Notif-Por-Marca.md</em>) antes del go-live.</p>
@@ -969,7 +952,7 @@
   </table>
 
   <h3>Cómo se opera el toggle</h3>
-  <p>Es un cambio de configuración del lado de mi equipo. Activación o desactivación en menos de un minuto, sin tirar la página. (Si tu Coordinador de Sistemas quiere el detalle técnico, está en §11.)</p>
+  <p>Es un cambio de configuración del lado de la Dirección Corporativa. Activación o desactivación en menos de un minuto, sin downtime de la página. (Detalle técnico para el responsable de sistemas de la marca en §11.)</p>
 
   <h3>Calendario de coordinación contigo</h3>
   <ul>
@@ -986,7 +969,7 @@
      §06 — Lo que recibes durante la operación (lenguaje humano)
 ============================================================ -->
 <section class="page">
-  <h1 class="section-title"><span class="num">Sección 06</span>Qué entrega mi equipo durante la implementación y la operación</h1>
+  <h1 class="section-title"><span class="num">Sección 06</span>Qué entrega el piloto durante la implementación y la operación</h1>
 
   <p class="lead">Alcance operativo del servicio, en lenguaje claro. El detalle técnico está al final en el Apéndice §11 — para que el responsable de sistemas de tu marca pueda auditarlo si lo requiere.</p>
 
@@ -1007,8 +990,8 @@
   <h3>5 · WhatsApp directo a tu vendedor digital cuando llega un lead</h3>
   <p>El sistema le manda WhatsApp al vendedor digital de la sucursal correcta en menos de un minuto desde el registro del lead, con folio, datos del cliente, modelo, sucursal y origen. Tu vendedor puede contestar de inmediato — la promesa al cliente final es contacto en menos de 2 horas, y este flujo es lo que la hace posible.</p>
 
-  <h3>6 · Tus anuncios de Meta Ads operados por mi equipo (Andromeda 2026 + toggle de oferta del OEM)</h3>
-  <p>Yo opero la cuenta de Facebook / Instagram Ads de tu marca con un framework propio del Grupo (Andromeda 2026) que aprende qué creatividad funciona y la rota. Tú me das la oferta del mes y la brand guideline; yo me encargo de creatives, audiencias, segmentación, optimización y rotación semanal. La cuenta es del Grupo Plasencia — no de mi equipo, no de una agencia, no de Viceversa.</p>
+  <h3>6 · Cuenta Meta Ads de la marca operada por la Dirección Corporativa (Andromeda 2026 + toggle de oferta del OEM)</h3>
+  <p>La cuenta de Facebook e Instagram Ads de la marca se opera con un framework propio del Grupo (Andromeda 2026) que aprende qué creatividad funciona y rota. La marca aporta la oferta del mes y los lineamientos; la Dirección Corporativa se encarga de creatividad, audiencias, segmentación, optimización y rotación. La cuenta es propiedad del Grupo Plasencia, no de Viceversa ni de una agencia externa.</p>
 
   <h3>7 · Reportes y conciliación contable</h3>
   <ul>
@@ -1019,7 +1002,7 @@
   </ul>
 
   <h3>8 · Visibilidad total — sin caja negra</h3>
-  <p>Cuando quieras, te doy acceso de lectura a Meta Ads Manager y a Google Analytics. Cuando quieras, te doy acceso al repositorio de documentación donde está todo lo que mi equipo hace para tu marca — commits, decisiones, sesiones de trabajo. La auditabilidad es del Grupo, no mía.</p>
+  <p>La marca puede solicitar acceso de lectura a Meta Ads Manager y a Google Analytics en cualquier momento. También puede solicitar acceso al repositorio de documentación corporativa donde se registra todo lo que se hace para la marca: commits, decisiones, sesiones de trabajo. La auditabilidad es del Grupo Plasencia, no de la Dirección Corporativa de forma exclusiva.</p>
 
   <h3>9 · Si decides salir al día 90, te llevas lo tuyo</h3>
   <p>Si tu marca decide salir del piloto al día 90, te llevas el reporte final con el pipeline completo. La página web la apagamos (revertimos el DNS al sitio que tenías antes). Las audiencias acumuladas y el aprendizaje algorítmico se quedan con el Grupo — no se las puedes llevar a una agencia, pero <strong>tampoco un proveedor externo te puede llevar lo tuyo</strong> a la fuga. No hay lock-in en ninguna dirección.</p>
@@ -1036,7 +1019,7 @@
 <section class="page">
   <h1 class="section-title"><span class="num">Sección 06 · B</span>Arquitectura de la solución y el flywheel de aprendizaje del algoritmo</h1>
 
-  <p class="lead">Esta página te muestra cómo está armada la solución por dentro. Son cinco capas que trabajan juntas y que sostienen la operación del piloto. No necesitas conocer el detalle técnico para que tu marca funcione — mi equipo se encarga de eso. La incluyo aquí simplemente para que tengas visibilidad de lo que está corriendo debajo y puedas compartirla con tu equipo de sistemas si en algún momento les interesa revisarla.</p>
+  <p class="lead">Esta página documenta la arquitectura de la solución. Son cinco capas que trabajan juntas y que sostienen la operación del piloto. La marca no requiere conocer el detalle técnico para que la operación funcione: la Dirección Corporativa se hace cargo del stack. Se incluye en el SOP para que el responsable de sistemas o de IT de la marca tenga visibilidad de la arquitectura si lo requiere para auditoría o gobernanza.</p>
 
   <h3>Las cinco capas que operan el piloto</h3>
   <div class="arch">
@@ -1191,7 +1174,7 @@
   <p class="lead">Cadencia de reportes durante los 90 días de operación, audiencias de cada uno y el cierre formal al cumplir el periodo.</p>
 
   <h3>Quincenal — reporte operativo para tu Gerente de Marketing y tu Gerente Comercial</h3>
-  <p>Yo lo entrego cada quincena (días 1 y 15, o el lunes hábil más cercano). Emmanuel acompaña. Vía correo + sync de 30 min en Teams si lo quieres. La cadencia quincenal le da al piloto suficiente data acumulada para conclusiones útiles y a tu equipo respiración entre reportes. Contenido:</p>
+  <p>La Dirección Corporativa lo entrega cada quincena (días 1 y 15, o el lunes hábil más cercano). Vía correo, con opción de sync de 30 minutos en Teams si la marca lo solicita. La cadencia quincenal acumula data suficiente para conclusiones útiles y da margen de respiración entre reportes. Contenido:</p>
 
   <ol>
     <li><strong>Cuánto llevamos gastado vs el piloto.</strong> Días corridos vs los 90 del cap.</li>
@@ -1355,7 +1338,7 @@
 
   <div class="faq-item">
     <p class="faq-q">¿En qué se diferencia esto de mi agencia actual?</p>
-    <p class="faq-a">Tu agencia probablemente te cobra fee fijo mensual + comisión sobre la pauta, te entrega leads de Facebook Forms o WhatsApp Ads (el modelo de volumen que explico en §02), y opera con su propio stack que no controlas. Yo no cobro fee. La operación la hace mi equipo con el stack del Grupo. La data se queda contigo y con el Grupo, no con un tercero. Y al día 90 tú decides si seguimos — no yo.</p>
+    <p class="faq-a">La agencia tradicional típicamente cobra fee fijo mensual + comisión sobre la pauta, entrega leads de Facebook Forms o WhatsApp Ads (el modelo de volumen descrito en §02), y opera con su propio stack al que la marca no tiene acceso. La Dirección Corporativa no cobra fee. La operación se realiza con el stack del Grupo. La data se queda con la marca y con el Grupo, no con un tercero. Al día 90 la marca decide si continúa.</p>
   </div>
 
   <div class="faq-item">
@@ -1370,7 +1353,7 @@
 
   <div class="signature">
     <h3>Siguientes pasos para arrancar la implementación</h3>
-    <p><strong>1. Kickoff de 60 minutos.</strong> Tu Gerente de Marca, tu punto de contacto comercial y mi equipo (Emmanuel + yo). Agendamos por WhatsApp o correo. En el kickoff cubrimos §04 entregable por entregable y definimos fecha tentativa del día -10.</p>
+    <p><strong>1. Kickoff de 60 minutos.</strong> Asisten el Gerente de Marca, el punto de contacto comercial de la marca y el equipo de la Dirección Corporativa (Chucho Porras + Emmanuel Ramírez). Se agenda por WhatsApp o correo. En el kickoff se cubre §04 entregable por entregable y se define fecha tentativa para el día -10.</p>
     <p><strong>2. Entrega de insumos.</strong> Tu equipo entrega los entregables de §04 (brand, catálogo, precios, fotos, estructura humana, AS IS). El día -10 arranca el cronograma de implementación.</p>
     <p><strong>3. Go-live día 0.</strong> 10 días hábiles después de la entrega completa, bajo happy path. Reporting quincenal entra en cadencia los primeros 15 días posteriores al go-live.</p>
     <div class="contact-block">
