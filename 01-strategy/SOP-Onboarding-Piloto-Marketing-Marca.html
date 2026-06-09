@@ -317,6 +317,17 @@
     page-break-inside: avoid;
   }
 
+  /* ============ DIAGRAMA ARQUITECTURA (boxes grid, sin scroll, A4 friendly) ============ */
+  .arch { margin: 6mm 0 5mm 0; page-break-inside: avoid; }
+  .arch-row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 2.5mm; margin-bottom: 3mm; }
+  .arch-box { background: var(--paper); border: 1px solid var(--g200); border-top: 3px solid var(--gp-navy); border-radius: 4px; padding: 3.5mm 3mm; min-height: 38mm; position: relative; }
+  .arch-box .arch-num { font-family: var(--serif); font-weight: 800; font-size: 10pt; color: var(--gp-red); letter-spacing: 1px; margin-bottom: 1mm; }
+  .arch-box .arch-title { font-family: var(--sans); font-weight: 700; font-size: 9pt; color: var(--gp-navy); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 2mm; line-height: 1.25; }
+  .arch-box .arch-body { font-size: 8.5pt; color: var(--g700); line-height: 1.45; }
+  .arch-box.accent { border-top-color: var(--gp-red); }
+  .arch-flow { background: var(--gp-navy); color: var(--near-white); padding: 4mm 5mm; border-radius: 4px; font-size: 9pt; line-height: 1.6; }
+  .arch-flow strong { color: var(--gold); }
+
   /* ============ INLINE CODE ============ */
   code { font-family: 'SF Mono', Consolas, Monaco, monospace; font-size: 0.9em; background: var(--g100); padding: 1px 5px; border-radius: 3px; color: var(--gp-navy); border: 1px solid var(--g200); }
 
@@ -340,7 +351,7 @@
   <div class="cover-inner">
     <div>
       <div class="cover-mark">SOP — Brief operativo de implementación
-        <span>Versión 1.8 · 8 de junio de 2026 · Documento operativo de uso interno · Grupo Plasencia Automotriz</span>
+        <span>Versión 1.9 · 8 de junio de 2026 · Documento operativo de uso interno · Grupo Plasencia Automotriz</span>
       </div>
       <div class="cover-eyebrow">Piloto Motor de Atribución MVP</div>
       <div class="cover-title">Onboarding<br><em>de una marca</em><br>automotriz del<br>Grupo al piloto.</div>
@@ -486,13 +497,13 @@
     <p>¿Puede Grupo Plasencia operar el marketing digital de sus 8 marcas + Seminuevos con <strong>una sola Dirección Corporativa, una sola plataforma técnica, una sola lógica de atribución y un solo modelo de ventas digitales</strong>, manteniendo autonomía comercial de cada marca, con costo marginal por marca incorporada y con visibilidad de oportunidad a cierre que hoy no existe en ninguna marca del Grupo?</p>
   </div>
 
-  <h3>Las 4 hipótesis estratégicas que el piloto valida</h3>
-  <p>El piloto no es una campaña — es un experimento controlado que pone a prueba 4 hipótesis articuladas en el <em>Strategy Definition</em> del Motor (ver Anexo §11). Si las 4 se confirman al día 90 en cada marca incorporada, la recomendación al Consejo es institucionalizar el modelo. Cada marca que entra es una réplica del experimento que aporta evidencia adicional.</p>
+  <h3>Los 4 pilares de la propuesta estratégica del piloto</h3>
+  <p>El piloto está articulado sobre 4 pilares que sostienen el argumento que la Dirección lleva al Consejo (ver <em>Strategy Definition</em> del Motor de Atribución MVP). El piloto produce evidencia para sostener o ajustar estos 4 pilares en cada marca que se incorpora.</p>
   <ol>
-    <li><strong>Hipótesis 1 — Infraestructura corporativa.</strong> La capacidad técnica (Worker + D1 + CAPI + dashboard) es escalable cross-marca con costo marginal. Cada marca nueva se monta sin re-construir nada del stack.</li>
-    <li><strong>Hipótesis 2 — Revenue Operations.</strong> El cuello del negocio digital no está en adquisición sino en la articulación marketing → ventas digitales → piso. Resolver gobierno corporativo sobre esa articulación es condición previa al escalamiento.</li>
-    <li><strong>Hipótesis 3 — Escalamiento con gates.</strong> El paso de 3 → 5 → 8 marcas se condiciona a métricas verificables de cierre (asignación de vendedor &gt;95%, conversión cita → visita &gt;30%, ≥1 cierre atribuido/marca/mes). Si una marca no pasa los gates, no escala; eso protege al Grupo de escalar fragmentación.</li>
-    <li><strong>Hipótesis 4 — Capacidad apalancada por IA.</strong> El modelo operativo del piloto demostró que un perfil correctamente calibrado con asistencia de IA entrega lo que tradicionalmente requiere células de 5-7 personas y 5-7 meses. Esta palanca es ventaja sostenible si se institucionaliza, no si queda como excepción del piloto.</li>
+    <li><strong>Pilar 1 — Motor de Atribución como infraestructura corporativa permanente.</strong> El stack actual (Worker + D1 + Conversions API + dashboard multi-canal + conciliación diaria) pasa de activo del piloto a infraestructura corporativa con SLA, documentación auditable y responsable formal.</li>
+    <li><strong>Pilar 2 — Revenue Operations bajo gobierno corporativo.</strong> Marketing, ventas digitales y datos operan bajo una sola dirección con métricas compartidas y trazabilidad de oportunidad a cierre. El cuello identificado en el piloto no está en marketing sino en la articulación marketing → ventas digitales → piso.</li>
+    <li><strong>Pilar 3 — Escalamiento progresivo cross-brand con gates de cierre.</strong> El paso de marcas se condiciona a métricas verificables (asignación de vendedor >95%, conversión cita → visita >30%, ≥1 cierre atribuido por marca y por mes). Cada marca incorporada llega con el modelo operativo correcto.</li>
+    <li><strong>Pilar 4 — Capacidad apalancada por inteligencia artificial.</strong> El modelo operativo del piloto demostró que un perfil correctamente calibrado con asistencia de IA entrega capacidades que tradicionalmente requieren células de 5 a 7 personas y plazos de 5 a 7 meses. La palanca se institucionaliza como ventaja sostenible.</li>
   </ol>
 
   <h3>Lo que el piloto NO es (encuadre para directivos)</h3>
@@ -1027,46 +1038,39 @@
 
   <p class="lead">Esta página te muestra cómo está armada la solución por dentro. Son cinco capas que trabajan juntas y que sostienen la operación del piloto. No necesitas conocer el detalle técnico para que tu marca funcione — mi equipo se encarga de eso. La incluyo aquí simplemente para que tengas visibilidad de lo que está corriendo debajo y puedas compartirla con tu equipo de sistemas si en algún momento les interesa revisarla.</p>
 
-  <h3>Las cinco capas que operan tu piloto</h3>
-  <div class="ascii-diagram">      CAPA 1 — CAPTURA                  CAPA 2 — INGESTA                CAPA 3 — ATRIBUCIÓN
- ┌─────────────────────────┐      ┌─────────────────────────┐      ┌─────────────────────────┐
- │  SPA marca.grupoplas... │      │  Cloudflare Worker      │      │  Meta Pixel + CAPI      │
- │  Catálogo evergreen     │ ───▶ │  Base de datos D1       │ ───▶ │  GA4 client + GA4 MP    │
- │  Intent tabs            │      │  7 tablas auditables    │      │  GTM container          │
- │  Modal de registro      │      │  Dedup + folio canónico │      │  11 eventos del embudo  │
- │  PDF confirmación       │      │  Conciliación diaria    │      │  event_id dedup         │
- └─────────────────────────┘      └────────────┬────────────┘      └────────────┬────────────┘
-                                                │                               │
-                                                │ notif WhatsApp <60s          │ eventos
-                                                ▼                               │ server-side
-                                       CAPA 4 — OPERACIÓN                       │
-                                 ┌─────────────────────────┐                    │
-                                 │  Kanban multi-marca     │                    │
-                                 │  Vendedor digital       │                    │
-                                 │  Gerente comercial      │                    │
-                                 │  WhatsApp con folio     │                    │
-                                 │  Drag&drop entre etapas │                    │
-                                 │  POR CONTACTAR → CITA → │                    │
-                                 │  VISITA → COTIZACIÓN →  │                    │
-                                 │  CIERRE → FACTURA       │                    │
-                                 └────────────┬────────────┘                    │
-                                              │                                 │
-                                              │ cada movimiento dispara         │
-                                              │ un evento server-side al        │
-                                              ▼ stack de atribución             │
-                                       CAPA 5 — APRENDIZAJE                     │
-                                 ┌─────────────────────────┐                    │
-                                 │  Meta Ads + Google Ads  │ ◀──────────────────┘
-                                 │  Reciben eventos del    │
-                                 │  pipeline real:         │
-                                 │   • Schedule (cita)     │
-                                 │   • VisitaSucursal      │
-                                 │   • Cotización          │
-                                 │   • Compra              │
-                                 │  Algoritmo optimiza por │
-                                 │  compradores reales →   │
-                                 │  CPL baja con el tiempo │
-                                 └─────────────────────────┘</div>
+  <h3>Las cinco capas que operan el piloto</h3>
+  <div class="arch">
+    <div class="arch-row">
+      <div class="arch-box">
+        <div class="arch-num">01</div>
+        <div class="arch-title">Captura</div>
+        <div class="arch-body">Página web pública con catálogo evergreen, tabs por intención, modal de registro de un paso y PDF de confirmación dinámico.</div>
+      </div>
+      <div class="arch-box">
+        <div class="arch-num">02</div>
+        <div class="arch-title">Ingesta</div>
+        <div class="arch-body">Cloudflare Worker recibe cada lead, base de datos D1 con 7 tablas auditables, dedup automático, folio canónico, conciliación diaria.</div>
+      </div>
+      <div class="arch-box">
+        <div class="arch-num">03</div>
+        <div class="arch-title">Atribución</div>
+        <div class="arch-body">Pixel + Conversions API server-side hacia Meta. Measurement Protocol server-side hacia GA4. 11 eventos del embudo con dedup por event_id.</div>
+      </div>
+      <div class="arch-box">
+        <div class="arch-num">04</div>
+        <div class="arch-title">Operación</div>
+        <div class="arch-body">Kanban multi-marca con notificación WhatsApp al vendedor digital de la sucursal asignada. Drag &amp; drop entre etapas: por contactar → cita → visita → cotización → cierre → factura.</div>
+      </div>
+      <div class="arch-box accent">
+        <div class="arch-num">05</div>
+        <div class="arch-title">Aprendizaje</div>
+        <div class="arch-body">Meta Ads y Google Ads reciben eventos del pipeline real (cita, visita, cotización, compra). El algoritmo optimiza por compradores reales en lugar de por leads superficiales.</div>
+      </div>
+    </div>
+    <div class="arch-flow">
+      <strong>Flujo:</strong> cada lead capturado en la capa 1 ingresa al stack en la capa 2 y dispara los eventos de la capa 3. Los vendedores digitales atienden en la capa 4. Cuando un vendedor mueve una card entre etapas del kanban, el sistema dispara automáticamente eventos server-side a la capa 5, lo que cierra el ciclo: el aprendizaje del algoritmo se calibra con la realidad operativa de la venta de la marca.
+    </div>
+  </div>
 
   <h3>Cómo aprende el algoritmo conforme operan tus vendedores</h3>
   <p>Esta es una parte interesante del modelo que vale la pena explicar, porque es lo que hace que la operación vaya mejorando sola con el tiempo.</p>
@@ -1321,7 +1325,7 @@
 
   <div class="faq-item">
     <p class="faq-q">¿El piloto incluye Google Ads, TikTok Ads, otras plataformas?</p>
-    <p class="faq-a">Hoy no. Solo Meta Ads (Facebook + Instagram) + página web + kanban. Google Ads está activo en otras cuentas del Grupo (Toyota, etc.) pero el piloto es específicamente Meta + landing porque ahí es donde el experimento se está corriendo. Sumar Google es decisión que tomamos al día 90 si los números dan — con presupuesto adicional.</p>
+    <p class="faq-a">Hoy no. Solo Meta Ads (Facebook + Instagram) + página web + kanban. Google Ads está activo en otras cuentas del Grupo pero el piloto es específicamente Meta + landing porque ahí es donde el experimento se está corriendo. Sumar Google es decisión que tomamos al día 90 si los números dan — con presupuesto adicional.</p>
   </div>
 
   <div class="faq-item">
