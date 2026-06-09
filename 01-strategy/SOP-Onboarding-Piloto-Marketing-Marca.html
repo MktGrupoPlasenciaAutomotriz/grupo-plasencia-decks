@@ -228,11 +228,43 @@
   </div>
 </section>
 
-<!-- §01 — INSUMOS QUE APORTA LA MARCA -->
+<!-- §01 — QUÉ ES EL MOTOR DE ATRIBUCIÓN -->
 <section class="page">
-  <h1 class="section-title"><span class="num">Sección 01</span>Insumos que aporta la marca para el arranque</h1>
+  <h1 class="section-title"><span class="num">Sección 01</span>El Piloto Motor de Atribución MVP</h1>
 
-  <p class="lead">Los siguientes insumos son condición operativa para la implementación del piloto. La entrega completa habilita el cronograma de 10 días hábiles bajo happy path (ver §03). Insumos pendientes desplazan proporcionalmente la fecha de go-live.</p>
+  <h3>Qué es</h3>
+  <p>El Motor de Atribución MVP es la infraestructura propia que la Dirección de Marketing Corporativo del Grupo Plasencia Automotriz construyó entre marzo y abril de 2026 para medir, optimizar y atribuir la inversión de marketing de las marcas-concesionarias del Grupo extremo a extremo — desde el clic en el anuncio hasta la factura en piso — con infraestructura técnica propia y costo de plataforma marginal (por debajo de USD 100 mensuales para las cuatro marcas vigentes combinadas). Opera bajo el modelo de marketing digital corporativo y se documenta como capacidad permanente del Grupo en el <em>Strategy Definition</em> entregado al Consejo.</p>
+
+  <h3>Para qué sirve</h3>
+  <p>El Grupo Plasencia opera 8 marcas OEM (Changan, Ford, GAC, GWM, Hyundai, Isuzu, Mazda y Stellantis) más la unidad de Seminuevos, con 42 concesionarias. La inversión de marketing del Grupo asciende aproximadamente a $100 millones anuales. Hasta marzo de 2026, esa inversión se medía de forma fragmentada: cada marca operaba con agencia propia, formatos de captura distintos, CRMs independientes y eventos de conversión que en cerca del 40% de los casos no llegaban a las plataformas publicitarias. La pauta se optimizaba por volumen de formularios y clics, no por compradores reales. El Motor de Atribución unifica esa medición bajo una sola infraestructura corporativa, devuelve a las plataformas señales del pipeline real vía Conversions API server-side, y permite a la dirección decidir asignación de presupuesto con trazabilidad de oportunidad a cierre.</p>
+
+  <h3>Hipótesis que valida el piloto</h3>
+  <p>El piloto pone a prueba cuatro pilares formulados en el Strategy Definition para llevarse al Consejo como propuesta de institucionalización. Cada marca incorporada aporta evidencia adicional para confirmar o ajustar estos pilares.</p>
+  <ol>
+    <li><strong>Infraestructura corporativa permanente.</strong> El stack técnico (Cloudflare Worker + base D1 + Conversions API + dashboard multi-canal + conciliación diaria) puede pasar de activo del piloto a infraestructura corporativa con SLA, documentación auditable y responsable formal, escalable cross-marca con costo marginal.</li>
+    <li><strong>Revenue Operations bajo gobierno corporativo.</strong> Marketing, ventas digitales y datos pueden operar bajo una sola dirección con métricas compartidas y trazabilidad de oportunidad a cierre. El cuello identificado en el piloto inicial no está en marketing sino en la articulación entre marketing, ventas digitales y piso de venta.</li>
+    <li><strong>Escalamiento progresivo cross-brand con gates de cierre.</strong> La incorporación de marcas se condiciona a métricas verificables (asignación de vendedor superior al 95%, conversión cita-visita superior al 30%, al menos un cierre atribuido por marca y por mes), no a calendario. Esta lógica protege al Grupo de escalar fragmentación.</li>
+    <li><strong>Capacidad apalancada por inteligencia artificial.</strong> Un perfil correctamente calibrado con asistencia de IA entrega capacidades que tradicionalmente requieren células de 5 a 7 personas y plazos de 5 a 7 meses. Esta palanca se institucionaliza como ventaja sostenible.</li>
+  </ol>
+
+  <h3>Cómo opera el ecosistema</h3>
+  <p>El Motor de Atribución es un sistema de cinco capas que opera como ciclo cerrado entre adquisición, conversión y plataformas publicitarias.</p>
+  <ol>
+    <li><strong>Captura unificada.</strong> Una landing dedicada por unidad de negocio con catálogo dinámico y formulario único. Cada oportunidad recibe folio canónico <code>GP-{MARCA}-{AAMMDD}-{HHMMSS}</code> que actúa como llave de cruce entre todos los sistemas del Grupo.</li>
+    <li><strong>Ingesta y persistencia auditable.</strong> Cloudflare Worker recibe cada lead por endpoint único, normaliza, deduplica y persiste en base D1. Siete tablas relacionales registran leads, pipeline, eventos, vendedores, sucursales, auditoría e ingesta. Todo consultable en tiempo real y respaldado por logs persistentes.</li>
+    <li><strong>Atribución server-side.</strong> Eventos a Meta Conversions API y a GA4 Measurement Protocol con deduplicación automática vía <code>event_id</code>. Las plataformas reciben señales del pipeline real (cita, visita, cotización, cierre) y optimizan por compradores reales en lugar de por volumen de formularios.</li>
+    <li><strong>Operación cross-marca en kanban corporativo.</strong> Los leads llegan al kanban multi-marca con notificación WhatsApp dinámica al vendedor digital de la sucursal asignada. Los vendedores mueven la card entre etapas del pipeline; cada movimiento dispara automáticamente el evento server-side correspondiente al stack de atribución.</li>
+    <li><strong>Dashboard ejecutivo y conciliación.</strong> Dashboard multi-canal con corte diario, cinco fuentes externas reconciliadas, conciliación diaria con tres cruces externos contra D1 y backfill automatizado.</li>
+  </ol>
+
+  <p class="note">Estado al 8 de junio de 2026: el piloto opera en producción en Hyundai (Plasencia + Santa Anita), Stellantis (5 submarcas), Seminuevos (8 sucursales en Guadalajara) y GAC (Bugámbilias + Américas). Documentación operativa completa en el repositorio de documentación corporativa del Grupo (<em>grupo-plasencia-docs</em>).</p>
+</section>
+
+<!-- §02 — INSUMOS QUE APORTA LA MARCA -->
+<section class="page">
+  <h1 class="section-title"><span class="num">Sección 02</span>Insumos que aporta la marca para el arranque</h1>
+
+  <p class="lead">Los siguientes ocho insumos son condición operativa para la incorporación de una marca al piloto descrito en §01. La entrega completa habilita el cronograma de 10 días hábiles bajo happy path (ver §03). Insumos pendientes desplazan proporcionalmente la fecha de go-live.</p>
 
   <div class="insumo">
     <div class="insumo-num">01</div>
@@ -285,7 +317,7 @@
 
 <!-- §02 — INVERSIÓN Y §03 — IMPLEMENTACIÓN -->
 <section class="page">
-  <h1 class="section-title"><span class="num">Sección 02</span>Inversión, cronograma y decisión al día 90</h1>
+  <h1 class="section-title"><span class="num">Sección 03</span>Inversión, cronograma y decisión al día 90</h1>
 
   <h3>Inversión y administración</h3>
   <table>
