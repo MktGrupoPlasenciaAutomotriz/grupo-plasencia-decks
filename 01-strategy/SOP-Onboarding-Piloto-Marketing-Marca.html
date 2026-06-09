@@ -39,18 +39,20 @@
   body {
     font-family: var(--sans);
     color: var(--text);
-    line-height: 1.55;
-    font-size: 10pt;
+    line-height: 1.6;
+    font-size: 10.5pt;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    widows: 3; orphans: 3;
+    text-rendering: optimizeLegibility;
   }
 
   @page {
     size: A4;
-    margin: 18mm 18mm 22mm 18mm;
-    @bottom-right { content: counter(page); font-family: 'Inter', sans-serif; font-size: 9pt; color: #718096; }
-    @bottom-left  { content: "Confidencial · Grupo Plasencia · Dirección de Marketing Corporativo"; font-family: 'Inter', sans-serif; font-size: 8pt; color: #A0AEC0; }
-    @top-right    { content: "SOP · Onboarding al Piloto de Marketing Corporativo"; font-family: 'Inter', sans-serif; font-size: 8pt; color: #A0AEC0; }
+    margin: 20mm 18mm 22mm 18mm;
+    @bottom-right { content: counter(page); font-family: 'Inter', sans-serif; font-size: 8.5pt; color: #718096; font-weight: 500; }
+    @bottom-left  { content: "Confidencial · Grupo Plasencia · MKT Corporativo"; font-family: 'Inter', sans-serif; font-size: 7.5pt; color: #A0AEC0; letter-spacing: 0.3px; }
+    @top-right    { content: "SOP · Piloto Marketing Corporativo"; font-family: 'Inter', sans-serif; font-size: 7.5pt; color: #A0AEC0; letter-spacing: 0.3px; }
   }
   @page :first { @top-right { content: ""; } @bottom-right { content: ""; } @bottom-left { content: ""; } }
   @page cover { margin: 0; }
@@ -60,7 +62,7 @@
     width: 210mm;
     min-height: 297mm;
     margin: 0 auto 8mm auto;
-    padding: 18mm 18mm 22mm 18mm;
+    padding: 20mm 18mm 22mm 18mm;
     position: relative;
     page-break-after: always;
     box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 4px 24px rgba(30,39,64,.08);
@@ -70,115 +72,128 @@
   /* ============ COVER ============ */
   .cover { background: var(--gp-navy); color: var(--near-white); padding: 0; page: cover; }
   .cover-inner {
-    padding: 36mm 22mm 24mm 22mm;
+    padding: 34mm 24mm 26mm 24mm;
     min-height: 297mm;
     display: flex; flex-direction: column; justify-content: space-between;
     background:
-      radial-gradient(ellipse at 100% 0%, rgba(236,201,75,0.16) 0%, transparent 55%),
-      radial-gradient(ellipse at 0% 100%, rgba(200,16,46,0.10) 0%, transparent 55%),
+      radial-gradient(ellipse at 100% 0%, rgba(236,201,75,0.18) 0%, transparent 58%),
+      radial-gradient(ellipse at 0% 100%, rgba(200,16,46,0.12) 0%, transparent 58%),
       var(--gp-navy);
     position: relative;
   }
   .cover-inner::before {
-    content: ""; position: absolute; top: 24mm; left: 22mm;
-    width: 64mm; height: 1px; background: var(--gold);
+    content: ""; position: absolute; top: 22mm; left: 24mm;
+    width: 60mm; height: 1px; background: var(--gold); opacity: 0.7;
   }
   .cover-mark {
-    font-family: var(--sans); font-weight: 700; font-size: 11pt; letter-spacing: 4px;
-    color: var(--gold); text-transform: uppercase;
+    font-family: var(--sans); font-weight: 700; font-size: 10pt; letter-spacing: 3.5px;
+    color: var(--gold); text-transform: uppercase; line-height: 1.4;
   }
-  .cover-mark span { display:block; font-weight:400; color:rgba(255,255,255,0.55); margin-top:4px; letter-spacing:1px; font-size:9pt; }
+  .cover-mark span { display:block; font-weight:400; color:rgba(255,255,255,0.55); margin-top:6px; letter-spacing:0.8px; font-size:8.5pt; text-transform:none; }
   .cover-eyebrow {
-    font-family: var(--sans); font-size: 10pt; font-weight: 700; letter-spacing: 5px;
-    color: var(--gp-red); text-transform: uppercase; margin-top: 14mm;
+    font-family: var(--sans); font-size: 9.5pt; font-weight: 700; letter-spacing: 4.5px;
+    color: var(--gp-red); text-transform: uppercase; margin-top: 13mm;
   }
   .cover-title {
-    font-family: var(--serif); font-weight: 800; font-size: 56pt; line-height: 1.00;
-    letter-spacing: -2px; margin-top: 8mm; color: var(--near-white);
+    font-family: var(--serif); font-weight: 800; font-size: 48pt; line-height: 1.02;
+    letter-spacing: -1.5px; margin-top: 7mm; color: var(--near-white);
   }
   .cover-title em { font-style: italic; color: var(--gold); font-weight: 700; }
   .cover-title-after {
-    font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 15pt;
-    color: rgba(255,255,255,0.7); margin-top: 5mm; letter-spacing: -0.2px;
+    font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 13.5pt;
+    color: rgba(255,255,255,0.72); margin-top: 7mm; letter-spacing: -0.1px; line-height: 1.45;
+    max-width: 152mm;
   }
   .cover-subtitle {
-    font-family: var(--serif); font-weight: 500; font-style: italic; font-size: 16pt;
-    color: var(--gold); margin-top: 12mm; letter-spacing: -0.3px; line-height: 1.3;
+    font-family: var(--serif); font-weight: 500; font-style: italic; font-size: 13.5pt;
+    color: var(--gold); margin-top: 13mm; letter-spacing: -0.2px; line-height: 1.42;
+    max-width: 152mm;
   }
   .cover-pull {
     font-family: var(--serif); font-weight: 500; font-style: italic; font-size: 12pt;
-    color: rgba(255,255,255,0.85); line-height: 1.55;
-    border-left: 3px solid var(--gp-red); padding-left: 8mm; margin-top: 14mm; max-width: 150mm;
+    color: rgba(255,255,255,0.88); line-height: 1.55;
+    border-left: 3px solid var(--gp-red); padding-left: 7mm; margin-top: 14mm; max-width: 152mm;
   }
   .cover-pull cite {
     display: block; font-style: normal; font-family: var(--sans); font-weight: 600;
-    font-size: 9pt; letter-spacing: 1.5px; color: var(--gp-red); margin-top: 6mm; text-transform: uppercase;
+    font-size: 8.5pt; letter-spacing: 1.6px; color: var(--gp-red); margin-top: 6mm; text-transform: uppercase;
   }
-  .cover-tags { display:flex; gap:6mm; margin-top: 12mm; flex-wrap:wrap; }
+  .cover-tags { display:flex; gap:5mm; margin-top: 11mm; flex-wrap:wrap; }
   .cover-tag {
-    font-family: var(--sans); font-size: 9pt; font-weight: 600; letter-spacing: 1px;
-    color: rgba(255,255,255,0.85); border: 1px solid rgba(255,255,255,0.25);
-    padding: 4px 10px; border-radius: 999px; text-transform: uppercase;
+    font-family: var(--sans); font-size: 8pt; font-weight: 600; letter-spacing: 0.8px;
+    color: rgba(255,255,255,0.85); border: 1px solid rgba(255,255,255,0.22);
+    padding: 4px 11px; border-radius: 999px; text-transform: uppercase;
   }
-  .cover-tag.accent { color: var(--gold); border-color: rgba(236,201,75,0.4); }
-  .cover-tag.urgent { color: var(--gp-red); border-color: rgba(200,16,46,0.4); }
+  .cover-tag.accent { color: var(--gold); border-color: rgba(236,201,75,0.42); }
+  .cover-tag.urgent { color: var(--gp-red); border-color: rgba(200,16,46,0.42); }
   .cover-meta {
-    display: flex; justify-content: space-between; align-items: flex-end;
-    margin-top: 14mm; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 8mm;
+    display: flex; justify-content: space-between; align-items: flex-end; gap: 10mm;
+    margin-top: 13mm; border-top: 1px solid rgba(255,255,255,0.16); padding-top: 8mm;
   }
-  .cover-meta-block { font-size: 9pt; color: rgba(255,255,255,0.65); line-height: 1.7; }
-  .cover-meta-block strong { display:block; color: var(--near-white); font-weight: 700; font-size: 10pt; letter-spacing: .5px; }
+  .cover-meta-block { font-size: 9pt; color: rgba(255,255,255,0.68); line-height: 1.65; flex: 1; }
+  .cover-meta-block strong { display:block; color: var(--near-white); font-weight: 700; font-size: 10pt; letter-spacing: 0.6px; margin-bottom: 1mm; }
 
   /* ============ TOC ============ */
-  .toc { margin-top: 6mm; }
+  .toc { margin-top: 7mm; }
   .toc-item {
     display: flex; justify-content: space-between; align-items: baseline;
-    padding: 3mm 0; border-bottom: 1px dotted var(--g300); font-size: 10.5pt;
+    padding: 4mm 0; border-bottom: 1px dotted var(--g300);
+    page-break-inside: avoid;
   }
   .toc-num {
     font-family: var(--serif); font-weight: 800; font-size: 13pt; color: var(--gp-red);
-    width: 14mm; flex-shrink: 0;
+    width: 14mm; flex-shrink: 0; line-height: 1.2;
   }
-  .toc-title { flex: 1; color: var(--gp-navy); font-weight: 700; padding-right: 4mm; }
-  .toc-sub { display: block; font-size: 9pt; color: var(--g500); font-weight: 400; margin-top: 1mm; }
-  .toc-page { color: var(--g500); font-family: var(--serif); font-style: italic; font-size: 11pt; flex-shrink: 0; }
+  .toc-title { flex: 1; color: var(--gp-navy); font-weight: 700; padding-right: 4mm; font-size: 11pt; line-height: 1.35; }
+  .toc-sub { display: block; font-size: 9pt; color: var(--g500); font-weight: 400; margin-top: 1.5mm; line-height: 1.45; letter-spacing: 0.1px; }
+  .toc-page { color: var(--g500); font-family: var(--serif); font-style: italic; font-size: 10.5pt; flex-shrink: 0; }
 
   /* ============ TYPOGRAPHY ============ */
   h1.section-title {
-    font-family: var(--serif); font-weight: 800; font-size: 28pt; line-height: 1.08;
+    font-family: var(--serif); font-weight: 800; font-size: 26pt; line-height: 1.1;
     letter-spacing: -0.8px; color: var(--gp-navy);
-    border-top: 3px solid var(--gp-red); padding-top: 6mm; margin-bottom: 6mm;
+    border-top: 3px solid var(--gp-red); padding-top: 7mm; margin-bottom: 7mm;
+    page-break-after: avoid;
   }
   h1.section-title .num {
     display: block; font-family: var(--sans); font-weight: 700; font-size: 9pt;
-    letter-spacing: 4px; color: var(--gp-red); text-transform: uppercase; margin-bottom: 2mm;
+    letter-spacing: 3.5px; color: var(--gp-red); text-transform: uppercase; margin-bottom: 3mm;
   }
   h2 {
-    font-family: var(--serif); font-weight: 700; font-size: 17pt; line-height: 1.2;
-    color: var(--gp-navy); margin-top: 8mm; margin-bottom: 3mm; letter-spacing: -0.3px;
+    font-family: var(--serif); font-weight: 700; font-size: 16pt; line-height: 1.25;
+    color: var(--gp-navy); margin-top: 9mm; margin-bottom: 3mm; letter-spacing: -0.3px;
+    page-break-after: avoid;
   }
   h3 {
     font-family: var(--sans); font-weight: 700; font-size: 11.5pt; color: var(--gp-navy);
-    margin-top: 6mm; margin-bottom: 2.5mm; letter-spacing: -0.1px;
+    margin-top: 7mm; margin-bottom: 3mm; letter-spacing: -0.1px; line-height: 1.35;
+    page-break-after: avoid;
   }
+  h3:first-of-type { margin-top: 5mm; }
   h4 {
-    font-family: var(--sans); font-weight: 700; font-size: 9.5pt; color: var(--gp-red);
-    text-transform: uppercase; letter-spacing: 1.4px; margin-top: 5mm; margin-bottom: 2mm;
+    font-family: var(--sans); font-weight: 700; font-size: 9pt; color: var(--gp-red);
+    text-transform: uppercase; letter-spacing: 1.5px; margin-top: 6mm; margin-bottom: 2.5mm;
+    page-break-after: avoid;
   }
-  p { margin-bottom: 3mm; font-size: 10pt; color: var(--g700); }
-  p.lead { font-size: 11.5pt; color: var(--gp-navy); line-height: 1.5; margin-bottom: 5mm; font-weight: 500; }
+  p { margin-bottom: 3.5mm; font-size: 10.5pt; color: var(--g700); line-height: 1.6; }
+  p.lead { font-size: 11.5pt; color: var(--gp-navy); line-height: 1.55; margin-bottom: 6mm; font-weight: 500; letter-spacing: -0.05px; }
   strong { color: var(--gp-navy); font-weight: 700; }
   em { font-style: italic; }
   a { color: var(--deep-blue); text-decoration: none; border-bottom: 1px dotted var(--deep-blue); }
   a:hover { border-bottom-style: solid; }
-  ul, ol { margin: 3mm 0 4mm 5mm; }
-  li { margin-bottom: 1.5mm; font-size: 10pt; color: var(--g700); line-height: 1.5; }
+  ul, ol { margin: 3mm 0 4.5mm 6mm; }
+  li { margin-bottom: 2mm; font-size: 10.5pt; color: var(--g700); line-height: 1.6; }
+  li::marker { color: var(--gp-red); }
+  ol li::marker { color: var(--gp-red); font-weight: 700; }
 
   /* ============ CALLOUTS ============ */
   .callout {
     background: var(--g100); border-left: 4px solid var(--gp-navy);
-    padding: 4mm 5mm; margin: 4mm 0; border-radius: 0 4px 4px 0;
+    padding: 5mm 6mm; margin: 5mm 0; border-radius: 0 4px 4px 0;
+    page-break-inside: avoid;
   }
+  .callout p { margin-bottom: 2mm; font-size: 10pt; line-height: 1.6; }
+  .callout p:last-child { margin-bottom: 0; }
   .callout--red { border-left-color: var(--gp-red); background: rgba(200,16,46,0.04); }
   .callout--gold { border-left-color: var(--amber); background: rgba(214,158,46,0.06); }
   .callout--green { border-left-color: var(--deep-green); background: rgba(72,187,120,0.06); }
@@ -186,8 +201,8 @@
   .callout--navy p, .callout--navy strong { color: var(--near-white); }
   .callout--navy strong { color: var(--gold); }
   .callout-label {
-    font-family: var(--sans); font-weight: 700; font-size: 8.5pt; letter-spacing: 2px;
-    text-transform: uppercase; color: var(--gp-red); margin-bottom: 2mm; display: block;
+    font-family: var(--sans); font-weight: 700; font-size: 8pt; letter-spacing: 2.2px;
+    text-transform: uppercase; color: var(--gp-red); margin-bottom: 2.5mm; display: block;
   }
   .callout--gold .callout-label { color: var(--amber); }
   .callout--green .callout-label { color: var(--deep-green); }
@@ -195,19 +210,22 @@
 
   /* ============ TABLAS ============ */
   table {
-    width: 100%; border-collapse: collapse; margin: 4mm 0 5mm 0; font-size: 9.5pt;
+    width: 100%; border-collapse: collapse; margin: 5mm 0 6mm 0; font-size: 9.5pt;
     background: var(--paper);
+    page-break-inside: auto;
   }
+  thead { display: table-header-group; }
+  tr { page-break-inside: avoid; page-break-after: auto; }
   th {
     background: var(--gp-navy); color: var(--near-white);
-    font-family: var(--sans); font-weight: 700; font-size: 8.5pt; letter-spacing: 1.2px;
-    text-transform: uppercase; padding: 3mm 3mm; text-align: left; vertical-align: middle;
-    border-right: 1px solid rgba(255,255,255,0.1);
+    font-family: var(--sans); font-weight: 700; font-size: 8pt; letter-spacing: 1.3px;
+    text-transform: uppercase; padding: 3.5mm 3.5mm; text-align: left; vertical-align: middle;
+    border-right: 1px solid rgba(255,255,255,0.1); line-height: 1.35;
   }
   th:last-child { border-right: none; }
   td {
-    padding: 3mm 3mm; border-bottom: 1px solid var(--g200);
-    vertical-align: top; line-height: 1.5; color: var(--g700);
+    padding: 3.5mm 3.5mm; border-bottom: 1px solid var(--g200);
+    vertical-align: top; line-height: 1.55; color: var(--g700); font-size: 9.5pt;
   }
   tr:nth-child(even) td { background: var(--g100); }
   td strong { color: var(--gp-navy); }
@@ -216,9 +234,9 @@
 
   /* ============ BADGES ============ */
   .badge {
-    display: inline-block; padding: 1.5mm 3mm; border-radius: 999px;
-    font-size: 8.5pt; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase;
-    vertical-align: middle;
+    display: inline-block; padding: 1mm 3mm; border-radius: 999px;
+    font-size: 8pt; font-weight: 700; letter-spacing: 0.7px; text-transform: uppercase;
+    vertical-align: middle; line-height: 1.3;
   }
   .badge--red { background: var(--gp-red); color: #fff; }
   .badge--navy { background: var(--gp-navy); color: #fff; }
@@ -227,68 +245,88 @@
   .badge--gray { background: var(--g300); color: var(--g700); }
 
   /* ============ KPI CARDS ============ */
-  .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4mm; margin: 5mm 0; }
-  .kpi { background: var(--g100); border-top: 3px solid var(--gp-red); padding: 4mm; border-radius: 0 0 4px 4px; }
-  .kpi-num { font-family: var(--serif); font-weight: 800; font-size: 22pt; color: var(--gp-navy); line-height: 1; }
-  .kpi-label { font-size: 8.5pt; color: var(--g500); margin-top: 2mm; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
-  .kpi-sub { font-size: 9pt; color: var(--g600); margin-top: 1.5mm; }
+  .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4mm; margin: 5mm 0; page-break-inside: avoid; }
+  .kpi { background: var(--g100); border-top: 3px solid var(--gp-red); padding: 5mm 4mm; border-radius: 0 0 4px 4px; }
+  .kpi-num { font-family: var(--serif); font-weight: 800; font-size: 24pt; color: var(--gp-navy); line-height: 1; letter-spacing: -0.5px; }
+  .kpi-label { font-size: 8pt; color: var(--g500); margin-top: 3mm; text-transform: uppercase; letter-spacing: 1.1px; font-weight: 600; }
+  .kpi-sub { font-size: 9pt; color: var(--g600); margin-top: 1.5mm; line-height: 1.45; }
 
   /* ============ CHECKLIST ============ */
   .checklist { list-style: none; margin: 4mm 0 0 0; }
   .checklist li {
-    padding: 3mm 0 3mm 9mm; border-bottom: 1px solid var(--g200); position: relative;
-    font-size: 10pt; line-height: 1.5;
+    padding: 3.5mm 0 3.5mm 10mm; border-bottom: 1px solid var(--g200); position: relative;
+    font-size: 10.5pt; line-height: 1.55;
+    page-break-inside: avoid;
   }
   .checklist li::before {
-    content: "□"; position: absolute; left: 1mm; top: 3mm;
-    color: var(--gp-red); font-weight: 800; font-size: 14pt; line-height: 1;
+    content: "□"; position: absolute; left: 1mm; top: 3.5mm;
+    color: var(--gp-navy); font-weight: 400; font-size: 14pt; line-height: 1;
   }
-  .checklist li.blocker::before { color: var(--gp-red); content: "⬛"; font-size: 11pt; }
+  .checklist li.blocker::before { color: var(--gp-red); content: "■"; font-size: 11pt; top: 4.5mm; }
   .checklist li strong { color: var(--gp-navy); }
-  .checklist li .checklist-desc { display:block; font-size: 9pt; color: var(--g500); margin-top: 1mm; }
+  .checklist li .checklist-desc { display:block; font-size: 9pt; color: var(--g500); margin-top: 1.5mm; line-height: 1.5; }
 
   /* ============ COMPARATIVO ============ */
-  .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm; margin: 5mm 0; }
+  .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 6mm; margin: 6mm 0; page-break-inside: avoid; }
   .compare-col {
-    border-radius: 4px; padding: 5mm; background: var(--g100);
+    border-radius: 4px; padding: 6mm; background: var(--g100);
     border-top: 3px solid var(--g500);
   }
-  .compare-col.win { background: rgba(72,187,120,0.05); border-top-color: var(--deep-green); }
-  .compare-col.lose { background: rgba(200,16,46,0.03); border-top-color: var(--gp-red); }
-  .compare-col h4 { margin-top: 0; }
+  .compare-col.win { background: rgba(72,187,120,0.06); border-top-color: var(--deep-green); }
+  .compare-col.lose { background: rgba(200,16,46,0.04); border-top-color: var(--gp-red); }
+  .compare-col h4 { margin-top: 0; margin-bottom: 3mm; }
   .compare-col.win h4 { color: var(--deep-green); }
   .compare-col.lose h4 { color: var(--gp-red); }
+  .compare-col p { font-size: 10pt; line-height: 1.6; margin-bottom: 3mm; }
   .compare-col p:last-child { margin-bottom: 0; }
 
   /* ============ FAQ ============ */
-  .faq-item { border-top: 1px solid var(--g200); padding: 4mm 0; }
+  .faq-item { border-top: 1px solid var(--g200); padding: 5mm 0; page-break-inside: avoid; }
   .faq-item:first-of-type { border-top: 2px solid var(--gp-navy); }
-  .faq-q { font-weight: 700; color: var(--gp-navy); margin-bottom: 1.5mm; font-size: 10pt; }
-  .faq-a { font-size: 9.5pt; color: var(--g600); line-height: 1.55; }
+  .faq-q { font-weight: 700; color: var(--gp-navy); margin-bottom: 2mm; font-size: 10.5pt; line-height: 1.4; }
+  .faq-a { font-size: 10pt; color: var(--g600); line-height: 1.6; }
 
   /* ============ FOOTER NOTE ============ */
-  .note { font-size: 8.5pt; color: var(--g500); line-height: 1.5; font-style: italic; margin: 5mm 0 0 0; padding-top: 3mm; border-top: 1px solid var(--g200); }
+  .note { font-size: 8.5pt; color: var(--g500); line-height: 1.55; font-style: italic; margin: 5mm 0 0 0; padding-top: 3.5mm; border-top: 1px solid var(--g200); }
 
   /* ============ FIRMA ============ */
   .signature {
-    background: var(--gp-navy); color: var(--near-white); border-radius: 4px;
-    padding: 8mm; margin-top: 8mm;
+    background: var(--gp-navy); color: var(--near-white); border-radius: 6px;
+    padding: 9mm 9mm 9mm 9mm; margin-top: 9mm;
+    page-break-inside: avoid;
+    background:
+      radial-gradient(ellipse at 100% 0%, rgba(236,201,75,0.08) 0%, transparent 60%),
+      var(--gp-navy);
   }
-  .signature h3 { color: var(--gold); margin-top: 0; font-family: var(--serif); font-weight: 700; font-size: 14pt; }
-  .signature p { color: rgba(255,255,255,0.8); margin-bottom: 2mm; }
+  .signature h3 { color: var(--gold); margin-top: 0; margin-bottom: 4mm; font-family: var(--serif); font-weight: 700; font-size: 14pt; letter-spacing: -0.3px; }
+  .signature p { color: rgba(255,255,255,0.82); margin-bottom: 3mm; font-size: 10pt; line-height: 1.6; }
+  .signature p:last-of-type { margin-bottom: 0; }
   .signature strong { color: var(--near-white); }
   .signature .contact-block {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 6mm; margin-top: 5mm;
-    border-top: 1px solid rgba(255,255,255,0.15); padding-top: 5mm;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 8mm; margin-top: 6mm;
+    border-top: 1px solid rgba(255,255,255,0.16); padding-top: 6mm;
   }
-  .signature .contact-name { font-weight: 700; color: var(--gold); font-size: 11pt; }
-  .signature .contact-role { font-size: 9pt; color: rgba(255,255,255,0.7); margin-top: 1mm; }
+  .signature .contact-name { font-weight: 700; color: var(--gold); font-size: 11.5pt; letter-spacing: -0.2px; }
+  .signature .contact-role { font-size: 9.5pt; color: rgba(255,255,255,0.72); margin-top: 1.5mm; line-height: 1.55; }
 
   /* ============ DIAGRAMA TEXTO ============ */
   .ascii-diagram {
     font-family: 'SF Mono', Consolas, Monaco, monospace; font-size: 9pt;
     background: var(--gp-navy); color: var(--near-white); padding: 6mm; border-radius: 4px;
-    line-height: 1.55; margin: 4mm 0; white-space: pre; overflow-x: auto;
+    line-height: 1.55; margin: 5mm 0; white-space: pre; overflow-x: auto;
+    page-break-inside: avoid;
+  }
+
+  /* ============ INLINE CODE ============ */
+  code { font-family: 'SF Mono', Consolas, Monaco, monospace; font-size: 0.9em; background: var(--g100); padding: 1px 5px; border-radius: 3px; color: var(--gp-navy); border: 1px solid var(--g200); }
+
+  /* ============ SCREEN VIEW ============ */
+  @media screen { body { padding: 12mm 0; } }
+
+  /* ============ PRINT ============ */
+  @media print {
+    body { background: white; }
+    .page { box-shadow: none; margin: 0 auto; }
   }
 
 </style>
@@ -302,7 +340,7 @@
   <div class="cover-inner">
     <div>
       <div class="cover-mark">SOP — Brief operativo de implementación
-        <span>Versión 1.4 · 8 de junio de 2026 · Documento vivo de uso interno · Grupo Plasencia Automotriz</span>
+        <span>Versión 1.5 · 8 de junio de 2026 · Documento vivo de uso interno · Grupo Plasencia Automotriz</span>
       </div>
       <div class="cover-eyebrow">Piloto Motor de Atribución MVP</div>
       <div class="cover-title">Onboarding<br><em>de una marca</em><br>automotriz del<br>Grupo al piloto.</div>
