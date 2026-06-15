@@ -1,0 +1,1887 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cierre de Periodo de Prueba · Director MKT Corp · Grupo Plasencia</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sg: 'Space Grotesk', sans-serif;
+  --in: 'Inter', sans-serif;
+  --b: #1E40AF;
+  --bd: #1E3A8A;
+  --bx: #172554;
+  --d: #0F172A;
+  --d2: #1E293B;
+  --g: #059669;
+  --gd: #047857;
+  --o: #D97706;
+  --r: #B91C1C;
+  --p: #7C3AED;
+  --y: #D97706;
+  --t1: #F8FAFC;
+  --t2: #F1F5F9;
+  --t3: #E2E8F0;
+  --tx: #334155;
+  --txl: #64748B;
+  --white: #FFFFFF;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+@page { size: A4; margin: 0; }
+
+body {
+  font-family: var(--in);
+  font-size: 10pt;
+  line-height: 1.55;
+  color: var(--tx);
+  background: #E2E8F0;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.page {
+  width: 210mm;
+  min-height: 297mm;
+  background: var(--white);
+  margin: 20px auto;
+  padding: 22px 46px 42px 46px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+  page-break-after: always;
+  position: relative;
+}
+
+.page:last-child { page-break-after: auto; }
+
+@media print {
+  body { background: white; }
+  .page { margin: 0; box-shadow: none; padding: 22px 46px 42px 46px; }
+}
+
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  border-bottom: 2px solid var(--d);
+  padding-bottom: 10px;
+}
+
+.page-header-left {
+  font-family: var(--sg);
+  font-size: 9pt;
+  font-weight: 700;
+  color: var(--d);
+  letter-spacing: 0.5px;
+}
+
+.page-header-right {
+  font-size: 7pt;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  color: var(--r);
+  text-transform: uppercase;
+}
+
+.page-footer {
+  position: absolute;
+  bottom: 14px;
+  left: 46px;
+  right: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 8px;
+  border-top: 1px solid var(--t3);
+  font-size: 7pt;
+  color: var(--txl);
+}
+
+.phase, .note, .stats, .stat, .tl-row, .card, .scope-box, table {
+  page-break-inside: avoid;
+}
+
+h1, h2, h3 { page-break-after: avoid; }
+
+/* COVER */
+.cover {
+  width: 210mm;
+  min-height: 297mm;
+  background: linear-gradient(135deg, var(--d) 0%, var(--d2) 40%, var(--bx) 100%);
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 60px 60px;
+  overflow: hidden;
+  margin: 20px auto;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+  page-break-after: always;
+  text-align: center;
+}
+
+@media print { .cover { margin: 0; box-shadow: none; } }
+
+.cover-top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.cover-conf {
+  font-family: var(--sg);
+  font-size: 9pt;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 60px;
+}
+
+.cover-pill {
+  display: inline-block;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.25);
+  color: rgba(255,255,255,0.85);
+  font-family: var(--sg);
+  font-size: 9pt;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  padding: 8px 18px;
+  border-radius: 100px;
+  margin-bottom: 32px;
+}
+
+.cover-title {
+  font-family: var(--sg);
+  font-size: 38pt;
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  color: var(--white);
+  margin-bottom: 18px;
+}
+
+.cover-subtitle {
+  font-family: var(--sg);
+  font-size: 16pt;
+  font-weight: 500;
+  color: rgba(255,255,255,0.75);
+  margin-bottom: 0;
+  line-height: 1.3;
+  max-width: 600px;
+}
+
+.cover-bottom-text {
+  font-family: var(--in);
+  font-size: 10pt;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.8;
+  text-align: center;
+  border-top: 2px solid rgba(255,255,255,0.15);
+  padding-top: 28px;
+  width: 100%;
+}
+
+.cover-bottom-text strong { color: rgba(255,255,255,0.9); font-weight: 700; }
+
+/* TYPOGRAPHY */
+h1 {
+  font-family: var(--sg);
+  font-size: 22pt;
+  font-weight: 800;
+  color: var(--d);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin-bottom: 4px;
+}
+
+h2 {
+  font-family: var(--sg);
+  font-size: 13pt;
+  font-weight: 700;
+  color: var(--bd);
+  margin-bottom: 8px;
+  margin-top: 18px;
+}
+
+h3 {
+  font-family: var(--sg);
+  font-size: 11pt;
+  font-weight: 700;
+  color: var(--d);
+  margin-bottom: 4px;
+  margin-top: 10px;
+}
+
+p { margin-bottom: 7px; font-size: 9.5pt; line-height: 1.55; }
+
+.lead {
+  font-size: 10.5pt;
+  color: var(--txl);
+  line-height: 1.55;
+  margin-bottom: 14px;
+}
+
+.accent-line {
+  width: 44px;
+  height: 3px;
+  background: var(--b);
+  margin-bottom: 14px;
+}
+
+ul, ol { padding-left: 22px; margin: 8px 0; }
+li { font-size: 9.5pt; line-height: 1.65; color: var(--tx); margin-bottom: 4px; }
+
+/* STATS */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin: 16px 0;
+}
+
+.stat {
+  background: var(--t1);
+  border-radius: 8px;
+  padding: 16px 12px;
+  text-align: center;
+  border: 1px solid var(--t3);
+  border-top: 3px solid var(--b);
+}
+
+.stat-number {
+  font-family: var(--sg);
+  font-size: 20pt;
+  font-weight: 800;
+  color: var(--d);
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 8.5pt;
+  color: var(--txl);
+  margin-top: 6px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+/* CARDS */
+.card {
+  background: var(--t1);
+  border-radius: 10px;
+  padding: 18px 22px;
+  margin: 10px 0;
+  border-left: 4px solid var(--b);
+}
+
+.card.green { border-left-color: var(--g); background: rgba(5,150,105,0.04); }
+.card.purple { border-left-color: var(--p); background: rgba(124,58,237,0.04); }
+.card.orange { border-left-color: var(--o); background: rgba(217,119,6,0.04); }
+.card.red { border-left-color: var(--r); background: rgba(185,28,28,0.04); }
+
+.card-title {
+  font-family: var(--sg);
+  font-size: 12pt;
+  font-weight: 700;
+  color: var(--d);
+  margin-bottom: 6px;
+}
+
+.card p { font-size: 9.5pt; line-height: 1.55; color: var(--tx); }
+
+/* SCENARIO BOXES */
+.scenarios {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 14px 0;
+}
+
+.scenario {
+  background: var(--t1);
+  border-radius: 10px;
+  padding: 18px;
+  border-top: 5px solid var(--b);
+  position: relative;
+}
+
+.scenario.ideal {
+  background: linear-gradient(135deg, rgba(30,64,175,0.06), rgba(124,58,237,0.04));
+  border-top-color: var(--p);
+  border: 2px solid var(--b);
+  border-top: 5px solid var(--p);
+}
+
+.scenario.fallback { border-top-color: var(--g); }
+.scenario.bridge { border-top-color: var(--o); }
+
+.scenario-tag {
+  font-family: var(--sg);
+  font-size: 8pt;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--b);
+  margin-bottom: 6px;
+}
+
+.scenario.ideal .scenario-tag { color: var(--p); }
+.scenario.fallback .scenario-tag { color: var(--gd); }
+.scenario.bridge .scenario-tag { color: var(--o); }
+
+.scenario-title {
+  font-family: var(--sg);
+  font-size: 12pt;
+  font-weight: 800;
+  color: var(--d);
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+
+.scenario-price {
+  font-family: var(--sg);
+  font-size: 18pt;
+  font-weight: 800;
+  color: var(--d);
+  margin: 8px 0 4px;
+  line-height: 1;
+}
+
+.scenario-price-unit {
+  font-size: 9pt;
+  color: var(--txl);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.scenario p {
+  font-size: 9pt;
+  line-height: 1.55;
+  color: var(--tx);
+}
+
+.scenario ul {
+  padding-left: 16px;
+  margin: 6px 0;
+}
+
+.scenario li {
+  font-size: 8.5pt;
+  line-height: 1.5;
+  color: var(--tx);
+  margin-bottom: 3px;
+}
+
+.scenario-badge {
+  position: absolute;
+  top: -10px;
+  right: 14px;
+  background: var(--p);
+  color: var(--white);
+  font-family: var(--sg);
+  font-size: 7.5pt;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 100px;
+}
+
+/* TABLES */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 12px 0;
+  font-size: 9.5pt;
+}
+
+thead th {
+  background: var(--d);
+  color: var(--white);
+  font-family: var(--sg);
+  font-weight: 600;
+  font-size: 9pt;
+  letter-spacing: 0.5px;
+  padding: 10px 12px;
+  text-align: left;
+}
+
+thead th:first-child { border-radius: 6px 0 0 0; }
+thead th:last-child { border-radius: 0 6px 0 0; }
+
+tbody td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--t3);
+  vertical-align: middle;
+}
+
+tbody tr:nth-child(even) { background: var(--t1); }
+
+tbody tr.highlight {
+  background: rgba(30,64,175,0.08) !important;
+}
+
+tbody tr.highlight td {
+  font-weight: 700;
+  color: var(--d);
+}
+
+.price {
+  font-family: var(--sg);
+  font-weight: 700;
+  color: var(--d);
+  white-space: nowrap;
+}
+
+.price.big {
+  font-size: 11pt;
+}
+
+/* SCOPE BOX */
+.scope-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin: 14px 0;
+}
+
+.scope-box {
+  border-radius: 10px;
+  padding: 18px 22px;
+  border: 2px solid;
+}
+
+.scope-box.yes { background: rgba(5,150,105,0.05); border-color: rgba(5,150,105,0.3); }
+.scope-box.no { background: rgba(185,28,28,0.04); border-color: rgba(185,28,28,0.25); }
+
+.scope-title {
+  font-family: var(--sg);
+  font-weight: 800;
+  font-size: 11pt;
+  margin-bottom: 10px;
+}
+
+.scope-box.yes .scope-title { color: var(--gd); }
+.scope-box.no .scope-title { color: var(--r); }
+
+.scope-list { list-style: none; padding: 0; }
+
+.scope-list li {
+  font-size: 9pt;
+  line-height: 1.55;
+  margin-bottom: 6px;
+  padding-left: 22px;
+  position: relative;
+  color: var(--tx);
+}
+
+.scope-box.yes .scope-list li::before {
+  content: "✓"; position: absolute; left: 0;
+  color: var(--g); font-weight: 900; font-size: 12pt; line-height: 1.2;
+}
+
+.scope-box.no .scope-list li::before {
+  content: "✗"; position: absolute; left: 0;
+  color: var(--r); font-weight: 900; font-size: 12pt; line-height: 1.2;
+}
+
+/* NOTES */
+.note {
+  background: #FFFBEB;
+  border: 1px solid #FDE68A;
+  border-radius: 8px;
+  padding: 14px 18px;
+  font-size: 9.5pt;
+  color: #78350F;
+  margin: 14px 0;
+  line-height: 1.6;
+}
+
+.note strong { color: #422006; }
+
+.note-blue {
+  background: #EFF6FF;
+  border: 1px solid #BFDBFE;
+  color: #1E3A8A;
+}
+
+.note-blue strong { color: #1E40AF; }
+
+.note-green {
+  background: rgba(5,150,105,0.06);
+  border: 1px solid rgba(5,150,105,0.25);
+  color: var(--gd);
+}
+
+.note-green strong { color: var(--gd); }
+
+.note-red {
+  background: rgba(185,28,28,0.04);
+  border: 1px solid rgba(185,28,28,0.25);
+  color: var(--r);
+}
+
+.note-red strong { color: var(--r); }
+
+/* COMPARISON GRID — Tu output vs equipo equivalente */
+.value-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin: 14px 0;
+}
+
+.value-col {
+  background: var(--t1);
+  border-radius: 10px;
+  padding: 18px 22px;
+  border-top: 4px solid var(--b);
+}
+
+.value-col.equiv { border-top-color: var(--r); }
+.value-col.yo { border-top-color: var(--g); background: rgba(5,150,105,0.04); }
+
+.value-tag {
+  font-family: var(--sg);
+  font-size: 8pt;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--b);
+  margin-bottom: 6px;
+}
+
+.value-col.equiv .value-tag { color: var(--r); }
+.value-col.yo .value-tag { color: var(--gd); }
+
+.value-amount {
+  font-family: var(--sg);
+  font-size: 22pt;
+  font-weight: 800;
+  color: var(--d);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.value-unit {
+  font-size: 8.5pt;
+  color: var(--txl);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.value-col ul { padding-left: 16px; margin: 6px 0; }
+.value-col li { font-size: 9pt; line-height: 1.5; }
+
+/* PROGRESS BAR */
+.progress-row {
+  display: grid;
+  grid-template-columns: 200px 1fr 90px;
+  gap: 14px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.progress-label {
+  font-family: var(--sg);
+  font-size: 9.5pt;
+  font-weight: 600;
+  color: var(--d);
+}
+
+.progress-bar-bg {
+  height: 20px;
+  background: var(--t2);
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid var(--t3);
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--b), var(--p));
+  border-radius: 5px;
+}
+
+.progress-bar-fill.actual {
+  background: var(--r);
+}
+
+.progress-bar-fill.fallback {
+  background: var(--g);
+}
+
+.progress-amount {
+  font-family: var(--sg);
+  font-size: 9.5pt;
+  font-weight: 800;
+  color: var(--d);
+  text-align: right;
+}
+
+/* CTA BOX */
+.cta-box {
+  background: linear-gradient(135deg, var(--d) 0%, var(--bx) 100%);
+  color: var(--white);
+  border-radius: 12px;
+  padding: 28px 32px;
+  margin-top: 18px;
+}
+
+.cta-box h3 {
+  color: var(--white);
+  font-size: 14pt;
+  margin: 0 0 10px 0;
+}
+
+.cta-box p { color: rgba(255,255,255,0.78); font-size: 10pt; margin-bottom: 12px; }
+
+.cta-list { list-style: none; padding: 0; margin: 0; }
+.cta-list li {
+  font-size: 9.5pt;
+  color: rgba(255,255,255,0.85);
+  padding: 5px 0 5px 22px;
+  position: relative;
+}
+.cta-list li::before {
+  content: "→"; position: absolute; left: 0;
+  color: var(--white); font-weight: 700;
+}
+
+/* DECISION TREE */
+.decision {
+  background: var(--t1);
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin: 8px 0;
+  border-left: 4px solid var(--d);
+}
+
+.decision-title {
+  font-family: var(--sg);
+  font-size: 10.5pt;
+  font-weight: 800;
+  color: var(--d);
+  margin-bottom: 4px;
+}
+
+.decision p { font-size: 9pt; color: var(--tx); margin: 3px 0; }
+
+/* SECTION DIVIDERS */
+.divider {
+  margin: 14px 0;
+  border-top: 2px dashed var(--t3);
+}
+
+/* ============ TIGHT A4 OVERRIDES (print-fit) ============ */
+.page { padding: 18px 42px 48px 42px !important; }
+h1 { font-size: 18pt !important; margin-bottom: 3px !important; }
+h2 { font-size: 11pt !important; margin-top: 12px !important; margin-bottom: 5px !important; }
+h3 { font-size: 10pt !important; margin-top: 8px !important; margin-bottom: 3px !important; }
+p { font-size: 9pt !important; line-height: 1.45 !important; margin-bottom: 5px !important; }
+.lead { font-size: 9.5pt !important; line-height: 1.45 !important; margin-bottom: 10px !important; }
+.accent-line { width: 36px !important; height: 2px !important; margin-bottom: 10px !important; }
+ul, ol { padding-left: 20px !important; margin: 5px 0 !important; }
+li { font-size: 9pt !important; line-height: 1.45 !important; margin-bottom: 2px !important; }
+.stats { gap: 10px !important; margin: 12px 0 !important; }
+.stat { padding: 12px 10px !important; }
+.stat-number { font-size: 16pt !important; }
+.stat-label { font-size: 8pt !important; margin-top: 4px !important; }
+.card { padding: 14px 18px !important; margin: 8px 0 !important; }
+.card-title { font-size: 11pt !important; margin-bottom: 4px !important; }
+.card p { font-size: 9pt !important; line-height: 1.45 !important; }
+.scenarios { gap: 8px !important; margin: 10px 0 !important; }
+.scenario { padding: 14px !important; }
+.scenario-title { font-size: 11pt !important; margin-bottom: 6px !important; }
+.scenario-price { font-size: 16pt !important; margin: 6px 0 3px !important; }
+.scenario-price-unit { font-size: 8.5pt !important; margin-bottom: 8px !important; }
+.scenario ul { padding-left: 14px !important; margin: 5px 0 !important; }
+.scenario li { font-size: 8pt !important; line-height: 1.4 !important; margin-bottom: 2px !important; }
+table { margin: 8px 0 !important; font-size: 8.5pt !important; }
+thead th { padding: 6px 8px !important; font-size: 8pt !important; }
+tbody td { padding: 6px 8px !important; }
+.note { padding: 10px 14px !important; font-size: 8.5pt !important; margin: 10px 0 !important; line-height: 1.5 !important; }
+.scope-grid { gap: 10px !important; margin: 10px 0 !important; }
+.scope-box { padding: 14px 16px !important; }
+.scope-title { font-size: 10pt !important; margin-bottom: 7px !important; }
+.scope-list li { font-size: 8.5pt !important; line-height: 1.45 !important; margin-bottom: 4px !important; padding-left: 18px !important; }
+.tl-row { gap: 12px !important; margin-bottom: 8px !important; }
+.tl-month { font-size: 10pt !important; padding-top: 3px !important; }
+.tl-bar { padding: 10px 14px !important; }
+.tl-bar-title { font-size: 9.5pt !important; margin-bottom: 2px !important; }
+.tl-bar-desc { font-size: 8.5pt !important; line-height: 1.45 !important; }
+.creds { gap: 10px !important; margin: 10px 0 !important; }
+.cred { padding: 12px !important; gap: 9px !important; }
+.cred-icon { font-size: 16pt !important; }
+.cred-text { font-size: 9pt !important; line-height: 1.4 !important; }
+.cred-text strong { font-size: 9.5pt !important; }
+.cta-box { padding: 22px 26px !important; margin-top: 12px !important; }
+.cta-box h3 { font-size: 13pt !important; margin-bottom: 8px !important; }
+.cta-box p { font-size: 9.5pt !important; margin-bottom: 10px !important; }
+.cta-list li { font-size: 9pt !important; padding: 4px 0 4px 18px !important; }
+.value-grid { gap: 10px !important; margin: 10px 0 !important; }
+.value-col { padding: 14px 16px !important; }
+.value-amount { font-size: 18pt !important; }
+.value-unit { font-size: 8pt !important; margin-bottom: 7px !important; }
+.value-col li { font-size: 8.5pt !important; line-height: 1.4 !important; }
+.progress-row { margin-bottom: 7px !important; gap: 10px !important; }
+.progress-label { font-size: 9pt !important; }
+.progress-bar-bg { height: 16px !important; }
+.progress-amount { font-size: 9pt !important; }
+.owner-grid { gap: 9px !important; margin: 10px 0 !important; }
+.owner-col { padding: 13px 15px !important; }
+.owner-tag { font-size: 8pt !important; margin-bottom: 4px !important; }
+.owner-name { font-size: 10pt !important; margin-bottom: 5px !important; }
+.owner-list li { font-size: 8.5pt !important; line-height: 1.4 !important; padding: 3px 0 3px 14px !important; }
+.guarantee-grid { gap: 10px !important; margin: 10px 0 !important; }
+.guarantee { padding: 14px 16px !important; }
+.guarantee-icon { font-size: 16pt !important; margin-bottom: 4px !important; }
+.guarantee-title { font-size: 10pt !important; margin-bottom: 6px !important; }
+.guarantee-desc { font-size: 8.5pt !important; line-height: 1.45 !important; }
+.rec-box { padding: 16px 20px !important; margin: 10px 0 !important; }
+.rec-tag { font-size: 7.5pt !important; padding: 4px 10px !important; margin-bottom: 7px !important; }
+.rec-title { font-size: 11pt !important; margin-bottom: 7px !important; }
+.rec-box p { font-size: 9pt !important; line-height: 1.5 !important; margin-bottom: 6px !important; }
+</style>
+</head>
+<body>
+
+<!-- ==================== COVER ==================== -->
+<div class="cover">
+  <div class="cover-top">
+    <div class="cover-conf">CONFIDENCIAL · DOCUMENTO PERSONAL</div>
+    <div class="cover-pill">Cierre de Periodo de Prueba</div>
+    <div class="cover-title">Director MKT<br>Corporativo</div>
+    <div class="cover-subtitle">Cierre de periodo de contrato de prueba · 90 días · 17-mar a 17-jun 2026</div>
+  </div>
+  <div class="cover-bottom-text">
+    <strong>De:</strong> Jesús Pérez Porras — Director de Marketing Corporativo<br>
+    <strong>Para:</strong> Pepe Morales (validación) → Consejo Directivo<br>
+    <strong>Fecha:</strong> 9 de junio 2026 · 8 días antes del cierre del periodo de contrato de prueba<br>
+    <strong>Terminología:</strong> "periodo de contrato de prueba" acordado con Dirección de RH y Dirección de Finanzas<br>
+    <strong>Próximo paso:</strong> Cierre formal del periodo de contrato de prueba y definición de modelo de relación
+  </div>
+</div>
+
+<!-- ==================== RESUMEN EJECUTIVO ==================== -->
+<div class="page">
+<div class="page-header">
+  <div class="page-header-left">Jesús Pérez Porras · Director MKT Corp · Grupo Plasencia</div>
+  <div class="page-header-right">Confidencial · 09-jun-2026</div>
+</div>
+
+<h1>Resumen Ejecutivo</h1>
+<div class="accent-line"></div>
+
+<p class="lead">El periodo de contrato de prueba de Dirección de Marketing Corporativo cierra el <strong>17 de junio</strong>. En 90 días entregué infraestructura, modelo operativo y visión estratégica que con 3rd parties habría costado al grupo <strong>$1MDP+/mes durante 6–12 meses ($6MDP–$12MDP totales)</strong> — y ni de broma habrían entregado el output en el timing del periodo de contrato de prueba. Mi posición económica actual ($70K netos/mes) no refleja ese scope ni esa velocidad.</p>
+
+<h2>El ask en una línea</h2>
+<div class="card purple">
+  <div class="card-title">Estructurar mi rol como contrato corporativo vía Marketon, $290,000 MXN brutos/mes + IVA, con bonus por KPIs, vigencia inicial 12 meses con revisión semestral.</div>
+  <p>Le ahorra al grupo ~$1.9 MDP/año vs nómina FT equivalente, elimina pasivo laboral y mantiene la velocidad de ejecución que el rol exige. Es la estructura más limpia para ambas partes.</p>
+</div>
+
+<h2>Mi propuesta — 5 escenarios en dos tiers de alcance</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width:6%">#</th>
+      <th style="width:32%">Escenario</th>
+      <th style="width:24%">Monto / mes</th>
+      <th style="width:38%">Forma · alcance</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="background:rgba(15,23,42,0.05);"><td colspan="4" style="font-weight:700;color:var(--d);">Tier 1 · Alcance full (operación + estrategia + visión completa)</td></tr>
+    <tr class="highlight">
+      <td><strong>A</strong></td>
+      <td><strong>Proveedor full-scope Marketon (IDEAL valor)</strong></td>
+      <td class="price big">$290,000 + IVA</td>
+      <td>Honorarios contrato corporativo · todo el alcance actual</td>
+    </tr>
+    <tr>
+      <td>B</td>
+      <td>Full-Time nómina</td>
+      <td class="price">$200,000 netos</td>
+      <td>Nómina + prestaciones tier directivo + coche $1MDP+</td>
+    </tr>
+    <tr>
+      <td>C</td>
+      <td>Bridge nómina (puente)</td>
+      <td class="price">$150K netos + revisión 3m</td>
+      <td>Subida inicial + coche tier $1MDP+ + ajuste a $200K con KPIs firmados</td>
+    </tr>
+    <tr style="background:rgba(15,23,42,0.05);"><td colspan="4" style="font-weight:700;color:var(--d);">Tier 2 · Alcance acotado vía Marketon (continuidad + operatividad)</td></tr>
+    <tr>
+      <td>D</td>
+      <td>Continuidad acotada Marketon</td>
+      <td class="price">$80,000 + IVA</td>
+      <td>Alcance estricto definido en SOW · sin presencial nominal</td>
+    </tr>
+    <tr>
+      <td>E</td>
+      <td><strong>Fractional masiva Marketon (sweet spot operativo)</strong></td>
+      <td class="price big">$90,000 + IVA <span style="font-size:8pt;color:var(--txl);font-weight:400;">($120K con marcas restantes)</span></td>
+      <td>Continuidad + operatividad pilotos · touchpoints presenciales por negociar</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="note note-blue">
+  <strong>Math referencia (no es oferta):</strong> Si estructuramos por <em>fee por piloto</em> a tarifa de mercado actual de Marketon (mediana $28,836 + IVA), 5 pilotos activos (Seminuevos · Hyundai · Stellantis · GAC · Mazda + Changan WIP) salen a <strong>~$160K + IVA</strong>. Sirve de ancla de valor — la oferta original fue Seminuevos + Hyundai + Stellantis, son 2 marcas adicionales.
+</div>
+
+<h2>Lo que cubre la conversación</h2>
+<ul>
+  <li><strong>Evidencia:</strong> qué entregué en 90 días — infraestructura, operación, estrategia, visión</li>
+  <li><strong>Scope real:</strong> el rol que ya estoy operando es VP/CMO de grupo multi-marca, no Director junior</li>
+  <li><strong>5 escenarios económicos</strong> en 2 tiers — Tier 1 (A, B) incluye Lab de Innovación · Tier 2 (D, E) acotado sin Lab · C es bridge</li>
+  <li><strong>Auto del paquete:</strong> recomiendo reasignarlo a Pepe Morales · tier $1MDP+ desde piso $150K</li>
+  <li><strong>Plan de los próximos 90 días</strong> con la nueva estructura — qué entrego</li>
+</ul>
+
+<div class="note note-blue">
+  <strong>Tono y propósito de este documento:</strong> es una propuesta de renovación basada en evidencia objetiva, no una negociación emocional. El periodo de contrato de prueba termina con datos en mano. Esta conversación define si seguimos juntos en el siguiente ciclo y bajo qué estructura.
+</div>
+
+<div class="page-footer"><span>Director MKT Corp — Grupo Plasencia Automotriz</span><span>Confidencial · 1 de 14</span></div>
+</div>
+
+<!-- ==================== LO QUE ENTREGUÉ EN 90 DÍAS ==================== -->
+<div class="page">
+<div class="page-header">
+  <div class="page-header-left">Jesús Pérez Porras · Director MKT Corp · Grupo Plasencia</div>
+  <div class="page-header-right">Confidencial · 09-jun-2026</div>
+</div>
+
+<h1>Lo que entregué en 90 días</h1>
+<div class="accent-line"></div>
+<p class="lead">Antes del periodo de contrato de prueba, el ecosistema digital del grupo eran <strong>LeadGen Forms + WhatsApp manual</strong> sin coordinación, sin atribución, sin pipeline unificado. Hoy es un ecosistema completo con motor de atribución cross-source, automatizaciones operando 24/7 y plataforma escalable a las 9 marcas + Seminuevos.</p>
+
+<div class="stats">
+  <div class="stat">
+    <div class="stat-number">5</div>
+    <div class="stat-label">SPAs en producción</div>
+  </div>
+  <div class="stat">
+    <div class="stat-number">957</div>
+    <div class="stat-label">Oportunidades captadas</div>
+  </div>
+  <div class="stat">
+    <div class="stat-number">47+</div>
+    <div class="stat-label">Templates WA aprobados por Meta</div>
+  </div>
+  <div class="stat">
+    <div class="stat-number">4</div>
+    <div class="stat-label">Cuentas Meta Ads con CAPI server-side</div>
+  </div>
+</div>
+
+<h2>Artefactos de marketing entregados</h2>
+<table>
+  <thead>
+    <tr>
+      <th style="width:30%">Artefacto</th>
+      <th style="width:70%">Detalle operativo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>5 SPAs en producción</strong></td>
+      <td>Stellantis · Hyundai · GAC · Plasencia v2 (Seminuevos) · Autolease. Cloudflare Pages · GTM + GA4 + Meta CAPI server-side · OG + SEO completo · Pivote 2 con routing dinámico por sucursal y flotilla en 3 marcas</td>
+    </tr>
+    <tr>
+      <td><strong>1 CRM Pipeline e2e multi-marca</strong></td>
+      <td>Kanban con 11 etapas (Por contactar → Contactado → En seguimiento → Cita Agendada → Visita Realizada → Negociación → Auditar → Ganada → Perdida → No contactable → Cerrado otro canal) · vistas filtrables por marca / sucursal / vendedor / línea de negocio (Personal · Flotilla) · acceso por PIN · badge 🎯 Vendido con confianza de matching · vistas director-only (Auditar, Cerrado otro canal)</td>
+    </tr>
+    <tr>
+      <td><strong>Hub Chat multi-marca WhatsApp</strong></td>
+      <td>Bandeja unificada de conversaciones cross-marca con chips de filtro (Marca + Origen) · 3 niveles de badges (marca color · origen Voz Cliente/Auto-Greeting/Directo · ventana 24h) · envío de templates desde la UI · proxy de medios (audio/imagen/video) · persistencia de vista por URL hash</td>
+    </tr>
+    <tr>
+      <td><strong>Automatizaciones WhatsApp (~13 flujos)</strong></td>
+      <td>Autopilot Plasi (cron 2 min) · Auto-greeting HYU+STL · Encuesta Voz del Cliente post-cita 25d · Sync Vambe full mirror (≤2 min) · Notificaciones lead a vendedores + gerentes · 47 templates one-shot dispatch (78% delivered) · Routing dinámico por sucursal/flotilla/PIN · WABA Mazda Cloud API en 6 sucursales · Recovery + retry de fallidos · Audit + redispatch perdidos · 1ra y 2da ola de seguimiento</td>
+    </tr>
+    <tr>
+      <td><strong>Campañas Meta Ads</strong></td>
+      <td>4 cuentas activas con framework Andromeda 2026 · creatives rotados con video + imagen + carousel · audiencias por persona (Andrea, Karla&Diego, Familia Ramírez, Renata, Ing. Mendoza para HYU; equivalentes STL+GAC) · Always-on Seminuevos + Hyundai con concepto rector "Sin Sorpresas" · 13 creativos Reels generados con IA</td>
+    </tr>
+    <tr>
+      <td><strong>Motor de Atribución MVP</strong></td>
+      <td>Matching v7 multi-criteria scoring (VIN+40 / Cel+35 / Nombre+30 / Email+25 / Sucursal+5 / Temporal+5 ± VOC boost/veto) · 4 GTM containers · 4 GA4 Measurement IDs server-side · 4 Meta Pixels con CAPI · 4 propiedades Microsoft Clarity con heatmaps + recordings · Conciliación diaria DCA ↔ Catálogo ↔ Kanban ↔ Voz del Cliente</td>
+    </tr>
+    <tr>
+      <td><strong>Pipeline catálogo Seminuevos</strong></td>
+      <td>Sync horario Maxipublica XML → D1 · 681 SKUs · matching VIN-to-VIN con DCA · ventas validables persistidas · gate "Cerrado otro canal" para ventas no atribuibles</td>
+    </tr>
+    <tr>
+      <td><strong>Estrategia + Documentación pública</strong></td>
+      <td>23 decks ejecutivos publicados en GitHub Pages (Motor Atribución Consejo · Driving Growth · Centro Excelencia · Marketplace · Autolease · Pipeline Marcas · Diagnóstico Marketing-Eficiencia 2025 · SOP Onboarding · etc.) · 228 docs estratégicos/tech como base de conocimiento operativo</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="page-footer"><span>Director MKT Corp — Grupo Plasencia Automotriz</span><span>Confidencial · 2 de 14</span></div>
+</div>
+
+<!-- ==================== LO QUE ENTREGUÉ — PARTE 2: OPERACIÓN + RESULTADO ==================== -->
+<div class="page">
+<div class="page-header">
+  <div class="page-header-left">Jesús Pérez Porras · Director MKT Corp · Grupo Plasencia</div>
+  <div class="page-header-right">Confidencial · 09-jun-2026</div>
+</div>
+
+<h1>Operación multi-marca y pipeline</h1>
+<div class="accent-line"></div>
+
+<h2>Operación multi-marca activa</h2>
+<ul>
+  <li><strong>5 marcas con infraestructura live:</strong> Seminuevos · Hyundai · Stellantis · GAC · Mazda (6 sucursales WhatsApp Cloud API) — más WIP de absorber las 4 restantes (Ford · Changan · GWM · Isuzu) hasta cubrir las 9 marcas del grupo</li>
+  <li><strong>Cuentas Meta Ads</strong> con CAPI server-side y tokens propios por marca</li>
+  <li><strong>GA4 Measurement IDs</strong> server-side via Measurement Protocol por marca</li>
+  <li><strong>Microsoft Clarity</strong> en 4 propiedades con heatmaps + session recordings</li>
+  <li><strong>6+ sucursales</strong> con routing WhatsApp dinámico + PIN-based access control</li>
+  <li><strong>Vambe AI</strong> integrado para dispatch de conversaciones</li>
+  <li><strong>GTM container</strong> deployment unificado en todas las landings</li>
+  <li><strong>HubSpot CRM</strong> integrado en proceso de leads</li>
+</ul>
+
+<h2>Resultado verificable del pipeline (snapshot al 7-jun-2026 · semana 8)</h2>
+<p style="font-size:9.5pt;margin-bottom:8px;color:var(--txl);">Cifras del Pipeline-Marcas-Deck refrescado a semana 8 · D1 al 7-jun · Meta Ads + Google Ads GAQL · matching v7 vs DCA defendibles externamente.</p>
+<div class="stats">
+  <div class="stat">
+    <div class="stat-number">$1,242K</div>
+    <div class="stat-label">Revenue atribuible total (4 ventas: 3 SEM + 1 HYU)</div>
+  </div>
+  <div class="stat">
+    <div class="stat-number">957</div>
+    <div class="stat-label">Oportunidades activas (SEM 256 + HYU 437 + STL 264)</div>
+  </div>
+  <div class="stat">
+    <div class="stat-number">+199</div>
+    <div class="stat-label">Nuevas oportunidades en últimos 7 días</div>
+  </div>
+  <div class="stat">
+    <div class="stat-number">5</div>
+    <div class="stat-label">Marcas con infraestructura live</div>
+  </div>
+</div>
+<div class="note note-blue">
+  <strong>Lectura honesta al 7-jun (semana 8):</strong> SEM 56 días de pauta · 256 oportunidades · conversión defendible 1.17% (cae de 1.55% del cierre Consejo) · 3 ventas defendibles vs DCA ($938K) · ROAS 22.6× (cae de 26.8× por +18% spend sin nuevos cierres) · CPL $109 · retención cita 21.5% · retención visita 30.9%. HYU 39 días de pauta · 437 oportunidades · líder eficiencia portafolio CPL $56.84 · 1 venta atribuida ($304K Grand i10, ROAS 12.6×). STL 36 días de pauta · 264 oportunidades · perdió liderazgo eficiencia CPL $91.82 vs HYU · 0 ventas cerradas aún · catálogo amplio RAM/Jeep/Peugeot/Dodge/Fiat. Atribución defendible total: <strong>4 ventas · $1,242K</strong>. El motor de atribución ahora hace visible que la mayor parte del cierre sigue siendo walk-in — habilita decidir dónde invertir con data, no intuición.
+</div>
+
+<div class="page-footer"><span>Director MKT Corp — Grupo Plasencia Automotriz</span><span>Confidencial · 3 de 14</span></div>
+</div>
+
+<!-- ==================== VISIÓN ESTRATÉGICA ENTREGADA ==================== -->
+<div class="page">
+<div class="page-header">
+  <div class="page-header-left">Jesús Pérez Porras · Director MKT Corp · Grupo Plasencia</div>
+  <div class="page-header-right">Confidencial · 09-jun-2026</div>
+</div>
+
+<h1>Visión estratégica entregada</h1>
+<div class="accent-line"></div>
+<p class="lead">Más allá de ejecución, el periodo de contrato de prueba entregó la arquitectura estratégica del grupo para los próximos 12-24 meses. Todo el material está publicado en GitHub Pages y presentado al Consejo.</p>
+
+<h2>Documentos canónicos publicados</h2>
+<div class="card">
+  <div class="card-title">Diagnóstico Marketing-Eficiencia 2025 (v2.2)</div>
+  <p>Baseline completo del gasto MKT del grupo: <strong>$58.9 MDP/año documentado · 0.46% del revenue $12,813 MDP</strong>. Análisis por marca, agencia, proveedor, plantilla y origen GP vs OEM rebate. Identifica <strong>5 palancas con $19.5 MDP/año en eficiencia + $661 MDP/año en revenue incremental</strong>. ROI proyectado 3.9× eficiencia · 130× con conversión.</p>
+</div>
+
+<div class="card purple">
+  <div class="card-title">Strategy Definition — Centro de Excelencia AI-powered</div>
+  <p>Tesis estratégica completa para el Consejo: modelo operativo Hub & Spoke híbrido + AI-native + internalización de capacidades. <strong>Propuesta Fase 1: $320K-$400K/mes</strong> para hub de 6-7 personas (escenario híbrido recomendado). Fase 2: hub completo $500-700K/mes con 10-12 personas. Cita evidencia HBS/BCG, benchmarks Inchcape/VW Group/P&G.</p>
+</div>
+
+<div class="card green">
+  <div class="card-title">Marketplace Plasencia — Estrategia + Service Design + Prototipo</div>
+  <p>Deep research mundial 2026 ejecutado. Paper ejecutivo A4 de 13 páginas. Strategy paper "El patrón que ganó" con evidencia global (Lithia, Asbury, Group 1, AutoNation, Sonic+EchoPark). Service Design del marketplace + prototipo v6. Validación de modelo "concesionario unificado bajo marca-paraguas con motor digital propio".</p>
+</div>
+
+<div class="card orange">
+  <div class="card-title">Autolease — Línea de negocio completa</div>
+  <p>Definición estratégica completa: estado actual · marco de alineamiento · persona dominante · gaps de producto · casos espejo MX (TIP, Afirme) · research de mercado y competencia · secuencia de trabajo. Listo para validación y go-to-market.</p>
+</div>
+
+<h2>Sistema operativo multi-marca documentado</h2>
+<ul>
+  <li><strong>Motor de Atribución MVP Playbook Operativo</strong> — operación canónica con Anexo A3 fiscal</li>
+  <li><strong>SOP Onboarding Piloto Marketing Marca</strong> — proceso replicable para cada marca nueva</li>
+  <li><strong>Seminuevos Modelo Operativo Deck + Definición Estratégica</strong> — línea de negocio blueprint</li>
+  <li><strong>Discovery Gerentes MKT Brief</strong> — diagnóstico de los 8 silos por marca</li>
+  <li><strong>Driving Growth Executive Summary</strong> — visión de crecimiento multi-marca</li>
+  <li><strong>Centro Excelencia MKT Consejo Deck</strong> — pitch ejecutivo</li>
+  <li><strong>Pipeline Marcas Deck</strong> — roadmap de migración</li>
+  <li><strong>Vambe Integration Status Memo</strong> — estado de la integración conversational</li>
+</ul>
+
+<div class="note note-green">
+  <strong>Implicación para esta negociación:</strong> El Centro de Excelencia que yo mismo diseñé y propuse al Consejo cuesta <strong>$320-400K/mes en su Fase 1 con un hub de 6-7 personas</strong>. Mi posición como Director de ese hub debería capturar entre el 25% y el 35% del costo total — entre $80K y $140K netos como FT, o equivalente como proveedor. Mi propuesta de $290K bruto (~$200K netos efectivos) está en el rango bajo de ese cálculo objetivo.
+</div>
+
+<div class="note note-purple">
+  <strong>🧪 Lo que sigue (alineado con Pepe el 9-jun):</strong> Laboratorio de Innovación + Experiencia Ideal — modelo operativo full en marca china piloto (GAC/Changan/GWM TBD) antes de COE Fase 1. ASK formal al Consejo en Q3 · entregable bajo Tier 1 (A/B).
+</div>
+
+<div class="page-footer"><span>Director MKT Corp — Grupo Plasencia Automotriz</span><span>Confidencial · 4 de 14</span></div>
+</div>
+
+<!-- ==================== EL SCOPE REAL DEL ROL ==================== -->
+<div class="page">
+<div class="page-header">
+  <div class="page-header-left">Jesús Pérez Porras · Director MKT Corp · Grupo Plasencia</div>
+  <div class="page-header-right">Confidencial · 09-jun-2026</div>
+</div>
+
+<h1>El scope real del rol</h1>
+<div class="accent-line"></div>
+<p class="lead">Originalmente contratado como Director de Marketing. Hoy el rol que ejecuto excede ese título en magnitud y responsabilidad. Esto importa para definir comp objetiva.</p>
+
+<h2>Responsabilidad numérica que cubro</h2>
+<table>
+  <thead>
+    <tr>
+      <th style="width:50%">Variable</th>
+      <th style="width:50%">Mi alcance</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Marcas OEM bajo mi dirección estratégica</td>
+      <td><strong>9 marcas</strong> (Mazda · Hyundai · Ford · Changan · Stellantis · GWM · GAC · Isuzu · Seminuevos)</td>
+    </tr>
+    <tr>
+      <td>Revenue grupo asociado al área</td>
+      <td><strong>$12,813 MDP / año</strong></td>
+    </tr>
+    <tr>
+      <td>Agencias / concesionarias</td>
+      <td><strong>36 agencias en 6 estados</strong> (Occidente y Bajío Sur)</td>
+    </tr>
+    <tr>
+      <td>Gasto MKT que diagnostico y optimizo</td>
+      <td><strong>$58.9 MDP / año documentado</strong> ($74 MDP con proxies)</td>
+    </tr>
+    <tr>
+      <td>Plantilla MKT cross-marca a coordinar</td>
+      <td><strong>61 personas distribuidas en 8 silos</strong></td>
+    </tr>
+    <tr>
+      <td>Proveedores externos a consolidar</td>
+      <td><strong>14 proveedores fragmentados</strong></td>
+    </tr>
+    <tr>
+      <td>Pauta digital documentada</td>
+      <td><strong>$13.27 MDP / año</strong> (84.1% sin rebate OEM efectivo)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>Iniciativas que lidero simultáneamente</h2>
+<div class="scope-grid">
+  <div class="scope-box yes">
+    <div class="scope-title">Operación BAU (corriendo hoy)</div>
+    <ul class="scope-list">
+      <li>5 marcas con infraestructura live (SEM · HYU · STL · GAC · MAZDA)</li>
+      <li>CRM hub multi-marca live</li>
+      <li>Motor de Atribución MVP en producción</li>
+      <li>Always-On Seminuevos (creativos + campaigns)</li>
+      <li>Always-On Hyundai (creativos + campaigns)</li>
+      <li>Pivotes estructurales M0→P1→P2 ejecutados</li>
+      <li>Kanban multi-marca con jerarquía operativa</li>
+      <li>Routing WA dinámico + PINs de acceso</li>
+    </ul>
+  </div>
+  <div class="scope-box no">
+    <div class="scope-title">Visión y pendientes (lo que falta)</div>
+    <ul class="scope-list">
+      <li>Migrar 5 marcas restantes (Mazda · Ford · Changan · GWM · Isuzu)</li>
+      <li>Implementar Centro de Excelencia AI-powered</li>
+      <li>Marketplace Plasencia — MVP go-live</li>
+      <li>Autolease — go-to-market</li>
+      <li>Internalizar central de medios (ahorro $1.2-1.6 MDP/año + IVA recuperable $2.4-3.2 MDP/año)</li>
+      <li>RevOps full (comisiones por canal digital)</li>
+      <li>Data lake corporativo unificado</li>
+      <li>Carbrok — línea adicional en desarrollo</li>
+    </ul>
+  </div>
+</div>
+
+<h2>Reframe necesario del título</h2>
+<div class="card red">
+  <div class="card-title">El título de "Director de Marketing" no cubre el rol real</div>
+  <p>Cuando un rol cubre 9 marcas, $12.8B de revenue, diseña el modelo operativo del grupo, presenta tesis al Consejo, lidera 3+ líneas de negocio nuevas (Marketplace, Autolease, Carbrok) y opera con stack tecnológico propio, el título técnico es <strong>VP de Marketing / CMO de Grupo Multi-marca</strong>. Esto no es promoción simbólica — es la definición correcta del scope que ya estoy operando.</p>
+</div>
+
+<div class="page-footer"><span>Director MKT Corp — Grupo Plasencia Automotriz</span><span>Confidencial · 5 de 14</span></div>
+</div>
+
+<!-- ==================== COMPARABLE DE MERCADO ==================== -->
+<div class="page">
+<div class="page-header">
+  <div class="page-header-left">Jesús Pérez Porras · Director MKT Corp · Grupo Plasencia</div>
+  <div class="page-header-right">Confidencial · 09-jun-2026</div>
+</div>
+
+<h1>Comparable de mercado</h1>
+<div class="accent-line"></div>
+<p class="lead">Bandas de compensación para perfiles VP/CMO en grupos automotrices multi-marca del tamaño de Plasencia. Referencias públicas y benchmarks de mercado mexicano.</p>
+
+<h2>Bandas de comp por perfil — México 2026</h2>
+<table>
+  <thead>
+    <tr>
+      <th style="width:38%">Perfil</th>
+      <th style="width:24%">Sueldo neto / mes</th>
+      <th style="width:38%">Notas / comparables</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Director MKT Junior (1 marca)</td>
+      <td class="price">$50K – $90K</td>
+      <td>Banda donde está mi comp actual</td>
+    </tr>
+    <tr>
+      <td>Director MKT Senior (1 marca · grupo grande)</td>
+      <td class="price">$90K – $140K</td>
+      <td>Director MKT Hyundai Plasencia (uno de mis spokes)</td>
+    </tr>
+    <tr class="highlight">
+      <td><strong>VP / CMO Grupo Multi-marca Automotriz</strong></td>
+      <td class="price big"><strong>$180K – $300K</strong></td>
+      <td><strong>Mi scope real:</strong> Andrade, Inchcape MX, Nissan Mexicana, BMW Distribuidores grandes</td>
+    </tr>
+    <tr>
+      <td>CMO Grupo Top-Tier Automotriz</td>
+      <td class="price">$280K – $450K</td>
+      <td>Mercado Libre Autos, AutoNation MX (si existiera)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>Lo que costaría replicar lo que entregué — proxies objetivos</h2>
+<p style="font-size:10pt;margin-bottom:8px;">Cuatro referencias documentadas. Cada una mide algo distinto: lo que costaría replicar el output con 3rd parties · lo que el grupo ya paga hoy fragmentado · lo que yo mismo propuse al Consejo como hub · vs. lo que pido.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width:36%">Referencia</th>
+      <th style="width:24%">Monto / mes</th>
+      <th style="width:40%">Fuente · qué cubre</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Proyecto con 3rd parties para replicar lo que entregué en el periodo de contrato de prueba</strong></td>
+      <td class="price big">$1,000K+ / mes</td>
+      <td>Agencias senior de transformación digital con equipo dedicado, project management, overhead y markup · piso $1MDP/mes con timing realista de <strong>6-12 meses</strong>, no 2 · costo total estimado de replicación: <strong>$6MDP–$12MDP</strong></td>
+    </tr>
+    <tr>
+      <td><strong>14 proveedores externos actuales del grupo</strong></td>
+      <td class="price big">~$880K</td>
+      <td>Diagnóstico 2025 · $10.56 MDP/año en fees fragmentados sin coordinación cross-marca (Dazing $3.81M, Maxipublica+Fabula+ML $1.75M, Paola Like $1.58M, Viceversa+Nextilo+Karbot $1.11M, otros $2.31M)</td>
+    </tr>
+    <tr>
+      <td><strong>Centro de Excelencia Fase 1</strong> (mi propia propuesta al Consejo)</td>
+      <td class="price big">$320K–$400K</td>
+      <td>Strategy Definition AI-powered · 6-7 personas Escenario C híbrido recomendado · cubre capacidades cross-marca que reemplazan parte de proveedores externos</td>
+    </tr>
+    <tr class="highlight">
+      <td><strong>Mi propuesta · Escenario A (proveedor Marketon)</strong></td>
+      <td class="price big">$290K + IVA</td>
+      <td>Una sola persona con stack IA (70+ skills · 20+ MCPs) · sin pasivo laboral · IVA recuperable · cancelable con 30 días aviso · timing del periodo de contrato de prueba comprobado: <strong>output completo en 2 meses</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="note note-blue">
+  <strong>El argumento más fuerte no es el costo — es la velocidad.</strong> Si el grupo hubiera contratado 3rd parties para construir el motor de atribución, los 4 SPAs, el CRM hub multi-marca, el diagnóstico baseline 2025, los 23 decks ejecutivos y la visión estratégica completa (COE + Marketplace + Autolease) que entregué en el periodo de contrato de prueba, el costo habría sido <strong>$1MDP+/mes durante 6-12 meses</strong> ($6MDP–$12MDP totales). <strong>Y ni de broma habrían tenido el output en 2 meses.</strong> La velocidad-IA es la palanca diferencial: solo se captura instalándola con la persona y stack correctos, no comprándola en piezas separadas.
+</div>
+
+<div class="page-footer"><span>Director MKT Corp — Grupo Plasencia Automotriz</span><span>Confidencial · 6 de 14</span></div>
+</div>
+
+<!-- ==================== COMPARABLE — PARTE 2: BANDA SALARIAL ==================== -->
+<div class="page">
+<div class="page-header">
+  <div class="page-header-left">Jesús Pérez Porras · Director MKT Corp · Grupo Plasencia</div>
+  <div class="page-header-right">Confidencial · 09-jun-2026</div>
+</div>
+
+<h1>Mi banda salarial objetiva</h1>
+<div class="accent-line"></div>
+<p class="lead">Comparativa visual de dónde está hoy mi compensación vs los 3 escenarios propuestos en este documento.</p>
+
+<div class="note note-green">
+  <strong>Lectura comparativa:</strong> mi propuesta de $290K bruto/mes representa el <strong>29% del costo de replicación con 3rd parties</strong> y el <strong>33% del gasto actual del grupo en proveedores externos fragmentados</strong> — entregando además la integración estratégica completa que ningún proveedor o equipo fragmentado puede dar.
+</div>
+<div class="progress-row">
+  <div class="progress-label">Comp actual</div>
+  <div class="progress-bar-bg"><div class="progress-bar-fill actual" style="width: 24%;"></div></div>
+  <div class="progress-amount">$70K netos</div>
+</div>
+<div class="progress-row">
+  <div class="progress-label">Bridge (Escenario C)</div>
+  <div class="progress-bar-bg"><div class="progress-bar-fill fallback" style="width: 52%;"></div></div>
+  <div class="progress-amount">$150K netos</div>
+</div>
+<div class="progress-row">
+  <div class="progress-label">FT (Escenario B)</div>
+  <div class="progress-bar-bg"><div class="progress-bar-fill fallback" style="width: 69%;"></div></div>
+  <div class="progress-amount">$200K netos</div>
+</div>
+<div class="progress-row">
+  <div class="progress-label">Proveedor (Escenario A · IDEAL)</div>
+  <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 100%;"></div></div>
+  <div class="progress-amount">$290K brutos</div>
+</div>
+
+<div class="note note-blue">
+  <strong>Lectura:</strong> hoy cobro el 24% de lo que vale objetivamente la posición que opero. El ajuste justo es entre 2.1× y 4.1× de mi comp actual. Mi propuesta cae en el rango bajo del comparable de mercado para VP/CMO grupo multi-marca.
+</div>
+
+<div class="page-footer"><span>Director MKT Corp — Grupo Plasencia Automotriz</span><span>Confidencial · 7 de 14</span></div>
+</div>
+
+<!-- ==================== 3 ESCENARIOS DETALLADOS ==================== -->
+<div class="page">
+<div class="page-header">
+  <div class="page-header-left">Jesús Pérez Porras · Director MKT Corp · Grupo Plasencia</div>
+  <div class="page-header-right">Confidencial · 09-jun-2026</div>
+</div>
+
+<h1>Mi propuesta · Tier 1 — alcance full</h1>
+<div class="accent-line"></div>
+<p class="lead">Tres escenarios de alcance full. Mi preferencia: A. Acepto: B. C es el último puente posible.</p>
+
+<div class="scenarios">
+  <div class="scenario ideal">
+    <div class="scenario-badge">Mi preferencia</div>
+    <div class="scenario-tag">Escenario A · IDEAL</div>
+    <div class="scenario-title">Proveedor corporativo vía Marketon</div>
+    <div class="scenario-price">$290,000</div>
+    <div class="scenario-price-unit">brutos / mes + IVA</div>
+    <ul>
+      <li>Honorarios contrato corporativo</li>
+      <li>Vigencia 12 meses + renovación anual</li>
+      <li>Bonus trimestral por KPIs</li>
+      <li>Cancelable con 30 días aviso</li>
+      <li>Le ahorra al grupo $1.9M/año vs FT</li>
+      <li>Sin pasivo laboral</li>
+      <li>IVA recuperable</li>
+    </ul>
+  </div>
+
+  <div class="scenario fallback">
+    <div class="scenario-tag">Escenario B · Fallback</div>
+    <div class="scenario-title">Full-Time nómina</div>
+    <div class="scenario-price">$200,000</div>
+    <div class="scenario-price-unit">netos / mes</div>
+    <ul>
+      <li>Nómina con prestaciones tier directivo</li>
+      <li>IMSS · AFORE · INFONAVIT</li>
+      <li>Aguinaldo · vacaciones · prima</li>
+      <li>Bonus trimestral direccional $30-50K · monto y KPIs negociables</li>
+      <li>Auto del paquete (ver pág. 8)</li>
+      <li>Revisión semestral con techo $250-280K</li>
+      <li>Costo total al grupo: ~$450K/mes</li>
+    </ul>
+  </div>
+
+  <div class="scenario bridge">
+    <div class="scenario-tag">Escenario C · Bridge</div>
+    <div class="scenario-title">Puente escalonado</div>
+    <div class="scenario-price">$150,000</div>
+    <div class="scenario-price-unit">netos / mes inicial</div>
+    <ul>
+      <li>Subida inmediata a $150K netos</li>
+      <li><strong>Coche tier directivo $1MDP+ aplica desde aquí</strong> (no solo desde B)</li>
+      <li>Revisión obligatoria a 3 meses</li>
+      <li>Ajuste a $200K netos con KPIs firmados</li>
+      <li><strong>🧪 Lab de Innovación NO incluido en bridge</strong> · se activa post-ajuste a $200K</li>
+      <li>Compromisos de hitos firmados</li>
+      <li>NO acepto debajo de esto</li>
+    </ul>
+  </div>
+</div>
+
+<h2>Alcance operativo Tier 1 — A y B incluyen todo · C es bridge</h2>
+<div class="note note-blue">
+  <strong>Qué entrego bajo A o B (alcance estratégico full):</strong>
+  <ul style="margin-top:6px;margin-bottom:0;">
+    <li><strong>Dirección de Marketing Corporativo completa</strong> · 9 marcas + Seminuevos · operación cross-marca cross-sucursal</li>
+    <li><strong>Estrategia maestra de growth</strong> · iteración trimestral · presentación al Consejo</li>
+    <li><strong>🧪 Laboratorio de Innovación + Experiencia Ideal</strong> · implementación del modelo operativo full en una marca china piloto (GAC/Changan/GWM TBD) como prueba antes de escalar al COE Fase 1 · ASK formal al Consejo alineado con Pepe Morales el 9-jun</li>
+    <li><strong>Centro de Excelencia AI-powered</strong> · contratación + onboarding perfiles · roll-out cross-marca (Fase 1 post-Lab)</li>
+    <li><strong>Marketplace Plasencia</strong> · MVP live + operación + iteración · alineación financiera cautiva</li>
+    <li><strong>Autolease + Carbrok</strong> · líneas de negocio en go-to-market</li>
+    <li><strong>Migración 4 marcas restantes</strong> · Ford · Changan · GWM · Isuzu · patrón Andromeda 2026</li>
+    <li><strong>Relación OEMs + 36 agencias + 14 proveedores</strong> · consolidación + KPIs</li>
+    <li><strong>Supervisión QA outputs IA</strong> · media buy · reporting mensual ejecutivo</li>
+    <li><strong>Transformación digital del grupo</strong> · roadmap 12-24m · presencia completa GP</li>
+  </ul>
+  <p style="margin-top:8px;font-size:8.5pt;"><strong style="color:var(--o);">⚠️ Sobre Escenario C (Bridge):</strong> hitos estratégicos (Lab · COE Fase 1 · Marketplace MVP) NO incluidos en $150K netos. Se activan post-ajuste a $200K con KPIs firmados. Lab actúa como milestone que detona ese ajuste.</p>
+</div>
+
+<h2>Comparativo costo total al grupo (12 meses)</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Escenario</th>
+      <th>Bruto / mes al grupo</th>
+      <th>Prestaciones</th>
+      <th>Costo total / mes</th>
+      <th>Costo anual</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="highlight">
+      <td><strong>A · Proveedor Marketon</strong></td>
+      <td>$290K + IVA</td>
+      <td>$0 (no aplica)</td>
+      <td class="price">$290K efectivo</td>
+      <td class="price big">$3.48M</td>
+    </tr>
+    <tr>
+      <td>B · FT nómina</td>
+      <td>$300K bruto</td>
+      <td>~$150K (35-50%)</td>
+      <td class="price">$450K</td>
+      <td class="price">$5.40M</td>
+    </tr>
+    <tr>
+      <td>C · Bridge nómina</td>
+      <td>$225K bruto</td>
+      <td>~$113K</td>
+      <td class="price">$338K</td>
+      <td class="price">$4.05M (con ajuste)</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="note note-green">
+  <strong>Argumento al CFO:</strong> Escenario A ahorra <strong>~$1.92M/año vs B</strong>, elimina pasivo laboral, permite cancelación con 30d aviso, IVA recuperable. Estructura más eficiente para el grupo.
+</div>
+
+<div class="page-footer"><span>Director MKT Corp — Grupo Plasencia Automotriz</span><span>Confidencial · 8 de 14</span></div>
+</div>
+
+<!-- ==================== ESCENARIOS TIER 2 — ALCANCE ACOTADO VÍA MARKETON ==================== -->
+<div class="page">
+<div class="page-header">
+  <div class="page-header-left">Jesús Pérez Porras · Director MKT Corp · Grupo Plasencia</div>
+  <div class="page-header-right">Confidencial · 09-jun-2026</div>
+</div>
+
+<h1>Mi propuesta · Tier 2 — alcance acotado vía Marketon</h1>
+<div class="accent-line"></div>
+<p class="lead">Si el grupo prefiere acotar el alcance, hay dos estructuras adicionales vía Marketon. Sweet spot operativo: menos desgaste, alcance específico, continuidad de los pilotos sin cargar con la visión corporativa completa.</p>
+
+<div class="scenarios" style="grid-template-columns: repeat(2, 1fr);">
+  <div class="scenario ideal" style="border-top-color:var(--g);border:2px solid var(--g);">
+    <div class="scenario-badge" style="background:var(--g);">Sweet spot</div>
+    <div class="scenario-tag" style="color:var(--gd);">Escenario E · Fractional masiva</div>
+    <div class="scenario-title">Fractional masivo Marketon</div>
+    <div class="scenario-price">$90,000</div>
+    <div class="scenario-price-unit">+ IVA / mes (base · sin marcas restantes)</div>
+    <p style="font-size:8.5pt;font-weight:700;color:var(--gd);margin:6px 0 3px;">QUÉ HAGO:</p>
+    <ul style="margin-top:0;">
+      <li>Operación día a día de los 5 pilotos activos (Sem · Hyu · Stl · GAC · Mazda)</li>
+      <li>Mantenimiento + iteración de campañas Meta + Google Ads por marca</li>
+      <li>Supervisión QA de outputs IA antes de publicar/lanzar</li>
+      <li>Iteración de creatives + landings + tracking + matching v7</li>
+      <li>Reportes mensuales operativos al grupo</li>
+      <li>Working sessions semanales remotas con sucursales</li>
+      <li>Escala a $120K si se incluyen Ford · Changan · GWM · Isuzu</li>
+    </ul>
+    <p style="font-size:8.5pt;font-weight:700;color:var(--r);margin:6px 0 3px;">QUÉ NO INCLUYE:</p>
+    <ul style="margin-top:0;">
+      <li><strong>🧪 Lab de Innovación + Experiencia Ideal</strong> (requiere Tier 1)</li>
+      <li>Centro de Excelencia · Marketplace · Autolease (visión corporativa)</li>
+      <li>Relación estratégica con OEMs y consolidación de agencias</li>
+      <li>Touchpoints presenciales (add-on por negociar)</li>
+    </ul>
+  </div>
+
+  <div class="scenario fallback">
+    <div class="scenario-tag">Escenario D · Continuidad</div>
+    <div class="scenario-title">Continuidad acotada Marketon</div>
+    <div class="scenario-price">$80,000</div>
+    <div class="scenario-price-unit">+ IVA / mes</div>
+    <p style="font-size:8.5pt;font-weight:700;color:var(--bd);margin:6px 0 3px;">QUÉ HAGO:</p>
+    <ul style="margin-top:0;">
+      <li>Mantener los pilotos actuales operando sin caídas (5 marcas)</li>
+      <li>Monitoreo + alertas + correcciones reactivas</li>
+      <li>Reportes mensuales básicos (no ejecutivos)</li>
+      <li>1 working session quincenal remota</li>
+      <li>SOW estricto — solo lo explícitamente listado al firmar</li>
+    </ul>
+    <p style="font-size:8.5pt;font-weight:700;color:var(--r);margin:6px 0 3px;">QUÉ NO INCLUYE:</p>
+    <ul style="margin-top:0;">
+      <li><strong>🧪 Lab de Innovación + Experiencia Ideal</strong> (requiere Tier 1)</li>
+      <li>Iteración estratégica · creative nuevo · pivotes de campaña</li>
+      <li>Onboarding marcas nuevas · iniciativas nuevas</li>
+      <li>Centro de Excelencia · Marketplace · Autolease</li>
+      <li>Presencial nominal — 100% remoto</li>
+    </ul>
+  </div>
+</div>
+
+<h2>Math referencia · fee por piloto (no es oferta directa)</h2>
+<div class="note note-purple">
+  <strong>Anclaje de valor a tarifa de mercado actual de Marketon:</strong> mediana actual por cliente promedio = <strong>$28,836 + IVA</strong>. La oferta inicial del grupo cubría 3 pilotos (Seminuevos · Hyundai · Stellantis). Hoy son 5 pilotos activos (+ GAC + Mazda) con Changan WIP. A tarifa de mercado uno-a-uno: 5 × $28,836 = <strong>~$144,180 + IVA</strong> (≈ <strong>$160K + IVA</strong> con redondeo). Esa es la "tarifa justa" del trabajo actual a precios de mercado abierto — los Escenarios D y E reflejan disposición a flexibilizar bajo continuidad.
+</div>
+
+<h2>Comparativo Tier 1 vs Tier 2 (costo mensual al grupo)</h2>
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Escenario</th>
+      <th>Costo / mes</th>
+      <th>Alcance</th>
+      <th>Forma</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="highlight">
+      <td><strong>A</strong></td>
+      <td>Proveedor full-scope Marketon</td>
+      <td class="price big">$290K + IVA</td>
+      <td>Todo (operación + estrategia + visión)</td>
+      <td>Honorarios</td>
+    </tr>
+    <tr>
+      <td>B</td>
+      <td>FT nómina</td>
+      <td class="price">$450K total</td>
+      <td>Todo (con prestaciones)</td>
+      <td>Nómina + auto</td>
+    </tr>
+    <tr>
+      <td>C</td>
+      <td>Bridge nómina</td>
+      <td class="price">$338K total</td>
+      <td>Todo (con prestaciones)</td>
+      <td>Nómina + revisión 3m</td>
+    </tr>
+    <tr style="background:rgba(5,150,105,0.06);">
+      <td><strong>E</strong></td>
+      <td><strong>Fractional masiva Marketon</strong></td>
+      <td class="price big">$90K-$120K + IVA</td>
+      <td>Continuidad + operatividad pilotos</td>
+      <td>Honorarios</td>
+    </tr>
+    <tr style="background:rgba(5,150,105,0.06);">
+      <td>D</td>
+      <td>Continuidad acotada Marketon</td>
+      <td class="price">$80K + IVA</td>
+      <td>Alcance estricto por SOW</td>
+      <td>Honorarios</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="note note-blue">
+  <strong>Lectura operativa:</strong> Tier 2 cambia la conversación de "VP/CMO multi-marca corporativo" a "operador fractional de los pilotos en marcha". Es la salida elegante si el grupo no está listo aún para formalizar mi posición en Tier 1, pero quiere mantener los pilotos vivos con continuidad operativa.
+</div>
+
+<div class="page-footer"><span>Director MKT Corp — Grupo Plasencia Automotriz</span><span>Confidencial · 9 de 14</span></div>
+</div>
+
+<!-- ==================== DETALLE ESCENARIO A ==================== -->
+<div class="page">
+<div class="page-header">
+  <div class="page-header-left">Jesús Pérez Porras · Director MKT Corp · Grupo Plasencia</div>
+  <div class="page-header-right">Confidencial · 09-jun-2026</div>
+</div>
+
+<h1>Escenario A — Proveedor Marketon (detalle)</h1>
+<div class="accent-line"></div>
+<p class="lead">Mi propuesta principal. Estructura corporativa vía Marketon Growth Boutique Agency, mi razón social. Modelo limpio para ambas partes.</p>
+
+<h2>Estructura económica completa</h2>
+<table>
+  <thead>
+    <tr>
+      <th style="width:42%">Concepto</th>
+      <th style="width:26%">Monto MXN</th>
+      <th style="width:32%">Notas</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="highlight">
+      <td><strong>Honorarios mensuales fijos</strong></td>
+      <td class="price big">$290,000 + IVA</td>
+      <td>Mensual anticipado</td>
+    </tr>
+    <tr>
+      <td>IVA aplicable (16%)</td>
+      <td class="price">$46,400</td>
+      <td>Recuperable para el grupo</td>
+    </tr>
+    <tr>
+      <td><strong>Total facturado / mes</strong></td>
+      <td class="price big">$336,400</td>
+      <td>CFDI Marketon Growth Boutique Agency</td>
+    </tr>
+    <tr>
+      <td>Bonus trimestral por KPIs (direccional · negociable)</td>
+      <td class="price">$50,000–$100,000 + IVA</td>
+      <td>Rango y KPIs por definir al inicio del trimestre</td>
+    </tr>
+    <tr>
+      <td>Vigencia inicial</td>
+      <td>12 meses</td>
+      <td>Renovación anual</td>
+    </tr>
+    <tr>
+      <td>Cancelación</td>
+      <td>30 días aviso</td>
+      <td>Mutua, sin penalización</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>KPIs trimestrales propuestos para bonus</h2>
+<ul>
+  <li><strong>🧪 Lab · GO al Consejo (Q3):</strong> ASK aprobado · marca china seleccionada · kickoff modelo full — $75K bonus</li>
+  <li><strong>🧪 Lab · primera lectura (Q4):</strong> 90d de operación + hallazgos al Consejo → input al COE Fase 1 — $75K bonus</li>
+  <li><strong>Marca restante onboardeada (Q3):</strong> Ford completa en stack y operación (o Changan según prioridad) — $50K bonus</li>
+  <li><strong>Centro de Excelencia formalizado (Q4):</strong> propuesta aprobada post-Lab, hub Fase 1 contratado — $50K bonus</li>
+  <li><strong>Marketplace MVP live (Q4):</strong> primer GO-LIVE con Seminuevos + marcas piloto — $100K bonus</li>
+  <li><strong>ROI palancas (continuo):</strong> ahorro central medios + IVA recuperable + uplift conversión — $50K si supera meta</li>
+</ul>
+
+<h2>Beneficios estructurales para el grupo</h2>
+<div class="scope-grid">
+  <div class="scope-box yes">
+    <div class="scope-title">Ventajas para Plasencia</div>
+    <ul class="scope-list">
+      <li>Ahorro $160K/mes vs FT nómina equivalente</li>
+      <li>Cero pasivo laboral acumulable</li>
+      <li>Cancelable con 30 días aviso</li>
+      <li>IVA recuperable (16% sobre fee)</li>
+      <li>Gasto deducible para ISR</li>
+      <li>Sin obligaciones de IMSS/AFORE/INFONAVIT</li>
+      <li>Modelo replicable para otros perfiles senior</li>
+    </ul>
+  </div>
+  <div class="scope-box yes" style="background:rgba(124,58,237,0.05); border-color:rgba(124,58,237,0.3);">
+    <div class="scope-title" style="color:var(--p);">Ventajas operativas</div>
+    <ul class="scope-list">
+      <li>Mantengo stack de IA propio que opera el rol</li>
+      <li>Velocidad de ejecución sin fricción nómina</li>
+      <li>Acceso a Marketon Growth OS completo</li>
+      <li>Bench de contactos externos (talento, agencias)</li>
+      <li>Sin conflicto de exclusividad para iniciativas estratégicas del grupo</li>
+      <li>Capacidad de escalar via subcontratos Marketon si requerido</li>
+    </ul>
+  </div>
+</div>
+
+<h2>Lo que NO cambia bajo esta estructura</h2>
+<ul>
+  <li>Sigo siendo Director de Marketing Corporativo del grupo · responsable final del área</li>
+  <li>Reportando a Pepe Morales · validación de iniciativas estratégicas con él antes de Consejo</li>
+  <li>Operación día a día con el equipo actual y futuro</li>
+  <li>Participación en Consejo cuando se requiera</li>
+  <li>Disponibilidad presencial en GDL bajo necesidad operativa</li>
+  <li>Compromiso de confidencialidad con todo el material del grupo</li>
+</ul>
+
+<div class="page-footer"><span>Director MKT Corp — Grupo Plasencia Automotriz</span><span>Confidencial · 10 de 14</span></div>
+</div>
+
+<!-- ==================== EL AUTO Y OTROS BENEFICIOS ==================== -->
+<div class="page">
+<div class="page-header">
+  <div class="page-header-left">Jesús Pérez Porras · Director MKT Corp · Grupo Plasencia</div>
+  <div class="page-header-right">Confidencial · 09-jun-2026</div>
+</div>
+
+<h1>El auto del paquete</h1>
+<div class="accent-line"></div>
+
+<h2>Contexto y diagnóstico honesto</h2>
+<p>Entiendo que el paquete del Director contempla un vehículo del grupo. La cifra que actualmente se está manejando ronda los <strong>$500K–$600K MXN</strong> — tier Mazda 3 / entry SUV. Esa asignación corresponde a un rol de Gerencia, no de Dirección Corporativa Multi-marca. Para un puesto que opera 9 marcas, $12.8B en revenue y la transformación digital del grupo, el tier de vehículo razonable es claramente otro.</p>
+
+<h2>Posicionamiento del tier directivo</h2>
+<table>
+  <thead>
+    <tr>
+      <th style="width:32%">Tier</th>
+      <th style="width:22%">Valor MXN</th>
+      <th style="width:46%">Rol que corresponde</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Gerencia / coordinador</td>
+      <td class="price">$400K–$600K</td>
+      <td>Mazda 3 / Hyundai Elantra / Stellantis Compass entry</td>
+    </tr>
+    <tr class="highlight">
+      <td><strong>Dirección Corporativa Multi-marca</strong></td>
+      <td class="price big"><strong>$1,000K+ MXN</strong></td>
+      <td>Mazda CX-90 · Hyundai Santa Fe Limited · Jeep Grand Cherokee · Stellantis Compass GT Plus · entry premium OEM del grupo</td>
+    </tr>
+    <tr>
+      <td>VP / C-level</td>
+      <td class="price">$1,500K–$2,500K</td>
+      <td>Audi Q5 · BMW X3 · Mercedes GLC · Range Rover Velar</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>Mi propuesta — palanca dual</h2>
+<div class="card purple">
+  <div class="card-title">Opción 1 · Cash puro (Escenario A · proveedor Marketon)</div>
+  <p>Bajo el Escenario A (proveedor), el paquete es honorarios sin prestaciones — el auto del paquete se libera. <strong>Recomiendo reasignar esa asignación a Pepe Morales</strong> en reconocimiento al peso operativo que ha llevado durante el periodo de contrato de prueba: validación estratégica de cada iniciativa, gate gerencial al Consejo, y respaldo institucional al proceso de transformación. Su rol crítico en el éxito del periodo de contrato de prueba justifica el gesto. Mi paquete económico queda en $290K bruto/mes + IVA sin coche, sin fricción fiscal de depreciación / registro / IVA limitado.</p>
+</div>
+
+<div class="card green">
+  <div class="card-title">Opción 2 · Coche + sueldo (aplica desde Escenario C · piso $150K)</div>
+  <p>Si el grupo opta por nómina FT con coche como parte integral del paquete del Director Corporativo — incluso desde el Escenario C bridge a $150K netos — las condiciones objetivas del tier de auto son:</p>
+  <ul>
+    <li><strong>Auto del grupo con valor piso $1,000,000 MXN</strong> (tier Dirección Corporativa Multi-marca)</li>
+    <li>Inclusión de gastos asociados (seguros, mantenimiento, gasolina)</li>
+    <li>El sueldo neto del escenario elegido (C $150K, B $200K) se mantiene íntegro como base — el coche NO descuenta del cash</li>
+  </ul>
+  <p style="margin-top:8px;"><strong>Palanca de flexibilidad para RH:</strong> si el grupo opta por un auto de tier más alto ($1,500K–$2,000K MXN), estoy abierto a reducir la base económica entre $20K–$40K netos/mes — combinación útil cuando el centro de costo del vehículo es deducible y el sueldo no. Es la palanca que normalmente busca RH para optimizar la estructura fiscal del grupo.</p>
+</div>
+
+<h2>Razón objetiva detrás del posicionamiento</h2>
+<ul>
+  <li><strong>El tier del auto comunica el tier del rol al grupo entero.</strong> Un Director Corporativo Multi-marca con Mazda 3 envía señal contradictoria a los gerentes de Hyundai/Stellantis que tienen ese mismo modelo.</li>
+  <li><strong>El paquete no es solo dinero, es señalización institucional</strong> con OEMs, agencias externas y gerentes de spoke.</li>
+  <li><strong>El Escenario A elimina esta conversación por completo</strong> — sin prestaciones, sin tiers, solo cash neto. Pepe Morales merece el reconocimiento institucional por su respaldo al periodo de contrato de prueba.</li>
+</ul>
+
+<div class="note note-blue">
+  <strong>Mi preferencia honesta:</strong> Opción 1 (Escenario A proveedor, sin coche, recurso reasignado a Pepe). Si el grupo opta por Opción 2 (FT con coche), aplica piso $1MDP+ con flexibilidad sueldo-vs-tier para optimización fiscal.
+</div>
+
+<div class="page-footer"><span>Director MKT Corp — Grupo Plasencia Automotriz</span><span>Confidencial · 11 de 14</span></div>
+</div>
+
+<!-- ==================== PRÓXIMOS 90 DÍAS ==================== -->
+<div class="page">
+<div class="page-header">
+  <div class="page-header-left">Jesús Pérez Porras · Director MKT Corp · Grupo Plasencia</div>
+  <div class="page-header-right">Confidencial · 09-jun-2026</div>
+</div>
+
+<h1>Próximos 90 días con la nueva estructura</h1>
+<div class="accent-line"></div>
+<p class="lead">Lo que entrego en el siguiente ciclo si renovamos. Hitos verificables, no abstractos.</p>
+
+<h2>Hitos comprometidos (Junio 17 a Septiembre 17)</h2>
+
+<div class="card">
+  <div class="card-title">Q3 Mes 1 (Junio 17 – Julio 17)</div>
+  <ul>
+    <li><strong>🧪 Lab de Innovación — ASK al Consejo:</strong> presentación formal del modelo operativo full · selección de marca china (GAC/Changan/GWM) · GO/NO-GO formal</li>
+    <li><strong>Ford — kickoff de migración:</strong> framework Andromeda adaptado · análisis del stack actual con Dazing · plan de coexistencia o reemplazo</li>
+    <li><strong>Centro de Excelencia:</strong> propuesta formal post-Lab · primeros perfiles core en pipeline (Performance + Data)</li>
+    <li><strong>Marketplace:</strong> alineación de arquitectura técnica con Plasencia Digital · prototipo v7</li>
+    <li><strong>Operación BAU:</strong> 5 marcas activas · CPA estabilizado · primer reporte de venta atribuida cerrada</li>
+  </ul>
+</div>
+
+<div class="card green">
+  <div class="card-title">Q3 Mes 2 (Julio 17 – Agosto 17)</div>
+  <ul>
+    <li><strong>🧪 Lab de Innovación — kickoff operativo:</strong> arranque del modelo full en la marca piloto · equipo dedicado + SOPs aplicados · primera lectura de baseline</li>
+    <li><strong>Ford — GO-LIVE:</strong> primera campaña activa con framework Andromeda completo · medición integrada al motor de atribución</li>
+    <li><strong>Changan — kickoff:</strong> arranque de migración paralela (siguiente prioridad)</li>
+    <li><strong>Centro de Excelencia:</strong> primeros 2 perfiles contratados · arranque Hub & Spoke híbrido</li>
+    <li><strong>Marketplace MVP:</strong> definición de scope mínimo viable · alineación financiera cautiva</li>
+  </ul>
+</div>
+
+<div class="card purple">
+  <div class="card-title">Q3 Mes 3 (Agosto 17 – Septiembre 17)</div>
+  <ul>
+    <li><strong>🧪 Lab de Innovación — primera iteración:</strong> 30 días de operación bajo nuevo modelo · ajustes a SOPs · KPIs comparables vs baseline</li>
+    <li><strong>5 marcas + Ford activas:</strong> stack Andromeda 2026 cross-marca</li>
+    <li><strong>Internalización central de medios:</strong> GP SI operando · primeros CFDIs con IVA recuperable</li>
+    <li><strong>Centro de Excelencia:</strong> 3-4 perfiles operando · primer roll-out de capacidades cross-marca</li>
+    <li><strong>Quarterly Review con Consejo:</strong> evidencia Lab + palancas · decisión de continuidad Phase 2</li>
+  </ul>
+</div>
+
+<h2>Roadmap Q4 (preview)</h2>
+<ul>
+  <li><strong>2 marcas adicionales migradas:</strong> Ford + Changan (dependiendo de prioridad estratégica)</li>
+  <li><strong>Marketplace Plasencia MVP live</strong> con Seminuevos + 2 marcas piloto</li>
+  <li><strong>Hub COE completo Fase 1</strong> (6-7 personas)</li>
+  <li><strong>RevOps inicial:</strong> alineación marketing-ventas con comisiones por canal digital</li>
+  <li><strong>Plataforma de financiamiento digital:</strong> POC con financiera cautiva</li>
+</ul>
+
+<div class="note note-blue">
+  <strong>Compromiso de transparencia:</strong> reporte mensual con métricas accionables a Pepe Morales. Quarterly review al Consejo. Si en algún momento los hitos no se cumplen, ajustamos plan o estructura — sin sorpresas.
+</div>
+
+<div class="page-footer"><span>Director MKT Corp — Grupo Plasencia Automotriz</span><span>Confidencial · 12 de 14</span></div>
+</div>
+
+<!-- ==================== POR QUÉ SEGUIR · VISIÓN Y POTENCIAL ==================== -->
+<div class="page">
+<div class="page-header">
+  <div class="page-header-left">Jesús Pérez Porras · Director MKT Corp · Grupo Plasencia</div>
+  <div class="page-header-right">Confidencial · 09-jun-2026</div>
+</div>
+
+<h1>Por qué seguir · visión + potencial de negocio</h1>
+<div class="accent-line"></div>
+<p class="lead">La razón para continuar no es personal ni emocional. Es la magnitud del potencial que el grupo tiene desbloqueado hoy y la velocidad-IA que ya se capturó. Detener o sustituir significa regalar esa ventana a quien la capture primero.</p>
+
+<h2>Potencial de negocio cuantificado (data del Diagnóstico 2025)</h2>
+<table>
+  <thead>
+    <tr>
+      <th style="width:48%">Palanca</th>
+      <th style="width:24%">Magnitud anualizada</th>
+      <th style="width:28%">Estado</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Conversión digital +1pp</strong> (4.35% → 5.35% en 53,479 leads/4m)</td>
+      <td class="price big">+$661 MDP / año</td>
+      <td>Killer metric · viable con motor de atribución actual</td>
+    </tr>
+    <tr>
+      <td><strong>4 palancas de eficiencia operativa</strong> (consolidación proveedores, central de medios interna, IVA recuperable, plantilla MKT optimizada)</td>
+      <td class="price big">+$19.5 MDP / año</td>
+      <td>5 palancas identificadas · 3 ya en ejecución</td>
+    </tr>
+    <tr>
+      <td><strong>Internalización central de medios</strong> (GP SI como central · eliminar 8% comisión + recuperar IVA pauta)</td>
+      <td class="price">$3.6–4.8 MDP / año</td>
+      <td>Modelo fiscal definido en Anexo A3 Playbook</td>
+    </tr>
+    <tr>
+      <td><strong>Ahorro estructura proveedor vs FT (12 meses)</strong></td>
+      <td class="price">$1.92 MDP / año</td>
+      <td>Math del Escenario A vs Escenario B</td>
+    </tr>
+    <tr class="highlight">
+      <td><strong>ROI total proyectado Centro de Excelencia Fase 1</strong></td>
+      <td class="price big">3.9× a 130×</td>
+      <td>Eficiencia base 3.9× · con palanca conversión 130×</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>Visión de mercado en construcción</h2>
+<div class="card purple">
+  <div class="card-title">Por qué la velocidad importa AHORA</div>
+  <p>Kavak y Mercado Libre Autos están absorbiendo intención de compra automotriz mexicana. AutoNation y los grupos US consolidaron con modelo "concesionario unificado bajo marca-paraguas + motor digital propio" (Lithia, Asbury, Group 1, Sonic+EchoPark) y ese fue el patrón ganador del debate global 2024-2026. <strong>Cada trimestre que el grupo posponga la formalización del modelo operativo corporativo digital, pierde share frente a jugadores nativos digitales.</strong> El motor está construido — pero el motor sin el modelo operativo es chatarra.</p>
+</div>
+
+<h2>4 capas de MOAT ya instaladas (no replicables a corto plazo)</h2>
+<ul>
+  <li><strong>Velocidad-IA:</strong> 4 semanas de contratación a GO-LIVE · benchmark que ningún grupo automotriz mexicano tiene</li>
+  <li><strong>Arquitectura propia:</strong> stack modular Cloudflare + D1 + GitHub Actions + Claude Code ya documentado y operando</li>
+  <li><strong>Costo:</strong> 33% del costo actual del grupo en 14 proveedores externos fragmentados ($880K/mes), entregando además visión integrada</li>
+  <li><strong>Momentum:</strong> 957 oportunidades activas + 4 ventas defendibles + 5 marcas live · empezar de cero cuesta 6-12 meses de runway</li>
+</ul>
+
+<div class="card purple">
+  <div class="card-title">🧪 Siguiente capítulo · Lab de Innovación + Experiencia Ideal</div>
+  <p>El piloto demostró que el motor funciona pero opera en silos. El paso natural — alineado con Pepe el 9-jun — es <strong>formalizar el ASK al Consejo</strong> para implementar el modelo operativo full en una marca china piloto (GAC/Changan/GWM TBD · menos restricciones OEM). Si valida, escala al COE Fase 1 y replica a marcas restantes. <strong>Entregable bajo Tier 1 (A o B), no bajo Tier 2 ni Bridge.</strong></p>
+</div>
+
+<div class="note note-green">
+  <strong>El argumento honesto al Consejo:</strong> el grupo invirtió 90 días + el incremental matched para llegar aquí. La decisión hoy no es "renovar a Chucho sí/no" — es "¿formalizamos el modelo operativo digital corporativo (Lab → COE → cross-marca) ahora que tenemos motor, o lo cedemos a quien lo construya en paralelo?". El Lab es la primera prueba pública del modelo · yo soy una de las piezas que lo lidera.
+</div>
+
+<div class="page-footer"><span>Director MKT Corp — Grupo Plasencia Automotriz</span><span>Confidencial · 13 de 14</span></div>
+</div>
+
+<!-- ==================== SIGUIENTE PASO + CIERRE ==================== -->
+<div class="page">
+<div class="page-header">
+  <div class="page-header-left">Jesús Pérez Porras · Director MKT Corp · Grupo Plasencia</div>
+  <div class="page-header-right">Confidencial · 09-jun-2026</div>
+</div>
+
+<h1>Siguiente paso</h1>
+<div class="accent-line"></div>
+
+<h2>Calendario propuesto</h2>
+<table>
+  <thead>
+    <tr>
+      <th style="width:18%">Fecha</th>
+      <th style="width:34%">Acción</th>
+      <th style="width:48%">Output esperado</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Esta semana</strong></td>
+      <td>Revisión 1:1 con Pepe Morales</td>
+      <td>Validación interna · ajustes preliminares · decisión de escenario</td>
+    </tr>
+    <tr>
+      <td><strong>10-13 jun</strong></td>
+      <td>Coordinación con Dir. RH (Daniel Acebes) + Dir. Finanzas para formalización</td>
+      <td>Aprobación de estructura económica</td>
+    </tr>
+    <tr>
+      <td><strong>14-16 jun</strong></td>
+      <td>Redacción de carta de aceptación / contrato Marketon</td>
+      <td>Documento firmable</td>
+    </tr>
+    <tr class="highlight">
+      <td><strong>17 jun</strong></td>
+      <td><strong>Cierre formal del periodo de contrato de prueba · firma de continuidad</strong></td>
+      <td><strong>Decisión final · inicio de Q3 con la nueva estructura</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>Lo que necesito de esta conversación</h2>
+<div class="cta-box">
+  <h3>Decisión sobre 4 puntos concretos</h3>
+  <ul class="cta-list">
+    <li>Cuál de los 5 escenarios económicos elige el grupo (Tier 1: A, B, C · Tier 2: D, E)</li>
+    <li>Alineación con Pepe para el <strong>ASK del Lab de Innovación al Consejo</strong> · marca china seleccionada (GAC/Changan/GWM)</li>
+    <li>Confirmación del paquete adicional (auto reasignado a Pepe, bonus trimestral, equity en líneas nuevas)</li>
+    <li>Calendario de firma y arranque formal de Q3 (17 jun en adelante)</li>
+  </ul>
+</div>
+
+<h2>Una visión compartida</h2>
+<div class="card green">
+  <div class="card-title">El proyecto está en marcha — esta conversación es sobre cómo lo sostenemos juntos</div>
+  <p>El Lab de Innovación + Experiencia Ideal, el Centro de Excelencia AI-powered, el Marketplace Plasencia, la migración de las 4 marcas restantes y la transformación digital del grupo son iniciativas que ya construimos en conjunto durante el periodo de contrato de prueba: validadas por el Consejo, documentadas en el Vault, y con primeros hitos ejecutados. La visión no es mía — es del grupo, y yo soy una de las piezas que la empuja.</p>
+  <p style="margin-top:8px;">Para llevarlas a producción en los próximos 12 meses necesitamos una estructura económica que sostenga el ritmo del proyecto y que al grupo le calce financieramente. Esta propuesta abre cinco caminos en dos tiers (alcance full o alcance acotado vía Marketon) para encontrar ese punto medio. Cualquiera de ellos mantiene los pilotos vivos — cambia el alcance, el modelo de relación y el flujo de caja, no el compromiso de continuar.</p>
+</div>
+
+<h2>Cierre</h2>
+<p>Este documento es una invitación a la conversación, no un ultimátum. Lo construí con datos objetivos, comparables de mercado y un plan claro para los próximos 12 meses. Espero que sirva como base para una decisión informada y justa para ambas partes.</p>
+
+<p style="margin-top:16px;font-family:var(--sg);font-weight:700;color:var(--d);font-size:11pt;">— Jesús Pérez Porras<br>
+<span style="font-weight:400;color:var(--txl);font-size:9.5pt;">Director de Marketing Corporativo · Grupo Plasencia Automotriz<br>
+Fundador · Marketon Growth Boutique Agency<br>
+9 de junio de 2026</span></p>
+
+<div class="page-footer"><span>Director MKT Corp — Grupo Plasencia Automotriz</span><span>Confidencial · 14 de 14</span></div>
+</div>
+
+</body>
+</html>
