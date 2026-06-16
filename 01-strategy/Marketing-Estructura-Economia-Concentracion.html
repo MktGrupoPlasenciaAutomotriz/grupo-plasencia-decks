@@ -1,100 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Marketing: Estructura, Economía y Concentración v2.0 — Diagnóstico integral del área de Marketing de Grupo Plasencia Automotriz. Estado de resultados por marca, estructura organizacional, concentración del gasto, problemas estructurales identificados, deducibilidad fiscal y visión To-Be. Junio 2026.">
 <title>Marketing: Estructura, Economía y Concentración · Grupo Plasencia Automotriz</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root {
-  --ink-900:#0a1628; --ink-700:#1a2940; --ink-500:#3a4a64; --ink-300:#6b7a90;
-  --paper:#fbfaf6; --paper-2:#f5f3eb; --rule:#d8d3c2;
-  --accent:#b8945c; --accent-dark:#8a6e44; --accent-soft:#e8dcc0;
-  --ok:#3f7a4a; --warn:#b35c1e; --gap:#8a3a3a; --info:#456a8e;
-  --serif:'Playfair Display', Georgia, serif;
-  --sans:'Inter', -apple-system, system-ui, sans-serif;
+  /* Brand */
+  --gp-black: #1A1A1A;
+  --gp-gray: #8C8C8C;
+  --gp-silver: #C0C0C0;
+  --gp-white: #F7F7F7;
+  /* Primary */
+  --color-primary: #1E2740;
+  --color-primary-light: #2D3748;
+  --color-primary-dark: #0F1629;
+  /* Accent */
+  --color-accent: #4299E1;
+  --color-accent-hover: #3182CE;
+  --color-accent-light: #EBF4FF;
+  /* Conversion */
+  --color-conversion: #C8102E;
+  --color-conversion-hover: #A50D25;
+  --color-conversion-light: #FFF5F5;
+  /* Semantic */
+  --color-success: #48BB78;
+  --color-success-dark: #276749;
+  --color-success-light: #F0FFF4;
+  --color-warning: #D69E2E;
+  --color-warning-light: #FFFFF0;
+  --color-error: #E53E3E;
+  --color-info: #3182CE;
+  --color-info-light: #EBF8FF;
+  /* Neutrals */
+  --neutral-50: #F7FAFC;
+  --neutral-100: #EDF2F7;
+  --neutral-200: #E2E8F0;
+  --neutral-300: #CBD5E0;
+  --neutral-400: #A0AEC0;
+  --neutral-500: #718096;
+  --neutral-600: #4A5568;
+  --neutral-700: #2D3748;
+  --neutral-800: #1A202C;
+  --neutral-900: #171923;
+  /* Typography */
+  --font-display: 'Montserrat', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', Menlo, monospace;
+  /* Spacing */
+  --space-1: 4px; --space-2: 8px; --space-3: 12px; --space-4: 16px;
+  --space-6: 24px; --space-8: 32px; --space-12: 48px; --space-16: 64px;
+  /* Radius */
+  --radius-sm: 4px; --radius-md: 8px; --radius-lg: 12px; --radius-xl: 16px; --radius-full: 9999px;
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06);
+  --shadow-md: 0 4px 6px rgba(0,0,0,0.1), 0 2px 4px rgba(0,0,0,0.06);
+  --shadow-lg: 0 10px 15px rgba(0,0,0,0.1), 0 4px 6px rgba(0,0,0,0.05);
 }
-@page { size: A4; margin: 18mm 18mm 22mm 18mm; }
+
+@page { size: A4; margin: 18mm 16mm 22mm 16mm; }
 @page :first { margin: 0; }
-@media print {
-  body { background: var(--paper); }
-  .page { box-shadow: none; margin: 0; }
-}
+@media print { body { background: white; } .page, .cover { box-shadow: none; margin: 0; } }
 * { box-sizing: border-box; }
-html, body { margin:0; padding:0; background: var(--paper); color: var(--ink-900); font-family: var(--sans); font-size: 9.5pt; line-height: 1.55; -webkit-font-smoothing: antialiased; }
-.page { width: 210mm; min-height: 297mm; background: var(--paper); padding: 0 18mm 22mm; margin: 0 auto 8mm; page-break-after: always; position: relative; box-shadow: 0 1mm 6mm rgba(0,0,0,.08); }
+html, body { margin: 0; padding: 0; background: var(--neutral-100); color: var(--neutral-800); font-family: var(--font-body); font-size: 10pt; line-height: 1.55; -webkit-font-smoothing: antialiased; font-weight: 400; }
+.page { width: 210mm; min-height: 297mm; background: white; padding: 0 16mm 22mm; margin: 0 auto 8mm; page-break-after: always; position: relative; box-shadow: var(--shadow-md); }
 .page:last-child { page-break-after: avoid; }
-.kicker { font-family: var(--sans); font-size: 8pt; letter-spacing: .14em; text-transform: uppercase; color: var(--accent-dark); font-weight: 600; padding-top: 14mm; margin-bottom: 6mm; }
-h1 { font-family: var(--serif); font-weight: 700; font-size: 28pt; line-height: 1.08; color: var(--ink-900); margin: 0 0 4mm; letter-spacing: -.012em; }
-h1 em { font-style: italic; font-weight: 500; color: var(--accent-dark); }
-h2 { font-family: var(--serif); font-weight: 600; font-size: 16pt; line-height: 1.15; color: var(--ink-900); margin: 9mm 0 3mm; letter-spacing: -.008em; }
-h2 .badge { font-family: var(--sans); font-size: 8pt; vertical-align: middle; margin-left: 3mm; }
-h3 { font-family: var(--serif); font-weight: 600; font-style: italic; font-size: 12pt; color: var(--ink-700); margin: 6mm 0 2mm; }
-.accent-line { width: 32mm; height: 1.2pt; background: var(--accent); margin: 0 0 6mm; }
-p { margin: 0 0 3mm; color: var(--ink-700); }
-p.lead { font-size: 11pt; color: var(--ink-700); font-style: italic; font-family: var(--serif); font-weight: 400; margin-bottom: 5mm; }
-strong { color: var(--ink-900); font-weight: 700; }
-ol, ul { margin: 0 0 4mm; padding-left: 5mm; color: var(--ink-700); }
+.kicker { font-family: var(--font-body); font-size: 8.5pt; letter-spacing: .18em; text-transform: uppercase; color: var(--color-accent); font-weight: 600; padding-top: 14mm; margin-bottom: 4mm; display: flex; align-items: center; gap: 8px; }
+.kicker::before { content:""; width: 4mm; height: 1.5pt; background: var(--color-accent); }
+h1 { font-family: var(--font-display); font-weight: 800; font-size: 32pt; line-height: 1.08; color: var(--color-primary); margin: 0 0 4mm; letter-spacing: -0.02em; }
+h1 em { font-style: normal; font-weight: 700; color: var(--color-conversion); }
+h2 { font-family: var(--font-display); font-weight: 700; font-size: 16pt; line-height: 1.2; color: var(--color-primary); margin: 9mm 0 3mm; letter-spacing: -0.01em; }
+h2 .badge { font-family: var(--font-body); font-size: 8pt; vertical-align: middle; margin-left: 4mm; }
+h3 { font-family: var(--font-display); font-weight: 700; font-size: 11pt; color: var(--color-primary); margin: 6mm 0 2mm; letter-spacing: -0.005em; text-transform: uppercase; letter-spacing: .04em; }
+.accent-line { width: 40mm; height: 3pt; background: var(--color-conversion); margin: 0 0 7mm; border-radius: var(--radius-full); }
+
+p { margin: 0 0 3mm; color: var(--neutral-700); }
+p.lead { font-size: 11.5pt; color: var(--neutral-700); margin-bottom: 5mm; line-height: 1.5; font-weight: 400; }
+strong { color: var(--color-primary); font-weight: 700; }
+ol, ul { margin: 0 0 4mm; padding-left: 5mm; color: var(--neutral-700); }
 li { margin-bottom: 1.5mm; }
-code { font-family: 'JetBrains Mono', Menlo, Consolas, monospace; font-size: 8pt; background: var(--paper-2); padding: 0.5mm 1.2mm; border-radius: 1mm; color: var(--ink-900); }
-table { width: 100%; border-collapse: collapse; margin: 3mm 0 4mm; font-size: 8.5pt; }
-table th { text-align: left; font-family: var(--sans); font-weight: 600; font-size: 7.5pt; letter-spacing: .03em; text-transform: uppercase; color: var(--accent-dark); border-bottom: 1pt solid var(--accent); padding: 1.5mm 2mm; }
-table td { padding: 1.5mm 2mm; border-bottom: 0.3pt solid var(--rule); color: var(--ink-700); vertical-align: top; }
+li::marker { color: var(--color-accent); font-weight: 700; }
+
+code { font-family: var(--font-mono); font-size: 8.5pt; background: var(--neutral-100); padding: 1px 4px; border-radius: var(--radius-sm); color: var(--color-primary); font-weight: 500; }
+
+table { width: 100%; border-collapse: collapse; margin: 3mm 0 5mm; font-size: 9pt; font-family: var(--font-body); }
+table th { text-align: left; font-family: var(--font-body); font-weight: 600; font-size: 8pt; letter-spacing: .06em; text-transform: uppercase; color: var(--color-accent); border-bottom: 2pt solid var(--color-primary); padding: 2mm 2.5mm; background: var(--neutral-50); }
+table td { padding: 2mm 2.5mm; border-bottom: 1px solid var(--neutral-200); color: var(--neutral-700); vertical-align: top; }
 table td.num, table th.num { text-align: right; font-variant-numeric: tabular-nums; }
-table tr.total td { font-weight: 700; color: var(--ink-900); border-top: 0.6pt solid var(--ink-900); border-bottom: 0.6pt solid var(--ink-900); background: var(--paper-2); }
-table tr.warn td { background: rgba(179, 92, 30, .06); }
-.callout { background: var(--paper-2); border-left: 2pt solid var(--accent); padding: 3mm 4mm; margin: 4mm 0; border-radius: 0 1mm 1mm 0; }
-.callout-t { font-family: var(--serif); font-style: italic; font-weight: 600; color: var(--accent-dark); margin-bottom: 1.5mm; font-size: 10pt; }
-.warn-note { background: rgba(179, 92, 30, .08); border-left: 2pt solid var(--warn); padding: 3mm 4mm; margin: 4mm 0; border-radius: 0 1mm 1mm 0; color: var(--ink-700); }
-.note { background: rgba(69, 106, 142, .05); border-left: 2pt solid var(--info); padding: 3mm 4mm; margin: 4mm 0; border-radius: 0 1mm 1mm 0; color: var(--ink-700); }
-.gap-note { background: rgba(138, 58, 58, .06); border-left: 2pt solid var(--gap); padding: 3mm 4mm; margin: 4mm 0; border-radius: 0 1mm 1mm 0; color: var(--ink-700); }
-.badge { display: inline-block; font-family: var(--sans); font-size: 7pt; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; padding: 0.8mm 2mm; border-radius: 1mm; vertical-align: middle; }
-.badge-ok { background: rgba(63, 122, 74, .12); color: var(--ok); }
-.badge-warn { background: rgba(179, 92, 30, .12); color: var(--warn); }
-.badge-gap { background: rgba(138, 58, 58, .12); color: var(--gap); }
-.badge-info { background: rgba(69, 106, 142, .12); color: var(--info); }
-.badge-data { background: var(--accent-soft); color: var(--accent-dark); }
-blockquote { font-family: var(--serif); font-style: italic; font-size: 11pt; color: var(--ink-500); border-left: 2pt solid var(--accent); padding: 0 0 0 5mm; margin: 4mm 0 4mm 2mm; line-height: 1.4; }
-blockquote cite { display: block; font-style: normal; font-family: var(--sans); font-size: 8pt; color: var(--accent-dark); margin-top: 2mm; letter-spacing: .04em; text-transform: uppercase; font-weight: 600; }
+table tr.total td { font-weight: 700; color: var(--color-primary); border-top: 1.5pt solid var(--color-primary); border-bottom: 1.5pt solid var(--color-primary); background: var(--neutral-100); }
+table tr.warn td { background: var(--color-warning-light); }
+table tr.conv td { background: var(--color-conversion-light); }
+table tr.ok td { background: var(--color-success-light); }
+
+.callout { background: var(--color-accent-light); border-left: 4pt solid var(--color-accent); padding: 4mm 5mm; margin: 4mm 0; border-radius: 0 var(--radius-md) var(--radius-md) 0; }
+.callout-t { font-family: var(--font-display); font-weight: 700; color: var(--color-accent-hover); margin-bottom: 2mm; font-size: 11pt; letter-spacing: -0.005em; }
+.callout p { color: var(--neutral-700); }
+.callout strong { color: var(--color-primary); }
+
+.warn-note { background: var(--color-warning-light); border-left: 4pt solid var(--color-warning); padding: 4mm 5mm; margin: 4mm 0; border-radius: 0 var(--radius-md) var(--radius-md) 0; color: var(--neutral-700); }
+.warn-note strong { color: var(--color-warning); }
+
+.conv-note { background: var(--color-conversion-light); border-left: 4pt solid var(--color-conversion); padding: 4mm 5mm; margin: 4mm 0; border-radius: 0 var(--radius-md) var(--radius-md) 0; color: var(--neutral-700); }
+.conv-note strong { color: var(--color-conversion); }
+
+.ok-note { background: var(--color-success-light); border-left: 4pt solid var(--color-success); padding: 4mm 5mm; margin: 4mm 0; border-radius: 0 var(--radius-md) var(--radius-md) 0; color: var(--neutral-700); }
+.ok-note strong { color: var(--color-success-dark); }
+
+.info-note { background: var(--color-info-light); border-left: 4pt solid var(--color-info); padding: 4mm 5mm; margin: 4mm 0; border-radius: 0 var(--radius-md) var(--radius-md) 0; color: var(--neutral-700); }
+.info-note strong { color: var(--color-info); }
+
+.badge { display: inline-block; font-family: var(--font-body); font-size: 7.5pt; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; padding: 1mm 2.5mm; border-radius: var(--radius-full); vertical-align: middle; line-height: 1.4; }
+.badge-ok { background: var(--color-success-light); color: var(--color-success-dark); }
+.badge-warn { background: var(--color-warning-light); color: var(--color-warning); }
+.badge-conv { background: var(--color-conversion-light); color: var(--color-conversion); }
+.badge-info { background: var(--color-info-light); color: var(--color-info); }
+.badge-accent { background: var(--color-accent-light); color: var(--color-accent-hover); }
+
+blockquote { font-family: var(--font-body); font-style: italic; font-size: 11pt; color: var(--neutral-700); border-left: 4pt solid var(--color-conversion); padding: 2mm 0 2mm 6mm; margin: 4mm 0 4mm 2mm; line-height: 1.5; background: var(--neutral-50); padding-right: 4mm; border-radius: 0 var(--radius-md) var(--radius-md) 0; }
+blockquote cite { display: block; font-style: normal; font-family: var(--font-body); font-size: 8pt; color: var(--color-conversion); margin-top: 3mm; letter-spacing: .06em; text-transform: uppercase; font-weight: 700; }
 
 /* COVER */
-.cover { width: 210mm; min-height: 297mm; background: linear-gradient(180deg, var(--paper) 0%, var(--paper-2) 100%); padding: 30mm 22mm; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 1mm 6mm rgba(0,0,0,.08); margin: 0 auto 8mm; page-break-after: always; position: relative; }
-.cover-eyebrow { font-family: var(--sans); font-size: 8.5pt; letter-spacing: .25em; text-transform: uppercase; color: var(--accent-dark); font-weight: 600; }
-.cover-rule { width: 50mm; height: 1.5pt; background: var(--accent); margin: 8mm 0; }
-.cover-title { font-family: var(--serif); font-weight: 700; font-size: 44pt; line-height: 1.02; color: var(--ink-900); letter-spacing: -.02em; }
-.cover-title em { font-style: italic; font-weight: 500; color: var(--accent-dark); }
-.cover-sub { font-family: var(--serif); font-style: italic; font-size: 14pt; color: var(--ink-500); margin: 6mm 0 0; font-weight: 400; max-width: 130mm; line-height: 1.4; }
-.cover-meta { display: flex; gap: 12mm; font-family: var(--sans); font-size: 8.5pt; color: var(--ink-500); margin-top: auto; padding-top: 20mm; border-top: 0.3pt solid var(--rule); }
-.cover-meta div span { display: block; font-size: 7.5pt; letter-spacing: .12em; text-transform: uppercase; color: var(--accent-dark); margin-bottom: 1.5mm; font-weight: 600; }
+.cover { width: 210mm; min-height: 297mm; background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%); padding: 30mm 24mm; display: flex; flex-direction: column; justify-content: space-between; box-shadow: var(--shadow-lg); margin: 0 auto 8mm; page-break-after: always; position: relative; color: var(--neutral-50); overflow: hidden; }
+.cover::before { content:""; position: absolute; top: -20mm; right: -20mm; width: 100mm; height: 100mm; background: radial-gradient(circle, rgba(200,16,46,0.15) 0%, transparent 70%); border-radius: 50%; }
+.cover::after { content:""; position: absolute; bottom: 30mm; right: 24mm; width: 60mm; height: 1pt; background: var(--color-conversion); }
+.cover-eyebrow { font-family: var(--font-body); font-size: 9pt; letter-spacing: .3em; text-transform: uppercase; color: var(--color-accent); font-weight: 600; display: flex; align-items: center; gap: 10px; }
+.cover-eyebrow::before { content:""; width: 10mm; height: 2pt; background: var(--color-conversion); display: inline-block; }
+.cover-rule { width: 60mm; height: 2pt; background: var(--color-conversion); margin: 10mm 0; }
+.cover-title { font-family: var(--font-display); font-weight: 800; font-size: 52pt; line-height: 1.02; color: var(--neutral-50); letter-spacing: -0.025em; position: relative; z-index: 1; }
+.cover-title em { font-style: normal; font-weight: 700; color: var(--color-conversion); }
+.cover-sub { font-family: var(--font-body); font-size: 13pt; color: var(--gp-silver); margin: 6mm 0 0; font-weight: 400; max-width: 140mm; line-height: 1.5; position: relative; z-index: 1; }
+.cover-meta { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8mm; font-family: var(--font-body); font-size: 9pt; color: var(--gp-silver); margin-top: auto; padding-top: 16mm; border-top: 1pt solid rgba(255,255,255,0.15); position: relative; z-index: 1; }
+.cover-meta div span { display: block; font-size: 7.5pt; letter-spacing: .15em; text-transform: uppercase; color: var(--color-accent); margin-bottom: 2mm; font-weight: 600; }
+.cover-meta div { line-height: 1.4; }
+.cover-corner-mark { position: absolute; top: 22mm; right: 24mm; font-family: var(--font-mono); font-size: 8pt; color: var(--gp-gray); letter-spacing: .1em; }
 
 /* TOC */
-.toc { margin: 6mm 0; }
-.toc-item { display: flex; align-items: baseline; justify-content: space-between; padding: 2.5mm 0; border-bottom: 0.3pt dotted var(--rule); font-size: 9.5pt; }
-.toc-item strong { font-family: var(--serif); font-weight: 600; color: var(--ink-900); font-size: 11pt; }
-.toc-item .toc-sub { font-family: var(--sans); font-style: normal; color: var(--ink-500); font-size: 8.5pt; margin-left: 4mm; flex: 1; }
-.toc-item .toc-p { font-family: var(--sans); font-variant-numeric: tabular-nums; color: var(--accent-dark); font-weight: 600; font-size: 9pt; min-width: 8mm; text-align: right; }
+.toc { margin: 6mm 0; border-top: 1px solid var(--neutral-200); }
+.toc-item { display: flex; align-items: baseline; justify-content: space-between; padding: 3.5mm 0; border-bottom: 1px solid var(--neutral-200); font-size: 10pt; gap: 4mm; }
+.toc-num { font-family: var(--font-mono); font-size: 8pt; color: var(--color-accent); font-weight: 600; min-width: 14mm; letter-spacing: .04em; }
+.toc-title { font-family: var(--font-display); font-weight: 700; color: var(--color-primary); font-size: 11.5pt; min-width: 60mm; }
+.toc-sub { font-family: var(--font-body); color: var(--neutral-500); font-size: 9pt; flex: 1; font-weight: 400; }
+.toc-p { font-family: var(--font-body); font-variant-numeric: tabular-nums; color: var(--color-conversion); font-weight: 700; font-size: 9pt; min-width: 8mm; text-align: right; }
 
 /* HERO STATS GRID */
-.hero-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 4mm; margin: 5mm 0 4mm; }
-.hero-card { background: var(--paper-2); border-left: 2pt solid var(--accent); padding: 4mm 5mm; border-radius: 0 1.5mm 1.5mm 0; }
-.hero-card .hero-num { font-family: var(--serif); font-size: 24pt; font-weight: 700; color: var(--ink-900); line-height: 1; letter-spacing: -.02em; }
-.hero-card .hero-label { font-family: var(--sans); font-size: 8pt; letter-spacing: .06em; text-transform: uppercase; color: var(--accent-dark); font-weight: 600; margin-top: 2mm; }
-.hero-card .hero-sub { font-family: var(--sans); font-size: 8pt; color: var(--ink-500); margin-top: 1.5mm; line-height: 1.35; }
+.hero-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 5mm; margin: 6mm 0 4mm; }
+.hero-card { background: var(--neutral-50); border: 1px solid var(--neutral-200); border-top: 4pt solid var(--color-conversion); padding: 5mm; border-radius: var(--radius-md); position: relative; box-shadow: var(--shadow-xs); }
+.hero-card.accent { border-top-color: var(--color-accent); }
+.hero-card.warn { border-top-color: var(--color-warning); }
+.hero-card.ok { border-top-color: var(--color-success); }
+.hero-card .hero-num { font-family: var(--font-display); font-size: 30pt; font-weight: 800; color: var(--color-primary); line-height: 1; letter-spacing: -0.025em; }
+.hero-card .hero-label { font-family: var(--font-body); font-size: 8.5pt; letter-spacing: .08em; text-transform: uppercase; color: var(--color-conversion); font-weight: 700; margin-top: 3mm; }
+.hero-card.accent .hero-label { color: var(--color-accent-hover); }
+.hero-card.warn .hero-label { color: var(--color-warning); }
+.hero-card.ok .hero-label { color: var(--color-success-dark); }
+.hero-card .hero-sub { font-family: var(--font-body); font-size: 8.5pt; color: var(--neutral-600); margin-top: 2mm; line-height: 1.4; }
+
+/* CODE BLOCK */
+pre { font-family: var(--font-mono); font-size: 8.5pt; background: var(--color-primary); color: var(--gp-silver); padding: 4mm 5mm; border-radius: var(--radius-md); border-left: 4pt solid var(--color-accent); margin: 3mm 0; white-space: pre-wrap; line-height: 1.55; }
+pre.scenario-warn { border-left-color: var(--color-warning); }
+pre.scenario-conv { border-left-color: var(--color-conversion); }
+pre.scenario-ok { border-left-color: var(--color-success); }
+
+/* Footer page number */
+.page::after { content: ""; position: absolute; bottom: 8mm; left: 16mm; right: 16mm; height: 1px; background: var(--neutral-200); }
 </style>
 
 <!-- COVER -->
 <section class="cover">
+  <div class="cover-corner-mark">v2.0 · 2026-06-16</div>
   <div>
-    <div class="cover-eyebrow">Diagnóstico Integral · Versión 2.0 · Junio 2026</div>
+    <div class="cover-eyebrow">Diagnóstico Integral · Marketing Corporativo</div>
     <div class="cover-rule"></div>
-    <h1 class="cover-title">Marketing.<br><em>Estructura, Economía<br>y Concentración.</em></h1>
-    <p class="cover-sub">Radiografía cuantitativa del área de Marketing del Grupo Plasencia Automotriz: $200M de gasto anual, 8 marcas, 63 personas, 450 proveedores y un sistema de medición que requiere ser reconstruido desde sus cimientos.</p>
+    <h1 class="cover-title">Marketing.<br><em>Estructura,<br>Economía y<br>Concentración.</em></h1>
+    <p class="cover-sub">Radiografía cuantitativa del área de Marketing del Grupo Plasencia Automotriz: $200M de gasto anual, 8 marcas, 63 personas, 450 proveedores y un sistema de medición que requiere reconstruirse desde sus cimientos.</p>
   </div>
   <div class="cover-meta">
-    <div><span>Audiencia</span>Consejo · Accionistas · Comité MKT</div>
+    <div><span>Audiencia</span>Consejo<br>Accionistas<br>Comité MKT</div>
     <div><span>Autor</span>Dirección MKT Corporativo<br>Grupo Plasencia Automotriz</div>
     <div><span>Corte</span>2026-06-16</div>
-    <div><span>Fuente única</span>Cloudflare D1 <code>bitam-mkt</code><br>+ MCPs Meta Ads</div>
+    <div><span>Fuente única</span>Cloudflare D1<br><code>bitam-mkt</code><br>+ MCPs Meta Ads</div>
   </div>
 </section>
 
@@ -104,16 +192,16 @@ blockquote cite { display: block; font-style: normal; font-family: var(--sans); 
   <h1>Lo que <em>vamos a ver</em></h1>
   <div class="accent-line"></div>
   <div class="toc">
-    <div class="toc-item"><strong>Cap 0 · En 60 segundos</strong><span class="toc-sub">Tesis ejecutiva · 4 hero stats clave</span><span class="toc-p">3</span></div>
-    <div class="toc-item"><strong>Cap 1 · Estado de Resultados de Marketing por marca</strong><span class="toc-sub">Modelo P&L MKT · pauta verificada · gap de atribución</span><span class="toc-p">4</span></div>
-    <div class="toc-item"><strong>Cap 2 · Estructura organizacional As-Is</strong><span class="toc-sub">63 personas · cobertura gerencial · hipótesis de plantilla</span><span class="toc-p">5</span></div>
-    <div class="toc-item"><strong>Cap 3 · Concentración del gasto MKT</strong><span class="toc-sub">180 cuentas · 450 proveedores · Cluster 1 + Cluster 2</span><span class="toc-p">6-8</span></div>
-    <div class="toc-item"><strong>Cap 4 · Problemas estructurales identificados</strong><span class="toc-sub">5 ejes de fragmentación con evidencia data</span><span class="toc-p">9-11</span></div>
-    <div class="toc-item"><strong>Cap 5 · Deducibilidad: con vs sin Central de Medios</strong><span class="toc-sub">Escenarios A · B · C · palanca fiscal acentuada</span><span class="toc-p">12-13</span></div>
-    <div class="toc-item"><strong>Cap 6 · Estructura To-Be</strong><span class="toc-sub">Anclajes ya declarados · pendiente visión Director MKT</span><span class="toc-p">14</span></div>
-    <div class="toc-item"><strong>Anexos</strong><span class="toc-sub">Estado cobertura de data · documentos relacionados · reproducibilidad</span><span class="toc-p">15</span></div>
+    <div class="toc-item"><span class="toc-num">CAP 0</span><span class="toc-title">En 60 segundos</span><span class="toc-sub">Tesis ejecutiva · 4 hero stats clave</span><span class="toc-p">3</span></div>
+    <div class="toc-item"><span class="toc-num">CAP 1</span><span class="toc-title">Estado de Resultados por marca</span><span class="toc-sub">Modelo P&L MKT · pauta verificada · gap de atribución</span><span class="toc-p">4</span></div>
+    <div class="toc-item"><span class="toc-num">CAP 2</span><span class="toc-title">Estructura organizacional As-Is</span><span class="toc-sub">63 personas · cobertura gerencial · hipótesis de plantilla</span><span class="toc-p">5</span></div>
+    <div class="toc-item"><span class="toc-num">CAP 3</span><span class="toc-title">Concentración del gasto MKT</span><span class="toc-sub">180 cuentas · 450 proveedores · Cluster 1 + Cluster 2</span><span class="toc-p">6-8</span></div>
+    <div class="toc-item"><span class="toc-num">CAP 4</span><span class="toc-title">Problemas estructurales identificados</span><span class="toc-sub">5 ejes de fragmentación con evidencia data</span><span class="toc-p">9-11</span></div>
+    <div class="toc-item"><span class="toc-num">CAP 5</span><span class="toc-title">Deducibilidad: con vs sin Central de Medios</span><span class="toc-sub">Escenarios A · B · C · palanca fiscal acentuada</span><span class="toc-p">12-13</span></div>
+    <div class="toc-item"><span class="toc-num">CAP 6</span><span class="toc-title">Estructura To-Be</span><span class="toc-sub">Anclajes ya declarados · pendiente visión Director MKT</span><span class="toc-p">14</span></div>
+    <div class="toc-item"><span class="toc-num">ANEXOS</span><span class="toc-title">Cobertura de data · documentos · reproducibilidad</span><span class="toc-sub"></span><span class="toc-p">15</span></div>
   </div>
-  <div class="note" style="margin-top:8mm;"><strong>Sobre esta versión 2.0:</strong> primera redacción integrada. Capítulos 3, 4 y 5 están completos con data verificada. Capítulos 1, 2 y 6 contienen esqueleto y placeholders explícitos pendientes de cerrar la Fase A de gaps de data (organigrama nominal, ventas reales, atribución, nómina cargada con prestaciones) + input estratégico de la Dirección de MKT Corporativo para el To-Be.</div>
+  <div class="info-note" style="margin-top:8mm;"><strong>Sobre esta versión 2.0:</strong> primera redacción integrada. Capítulos 3, 4 y 5 están completos con data verificada. Capítulos 1, 2 y 6 contienen esqueleto y placeholders explícitos pendientes de cerrar la Fase A de gaps de data (organigrama nominal, ventas reales, atribución, nómina cargada con prestaciones) + input estratégico de la Dirección de MKT Corporativo para el To-Be.</div>
 </section>
 
 <!-- CAP 0: EN 60 SEGUNDOS -->
@@ -129,12 +217,12 @@ blockquote cite { display: block; font-style: normal; font-family: var(--sans); 
       <div class="hero-label">Pauta MKT 2025 verificada</div>
       <div class="hero-sub">Cubo 30065 DCA · 8 marcas · Mazda concentra 64%</div>
     </div>
-    <div class="hero-card">
+    <div class="hero-card accent">
       <div class="hero-num">63 / $7.88M</div>
       <div class="hero-label">Personas / nómina bruta MKT 2025</div>
       <div class="hero-sub">MERCADOTECNIA 60 + VENTAS DIGITALES 3 · organigrama nominal pendiente</div>
     </div>
-    <div class="hero-card">
+    <div class="hero-card warn">
       <div class="hero-num">22%</div>
       <div class="hero-label">Cuentas Meta bajo control corporativo</div>
       <div class="hero-sub">Solo 4 de 18 ad accounts · Mazda, Ford, GWM, Changan, Isuzu corren por agencias</div>
@@ -146,9 +234,8 @@ blockquote cite { display: block; font-style: normal; font-family: var(--sans); 
     </div>
   </div>
 
-  <div class="callout">
-    <div class="callout-t">Tesis ejecutiva</div>
-    <p>El gasto de Marketing del Grupo no tiene un problema de monto — tiene un problema de <strong>estructura</strong>: el dinero corre por activos que el Grupo no posee, plantillas que no se especializan, y proveedores que no se consolidan. La centralización vía <strong>MKT Corporativo como Central de Medios</strong> es la palanca que convierte el gasto en performance auditable, recupera deducibilidad fiscal y habilita el Motor de Atribución como single source of truth de la conversión.</p>
+  <div class="conv-note">
+    <strong>Tesis ejecutiva.</strong> El gasto de Marketing del Grupo no tiene un problema de monto — tiene un problema de <strong>estructura</strong>: el dinero corre por activos que el Grupo no posee, plantillas que no se especializan, y proveedores que no se consolidan. La centralización vía <strong>MKT Corporativo como Central de Medios</strong> es la palanca que convierte el gasto en performance auditable, recupera deducibilidad fiscal y habilita el Motor de Atribución como single source of truth de la conversión.
   </div>
 </section>
 
@@ -158,23 +245,23 @@ blockquote cite { display: block; font-style: normal; font-family: var(--sans); 
   <h1>El P&L que <em>aún no podemos cerrar.</em></h1>
   <div class="accent-line"></div>
 
-  <h2>1.1 · Modelo conceptual</h2>
+  <h2>1.1 Modelo conceptual</h2>
   <p>Por cada una de las 8 marcas activas + Seminuevos, el estado de resultados de Marketing tiene la siguiente forma:</p>
   <table>
     <thead><tr><th>Renglón</th><th>Origen DCA</th><th>Estado</th></tr></thead>
     <tbody>
-      <tr><td>Ventas Totales</td><td>Cubo ventas BITAM</td><td><span class="badge badge-gap">A2 pendiente</span></td></tr>
-      <tr><td>Ventas Atribuibles a MKT (proxy)</td><td>Replicar metodología Galindo sobre DCA</td><td><span class="badge badge-gap">A3 pendiente</span></td></tr>
-      <tr><td>Ventas no atribuibles</td><td>Derivado</td><td><span class="badge badge-gap">depende A2+A3</span></td></tr>
+      <tr><td>Ventas Totales</td><td>Cubo ventas BITAM</td><td><span class="badge badge-conv">A2 pendiente</span></td></tr>
+      <tr><td>Ventas Atribuibles a MKT (proxy)</td><td>Replicar metodología Galindo sobre DCA</td><td><span class="badge badge-conv">A3 pendiente</span></td></tr>
+      <tr><td>Ventas no atribuibles</td><td>Derivado</td><td><span class="badge badge-conv">depende A2+A3</span></td></tr>
       <tr><td>Costo MKT — Pauta (Publicidad + Promoción + Promo 2)</td><td>Cubo 30065</td><td><span class="badge badge-ok">✓ verificado</span></td></tr>
-      <tr><td>Costo MKT — Nómina cargada (bruto + prestaciones)</td><td>Cubo 30046 extendido</td><td><span class="badge badge-gap">A1+A10 pendiente</span></td></tr>
+      <tr><td>Costo MKT — Nómina cargada (bruto + prestaciones)</td><td>Cubo 30046 extendido</td><td><span class="badge badge-conv">A1+A10 pendiente</span></td></tr>
       <tr><td>Costo MKT — Servicios externos / agencias</td><td>Cubo 30051 Cluster 2</td><td><span class="badge badge-ok">✓ verificado (Cap 3)</span></td></tr>
       <tr><td>Costo MKT — Comisiones digitales</td><td>Cubo 30067</td><td><span class="badge badge-ok">✓ verificado</span></td></tr>
-      <tr class="total"><td>Eficiencia MKT = Ventas Atribuibles / Costo MKT Total</td><td>Derivado</td><td><span class="badge badge-gap">bloqueado</span></td></tr>
+      <tr class="total"><td>Eficiencia MKT = Ventas Atribuibles / Costo MKT Total</td><td>Derivado</td><td><span class="badge badge-conv">bloqueado</span></td></tr>
     </tbody>
   </table>
 
-  <h2>1.2 · Lo que sí podemos afirmar hoy</h2>
+  <h2>1.2 Lo que sí podemos afirmar hoy</h2>
   <p>Ranking de pauta 2025 por marca (cubo 30065, verificado):</p>
   <table>
     <thead><tr><th>#</th><th>Marca</th><th class="num">Real MXN</th><th class="num">% del total</th></tr></thead>
@@ -190,9 +277,9 @@ blockquote cite { display: block; font-style: normal; font-family: var(--sans); 
       <tr class="total"><td></td><td>TOTAL</td><td class="num">$197.5M</td><td class="num">100%</td></tr>
     </tbody>
   </table>
-  <div class="warn-note"><strong>Concentración 2026 acelera:</strong> Mazda crece a 81.1% del share. Hyundai cae a 0.5% (anomalía sistémica). Stellantis y GAC siguen tendencia decreciente histórica.</div>
+  <div class="warn-note"><strong>Concentración 2026 acelera.</strong> Mazda crece a 81.1% del share. Hyundai cae a 0.5% (anomalía sistémica). Stellantis y GAC siguen tendencia decreciente histórica.</div>
 
-  <h2>1.3 · Por qué Cap 1 sigue abierto</h2>
+  <h2>1.3 Por qué Cap 1 sigue abierto</h2>
   <p>El <strong>proxy de Galindo</strong> asignaba ventas a MKT con base en heurísticas operativas. Ese proxy fue la <strong>hipótesis fundacional</strong> que motivó el lanzamiento del Motor de Atribución como Dirección MKT en 2026.</p>
   <div class="callout">
     <div class="callout-t">Implicación estratégica para el Consejo</div>
@@ -206,7 +293,7 @@ blockquote cite { display: block; font-style: normal; font-family: var(--sans); 
   <h1>63 personas. <em>¿Para qué?</em></h1>
   <div class="accent-line"></div>
 
-  <h2>2.1 · Headcount agregado <span class="badge badge-ok">cubo 30046 verificado</span></h2>
+  <h2>2.1 Headcount agregado <span class="badge badge-ok">cubo 30046 verificado</span></h2>
   <table>
     <thead><tr><th>Año</th><th>Departamento</th><th class="num">Empleados únicos</th><th class="num">Bruto MXN</th><th class="num">Neto MXN</th></tr></thead>
     <tbody>
@@ -218,7 +305,7 @@ blockquote cite { display: block; font-style: normal; font-family: var(--sans); 
     </tbody>
   </table>
 
-  <h2>2.2 · Cobertura gerencial por marca <span class="badge badge-ok">cubo 30049 verificado</span></h2>
+  <h2>2.2 Cobertura gerencial por marca <span class="badge badge-ok">cubo 30049 verificado</span></h2>
   <table>
     <thead><tr><th>Marca</th><th class="num">Gerentes 2025</th><th class="num">Bruto 2025</th><th class="num">Gerentes 2026</th><th class="num">Bruto 2026</th></tr></thead>
     <tbody>
@@ -230,20 +317,20 @@ blockquote cite { display: block; font-style: normal; font-family: var(--sans); 
       <tr class="warn"><td>Hyundai, GWM, Changan, Isuzu, Seminuevos</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">—</td></tr>
     </tbody>
   </table>
-  <div class="warn-note"><strong>Bandera roja:</strong> 5 de 9 marcas no aparecen con gerentes MKT identificados en el cubo 30049. Mazda sola concentra <strong>56% del costo gerencial MKT</strong>.</div>
+  <div class="warn-note"><strong>Bandera roja.</strong> 5 de 9 marcas no aparecen con gerentes MKT identificados en el cubo 30049. Mazda sola concentra <strong>56% del costo gerencial MKT</strong>.</div>
 
-  <h2>2.3 · Lo que sigue pendiente</h2>
+  <h2>2.3 Lo que sigue pendiente</h2>
   <table>
     <thead><tr><th>Item</th><th>Origen</th><th>Bloqueo</th></tr></thead>
     <tbody>
-      <tr><td><strong>Organigrama nominal de las 60+ personas MKT</strong></td><td>Cubo 30046 con Nombre + Puesto + Reporta_A + Sucursal</td><td><span class="badge badge-gap">Cookie BITAM (A1)</span></td></tr>
-      <tr><td>Reportes directos vs indirectos por gerente de marca</td><td>Cubo 30046 + relaciones</td><td><span class="badge badge-gap">A1</span></td></tr>
-      <tr><td>Nómina cargada total (con prestaciones + cargas sociales)</td><td>Cubo 30046 extendido</td><td><span class="badge badge-gap">A10</span></td></tr>
-      <tr><td>Mapeo organigrama vs PMA de OEM</td><td>Entrevistas + organigrama A1</td><td><span class="badge badge-gap">A1 + walk-through</span></td></tr>
+      <tr><td><strong>Organigrama nominal de las 60+ personas MKT</strong></td><td>Cubo 30046 con Nombre + Puesto + Reporta_A + Sucursal</td><td><span class="badge badge-conv">Cookie BITAM (A1)</span></td></tr>
+      <tr><td>Reportes directos vs indirectos por gerente de marca</td><td>Cubo 30046 + relaciones</td><td><span class="badge badge-conv">A1</span></td></tr>
+      <tr><td>Nómina cargada total (con prestaciones + cargas sociales)</td><td>Cubo 30046 extendido</td><td><span class="badge badge-conv">A10</span></td></tr>
+      <tr><td>Mapeo organigrama vs PMA de OEM</td><td>Entrevistas + organigrama A1</td><td><span class="badge badge-conv">A1 + walk-through</span></td></tr>
     </tbody>
   </table>
 
-  <h2>2.4 · Hipótesis a validar en el cierre</h2>
+  <h2>2.4 Hipótesis a validar en el cierre</h2>
   <blockquote>
     Tienes un área demasiado grande en plantilla, personas, proveedores. Estoy seguro que el trabajo que hoy hacen 10 personas lo podría hacer 2 especializados que sí saben bien del tema. Los perfiles actuales son muy bajos en niveles de especialización y tecnificación. Y si a esos mejores perfiles les das IA y la saben usar, 1 persona puede hacer el trabajo de 10.
     <cite>— Director MKT Corporativo, 2026-06-16</cite>
@@ -259,7 +346,7 @@ blockquote cite { display: block; font-style: normal; font-family: var(--sans); 
 
   <p class="lead">180 cuentas contables tipo MKT en el cubo 30067 LxL. Una sola — <strong>PROMO MMDM PLANTA Mazda</strong> — concentra <strong>50.4%</strong> del total REAL 2026.</p>
 
-  <h2>3.1 · Composición del gasto por concepto agregado <span class="badge badge-ok">cubo 30067 verificado</span></h2>
+  <h2>3.1 Composición del gasto por concepto agregado <span class="badge badge-ok">cubo 30067 verificado</span></h2>
   <table>
     <thead><tr><th>Concepto agregado</th><th class="num">2026 Real</th><th>Naturaleza</th></tr></thead>
     <tbody>
@@ -270,13 +357,13 @@ blockquote cite { display: block; font-style: normal; font-family: var(--sans); 
       <tr class="total"><td>TOTAL MKT REAL 2026 parcial</td><td class="num">$89,130,347</td><td>180 cuentas</td></tr>
     </tbody>
   </table>
-  <div class="note"><strong>Cruce de consistencia:</strong> $89.1M cubo 30067 ≈ $85.4M cubo 30065. El delta (~$3.7M) corresponde a comisiones digitales + reembolsos AMDF + sucursales no agregadas en 30065.</div>
+  <div class="info-note"><strong>Cruce de consistencia.</strong> $89.1M cubo 30067 ≈ $85.4M cubo 30065. El delta (~$3.7M) corresponde a comisiones digitales + reembolsos AMDF + sucursales no agregadas en 30065.</div>
 
-  <h2>3.1.1 · Top 15 cuentas MKT — la concentración brutal</h2>
+  <h2>3.1.1 Top 15 cuentas MKT — la concentración brutal</h2>
   <table>
     <thead><tr><th>#</th><th>Cuenta</th><th class="num">Real MXN</th><th>Marca</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td><strong>PROMO MMDM PLANTA</strong></td><td class="num">$44,939,795</td><td>Mazda</td></tr>
+      <tr class="conv"><td>1</td><td><strong>PROMO MMDM PLANTA</strong></td><td class="num"><strong>$44,939,795</strong></td><td>Mazda</td></tr>
       <tr><td>2</td><td>PROMOCION SANTA ANITA</td><td class="num">$4,115,268</td><td>Ford</td></tr>
       <tr><td>3</td><td>PROMO DOS INTERNA BOLETINES</td><td class="num">$3,701,029</td><td>Mazda</td></tr>
       <tr><td>4</td><td>PUBLICIDAD</td><td class="num">$2,161,589</td><td>Ford + Hyundai</td></tr>
@@ -307,7 +394,7 @@ blockquote cite { display: block; font-style: normal; font-family: var(--sans); 
 
   <p class="lead">El cubo 30051 CxP con 2.3M filas en 6 trimestres identifica 450 proveedores tipo MKT. La mitad superior es flujo contable interno entre auto-promotoras del Grupo.</p>
 
-  <h2>3.2 · Cluster 1 · Auto-promotoras del Grupo (intercompany)</h2>
+  <h2>3.2 Cluster 1 · Auto-promotoras del Grupo (intercompany)</h2>
   <p>Entidades fiscales internas que canalizan promoción intercompany por marca. <strong>NO son agencias externas.</strong></p>
   <table>
     <thead><tr><th>Promotora</th><th class="num">Monto facturado</th><th class="num">Facturas</th><th>Marcas</th></tr></thead>
@@ -320,9 +407,9 @@ blockquote cite { display: block; font-style: normal; font-family: var(--sans); 
       <tr class="total"><td>Subtotal Cluster 1</td><td class="num">~$438.9M</td><td class="num">1,323</td><td>Mazda 75% · Changan 22%</td></tr>
     </tbody>
   </table>
-  <div class="warn-note"><strong>Lectura crítica:</strong> $438.9M facturados a auto-promotoras intercompany <strong>≠</strong> gasto MKT externo. Es flujo contable de promoción interna que requiere análisis fiscal aparte (estructura del Grupo). Las concentraciones Mazda 75% / Changan 22% reflejan que estas promotoras intercompany son vehículos legacy de las marcas con mayor tamaño operativo en el Grupo.</div>
+  <div class="warn-note"><strong>Lectura crítica.</strong> $438.9M facturados a auto-promotoras intercompany <strong>≠</strong> gasto MKT externo. Es flujo contable de promoción interna que requiere análisis fiscal aparte (estructura del Grupo). Las concentraciones Mazda 75% / Changan 22% reflejan que estas promotoras intercompany son vehículos legacy de las marcas con mayor tamaño operativo en el Grupo.</div>
 
-  <h2>3.2.1 · Por qué Cluster 1 importa para el análisis</h2>
+  <h2>3.2.1 Por qué Cluster 1 importa para el análisis</h2>
   <p>Excluir el Cluster 1 del cómputo de "gasto MKT externo" tiene tres consecuencias prácticas:</p>
   <ol>
     <li><strong>El universo de proveedores MKT externos del Grupo es mucho más pequeño</strong> de lo que sugiere la cifra cruda CxP — gira en torno al Cluster 2 abajo.</li>
@@ -337,11 +424,11 @@ blockquote cite { display: block; font-style: normal; font-family: var(--sans); 
   <h1>Una agencia, <em>78% del externo.</em></h1>
   <div class="accent-line"></div>
 
-  <h2>3.2.2 · Cluster 2 · Agencias y proveedores MKT externos verificados</h2>
+  <h2>3.2.2 Cluster 2 · Agencias y proveedores MKT externos verificados</h2>
   <table>
     <thead><tr><th>#</th><th>Proveedor</th><th class="num">Monto</th><th>Marcas (top)</th><th>Tipo</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td><strong>AGENCIA MX-5</strong></td><td class="num">$214.0M</td><td>Mazda $214.0M</td><td>Agencia oficial Mazda</td></tr>
+      <tr class="conv"><td>1</td><td><strong>AGENCIA MX-5</strong></td><td class="num"><strong>$214.0M</strong></td><td>Mazda $214.0M</td><td>Agencia oficial Mazda</td></tr>
       <tr><td>2</td><td>GALLETA MARKETING DIGITAL</td><td class="num">$12.4M</td><td>GAC · Mazda · Changan · GWM</td><td>Digital multi-marca</td></tr>
       <tr><td>3</td><td>PLASICO PROMOTORA E IMPULSORA</td><td class="num">$10.4M</td><td>Changan · Mazda</td><td>Promotora externa</td></tr>
       <tr><td>4</td><td>PROMOTORA CARIBEÑA</td><td class="num">$8.9M</td><td>Hyundai · Mazda</td><td>Promotora externa</td></tr>
@@ -360,12 +447,11 @@ blockquote cite { display: block; font-style: normal; font-family: var(--sans); 
       <tr><td>17</td><td>APTO INNOVACION DIGITAL</td><td class="num">$0.6M</td><td>Mazda</td><td>Consultoría innovación</td></tr>
     </tbody>
   </table>
-  <div class="callout">
-    <div class="callout-t">Concentración Cluster 2</div>
-    <p><strong>Agencia MX-5 sola concentra ~78%</strong> del gasto MKT externo identificado (vía agencia oficial Mazda). Galleta Marketing Digital + los siguientes 28 proveedores reparten el 22% restante en una cola larga muy fragmentada.</p>
+  <div class="conv-note">
+    <strong>Concentración Cluster 2.</strong> Agencia MX-5 sola concentra <strong>~78%</strong> del gasto MKT externo identificado (vía agencia oficial Mazda). Galleta Marketing Digital + los siguientes 28 proveedores reparten el 22% restante en una cola larga muy fragmentada.
   </div>
 
-  <h2>3.3 · Duplicidades cross-marca · oportunidad de consolidación</h2>
+  <h2>3.3 Duplicidades cross-marca · oportunidad de consolidación</h2>
   <table>
     <thead><tr><th>Proveedor</th><th class="num"># marcas</th><th>Marcas atendidas</th></tr></thead>
     <tbody>
@@ -378,7 +464,7 @@ blockquote cite { display: block; font-style: normal; font-family: var(--sans); 
       <tr><td>FABULA COMUNICACION</td><td class="num">3</td><td>GWM · GAC · Changan</td></tr>
     </tbody>
   </table>
-  <p><strong>Lectura:</strong> al menos 7 proveedores externos facturan a 3-5 marcas del Grupo de manera independiente. Cada marca negoció su rate sin visibilidad cross-marca. Una central de medios consolidaría volumen y reduciría costo blended estimado <strong>10-15%</strong> sobre la porción cross-marca.</p>
+  <p><strong>Lectura.</strong> Al menos 7 proveedores externos facturan a 3-5 marcas del Grupo de manera independiente. Cada marca negoció su rate sin visibilidad cross-marca. Una central de medios consolidaría volumen y reduciría costo blended estimado <strong>10-15%</strong> sobre la porción cross-marca.</p>
 </section>
 
 <!-- CAP 4a: PROBLEMAS - EJES 1 Y 2 -->
@@ -387,7 +473,7 @@ blockquote cite { display: block; font-style: normal; font-family: var(--sans); 
   <h1>Cuentas. Pixels. <em>Dueñidad.</em></h1>
   <div class="accent-line"></div>
 
-  <h2>Eje 1 · Fragmentación de cuentas sociales <span class="badge badge-data">A7 verificado</span></h2>
+  <h2>Eje 1 · Fragmentación de cuentas sociales <span class="badge badge-ok">A7 verificado</span></h2>
   <table>
     <thead><tr><th>Tipo de fragmentación</th><th class="num">Conteo verificado</th></tr></thead>
     <tbody>
@@ -397,10 +483,10 @@ blockquote cite { display: block; font-style: normal; font-family: var(--sans); 
       <tr class="warn"><td>Marcas SIN page bajo control corporativo</td><td class="num">6 de 8 (Mazda, Ford, GWM, Hyundai, Changan, Isuzu)</td></tr>
     </tbody>
   </table>
-  <div class="warn-note"><strong>Impacto:</strong> dispersión de followers (95.7% concentrado en principal vs 4.3% en 4 satélites), confusión del consumidor (¿a cuál cuenta pregunto?), debilita marca, hace impractical la auditoría del esfuerzo publicitario y la atribución cross-channel.</div>
+  <div class="warn-note"><strong>Impacto.</strong> Dispersión de followers (95.7% concentrado en principal vs 4.3% en 4 satélites), confusión del consumidor (¿a cuál cuenta pregunto?), debilita marca, hace impractical la auditoría del esfuerzo publicitario y la atribución cross-channel.</div>
   <p><strong>Pendiente (entrevistas + sweep manual):</strong> cuentas Instagram + TikTok + YouTube + cuentas personales de vendedores ofreciendo unidades en marketplace, FB groups y stories propias.</p>
 
-  <h2>Eje 2 · Fragmentación del ecosistema publicitario <span class="badge badge-data">A5+A6+A7 verificado</span></h2>
+  <h2>Eje 2 · Fragmentación del ecosistema publicitario <span class="badge badge-ok">A5+A6+A7 verificado</span></h2>
   <table>
     <thead><tr><th>Métrica</th><th class="num">Valor</th><th>Lectura</th></tr></thead>
     <tbody>
@@ -414,10 +500,9 @@ blockquote cite { display: block; font-style: normal; font-family: var(--sans); 
       <tr class="warn"><td>Pixels paralelos en Seminuevos</td><td class="num">2</td><td>Doble conteo de conversiones</td></tr>
     </tbody>
   </table>
-  <div class="callout">
-    <div class="callout-t">El hallazgo que cierra el caso</div>
-    <p><strong>AGENCIA MX-5 facturó $214M (78% del Cluster 2)</strong> y las 6 ad accounts Mazda son Read-Only para el Grupo. El Grupo paga el spend Mazda pero <strong>no es dueño de los activos digitales donde se ejecuta</strong>. Esto se replica con menor monto en GWM, Changan, Ford, Hyundai oficial e Isuzu.</p>
-    <p style="margin-top:3mm;"><strong>Acción en curso (declarada por Director MKT):</strong> consolidación de assets en un solo Business Manager corporativo. Migración progresiva.</p>
+  <div class="conv-note">
+    <strong>El hallazgo que cierra el caso.</strong> AGENCIA MX-5 facturó $214M (78% del Cluster 2) y las 6 ad accounts Mazda son Read-Only para el Grupo. El Grupo paga el spend Mazda pero <strong>no es dueño de los activos digitales donde se ejecuta</strong>. Esto se replica con menor monto en GWM, Changan, Ford, Hyundai oficial e Isuzu.
+    <br><br><strong>Acción en curso</strong> (declarada por Director MKT): consolidación de assets en un solo Business Manager corporativo. Migración progresiva.
   </div>
 </section>
 
@@ -435,12 +520,12 @@ blockquote cite { display: block; font-style: normal; font-family: var(--sans); 
   <p><strong>Evidencia parcial:</strong> 3 cuentas Hyundai paralelas + 6 cuentas Mazda por sucursal + 5 pages Seminuevos paralelas son consistentes con esta hipótesis a nivel de <strong>estructura de cuentas</strong>. Pendiente cuantificar a nivel de <strong>campañas activas en cada cuenta</strong>.</p>
   <p><strong>Soporte académico:</strong> el piloto Motor de Atribución cita estudio de Harvard sobre aprendizaje algorítmico de Meta con consolidación de presupuesto vs fragmentación por geografía.</p>
 
-  <h2>Eje 4 · Fragmentación de gestión operativa de leads <span class="badge badge-gap">A8 bloqueado</span></h2>
+  <h2>Eje 4 · Fragmentación de gestión operativa de leads <span class="badge badge-conv">A8 bloqueado</span></h2>
   <blockquote>
     Demasiados artefactos para gestionar leads, sheets, se pasan los contactos de clientes por WhatsApp; el mejor escenario es WhatsApp de la empresa pero hay personales también; lo correcto es deben tener las conversaciones de WA en aplicaciones de WA Business con interfaces controladas por el negocio para monitorear las conversaciones y proceso de ventas; hay apps de estas pero por decir algo Mazda tiene las suyas, Hyundai las suyas, Seminuevos las suyas. <strong>No hay un estándar operativo de gestión de proceso de nada.</strong>
     <cite>— Director MKT Corporativo</cite>
   </blockquote>
-  <div class="gap-note"><strong>Pendiente cuantificar:</strong> inventario de apps WA Business / CRMs / sheets por marca · # de leads que mueren entre sistemas (muestreo) · # de conversaciones en WA personal vs WA empresa · estándar operativo propuesto (parte del Cap 6 To-Be).</div>
+  <div class="conv-note"><strong>Pendiente cuantificar.</strong> Inventario de apps WA Business / CRMs / sheets por marca · # de leads que mueren entre sistemas (muestreo) · # de conversaciones en WA personal vs WA empresa · estándar operativo propuesto (parte del Cap 6 To-Be).</div>
 
   <h2>Eje 5 · Plantilla y proveedores sobredimensionados</h2>
   <p><strong>Evidencia data:</strong> Plantilla MKT 2025 <strong>63 personas / $7.88M bruto</strong>. Proveedores MKT identificados: <strong>450</strong> (Cluster 1 intercompany + Cluster 2 externos). AGENCIA MX-5 sola concentra 78% del Cluster 2 externo.</p>
@@ -462,7 +547,7 @@ blockquote cite { display: block; font-style: normal; font-family: var(--sans); 
 
   <p class="lead">Sobre $197.5M de pauta 2025 verificada, hasta <strong>$31.6M/año</strong> de IVA quedan sin deducir si todo corre directo a Meta Ireland — y eso es solo una parte del problema.</p>
 
-  <h2>5.1 · El problema fiscal de la pauta digital pagada directo</h2>
+  <h2>5.1 El problema fiscal de la pauta digital pagada directo</h2>
   <ol>
     <li><strong>Meta Ireland no emite CFDI mexicano.</strong> El gasto pagado directo a Meta por las cuentas MXN es <strong>gasto NO deducible de IVA</strong> en México (~16% no recuperable sobre el monto del pauta).</li>
     <li><strong>Google Ads, TikTok Ads y otras plataformas internacionales</strong> tienen restricciones similares según jurisdicción de facturación.</li>
@@ -472,26 +557,22 @@ blockquote cite { display: block; font-style: normal; font-family: var(--sans); 
     <tbody>
       <tr><td>Pauta 2025 total (cubo 30065)</td><td class="num">$197.5M</td></tr>
       <tr><td>% estimado pagado directo a Meta+Google+otros sin CFDI</td><td class="num">por determinar (Contraloría)</td></tr>
-      <tr class="warn"><td><strong>IVA no recuperable estimado (16% sobre porción sin CFDI)</strong></td><td class="num"><strong>hasta ~$31.6M/año</strong></td></tr>
+      <tr class="conv"><td><strong>IVA no recuperable estimado (16% sobre porción sin CFDI)</strong></td><td class="num"><strong>hasta ~$31.6M/año</strong></td></tr>
     </tbody>
   </table>
 
-  <h2>5.2 · Escenario A · Sin Central de Medios <span class="badge badge-warn">estado previo</span></h2>
-  <pre style="font-family: 'JetBrains Mono', monospace; font-size:8pt; background: var(--paper-2); padding: 4mm; border-radius: 2mm; border-left: 2pt solid var(--warn); white-space: pre-wrap; color: var(--ink-700); margin:3mm 0;">
-Marca → Cuenta Meta de la marca → TC o transferencia → Meta Ireland
+  <h2>5.2 Escenario A · Sin Central de Medios <span class="badge badge-warn">estado previo</span></h2>
+  <pre class="scenario-warn">Marca → Cuenta Meta de la marca → TC o transferencia → Meta Ireland
                                                        │
-                                                       └─→ Sin CFDI → No deducible IVA
-  </pre>
+                                                       └─→ Sin CFDI → No deducible IVA</pre>
   <p><strong>Costo fiscal anual estimado:</strong> ~$31.6M/año en pérdida de deducibilidad IVA si todo el pauta corre directo (peor caso). En la práctica, una porción ya migró vía Viceversa desde 2026.</p>
 
-  <h2>5.3 · Escenario B · Viceversa Digital como intermediario <span class="badge badge-info">transición actual</span></h2>
-  <pre style="font-family: 'JetBrains Mono', monospace; font-size:8pt; background: var(--paper-2); padding: 4mm; border-radius: 2mm; border-left: 2pt solid var(--info); white-space: pre-wrap; color: var(--ink-700); margin:3mm 0;">
-Marca → Viceversa Digital → Meta Ireland
+  <h2>5.3 Escenario B · Viceversa Digital como intermediario <span class="badge badge-info">transición actual</span></h2>
+  <pre>Marca → Viceversa Digital → Meta Ireland
          │                  │
          │                  └─→ Pauta sin CFDI mexicano
          └─→ Viceversa emite CFDI al Grupo por (pauta + 8% comisión)
-              └─→ Deducible IVA 100%
-  </pre>
+              └─→ Deducible IVA 100%</pre>
   <p><strong>Estado:</strong> aplicado al piloto Motor de Atribución desde abril 2026. Las 4 marcas piloto (Seminuevos, Hyundai, Stellantis, GAC) operan con Viceversa como vehículo.</p>
   <p><strong>Costo neto efectivo:</strong> 8% comisión sobre pauta. Comparado con 16% de IVA no recuperable, <strong>ahorro neto ~8 puntos</strong> sobre la porción centralizada + recuperación de visibilidad fiscal contable.</p>
 </section>
@@ -502,17 +583,15 @@ Marca → Viceversa Digital → Meta Ireland
   <h1>El caso del <em>Centro de Excelencia.</em></h1>
   <div class="accent-line"></div>
 
-  <h2>5.4 · Escenario C · MKT Corporativo como Central de Medios <span class="badge badge-ok">To-Be propuesto</span></h2>
-  <pre style="font-family: 'JetBrains Mono', monospace; font-size:8pt; background: var(--paper-2); padding: 4mm; border-radius: 2mm; border-left: 2pt solid var(--ok); white-space: pre-wrap; color: var(--ink-700); margin:3mm 0;">
-Marca → MKT Corporativo GP (entidad fiscal propia) → Meta Ireland
+  <h2>5.4 Escenario C · MKT Corporativo como Central de Medios <span class="badge badge-ok">To-Be propuesto</span></h2>
+  <pre class="scenario-ok">Marca → MKT Corporativo GP (entidad fiscal propia) → Meta Ireland
          │                                            │
          │                                            └─→ Pauta sin CFDI
          └─→ MKT Corp emite CFDI corporativo
               ├─→ Deducible IVA 100%
               ├─→ Sin comisión a intermediario externo
               ├─→ Negociación cross-marca consolidada
-              └─→ Trazabilidad contable total del gasto MKT digital
-  </pre>
+              └─→ Trazabilidad contable total del gasto MKT digital</pre>
 
   <h2>Beneficios cuantificables del Escenario C</h2>
   <table>
@@ -526,7 +605,7 @@ Marca → MKT Corporativo GP (entidad fiscal propia) → Meta Ireland
     </tbody>
   </table>
 
-  <h2>5.5 · La premisa estratégica del Centro de Excelencia</h2>
+  <h2>5.5 La premisa estratégica del Centro de Excelencia</h2>
   <p>El MKT Corporativo como Central de Medios <strong>NO es solo optimización fiscal</strong> — es un Centro de Excelencia con cuatro pilares simultáneos:</p>
   <table>
     <thead><tr><th>#</th><th>Pilar</th><th>Habilita</th></tr></thead>
@@ -537,9 +616,8 @@ Marca → MKT Corporativo GP (entidad fiscal propia) → Meta Ireland
       <tr><td>4</td><td><strong>Data unificada para atribución</strong></td><td>Un solo BM → un solo pixel por marca → una sola fuente de verdad de conversiones</td></tr>
     </tbody>
   </table>
-  <div class="callout">
-    <div class="callout-t">El caso completo</div>
-    <p>La centralización vía MKT Corporativo no es una decisión fiscal aislada — es la <strong>palanca que habilita simultáneamente</strong> deducibilidad ($20-55M/año), eficiencia de procurement (10-15% cross-marca), capacidad operativa (plantilla especializada + IA) y medición auditable (Motor de Atribución con single source of truth). Es la decisión estructural que define los próximos 3 años de Marketing en el Grupo.</p>
+  <div class="conv-note">
+    <strong>El caso completo.</strong> La centralización vía MKT Corporativo no es una decisión fiscal aislada — es la <strong>palanca que habilita simultáneamente</strong> deducibilidad ($20-55M/año), eficiencia de procurement (10-15% cross-marca), capacidad operativa (plantilla especializada + IA) y medición auditable (Motor de Atribución con single source of truth). Es la decisión estructural que define los próximos 3 años de Marketing en el Grupo.
   </div>
 </section>
 
@@ -549,11 +627,11 @@ Marca → MKT Corporativo GP (entidad fiscal propia) → Meta Ireland
   <h1>El To-Be <em>se construye con el As-Is en la mano.</em></h1>
   <div class="accent-line"></div>
 
-  <div class="gap-note">
+  <div class="conv-note">
     <strong>Estado del capítulo:</strong> placeholder. La visión completa del To-Be se definirá después de cerrar el mapeo As-Is del Cap 2 (organigrama 60+ personas, A1 BITAM). El Director MKT pondrá su visión sobre la mesa una vez tenga el organigrama nominal completo del As-Is.
   </div>
 
-  <h2>6.1 · Anclajes ya conocidos del To-Be</h2>
+  <h2>6.1 Anclajes ya conocidos del To-Be</h2>
   <p>Aunque la visión completa está pendiente, hay elementos estructurales ya declarados que el To-Be conservará:</p>
   <table>
     <thead><tr><th>#</th><th>Anclaje</th><th>Referencia en este documento</th></tr></thead>
@@ -567,7 +645,7 @@ Marca → MKT Corporativo GP (entidad fiscal propia) → Meta Ireland
     </tbody>
   </table>
 
-  <h2>6.2 · Qué falta definir para cerrar Cap 6</h2>
+  <h2>6.2 Qué falta definir para cerrar Cap 6</h2>
   <table>
     <thead><tr><th>Ítem</th><th>Necesidad</th></tr></thead>
     <tbody>
@@ -590,18 +668,18 @@ Marca → MKT Corporativo GP (entidad fiscal propia) → Meta Ireland
   <table>
     <thead><tr><th>Gap</th><th>Descripción</th><th>Estado</th></tr></thead>
     <tbody>
-      <tr><td>A1</td><td>Organigrama MKT (60+ personas)</td><td><span class="badge badge-gap">Pendiente — cookie BITAM</span></td></tr>
-      <tr><td>A2</td><td>Ventas reales por marca/sucursal/mes</td><td><span class="badge badge-gap">Pendiente — cookie BITAM</span></td></tr>
-      <tr><td>A3</td><td>Ventas atribuibles (proxy Galindo sobre DCA)</td><td><span class="badge badge-gap">Depende A2 + lógica v1</span></td></tr>
-      <tr><td>A4</td><td>Pauta 2025 mensual</td><td><span class="badge badge-gap">Pendiente — cookie BITAM</span></td></tr>
+      <tr><td>A1</td><td>Organigrama MKT (60+ personas)</td><td><span class="badge badge-conv">Pendiente — cookie BITAM</span></td></tr>
+      <tr><td>A2</td><td>Ventas reales por marca/sucursal/mes</td><td><span class="badge badge-conv">Pendiente — cookie BITAM</span></td></tr>
+      <tr><td>A3</td><td>Ventas atribuibles (proxy Galindo sobre DCA)</td><td><span class="badge badge-conv">Depende A2 + lógica v1</span></td></tr>
+      <tr><td>A4</td><td>Pauta 2025 mensual</td><td><span class="badge badge-conv">Pendiente — cookie BITAM</span></td></tr>
       <tr><td>A5</td><td>Inventario Meta Ads accounts</td><td><span class="badge badge-ok">✓ Cerrado</span></td></tr>
       <tr><td>A6 G2</td><td>Pixels por cuenta oficial</td><td><span class="badge badge-ok">✓ Cerrado</span></td></tr>
       <tr><td>A6 G3</td><td>Pages vinculadas</td><td><span class="badge badge-ok">✓ Cerrado</span></td></tr>
-      <tr><td>A6 G1/G4/G5</td><td>Ownership / spend / mapeo de Read-Only</td><td><span class="badge badge-gap">Bloqueado — entrevistas agencias</span></td></tr>
+      <tr><td>A6 G1/G4/G5</td><td>Ownership / spend / mapeo de Read-Only</td><td><span class="badge badge-conv">Bloqueado — entrevistas agencias</span></td></tr>
       <tr><td>A7</td><td>Cuentas sociales FB (IG/TikTok/YT pendiente)</td><td><span class="badge badge-warn">Parcial</span></td></tr>
-      <tr><td>A8</td><td>Inventario apps gestión leads</td><td><span class="badge badge-gap">Bloqueado — walk-through gerentes</span></td></tr>
-      <tr><td>A9</td><td>Proveedor × medio (clasificación)</td><td><span class="badge badge-gap">Trabajo manual sobre Cluster 2 ya extraído</span></td></tr>
-      <tr><td>A10</td><td>Nómina cargada con prestaciones</td><td><span class="badge badge-gap">Pendiente — cookie BITAM</span></td></tr>
+      <tr><td>A8</td><td>Inventario apps gestión leads</td><td><span class="badge badge-conv">Bloqueado — walk-through gerentes</span></td></tr>
+      <tr><td>A9</td><td>Proveedor × medio (clasificación)</td><td><span class="badge badge-conv">Trabajo manual sobre Cluster 2 ya extraído</span></td></tr>
+      <tr><td>A10</td><td>Nómina cargada con prestaciones</td><td><span class="badge badge-conv">Pendiente — cookie BITAM</span></td></tr>
     </tbody>
   </table>
 
