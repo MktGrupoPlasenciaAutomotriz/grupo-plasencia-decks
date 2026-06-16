@@ -2,639 +2,503 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Deep Dive · Gasto MKT 2025-2026 · Data DCA · Grupo Plasencia</title>
+<title>Deep Dive · Gasto y Estructura de Marketing 2025-2026 · Data DCA · Grupo Plasencia</title>
+<meta name="description" content="Análisis del gasto, plantilla y co-inversión OEM del área de Marketing de Grupo Plasencia Automotriz con data del sistema DCA (cubos BITAM Artus extraídos a Cloudflare D1). Versión 1.0. Fecha de corte 2026-06-15.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 :root {
-  --navy: #1E2740;
-  --navy-deep: #141B30;
-  --navy-light: #2D3748;
-  --accent: #4299E1;
-  --accent-hover: #3182CE;
-  --conv: #C8102E;
+  --gp-red: #C8102E;
+  --gp-navy: #1E2740;
+  --gp-navy-deep: #141B30;
+  --gp-slate: #2D3748;
+  --green: #48BB78;
+  --deep-green: #276749;
+  --blue: #4299E1;
+  --deep-blue: #2B6CB0;
+  --amber: #D69E2E;
   --gold: #ECC94B;
-  --success: #48BB78;
-  --warning: #D69E2E;
-  --error: #E53E3E;
-  --n50: #F7FAFC;
-  --n100: #EDF2F7;
-  --n200: #E2E8F0;
-  --n300: #CBD5E0;
-  --n400: #A0AEC0;
-  --n500: #718096;
-  --n600: #4A5568;
-  --n700: #2D3748;
-  --n800: #1A202C;
-  --gp-black: #1A1A1A;
-  --font-h: 'Montserrat', sans-serif;
-  --font-b: 'Inter', sans-serif;
+  --sem-gold: #FBC645;
+  --bg: #F0F4F8;
+  --paper: #FFFFFF;
+  --near-white: #F7FAFC;
+  --g100: #EDF2F7;
+  --g200: #E2E8F0;
+  --g300: #CBD5E0;
+  --g400: #A0AEC0;
+  --g500: #718096;
+  --g600: #4A5568;
+  --g700: #2D3748;
+  --text: #2D3748;
+  --serif: 'Playfair Display', Georgia, serif;
+  --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
-*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
-@page { size: A4; margin: 0; }
-
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { background:var(--bg); }
 body {
-  font-family: var(--font-b);
-  font-size: 10pt;
+  font-family: var(--sans);
+  color: var(--text);
   line-height: 1.55;
-  color: var(--n700);
-  background: var(--n200);
-  -webkit-print-color-adjust: exact;
-  print-color-adjust: exact;
+  font-size: 10pt;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
+
+@page {
+  size: A4;
+  margin: 18mm 18mm 22mm 18mm;
+  @bottom-right {
+    content: counter(page);
+    font-family: 'Inter', sans-serif;
+    font-size: 9pt;
+    color: #718096;
+  }
+  @bottom-left {
+    content: "Confidencial · Grupo Plasencia · Dirección de Marketing Corporativo";
+    font-family: 'Inter', sans-serif;
+    font-size: 8pt;
+    color: #A0AEC0;
+  }
+  @top-right {
+    content: "Deep Dive · Gasto MKT 2025-2026 · Data DCA";
+    font-family: 'Inter', sans-serif;
+    font-size: 8pt;
+    color: #A0AEC0;
+  }
+}
+@page :first { @top-right { content: ""; } @bottom-right { content: ""; } @bottom-left { content: ""; } }
+@page cover { margin: 0; }
 
 .page {
+  background: var(--paper);
   width: 210mm;
   min-height: 297mm;
-  background: white;
-  margin: 18px auto;
-  padding: 22px 46px 38px 46px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.12);
-  page-break-after: always;
+  margin: 0 auto 8mm auto;
+  padding: 18mm 18mm 22mm 18mm;
   position: relative;
+  page-break-after: always;
+  box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 4px 24px rgba(30,39,64,.08);
 }
-
 .page:last-child { page-break-after: auto; }
-
-@media print {
-  body { background: white; }
-  .page { margin: 0; box-shadow: none; padding: 22px 46px 38px 46px; }
-}
-
-/* HEADER & FOOTER */
-.ph {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 16px;
-  border-bottom: 2px solid var(--navy);
-  padding-bottom: 10px;
-}
-.ph-l {
-  font-family: var(--font-h);
-  font-size: 9pt;
-  font-weight: 700;
-  color: var(--navy);
-  letter-spacing: 0.6px;
-  text-transform: uppercase;
-}
-.ph-r {
-  font-size: 7pt;
-  font-weight: 600;
-  letter-spacing: 1.5px;
-  color: var(--conv);
-  text-transform: uppercase;
-}
-.pf {
-  position: absolute;
-  bottom: 12px;
-  left: 46px;
-  right: 46px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-top: 8px;
-  border-top: 1px solid var(--n200);
-  font-size: 7pt;
-  color: var(--n400);
-}
-.pf-page { font-family: var(--font-h); font-weight: 700; color: var(--navy); }
-
-/* TYPOGRAPHY */
-h1 {
-  font-family: var(--font-h);
-  font-size: 22pt;
-  font-weight: 800;
-  color: var(--navy);
-  letter-spacing: -0.02em;
-  line-height: 1.1;
-  margin-bottom: 4px;
-}
-h2 {
-  font-family: var(--font-h);
-  font-size: 13pt;
-  font-weight: 700;
-  color: var(--navy);
-  margin-bottom: 8px;
-  margin-top: 18px;
-}
-h3 {
-  font-family: var(--font-h);
-  font-size: 11pt;
-  font-weight: 700;
-  color: var(--navy-light);
-  margin-bottom: 4px;
-  margin-top: 14px;
-}
-p { margin-bottom: 7px; font-size: 9.5pt; line-height: 1.55; }
-.lead { font-size: 10.5pt; color: var(--n600); line-height: 1.55; margin-bottom: 14px; }
-.accent-line { width: 44px; height: 3px; background: var(--accent); margin-bottom: 14px; }
-ul, ol { padding-left: 22px; margin: 8px 0; }
-li { font-size: 9.5pt; line-height: 1.65; color: var(--n700); margin-bottom: 4px; }
-strong { color: var(--navy); font-weight: 700; }
-
-.eyebrow {
-  font-family: var(--font-h);
-  font-size: 8pt;
-  font-weight: 800;
-  color: var(--accent);
-  letter-spacing: 2.5px;
-  text-transform: uppercase;
-  margin-bottom: 4px;
-}
 
 /* COVER */
 .cover {
-  width: 210mm;
+  background: var(--gp-navy);
+  color: var(--near-white);
+  padding: 0;
+  page: cover;
+}
+.cover-inner {
+  padding: 36mm 22mm 24mm 22mm;
   min-height: 297mm;
-  background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 50%, var(--navy-light) 100%);
-  color: white;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 70px 60px;
-  margin: 18px auto;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.12);
-  page-break-after: always;
+  background:
+    radial-gradient(ellipse at 100% 0%, rgba(251,198,69,0.14) 0%, transparent 55%),
+    radial-gradient(ellipse at 0% 100%, rgba(200,16,46,0.10) 0%, transparent 55%),
+    var(--gp-navy);
   position: relative;
-  overflow: hidden;
 }
-@media print { .cover { margin: 0; box-shadow: none; } }
-.cover::before {
+.cover-inner::before {
   content: "";
   position: absolute;
-  top: 0; right: 0;
-  width: 280px; height: 280px;
-  background: radial-gradient(circle, var(--gold) 0%, transparent 70%);
-  opacity: 0.15;
+  top: 24mm; left: 22mm;
+  width: 64mm; height: 1px;
+  background: var(--sem-gold);
 }
-.cover-top { position: relative; z-index: 2; }
-.cover-eyebrow {
-  font-family: var(--font-h);
-  font-size: 9pt;
-  font-weight: 800;
-  color: var(--gold);
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  margin-bottom: 50px;
-}
-.cover-pill {
-  display: inline-block;
-  background: rgba(236,201,75,0.12);
-  border: 1px solid rgba(236,201,75,0.4);
-  color: var(--gold);
-  font-family: var(--font-h);
-  font-size: 9pt;
+.cover-mark {
+  font-family: var(--sans);
   font-weight: 700;
-  letter-spacing: 2px;
+  font-size: 11pt;
+  letter-spacing: 4px;
+  color: var(--sem-gold);
   text-transform: uppercase;
-  padding: 8px 18px;
-  border-radius: 100px;
-  margin-bottom: 28px;
+}
+.cover-mark span { display:block; font-weight:400; color:rgba(255,255,255,0.55); margin-top:4px; letter-spacing:1px; font-size:9pt; }
+.cover-eyebrow {
+  font-family: var(--sans);
+  font-size: 10pt;
+  font-weight: 700;
+  letter-spacing: 5px;
+  color: var(--gp-red);
+  text-transform: uppercase;
+  margin-top: 14mm;
 }
 .cover-title {
-  font-family: var(--font-h);
-  font-size: 42pt;
-  font-weight: 900;
-  line-height: 1.04;
-  letter-spacing: -0.025em;
-  color: white;
-  margin-bottom: 18px;
+  font-family: var(--serif);
+  font-weight: 800;
+  font-size: 64pt;
+  line-height: 0.96;
+  letter-spacing: -1.8px;
+  margin-top: 8mm;
+  color: var(--near-white);
+}
+.cover-title em { font-style: italic; color: var(--sem-gold); font-weight: 700; }
+.cover-title-after {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 13pt;
+  color: rgba(255,255,255,0.65);
+  margin-top: 4mm;
+  letter-spacing: -0.2px;
 }
 .cover-subtitle {
-  font-family: var(--font-h);
-  font-size: 16pt;
+  font-family: var(--serif);
   font-weight: 500;
-  color: rgba(255,255,255,0.75);
-  line-height: 1.3;
-  max-width: 600px;
+  font-style: italic;
+  font-size: 16pt;
+  color: var(--sem-gold);
+  margin-top: 14mm;
+  letter-spacing: -0.3px;
+  line-height: 1.35;
+  max-width: 150mm;
 }
-.cover-bottom {
-  position: relative;
-  z-index: 2;
-  border-top: 2px solid rgba(255,255,255,0.15);
-  padding-top: 24px;
-  display: flex;
-  justify-content: space-between;
-  font-size: 9pt;
-  color: rgba(255,255,255,0.6);
+.cover-pull {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-style: italic;
+  font-size: 12pt;
+  color: rgba(255,255,255,0.88);
+  line-height: 1.55;
+  border-left: 3px solid var(--gp-red);
+  padding-left: 8mm;
+  margin-top: 16mm;
+  max-width: 150mm;
+}
+.cover-pull strong { color: var(--sem-gold); font-style: normal; font-weight: 700; }
+.cover-meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 8mm;
+  margin-top: auto;
+  padding-top: 18mm;
+  border-top: 1px solid rgba(255,255,255,0.15);
+}
+.cover-meta-item {
+  font-size: 8.5pt;
+  color: rgba(255,255,255,0.55);
   line-height: 1.6;
 }
-.cover-bottom div { max-width: 250px; }
-.cover-bottom strong { color: white; font-weight: 700; display: block; margin-bottom: 4px; }
-
-/* TABLES */
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 10px 0 14px 0;
-  font-size: 9pt;
-}
-thead th {
-  background: var(--navy);
-  color: white;
-  font-family: var(--font-h);
-  font-weight: 600;
-  font-size: 8.5pt;
-  letter-spacing: 0.4px;
-  padding: 8px 10px;
-  text-align: left;
-  text-transform: uppercase;
-}
-thead th:first-child { border-radius: 6px 0 0 0; }
-thead th:last-child { border-radius: 0 6px 0 0; }
-tbody td {
-  padding: 8px 10px;
-  border-bottom: 1px solid var(--n200);
-  vertical-align: middle;
-}
-tbody tr:nth-child(even) { background: var(--n50); }
-tbody tr.hl { background: rgba(66,153,225,0.08) !important; }
-tbody tr.hl td { font-weight: 700; color: var(--navy); }
-tbody tr.warn { background: rgba(200,16,46,0.06) !important; }
-tbody tr.warn td { color: var(--conv); font-weight: 600; }
-tbody tr.total { background: var(--navy) !important; color: white; }
-tbody tr.total td { color: white; font-weight: 700; font-family: var(--font-h); }
-.num { font-variant-numeric: tabular-nums; text-align: right; white-space: nowrap; }
-.num-l { font-family: var(--font-h); font-weight: 700; color: var(--navy); }
-
-/* STATS GRID */
-.stats {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
-  margin: 14px 0;
-}
-.stat {
-  background: var(--n50);
-  border-radius: 8px;
-  padding: 14px 12px;
-  text-align: center;
-  border: 1px solid var(--n200);
-  border-top: 3px solid var(--accent);
-}
-.stat.gold { border-top-color: var(--gold); }
-.stat.red { border-top-color: var(--conv); }
-.stat.green { border-top-color: var(--success); }
-.stat-num {
-  font-family: var(--font-h);
-  font-size: 18pt;
-  font-weight: 800;
-  color: var(--navy);
-  line-height: 1;
-  font-variant-numeric: tabular-nums;
-}
-.stat-lbl {
-  font-size: 8pt;
-  color: var(--n500);
-  margin-top: 6px;
-  font-weight: 600;
-  letter-spacing: 0.3px;
-  line-height: 1.3;
-}
-
-/* CARDS */
-.card {
-  background: var(--n50);
-  border-radius: 8px;
-  padding: 14px 18px;
-  margin: 10px 0;
-  border-left: 4px solid var(--accent);
-}
-.card.warn { border-left-color: var(--conv); background: rgba(200,16,46,0.04); }
-.card.gold { border-left-color: var(--gold); background: rgba(236,201,75,0.06); }
-.card.green { border-left-color: var(--success); background: rgba(72,187,120,0.04); }
-.card-t {
-  font-family: var(--font-h);
-  font-size: 11pt;
+.cover-meta-item strong {
+  display: block;
+  color: var(--near-white);
   font-weight: 700;
-  color: var(--navy);
-  margin-bottom: 6px;
-}
-.card p { font-size: 9pt; line-height: 1.55; color: var(--n700); }
-
-/* CALLOUT */
-.callout {
-  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
-  color: white;
-  border-radius: 8px;
-  padding: 18px 22px;
-  margin: 14px 0;
-}
-.callout-t {
-  font-family: var(--font-h);
-  font-size: 10pt;
-  font-weight: 800;
-  color: var(--gold);
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  margin-bottom: 8px;
+  font-size: 8pt;
+  margin-bottom: 3mm;
 }
-.callout p { color: rgba(255,255,255,0.92); font-size: 10pt; line-height: 1.6; margin: 0; }
-.callout strong { color: white; }
 
-.badge {
-  display: inline-block;
-  padding: 2px 8px;
-  font-size: 7.5pt;
-  font-weight: 700;
-  border-radius: 100px;
-  letter-spacing: 0.5px;
+/* TYPOGRAPHY */
+.section-num {
+  font-family: var(--sans);
+  font-weight: 800;
+  font-size: 9pt;
+  letter-spacing: 3px;
+  color: var(--gp-red);
   text-transform: uppercase;
-  font-family: var(--font-h);
+  margin-bottom: 6mm;
 }
-.badge-p0 { background: rgba(200,16,46,0.15); color: var(--conv); }
-.badge-p1 { background: rgba(214,158,46,0.15); color: var(--warning); }
-.badge-p2 { background: rgba(66,153,225,0.15); color: var(--accent); }
-.badge-p3 { background: var(--n200); color: var(--n600); }
-.badge-warn { background: rgba(200,16,46,0.15); color: var(--conv); }
-.badge-ok { background: rgba(72,187,120,0.15); color: var(--success); }
-.badge-gap { background: var(--n200); color: var(--n600); }
-
-.note {
-  background: var(--n50);
-  border-left: 3px solid var(--n400);
-  padding: 10px 14px;
-  margin: 10px 0;
-  font-size: 9pt;
-  color: var(--n600);
-  line-height: 1.55;
-  border-radius: 0 4px 4px 0;
+h1 {
+  font-family: var(--serif);
+  font-weight: 800;
+  font-size: 34pt;
+  line-height: 1.05;
+  letter-spacing: -1px;
+  color: var(--gp-navy);
+  margin-bottom: 4mm;
 }
-.note strong { color: var(--navy); }
-
-.warn-note {
-  background: rgba(200,16,46,0.04);
-  border-left: 3px solid var(--conv);
-  padding: 10px 14px;
-  margin: 10px 0;
-  font-size: 9pt;
-  color: var(--n700);
-  border-radius: 0 4px 4px 0;
+h1 em { font-style: italic; color: var(--gp-red); }
+h2 {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 18pt;
+  line-height: 1.15;
+  color: var(--gp-navy);
+  margin-top: 10mm;
+  margin-bottom: 4mm;
+  letter-spacing: -0.4px;
 }
-.warn-note strong { color: var(--conv); }
-
-code, .mono {
-  font-family: 'SF Mono', Monaco, Menlo, Consolas, monospace;
+h3 {
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 11pt;
+  color: var(--gp-navy);
+  margin-top: 6mm;
+  margin-bottom: 3mm;
+  letter-spacing: 0.2px;
+}
+.kicker {
+  font-family: var(--sans);
   font-size: 8.5pt;
-  background: var(--n100);
-  padding: 1px 4px;
-  border-radius: 3px;
-  color: var(--navy);
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  color: var(--gp-red);
+  text-transform: uppercase;
+  margin-bottom: 3mm;
 }
-pre {
-  font-family: 'SF Mono', Monaco, Menlo, Consolas, monospace;
-  font-size: 8.5pt;
-  background: var(--navy-deep);
-  color: var(--n100);
-  padding: 12px 14px;
-  border-radius: 6px;
-  margin: 10px 0;
-  overflow-x: auto;
+.lead {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 13pt;
   line-height: 1.5;
+  color: var(--g600);
+  margin-bottom: 6mm;
+  letter-spacing: -0.2px;
 }
+p { margin-bottom: 3mm; font-size: 10pt; line-height: 1.6; color: var(--text); }
+ul, ol { padding-left: 6mm; margin: 3mm 0 5mm 0; }
+li { font-size: 10pt; line-height: 1.6; color: var(--text); margin-bottom: 1.5mm; }
+strong { color: var(--gp-navy); font-weight: 700; }
+em { font-style: italic; }
 
-.phase, .note, .stats, .stat, .card, table, .callout {
-  page-break-inside: avoid;
-}
+.accent-line { width: 18mm; height: 2px; background: var(--gp-red); margin-bottom: 6mm; }
+
+/* TABLES */
+table { width: 100%; border-collapse: collapse; margin: 4mm 0 6mm 0; font-size: 9pt; font-family: var(--sans); }
+thead th { background: var(--gp-navy); color: white; font-weight: 600; font-size: 8.5pt; letter-spacing: 0.4px; padding: 3mm 3.5mm; text-align: left; text-transform: uppercase; }
+thead th:first-child { border-radius: 2mm 0 0 0; }
+thead th:last-child { border-radius: 0 2mm 0 0; }
+tbody td { padding: 2.5mm 3.5mm; border-bottom: 1px solid var(--g200); vertical-align: middle; }
+tbody tr:nth-child(even) { background: var(--near-white); }
+tbody tr.hl { background: rgba(66,153,225,0.08) !important; }
+tbody tr.hl td { font-weight: 700; color: var(--gp-navy); }
+tbody tr.warn { background: rgba(200,16,46,0.06) !important; }
+tbody tr.warn td { color: var(--gp-red); font-weight: 600; }
+tbody tr.total { background: var(--gp-navy) !important; }
+tbody tr.total td { color: white; font-weight: 700; font-family: var(--serif); font-size: 10pt; }
+.num { font-variant-numeric: tabular-nums; text-align: right; white-space: nowrap; }
+
+/* STATS GRID */
+.stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3mm; margin: 5mm 0; }
+.stat { background: var(--near-white); border-radius: 2mm; padding: 5mm 4mm; text-align: center; border: 1px solid var(--g200); border-top: 3px solid var(--blue); }
+.stat.gold { border-top-color: var(--sem-gold); }
+.stat.red { border-top-color: var(--gp-red); }
+.stat.green { border-top-color: var(--green); }
+.stat-num { font-family: var(--serif); font-size: 26pt; font-weight: 800; color: var(--gp-navy); line-height: 1; font-variant-numeric: tabular-nums; letter-spacing: -1px; }
+.stat-lbl { font-size: 7.5pt; color: var(--g500); margin-top: 3mm; font-weight: 600; letter-spacing: 0.3px; line-height: 1.35; }
+
+/* CARDS */
+.card { background: var(--near-white); border-radius: 2mm; padding: 5mm 6mm; margin: 4mm 0; border-left: 3px solid var(--blue); }
+.card.warn { border-left-color: var(--gp-red); background: rgba(200,16,46,0.035); }
+.card.gold { border-left-color: var(--sem-gold); background: rgba(251,198,69,0.05); }
+.card.green { border-left-color: var(--green); background: rgba(72,187,120,0.035); }
+.card-t { font-family: var(--serif); font-size: 13pt; font-weight: 700; color: var(--gp-navy); margin-bottom: 2mm; }
+.card p { font-size: 9.5pt; line-height: 1.55; color: var(--g600); margin-bottom: 0; }
+
+/* CALLOUT */
+.callout { background: linear-gradient(135deg, var(--gp-navy) 0%, var(--gp-slate) 100%); color: white; border-radius: 3mm; padding: 7mm 9mm; margin: 5mm 0; }
+.callout-t { font-family: var(--sans); font-size: 9pt; font-weight: 800; color: var(--sem-gold); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 3mm; }
+.callout p { color: rgba(255,255,255,0.94); font-size: 10.5pt; line-height: 1.6; margin: 0; font-family: var(--serif); font-weight: 500; }
+.callout strong { color: var(--sem-gold); font-style: normal; }
+
+.badge { display: inline-block; padding: 0.8mm 2.5mm; font-size: 7pt; font-weight: 700; border-radius: 100px; letter-spacing: 0.5px; text-transform: uppercase; font-family: var(--sans); }
+.badge-p0 { background: rgba(200,16,46,0.15); color: var(--gp-red); }
+.badge-p1 { background: rgba(214,158,46,0.18); color: var(--amber); }
+.badge-p2 { background: rgba(66,153,225,0.15); color: var(--blue); }
+.badge-p3 { background: var(--g200); color: var(--g600); }
+.badge-warn { background: rgba(200,16,46,0.15); color: var(--gp-red); }
+.badge-ok { background: rgba(72,187,120,0.15); color: var(--deep-green); }
+.badge-gap { background: var(--g200); color: var(--g600); }
+
+.note { background: var(--near-white); border-left: 2px solid var(--g400); padding: 4mm 5mm; margin: 4mm 0; font-size: 9pt; color: var(--g600); line-height: 1.55; border-radius: 0 2mm 2mm 0; }
+.note strong { color: var(--gp-navy); }
+.warn-note { background: rgba(200,16,46,0.04); border-left: 2px solid var(--gp-red); padding: 4mm 5mm; margin: 4mm 0; font-size: 9pt; color: var(--g700); border-radius: 0 2mm 2mm 0; line-height: 1.55; }
+.warn-note strong { color: var(--gp-red); }
+
+code, .mono { font-family: 'SF Mono', Monaco, Menlo, Consolas, monospace; font-size: 8.5pt; background: var(--g100); padding: 0.5mm 1.5mm; border-radius: 1mm; color: var(--gp-navy); }
+pre { font-family: 'SF Mono', Monaco, Menlo, Consolas, monospace; font-size: 8.5pt; background: var(--gp-navy-deep); color: var(--g100); padding: 4mm 5mm; border-radius: 2mm; margin: 4mm 0; overflow-x: auto; line-height: 1.5; }
+
+.stats, .stat, .card, table, .callout, .warn-note, .note { page-break-inside: avoid; }
 h1, h2, h3 { page-break-after: avoid; }
 
-.two-col {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 14px;
-  margin: 10px 0;
-}
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm; margin: 4mm 0; }
 
-.toc {
-  background: var(--n50);
-  border-radius: 8px;
-  padding: 18px 24px;
-  margin: 12px 0;
-}
-.toc-item {
-  display: flex;
-  justify-content: space-between;
-  padding: 5px 0;
-  font-size: 9.5pt;
-  border-bottom: 1px dotted var(--n300);
-}
+.toc-item { display: flex; justify-content: space-between; align-items: baseline; padding: 2mm 0; font-size: 10pt; border-bottom: 1px dotted var(--g300); }
 .toc-item:last-child { border-bottom: none; }
-.toc-item strong { color: var(--navy); font-family: var(--font-h); }
-.toc-item .p { color: var(--n500); font-variant-numeric: tabular-nums; }
+.toc-item strong { color: var(--gp-navy); font-family: var(--serif); font-size: 11pt; font-weight: 700; }
+.toc-item .toc-sub { color: var(--g500); font-size: 9pt; flex: 1; padding: 0 4mm; }
+.toc-item .toc-p { color: var(--g600); font-variant-numeric: tabular-nums; font-weight: 600; }
 </style>
 </head>
 <body>
 
-<!-- ========== COVER ========== -->
-<div class="cover">
-  <div class="cover-top">
-    <div class="cover-eyebrow">Direccion de Marketing Corporativo · Junio 2026</div>
-    <div class="cover-pill">Deep Dive · v1.0</div>
-    <h1 class="cover-title">Gasto y Estructura<br>de Marketing<br><span style="color:var(--gold);">2025 — 2026</span></h1>
-    <p class="cover-subtitle">Analisis del gasto, plantilla y co-inversion OEM del Grupo con data del sistema DCA (BITAM Artus extraido a Cloudflare D1).</p>
+<!-- ============ COVER ============ -->
+<section class="page cover">
+  <div class="cover-inner">
+    <div>
+      <div class="cover-mark">Grupo Plasencia Automotriz<span>Dirección de Marketing Corporativo</span></div>
+      <div class="cover-eyebrow">Deep Dive · Versión 1.0 · Junio 2026</div>
+      <h1 class="cover-title">Gasto y Estructura<br>de <em>Marketing</em></h1>
+      <div class="cover-title-after">— años 2025 y 2026, data del sistema DCA</div>
+      <p class="cover-subtitle">El gasto real del Grupo, su concentración por marca, la asimetría OEM, y los gaps de captura que limitan decisiones de eficiencia.</p>
+      <div class="cover-pull">
+        El gasto MKT real del Grupo es <strong>2.4× el visible</strong> en encuestas previas. Mazda concentra <strong>64% del gasto</strong> y crece a <strong>81% en 2026</strong>. Hyundai colapsa al <strong>5.1% de su presupuesto ejecutado</strong>. Solo Mazda opera modelo OEM estructurado: palanca abierta documentada de <strong>8 a 17 millones de pesos al año</strong> en rebate no cobrado.
+      </div>
+    </div>
+    <div class="cover-meta">
+      <div class="cover-meta-item">
+        <strong>Audiencia</strong>
+        Pepe Morales (sponsor) · Consejo Directivo · Directores de Marca · Contraloría
+      </div>
+      <div class="cover-meta-item">
+        <strong>Fuente única</strong>
+        Cloudflare D1 <code style="background:rgba(255,255,255,0.1); color:var(--sem-gold);">bitam-mkt</code> · BITAM Artus extraído
+      </div>
+      <div class="cover-meta-item">
+        <strong>Fecha de corte</strong>
+        2026-06-15 · Cobertura ene-2025 a jun-2026
+      </div>
+    </div>
   </div>
-  <div class="cover-bottom">
-    <div>
-      <strong>Audiencia</strong>
-      Pepe Morales (sponsor) · Consejo Directivo · Directores de Marca · Contraloria
-    </div>
-    <div>
-      <strong>Fuente unica</strong>
-      Cloudflare D1 <code style="background:rgba(255,255,255,0.1); color:var(--gold);">bitam-mkt</code>
-    </div>
-    <div>
-      <strong>Fecha de corte</strong>
-      2026-06-15 · Cobertura ene-2025 a jun-2026
-    </div>
-  </div>
-</div>
+</section>
 
-<!-- ========== PAGE 1: En 30 segundos + Audiencia + NO es ========== -->
-<div class="page">
-  <div class="ph">
-    <div class="ph-l">Deep Dive · Gasto MKT · Data DCA</div>
-    <div class="ph-r">Lectura Ejecutiva</div>
-  </div>
-
-  <div class="eyebrow">En 30 segundos</div>
-  <h1>El gasto MKT real del Grupo es 2.4× el visible y el rebate OEM no se cobra.</h1>
+<!-- ============ PAGE 2: Lectura ejecutiva ============ -->
+<section class="page">
+  <div class="section-num">Lectura ejecutiva · en 30 segundos</div>
+  <h1>El gasto real es <em>el doble</em> del visible — y el OEM no se cobra.</h1>
   <div class="accent-line"></div>
 
   <div class="callout">
-    <div class="callout-t">Tesis en una linea</div>
-    <p>GP gasto <strong>$205M MXN bruto</strong> en marketing en 2025 (1.39% del revenue, vs benchmark 5-10%). <strong>Mazda concentra 64% del gasto y crece a 81% en 2026</strong>. <strong>Hyundai colapsa al 5.1% de su presupuesto ejecutado en 2026</strong> — anomalia operativa que requiere auditoria inmediata. Solo Mazda opera modelo OEM estructurado; las otras 7 marcas tienen entre $0 cobrado y captura con signo invertido. Palanca abierta documentada: <strong>$8-17M MXN/ano en rebate OEM no cobrado</strong>.</p>
+    <div class="callout-t">Tesis en una línea</div>
+    <p>Grupo Plasencia gastó <strong>$205M MXN bruto</strong> en marketing en 2025 (1.39% del revenue, contra benchmark sector 5-10%). Mazda concentra <strong>64% del gasto y crece a 81% en 2026</strong>. Hyundai colapsa al <strong>5.1% de su presupuesto ejecutado en 2026</strong> — anomalía operativa que requiere auditoría inmediata. Solo Mazda opera modelo OEM estructurado; las otras 7 marcas tienen entre $0 cobrado y captura con signo invertido. Palanca abierta documentada: <strong>$8 a $17M MXN/año en rebate OEM no cobrado</strong>.</p>
   </div>
 
-  <h2>Audiencia y proposito</h2>
+  <h2>Audiencia y propósito</h2>
   <ul>
-    <li><strong>Audiencia primaria:</strong> Pepe Morales (sponsor) · Consejo Directivo (Nicolas Plasencia, Andres Plasencia, Enrique Rojas) · Directores de Marca · Contraloria.</li>
-    <li><strong>Proposito:</strong> establecer la fotografia operativa del gasto MKT con data del sistema (no encuestas) como baseline auditable para decisiones de eficiencia y centro de excelencia.</li>
-    <li><strong>Reproducibilidad:</strong> cada cifra es reproducible via wrangler CLI ejecutando los queries del Anexo B contra la base D1 <code>bitam-mkt</code>.</li>
+    <li><strong>Audiencia primaria:</strong> Pepe Morales (sponsor), Consejo Directivo (Nicolás Plasencia, Andrés Plasencia, Enrique Rojas), Directores de Marca, Contraloría.</li>
+    <li><strong>Propósito:</strong> establecer la fotografía operativa del gasto de marketing con data del sistema (no encuestas) como baseline auditable para decisiones de eficiencia y centro de excelencia.</li>
+    <li><strong>Reproducibilidad:</strong> cada cifra es reproducible vía <code>wrangler</code> CLI ejecutando los queries del Anexo B contra la base D1 <code>bitam-mkt</code>.</li>
   </ul>
 
-  <h2>Lo que este documento NO es</h2>
+  <h2>Lo que este documento <em>no es</em></h2>
   <div class="two-col">
-    <div class="card">
+    <div class="card warn">
       <div class="card-t">No es</div>
-      <ul style="margin: 0;">
-        <li>Auditoria contable formal</li>
+      <ul style="margin:2mm 0 0 0; padding-left:5mm;">
+        <li>Auditoría contable formal</li>
         <li>Estrategia hacia adelante</li>
-        <li>Catalogo de proveedores</li>
-        <li>Analisis CAC/ROAS</li>
+        <li>Catálogo de proveedores</li>
+        <li>Análisis de retorno (CAC / ROAS)</li>
       </ul>
     </div>
     <div class="card green">
-      <div class="card-t">Si es</div>
-      <ul style="margin: 0;">
-        <li>Foto operativa AS IS verificable</li>
-        <li>Mapa de gaps de captura</li>
-        <li>Baseline auditable de decisiones</li>
-        <li>Material para Consejo y Contraloria</li>
+      <div class="card-t">Sí es</div>
+      <ul style="margin:2mm 0 0 0; padding-left:5mm;">
+        <li>Fotografía operativa AS IS verificable</li>
+        <li>Mapa de gaps de captura del sistema</li>
+        <li>Baseline auditable para decisiones</li>
+        <li>Material para Consejo y Contraloría</li>
       </ul>
     </div>
   </div>
 
-  <h2>Indice</h2>
-  <div class="toc">
-    <div class="toc-item"><strong>Parte I · Lectura Ejecutiva</strong><span class="p">3</span></div>
-    <div class="toc-item">§1 TL;DR · §2 Cobertura DCA-MKT<span class="p"></span></div>
-    <div class="toc-item"><strong>Parte II · Anatomia Total del Gasto</strong><span class="p">5</span></div>
-    <div class="toc-item">§3 Composicion · §4 Tipo · §5 Marca · §6 Estacionalidad<span class="p"></span></div>
-    <div class="toc-item"><strong>Parte III · Proveedores y Fragmentacion</strong><span class="p">9</span></div>
-    <div class="toc-item">§7 Proveedores · §8 Duplicidades · §9 Viceversa<span class="p"></span></div>
-    <div class="toc-item"><strong>Parte IV · Plantilla y Estructura</strong><span class="p">10</span></div>
-    <div class="toc-item">§10 Headcount · §11 Distribucion · §12 Costo por Persona<span class="p"></span></div>
-    <div class="toc-item"><strong>Parte V · Disciplina de Ejecucion</strong><span class="p">11</span></div>
-    <div class="toc-item">§13 Real vs Ppto · §14 Anomalias<span class="p"></span></div>
-    <div class="toc-item"><strong>Parte VI · Co-inversion OEM</strong><span class="p">13</span></div>
-    <div class="toc-item">§15 Rebate · §16 Asimetria · §17 Palanca<span class="p"></span></div>
-    <div class="toc-item"><strong>Parte VII · Unit Economics MKT</strong><span class="p">15</span></div>
-    <div class="toc-item">§18 Cross-cut · §19 Costo Adquisicion<span class="p"></span></div>
-    <div class="toc-item"><strong>Parte VIII · Limites de la Data</strong><span class="p">16</span></div>
-    <div class="toc-item">§20 Gaps · §21 Re-extracciones<span class="p"></span></div>
-    <div class="toc-item"><strong>Parte IX · Implicaciones</strong><span class="p">17</span></div>
-    <div class="toc-item">§22 Decisiones · §23 Lo que NO resuelve<span class="p"></span></div>
-    <div class="toc-item"><strong>Anexos</strong><span class="p">18</span></div>
-  </div>
+  <h2>Índice</h2>
+  <div class="toc-item"><strong>I · Lectura ejecutiva</strong><span class="toc-sub">§1 TL;DR · §2 Cobertura DCA-MKT</span><span class="toc-p">3</span></div>
+  <div class="toc-item"><strong>II · Anatomía del gasto</strong><span class="toc-sub">§3 Composición · §4 Tipo · §5 Marca · §6 Estacionalidad</span><span class="toc-p">5</span></div>
+  <div class="toc-item"><strong>III · Proveedores y fragmentación</strong><span class="toc-sub">§7 Proveedores · §8 Duplicidades · §9 Viceversa</span><span class="toc-p">9</span></div>
+  <div class="toc-item"><strong>IV · Plantilla y estructura</strong><span class="toc-sub">§10 Headcount · §11 Distribución · §12 Costo persona</span><span class="toc-p">10</span></div>
+  <div class="toc-item"><strong>V · Disciplina de ejecución</strong><span class="toc-sub">§13 Real vs ppto · §14 Anomalías</span><span class="toc-p">11</span></div>
+  <div class="toc-item"><strong>VI · Co-inversión OEM</strong><span class="toc-sub">§15 Rebate · §16 Asimetría · §17 Palanca</span><span class="toc-p">13</span></div>
+  <div class="toc-item"><strong>VII · Unit Economics</strong><span class="toc-sub">§18 Cross-cut · §19 Costo adquisición</span><span class="toc-p">15</span></div>
+  <div class="toc-item"><strong>VIII · Límites de la data</strong><span class="toc-sub">§20 Gaps · §21 Re-extracciones</span><span class="toc-p">16</span></div>
+  <div class="toc-item"><strong>IX · Implicaciones</strong><span class="toc-sub">§22 Decisiones · §23 Lo que NO resuelve</span><span class="toc-p">17</span></div>
+  <div class="toc-item"><strong>Anexos</strong><span class="toc-sub">A. Schema · B. Queries SQL · C. Metodología</span><span class="toc-p">18</span></div>
+</section>
 
-  <div class="pf"><div class="pf-page">2</div><div>Deep Dive MKT-DCA · GP Automotriz</div></div>
-</div>
-
-<!-- ========== PAGE 3: §1 TL;DR ========== -->
-<div class="page">
-  <div class="ph">
-    <div class="ph-l">Parte I · §1 · TL;DR</div>
-    <div class="ph-r">Cifras Cabeza</div>
-  </div>
-
-  <h1>§1 · Cifras cabeza</h1>
+<!-- ============ PAGE 3: §1 TL;DR ============ -->
+<section class="page">
+  <div class="kicker">Parte I · §1 · TL;DR</div>
+  <h1>Cifras cabeza</h1>
   <div class="accent-line"></div>
+  <p class="lead">El gasto de marketing del Grupo en una página: composición, concentración, plantilla y rebate.</p>
 
-  <h2>Gasto MKT 2025 — composicion real</h2>
-
+  <h3>Gasto MKT 2025 — composición real (año completo)</h3>
   <table>
     <thead><tr><th>Componente</th><th class="num">MXN</th><th class="num">% del bruto</th></tr></thead>
     <tbody>
       <tr><td>Pauta — Publicidad</td><td class="num">$49,502,963</td><td class="num">24.1%</td></tr>
-      <tr><td>Pauta — Promocion</td><td class="num">$50,144,348</td><td class="num">24.4%</td></tr>
+      <tr><td>Pauta — Promoción</td><td class="num">$50,144,348</td><td class="num">24.4%</td></tr>
       <tr><td>Pauta — Promo 2</td><td class="num">$97,902,504</td><td class="num">47.7%</td></tr>
-      <tr class="hl"><td><strong>Subtotal Pauta</strong></td><td class="num"><strong>$197,549,815</strong></td><td class="num"><strong>96.2%</strong></td></tr>
-      <tr><td>Plantilla MERCADOTECNIA + V. DIGITALES (bruto)</td><td class="num">$7,879,560</td><td class="num">3.8%</td></tr>
-      <tr class="total"><td>GASTO MKT BRUTO 2025</td><td class="num">$205,429,375</td><td class="num">100%</td></tr>
-      <tr><td>Bonificacion Plan Piso (rebate OEM, ingreso)</td><td class="num">-$27,594,285</td><td class="num">-13.4%</td></tr>
-      <tr class="total"><td>GASTO MKT NETO 2025</td><td class="num">$177,835,090</td><td class="num"></td></tr>
+      <tr class="hl"><td><strong>Subtotal pauta</strong></td><td class="num"><strong>$197,549,815</strong></td><td class="num"><strong>96.2%</strong></td></tr>
+      <tr><td>Plantilla Mercadotecnia + Ventas Digitales (bruto)</td><td class="num">$7,879,560</td><td class="num">3.8%</td></tr>
+      <tr class="total"><td>Gasto MKT bruto 2025</td><td class="num">$205,429,375</td><td class="num">100%</td></tr>
+      <tr><td>Bonificación Plan Piso (rebate OEM, ingreso)</td><td class="num">-$27,594,285</td><td class="num">-13.4%</td></tr>
+      <tr class="total"><td>Gasto MKT neto 2025</td><td class="num">$177,835,090</td><td class="num"></td></tr>
     </tbody>
   </table>
 
   <div class="stats">
-    <div class="stat gold">
-      <div class="stat-num">1.39%</div>
-      <div class="stat-lbl">del revenue MKT neto<br>Benchmark sector: 5-10%</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">$177.8M</div>
-      <div class="stat-lbl">MKT NETO 2025<br>Tras rebate Mazda</div>
-    </div>
-    <div class="stat red">
-      <div class="stat-num">$27.6M</div>
-      <div class="stat-lbl">Rebate cobrado<br>50.8% del ppto</div>
-    </div>
-    <div class="stat green">
-      <div class="stat-num">63</div>
-      <div class="stat-lbl">Plantilla MKT 2025<br>$125K/empleado bruto</div>
-    </div>
+    <div class="stat gold"><div class="stat-num">1.39%</div><div class="stat-lbl">del revenue MKT neto<br>Benchmark sector 5-10%</div></div>
+    <div class="stat"><div class="stat-num">$177.8M</div><div class="stat-lbl">MKT neto 2025<br>Tras rebate Mazda</div></div>
+    <div class="stat red"><div class="stat-num">$27.6M</div><div class="stat-lbl">Rebate cobrado<br>50.8% del presupuesto</div></div>
+    <div class="stat green"><div class="stat-num">63</div><div class="stat-lbl">Plantilla MKT 2025<br>$125K/empleado bruto</div></div>
   </div>
 
-  <h2>Gasto MKT 2026 (parcial al 15-jun, ~mes 5.5 de 12)</h2>
+  <h3>Gasto MKT 2026 (parcial al 15 de junio, ~mes 5.5 de 12)</h3>
   <table>
-    <thead><tr><th>Componente</th><th class="num">Real MXN</th><th class="num">Ppto Anual</th><th class="num">% Ejec</th></tr></thead>
+    <thead><tr><th>Componente</th><th class="num">Real MXN</th><th class="num">Ppto anual</th><th class="num">% Ejecutado</th></tr></thead>
     <tbody>
       <tr><td>Pauta — Publicidad</td><td class="num">$1,785,800</td><td class="num">$27,053,015</td><td class="num">6.6%</td></tr>
-      <tr><td>Pauta — Promocion</td><td class="num">$6,729,887</td><td class="num">$26,746,269</td><td class="num">25.2%</td></tr>
+      <tr><td>Pauta — Promoción</td><td class="num">$6,729,887</td><td class="num">$26,746,269</td><td class="num">25.2%</td></tr>
       <tr class="warn"><td>Pauta — Promo 2</td><td class="num">$76,902,350</td><td class="num">$45,084,238</td><td class="num">170.6%</td></tr>
-      <tr class="hl"><td><strong>Subtotal Pauta parcial</strong></td><td class="num"><strong>$85,418,037</strong></td><td class="num">$98,883,522</td><td class="num">86.4%</td></tr>
+      <tr class="hl"><td><strong>Subtotal pauta parcial</strong></td><td class="num"><strong>$85,418,037</strong></td><td class="num">$98,883,522</td><td class="num">86.4%</td></tr>
       <tr><td>Plantilla MKT bruto parcial</td><td class="num">$3,381,932</td><td class="num">—</td><td class="num">—</td></tr>
-      <tr class="total"><td>BRUTO 2026 parcial</td><td class="num">$88,799,969</td><td class="num"></td><td class="num"></td></tr>
+      <tr class="total"><td>Bruto 2026 parcial</td><td class="num">$88,799,969</td><td class="num"></td><td class="num"></td></tr>
     </tbody>
   </table>
-  <div class="note"><strong>Proyeccion anualizada simple 2026 (× 12/5.5):</strong> ~$194M pauta + ~$7.4M nomina ≈ <strong>$201M MXN bruto 2026</strong>. Similar a 2025.</div>
+  <div class="note"><strong>Proyección anualizada simple 2026</strong> (× 12/5.5): ~$194M de pauta + ~$7.4M de nómina ≈ <strong>$201M MXN bruto 2026</strong>. Similar a 2025.</div>
 
-  <h2>Concentracion por marca — lectura</h2>
+  <h3>Concentración por marca — lectura</h3>
   <table>
     <thead><tr><th>Marca</th><th class="num">% 2025</th><th class="num">% 2026</th><th>Lectura</th></tr></thead>
     <tbody>
-      <tr class="hl"><td><strong>Mazda</strong></td><td class="num">64.0%</td><td class="num">81.1%</td><td>Concentracion crece. 54% volumen vs 64% gasto = sobre-ponderada</td></tr>
+      <tr class="hl"><td><strong>Mazda</strong></td><td class="num">64.0%</td><td class="num">81.1%</td><td>Concentración crece. 54% volumen vs 64% gasto = sobre-ponderada</td></tr>
       <tr><td>Ford</td><td class="num">14.0%</td><td class="num">5.3%</td><td>Cae a un tercio de su share 2025</td></tr>
       <tr><td>GWM</td><td class="num">6.4%</td><td class="num">3.8%</td><td>Cae moderado</td></tr>
-      <tr class="warn"><td><strong>Hyundai</strong></td><td class="num">5.8%</td><td class="num">0.5%</td><td>Colapso operativo. 5.1% ppto ejecutado — bandera roja (§14)</td></tr>
+      <tr class="warn"><td><strong>Hyundai</strong></td><td class="num">5.8%</td><td class="num">0.5%</td><td>Colapso operativo · 5.1% ejecutado — bandera roja (§14)</td></tr>
       <tr><td>GAC</td><td class="num">4.3%</td><td class="num">4.7%</td><td>Estable, coherente con arranque piloto</td></tr>
       <tr><td>Changan</td><td class="num">2.9%</td><td class="num">2.8%</td><td>Estable</td></tr>
       <tr><td>Stellantis</td><td class="num">2.5%</td><td class="num">1.3%</td><td>Restringida por presupuesto bajo</td></tr>
       <tr><td>Isuzu</td><td class="num">0%</td><td class="num">0.5%</td><td>Marca sin estrategia MKT activa</td></tr>
     </tbody>
   </table>
+</section>
 
-  <div class="pf"><div class="pf-page">3</div><div>§1 · TL;DR</div></div>
-</div>
-
-<!-- ========== PAGE 4: §2 Cobertura ========== -->
-<div class="page">
-  <div class="ph">
-    <div class="ph-l">Parte I · §2 · Cobertura DCA-MKT</div>
-    <div class="ph-r">Lectura Ejecutiva</div>
-  </div>
-
-  <h1>§2 · Cobertura DCA-MKT</h1>
+<!-- ============ PAGE 4: §2 Cobertura ============ -->
+<section class="page">
+  <div class="kicker">Parte I · §2 · Cobertura</div>
+  <h1>Cobertura <em>DCA-MKT</em></h1>
   <div class="accent-line"></div>
-  <p class="lead">Que se puede ver y que no en la base D1 <code>bitam-mkt</code> al 2026-06-15.</p>
+  <p class="lead">Qué se puede ver y qué no en la base D1 <code>bitam-mkt</code> al 2026-06-15.</p>
 
-  <h2>Cubos cargados</h2>
+  <h3>Cubos cargados</h3>
   <table>
-    <thead><tr><th>Cubo</th><th>Tabla D1</th><th class="num">Rows</th><th>Periodo</th><th>Importes</th></tr></thead>
+    <thead><tr><th>Cubo BITAM</th><th>Tabla D1</th><th class="num">Filas</th><th>Período</th><th>Importes</th></tr></thead>
     <tbody>
-      <tr><td>30021 P&L Corp</td><td><code>cubo_30021_finanzas</code></td><td class="num">561,352</td><td>2025-01 → 2026-06</td><td>Sin $ (dimensional)</td></tr>
+      <tr><td>30021 Finanzas P&L Corp</td><td><code>cubo_30021_finanzas</code></td><td class="num">561,352</td><td>2025-01 → 2026-06</td><td>Sin $ (dimensional)</td></tr>
       <tr class="hl"><td>30046 RH full</td><td><code>cubo_30046_rh</code></td><td class="num">47,311</td><td>2025-2026 mensual</td><td>$ percepciones + pagado</td></tr>
-      <tr class="hl"><td>30049 Nomina gerencial</td><td><code>cubo_30049_nomina</code></td><td class="num">5,905</td><td>2025-2026</td><td>$ percepciones + utilidades</td></tr>
-      <tr><td>30051 CxP focal</td><td><code>cubo_30051_cxp_focal</code></td><td class="num">302,121</td><td>2025-2026</td><td>$ monto + saldo (NO MKT)</td></tr>
+      <tr class="hl"><td>30049 Nómina gerencial</td><td><code>cubo_30049_nomina</code></td><td class="num">5,905</td><td>2025-2026</td><td>$ percepciones + utilidades</td></tr>
+      <tr><td>30051 CxP focal</td><td><code>cubo_30051_cxp_focal</code></td><td class="num">302,121</td><td>2025-2026</td><td>$ monto + saldo (inventario, no MKT)</td></tr>
       <tr><td>30060 Concentrado MB</td><td><code>cubo_30060_finanzas_mb</code></td><td class="num">79,312</td><td>2025-2026</td><td>$ valor + unidades</td></tr>
       <tr class="hl"><td><strong>30065 Real vs Ppto</strong></td><td><code>cubo_30065_real_vs_ppto</code></td><td class="num">58,201</td><td>2025 anual + 2026 mensual</td><td>real + ppto</td></tr>
-      <tr class="warn"><td>30067 Real LxL</td><td><code>cubo_30067_real_lxl</code></td><td class="num">764,820</td><td>2025-2026</td><td>Solo PPTO (gap)</td></tr>
+      <tr class="warn"><td>30067 Real LxL</td><td><code>cubo_30067_real_lxl</code></td><td class="num">764,820</td><td>2025-2026</td><td>Solo PPTO (gap conocido)</td></tr>
     </tbody>
   </table>
 
-  <h2>Dimensiones disponibles vs limitadas</h2>
+  <h3>Dimensiones disponibles vs limitadas</h3>
   <table>
-    <thead><tr><th>Dimension</th><th>Disponible</th><th>No disponible / limitada</th></tr></thead>
+    <thead><tr><th>Dimensión</th><th>Disponible</th><th>No disponible / limitada</th></tr></thead>
     <tbody>
-      <tr><td>Ano</td><td>cubos 30065 + 30046 + 30049 + 30060</td><td>—</td></tr>
-      <tr><td>Mes 2026</td><td>cubos 30065 + 30046 + 30049 + 30060</td><td>—</td></tr>
-      <tr class="warn"><td>Mes 2025</td><td>cubos 30046 + 30049 + 30060</td><td>cubo 30065 agrega todo en <code>2025/12</code></td></tr>
-      <tr class="warn"><td>Marca / sucursal</td><td>cubos 30065 + 30049 + 30060</td><td>cubo 30046 RH full SIN dimension marca</td></tr>
+      <tr><td>Año</td><td>cubos 30065 + 30046 + 30049 + 30060</td><td>—</td></tr>
+      <tr><td>Mes (2026)</td><td>cubos 30065 + 30046 + 30049 + 30060</td><td>—</td></tr>
+      <tr class="warn"><td>Mes (2025)</td><td>cubos 30046 + 30049 + 30060</td><td>cubo 30065 agrega todo en <code>2025/12</code></td></tr>
+      <tr class="warn"><td>Marca / sucursal</td><td>cubos 30065 + 30049 + 30060</td><td>cubo 30046 RH full sin dimensión marca</td></tr>
       <tr><td>Concepto contable</td><td>cubos 30065 + 30060</td><td>—</td></tr>
       <tr><td>Empleado</td><td>cubos 30046 + 30049</td><td>—</td></tr>
       <tr class="warn"><td>Proveedor MKT</td><td>—</td><td>cubo 30051 cargado para CxP inventario, no MKT</td></tr>
@@ -642,69 +506,59 @@ h1, h2, h3 { page-break-after: avoid; }
     </tbody>
   </table>
 
-  <h2>Cobertura por marca</h2>
-  <p>8 marcas OEM en cubo 30065: <strong>Mazda · Ford · GWM · Hyundai · GAC · Changan · Stellantis · Isuzu</strong>.</p>
+  <h3>Cobertura por marca</h3>
+  <p>Ocho marcas OEM en cubo 30065: <strong>Mazda, Ford, GWM, Hyundai, GAC, Changan, Stellantis, Isuzu</strong>.</p>
   <div class="warn-note">
-    <strong>Seminuevos NO aparece como marca</strong> en cubos 30065 ni 30060. Probable que el gasto MKT Seminuevos este embebido en otra marca (Plasencia o departamento Administracion) o no este capturado en BITAM. Gap importante dado que Seminuevos aporta ~$50M utilidad anual al grupo.
+    <strong>Seminuevos no aparece como marca propia</strong> en los cubos 30065 ni 30060. Probable que el gasto MKT de Seminuevos esté embebido en otra marca (Plasencia o departamento Administración) o no esté capturado en BITAM. Gap importante dado que Seminuevos aporta ~$50M de utilidad anual al Grupo.
   </div>
+</section>
 
-  <div class="pf"><div class="pf-page">4</div><div>§2 · Cobertura DCA-MKT</div></div>
-</div>
-
-<!-- ========== PAGE 5: §3 + §4 ========== -->
-<div class="page">
-  <div class="ph">
-    <div class="ph-l">Parte II · §3-4 · Anatomia del Gasto</div>
-    <div class="ph-r">Composicion + Tipo</div>
-  </div>
-
-  <h1>§3 · Composicion del gasto MKT 2025</h1>
+<!-- ============ PAGE 5: §3 + §4 ============ -->
+<section class="page">
+  <div class="kicker">Parte II · §3-4</div>
+  <h1>Composición del gasto</h1>
   <div class="accent-line"></div>
 
+  <h3>2025 — composición detallada</h3>
   <table>
-    <thead><tr><th>Categoria</th><th class="num">Real</th><th class="num">Ppto</th><th>Estado</th></tr></thead>
+    <thead><tr><th>Categoría</th><th class="num">Real</th><th class="num">Ppto</th><th>Estado</th></tr></thead>
     <tbody>
       <tr><td>Pauta — Publicidad</td><td class="num">$49.5M</td><td class="num">$56.8M</td><td><span class="badge badge-ok">Captura completa</span></td></tr>
-      <tr><td>Pauta — Promocion</td><td class="num">$50.1M</td><td class="num">$56.1M</td><td><span class="badge badge-ok">Captura completa</span></td></tr>
+      <tr><td>Pauta — Promoción</td><td class="num">$50.1M</td><td class="num">$56.1M</td><td><span class="badge badge-ok">Captura completa</span></td></tr>
       <tr><td>Pauta — Promo 2</td><td class="num">$97.9M</td><td class="num">$95.7M</td><td><span class="badge badge-ok">Captura completa</span></td></tr>
-      <tr><td>Plantilla MERCADOTECNIA</td><td class="num">$7.61M</td><td>n/a</td><td><span class="badge badge-ok">Bruto cubo 30046</span></td></tr>
-      <tr><td>Plantilla VENTAS DIGITALES</td><td class="num">$0.27M</td><td>n/a</td><td><span class="badge badge-ok">Bruto cubo 30046</span></td></tr>
-      <tr><td>Bonificacion Plan Piso (ingreso)</td><td class="num">-$27.6M</td><td class="num">-$54.3M</td><td><span class="badge badge-warn">Signo invertido Hyundai+FORD</span></td></tr>
-      <tr class="warn"><td>Servicios externos (BTL, eventos, analogico)</td><td class="num">❓</td><td class="num">❓</td><td><span class="badge badge-gap">Gap</span></td></tr>
-      <tr class="warn"><td>Proveedores externos MKT por nombre</td><td class="num">❓</td><td class="num">❓</td><td><span class="badge badge-gap">Gap §7</span></td></tr>
+      <tr><td>Plantilla Mercadotecnia</td><td class="num">$7.61M</td><td>n/a</td><td><span class="badge badge-ok">Bruto cubo 30046</span></td></tr>
+      <tr><td>Plantilla Ventas Digitales</td><td class="num">$0.27M</td><td>n/a</td><td><span class="badge badge-ok">Bruto cubo 30046</span></td></tr>
+      <tr><td>Bonificación Plan Piso (ingreso)</td><td class="num">-$27.6M</td><td class="num">-$54.3M</td><td><span class="badge badge-warn">Signo invertido Hyundai+Ford</span></td></tr>
+      <tr class="warn"><td>Servicios externos (BTL, eventos, analógico)</td><td class="num">—</td><td class="num">—</td><td><span class="badge badge-gap">Gap</span></td></tr>
+      <tr class="warn"><td>Proveedores externos MKT por nombre</td><td class="num">—</td><td class="num">—</td><td><span class="badge badge-gap">Gap §7</span></td></tr>
     </tbody>
   </table>
 
-  <h2>2026 — anomalia de reclasificacion (§14)</h2>
+  <h3>2026 — anomalía de reclasificación (§14)</h3>
   <div class="warn-note">
-    <strong>Promo 2 ya excedio su ppto anual (170.6%)</strong> mientras Publicidad apenas ejecuto 6.6%. Sugiere reclasificacion contable: lo que se presupuesto como "Publicidad" se esta cargando como "Promo 2". Validar con Contraloria.
+    <strong>Promo 2 ya excedió su presupuesto anual (170.6%)</strong> mientras Publicidad apenas ejecutó 6.6%. Sugiere reclasificación contable: lo que se presupuestó como "Publicidad" se está cargando como "Promo 2". Validar con Contraloría.
   </div>
 
-  <h2 style="margin-top: 24px;">§4 · Distribucion por tipo (Digital vs Analogico vs Servicios)</h2>
-  <div class="accent-line"></div>
+  <h2 style="margin-top:10mm;">§4 · Distribución por tipo</h2>
+  <p class="lead">Digital, analógico, eventos, servicios — el sistema no los distingue hoy.</p>
 
   <div class="card warn">
-    <div class="card-t">Limitacion metodologica</div>
-    <p>DCA categoriza el gasto pauta en 3 conceptos contables (Publicidad / Promocion / Promo 2), <strong>sin distinguir digital vs analogico vs eventos vs servicios</strong>. Esta categorizacion requeriria enriquecimiento adicional o filtros por cuenta contable granular (cubo 30067 LxL aun sin REAL).</p>
+    <div class="card-t">Limitación metodológica</div>
+    <p>El sistema DCA categoriza el gasto pauta en 3 conceptos contables (Publicidad, Promoción, Promo 2), <strong>sin distinguir digital vs analógico vs eventos vs servicios</strong>. Esta categorización requeriría enriquecimiento adicional o filtros por cuenta contable granular (cubo 30067 LxL aún sin REAL).</p>
   </div>
 
-  <p><strong>Inferencia indirecta:</strong> 8 ad accounts Meta activos + Google Ads activo solo para Seminuevos + activaciones fisicas conocidas. El gasto digital observable via MCPs Meta y Google Ads es trazable hacia adelante, pero <strong>el cruce entre el contable (DCA) y el operativo (Meta + Google APIs) no esta hoy automatizado</strong>.</p>
+  <p><strong>Inferencia indirecta:</strong> 8 ad accounts Meta activos, Google Ads activo solo para Seminuevos, activaciones físicas conocidas. El gasto digital observable vía MCPs Meta y Google Ads es trazable hacia adelante, pero <strong>el cruce entre el contable (DCA) y el operativo (Meta + Google APIs) no está automatizado hoy</strong>.</p>
 
-  <p><strong>Accion pendiente:</strong> estandarizar etiquetado contable para distinguir digital/analogico/eventos/servicios. Requiere conversacion con Contraloria sobre re-estructuracion de cuentas o creacion de campos auxiliares en el ERP.</p>
+  <p><strong>Acción pendiente:</strong> estandarizar etiquetado contable para distinguir digital, analógico, eventos y servicios. Requiere conversación con Contraloría sobre re-estructuración de cuentas o creación de campos auxiliares en el ERP.</p>
+</section>
 
-  <div class="pf"><div class="pf-page">5</div><div>§3-4 · Anatomia del Gasto</div></div>
-</div>
-
-<!-- ========== PAGE 6: §5 Concentración 2025 ========== -->
-<div class="page">
-  <div class="ph">
-    <div class="ph-l">Parte II · §5 · Concentracion por Marca</div>
-    <div class="ph-r">2025</div>
-  </div>
-
-  <h1>§5 · Concentracion por marca · 2025</h1>
+<!-- ============ PAGE 6: §5 Concentración ============ -->
+<section class="page">
+  <div class="kicker">Parte II · §5 · Concentración por marca</div>
+  <h1>Mazda concentra <em>dos tercios</em></h1>
   <div class="accent-line"></div>
 
+  <h3>Pauta 2025 — ranking</h3>
   <table>
     <thead><tr><th>#</th><th>Marca</th><th class="num">Real MXN</th><th class="num">% total</th><th class="num">Ppto</th><th class="num">% Ejec</th></tr></thead>
     <tbody>
@@ -720,7 +574,7 @@ h1, h2, h3 { page-break-after: avoid; }
     </tbody>
   </table>
 
-  <h2>2026 (parcial al jun)</h2>
+  <h3>Pauta 2026 — ranking (parcial al junio)</h3>
   <table>
     <thead><tr><th>#</th><th>Marca</th><th class="num">Real MXN</th><th class="num">% total</th><th class="num">% Ejec ppto anual</th></tr></thead>
     <tbody>
@@ -730,39 +584,33 @@ h1, h2, h3 { page-break-after: avoid; }
       <tr><td>4</td><td>GWM</td><td class="num">$3,250,680</td><td class="num">3.8%</td><td class="num">56.2%</td></tr>
       <tr><td>5</td><td>Changan</td><td class="num">$2,403,791</td><td class="num">2.8%</td><td class="num">95.8%</td></tr>
       <tr><td>6</td><td>Stellantis</td><td class="num">$1,111,842</td><td class="num">1.3%</td><td class="num">37.9%</td></tr>
-      <tr class="warn"><td>7</td><td><strong>Hyundai</strong></td><td class="num">$464,840</td><td class="num">0.5%</td><td class="num"><strong>5.1%</strong> ⚠</td></tr>
+      <tr class="warn"><td>7</td><td><strong>Hyundai</strong></td><td class="num">$464,840</td><td class="num">0.5%</td><td class="num"><strong>5.1%</strong></td></tr>
       <tr><td>8</td><td>Isuzu</td><td class="num">$401,964</td><td class="num">0.5%</td><td class="num">150.7%</td></tr>
     </tbody>
   </table>
 
   <h3>Lecturas estructurales</h3>
   <ol>
-    <li><strong>Mazda 64% pauta vs 54% volumen 2025</strong> = sobre-ponderacion de ~10 puntos. Coherente con tamano del negocio pero plantea pregunta de eficiencia.</li>
-    <li><strong>Concentracion acelera en 2026</strong> — Mazda crece a 81% mientras todas las demas marcas pierden share.</li>
+    <li><strong>Mazda 64% pauta vs 54% volumen 2025</strong> — sobre-ponderación de ~10 puntos. Coherente con tamaño del negocio pero plantea pregunta de eficiencia.</li>
+    <li><strong>Concentración acelera en 2026</strong> — Mazda crece a 81% mientras todas las demás marcas pierden share.</li>
     <li><strong>Hyundai entra en silencio operativo en 2026</strong> — pasa de 5.8% a 0.5%. Bandera roja.</li>
-    <li><strong>Isuzu opera sin pauta historica</strong> — $0 en 2025, $402K en 2026. La marca con AOV mas alto del grupo ($852K) gasta menos pauta que ninguna otra.</li>
+    <li><strong>Isuzu opera sin pauta histórica</strong> — $0 en 2025, $402K en 2026. La marca con AOV más alto del Grupo ($852K) gasta menos pauta que ninguna otra.</li>
   </ol>
+</section>
 
-  <div class="pf"><div class="pf-page">6</div><div>§5 · Concentracion por Marca</div></div>
-</div>
-
-<!-- ========== PAGE 7: §6 Estacionalidad ========== -->
-<div class="page">
-  <div class="ph">
-    <div class="ph-l">Parte II · §6 · Estacionalidad Mensual</div>
-    <div class="ph-r">2026</div>
-  </div>
-
-  <h1>§6 · Estacionalidad mensual 2026</h1>
+<!-- ============ PAGE 7: §6 Estacionalidad ============ -->
+<section class="page">
+  <div class="kicker">Parte II · §6 · Estacionalidad</div>
+  <h1>Mes a mes <em>2026</em></h1>
   <div class="accent-line"></div>
-  <p class="lead">Granularidad disponible solo para 2026. La mensualizacion 2025 esta agregada en diciembre (gap §20).</p>
+  <p class="lead">Granularidad disponible solo para 2026 en el cubo de gasto. La mensualización de 2025 está agregada en diciembre (gap §20).</p>
 
   <table>
     <thead><tr><th>Marca</th><th class="num">Ene</th><th class="num">Feb</th><th class="num">Mar</th><th class="num">Abr</th><th class="num">May</th><th class="num">Jun*</th><th class="num">Total parcial</th></tr></thead>
     <tbody>
       <tr class="hl"><td><strong>Mazda</strong></td><td class="num">$10.45M</td><td class="num">$9.74M</td><td class="num">$14.76M</td><td class="num">$15.46M</td><td class="num">$18.66M</td><td class="num">$0.17M</td><td class="num"><strong>$69.24M</strong></td></tr>
       <tr><td>Ford</td><td class="num">$0.82M</td><td class="num">$1.00M</td><td class="num">$0.65M</td><td class="num">$0.69M</td><td class="num">$1.25M</td><td class="num">$0.15M</td><td class="num">$4.55M</td></tr>
-      <tr class="warn"><td>GAC</td><td class="num" style="color:var(--conv);">-$0.01M</td><td class="num" style="color:var(--conv);">-$0.30M</td><td class="num">$0.11M</td><td class="num">$0.16M</td><td class="num">$3.01M</td><td class="num">$1.03M</td><td class="num">$4.00M</td></tr>
+      <tr class="warn"><td>GAC</td><td class="num">-$0.01M</td><td class="num">-$0.30M</td><td class="num">$0.11M</td><td class="num">$0.16M</td><td class="num">$3.01M</td><td class="num">$1.03M</td><td class="num">$4.00M</td></tr>
       <tr><td>GWM</td><td class="num">$0.70M</td><td class="num">$0.76M</td><td class="num">$0.74M</td><td class="num">$0.39M</td><td class="num">$0.35M</td><td class="num">$0.32M</td><td class="num">$3.25M</td></tr>
       <tr><td>Changan</td><td class="num">$0.77M</td><td class="num">$0.63M</td><td class="num">$0.28M</td><td class="num">$0.08M</td><td class="num">$0.51M</td><td class="num">$0.13M</td><td class="num">$2.40M</td></tr>
       <tr><td>Stellantis</td><td class="num">$0.44M</td><td class="num">$0.09M</td><td class="num">$0.16M</td><td class="num">$0.08M</td><td class="num">$0.30M</td><td class="num">$0.05M</td><td class="num">$1.11M</td></tr>
@@ -771,91 +619,82 @@ h1, h2, h3 { page-break-after: avoid; }
       <tr class="total"><td>TOTAL</td><td class="num">$13.33M</td><td class="num">$12.09M</td><td class="num">$16.89M</td><td class="num">$17.00M</td><td class="num">$24.22M</td><td class="num">$1.89M</td><td class="num">$85.42M</td></tr>
     </tbody>
   </table>
-  <div class="note">*Junio es captura parcial al dia 15.</div>
+  <div class="note">* Junio es captura parcial al día 15.</div>
 
   <h3>Patrones detectados</h3>
   <ul>
-    <li><strong>Mazda dispara en mayo</strong> ($18.66M) — coherente con Buen Fin anticipado / mitad de ano</li>
-    <li><strong>GAC tiene valores negativos en enero ($-12.9K) y febrero ($-299K)</strong> — reversiones contables o cancelaciones de pauta previa</li>
-    <li><strong>GAC dispara en mayo</strong> ($3.0M) — coherente con lanzamiento Motor de Atribucion MVP en Bugambilias + Americas</li>
-    <li><strong>Hyundai constante muy bajo</strong> $50-130K/mes — confirma anomalia sistematica</li>
-    <li><strong>Stellantis cae despues de enero</strong> — $441K enero, luego $87-297K/mes</li>
+    <li><strong>Mazda dispara en mayo</strong> ($18.66M) — coherente con campañas Buen Fin anticipado y mitad de año.</li>
+    <li><strong>GAC tiene valores negativos en enero ($-12.9K) y febrero ($-299K)</strong> — reversiones contables o cancelaciones de pauta previa.</li>
+    <li><strong>GAC dispara en mayo</strong> ($3.0M) — coherente con lanzamiento Motor de Atribución MVP en Bugámbilias y Américas.</li>
+    <li><strong>Hyundai constante muy bajo</strong> $50-130K/mes — confirma anomalía sistemática.</li>
+    <li><strong>Stellantis cae después de enero</strong> — $441K en enero, luego $87-297K/mes.</li>
   </ul>
+</section>
 
-  <div class="pf"><div class="pf-page">7</div><div>§6 · Estacionalidad Mensual</div></div>
-</div>
-
-<!-- ========== PAGE 8: §7-9 Proveedores ========== -->
-<div class="page">
-  <div class="ph">
-    <div class="ph-l">Parte III · §7-9 · Proveedores y Fragmentacion</div>
-    <div class="ph-r">Gap mayor</div>
-  </div>
-
-  <h1>§7 · Composicion por proveedor</h1>
+<!-- ============ PAGE 8: §7-9 Proveedores ============ -->
+<section class="page">
+  <div class="kicker">Parte III · §7-9 · Proveedores y fragmentación</div>
+  <h1>Lo que <em>no</em> se ve</h1>
   <div class="accent-line"></div>
 
+  <h2>§7 · Composición por proveedor</h2>
   <div class="warn-note">
-    <strong>Gap mayor.</strong> El cubo <code>cubo_30051_cxp_focal</code> esta cargado con 302,121 rows pero las cuentas contables son de <strong>inventario automotriz</strong> (CXP - Planta Autos, CXP - Refacciones, CXP - Anticipos), no de Marketing.
+    <strong>Gap mayor.</strong> El cubo <code>cubo_30051_cxp_focal</code> está cargado con 302,121 filas pero las cuentas contables son de <strong>inventario automotriz</strong> (CXP - Planta Autos, CXP - Refacciones, CXP - Anticipos), no de Marketing.
   </div>
 
-  <h3>Top proveedores en CxP focal (NO son MKT)</h3>
+  <h3>Top proveedores en CxP focal (no son de Marketing)</h3>
   <table>
     <thead><tr><th>Proveedor</th><th class="num">Facturado 2025</th><th class="num">Facturas</th></tr></thead>
     <tbody>
-      <tr><td>BANCO SANTANDER MEXICO</td><td class="num">$30,929M</td><td class="num">127</td></tr>
+      <tr><td>BANCO SANTANDER MÉXICO</td><td class="num">$30,929M</td><td class="num">127</td></tr>
       <tr><td>SANTANDER CONSUMO SOFOM</td><td class="num">$16,804M</td><td class="num">68</td></tr>
-      <tr><td>BPF FINANCE MEXICO</td><td class="num">$5,391M</td><td class="num">64</td></tr>
-      <tr><td>MAZDA MOTOR DE MEXICO</td><td class="num">$4,400M</td><td class="num">315</td></tr>
-      <tr><td>HYUNDAI MOTOR DE MEXICO</td><td class="num">$3,344M</td><td class="num">71</td></tr>
-      <tr><td>STELLANTIS MEXICO</td><td class="num">$2,910M</td><td class="num">188</td></tr>
+      <tr><td>BPF FINANCE MÉXICO</td><td class="num">$5,391M</td><td class="num">64</td></tr>
+      <tr><td>MAZDA MOTOR DE MÉXICO</td><td class="num">$4,400M</td><td class="num">315</td></tr>
+      <tr><td>HYUNDAI MOTOR DE MÉXICO</td><td class="num">$3,344M</td><td class="num">71</td></tr>
+      <tr><td>STELLANTIS MÉXICO</td><td class="num">$2,910M</td><td class="num">188</td></tr>
     </tbody>
   </table>
-  <div class="note">Top proveedores son <strong>financieras y OEMs (compra de inventario)</strong>, no agencias MKT. Confirma que el cubo focal cargado fue CxP de unidades automotrices.</div>
+  <div class="note">Top proveedores son <strong>financieras y armadoras (compra de inventario)</strong>, no agencias de marketing. Confirma que el cubo focal cargado fue CxP de unidades automotrices.</div>
 
   <h2>§8 · Duplicidades cross-marca</h2>
   <div class="warn-note">
-    <strong>Gap derivado.</strong> Sin el detalle de proveedor MKT, no es posible cuantificar hoy cuantos proveedores facturan a mas de una marca. Es una sospecha trazable solo con anecdota de stakeholders (Nextilo dual Hyundai+Stellantis, Paola Like 3 entidades, Dazing concentra Ford).
+    <strong>Gap derivado.</strong> Sin el detalle de proveedor de Marketing, no es posible cuantificar hoy cuántos proveedores facturan a más de una marca. Es una sospecha trazable solo con anécdota de stakeholders (Nextilo dual Hyundai+Stellantis, Paola Like en 3 entidades, Dazing concentra Ford).
   </div>
 
-  <h2>§9 · Comision central de medios — Viceversa 8%</h2>
+  <h2>§9 · Comisión central de medios — Viceversa 8%</h2>
 
   <h3>Lo que se sabe</h3>
   <ul>
-    <li>Comision Viceversa Digital: <strong>8% sobre pauta gestionada</strong></li>
-    <li>BBVA cuenta 0188151873 · CLABE 012320001881518734 · beneficiario JAVIER EMMANUEL RAMIREZ TORRES</li>
-    <li>Aplicado al piloto Motor de Atribucion (Seminuevos/Hyundai/Stellantis/GAC a $30K/marca/mes piso)</li>
+    <li>Comisión Viceversa Digital: <strong>8% sobre pauta gestionada</strong>.</li>
+    <li>BBVA cuenta 0188151873 · CLABE 012320001881518734 · beneficiario Javier Emmanuel Ramírez Torres.</li>
+    <li>Aplicado al piloto Motor de Atribución (Seminuevos, Hyundai, Stellantis, GAC a $30K/marca/mes piso).</li>
   </ul>
 
-  <h3>Estimacion de orden de magnitud</h3>
+  <h3>Estimación de orden de magnitud</h3>
   <div class="callout">
     <div class="callout-t">Palanca cuantificada</div>
-    <p>Si todo el pauta pasara por Viceversa: $197.5M × 8% = <strong>$15.8M/ano en comision</strong>. IVA no recuperable adicional (si recibo Meta Ireland no es CFDI): ~16% × $197.5M = <strong>$31.6M/ano en IVA perdido</strong>. Combinado: ~$47M/ano recuperable si se centraliza compra de medios en GP SI.</p>
+    <p>Si todo el pauta pasara por Viceversa: <strong>$197.5M × 8% = $15.8M/año en comisión</strong>. IVA no recuperable adicional (si recibo Meta Ireland no es CFDI): <strong>~16% × $197.5M = $31.6M/año en IVA perdido</strong>. Combinado: ~$47M/año recuperable si se centraliza la compra de medios en GP SI.</p>
   </div>
 
-  <h3>Lo que NO se sabe en DCA hoy</h3>
+  <h3>Lo que no se sabe en DCA hoy</h3>
   <ul>
-    <li>Cuanto del $197.5M pauta 2025 paso por Viceversa vs otras agencias</li>
-    <li>Comision efectiva pagada a Viceversa en 2025 y 2026</li>
-    <li>Si Viceversa cobra recibo CFDI o Meta Ireland directamente (afecta recuperacion IVA ~16%)</li>
+    <li>Cuánto del $197.5M de pauta 2025 pasó por Viceversa vs otras agencias.</li>
+    <li>Comisión efectiva pagada a Viceversa en 2025 y 2026.</li>
+    <li>Si Viceversa cobra recibo CFDI o Meta Ireland directamente (afecta recuperación IVA ~16%).</li>
   </ul>
+</section>
 
-  <div class="pf"><div class="pf-page">8</div><div>§7-9 · Proveedores y Fragmentacion</div></div>
-</div>
-
-<!-- ========== PAGE 9: §10-12 Plantilla ========== -->
-<div class="page">
-  <div class="ph">
-    <div class="ph-l">Parte IV · §10-12 · Plantilla y Estructura</div>
-    <div class="ph-r">Headcount real</div>
-  </div>
-
-  <h1>§10 · Headcount MKT</h1>
+<!-- ============ PAGE 9: §10-12 Plantilla ============ -->
+<section class="page">
+  <div class="kicker">Parte IV · §10-12 · Plantilla y estructura</div>
+  <h1>Plantilla <em>real</em></h1>
   <div class="accent-line"></div>
 
-  <h2>Total cross-marca (cubo_30046_rh)</h2>
+  <h2>§10 · Headcount Marketing</h2>
+
+  <h3>Total cross-marca (cubo 30046 RH)</h3>
   <table>
-    <thead><tr><th>Ano</th><th>Departamento</th><th class="num">Empleados unicos</th><th class="num">Bruto MXN</th><th class="num">Neto MXN</th></tr></thead>
+    <thead><tr><th>Año</th><th>Departamento</th><th class="num">Empleados únicos</th><th class="num">Bruto MXN</th><th class="num">Neto MXN</th></tr></thead>
     <tbody>
       <tr><td>2025</td><td>MERCADOTECNIA</td><td class="num">60</td><td class="num">$7,610,821</td><td class="num">$6,204,518</td></tr>
       <tr><td>2025</td><td>VENTAS DIGITALES</td><td class="num">3</td><td class="num">$268,739</td><td class="num">$195,954</td></tr>
@@ -865,7 +704,7 @@ h1, h2, h3 { page-break-after: avoid; }
     </tbody>
   </table>
 
-  <h2>Cobertura gerencial por marca (cubo_30049_nomina)</h2>
+  <h3>Cobertura gerencial por marca (cubo 30049)</h3>
   <table>
     <thead><tr><th>Marca</th><th class="num">Gerentes 2025</th><th class="num">Bruto 2025</th><th class="num">Gerentes 2026</th><th class="num">Bruto 2026</th></tr></thead>
     <tbody>
@@ -874,42 +713,36 @@ h1, h2, h3 { page-break-after: avoid; }
       <tr><td>Ford</td><td class="num">2</td><td class="num">$377,224</td><td class="num">2</td><td class="num">$179,130</td></tr>
       <tr><td>GAC</td><td class="num">1</td><td class="num">$161,500</td><td class="num">2</td><td class="num">$318,400</td></tr>
       <tr class="total"><td>TOTAL visible</td><td class="num">16</td><td class="num">$3,214,995</td><td class="num">14</td><td class="num">$1,606,130</td></tr>
-      <tr class="warn"><td>Hyundai, GWM, Changan, Isuzu, Seminuevos</td><td class="num">❓</td><td class="num">—</td><td class="num">—</td><td class="num">—</td></tr>
+      <tr class="warn"><td>Hyundai, GWM, Changan, Isuzu, Seminuevos</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">—</td></tr>
     </tbody>
   </table>
-  <div class="note"><strong>Lectura:</strong> los 16 gerentes son subset del headcount 60 MERCADOTECNIA. El cubo 30049 solo cubre 4 marcas. Las otras 5 (Hyundai, GWM, Changan, Isuzu, Seminuevos) o no tienen gerencia MKT registrada o el cubo no las captura.</div>
+  <div class="note"><strong>Lectura:</strong> los 16 gerentes son subset del headcount 60 de MERCADOTECNIA. El cubo 30049 solo cubre 4 marcas. Las otras 5 (Hyundai, GWM, Changan, Isuzu, Seminuevos) o no tienen gerencia MKT registrada o el cubo no las captura.</div>
 
-  <h2>§11 · Distribucion por marca / sucursal</h2>
+  <h2>§11 · Distribución por marca / sucursal</h2>
   <div class="warn-note">
-    <strong>Gap dimensional importante.</strong> El cubo <code>cubo_30046_rh</code> (donde viven los 63 empleados MKT) <strong>no tiene columna <code>marca_sucursal</code> ni <code>sucursal</code></strong>. Imposible atribuir nomina MKT del grupo a una marca especifica sin re-extraccion. Lo unico atribuible hoy es la gerencia (16 personas en 4 marcas).
+    <strong>Gap dimensional importante.</strong> El cubo <code>cubo_30046_rh</code> (donde viven los 63 empleados MKT) <strong>no tiene columna <code>marca_sucursal</code> ni <code>sucursal</code></strong>. Imposible atribuir nómina MKT del Grupo a una marca específica sin re-extracción. Lo único atribuible hoy es la gerencia (16 personas en 4 marcas).
   </div>
 
   <h2>§12 · Costo por persona</h2>
   <table>
-    <thead><tr><th>Metrica</th><th class="num">Valor</th></tr></thead>
+    <thead><tr><th>Métrica</th><th class="num">Valor</th></tr></thead>
     <tbody>
-      <tr><td>Bruto/empleado MERCADOTECNIA 2025</td><td class="num"><strong>$126,847/ano</strong></td></tr>
-      <tr><td>Neto/empleado MERCADOTECNIA 2025</td><td class="num">$103,409/ano</td></tr>
-      <tr><td>Bruto/empleado VENTAS DIGITALES 2025</td><td class="num">$89,580/ano</td></tr>
+      <tr><td>Bruto/empleado MERCADOTECNIA 2025</td><td class="num"><strong>$126,847/año</strong></td></tr>
+      <tr><td>Neto/empleado MERCADOTECNIA 2025</td><td class="num">$103,409/año</td></tr>
+      <tr><td>Bruto/empleado VENTAS DIGITALES 2025</td><td class="num">$89,580/año</td></tr>
       <tr><td>Bruto/gerente cubo 30049</td><td class="num">$200,937 promedio</td></tr>
     </tbody>
   </table>
-  <div class="note">$127K/ano bruto = $10,571 mensuales. <strong>Es bajo para perfil MKT moderno en GDL.</strong> Posibles explicaciones: <code>total_percepciones</code> no incluye prestaciones extra-legales; muchos empleados son administrativos/auxiliares no perfiles digitales/estrategicos; calculo incluye empleados que solo trabajaron parte del ano. <strong>Validacion pendiente con Pepe Morales.</strong></div>
+  <div class="note">$127K/año bruto = $10,571 mensuales. <strong>Es bajo para perfil MKT moderno en Guadalajara.</strong> Posibles explicaciones: <code>total_percepciones</code> no incluye prestaciones extra-legales; muchos empleados son administrativos/auxiliares, no perfiles digitales/estratégicos; el cálculo incluye empleados que solo trabajaron parte del año. <strong>Validación pendiente con Pepe Morales.</strong></div>
+</section>
 
-  <div class="pf"><div class="pf-page">9</div><div>§10-12 · Plantilla y Estructura</div></div>
-</div>
-
-<!-- ========== PAGE 10: §13 Disciplina ========== -->
-<div class="page">
-  <div class="ph">
-    <div class="ph-l">Parte V · §13 · Disciplina de Ejecucion</div>
-    <div class="ph-r">Real vs Ppto</div>
-  </div>
-
-  <h1>§13 · Real vs presupuesto por marca</h1>
+<!-- ============ PAGE 10: §13 Disciplina ============ -->
+<section class="page">
+  <div class="kicker">Parte V · §13 · Disciplina de ejecución</div>
+  <h1>Real vs <em>Presupuesto</em></h1>
   <div class="accent-line"></div>
 
-  <h2>Sobre-ejercicio 2025</h2>
+  <h3>Sobre-ejercicio 2025</h3>
   <table>
     <thead><tr><th>Marca</th><th class="num">Real</th><th class="num">Ppto</th><th class="num">Sobre-ejercicio</th><th class="num">%</th></tr></thead>
     <tbody>
@@ -920,7 +753,7 @@ h1, h2, h3 { page-break-after: avoid; }
     </tbody>
   </table>
 
-  <h2>Sub-ejercicio 2025</h2>
+  <h3>Sub-ejercicio 2025</h3>
   <table>
     <thead><tr><th>Marca</th><th class="num">Real</th><th class="num">Ppto</th><th class="num">Sub-ejercicio</th><th class="num">%</th></tr></thead>
     <tbody>
@@ -932,90 +765,67 @@ h1, h2, h3 { page-break-after: avoid; }
   </table>
 
   <div class="stats">
-    <div class="stat green">
-      <div class="stat-num">94.7%</div>
-      <div class="stat-lbl">Ejecucion total grupo 2025<br>Disciplina agregada</div>
-    </div>
-    <div class="stat red">
-      <div class="stat-num">41.6%</div>
-      <div class="stat-lbl">Sub-ejercicio Hyundai<br>Banderazo rojo</div>
-    </div>
-    <div class="stat gold">
-      <div class="stat-num">117%</div>
-      <div class="stat-lbl">Sobre-ejercicio GAC<br>Coherente con piloto</div>
-    </div>
-    <div class="stat red">
-      <div class="stat-num">100%</div>
-      <div class="stat-lbl">Sub-ejercicio Isuzu<br>Marca sin pauta</div>
-    </div>
+    <div class="stat green"><div class="stat-num">94.7%</div><div class="stat-lbl">Ejecución total Grupo 2025<br>Disciplina agregada</div></div>
+    <div class="stat red"><div class="stat-num">41.6%</div><div class="stat-lbl">Sub-ejercicio Hyundai<br>Bandera roja</div></div>
+    <div class="stat gold"><div class="stat-num">117%</div><div class="stat-lbl">Sobre-ejercicio GAC<br>Coherente con piloto</div></div>
+    <div class="stat red"><div class="stat-num">100%</div><div class="stat-lbl">Sub-ejercicio Isuzu<br>Marca sin pauta</div></div>
   </div>
 
-  <div class="note"><strong>Lectura macro:</strong> el grupo es disciplinado en agregado (94.7%), pero la dispersion por marca es alta (0% Isuzu, 117% GAC). Hyundai es el caso mas anomalo del grupo (41.6% sub-ejercicio en 2025 combinado con 5.1% en 2026).</div>
+  <div class="note"><strong>Lectura macro:</strong> el Grupo es disciplinado en agregado (94.7%), pero la dispersión por marca es alta (0% Isuzu, 117% GAC). Hyundai es el caso más anómalo del Grupo (41.6% sub-ejercicio en 2025 combinado con 5.1% en 2026).</div>
+</section>
 
-  <div class="pf"><div class="pf-page">10</div><div>§13 · Disciplina de Ejecucion</div></div>
-</div>
-
-<!-- ========== PAGE 11: §14 Anomalías ========== -->
-<div class="page">
-  <div class="ph">
-    <div class="ph-l">Parte V · §14 · Anomalias Detectadas</div>
-    <div class="ph-r">12 hallazgos</div>
-  </div>
-
-  <h1>§14 · 12 anomalias detectadas</h1>
+<!-- ============ PAGE 11: §14 Anomalías ============ -->
+<section class="page">
+  <div class="kicker">Parte V · §14 · Anomalías</div>
+  <h1>Doce <em>anomalías</em> detectadas</h1>
   <div class="accent-line"></div>
 
   <table>
-    <thead><tr><th>#</th><th>Anomalia</th><th>Hipotesis a validar</th></tr></thead>
+    <thead><tr><th>#</th><th>Anomalía</th><th>Hipótesis a validar</th></tr></thead>
     <tbody>
       <tr class="warn"><td>1</td><td><strong>Hyundai 5.1% pauta ejecutada 2026</strong> ($465K vs ppto $9.08M)</td><td>Error captura · cuenta congelada · cambio a centralizado OEM · marca operando sin pauta local</td></tr>
-      <tr class="warn"><td>2</td><td><strong>Promo 2 2026 excedio ppto anual (170%)</strong> mientras Publicidad solo 6.6%</td><td>Reclasificacion contable: presupuestado como "Publicidad" se carga como "Promo 2"</td></tr>
-      <tr class="warn"><td>3</td><td><strong>Rebate OEM Hyundai +$7.4M y FORD +$7.6M con signo positivo</strong></td><td>Captura inconsistente vs Mazda. OEM facturo a GP en lugar de bonificar, o convencion de signos invertida</td></tr>
-      <tr><td>4</td><td><code>cubo_30051_cxp_focal</code> cargado pero SIN cuentas MKT</td><td>El cubo focal cargado fue CxP de inventario, no de MKT. Re-extraccion requerida</td></tr>
-      <tr><td>5</td><td><code>cubo_30067_real_lxl</code> solo trae PPTO</td><td>Re-extraccion con <code>I_*_Real_*</code> necesaria</td></tr>
-      <tr><td>6</td><td>Mensualizacion 2025 agregada en diciembre</td><td>Re-extraccion mensual 2025 necesaria</td></tr>
-      <tr><td>7</td><td><code>cubo_30046_rh</code> sin dimension marca/sucursal</td><td>No se puede atribuir nomina MKT a marca sin re-extraccion</td></tr>
-      <tr><td>8</td><td><code>cubo_30049_nomina</code> solo cubre 4 marcas</td><td>Hyundai, GWM, Changan, Isuzu, Seminuevos ausentes. Confirmar si BITAM tiene esos datos</td></tr>
+      <tr class="warn"><td>2</td><td><strong>Promo 2 2026 excedió ppto anual (170%)</strong> mientras Publicidad solo 6.6%</td><td>Reclasificación contable: presupuestado como "Publicidad" se carga como "Promo 2"</td></tr>
+      <tr class="warn"><td>3</td><td><strong>Rebate OEM Hyundai +$7.4M y Ford +$7.6M con signo positivo</strong></td><td>Captura inconsistente vs Mazda · armadora facturó a GP en lugar de bonificar · convención de signos invertida</td></tr>
+      <tr><td>4</td><td><code>cubo_30051_cxp_focal</code> cargado pero sin cuentas de Marketing</td><td>El cubo focal cargado fue CxP de inventario, no de Marketing · re-extracción requerida</td></tr>
+      <tr><td>5</td><td><code>cubo_30067_real_lxl</code> solo trae PPTO</td><td>Re-extracción con <code>I_*_Real_*</code> necesaria</td></tr>
+      <tr><td>6</td><td>Mensualización 2025 agregada en diciembre</td><td>Re-extracción mensual 2025 necesaria</td></tr>
+      <tr><td>7</td><td><code>cubo_30046_rh</code> sin dimensión marca / sucursal</td><td>No se puede atribuir nómina MKT a marca sin re-extracción</td></tr>
+      <tr><td>8</td><td><code>cubo_30049_nomina</code> solo cubre 4 marcas</td><td>Hyundai, GWM, Changan, Isuzu, Seminuevos ausentes · confirmar si BITAM tiene esos datos</td></tr>
       <tr><td>9</td><td>Isuzu $0 en pauta 2025</td><td>Marca opera sin pauta o gasto se carga bajo otra cuenta</td></tr>
       <tr class="warn"><td>10</td><td><strong>Seminuevos no aparece como marca en cubos 30065 ni 30060</strong></td><td>El gasto MKT Seminuevos puede estar embebido en otra marca o no capturado</td></tr>
       <tr><td>11</td><td>GAC con valores negativos enero-febrero 2026</td><td>Reversiones contables (cancelaciones de pauta previa)</td></tr>
-      <tr><td>12</td><td>Departamento cubo 30065 solo tiene "Administracion" y "Autos Nuevos"</td><td>No hay distincion digital/analogico/eventos a nivel contable</td></tr>
+      <tr><td>12</td><td>Departamento cubo 30065 solo tiene "Administración" y "Autos Nuevos"</td><td>No hay distinción digital / analógico / eventos a nivel contable</td></tr>
     </tbody>
   </table>
 
   <div class="warn-note">
-    Las anomalias #1, #2 y #3 son <strong>P0 — requieren auditoria inmediata</strong>. Las demas son gaps de captura resolubles con re-extracciones (§21).
+    Las anomalías <strong>#1, #2 y #3 son P0</strong> — requieren auditoría inmediata. Las demás son gaps de captura resolubles con re-extracciones (§21).
   </div>
+</section>
 
-  <div class="pf"><div class="pf-page">11</div><div>§14 · Anomalias Detectadas</div></div>
-</div>
-
-<!-- ========== PAGE 12: §15-16 OEM ========== -->
-<div class="page">
-  <div class="ph">
-    <div class="ph-l">Parte VI · §15-16 · Co-inversion OEM</div>
-    <div class="ph-r">Rebate real</div>
-  </div>
-
-  <h1>§15 · Bonificacion Plan Piso real por marca</h1>
+<!-- ============ PAGE 12: §15-16 OEM ============ -->
+<section class="page">
+  <div class="kicker">Parte VI · §15-16 · Co-inversión OEM</div>
+  <h1>Solo Mazda <em>cobra</em></h1>
   <div class="accent-line"></div>
 
-  <h2>2025</h2>
+  <h2>§15 · Bonificación Plan Piso real por marca</h2>
+  <h3>2025</h3>
   <table>
     <thead><tr><th>Marca</th><th class="num">Real</th><th class="num">Ppto</th><th>Comentario</th></tr></thead>
     <tbody>
       <tr class="hl"><td><strong>Mazda</strong></td><td class="num"><strong>-$42,619,811</strong></td><td class="num">-$45,982,861</td><td>Cobrado correctamente (signo negativo = ingreso)</td></tr>
-      <tr class="warn"><td><strong>Hyundai</strong></td><td class="num" style="color:var(--conv);"><strong>+$7,393,316</strong></td><td class="num">-$7,555,115</td><td>Signo invertido vs ppto · Anomalia de captura</td></tr>
-      <tr class="warn"><td><strong>Ford</strong></td><td class="num" style="color:var(--conv);"><strong>+$7,632,209</strong></td><td class="num">$0</td><td>Captura con signo positivo · Sin ppto</td></tr>
+      <tr class="warn"><td><strong>Hyundai</strong></td><td class="num"><strong>+$7,393,316</strong></td><td class="num">-$7,555,115</td><td>Signo invertido vs ppto · anomalía de captura</td></tr>
+      <tr class="warn"><td><strong>Ford</strong></td><td class="num"><strong>+$7,632,209</strong></td><td class="num">$0</td><td>Captura con signo positivo · sin ppto</td></tr>
       <tr><td>Stellantis</td><td class="num">$0</td><td class="num">-$789,553</td><td>No cobrado</td></tr>
-      <tr><td>Changan, GWM, GAC, Isuzu</td><td class="num">$0</td><td class="num">$0</td><td>Sin co-inversion OEM</td></tr>
+      <tr><td>Changan, GWM, GAC, Isuzu</td><td class="num">$0</td><td class="num">$0</td><td>Sin co-inversión OEM</td></tr>
       <tr class="total"><td>NETO 2025</td><td class="num">-$27,594,285</td><td class="num">-$54,327,529</td><td><strong>50.8% del rebate ppto cobrado</strong></td></tr>
     </tbody>
   </table>
 
-  <h2>2026 (al 15-jun)</h2>
+  <h3>2026 (al 15 de junio)</h3>
   <table>
-    <thead><tr><th>Marca</th><th class="num">Real</th><th class="num">Ppto Anual</th></tr></thead>
+    <thead><tr><th>Marca</th><th class="num">Real</th><th class="num">Ppto anual</th></tr></thead>
     <tbody>
       <tr><td>Mazda</td><td class="num">$0</td><td class="num">-$21,914,011</td></tr>
       <tr><td>Hyundai</td><td class="num">$0</td><td class="num">-$3,763,671</td></tr>
@@ -1025,41 +835,37 @@ h1, h2, h3 { page-break-after: avoid; }
   </table>
 
   <div class="warn-note">
-    <strong>A la fecha (mes 5.5 de 12), GP no ha cobrado un solo peso de rebate OEM en 2026.</strong> Inusual. Requiere investigacion urgente.
+    <strong>Al 15 de junio (mes 5.5 de 12), Grupo Plasencia no ha cobrado un solo peso de rebate OEM en 2026.</strong> Inusual. Requiere investigación urgente.
   </div>
 
-  <h2 style="margin-top: 22px;">§16 · Asimetria OEM entre marcas</h2>
+  <h2>§16 · Asimetría OEM entre marcas</h2>
   <table>
-    <thead><tr><th>Patron</th><th>Marcas</th></tr></thead>
+    <thead><tr><th>Patrón</th><th>Marcas</th></tr></thead>
     <tbody>
       <tr class="hl"><td><strong>Modelo OEM estructurado funcional</strong></td><td>Mazda (cobra $42.6M = 33.7% sobre su pauta 2025)</td></tr>
       <tr class="warn"><td>Captura inconsistente / signo invertido</td><td>Hyundai · Ford</td></tr>
       <tr><td>Presupuestado pero no cobrado</td><td>Stellantis</td></tr>
-      <tr><td>Sin co-inversion OEM historica</td><td>Changan · GWM · GAC · Isuzu</td></tr>
+      <tr><td>Sin co-inversión OEM histórica</td><td>Changan · GWM · GAC · Isuzu</td></tr>
     </tbody>
   </table>
 
   <div class="callout">
-    <div class="callout-t">Conclusion</div>
-    <p><strong>Mazda es la unica marca que opera el modelo OEM moderno dentro del Grupo</strong>. Para las demas 7: 2 con captura inconsistente (Hyundai, Ford), 1 con presupuesto pero sin cobro (Stellantis), 4 sin co-inversion activa. GP financia con su caja entre 67% y 100% de la pauta de 7 de sus 8 marcas.</p>
+    <div class="callout-t">Conclusión</div>
+    <p><strong>Mazda es la única marca que opera el modelo OEM moderno dentro del Grupo.</strong> Para las demás 7: dos con captura inconsistente (Hyundai, Ford), una con presupuesto pero sin cobro (Stellantis), cuatro sin co-inversión activa. Grupo Plasencia financia con su caja entre el 67% y 100% de la pauta de 7 de sus 8 marcas.</p>
   </div>
+</section>
 
-  <div class="pf"><div class="pf-page">12</div><div>§15-16 · Co-inversion OEM</div></div>
-</div>
-
-<!-- ========== PAGE 13: §17 Palanca + §18-19 Unit Economics ========== -->
-<div class="page">
-  <div class="ph">
-    <div class="ph-l">Parte VI · §17 · Palanca No Cobrada</div>
-    <div class="ph-r">$8-17M MXN/ano</div>
-  </div>
-
-  <h1>§17 · Palanca no cobrada — cuantificacion</h1>
+<!-- ============ PAGE 13: §17 Palanca + §18 ============ -->
+<section class="page">
+  <div class="kicker">Parte VI-VII · §17-18</div>
+  <h1>La palanca <em>abierta</em></h1>
   <div class="accent-line"></div>
-  <p class="lead">Benchmark sector: industria automotriz internacional bonifica 20-30% de la pauta del concesionario.</p>
+
+  <h2>§17 · Palanca no cobrada — cuantificación</h2>
+  <p class="lead">Industria automotriz internacional bonifica entre 20% y 30% de la pauta del concesionario.</p>
 
   <table>
-    <thead><tr><th>Marca</th><th class="num">Pauta 2025</th><th class="num">Rebate hipotetico (25%)</th><th class="num">Cobrado real</th><th class="num">Brecha</th></tr></thead>
+    <thead><tr><th>Marca</th><th class="num">Pauta 2025</th><th class="num">Rebate hipotético (25%)</th><th class="num">Cobrado real</th><th class="num">Brecha</th></tr></thead>
     <tbody>
       <tr class="warn"><td>Ford</td><td class="num">$27.75M</td><td class="num">$6.94M</td><td class="num">-$7.63M (signo)</td><td class="num">confuso</td></tr>
       <tr><td>GWM</td><td class="num">$12.66M</td><td class="num">$3.16M</td><td class="num">$0</td><td class="num">-$3.16M</td></tr>
@@ -1073,11 +879,10 @@ h1, h2, h3 { page-break-after: avoid; }
 
   <div class="callout">
     <div class="callout-t">Palanca abierta</div>
-    <p>Entre <strong>$8M y $17M MXN/ano</strong> si GP estandariza captura de rebate OEM en las 7 marcas no-Mazda. La incertidumbre alta se debe a las anomalias de signo en Hyundai y Ford.</p>
+    <p>Entre <strong>$8M y $17M MXN/año</strong> si Grupo Plasencia estandariza captura de rebate OEM en las 7 marcas no-Mazda. La incertidumbre alta se debe a las anomalías de signo en Hyundai y Ford.</p>
   </div>
 
-  <h2 style="margin-top: 22px;">§18 · Cross-cut gasto MKT vs ventas por marca</h2>
-
+  <h2 style="margin-top: 10mm;">§18 · Cross-cut gasto MKT vs ventas por marca</h2>
   <table>
     <thead><tr><th>Marca</th><th class="num">Pauta MKT 2025</th><th class="num">Ventas MXN 2025*</th><th class="num">Ratio pauta/ventas</th></tr></thead>
     <tbody>
@@ -1093,25 +898,21 @@ h1, h2, h3 { page-break-after: avoid; }
   </table>
 
   <div class="warn-note">
-    <strong>Advertencia metodologica:</strong> el cubo 30060 tiene cifras de <code>valor</code> inconsistentes con el revenue conocido del grupo ($37,481M en cubo vs $12,813M real). Posibles explicaciones: double-counting, multiples conceptos sin distinguir, periodo de captura diferente. <strong>Ratios pauta/ventas son orientativos pero no auditables hoy.</strong>
+    <strong>Advertencia metodológica:</strong> el cubo 30060 tiene cifras de <code>valor</code> inconsistentes con el revenue conocido del Grupo ($37,481M en cubo vs $12,813M real). Posibles explicaciones: double-counting, múltiples conceptos sin distinguir, período de captura diferente. <strong>Ratios pauta/ventas son orientativos pero no auditables hoy.</strong>
   </div>
+</section>
 
-  <div class="pf"><div class="pf-page">13</div><div>§17-18 · Palanca y Unit Economics</div></div>
-</div>
-
-<!-- ========== PAGE 14: §19 + §20 Gaps ========== -->
-<div class="page">
-  <div class="ph">
-    <div class="ph-l">Parte VII-VIII · §19-20 · CAC + Gaps</div>
-    <div class="ph-r">Limites de la data</div>
-  </div>
-
-  <h1>§19 · Costo de adquisicion aproximado por marca</h1>
+<!-- ============ PAGE 14: §19 + §20 Gaps ============ -->
+<section class="page">
+  <div class="kicker">Parte VII-VIII · §19-20</div>
+  <h1>Costo y <em>límites</em></h1>
   <div class="accent-line"></div>
-  <p class="lead">Sin unidades vendidas confiables del cubo 30060, no es posible calcular CAC real con datos DCA hoy. Usamos baseline conocido del grupo (29,595 uds 2025, AOV ~$432K).</p>
+
+  <h2>§19 · Costo de adquisición aproximado por marca</h2>
+  <p class="lead">Sin unidades vendidas confiables del cubo 30060, no es posible calcular CAC real con datos DCA hoy. Usamos baseline conocido del Grupo (29,595 unidades 2025, AOV ~$432K).</p>
 
   <table>
-    <thead><tr><th>Marca</th><th class="num">Uds 2025 (baseline)</th><th class="num">Pauta MKT</th><th class="num">Pauta/unidad</th></tr></thead>
+    <thead><tr><th>Marca</th><th class="num">Unidades 2025</th><th class="num">Pauta MKT</th><th class="num">Pauta/unidad</th></tr></thead>
     <tbody>
       <tr><td>Mazda</td><td class="num">14,129</td><td class="num">$126.4M</td><td class="num">$8,949</td></tr>
       <tr><td>Ford</td><td class="num">2,234</td><td class="num">$27.7M</td><td class="num">$12,419</td></tr>
@@ -1125,68 +926,61 @@ h1, h2, h3 { page-break-after: avoid; }
     </tbody>
   </table>
 
-  <div class="note"><strong>Nota critica:</strong> este calculo NO es CAC. Es "pauta por unidad facturada". CAC real incluiria plantilla MKT + comisiones + analogico + rebate OEM distribuidos por marca. La distribucion de plantilla por marca esta bloqueada por gap dimensional §11.</div>
+  <div class="note"><strong>Nota crítica:</strong> este cálculo NO es CAC. Es "pauta por unidad facturada". El CAC real incluiría plantilla MKT + comisiones + analógico + rebate OEM distribuidos por marca. La distribución de plantilla por marca está bloqueada por gap dimensional §11.</div>
 
-  <h2 style="margin-top: 22px;">§20 · Gaps de captura documentados</h2>
-
+  <h2 style="margin-top: 10mm;">§20 · Gaps de captura documentados</h2>
   <table>
     <thead><tr><th>#</th><th>Gap</th><th>Impacto</th></tr></thead>
     <tbody>
       <tr><td>G1</td><td>Proveedores MKT con montos</td><td>No se puede listar Top-N proveedores</td></tr>
       <tr><td>G2</td><td>Real ejercido LxL</td><td>No se puede analizar cuenta a cuenta</td></tr>
-      <tr><td>G3</td><td>Mensualizacion 2025 pauta</td><td>Sin estacionalidad ano-a-ano</td></tr>
-      <tr><td>G4</td><td>Nomina MKT por marca/sucursal</td><td>Sin atribucion plantilla por marca</td></tr>
-      <tr><td>G5</td><td>Nomina gerencial Hyundai+GWM+Changan+Isuzu+Seminuevos</td><td>Sub-conteo gerencia cross-marca</td></tr>
-      <tr><td>G6</td><td>Servicios externos analogicos</td><td>Gasto fuera de "pauta" no categorizado</td></tr>
-      <tr class="warn"><td>G7</td><td><strong>Seminuevos como marca propia</strong></td><td>Sin gasto MKT especifico de Seminuevos</td></tr>
-      <tr><td>G8</td><td>Distincion digital/analogico/eventos</td><td>Solo 3 conceptos contables genericos</td></tr>
-      <tr><td>G9</td><td>Auditoria cubo 30060</td><td>Cifras <code>valor</code> inconsistentes</td></tr>
-      <tr><td>G10</td><td>Comision real Viceversa</td><td>Sin trazabilidad por proveedor</td></tr>
-      <tr class="warn"><td>G11</td><td><strong>Rebate OEM Hyundai+FORD signo invertido</strong></td><td>Imposible separar rebate de pauta facturada</td></tr>
+      <tr><td>G3</td><td>Mensualización 2025 pauta</td><td>Sin estacionalidad año-a-año</td></tr>
+      <tr><td>G4</td><td>Nómina MKT por marca / sucursal</td><td>Sin atribución plantilla por marca</td></tr>
+      <tr><td>G5</td><td>Nómina gerencial Hyundai+GWM+Changan+Isuzu+Seminuevos</td><td>Sub-conteo gerencia cross-marca</td></tr>
+      <tr><td>G6</td><td>Servicios externos analógicos</td><td>Gasto fuera de "pauta" no categorizado</td></tr>
+      <tr class="warn"><td>G7</td><td><strong>Seminuevos como marca propia</strong></td><td>Sin gasto MKT específico de Seminuevos</td></tr>
+      <tr><td>G8</td><td>Distinción digital / analógico / eventos</td><td>Solo 3 conceptos contables genéricos</td></tr>
+      <tr><td>G9</td><td>Auditoría cubo 30060</td><td>Cifras <code>valor</code> inconsistentes</td></tr>
+      <tr><td>G10</td><td>Comisión real Viceversa</td><td>Sin trazabilidad por proveedor</td></tr>
+      <tr class="warn"><td>G11</td><td><strong>Rebate OEM Hyundai+Ford signo invertido</strong></td><td>Imposible separar rebate de pauta facturada</td></tr>
     </tbody>
   </table>
+</section>
 
-  <div class="pf"><div class="pf-page">14</div><div>§19-20 · CAC y Gaps</div></div>
-</div>
-
-<!-- ========== PAGE 15: §21 Re-extracciones + §22 Decisiones P0 ========== -->
-<div class="page">
-  <div class="ph">
-    <div class="ph-l">Parte VIII-IX · §21-22 · Acciones</div>
-    <div class="ph-r">Re-extracciones + Decisiones</div>
-  </div>
-
-  <h1>§21 · Re-extracciones necesarias</h1>
+<!-- ============ PAGE 15: §21 + §22 ============ -->
+<section class="page">
+  <div class="kicker">Parte VIII-IX · §21-22 · Acciones</div>
+  <h1>Re-extracciones y <em>decisiones</em></h1>
   <div class="accent-line"></div>
 
+  <h2>§21 · Re-extracciones necesarias</h2>
   <table>
-    <thead><tr><th>Prioridad</th><th>Re-extraccion</th><th>Desbloquea</th><th>Effort</th></tr></thead>
+    <thead><tr><th>Prioridad</th><th>Re-extracción</th><th>Desbloquea</th><th>Effort</th></tr></thead>
     <tbody>
-      <tr class="warn"><td><span class="badge badge-p0">P0</span></td><td>Cubo 30051 CxP con cuentas MKT + monto</td><td>§7 Proveedores · §8 Duplicidades · §9 Viceversa</td><td>~1 dia</td></tr>
-      <tr><td><span class="badge badge-p1">P1</span></td><td>Cubo 30065 con <code>mes</code> granular 2025</td><td>§6 Estacionalidad ano-a-ano</td><td>~0.5 dia</td></tr>
-      <tr><td><span class="badge badge-p1">P1</span></td><td>Cubo 30046 RH con <code>marca_sucursal</code></td><td>§11 Distribucion plantilla · §19 CAC real</td><td>~1 dia</td></tr>
-      <tr><td><span class="badge badge-p2">P2</span></td><td>Cubo 30067 LxL con <code>I_*_Real_*</code></td><td>§13 Granularidad real ejercido</td><td>~1 dia</td></tr>
-      <tr><td><span class="badge badge-p2">P2</span></td><td>Cubo 30049 con marcas faltantes</td><td>§10 Cobertura gerencial completa</td><td>~0.5 dia</td></tr>
-      <tr><td><span class="badge badge-p3">P3</span></td><td>Auditoria cubo 30060</td><td>§18-19 Unit Economics auditable</td><td>Conversacion BITAM</td></tr>
+      <tr class="warn"><td><span class="badge badge-p0">P0</span></td><td>Cubo 30051 CxP con cuentas MKT + monto</td><td>§7 Proveedores · §8 Duplicidades · §9 Viceversa</td><td>~1 día</td></tr>
+      <tr><td><span class="badge badge-p1">P1</span></td><td>Cubo 30065 con <code>mes</code> granular 2025</td><td>§6 Estacionalidad año-a-año</td><td>~0.5 día</td></tr>
+      <tr><td><span class="badge badge-p1">P1</span></td><td>Cubo 30046 RH con <code>marca_sucursal</code></td><td>§11 Distribución plantilla · §19 CAC real</td><td>~1 día</td></tr>
+      <tr><td><span class="badge badge-p2">P2</span></td><td>Cubo 30067 LxL con <code>I_*_Real_*</code></td><td>§13 Granularidad real ejercido</td><td>~1 día</td></tr>
+      <tr><td><span class="badge badge-p2">P2</span></td><td>Cubo 30049 con marcas faltantes</td><td>§10 Cobertura gerencial completa</td><td>~0.5 día</td></tr>
+      <tr><td><span class="badge badge-p3">P3</span></td><td>Auditoría cubo 30060</td><td>§18-19 Unit Economics auditable</td><td>Conversación BITAM</td></tr>
     </tbody>
   </table>
 
-  <div class="note"><strong>Approach tecnico comun:</strong> todas requieren acceso BITAM Artus (user <code>jmorales@grupoplasencia.com</code> = Pepe Morales), cookie PHPSESSID valida, POST <code>export_csv.php</code> modificado, ingest a D1 via scripts Python en <code>bitam-mkt-worker/scripts/</code>. Cron pendiente para automatizar refresh nocturno.</div>
+  <div class="note"><strong>Approach técnico común:</strong> todas requieren acceso BITAM Artus (usuario <code>jmorales@grupoplasencia.com</code> = Pepe Morales), cookie PHPSESSID válida, POST <code>export_csv.php</code> modificado, ingest a D1 vía scripts Python en <code>bitam-mkt-worker/scripts/</code>. Cron pendiente para automatizar refresh nocturno.</div>
 
-  <h1 style="margin-top: 28px;">§22 · 10 decisiones binarias</h1>
-  <div class="accent-line"></div>
-  <p class="lead">Cada decision es binaria (proceder/no proceder), con magnitud cuantificada, dueno sugerido y urgencia.</p>
+  <h2 style="margin-top: 10mm;">§22 · Diez decisiones binarias</h2>
+  <p class="lead">Cada decisión es binaria (proceder / no proceder), con magnitud cuantificada, dueño sugerido y urgencia.</p>
 
   <table>
-    <thead><tr><th>#</th><th>Decision</th><th class="num">Magnitud</th><th>Dueno</th><th>Urg.</th></tr></thead>
+    <thead><tr><th>#</th><th>Decisión</th><th class="num">Magnitud</th><th>Dueño</th><th>Urg.</th></tr></thead>
     <tbody>
       <tr class="warn"><td>1</td><td><strong>¿Auditar Hyundai 2026 esta semana?</strong></td><td class="num">$8.6M sub-utilizados</td><td>Chucho + Mario + Vero</td><td><span class="badge badge-p0">P0</span></td></tr>
-      <tr class="warn"><td>2</td><td><strong>¿Resolver signos rebate OEM Hyundai+FORD?</strong></td><td class="num">$15M confusos</td><td>Contraloria</td><td><span class="badge badge-p0">P0</span></td></tr>
-      <tr class="warn"><td>3</td><td><strong>¿Renegociar rebate OEM 7 marcas no-Mazda?</strong></td><td class="num">$8-17M/ano</td><td>Pepe + Chucho</td><td><span class="badge badge-p0">P0</span></td></tr>
-      <tr><td>4</td><td>¿Aprobar GP SI como central de medios?</td><td class="num">~$15M/ano + IVA</td><td>Consejo + Finanzas</td><td><span class="badge badge-p1">P1</span></td></tr>
-      <tr><td>5</td><td>¿Re-balancear pauta Mazda → otras marcas?</td><td class="num">~$10M reorientables</td><td>Chucho</td><td><span class="badge badge-p1">P1</span></td></tr>
-      <tr><td>6</td><td>¿Investigar Seminuevos sin marca propia?</td><td class="num">$50M utilidad sin gasto</td><td>Contraloria + Jonathan</td><td><span class="badge badge-p1">P1</span></td></tr>
-      <tr><td>7</td><td>¿Decidir destino de Isuzu?</td><td class="num">Marca sin estrategia</td><td>Dir. Isuzu + Chucho</td><td><span class="badge badge-p2">P2</span></td></tr>
+      <tr class="warn"><td>2</td><td><strong>¿Resolver signos rebate OEM Hyundai+Ford?</strong></td><td class="num">$15M confusos</td><td>Contraloría</td><td><span class="badge badge-p0">P0</span></td></tr>
+      <tr class="warn"><td>3</td><td><strong>¿Renegociar rebate OEM 7 marcas no-Mazda?</strong></td><td class="num">$8-17M/año</td><td>Pepe + Chucho</td><td><span class="badge badge-p0">P0</span></td></tr>
+      <tr><td>4</td><td>¿Aprobar GP SI como central de medios?</td><td class="num">~$15M/año + IVA</td><td>Consejo + Finanzas</td><td><span class="badge badge-p1">P1</span></td></tr>
+      <tr><td>5</td><td>¿Re-balancear pauta Mazda hacia otras marcas?</td><td class="num">~$10M reorientables</td><td>Chucho</td><td><span class="badge badge-p1">P1</span></td></tr>
+      <tr><td>6</td><td>¿Investigar Seminuevos sin marca propia?</td><td class="num">$50M utilidad sin gasto</td><td>Contraloría + Jonathan</td><td><span class="badge badge-p1">P1</span></td></tr>
+      <tr><td>7</td><td>¿Decidir destino de Isuzu?</td><td class="num">Marca sin estrategia</td><td>Director Isuzu + Chucho</td><td><span class="badge badge-p2">P2</span></td></tr>
       <tr><td>8</td><td>¿Resolver Stellantis sub-ejercicio?</td><td class="num">$2M no aplicados</td><td>Berenice + Raymundo</td><td><span class="badge badge-p2">P2</span></td></tr>
       <tr><td>9</td><td>¿Validar plantilla 63 vs CdE 6-12?</td><td class="num">Justifica Hub & Spoke</td><td>Chucho + Consejo</td><td><span class="badge badge-p2">P2</span></td></tr>
       <tr><td>10</td><td>¿Construir dashboard MKT real-time?</td><td class="num">Pasa de wrangler a UI</td><td>Chucho</td><td><span class="badge badge-p3">P3</span></td></tr>
@@ -1194,62 +988,55 @@ h1, h2, h3 { page-break-after: avoid; }
   </table>
 
   <div class="callout">
-    <div class="callout-t">Proximos 30 dias si P0 se aprueban</div>
-    <p><strong>Semana 1:</strong> reunion Hyundai con Mario Alfarache + Veronica Orozco para diagnostico del 5.1% · llamada con Contraloria para resolver convencion de signos OEM. <strong>Semanas 2-4:</strong> diseno de propuesta de renegociacion OEM marca por marca.</p>
+    <div class="callout-t">Próximos 30 días si P0 se aprueban</div>
+    <p><strong>Semana 1:</strong> reunión Hyundai con Mario Alfarache y Verónica Orozco para diagnóstico del 5.1%; llamada con Contraloría para resolver convención de signos OEM. <strong>Semanas 2-4:</strong> diseño de propuesta de renegociación OEM marca por marca.</p>
   </div>
+</section>
 
-  <div class="pf"><div class="pf-page">15</div><div>§21-22 · Acciones</div></div>
-</div>
-
-<!-- ========== PAGE 16: §23 + Anexos ========== -->
-<div class="page">
-  <div class="ph">
-    <div class="ph-l">Parte IX · §23 + Anexos</div>
-    <div class="ph-r">Limites + Referencia</div>
-  </div>
-
-  <h1>§23 · Lo que esta data NO resuelve</h1>
+<!-- ============ PAGE 16: §23 + Anexos ============ -->
+<section class="page">
+  <div class="kicker">Parte IX + Anexos</div>
+  <h1>Lo que <em>no</em> resuelve</h1>
   <div class="accent-line"></div>
-  <p>Este documento <strong>NO sustituye</strong>:</p>
+
+  <h2>§23 · Límites del documento</h2>
+  <p>Este documento <strong>no sustituye</strong>:</p>
   <ol>
-    <li>Conversaciones con cada Director de Marca sobre sus decisiones MKT (que fue gasto efectivo, que fue waste)</li>
-    <li>Auditoria legal/contable formal del gasto MKT (este es analisis operativo, no contable)</li>
-    <li>Catalogo de proveedores externos MKT (gap §7)</li>
-    <li>Estrategia hacia adelante (Centro de Excelencia, Marketplace, Endorsed Brands viven en otros docs)</li>
-    <li>Analisis de retorno (CAC, ROAS, atribucion real) — Motor de Atribucion MVP es la pieza complementaria desde el piloto 2026</li>
-    <li>Decisiones sobre estructura organizacional (este doc da el AS IS, no el TO BE)</li>
+    <li>Conversaciones con cada Director de Marca sobre sus decisiones MKT (qué fue gasto efectivo, qué fue waste).</li>
+    <li>Auditoría legal / contable formal del gasto MKT (este es análisis operativo, no contable).</li>
+    <li>Catálogo de proveedores externos MKT (gap §7).</li>
+    <li>Estrategia hacia adelante (Centro de Excelencia, Marketplace, Endorsed Brands viven en otros documentos).</li>
+    <li>Análisis de retorno (CAC, ROAS, atribución real) — el Motor de Atribución MVP es la pieza complementaria desde el piloto 2026.</li>
+    <li>Decisiones sobre estructura organizacional (este documento da el AS IS, no el TO BE).</li>
   </ol>
 
-  <h1 style="margin-top: 28px;">Anexo A · Schema D1 <code>bitam-mkt</code></h1>
-  <div class="accent-line"></div>
+  <h2 style="margin-top: 10mm;">Anexo A · Schema D1 <code>bitam-mkt</code></h2>
   <p><strong>Worker:</strong> <code>bitam-mkt-api.grupo-plasencia-automotriz.workers.dev</code></p>
   <p><strong>D1:</strong> <code>bitam-mkt</code> (id <code>2cf468a0-2110-4cd0-9cde-3ab135c0946e</code>)</p>
-  <p><strong>Cuenta CF:</strong> <code>Marketingdigital@grupoplasencia.com</code></p>
+  <p><strong>Cuenta Cloudflare:</strong> <code>Marketingdigital@grupoplasencia.com</code></p>
 
-  <pre>cubo_30065_real_vs_ppto    Gasto vs ppto (la mas usada)
-cubo_30046_rh              Nomina full (sin dimension marca)
-cubo_30049_nomina          Nomina gerencial (con marca, solo 4)
+  <pre>cubo_30065_real_vs_ppto    Gasto vs ppto (la más usada)
+cubo_30046_rh              Nómina full (sin dimensión marca)
+cubo_30049_nomina          Nómina gerencial (con marca, solo 4)
 cubo_30060_finanzas_mb     Concentrado MB (con $ y unidades, auditar)
 cubo_30021_finanzas        P&L Corp (dimensional, sin $)
 cubo_30067_real_lxl        LxL (solo PPTO — gap)
-cubo_30051_cxp_focal       CxP focal (NO MKT — gap)</pre>
+cubo_30051_cxp_focal       CxP focal (no MKT — gap)</pre>
 
-  <h1 style="margin-top: 24px;">Anexo B · Queries SQL canonicas</h1>
-  <div class="accent-line"></div>
+  <h2 style="margin-top: 8mm;">Anexo B · Queries SQL canónicas</h2>
   <pre>cd ~/Documents/Grupo\ Plasencia/bitam-mkt-worker
 npx wrangler d1 execute bitam-mkt --remote --command "&lt;SQL&gt;"</pre>
-  <p>8 queries Q1-Q8 documentadas en <code>03-tech/DCA-D1-Manual-Consultas.md</code>: gasto por concepto+ano · pauta por marca · bonificacion plan piso · pauta mensualizada · nomina MKT por mes · nomina gerencial · sobre/sub-ejercicio · cross-cut gasto vs ventas.</p>
+  <p>Ocho queries Q1 a Q8 documentadas en <code>03-tech/DCA-D1-Manual-Consultas.md</code>: gasto por concepto y año · pauta por marca · bonificación Plan Piso · pauta mensualizada · nómina MKT por mes · nómina gerencial · sobre/sub-ejercicio · cross-cut gasto vs ventas.</p>
 
-  <h1 style="margin-top: 24px;">Anexo C · Metodologia</h1>
-  <div class="accent-line"></div>
+  <h2 style="margin-top: 8mm;">Anexo C · Metodología</h2>
   <ul>
-    <li><strong>Fecha de extraccion D1:</strong> mayo-junio 2026</li>
-    <li><strong>Fecha del analisis:</strong> 2026-06-15</li>
-    <li><strong>Periodo cubierto:</strong> 2025-01-01 → 2026-06-15 (parcial)</li>
+    <li><strong>Fecha de extracción D1:</strong> mayo-junio 2026.</li>
+    <li><strong>Fecha del análisis:</strong> 2026-06-15.</li>
+    <li><strong>Período cubierto:</strong> 2025-01-01 → 2026-06-15 (parcial).</li>
     <li><strong>Cobertura por marca:</strong> 8 marcas OEM. Seminuevos no aparece como marca propia.</li>
-    <li><strong>Usuario de extraccion BITAM:</strong> <code>jmorales@grupoplasencia.com</code> (user 261 = Pepe Morales)</li>
-    <li><strong>Proyecto BITAM:</strong> <code>fbm_bmd_0179</code></li>
-    <li><strong>Cadencia refresh:</strong> manual. Cron automatizado nocturno pendiente.</li>
+    <li><strong>Usuario de extracción BITAM:</strong> <code>jmorales@grupoplasencia.com</code> (user 261 = Pepe Morales).</li>
+    <li><strong>Proyecto BITAM:</strong> <code>fbm_bmd_0179</code>.</li>
+    <li><strong>Cadencia de refresh:</strong> manual. Cron automatizado nocturno pendiente.</li>
   </ul>
 
   <div class="note">
@@ -1259,9 +1046,7 @@ npx wrangler d1 execute bitam-mkt --remote --command "&lt;SQL&gt;"</pre>
     <code>03-tech/DCA-D1-Manual-Consultas.md</code> ·
     <code>04-sessions/2026-06-15-work-session-dca-finanzas-mkt.md</code>
   </div>
-
-  <div class="pf"><div class="pf-page">16</div><div>§23 + Anexos</div></div>
-</div>
+</section>
 
 </body>
 </html>
