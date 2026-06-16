@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Deep Dive · Gasto y Estructura de Marketing 2025-2026 · Data DCA · Grupo Plasencia</title>
-<meta name="description" content="Análisis del gasto, plantilla y co-inversión OEM del área de Marketing de Grupo Plasencia Automotriz con data del sistema DCA (cubos BITAM Artus extraídos a Cloudflare D1). Versión 1.0. Fecha de corte 2026-06-15.">
+<meta name="description" content="Análisis del gasto, plantilla y co-inversión OEM del área de Marketing de Grupo Plasencia Automotriz con data del sistema DCA (cubos BITAM Artus extraídos a Cloudflare D1). Versión 1.3. Fecha de corte 2026-06-15.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700;800;900&display=swap" rel="stylesheet">
@@ -333,7 +333,7 @@ h1, h2, h3 { page-break-after: avoid; }
   <div class="cover-inner">
     <div>
       <div class="cover-mark">Grupo Plasencia Automotriz<span>Dirección de Marketing Corporativo</span></div>
-      <div class="cover-eyebrow">Deep Dive · Versión 1.0 · Junio 2026</div>
+      <div class="cover-eyebrow">Deep Dive · Versión 1.3 · Junio 2026</div>
       <h1 class="cover-title">Gasto y Estructura<br>de <em>Marketing</em></h1>
       <div class="cover-title-after">— años 2025 y 2026, data del sistema DCA</div>
       <p class="cover-subtitle">El gasto real del Grupo, su concentración por marca, la asimetría OEM, y los gaps de captura que limitan decisiones de eficiencia.</p>
@@ -531,13 +531,31 @@ h1, h2, h3 { page-break-after: avoid; }
       <tr><td>Plantilla Ventas Digitales</td><td class="num">$0.27M</td><td>n/a</td><td><span class="badge badge-ok">Bruto cubo 30046</span></td></tr>
       <tr><td>Bonificación Plan Piso (ingreso)</td><td class="num">-$27.6M</td><td class="num">-$54.3M</td><td><span class="badge badge-warn">Signo invertido Hyundai+Ford</span></td></tr>
       <tr class="warn"><td>Servicios externos (BTL, eventos, analógico)</td><td class="num">—</td><td class="num">—</td><td><span class="badge badge-gap">Gap</span></td></tr>
-      <tr class="warn"><td>Proveedores externos MKT por nombre</td><td class="num">—</td><td class="num">—</td><td><span class="badge badge-gap">Gap §7</span></td></tr>
+      <tr><td>Proveedores externos MKT por nombre</td><td class="num">$501.6M</td><td class="num">—</td><td><span class="badge badge-ok">Resuelto §7 v1.3</span></td></tr>
     </tbody>
   </table>
 
   <h3>2026 — anomalía de reclasificación (§14)</h3>
   <div class="warn-note">
     <strong>Promo 2 ya excedió su presupuesto anual (170.6%)</strong> mientras Publicidad apenas ejecutó 6.6%. Sugiere reclasificación contable: lo que se presupuestó como "Publicidad" se está cargando como "Promo 2". Validar con Contraloría.
+  </div>
+
+  <h3 style="margin-top:8mm;">§3b · Cuentas MKT con REAL ejercido — cubo 30067 LxL <span class="badge">v1.3 · 15-jun</span></h3>
+  <p>Re-extracción dirigida del cubo 30067 LxL con columnas <code>I_30917_RealMes</code> + <code>I_30920_RealAcum</code>. Se identificaron <strong>180 cuentas contables tipo MKT</strong> (Publicidad / Promoción / Promo 2 / Comisiones digitales / Reembolsos). Composición agregada 2026 parcial:</p>
+  <table>
+    <thead><tr><th>Concepto agregado</th><th class="num">2026 Real</th><th>Naturaleza</th></tr></thead>
+    <tbody>
+      <tr><td><strong>PROMO 2</strong></td><td class="num">$56,158,645</td><td>Carga máxima — Mazda planta + Buen Fin</td></tr>
+      <tr><td>PROMOCION</td><td class="num">$19,050,749</td><td>Promoción operativa y digital</td></tr>
+      <tr><td>PUBLICIDAD</td><td class="num">$13,176,830</td><td>Pauta institucional + nuevos por sucursal</td></tr>
+      <tr><td>COMISIONES DIGITAL</td><td class="num">$744,123</td><td>Supervisores digitales nuevos + seminuevos</td></tr>
+      <tr class="total"><td>TOTAL MKT REAL 2026</td><td class="num">$89,130,347</td><td>180 cuentas — cubo 30067 LxL</td></tr>
+    </tbody>
+  </table>
+  <div class="note"><strong>Cruce de consistencia:</strong> los $89.1M del cubo 30067 son coherentes con los $85.4M de pauta detectados en cubo 30065 (§5). El delta (~$3.7M) corresponde a comisiones digitales + reembolsos AMDF + sucursales no agregadas en 30065.</div>
+  <div class="callout">
+    <div class="callout-t">Concentración brutal — Top 15 cuentas</div>
+    <p>Una sola cuenta — <strong>PROMO MMDM PLANTA Mazda — $44.9M</strong> — concentra <strong>50.4%</strong> del total MKT REAL 2026. Las top 15 cuentas concentran $70.3M = <strong>79% del total</strong>. La cola larga (165 cuentas restantes) representa solo $18.8M.</p>
   </div>
 
   <h2 style="margin-top:10mm;">§4 · Distribución por tipo</h2>
@@ -638,29 +656,66 @@ h1, h2, h3 { page-break-after: avoid; }
   <h1>Lo que <em>no</em> se ve</h1>
   <div class="accent-line"></div>
 
-  <h2>§7 · Composición por proveedor</h2>
-  <p><strong>Estado actual:</strong> el cubo <code>cubo_30051_cxp_focal</code> cargado tiene cuentas de inventario automotriz (CXP - Planta Autos, Refacciones, Anticipos), no de Marketing. Para detalle de proveedores MKT por nombre y monto, falta re-extracción específica.</p>
+  <h2>§7 · Composición por proveedor <span class="badge">Data real · re-extracción 15-jun</span></h2>
+  <p>Re-extracción dirigida del cubo 30051 CxP con columna <code>I_30743_Monto_Original</code> + dimensiones Proveedor + Marca, sobre 6 trimestres (Q3 2025 → Q1 2026, ~2.3M filas / 488MB CSV). Tras filtrar por nombres de proveedor tipo MKT (excluyendo gobierno, banca, telecom, contadores, transportistas), se identificaron <strong>450 proveedores con facturación tipo MKT</strong>.</p>
 
-  <h3>Lo que SÍ está disponible vía cubo 30067 LxL (solo PPTO, no REAL — gap conocido)</h3>
-  <p>Detalle de cuentas contables MKT por sucursal. Cuentas identificadas:</p>
+  <h3>Cluster 1 — Auto-promotoras del Grupo (intercompany)</h3>
+  <p>Las "PROMOTORAS" son entidades fiscales internas que canalizan promoción intercompany por marca. NO son agencias externas. Top 5 monto facturado:</p>
   <table>
-    <thead><tr><th>Categoría</th><th>Cuentas contables (cubo 30067)</th></tr></thead>
+    <thead><tr><th>Promotora</th><th class="num">Monto facturado</th><th class="num">Facturas</th><th>Marcas</th></tr></thead>
     <tbody>
-      <tr><td>Publicidad institucional</td><td><code>Gal PUBLICIDAD</code> · <code>Gal PUBLICIDAD INSTIT</code> · <code>GTO. PUBLICIDAD AMDF</code></td></tr>
-      <tr><td>Publicidad digital</td><td><code>Gal PUBLICIDAD EN INTERNET</code></td></tr>
-      <tr><td>Promoción</td><td><code>Gal PROMOCION</code> · <code>Gal PROMOCION-NUEVOS FINANCIERA</code> · <code>Gal Gastos de promocion</code> · <code>Gal PROMOCION ROTULACIONES DE VEHICULOS</code></td></tr>
-      <tr><td>Promoción operativa</td><td><code>GASOLINA PROMOCION</code> (Abastos, Colima, GDL, Vallarta)</td></tr>
-      <tr><td>Cuotas publicitarias por sucursal</td><td><code>CUOTAS PUBLICIDAD</code> (Colima, San Luis, Santa Anita, Tepic, Vallarta)</td></tr>
-      <tr><td>Comisiones digitales</td><td><code>COMISIONES SUPERVISORES DIGITAL NUEVOS</code> · <code>COMISIONES SUPERVISOR DIGITALES SEMINUEVOS</code></td></tr>
-      <tr><td>Recuperaciones OEM</td><td><code>Gal RECUPERACION PUBLICIDAD PEUGEOT</code></td></tr>
-      <tr><td>Servicios externos</td><td><code>Gal Servicios Otras Agencias</code></td></tr>
+      <tr><td>PROMOTORA LPM</td><td class="num">$221.2M</td><td class="num">534</td><td>Mazda $181.7M · Changan $39.5M</td></tr>
+      <tr><td>PROMOTORA LPR</td><td class="num">$101.9M</td><td class="num">304</td><td>Mazda $73.2M · Changan $28.7M</td></tr>
+      <tr><td>PROMOTORA JGPM</td><td class="num">$94.8M</td><td class="num">339</td><td>Mazda $65.7M · Changan $29.1M</td></tr>
+      <tr><td>PROMOTORA PMML INC</td><td class="num">$10.6M</td><td class="num">147</td><td>Mazda</td></tr>
+      <tr><td>PROMOTORA ANYP</td><td class="num">$10.5M</td><td class="num">139</td><td>Mazda</td></tr>
+      <tr class="total"><td>Subtotal Cluster 1</td><td class="num">~$438.9M</td><td class="num">1,323</td><td>Mazda 75% · Changan 22%</td></tr>
     </tbody>
   </table>
-  <div class="note"><strong>Lectura:</strong> la granularidad por cuenta contable existe. Una vez se re-extraiga cubo 30067 con columnas REAL (<code>I_*_Real_*</code>), será posible analizar gasto cuenta-por-cuenta y cruzar con proveedor (re-extracción cubo 30051 con cuentas MKT específicas).</div>
+  <div class="warn-note"><strong>Lectura crítica:</strong> $438.9M facturados a auto-promotoras intercompany ≠ gasto MKT externo. Es flujo contable de promoción interna que debe analizarse aparte (estructura fiscal del Grupo). Excluyendo este cluster, el universo de proveedores MKT externos se reduce drásticamente.</div>
 
-  <h2>§8 · Duplicidades cross-marca</h2>
-  <div class="warn-note">
-    <strong>Gap derivado.</strong> Sin el detalle de proveedor de Marketing, no es posible cuantificar hoy cuántos proveedores facturan a más de una marca. Es una sospecha trazable solo con anécdota de stakeholders (Nextilo dual Hyundai+Stellantis, Paola Like en 3 entidades, Dazing concentra Ford).
+  <h3>Cluster 2 — Agencias y proveedores MKT externos verificados (top por monto)</h3>
+  <table>
+    <thead><tr><th>Proveedor</th><th class="num">Monto</th><th>Marcas (top)</th><th>Tipo</th></tr></thead>
+    <tbody>
+      <tr><td><strong>AGENCIA MX-5</strong></td><td class="num">$214.0M</td><td>Mazda $214.0M</td><td>Agencia oficial Mazda</td></tr>
+      <tr><td>GALLETA MARKETING DIGITAL</td><td class="num">$12.4M</td><td>GAC · Mazda · Changan · GWM</td><td>Digital multi-marca</td></tr>
+      <tr><td>PLASICO PROMOTORA E IMPULSORA</td><td class="num">$10.4M</td><td>Changan · Mazda</td><td>Promotora externa</td></tr>
+      <tr><td>PROMOTORA CARIBEÑA</td><td class="num">$8.9M</td><td>Hyundai · Mazda</td><td>Promotora externa</td></tr>
+      <tr><td>PROMOTORA PLABA</td><td class="num">$7.9M</td><td>Changan · Mazda</td><td>Promotora externa</td></tr>
+      <tr><td>PUBLICITY APXUS</td><td class="num">$4.5M</td><td>Changan</td><td>Publicidad</td></tr>
+      <tr><td>AUTOMOTIVE ONLINE PUBLISHING (2 razones)</td><td class="num">$4.5M</td><td>Mazda · Hyundai · GWM · STL · GAC</td><td>Plataforma digital</td></tr>
+      <tr><td>DISTRIBUCION DIGITAL AUTOMOTRIZ</td><td class="num">$3.7M</td><td>Mazda · STL · GAC · Changan</td><td>Plataforma digital</td></tr>
+      <tr><td>PIMSA PUBLICIDAD</td><td class="num">$3.4M</td><td>Changan · GAC · GWM · Mazda</td><td>Publicidad multi</td></tr>
+      <tr><td>COEFICIENTE COMUNICACIONES (2 razones)</td><td class="num">$2.8M</td><td>Mazda · GWM · GAC · STL</td><td>Agencia comunicación</td></tr>
+      <tr><td>TRANDEO PUBLICITARIA</td><td class="num">$2.6M</td><td>Mazda</td><td>Publicidad</td></tr>
+      <tr><td>MOVILIDAD DIGITAL TC</td><td class="num">$2.5M</td><td>Mazda</td><td>Plataforma digital</td></tr>
+      <tr><td>INDUSTRIA PUBLICITARIA DE JALISCO</td><td class="num">$1.9M</td><td>Mazda · STL · GAC · Hyundai</td><td>Publicidad</td></tr>
+      <tr><td>FABULA COMUNICACION</td><td class="num">$1.7M</td><td>GWM · GAC · Changan</td><td>Comunicación</td></tr>
+      <tr><td>SEPIMSA</td><td class="num">$1.6M</td><td>Stellantis</td><td>Publicidad STL</td></tr>
+      <tr><td>TRIMAX SOLUCIONES DIGITALES</td><td class="num">$0.7M</td><td>Stellantis</td><td>Digital STL</td></tr>
+      <tr><td>APTO INNOVACION DIGITAL</td><td class="num">$0.6M</td><td>Mazda</td><td>Consultoría innovación</td></tr>
+    </tbody>
+  </table>
+  <div class="note"><strong>Concentración Cluster 2:</strong> Agencia MX-5 sola concentra <strong>~78%</strong> del gasto MKT externo identificado (vía agencia oficial Mazda). Galleta Marketing Digital + los siguientes 28 proveedores reparten el 22% restante en una cola larga muy fragmentada.</div>
+
+  <h2>§8 · Duplicidades cross-marca <span class="badge">Data real</span></h2>
+  <p>Del Cluster 2 (proveedores MKT externos), se identifican <strong>proveedores que facturan a 3+ marcas simultáneamente</strong> — bandera de oportunidad para negociación consolidada cross-marca:</p>
+  <table>
+    <thead><tr><th>Proveedor</th><th class="num"># marcas</th><th>Marcas atendidas</th></tr></thead>
+    <tbody>
+      <tr><td>AUTOMOTIVE ONLINE PUBLISHING (incl. SAPI)</td><td class="num">5</td><td>Mazda · Hyundai · GWM · STL · GAC</td></tr>
+      <tr><td>DISTRIBUCION DIGITAL AUTOMOTRIZ</td><td class="num">4</td><td>Mazda · STL · GAC · Changan</td></tr>
+      <tr><td>PIMSA PUBLICIDAD</td><td class="num">4</td><td>Changan · GAC · GWM · Mazda</td></tr>
+      <tr><td>INDUSTRIA PUBLICITARIA DE JALISCO</td><td class="num">4</td><td>Mazda · STL · GAC · Hyundai</td></tr>
+      <tr><td>COEFICIENTE COMUNICACIONES (2 razones)</td><td class="num">4</td><td>Mazda · GWM · GAC · STL</td></tr>
+      <tr><td>GALLETA MARKETING DIGITAL</td><td class="num">4</td><td>GAC · Mazda · GWM · Changan</td></tr>
+      <tr><td>FABULA COMUNICACION</td><td class="num">3</td><td>GWM · GAC · Changan</td></tr>
+    </tbody>
+  </table>
+  <div class="callout">
+    <div class="callout-t">Lectura</div>
+    <p>Al menos 7 proveedores externos facturan a 3-5 marcas del Grupo de manera independiente. Cada marca negoció su rate sin visibilidad cross-marca. Una central de medios (MKT Corporativo) consolidaría volumen y reduciría costo blended estimado <strong>10-15%</strong> sobre la porción cross-marca.</p>
   </div>
 
   <h2>§9 · Centralización de medios vía Viceversa (decisión en ejecución)</h2>
