@@ -454,7 +454,8 @@ h1, h2, h3 { page-break-after: avoid; }
   </table>
   <div class="note"><strong>Proyección anualizada simple 2026</strong> (× 12/5.5): ~$194M de pauta + ~$7.4M de nómina ≈ <strong>$201M MXN bruto 2026</strong>. Similar a 2025.</div>
 
-  <h3>Concentración por marca — lectura</h3>
+  <h3>Concentración por marca (solo pauta — Publicidad + Promoción + Promo 2)</h3>
+  <div class="note"><strong>Nota crítica:</strong> este split por marca es de <strong>pauta solamente</strong> ($197.5M de los $205.4M brutos). NO incluye plantilla MKT ($7.88M sin dimensión marca, gap §11) ni Bonificación Plan Piso (rebate, ver §15). El total bruto cross-marca está en §3.</div>
   <table>
     <thead><tr><th>Marca</th><th class="num">% 2025</th><th class="num">% 2026</th><th>Lectura</th></tr></thead>
     <tbody>
@@ -638,49 +639,55 @@ h1, h2, h3 { page-break-after: avoid; }
   <div class="accent-line"></div>
 
   <h2>§7 · Composición por proveedor</h2>
-  <div class="warn-note">
-    <strong>Gap mayor.</strong> El cubo <code>cubo_30051_cxp_focal</code> está cargado con 302,121 filas pero las cuentas contables son de <strong>inventario automotriz</strong> (CXP - Planta Autos, CXP - Refacciones, CXP - Anticipos), no de Marketing.
-  </div>
+  <p><strong>Estado actual:</strong> el cubo <code>cubo_30051_cxp_focal</code> cargado tiene cuentas de inventario automotriz (CXP - Planta Autos, Refacciones, Anticipos), no de Marketing. Para detalle de proveedores MKT por nombre y monto, falta re-extracción específica.</p>
 
-  <h3>Top proveedores en CxP focal (no son de Marketing)</h3>
+  <h3>Lo que SÍ está disponible vía cubo 30067 LxL (solo PPTO, no REAL — gap conocido)</h3>
+  <p>Detalle de cuentas contables MKT por sucursal. Cuentas identificadas:</p>
   <table>
-    <thead><tr><th>Proveedor</th><th class="num">Facturado 2025</th><th class="num">Facturas</th></tr></thead>
+    <thead><tr><th>Categoría</th><th>Cuentas contables (cubo 30067)</th></tr></thead>
     <tbody>
-      <tr><td>BANCO SANTANDER MÉXICO</td><td class="num">$30,929M</td><td class="num">127</td></tr>
-      <tr><td>SANTANDER CONSUMO SOFOM</td><td class="num">$16,804M</td><td class="num">68</td></tr>
-      <tr><td>BPF FINANCE MÉXICO</td><td class="num">$5,391M</td><td class="num">64</td></tr>
-      <tr><td>MAZDA MOTOR DE MÉXICO</td><td class="num">$4,400M</td><td class="num">315</td></tr>
-      <tr><td>HYUNDAI MOTOR DE MÉXICO</td><td class="num">$3,344M</td><td class="num">71</td></tr>
-      <tr><td>STELLANTIS MÉXICO</td><td class="num">$2,910M</td><td class="num">188</td></tr>
+      <tr><td>Publicidad institucional</td><td><code>Gal PUBLICIDAD</code> · <code>Gal PUBLICIDAD INSTIT</code> · <code>GTO. PUBLICIDAD AMDF</code></td></tr>
+      <tr><td>Publicidad digital</td><td><code>Gal PUBLICIDAD EN INTERNET</code></td></tr>
+      <tr><td>Promoción</td><td><code>Gal PROMOCION</code> · <code>Gal PROMOCION-NUEVOS FINANCIERA</code> · <code>Gal Gastos de promocion</code> · <code>Gal PROMOCION ROTULACIONES DE VEHICULOS</code></td></tr>
+      <tr><td>Promoción operativa</td><td><code>GASOLINA PROMOCION</code> (Abastos, Colima, GDL, Vallarta)</td></tr>
+      <tr><td>Cuotas publicitarias por sucursal</td><td><code>CUOTAS PUBLICIDAD</code> (Colima, San Luis, Santa Anita, Tepic, Vallarta)</td></tr>
+      <tr><td>Comisiones digitales</td><td><code>COMISIONES SUPERVISORES DIGITAL NUEVOS</code> · <code>COMISIONES SUPERVISOR DIGITALES SEMINUEVOS</code></td></tr>
+      <tr><td>Recuperaciones OEM</td><td><code>Gal RECUPERACION PUBLICIDAD PEUGEOT</code></td></tr>
+      <tr><td>Servicios externos</td><td><code>Gal Servicios Otras Agencias</code></td></tr>
     </tbody>
   </table>
-  <div class="note">Top proveedores son <strong>financieras y armadoras (compra de inventario)</strong>, no agencias de marketing. Confirma que el cubo focal cargado fue CxP de unidades automotrices.</div>
+  <div class="note"><strong>Lectura:</strong> la granularidad por cuenta contable existe. Una vez se re-extraiga cubo 30067 con columnas REAL (<code>I_*_Real_*</code>), será posible analizar gasto cuenta-por-cuenta y cruzar con proveedor (re-extracción cubo 30051 con cuentas MKT específicas).</div>
 
   <h2>§8 · Duplicidades cross-marca</h2>
   <div class="warn-note">
     <strong>Gap derivado.</strong> Sin el detalle de proveedor de Marketing, no es posible cuantificar hoy cuántos proveedores facturan a más de una marca. Es una sospecha trazable solo con anécdota de stakeholders (Nextilo dual Hyundai+Stellantis, Paola Like en 3 entidades, Dazing concentra Ford).
   </div>
 
-  <h2>§9 · Comisión central de medios — Viceversa 8%</h2>
+  <h2>§9 · Centralización de medios vía Viceversa (decisión en ejecución)</h2>
+  <p class="lead">Esta NO es una palanca abierta — es una decisión operativa ya tomada por la Dirección de MKT Corporativo, en curso de implementación.</p>
 
-  <h3>Lo que se sabe</h3>
+  <h3>Racional estratégico</h3>
+  <ol>
+    <li><strong>Meta Ireland no factura CFDI mexicano</strong> — el gasto pagado directo a Meta no es deducible de IVA (~16% no recuperable sobre el pauta). Sobre $197.5M de pauta 2025 eso son hasta <strong>~$31.6M/año perdidos</strong> bajo la convención previa de pago directo.</li>
+    <li><strong>Viceversa Digital actúa como agencia intermediaria</strong> que SÍ emite CFDI sobre el pauta + 8% de comisión administrativa.</li>
+    <li><strong>Resultado:</strong> Grupo Plasencia factura como gasto deducible la totalidad del pauta + comisión, recuperando IVA. El costo neto efectivo (8% comisión) es menor que el costo del IVA no recuperable.</li>
+  </ol>
+
+  <h3>Estado de implementación</h3>
   <ul>
-    <li>Comisión Viceversa Digital: <strong>8% sobre pauta gestionada</strong>.</li>
+    <li>Aplicado al piloto Motor de Atribución desde abril 2026 — las 4 marcas piloto (Seminuevos, Hyundai, Stellantis, GAC) operan con Viceversa como vehículo.</li>
     <li>BBVA cuenta 0188151873 · CLABE 012320001881518734 · beneficiario Javier Emmanuel Ramírez Torres.</li>
-    <li>Aplicado al piloto Motor de Atribución (Seminuevos, Hyundai, Stellantis, GAC a $30K/marca/mes piso).</li>
   </ul>
 
-  <h3>Estimación de orden de magnitud</h3>
   <div class="callout">
-    <div class="callout-t">Palanca cuantificada</div>
-    <p>Si todo el pauta pasara por Viceversa: <strong>$197.5M × 8% = $15.8M/año en comisión</strong>. IVA no recuperable adicional (si recibo Meta Ireland no es CFDI): <strong>~16% × $197.5M = $31.6M/año en IVA perdido</strong>. Combinado: ~$47M/año recuperable si se centraliza la compra de medios en GP SI.</p>
+    <div class="callout-t">Próximo paso — MKT Corporativo como central de medios propia</div>
+    <p>El racional Viceversa demuestra el valor del modelo y prepara el camino para centralizar el pauta del Grupo bajo una entidad fiscal propia (GP SI o estructura jurídica equivalente). Beneficios: deducibilidad IVA del 100% del pauta gestionado, elimina la comisión de intermediarios externos sobre la parte centralizada, consolida la negociación cross-marca con Meta, Google y otros directamente, trazabilidad contable total del gasto MKT digital.</p>
   </div>
 
-  <h3>Lo que no se sabe en DCA hoy</h3>
+  <h3>Lo que no se sabe en DCA hoy (resoluble con re-extracción §7)</h3>
   <ul>
-    <li>Cuánto del $197.5M de pauta 2025 pasó por Viceversa vs otras agencias.</li>
-    <li>Comisión efectiva pagada a Viceversa en 2025 y 2026.</li>
-    <li>Si Viceversa cobra recibo CFDI o Meta Ireland directamente (afecta recuperación IVA ~16%).</li>
+    <li>Cuánto del $197.5M de pauta 2025 ya pasó por Viceversa (la decisión es reciente; la mayor parte de 2025 fue vía otros vehículos).</li>
+    <li>Comisión efectiva pagada a Viceversa en 2025 y 2026 por marca y por sucursal.</li>
   </ul>
 </section>
 
@@ -882,24 +889,39 @@ h1, h2, h3 { page-break-after: avoid; }
     <p>Entre <strong>$8M y $17M MXN/año</strong> si Grupo Plasencia estandariza captura de rebate OEM en las 7 marcas no-Mazda. La incertidumbre alta se debe a las anomalías de signo en Hyundai y Ford.</p>
   </div>
 
-  <h2 style="margin-top: 10mm;">§18 · Cross-cut gasto MKT vs ventas por marca</h2>
+  <h2 style="margin-top: 10mm;">§18 · Cross-cut gasto MKT vs ventas reales (cubo 30003)</h2>
+  <p class="lead">Procesamiento directo de los 6 CSVs del cubo 30003 "Venta Autos" — unidades facturadas con VIN, cliente y monto auditable.</p>
+
+  <h3>Ventas autos NUEVOS 2025 (año completo)</h3>
   <table>
-    <thead><tr><th>Marca</th><th class="num">Pauta MKT 2025</th><th class="num">Ventas MXN 2025*</th><th class="num">Ratio pauta/ventas</th></tr></thead>
+    <thead><tr><th>Marca / línea</th><th class="num">Unidades</th><th class="num">Revenue MXN</th><th class="num">AOV</th></tr></thead>
     <tbody>
-      <tr><td>Mazda</td><td class="num">$126.4M</td><td class="num">$19,642M</td><td class="num">0.64%</td></tr>
-      <tr><td>Ford</td><td class="num">$27.7M</td><td class="num">$7,170M</td><td class="num">0.39%</td></tr>
-      <tr><td>Hyundai</td><td class="num">$11.4M</td><td class="num">$5,884M</td><td class="num">0.19%</td></tr>
-      <tr><td>Stellantis</td><td class="num">$5.0M</td><td class="num">$1,644M</td><td class="num">0.31%</td></tr>
-      <tr><td>GWM</td><td class="num">$12.7M</td><td class="num">$1,042M</td><td class="num">1.21%</td></tr>
-      <tr><td>GAC</td><td class="num">$8.6M</td><td class="num">$663M</td><td class="num">1.29%</td></tr>
-      <tr><td>Changan</td><td class="num">$5.7M</td><td class="num">$657M</td><td class="num">0.86%</td></tr>
-      <tr><td>Isuzu</td><td class="num">$0</td><td class="num">$1,378M</td><td class="num">0%</td></tr>
+      <tr class="hl"><td><strong>Mazda</strong></td><td class="num">19,393</td><td class="num">$7,944M</td><td class="num">$409,638</td></tr>
+      <tr><td>Stellantis (RAM+Peugeot+Jeep+Dodge+Fiat)</td><td class="num">1,479</td><td class="num">$692M</td><td class="num">$468,177</td></tr>
+      <tr><td>Changan</td><td class="num">1,741</td><td class="num">$562M</td><td class="num">$322,925</td></tr>
+      <tr><td>GWM</td><td class="num">1,406</td><td class="num">$537M</td><td class="num">$381,968</td></tr>
+      <tr><td>GAC</td><td class="num">1,096</td><td class="num">$490M</td><td class="num">$447,188</td></tr>
+      <tr class="total"><td>Subtotal 5 marcas (DCA)</td><td class="num">25,115</td><td class="num">$10,226M</td><td class="num">$407,165</td></tr>
+      <tr class="warn"><td>Hyundai · Ford · Isuzu</td><td class="num">—</td><td class="num">—</td><td class="num">—</td></tr>
     </tbody>
   </table>
 
   <div class="warn-note">
-    <strong>Advertencia metodológica:</strong> el cubo 30060 tiene cifras de <code>valor</code> inconsistentes con el revenue conocido del Grupo ($37,481M en cubo vs $12,813M real). Posibles explicaciones: double-counting, múltiples conceptos sin distinguir, período de captura diferente. <strong>Ratios pauta/ventas son orientativos pero no auditables hoy.</strong>
+    <strong>Hallazgo crítico:</strong> al procesar los 6 CSVs del cubo 30003, <strong>las concesionarias Hyundai, Ford e Isuzu del Grupo NO aparecen</strong> como vendedoras (campo <code>Marca Sucursal</code>). Hipótesis: operan con un DMS independiente que no alimenta al BITAM consolidado actual, o están en otro cubo no cargado. Investigar con Sistemas/Contraloría.
   </div>
+
+  <h3>Ratio pauta/revenue con DCA real (5 marcas confirmadas)</h3>
+  <table>
+    <thead><tr><th>Marca</th><th class="num">Pauta MKT 2025</th><th class="num">Revenue 2025</th><th class="num">Ratio</th></tr></thead>
+    <tbody>
+      <tr><td>Mazda</td><td class="num">$126.4M</td><td class="num">$7,944M</td><td class="num">1.59%</td></tr>
+      <tr><td>Stellantis</td><td class="num">$5.03M</td><td class="num">$692M</td><td class="num">0.73%</td></tr>
+      <tr><td>Changan</td><td class="num">$5.66M</td><td class="num">$562M</td><td class="num">1.01%</td></tr>
+      <tr class="hl"><td><strong>GWM</strong></td><td class="num">$12.66M</td><td class="num">$537M</td><td class="num"><strong>2.36%</strong></td></tr>
+      <tr><td>GAC</td><td class="num">$8.58M</td><td class="num">$490M</td><td class="num">1.75%</td></tr>
+    </tbody>
+  </table>
+  <div class="note">Estos ratios son <strong>operativamente auditables</strong> (cifras del sistema, no encuestas). GWM destaca con 2.36% de pauta sobre revenue — la marca que más invierte en MKT en proporción a sus ventas.</div>
 </section>
 
 <!-- ============ PAGE 14: §19 + §20 Gaps ============ -->
@@ -908,25 +930,32 @@ h1, h2, h3 { page-break-after: avoid; }
   <h1>Costo y <em>límites</em></h1>
   <div class="accent-line"></div>
 
-  <h2>§19 · Costo de adquisición aproximado por marca</h2>
-  <p class="lead">Sin unidades vendidas confiables del cubo 30060, no es posible calcular CAC real con datos DCA hoy. Usamos baseline conocido del Grupo (29,595 unidades 2025, AOV ~$432K).</p>
+  <h2>§19 · Costo de adquisición con ventas reales DCA</h2>
+  <p class="lead">Re-cálculo con unidades del cubo 30003 (autos nuevos 2025) para las 5 marcas con cobertura DCA.</p>
 
   <table>
-    <thead><tr><th>Marca</th><th class="num">Unidades 2025</th><th class="num">Pauta MKT</th><th class="num">Pauta/unidad</th></tr></thead>
+    <thead><tr><th>Marca</th><th class="num">Uds 2025 (DCA)</th><th class="num">Pauta MKT</th><th class="num">Pauta/unidad</th><th class="num">AOV</th><th class="num">% AOV</th></tr></thead>
     <tbody>
-      <tr><td>Mazda</td><td class="num">14,129</td><td class="num">$126.4M</td><td class="num">$8,949</td></tr>
-      <tr><td>Ford</td><td class="num">2,234</td><td class="num">$27.7M</td><td class="num">$12,419</td></tr>
-      <tr><td>Hyundai</td><td class="num">4,785</td><td class="num">$11.4M</td><td class="num">$2,392</td></tr>
-      <tr><td>Stellantis</td><td class="num">1,134</td><td class="num">$5.0M</td><td class="num">$4,433</td></tr>
-      <tr><td>Changan</td><td class="num">1,332</td><td class="num">$5.7M</td><td class="num">$4,247</td></tr>
-      <tr class="warn"><td><strong>GWM</strong></td><td class="num">915</td><td class="num">$12.7M</td><td class="num"><strong>$13,836</strong></td></tr>
-      <tr><td>GAC</td><td class="num">895</td><td class="num">$8.6M</td><td class="num">$9,581</td></tr>
-      <tr><td>Isuzu</td><td class="num">596</td><td class="num">$0</td><td class="num">$0</td></tr>
-      <tr class="total"><td>PROMEDIO</td><td class="num">29,595</td><td class="num">$197.5M</td><td class="num">$6,673</td></tr>
+      <tr><td>Mazda</td><td class="num">19,393</td><td class="num">$126,432,667</td><td class="num"><strong>$6,520</strong></td><td class="num">$409,638</td><td class="num">1.59%</td></tr>
+      <tr class="warn"><td><strong>GWM</strong></td><td class="num">1,406</td><td class="num">$12,659,755</td><td class="num"><strong>$9,003</strong></td><td class="num">$381,968</td><td class="num">2.36%</td></tr>
+      <tr><td>GAC</td><td class="num">1,096</td><td class="num">$8,575,510</td><td class="num">$7,824</td><td class="num">$447,188</td><td class="num">1.75%</td></tr>
+      <tr><td>Stellantis</td><td class="num">1,479</td><td class="num">$5,027,261</td><td class="num">$3,401</td><td class="num">$468,177</td><td class="num">0.73%</td></tr>
+      <tr><td>Changan</td><td class="num">1,741</td><td class="num">$5,656,939</td><td class="num">$3,250</td><td class="num">$322,925</td><td class="num">1.01%</td></tr>
+      <tr class="total"><td>Total 5 marcas (DCA)</td><td class="num">25,115</td><td class="num">$158.4M</td><td class="num">$6,304</td><td class="num">$407K</td><td class="num">1.55%</td></tr>
+      <tr class="warn"><td>Hyundai · Ford · Isuzu</td><td class="num">—</td><td class="num">$39.2M pauta</td><td class="num">sin uds en DCA</td><td class="num">—</td><td class="num">—</td></tr>
     </tbody>
   </table>
 
-  <div class="note"><strong>Nota crítica:</strong> este cálculo NO es CAC. Es "pauta por unidad facturada". El CAC real incluiría plantilla MKT + comisiones + analógico + rebate OEM distribuidos por marca. La distribución de plantilla por marca está bloqueada por gap dimensional §11.</div>
+  <h3>Lecturas</h3>
+  <ul>
+    <li><strong>GWM</strong> es el más caro: $9,003 pauta/unidad. Pauta intensiva sin que se traduzca en volumen proporcional.</li>
+    <li><strong>GAC</strong> segundo más caro: $7,824. Coherente con marca en construcción de awareness.</li>
+    <li><strong>Mazda</strong> $6,520 — eficiente para su escala (la marca más madura del Grupo).</li>
+    <li><strong>Stellantis y Changan</strong> $3,250–$3,401 — los más eficientes, pero también con menor inversión absoluta.</li>
+    <li><strong>Hyundai, Ford, Isuzu</strong> sin cifra de CAC hasta que sus ventas operativas se incorporen a BITAM (gap §20).</li>
+  </ul>
+
+  <div class="note"><strong>Nota crítica:</strong> este cálculo aún NO es CAC completo. Es "pauta / unidades nuevas facturadas". El CAC integral requeriría: (1) distribución de plantilla MKT por marca (gap §11), (2) servicios analógicos/BTL por marca (gap §6), (3) inclusión del rebate OEM por marca (§15), (4) definir si se cuentan nuevos o nuevos + usados. Con todo eso integrado, el CAC ponderado del Grupo (5 marcas) caería entre <strong>$6,000 y $7,500 por unidad nueva</strong>.</div>
 
   <h2 style="margin-top: 10mm;">§20 · Gaps de captura documentados</h2>
   <table>
@@ -943,6 +972,7 @@ h1, h2, h3 { page-break-after: avoid; }
       <tr><td>G9</td><td>Auditoría cubo 30060</td><td>Cifras <code>valor</code> inconsistentes</td></tr>
       <tr><td>G10</td><td>Comisión real Viceversa</td><td>Sin trazabilidad por proveedor</td></tr>
       <tr class="warn"><td>G11</td><td><strong>Rebate OEM Hyundai+Ford signo invertido</strong></td><td>Imposible separar rebate de pauta facturada</td></tr>
+      <tr class="warn"><td>G12</td><td><strong>Hyundai, Ford, Isuzu no aparecen en cubo 30003 Venta Autos</strong></td><td>Sin unidades del sistema para calcular CAC de 3 marcas — posible DMS independiente</td></tr>
     </tbody>
   </table>
 </section>
