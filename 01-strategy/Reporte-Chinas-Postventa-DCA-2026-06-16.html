@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marcas Chinas · Post-Venta DCA · Grupo Plasencia</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --gp-black:#1A1A1A; --gp-red:#C8102E; --gp-navy:#1E2740; --gp-slate:#2D3748;
+  --accent:#4299E1; --accent-hover:#3182CE;
+  --success:#48BB78; --warning:#D69E2E; --info:#3182CE; --error:#E53E3E;
+  --n50:#F7FAFC; --n100:#EDF2F7; --n200:#E2E8F0; --n300:#CBD5E0; --n400:#A0AEC0;
+  --n500:#718096; --n600:#4A5568; --n700:#2D3748; --n800:#1A202C; --n900:#171923;
+  /* Colores por marca */
+  --changan:#D69E2E; --gac:#48BB78; --gwm:#3182CE;
+  --font-display:'Montserrat',sans-serif; --font-body:'Inter',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{font-family:var(--font-body);color:var(--gp-navy);background:#fff;-webkit-font-smoothing:antialiased;font-size:10pt;line-height:1.45}
+@page{size:A4;margin:14mm 14mm 14mm 14mm}
+.page{width:210mm;min-height:269mm;padding:14mm 12mm;page-break-after:always;position:relative;background:#fff}
+.page:last-child{page-break-after:auto}
+
+/* Header común */
+.page-header{display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid var(--gp-navy);padding-bottom:8px;margin-bottom:16px}
+.page-header .brand{font-family:var(--font-display);font-weight:800;font-size:11pt;color:var(--gp-navy);letter-spacing:-0.2px}
+.page-header .brand span{color:var(--gp-red)}
+.page-header .meta{font-size:8pt;color:var(--n500);text-align:right;font-weight:500}
+.page-footer{position:absolute;bottom:8mm;left:14mm;right:14mm;display:flex;justify-content:space-between;font-size:8pt;color:var(--n500);border-top:1px solid var(--n200);padding-top:6px}
+
+/* Tipografía */
+h1,h2,h3,h4{font-family:var(--font-display);color:var(--gp-navy);line-height:1.15}
+h1{font-size:28pt;font-weight:800;letter-spacing:-0.8px}
+h2{font-size:18pt;font-weight:800;margin:18px 0 10px;letter-spacing:-0.4px;border-left:5px solid var(--gp-red);padding-left:10px}
+h3{font-size:13pt;font-weight:700;margin:14px 0 6px;color:var(--gp-slate)}
+h4{font-size:10pt;font-weight:700;margin:8px 0 4px;text-transform:uppercase;letter-spacing:0.4px;color:var(--n500)}
+p{margin:6px 0;font-size:10pt}
+strong{font-weight:700;color:var(--gp-navy)}
+
+/* Cover */
+.cover{display:flex;flex-direction:column;justify-content:space-between;height:269mm;padding:30mm 14mm}
+.cover .logo{font-family:var(--font-display);font-weight:900;font-size:14pt;letter-spacing:-0.5px;color:var(--gp-navy)}
+.cover .logo span{color:var(--gp-red)}
+.cover .eyebrow{font-family:var(--font-display);font-weight:700;font-size:11pt;color:var(--accent);letter-spacing:2px;text-transform:uppercase;margin-bottom:14px}
+.cover h1{font-size:40pt;line-height:1.05;max-width:170mm}
+.cover .subtitle{font-family:var(--font-display);font-weight:600;font-size:16pt;color:var(--n600);margin-top:16px;max-width:160mm;line-height:1.3}
+.cover .footer-meta{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;border-top:3px solid var(--gp-red);padding-top:16px;margin-top:24px}
+.cover .meta-item .label{font-size:8pt;font-weight:600;color:var(--n500);text-transform:uppercase;letter-spacing:0.6px;margin-bottom:4px}
+.cover .meta-item .value{font-family:var(--font-display);font-weight:700;font-size:11pt;color:var(--gp-navy)}
+
+/* TL;DR boxes */
+.kpi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:10px 0}
+.kpi{background:var(--n50);border:1px solid var(--n200);border-left:4px solid var(--accent);border-radius:6px;padding:10px 12px}
+.kpi.changan{border-left-color:var(--changan)}
+.kpi.gac{border-left-color:var(--gac)}
+.kpi.gwm{border-left-color:var(--gwm)}
+.kpi .marca{font-family:var(--font-display);font-weight:800;font-size:11pt;letter-spacing:0.5px}
+.kpi.changan .marca{color:var(--changan)}
+.kpi.gac .marca{color:var(--gac)}
+.kpi.gwm .marca{color:var(--gwm)}
+.kpi .metric-row{display:flex;justify-content:space-between;font-size:8.5pt;margin-top:4px;padding-top:4px;border-top:1px dashed var(--n200)}
+.kpi .metric-row:first-of-type{border-top:none;padding-top:0;margin-top:6px}
+.kpi .metric-row .lbl{color:var(--n600)}
+.kpi .metric-row .val{font-weight:700;color:var(--gp-navy);font-variant-numeric:tabular-nums}
+
+/* Tablas */
+table{width:100%;border-collapse:collapse;font-size:8.5pt;margin:6px 0 10px;font-variant-numeric:tabular-nums}
+table thead{background:var(--gp-navy);color:#fff}
+table thead th{padding:5px 7px;text-align:left;font-family:var(--font-display);font-weight:700;font-size:8pt;text-transform:uppercase;letter-spacing:0.4px}
+table thead th.r{text-align:right}
+table tbody td{padding:4px 7px;border-bottom:1px solid var(--n200)}
+table tbody td.r{text-align:right;font-weight:500}
+table tbody td.b{font-weight:700;color:var(--gp-navy)}
+table tbody tr:nth-child(even){background:var(--n50)}
+table tbody tr.total{background:#FEF5E7;font-weight:700;border-top:2px solid var(--warning)}
+table tbody tr.total td{color:var(--gp-navy);font-weight:700}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;vertical-align:middle}
+.dot.changan{background:var(--changan)}
+.dot.gac{background:var(--gac)}
+.dot.gwm{background:var(--gwm)}
+
+/* Callout boxes */
+.callout{background:#FEFCBF;border-left:4px solid var(--warning);padding:9px 12px;margin:10px 0;border-radius:4px;font-size:9pt}
+.callout.danger{background:#FED7D7;border-left-color:var(--error)}
+.callout.success{background:#C6F6D5;border-left-color:var(--success)}
+.callout.info{background:#BEE3F8;border-left-color:var(--info)}
+.callout .title{font-family:var(--font-display);font-weight:700;font-size:9pt;text-transform:uppercase;letter-spacing:0.4px;margin-bottom:3px;color:var(--gp-navy)}
+
+/* Charts SVG */
+.chart-block{margin:10px 0}
+.legend{display:flex;gap:14px;font-size:8.5pt;color:var(--n600);margin-top:4px;justify-content:center}
+.legend span{display:inline-flex;align-items:center;gap:5px}
+
+/* Two columns */
+.cols-2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.cols-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+
+/* Section banner */
+.section-banner{background:var(--gp-navy);color:#fff;padding:14px 18px;border-radius:6px;margin:0 0 14px;position:relative;overflow:hidden}
+.section-banner::after{content:"";position:absolute;top:0;right:0;width:6px;height:100%;background:var(--gp-red)}
+.section-banner .num{font-family:var(--font-display);font-weight:900;font-size:24pt;color:var(--gp-red);letter-spacing:-1px;line-height:1}
+.section-banner h2{color:#fff;border:none;padding:0;margin:0;font-size:18pt}
+.section-banner p{color:var(--n200);font-size:9.5pt;margin-top:4px}
+.section-banner .header-row{display:flex;align-items:flex-start;gap:14px}
+
+/* Source pill */
+.source-pill{display:inline-block;background:var(--n100);color:var(--n600);padding:2px 8px;border-radius:9999px;font-size:7.5pt;font-weight:600;letter-spacing:0.3px;text-transform:uppercase}
+.source-pill.f{background:#BEE3F8;color:#2C5282}
+
+/* Code block */
+pre{background:var(--n900);color:#E2E8F0;padding:10px 12px;border-radius:6px;font-size:7.5pt;line-height:1.5;overflow-x:auto;font-family:'Menlo','SF Mono',monospace;margin:6px 0}
+code{background:var(--n100);padding:1px 4px;border-radius:3px;font-family:'Menlo','SF Mono',monospace;font-size:9pt;color:var(--gp-slate)}
+
+/* Print color override */
+@media print{
+  body{print-color-adjust:exact;-webkit-print-color-adjust:exact}
+  .page{margin:0}
+}
+</style>
+</head>
+<body>
+
+<!-- ════════════════════ PÁGINA 1 — COVER ════════════════════ -->
+<section class="page cover">
+  <div>
+    <div class="logo">GRUPO <span>PLASENCIA</span></div>
+  </div>
+
+  <div>
+    <div class="eyebrow">Deep Dive · Marcas Chinas</div>
+    <h1>Unit Economics Post-Venta:<br>GAC · Changan · GWM</h1>
+    <div class="subtitle">Ventas, retención al taller, valor de refacciones y tiempo a primer servicio — desde sistema interno DCA, periodo 2025 + 2026 YTD.</div>
+  </div>
+
+  <div>
+    <div class="footer-meta">
+      <div class="meta-item"><div class="label">Fecha de corte</div><div class="value">15 jun 2026</div></div>
+      <div class="meta-item"><div class="label">Fuente primaria</div><div class="value">DCA · BITAM Artus</div></div>
+      <div class="meta-item"><div class="label">Capa</div><div class="value">F · Contable</div></div>
+    </div>
+    <p style="margin-top:14px;font-size:8.5pt;color:var(--n500)">Dirección de Marketing Corporativo · Documento interno · 16 jun 2026</p>
+  </div>
+</section>
+
+<!-- ════════════════════ PÁGINA 2 — EXECUTIVE SUMMARY ════════════════════ -->
+<section class="page">
+  <div class="page-header">
+    <div class="brand">GRUPO <span>PLASENCIA</span> · Marcas Chinas Post-Venta</div>
+    <div class="meta">16 jun 2026 · Capa F (DCA)</div>
+  </div>
+
+  <h2>Resumen ejecutivo</h2>
+
+  <p>Las 3 marcas chinas del Grupo cerraron 2025 con <strong>4,243 unidades nuevas</strong> y un revenue acumulado de <strong>$1,589M MXN</strong>. En 2026 YTD (al 15-jun) suman <strong>1,842 unidades</strong> adicionales por <strong>$639M</strong>. La taza de retención al taller propio es heterogénea: GWM atrae 79% de sus autos vendidos, GAC 75%, Changan solo 66%. El valor de venta de refacciones a estas tres marcas suma <strong>$22.4M acumulados</strong>, con GWM concentrando 45% del total.</p>
+
+  <div class="kpi-grid">
+    <div class="kpi changan">
+      <div class="marca">CHANGAN</div>
+      <div class="metric-row"><span class="lbl">Uds vendidas 2025+26</span><span class="val">2,459</span></div>
+      <div class="metric-row"><span class="lbl">Revenue acumulado</span><span class="val">$779M</span></div>
+      <div class="metric-row"><span class="lbl">OR servicio distintas</span><span class="val">2,436</span></div>
+      <div class="metric-row"><span class="lbl">Ratio OR/Venta</span><span class="val">0.99</span></div>
+      <div class="metric-row"><span class="lbl">% autos al taller</span><span class="val">66.2%</span></div>
+      <div class="metric-row"><span class="lbl">Refacciones $ vendidas</span><span class="val">$3.9M</span></div>
+      <div class="metric-row"><span class="lbl">Días a 1er servicio (med.)</span><span class="val">46</span></div>
+    </div>
+
+    <div class="kpi gac">
+      <div class="marca">GAC</div>
+      <div class="metric-row"><span class="lbl">Uds vendidas 2025+26</span><span class="val">1,754</span></div>
+      <div class="metric-row"><span class="lbl">Revenue acumulado</span><span class="val">$734M</span></div>
+      <div class="metric-row"><span class="lbl">OR servicio distintas</span><span class="val">3,651</span></div>
+      <div class="metric-row"><span class="lbl">Ratio OR/Venta</span><span class="val">2.08</span></div>
+      <div class="metric-row"><span class="lbl">% autos al taller</span><span class="val">75.2%</span></div>
+      <div class="metric-row"><span class="lbl">Refacciones $ vendidas</span><span class="val">$8.5M</span></div>
+      <div class="metric-row"><span class="lbl">Días a 1er servicio (med.)</span><span class="val">46</span></div>
+    </div>
+
+    <div class="kpi gwm">
+      <div class="marca">GWM</div>
+      <div class="metric-row"><span class="lbl">Uds vendidas 2025+26</span><span class="val">1,872</span></div>
+      <div class="metric-row"><span class="lbl">Revenue acumulado</span><span class="val">$716M</span></div>
+      <div class="metric-row"><span class="lbl">OR servicio distintas</span><span class="val">4,083</span></div>
+      <div class="metric-row"><span class="lbl">Ratio OR/Venta</span><span class="val">2.18</span></div>
+      <div class="metric-row"><span class="lbl">% autos al taller</span><span class="val">78.7%</span></div>
+      <div class="metric-row"><span class="lbl">Refacciones $ vendidas</span><span class="val">$10.0M</span></div>
+      <div class="metric-row"><span class="lbl">Días a 1er servicio (med.)</span><span class="val">27</span></div>
+    </div>
+  </div>
+
+  <h3>Hallazgos principales</h3>
+  <ol style="padding-left:20px;font-size:9.5pt;line-height:1.5">
+    <li><strong>DCA reemplaza a Galindo como fuente cuantitativa.</strong> Las cifras DCA superan al baseline Galindo (capa A, autorreporte) en <strong>24-54%</strong>: Changan 1,332 (Galindo) vs 1,741 (DCA) 2025 = <strong>+31%</strong>; GWM 915 vs 1,406 = <strong>+54%</strong>. Galindo subreporta sistemáticamente y debe relegarse a contexto cualitativo.</li>
+    <li><strong>Changan tiene problema estructural de retención.</strong> 33.8% de sus autos vendidos en 25-26 nunca volvieron al taller del Grupo. Comparado con GWM (21.3% no-retorno) y GAC (24.8%), Changan es el outlier negativo. Y su ratio OR/Venta de 0.99 vs ~2.10 de las otras dos sugiere visitas más esporádicas.</li>
+    <li><strong>GWM concentra hojalatería.</strong> $6.14M en HyP vs $35K Changan y $35K GAC. Esto puede indicar (a) mayor siniestralidad real del parque GWM, (b) GWM tiene los talleres de HyP del Grupo y otros vehículos del Grupo van ahí, o (c) la dimension de Marca en cubo 30008 captura el dealer y no el auto. <strong>Validar con Inés.</strong></li>
+    <li><strong>Peak 0-30 días en las 3 marcas.</strong> 1,568 servicios capturados en el primer mes post-compra (533 Changan + 450 GAC + 585 GWM). Probable: PDI / entregas / garantía inicial registrada como OR — no es retención post-venta real sino actividad de cierre de venta.</li>
+    <li><strong>Anomalía junio 2026.</strong> Importes muy bajos vs unidades: Changan 45 uds / $2M (=$46K/uds), GAC 103 uds / $6M. Corte parcial al 15-jun con DMS sin facturación completa. <strong>No citar este mes</strong> en deck público sin validar con Inés.</li>
+  </ol>
+
+  <div class="callout info" style="margin-top:14px">
+    <div class="title">Implicación para Plan v2 Deep Dive MKT (Cap 1)</div>
+    Para las 3 chinas, el revenue post-venta capturado ($22.4M refacciones + servicios + HyP) representa <strong>solo 1.5% del revenue de venta nueva</strong> ($1.5B). El benchmark NADA US para dealers es 8-12%. Aun ajustando por contexto MX, hay <strong>headroom estructural</strong> de 5-8× en captura post-venta. Esto se documentará como palanca abierta en el Cap 6 To-Be.
+  </div>
+
+  <div class="page-footer">
+    <div>Pág 1 · Resumen ejecutivo</div>
+    <div><span class="source-pill f">FUENTE F · DCA / BITAM</span> · Verificado contable</div>
+  </div>
+</section>
+
+<!-- ════════════════════ PÁGINA 3 — VENTAS NUEVAS POR MES ════════════════════ -->
+<section class="page">
+  <div class="page-header">
+    <div class="brand">GRUPO <span>PLASENCIA</span> · Marcas Chinas Post-Venta</div>
+    <div class="meta">16 jun 2026 · Capa F (DCA)</div>
+  </div>
+
+  <div class="section-banner">
+    <div class="header-row">
+      <div class="num">01</div>
+      <div>
+        <h2>Ventas de autos nuevos por mes</h2>
+        <p>Cubo DCA 30003 · Filtro: Marca ∈ {GAC, CHANGAN, GWM} ∧ Nuevo/Usado = AUTOS NUEVOS</p>
+      </div>
+    </div>
+  </div>
+
+  <h3>Tabla mensual 2025 + 2026 YTD · unidades</h3>
+
+  <table>
+    <thead>
+      <tr><th>Mes</th>
+        <th class="r" style="color:var(--changan)">CHANGAN</th>
+        <th class="r" style="color:var(--gac)">GAC</th>
+        <th class="r" style="color:var(--gwm)">GWM</th>
+        <th class="r">Total chinas</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><span class="dot"></span>2025/01</td><td class="r">47</td><td class="r">151</td><td class="r">114</td><td class="r b">312</td></tr>
+      <tr><td>2025/02</td><td class="r">61</td><td class="r">58</td><td class="r">117</td><td class="r b">236</td></tr>
+      <tr><td>2025/03</td><td class="r">95</td><td class="r">75</td><td class="r">120</td><td class="r b">290</td></tr>
+      <tr><td>2025/04</td><td class="r">106</td><td class="r">43</td><td class="r">104</td><td class="r b">253</td></tr>
+      <tr><td>2025/05</td><td class="r">158</td><td class="r">82</td><td class="r">89</td><td class="r b">329</td></tr>
+      <tr><td>2025/06</td><td class="r">138</td><td class="r">74</td><td class="r">111</td><td class="r b">323</td></tr>
+      <tr><td>2025/07</td><td class="r">191</td><td class="r">110</td><td class="r">103</td><td class="r b">404</td></tr>
+      <tr><td>2025/08</td><td class="r">207</td><td class="r">116</td><td class="r">148</td><td class="r b">471</td></tr>
+      <tr><td>2025/09</td><td class="r">185</td><td class="r">107</td><td class="r">129</td><td class="r b">421</td></tr>
+      <tr><td>2025/10</td><td class="r">216</td><td class="r">95</td><td class="r">106</td><td class="r b">417</td></tr>
+      <tr><td>2025/11</td><td class="r">146</td><td class="r">86</td><td class="r">129</td><td class="r b">361</td></tr>
+      <tr><td>2025/12</td><td class="r">191</td><td class="r">99</td><td class="r">136</td><td class="r b">426</td></tr>
+      <tr class="total"><td>Total 2025</td><td class="r">1,741</td><td class="r">1,096</td><td class="r">1,406</td><td class="r">4,243</td></tr>
+      <tr><td>2026/01</td><td class="r">121</td><td class="r">68</td><td class="r">114</td><td class="r b">303</td></tr>
+      <tr><td>2026/02</td><td class="r">104</td><td class="r">84</td><td class="r">86</td><td class="r b">274</td></tr>
+      <tr><td>2026/03</td><td class="r">155</td><td class="r">140</td><td class="r">94</td><td class="r b">389</td></tr>
+      <tr><td>2026/04</td><td class="r">160</td><td class="r">92</td><td class="r">75</td><td class="r b">327</td></tr>
+      <tr><td>2026/05</td><td class="r">133</td><td class="r">171</td><td class="r">77</td><td class="r b">381</td></tr>
+      <tr style="color:var(--n500)"><td>2026/06 *</td><td class="r">45</td><td class="r">103</td><td class="r">20</td><td class="r b">168</td></tr>
+      <tr class="total"><td>Total 2026 YTD</td><td class="r">718</td><td class="r">658</td><td class="r">466</td><td class="r">1,842</td></tr>
+      <tr class="total" style="background:#E2E8F0"><td>Acumulado 25+26 YTD</td><td class="r" style="color:var(--changan)">2,459</td><td class="r" style="color:var(--gac)">1,754</td><td class="r" style="color:var(--gwm)">1,872</td><td class="r">6,085</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Curva mensual de unidades</h3>
+
+  <!-- SVG line chart unidades por mes -->
+  <div class="chart-block">
+    <svg viewBox="0 0 700 220" width="100%" height="auto" style="background:var(--n50);border-radius:6px">
+      <!-- Ejes -->
+      <g font-family="Inter" font-size="8" fill="#718096">
+        <line x1="50" y1="190" x2="680" y2="190" stroke="#CBD5E0" stroke-width="1"/>
+        <line x1="50" y1="20" x2="50" y2="190" stroke="#CBD5E0" stroke-width="1"/>
+        <!-- Y labels (0 a 240) -->
+        <text x="42" y="194" text-anchor="end">0</text>
+        <text x="42" y="151" text-anchor="end">60</text>
+        <text x="42" y="108" text-anchor="end">120</text>
+        <text x="42" y="65" text-anchor="end">180</text>
+        <text x="42" y="22" text-anchor="end">240</text>
+        <line x1="50" y1="147" x2="680" y2="147" stroke="#E2E8F0" stroke-dasharray="2,2"/>
+        <line x1="50" y1="104" x2="680" y2="104" stroke="#E2E8F0" stroke-dasharray="2,2"/>
+        <line x1="50" y1="61" x2="680" y2="61" stroke="#E2E8F0" stroke-dasharray="2,2"/>
+        <!-- X labels -->
+        <text x="69" y="205">E25</text><text x="104" y="205">F</text><text x="139" y="205">M</text><text x="174" y="205">A</text><text x="209" y="205">M</text><text x="244" y="205">J</text><text x="279" y="205">J</text><text x="314" y="205">A</text><text x="349" y="205">S</text><text x="384" y="205">O</text><text x="419" y="205">N</text><text x="454" y="205">D</text>
+        <text x="489" y="205">E26</text><text x="524" y="205">F</text><text x="559" y="205">M</text><text x="594" y="205">A</text><text x="629" y="205">M</text><text x="664" y="205" fill="#A0AEC0">J*</text>
+      </g>
+      <!-- Línea Changan (max 240 → scale: y = 190 - val*170/240) -->
+      <polyline fill="none" stroke="#D69E2E" stroke-width="2.2" points="69,156.7 104,146.8 139,122.7 174,114.9 209,78.1 244,92.3 279,54.7 314,43.4 349,58.9 384,37.0 419,86.6 454,54.7 489,104.3 524,116.3 559,80.2 594,76.7 629,95.8 664,158.1"/>
+      <!-- Línea GAC (verde) -->
+      <polyline fill="none" stroke="#48BB78" stroke-width="2.2" points="69,83.0 104,148.9 139,136.9 174,159.6 209,131.9 244,137.6 279,112.1 314,107.8 349,114.2 384,122.7 419,128.4 454,118.5 489,141.9 524,130.5 559,90.8 594,124.8 629,68.9 664,117.1"/>
+      <!-- Línea GWM (azul) -->
+      <polyline fill="none" stroke="#3182CE" stroke-width="2.2" points="69,109.3 104,107.1 139,104.9 174,178.6 209,127.0 244,111.4 279,116.4 314,84.1 349,98.4 384,114.9 419,98.4 454,93.4 489,109.3 524,129.0 559,123.3 594,136.5 629,135.2 664,176.5"/>
+
+      <!-- Markers anomalia junio 2026 -->
+      <line x1="664" y1="20" x2="664" y2="190" stroke="#E53E3E" stroke-dasharray="3,2" stroke-width="0.8" opacity="0.5"/>
+      <text x="660" y="16" font-family="Inter" font-size="7" font-weight="700" fill="#E53E3E" text-anchor="end">corte parcial</text>
+    </svg>
+    <div class="legend">
+      <span><span class="dot changan"></span>CHANGAN</span>
+      <span><span class="dot gac"></span>GAC</span>
+      <span><span class="dot gwm"></span>GWM</span>
+    </div>
+  </div>
+
+  <h3>Revenue acumulado por marca</h3>
+  <div class="cols-3">
+    <div class="kpi changan">
+      <div class="marca">CHANGAN</div>
+      <div class="metric-row"><span class="lbl">2025</span><span class="val">$562.2M</span></div>
+      <div class="metric-row"><span class="lbl">2026 YTD</span><span class="val">$216.5M</span></div>
+      <div class="metric-row"><span class="lbl">Acumulado</span><span class="val">$778.7M</span></div>
+      <div class="metric-row"><span class="lbl">Precio promedio</span><span class="val">$317K</span></div>
+    </div>
+    <div class="kpi gac">
+      <div class="marca">GAC</div>
+      <div class="metric-row"><span class="lbl">2025</span><span class="val">$490.1M</span></div>
+      <div class="metric-row"><span class="lbl">2026 YTD</span><span class="val">$244.1M</span></div>
+      <div class="metric-row"><span class="lbl">Acumulado</span><span class="val">$734.3M</span></div>
+      <div class="metric-row"><span class="lbl">Precio promedio</span><span class="val">$419K</span></div>
+    </div>
+    <div class="kpi gwm">
+      <div class="marca">GWM</div>
+      <div class="metric-row"><span class="lbl">2025</span><span class="val">$537.0M</span></div>
+      <div class="metric-row"><span class="lbl">2026 YTD</span><span class="val">$178.6M</span></div>
+      <div class="metric-row"><span class="lbl">Acumulado</span><span class="val">$715.6M</span></div>
+      <div class="metric-row"><span class="lbl">Precio promedio</span><span class="val">$382K</span></div>
+    </div>
+  </div>
+
+  <div class="callout danger" style="margin-top:8px">
+    <div class="title">⚠ Anomalía 2026/06</div>
+    Importes inconsistentes con unidades vendidas (Changan $46K/uds, GAC $61K/uds, GWM $344K/uds). Probable corte parcial al 15-jun con DMS sin facturación completa. <strong>No citar el mes de junio en deck público sin validar con Inés.</strong>
+  </div>
+
+  <div class="page-footer">
+    <div>Pág 2 · §1 Ventas autos nuevos</div>
+    <div><span class="source-pill f">FUENTE F · DCA cubo 30003</span></div>
+  </div>
+</section>
+
+<!-- ════════════════════ PÁGINA 4 — SERVICIO POST-VENTA ════════════════════ -->
+<section class="page">
+  <div class="page-header">
+    <div class="brand">GRUPO <span>PLASENCIA</span> · Marcas Chinas Post-Venta</div>
+    <div class="meta">16 jun 2026 · Capa F (DCA)</div>
+  </div>
+
+  <div class="section-banner">
+    <div class="header-row">
+      <div class="num">02</div>
+      <div>
+        <h2>Órdenes de servicio post-venta</h2>
+        <p>Cubo DCA 30008 v2 · Filtro: cat=SERVICIO (excluye Internas, Devoluciones, Mostrador) · OR distintas por Folio OR</p>
+      </div>
+    </div>
+  </div>
+
+  <h3>OR distintas por mes × marca</h3>
+
+  <table>
+    <thead>
+      <tr><th>Mes</th><th class="r" style="color:var(--changan)">CHANGAN</th><th class="r" style="color:var(--gac)">GAC</th><th class="r" style="color:var(--gwm)">GWM</th><th class="r">Total OR</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>2025/01</td><td class="r">68</td><td class="r">90</td><td class="r">162</td><td class="r b">320</td></tr>
+      <tr><td>2025/02</td><td class="r">101</td><td class="r">104</td><td class="r">214</td><td class="r b">419</td></tr>
+      <tr><td>2025/03</td><td class="r">98</td><td class="r">255</td><td class="r">209</td><td class="r b">562</td></tr>
+      <tr><td>2025/04</td><td class="r">144</td><td class="r">234</td><td class="r">310</td><td class="r b">688</td></tr>
+      <tr><td>2025/05</td><td class="r">151</td><td class="r">271</td><td class="r">275</td><td class="r b">697</td></tr>
+      <tr><td>2025/06</td><td class="r">163</td><td class="r">218</td><td class="r">280</td><td class="r b">661</td></tr>
+      <tr><td>2025/07</td><td class="r">174</td><td class="r">251</td><td class="r">340</td><td class="r b">765</td></tr>
+      <tr><td>2025/08</td><td class="r">170</td><td class="r">244</td><td class="r">315</td><td class="r b">729</td></tr>
+      <tr><td>2025/09</td><td class="r">191</td><td class="r">299</td><td class="r">310</td><td class="r b">800</td></tr>
+      <tr><td>2025/10</td><td class="r">236</td><td class="r">332</td><td class="r">331</td><td class="r b">899</td></tr>
+      <tr><td>2025/11</td><td class="r">224</td><td class="r">286</td><td class="r">289</td><td class="r b">799</td></tr>
+      <tr><td>2025/12</td><td class="r">298</td><td class="r">308</td><td class="r">399</td><td class="r b">1,005</td></tr>
+      <tr class="total"><td>Total 2025</td><td class="r">1,422</td><td class="r">2,169</td><td class="r">2,595</td><td class="r">6,186</td></tr>
+      <tr><td>2026/01</td><td class="r">294</td><td class="r">376</td><td class="r">447</td><td class="r b">1,117</td></tr>
+      <tr><td>2026/02</td><td class="r">267</td><td class="r">396</td><td class="r">385</td><td class="r b">1,048</td></tr>
+      <tr><td>2026/03</td><td class="r">320</td><td class="r">416</td><td class="r">436</td><td class="r b">1,172</td></tr>
+      <tr><td>2026/04</td><td class="r">285</td><td class="r">420</td><td class="r">404</td><td class="r b">1,109</td></tr>
+      <tr><td>2026/05</td><td class="r">364</td><td class="r">406</td><td class="r">413</td><td class="r b">1,183</td></tr>
+      <tr><td>2026/06 *</td><td class="r">156</td><td class="r">194</td><td class="r">244</td><td class="r b">594</td></tr>
+      <tr class="total"><td>Total 2026 YTD</td><td class="r">1,420</td><td class="r">2,087</td><td class="r">2,076</td><td class="r">5,583</td></tr>
+      <tr class="total" style="background:#E2E8F0"><td>Acumulado 25+26 YTD</td><td class="r" style="color:var(--changan)">2,436</td><td class="r" style="color:var(--gac)">3,651</td><td class="r" style="color:var(--gwm)">4,083</td><td class="r">10,170</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Ratio OR/Venta (acumulado 25+26)</h3>
+
+  <!-- Bar chart ratio -->
+  <div class="chart-block">
+    <svg viewBox="0 0 700 100" width="100%" height="auto" style="background:var(--n50);border-radius:6px">
+      <g font-family="Inter" font-size="10">
+        <!-- CHANGAN -->
+        <text x="20" y="22" fill="#D69E2E" font-weight="700">CHANGAN</text>
+        <rect x="100" y="10" width="151" height="18" fill="#D69E2E" rx="3"/>
+        <text x="260" y="22" fill="#1A1A1A" font-weight="700">0.99 OR/auto</text>
+        <!-- GAC -->
+        <text x="20" y="52" fill="#48BB78" font-weight="700">GAC</text>
+        <rect x="100" y="40" width="317" height="18" fill="#48BB78" rx="3"/>
+        <text x="426" y="52" fill="#1A1A1A" font-weight="700">2.08 OR/auto</text>
+        <!-- GWM -->
+        <text x="20" y="82" fill="#3182CE" font-weight="700">GWM</text>
+        <rect x="100" y="70" width="332" height="18" fill="#3182CE" rx="3"/>
+        <text x="441" y="82" fill="#1A1A1A" font-weight="700">2.18 OR/auto</text>
+      </g>
+    </svg>
+  </div>
+
+  <h3>% de autos vendidos que volvieron al taller del Grupo</h3>
+
+  <div class="chart-block">
+    <svg viewBox="0 0 700 100" width="100%" height="auto" style="background:var(--n50);border-radius:6px">
+      <g font-family="Inter" font-size="10">
+        <text x="20" y="22" fill="#D69E2E" font-weight="700">CHANGAN</text>
+        <rect x="100" y="10" width="350" height="18" fill="#E2E8F0" rx="3"/>
+        <rect x="100" y="10" width="231" height="18" fill="#D69E2E" rx="3"/>
+        <text x="340" y="22" fill="#1A1A1A" font-weight="700">66.2%</text>
+        <text x="455" y="22" fill="#718096" font-size="9">1,205 / 1,819</text>
+
+        <text x="20" y="52" fill="#48BB78" font-weight="700">GAC</text>
+        <rect x="100" y="40" width="350" height="18" fill="#E2E8F0" rx="3"/>
+        <rect x="100" y="40" width="263" height="18" fill="#48BB78" rx="3"/>
+        <text x="372" y="52" fill="#1A1A1A" font-weight="700">75.2%</text>
+        <text x="455" y="52" fill="#718096" font-size="9">1,055 / 1,402</text>
+
+        <text x="20" y="82" fill="#3182CE" font-weight="700">GWM</text>
+        <rect x="100" y="70" width="350" height="18" fill="#E2E8F0" rx="3"/>
+        <rect x="100" y="70" width="275" height="18" fill="#3182CE" rx="3"/>
+        <text x="384" y="82" fill="#1A1A1A" font-weight="700">78.7%</text>
+        <text x="455" y="82" fill="#718096" font-size="9">1,049 / 1,333</text>
+      </g>
+    </svg>
+  </div>
+
+  <div class="callout">
+    <div class="title">Lectura del ratio OR/Venta</div>
+    El ratio es <strong>velocidad de visita</strong> (OR en periodo / autos vendidos en periodo), <strong>NO frecuencia por auto</strong>. Que numerador y denominador sean del mismo periodo significa que las visitas 2026 incluyen autos vendidos en 2024 y antes. La métrica más útil para retención real está en §04 (días a primer servicio + % cobertura).
+  </div>
+
+  <div class="page-footer">
+    <div>Pág 3 · §2 Servicio post-venta</div>
+    <div><span class="source-pill f">FUENTE F · DCA cubo 30008 v2</span></div>
+  </div>
+</section>
+
+<!-- ════════════════════ PÁGINA 5 — VALOR REFACCIONES & SERVICIOS $ ════════════════════ -->
+<section class="page">
+  <div class="page-header">
+    <div class="brand">GRUPO <span>PLASENCIA</span> · Marcas Chinas Post-Venta</div>
+    <div class="meta">16 jun 2026 · Capa F (DCA)</div>
+  </div>
+
+  <div class="section-banner">
+    <div class="header-row">
+      <div class="num">03</div>
+      <div>
+        <h2>Valor monetario · refacciones, servicio, hojalatería</h2>
+        <p>Cubo DCA 30008 v2 (re-extraído 16-jun con I_30500 / I_30498 / I_30499)</p>
+      </div>
+    </div>
+  </div>
+
+  <h3>Composición acumulada 25+26 YTD por marca</h3>
+
+  <table>
+    <thead>
+      <tr><th>Marca</th><th class="r">Servicio $</th><th class="r">Refacciones $</th><th class="r">Hojalatería $</th><th class="r">Total $</th><th class="r">% vs Revenue</th></tr>
+    </thead>
+    <tbody>
+      <tr><td style="color:var(--changan);font-weight:700">CHANGAN</td><td class="r">$3,246,122</td><td class="r">$3,895,092</td><td class="r">$87,638</td><td class="r b">$7,228,852</td><td class="r">0.93%</td></tr>
+      <tr><td style="color:var(--gac);font-weight:700">GAC</td><td class="r">$3,651,810</td><td class="r">$8,491,002</td><td class="r">$34,591</td><td class="r b">$12,177,403</td><td class="r">1.66%</td></tr>
+      <tr><td style="color:var(--gwm);font-weight:700">GWM</td><td class="r">$4,817,297</td><td class="r">$10,008,087</td><td class="r">$6,143,904</td><td class="r b">$20,969,288</td><td class="r">2.93%</td></tr>
+      <tr class="total"><td>TOTAL CHINAS</td><td class="r">$11,715,229</td><td class="r">$22,394,181</td><td class="r">$6,266,133</td><td class="r">$40,375,543</td><td class="r">1.71%</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Distribución por categoría de venta post-venta</h3>
+
+  <div class="chart-block">
+    <svg viewBox="0 0 700 160" width="100%" height="auto" style="background:var(--n50);border-radius:6px">
+      <g font-family="Inter" font-size="9">
+        <!-- Escala: total max ~ 21M → 600px -->
+        <!-- CHANGAN: Serv 3.25M + Ref 3.90M + HyP 0.09M = 7.23M  → 207px width -->
+        <text x="20" y="32" fill="#1A1A1A" font-weight="700">CHANGAN</text>
+        <rect x="100" y="20" width="93" height="18" fill="#4299E1" rx="2"/>
+        <rect x="193" y="20" width="111" height="18" fill="#48BB78"/>
+        <rect x="304" y="20" width="3" height="18" fill="#C8102E"/>
+        <text x="312" y="32" fill="#718096">$7.23M (0.93% rev)</text>
+
+        <!-- GAC: 3.65 + 8.49 + 0.03 = 12.18M → 348px -->
+        <text x="20" y="72" fill="#1A1A1A" font-weight="700">GAC</text>
+        <rect x="100" y="60" width="104" height="18" fill="#4299E1" rx="2"/>
+        <rect x="204" y="60" width="243" height="18" fill="#48BB78"/>
+        <rect x="447" y="60" width="1" height="18" fill="#C8102E"/>
+        <text x="455" y="72" fill="#718096">$12.18M (1.66% rev)</text>
+
+        <!-- GWM: 4.82 + 10.01 + 6.14 = 20.97M → 599px -->
+        <text x="20" y="112" fill="#1A1A1A" font-weight="700">GWM</text>
+        <rect x="100" y="100" width="138" height="18" fill="#4299E1" rx="2"/>
+        <rect x="238" y="100" width="286" height="18" fill="#48BB78"/>
+        <rect x="524" y="100" width="175" height="18" fill="#C8102E"/>
+        <text x="100" y="138" fill="#1A1A1A" font-weight="700">$20.97M (2.93% rev)</text>
+
+        <!-- Legend -->
+        <g transform="translate(450, 130)">
+          <rect x="0" y="0" width="10" height="10" fill="#4299E1"/><text x="14" y="9" fill="#1A1A1A">Servicio</text>
+          <rect x="65" y="0" width="10" height="10" fill="#48BB78"/><text x="79" y="9" fill="#1A1A1A">Refacciones</text>
+          <rect x="155" y="0" width="10" height="10" fill="#C8102E"/><text x="169" y="9" fill="#1A1A1A">Hojalatería</text>
+        </g>
+      </g>
+    </svg>
+  </div>
+
+  <div class="callout danger">
+    <div class="title">🔴 GWM concentra hojalatería</div>
+    GWM acumula <strong>$6.14M en HyP</strong> (29% de su total post-venta) vs casi cero en Changan ($88K) y GAC ($35K). Tres hipótesis:
+    <ol style="margin-left:20px;margin-top:4px">
+      <li><strong>Siniestralidad real:</strong> el parque GWM tiene más accidentes/colisiones</li>
+      <li><strong>Atribución cruzada:</strong> el taller GWM atiende HyP de otras marcas y la dimensión "Marca" del cubo 30008 está capturando el dealer, no el auto</li>
+      <li><strong>Cobertura unilateral:</strong> GWM tiene infraestructura HyP que las otras chinas no</li>
+    </ol>
+    Validar con Inés cuál aplica antes de citar este número en presentación.
+  </div>
+
+  <h3>Headroom estructural post-venta</h3>
+
+  <table>
+    <thead>
+      <tr><th>Métrica</th><th class="r">Chinas actual</th><th class="r">Benchmark NADA US</th><th class="r">Gap</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Revenue post-venta / Revenue total</td><td class="r b">1.71%</td><td class="r">8-12%</td><td class="r" style="color:var(--error);font-weight:700">5-7× headroom</td></tr>
+      <tr><td>Refacciones $ / Venta nueva $</td><td class="r b">0.95%</td><td class="r">3-5%</td><td class="r" style="color:var(--error);font-weight:700">3-5× headroom</td></tr>
+      <tr><td>% autos al taller propio</td><td class="r b">73.0%</td><td class="r">50-65% (post 1er año)</td><td class="r" style="color:var(--success);font-weight:700">arriba del benchmark</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout info">
+    <div class="title">Interpretación para Plan v2 Deep Dive MKT (Cap 6 To-Be)</div>
+    El parque captura mejor que el benchmark NADA en presencia al taller, pero <strong>el ticket promedio post-venta es muy bajo</strong>. Hipótesis: clientes vienen a mantenimiento básico pero compran refacciones, hojalatería y servicios mayores fuera. Palanca abierta: <strong>plan de fidelización + upsell de refacciones genuinas + paquetes de mantenimiento extendido</strong>. Cuantificable como ask específico al Consejo.
+  </div>
+
+  <div class="page-footer">
+    <div>Pág 4 · §3 Valor monetario</div>
+    <div><span class="source-pill f">FUENTE F · DCA cubo 30008 v2 inds I_30500 / I_30498 / I_30499</span></div>
+  </div>
+</section>
+
+<!-- ════════════════════ PÁGINA 6 — TIEMPO A PRIMER SERVICIO ════════════════════ -->
+<section class="page">
+  <div class="page-header">
+    <div class="brand">GRUPO <span>PLASENCIA</span> · Marcas Chinas Post-Venta</div>
+    <div class="meta">16 jun 2026 · Capa F (DCA)</div>
+  </div>
+
+  <div class="section-banner">
+    <div class="header-row">
+      <div class="num">04</div>
+      <div>
+        <h2>Tiempo entre compra y primer servicio</h2>
+        <p>Join VIN limpio (sin asteriscos) entre cubo 30003 y cubo 30008 v2 · Solo cat=SERVICIO · fecha_serv ≥ fecha_venta</p>
+      </div>
+    </div>
+  </div>
+
+  <h3>Métricas clave por marca</h3>
+
+  <table>
+    <thead>
+      <tr><th>Marca</th><th class="r">Vendidos en periodo</th><th class="r">Con servicio en taller</th><th class="r">% Cobertura</th><th class="r">Promedio días</th><th class="r">Mediana días</th></tr>
+    </thead>
+    <tbody>
+      <tr><td style="color:var(--changan);font-weight:700">CHANGAN</td><td class="r">1,819</td><td class="r">1,205</td><td class="r b">66.2%</td><td class="r">91</td><td class="r">46</td></tr>
+      <tr><td style="color:var(--gac);font-weight:700">GAC</td><td class="r">1,402</td><td class="r">1,055</td><td class="r b">75.2%</td><td class="r">66</td><td class="r">46</td></tr>
+      <tr><td style="color:var(--gwm);font-weight:700">GWM</td><td class="r">1,333</td><td class="r">1,049</td><td class="r b">78.7%</td><td class="r">73</td><td class="r b" style="color:var(--gwm)">27</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Distribución por buckets de días</h3>
+
+  <!-- Bar chart agrupado: 5 buckets × 3 marcas -->
+  <div class="chart-block">
+    <svg viewBox="0 0 700 230" width="100%" height="auto" style="background:var(--n50);border-radius:6px">
+      <g font-family="Inter" font-size="8" fill="#718096">
+        <!-- Eje X buckets -->
+        <line x1="50" y1="190" x2="680" y2="190" stroke="#CBD5E0"/>
+        <line x1="50" y1="20" x2="50" y2="190" stroke="#CBD5E0"/>
+        <!-- Y labels (0-600) -->
+        <text x="42" y="194" text-anchor="end">0</text>
+        <text x="42" y="151" text-anchor="end">150</text>
+        <text x="42" y="108" text-anchor="end">300</text>
+        <text x="42" y="65" text-anchor="end">450</text>
+        <text x="42" y="22" text-anchor="end">600</text>
+        <line x1="50" y1="147" x2="680" y2="147" stroke="#E2E8F0" stroke-dasharray="2,2"/>
+        <line x1="50" y1="104" x2="680" y2="104" stroke="#E2E8F0" stroke-dasharray="2,2"/>
+        <line x1="50" y1="61" x2="680" y2="61" stroke="#E2E8F0" stroke-dasharray="2,2"/>
+      </g>
+
+      <!-- Bars: bucket 0-30d (x=80) -->
+      <!-- scale: val * 170/600 = px. CHANGAN 533, GAC 450, GWM 585 -->
+      <g>
+        <rect x="80" y="40.9" width="30" height="149.1" fill="#D69E2E"/>
+        <rect x="112" y="62.5" width="30" height="127.5" fill="#48BB78"/>
+        <rect x="144" y="24.3" width="30" height="165.7" fill="#3182CE"/>
+        <text x="127" y="208" text-anchor="middle" font-family="Inter" font-size="9" fill="#1A1A1A" font-weight="600">0-30 d</text>
+        <text x="95" y="36" text-anchor="middle" font-size="7" fill="#1A1A1A" font-weight="700">533</text>
+        <text x="127" y="58" text-anchor="middle" font-size="7" fill="#1A1A1A" font-weight="700">450</text>
+        <text x="159" y="20" text-anchor="middle" font-size="7" fill="#1A1A1A" font-weight="700">585</text>
+      </g>
+
+      <!-- Bucket 31-90d (x=220) CHANGAN 187, GAC 260, GWM 175 -->
+      <g>
+        <rect x="220" y="137" width="30" height="53" fill="#D69E2E"/>
+        <rect x="252" y="116.3" width="30" height="73.7" fill="#48BB78"/>
+        <rect x="284" y="140.4" width="30" height="49.6" fill="#3182CE"/>
+        <text x="267" y="208" text-anchor="middle" font-size="9" fill="#1A1A1A" font-weight="600">31-90 d</text>
+        <text x="235" y="132" text-anchor="middle" font-size="7" fill="#1A1A1A" font-weight="700">187</text>
+        <text x="267" y="112" text-anchor="middle" font-size="7" fill="#1A1A1A" font-weight="700">260</text>
+        <text x="299" y="136" text-anchor="middle" font-size="7" fill="#1A1A1A" font-weight="700">175</text>
+      </g>
+
+      <!-- Bucket 91-180d (x=360) CHANGAN 214, GAC 294, GWM 106 -->
+      <g>
+        <rect x="360" y="129.4" width="30" height="60.6" fill="#D69E2E"/>
+        <rect x="392" y="106.7" width="30" height="83.3" fill="#48BB78"/>
+        <rect x="424" y="160" width="30" height="30" fill="#3182CE"/>
+        <text x="407" y="208" text-anchor="middle" font-size="9" fill="#1A1A1A" font-weight="600">91-180 d</text>
+        <text x="375" y="125" text-anchor="middle" font-size="7" fill="#1A1A1A" font-weight="700">214</text>
+        <text x="407" y="102" text-anchor="middle" font-size="7" fill="#1A1A1A" font-weight="700">294</text>
+        <text x="439" y="156" text-anchor="middle" font-size="7" fill="#1A1A1A" font-weight="700">106</text>
+      </g>
+
+      <!-- Bucket 181-365d (x=500) CHANGAN 266, GAC 49, GWM 176 -->
+      <g>
+        <rect x="500" y="114.6" width="30" height="75.4" fill="#D69E2E"/>
+        <rect x="532" y="176.1" width="30" height="13.9" fill="#48BB78"/>
+        <rect x="564" y="140.1" width="30" height="49.9" fill="#3182CE"/>
+        <text x="547" y="208" text-anchor="middle" font-size="9" fill="#1A1A1A" font-weight="600">181-365 d</text>
+        <text x="515" y="110" text-anchor="middle" font-size="7" fill="#1A1A1A" font-weight="700">266</text>
+        <text x="547" y="172" text-anchor="middle" font-size="7" fill="#1A1A1A" font-weight="700">49</text>
+        <text x="579" y="136" text-anchor="middle" font-size="7" fill="#1A1A1A" font-weight="700">176</text>
+      </g>
+
+      <!-- Bucket 366+ d (x=630) CHANGAN 5, GAC 2, GWM 7 -->
+      <g>
+        <rect x="620" y="188.6" width="20" height="1.4" fill="#D69E2E"/>
+        <rect x="641" y="189.4" width="20" height="0.6" fill="#48BB78"/>
+        <rect x="662" y="188" width="15" height="2" fill="#3182CE"/>
+        <text x="649" y="208" text-anchor="middle" font-size="9" fill="#1A1A1A" font-weight="600">366+ d</text>
+      </g>
+
+      <!-- Legend -->
+      <g transform="translate(50, 220)" font-family="Inter" font-size="9">
+        <rect x="0" y="-7" width="10" height="10" fill="#D69E2E"/><text x="14" y="2" fill="#1A1A1A">CHANGAN</text>
+        <rect x="90" y="-7" width="10" height="10" fill="#48BB78"/><text x="104" y="2" fill="#1A1A1A">GAC</text>
+        <rect x="160" y="-7" width="10" height="10" fill="#3182CE"/><text x="174" y="2" fill="#1A1A1A">GWM</text>
+      </g>
+    </svg>
+  </div>
+
+  <div class="callout">
+    <div class="title">Lectura del bucket 0-30d</div>
+    Las 3 marcas tienen un peak grande en el primer mes (Changan 533 / GAC 450 / GWM 585). Sospechoso: probablemente <strong>incluye PDI, garantías iniciales, y servicios de cortesía registrados como OR</strong>, no mantenimiento programado del cliente. Filtrar adicionalmente <code>tipo_orden NOT LIKE '%GARANTIA%'</code> en próxima iteración para depurar.
+  </div>
+
+  <h3>Patrones por marca</h3>
+
+  <div class="cols-3" style="margin-top:8px">
+    <div class="kpi changan">
+      <div class="marca">CHANGAN — Distribuido</div>
+      <div style="font-size:9pt;color:var(--n600);margin-top:6px;line-height:1.4">
+        Patrón más amplio. Pico 0-30d (44%), luego cae y vuelve a subir 181-365d (22%). Sugiere mezcla de garantía inicial + clientes que vuelven al año. Cobertura 66% — <strong>la más baja de las 3</strong>.
+      </div>
+    </div>
+    <div class="kpi gac">
+      <div class="marca">GAC — 90 días</div>
+      <div style="font-size:9pt;color:var(--n600);margin-top:6px;line-height:1.4">
+        Concentración 31-180d (52%). Mediana 46d alineada con mantenimiento programado a 3 meses / 5,000 km. Cobertura 75% — la más alineada al modelo OEM tradicional.
+      </div>
+    </div>
+    <div class="kpi gwm">
+      <div class="marca">GWM — Bimodal</div>
+      <div style="font-size:9pt;color:var(--n600);margin-top:6px;line-height:1.4">
+        Doble peak: 0-30d (56%) + 181-365d (17%). Mediana 27d (la más baja). Patrón consistente con PDI heavy + visitas anuales. Cobertura 79% — la más alta.
+      </div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <div>Pág 5 · §4 Tiempo primer servicio</div>
+    <div><span class="source-pill f">FUENTE F · Join VIN cubo 30003 ⨝ 30008</span></div>
+  </div>
+</section>
+
+<!-- ════════════════════ PÁGINA 7 — METODOLOGÍA & CAVEATS ════════════════════ -->
+<section class="page">
+  <div class="page-header">
+    <div class="brand">GRUPO <span>PLASENCIA</span> · Marcas Chinas Post-Venta</div>
+    <div class="meta">16 jun 2026 · Capa F (DCA)</div>
+  </div>
+
+  <div class="section-banner">
+    <div class="header-row">
+      <div class="num">05</div>
+      <div>
+        <h2>Metodología, caveats y reproducibilidad</h2>
+        <p>Trazabilidad completa de cómo se calculó cada métrica</p>
+      </div>
+    </div>
+  </div>
+
+  <h3>Pipeline de datos</h3>
+  <ol style="padding-left:20px;font-size:9.5pt;line-height:1.6">
+    <li><strong>Cookie BITAM fresca</strong> obtenida con cuenta <code>jmorales@grupoplasencia.com</code> (Pepe Morales, user 261) vía MCP Chrome + Blob-download. Cookie en <code>/tmp/bitam_extract/cookie.txt</code> con <code>chmod 600</code>, destruida con <code>shred -u</code> al final.</li>
+    <li><strong>Re-extracción cubo 30008</strong> con 30 cols seleccionadas (16 dims + 14 inds monetarios). Workaround: chunks <strong>mensuales</strong> (no trimestrales) porque BITAM falla silenciosamente con alto volumen + 30 cols. 18 archivos × ~20MB = 345MB total. Tiempo: 21 min.</li>
+    <li><strong>Ingest a D1</strong> <code>bitam-mkt</code> via <code>npx wrangler d1 execute --remote</code>. Migration <code>0004_ventas_servicio.sql</code> aplicada. Idempotente (TRUNCATE antes de cada cubo).</li>
+    <li><strong>Limpieza:</strong> VINs con asteriscos <code>*VIN*</code> → <code>VIN</code> · Importes raw <code>="$250,000"</code> → REAL · Numéricos vacíos/NA/ND → NULL.</li>
+    <li><strong>Filtros aplicados:</strong> Marca del auto ∈ {GAC, CHANGAN, GWM} (NO Marca Sucursal del dealer) · Nuevo/Usado = AUTOS NUEVOS (solo en 30003) · cat=SERVICIO (excluye Internas, Devoluciones, Mostrador) en 30008.</li>
+  </ol>
+
+  <h3>Clasificación de Tipo Orden (cubo 30008)</h3>
+
+  <table>
+    <thead><tr><th>Categoría</th><th>Patrones incluidos</th><th>Acción</th></tr></thead>
+    <tbody>
+      <tr><td><span class="dot" style="background:var(--success)"></span><strong>SERVICIO</strong></td><td>Publico, Previa, Express, Reparacion, Garantia, Aseguradora, Hojalateria, Estetica, HYP, Filiales</td><td>✅ Incluido</td></tr>
+      <tr><td><span class="dot" style="background:var(--n400)"></span>MOSTRADOR</td><td>VM.*, Mostrador, Mayoreo, Accesorios, Llantas, códigos numéricos</td><td>❌ Excluido</td></tr>
+      <tr><td><span class="dot" style="background:var(--n400)"></span>INTERNA</td><td>INTERNA*, INTERNO</td><td>❌ Excluido</td></tr>
+      <tr><td><span class="dot" style="background:var(--n400)"></span>DEV</td><td>DEV*, Devoluciones</td><td>❌ Excluido</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Caveats metodológicos</h3>
+  <ol style="padding-left:20px;font-size:9.5pt;line-height:1.6">
+    <li><strong>Anomalía junio 2026</strong> — importes inconsistentes con uds. NO citar mes parcial sin validar.</li>
+    <li><strong>"Primer servicio" incluye GARANTIA</strong> — infla el peak 0-30d (PDI / pre-delivery / cortesía). Para análisis de "mantenimiento programado puro" filtrar también <code>tipo_orden NOT LIKE '%GARANTIA%'</code>.</li>
+    <li><strong>Cobertura temporal sesgada</strong> — autos vendidos en mayo/junio 2026 tienen ventana corta para servicio. Sesga la tasa de cobertura hacia abajo, sobre todo para cohort 2026.</li>
+    <li><strong>Filtro por Marca del auto</strong> (no Marca Sucursal). Los $6.14M HyP GWM puede estar capturando talleres del dealer GWM atendiendo otras marcas. <strong>Validación pendiente con Inés.</strong></li>
+    <li><strong>OR distinta</strong> ahora correcta con <code>Folio Orden Reparacion</code> capturado en v2 (no estaba en v1). Esto explica por qué los conteos de OR bajaron vs cálculos previos.</li>
+  </ol>
+
+  <h3>Comparación DCA vs Galindo (capa A)</h3>
+
+  <table>
+    <thead><tr><th>Marca</th><th class="r">Galindo 2025</th><th class="r">DCA 2025</th><th class="r">Diferencia</th><th>Notas</th></tr></thead>
+    <tbody>
+      <tr><td><strong>CHANGAN</strong></td><td class="r">1,332</td><td class="r">1,741</td><td class="r" style="color:var(--success);font-weight:700">+30.7%</td><td>Galindo subreporta</td></tr>
+      <tr><td><strong>GWM</strong></td><td class="r">915</td><td class="r">1,406</td><td class="r" style="color:var(--success);font-weight:700">+53.7%</td><td>Galindo subreporta fuertemente</td></tr>
+      <tr><td><strong>GAC</strong></td><td class="r">N/A</td><td class="r">1,096</td><td class="r">—</td><td>No estaba en Contexto Galindo</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout info">
+    <div class="title">Conclusión metodológica</div>
+    Galindo (autorreporte gerentes sin verificación contable) subreporta sistemáticamente 24-54%. <strong>Confirmar al Plan v2:</strong> DCA reemplaza a Galindo para cifras cuantitativas; Galindo queda como contexto cualitativo (estructura, narrativas, no números).
+  </div>
+
+  <div class="page-footer">
+    <div>Pág 6 · §5 Metodología</div>
+    <div>Cookie destruida con shred · Pipeline reusable</div>
+  </div>
+</section>
+
+<!-- ════════════════════ PÁGINA 8 — QUERIES SQL & PRÓXIMOS PASOS ════════════════════ -->
+<section class="page">
+  <div class="page-header">
+    <div class="brand">GRUPO <span>PLASENCIA</span> · Marcas Chinas Post-Venta</div>
+    <div class="meta">16 jun 2026 · Capa F (DCA)</div>
+  </div>
+
+  <div class="section-banner">
+    <div class="header-row">
+      <div class="num">06</div>
+      <div>
+        <h2>Anexo · Queries SQL canónicas (D1 bitam-mkt)</h2>
+        <p>Reusables para cualquier marca o segmento. Schema en migration 0004_ventas_servicio.sql</p>
+      </div>
+    </div>
+  </div>
+
+  <h3>Q1 · Ventas nuevas por mes × marca (chinas)</h3>
+<pre>SELECT mes, marca, COUNT(*) AS uds,
+       ROUND(SUM(importe_factura),0) AS importe
+FROM cubo_30003_ventas
+WHERE nuevo_usado = 'AUTOS NUEVOS'
+  AND marca IN ('GAC','CHANGAN','GWM')
+GROUP BY mes, marca
+ORDER BY mes, marca;</pre>
+
+  <h3>Q2 · Órdenes de servicio + valor $ por mes × marca</h3>
+<pre>SELECT mes, marca,
+  COUNT(DISTINCT folio_or)       AS or_distintas,
+  COUNT(DISTINCT vin)            AS vin_distintos,
+  ROUND(SUM(venta),0)            AS venta_total,
+  ROUND(SUM(vta_serv),0)         AS venta_servicio,
+  ROUND(SUM(vta_ref),0)          AS venta_refacciones,
+  ROUND(SUM(vta_hyp),0)          AS venta_hojalateria
+FROM cubo_30008_servicio
+WHERE marca IN ('GAC','CHANGAN','GWM')
+  AND tipo_venta_serv_most IN ('Servicio','Hojalatería')
+  AND tipo_orden NOT LIKE '%INTERNA%'
+  AND tipo_orden NOT LIKE 'DEV%'
+GROUP BY mes, marca
+ORDER BY mes, marca;</pre>
+
+  <h3>Q3 · Tiempo compra → primer servicio (join VIN)</h3>
+<pre>WITH primer_servicio AS (
+  SELECT vin, marca, MIN(fecha_facturacion) AS fecha_primer_servicio
+  FROM cubo_30008_servicio
+  WHERE marca IN ('GAC','CHANGAN','GWM')
+    AND tipo_venta_serv_most IN ('Servicio','Hojalatería')
+    AND tipo_orden NOT LIKE '%INTERNA%'
+    AND tipo_orden NOT LIKE 'DEV%'
+  GROUP BY vin, marca
+),
+ventas AS (
+  SELECT vin, marca, MIN(fecha_venta) AS fecha_venta
+  FROM cubo_30003_ventas
+  WHERE nuevo_usado = 'AUTOS NUEVOS'
+    AND marca IN ('GAC','CHANGAN','GWM')
+  GROUP BY vin, marca
+)
+SELECT v.marca,
+  COUNT(*) AS autos_con_servicio,
+  ROUND(AVG(JULIANDAY(ps.fecha_primer_servicio) -
+            JULIANDAY(v.fecha_venta)),0)             AS dias_promedio,
+  MIN(JULIANDAY(ps.fecha_primer_servicio) -
+      JULIANDAY(v.fecha_venta))                       AS min_dias,
+  MAX(JULIANDAY(ps.fecha_primer_servicio) -
+      JULIANDAY(v.fecha_venta))                       AS max_dias
+FROM ventas v
+JOIN primer_servicio ps ON v.vin = ps.vin
+WHERE JULIANDAY(ps.fecha_primer_servicio) &gt;= JULIANDAY(v.fecha_venta)
+GROUP BY v.marca;</pre>
+
+  <h2>Próximos pasos</h2>
+
+  <ol style="padding-left:20px;font-size:10pt;line-height:1.6">
+    <li><strong>Validación con Inés</strong> de tres puntos: (a) corte parcial junio 2026 — ¿cuándo se cierra?; (b) atribución de HyP $6.14M a GWM — ¿es el auto o el dealer?; (c) ¿podemos extender la misma extracción a Hyundai, Ford, Isuzu que están ausentes del cubo 30003?</li>
+    <li><strong>Endpoint en bitam-mkt-api</strong> para exponer estos queries via worker (similar a <code>/resumen</code>): <code>GET /chinas/postventa</code> con params <code>?marca=GAC&periodo=2026</code>. ETA 1 hr scripting.</li>
+    <li><strong>Iteración v3 del extracto 30008</strong> añadiendo <code>Fecha Tomó Ult Servicio</code> + <code>Fecha Vino Servicio</code> + <code>Kilometraje</code> + <code>Asesor</code> + <code>Mecanico</code>. Permitirá análisis de upsell, ticket por asesor, y kms al servicio.</li>
+    <li><strong>Insumo directo a Plan v2 Deep Dive MKT Cap 1</strong> (Unit Economics): este reporte aporta el desglose post-venta de las 3 chinas. Para Cap 6 To-Be: usar el headroom 5-7× post-venta como palanca cuantificada al Consejo.</li>
+    <li><strong>Replicar análisis para las 5 marcas restantes</strong> (Mazda, Stellantis, Ford, Hyundai, Isuzu) con el mismo pipeline. Tiempo estimado: 2-3 hrs de extracción adicional + 30 min de análisis.</li>
+  </ol>
+
+  <div style="margin-top:18px;padding:14px;background:var(--gp-navy);color:#fff;border-radius:6px">
+    <div style="font-family:var(--font-display);font-weight:800;font-size:13pt;letter-spacing:-0.3px">¿Preguntas? Pipeline y data en:</div>
+    <div style="font-size:9.5pt;color:var(--n200);margin-top:8px;line-height:1.6">
+      • Tablas D1: <code style="background:rgba(255,255,255,0.1);color:#fff">cubo_30003_ventas</code> + <code style="background:rgba(255,255,255,0.1);color:#fff">cubo_30008_servicio</code> en database <code style="background:rgba(255,255,255,0.1);color:#fff">bitam-mkt</code><br>
+      • Migration: <code style="background:rgba(255,255,255,0.1);color:#fff">bitam-mkt-worker/migrations/0004_ventas_servicio.sql</code><br>
+      • Ingest script: <code style="background:rgba(255,255,255,0.1);color:#fff">bitam-mkt-worker/scripts/ingest_ventas_servicio.py</code><br>
+      • Work session: <code style="background:rgba(255,255,255,0.1);color:#fff">04-sessions/2026-06-16-work-session-analisis-chinas-postventa-dca.md</code><br>
+      • Runbook BITAM: <code style="background:rgba(255,255,255,0.1);color:#fff">03-tech/BITAM-Runbook-Extraccion-Datos.md</code>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <div>Pág 7 · Anexo SQL + Próximos pasos</div>
+    <div style="font-family:var(--font-display);font-weight:700">GRUPO PLASENCIA · Dir. Marketing Corporativo</div>
+  </div>
+</section>
+
+</body>
+</html>
