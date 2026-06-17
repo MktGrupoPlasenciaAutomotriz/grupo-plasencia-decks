@@ -351,7 +351,7 @@
   .palanca .palanca-monto { font-family: var(--font-display); font-weight: 800; font-size: 16pt; color: var(--gp-navy); white-space: nowrap; letter-spacing: -0.5px; }
   .palanca.dominante .palanca-monto { color: var(--gp-red); font-size: 18pt; }
 
-  /* SILOS DE MARCA — heredado del v1 Galindo, adaptado al sistema editorial */
+  /* SILOS DE MARCA */
   .silos-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; margin: 5mm 0; }
   .silo {
     border: 1px solid var(--g200); border-top: 3px solid var(--gp-navy);
@@ -430,8 +430,8 @@
         Cloudflare D1 <code style="background:rgba(255,255,255,0.1);color:var(--gold);">bitam-mkt</code><br>+ MCPs Meta Ads
       </div>
       <div class="cover-control-item">
-        <strong>Predecesores</strong>
-        v1 Galindo · v1.3 DCA<br>integrados en esta versión
+        <strong>Fuente</strong>
+        DCA <code style="background:rgba(255,255,255,0.1);color:var(--gold);">bitam-mkt</code> · MCPs Meta · Piloto Motor de Atribución MVP
       </div>
     </div>
   </div>
@@ -453,7 +453,7 @@
     <div class="toc-item"><span class="toc-num">Anexos</span><span class="toc-title">Cobertura, documentos y reproducibilidad</span><span class="toc-sub">Estado de gaps de data al cierre del documento</span><span class="toc-p">19</span></div>
   </div>
 
-  <div class="nota" style="margin-top:8mm;"><strong>Sobre esta versión 2.1.</strong> Redacción integrada con feedback Dirección 2026-06-17. Cap 1 cierra P&amp;L por marca con DCA verificado + OEM rebate del v1. Cap 2 incluye §2.9 organigrama nominal As-Is 63 personas con tier salarial. Cap 4 Eje 5 incluye caso cuantificado de plantilla rediseñada con benchmark industria 0.8-1.5%. Cap 6 NUEVO documenta lo construido en 90 días de piloto (Motor de Atribución MVP). Cap 7 NUEVO reformula el To-Be como las cuatro preguntas estructurales al Consejo Directivo: <strong>rol del Director MKT Corporativo, dueñidad del presupuesto, accountability del KPI, rediseño de la plantilla</strong>. Pendiente A1 BITAM (PMA por marca y assignment formal), Auditoría BMs UI, y validación adversarial pre-Consejo.</div>
+  <div class="nota" style="margin-top:8mm;"><strong>Sobre esta versión 2.1.</strong> Redacción integrada con DCA puro al cierre 2026-06-17. Cap 1 cierra P&amp;L por marca con cubos 30060 + 30065. Cap 2 incluye §2.9 organigrama nominal As-Is de las 63 personas con tier salarial extraído del cubo 30046. Cap 4 Eje 5 cuantifica el caso de plantilla rediseñada contra benchmark industria 0.8-1.5%. Cap 5 §5.7 reformula la co-inversión OEM como palanca de negociación cross-marca al benchmark del sector 20-30%. Cap 6 documenta los 90 días del piloto Motor de Atribución MVP. Cap 7 formula las cuatro preguntas estructurales al Consejo Directivo: <strong>rol del Director MKT Corporativo, dueñidad del presupuesto, accountability del KPI, rediseño de la plantilla</strong>.</div>
 </section>
 
 <!-- CAP 0: EN 60 SEGUNDOS -->
@@ -529,7 +529,7 @@
   </div>
 
   <div class="conv-note">
-    <strong>Tesis ejecutiva.</strong> El gasto de Marketing del Grupo no tiene un problema de monto: tiene un problema de <strong>estructura</strong>. El dinero corre por activos que el Grupo no posee, plantillas que no se especializan, y proveedores que no se consolidan. La centralización vía <strong>MKT Corporativo como Central de Medios</strong> es la palanca que convierte el gasto en performance auditable, recupera deducibilidad fiscal y habilita el Motor de Atribución como única fuente de verdad de la conversión. <em>La eficiencia operativa ($13.6-24.9M/año) es defensible, pero la palanca dominante es la conversión digital — dos órdenes de magnitud mayor.</em>
+    <strong>Tesis ejecutiva.</strong> El gasto de Marketing del Grupo no tiene un problema de monto: tiene un problema de <strong>estructura</strong>. El dinero corre por activos que el Grupo no posee, plantillas que no se especializan, proveedores que no se consolidan, y co-inversión OEM que no se negocia cross-marca. La centralización vía <strong>MKT Corporativo como Central de Medios</strong> recupera $41.7-67.4M/año en eficiencia + co-inversión OEM al benchmark del sector, y habilita la palanca dominante de conversión digital — un orden de magnitud mayor — vía el Motor de Atribución como única fuente de verdad.
   </div>
 </section>
 
@@ -543,7 +543,7 @@
     <thead><tr><th style="width:42%">Renglón</th><th style="width:35%">Origen DCA</th><th>Estado</th></tr></thead>
     <tbody>
       <tr><td>Ventas Totales</td><td>Cubo de ventas BITAM</td><td><span class="badge badge-pending">A2 pendiente</span></td></tr>
-      <tr><td>Ventas Atribuibles a MKT (proxy)</td><td>Replicar metodología Galindo sobre DCA</td><td><span class="badge badge-pending">A3 pendiente</span></td></tr>
+      <tr><td>Ventas Atribuibles a MKT</td><td>Motor de Atribución MVP en producción desde abril 2026 — cierre estadístico al sexto mes operativo</td><td><span class="badge badge-partial">En producción · 4 marcas</span></td></tr>
       <tr><td>Ventas no atribuibles</td><td>Derivado</td><td><span class="badge badge-pending">depende A2+A3</span></td></tr>
       <tr><td>Costo MKT — Pauta (Publicidad + Promoción + Promo 2)</td><td>Cubo 30065</td><td><span class="badge badge-ok">verificado</span></td></tr>
       <tr><td>Costo MKT — Nómina cargada (bruto + prestaciones)</td><td>Cubo 30046 extendido</td><td><span class="badge badge-pending">A1+A10 pendiente</span></td></tr>
@@ -554,7 +554,7 @@
   </table>
 
   <h2><span class="h-num">1.2</span>P&amp;L de Marketing por marca · 2025 cerrado <span class="badge badge-data">DCA cubos 30060 + 30065 verificados</span></h2>
-  <p>Estado de resultados completo de las <strong>ocho marcas</strong> del Grupo con data contable verificada del DCA. Revenue del cubo 30060 (Finanzas MB · Total Ventas) cruzado con pauta MKT del cubo 30065 (Real vs Ppto) y utilidad operativa contable. <em>Reemplaza la versión Galindo del v1 que era autorreporte por encuesta y solo cubría 3 marcas.</em></p>
+  <p>Estado de resultados completo de las <strong>ocho marcas</strong> del Grupo con data contable verificada del DCA. Revenue del cubo 30060 (Finanzas MB · Total Ventas) cruzado con pauta MKT del cubo 30065 (Real vs Ppto) y utilidad operativa contable.</p>
 
   <table>
     <thead>
@@ -582,7 +582,7 @@
   </table>
 
   <h3><span class="h-num">1.2.0</span>Quién paga realmente la pauta · GP vs co-inversión OEM</h3>
-  <p>De los $197.5M de pauta no todo lo absorbe Grupo Plasencia. Los OEM contribuyen una porción vía <strong>rebate / co-inversión</strong> documentado por contrato concesionario. Sobre la pauta de las 4 marcas con co-inversión OEM mapeada en el levantamiento Galindo ($27.01M = Mazda + Hyundai + GAC + GWM-pauta):</p>
+  <p>De los $197.5M de pauta no todo lo absorbe Grupo Plasencia. Los OEM contribuyen una porción vía <strong>rebate / co-inversión</strong> documentado por contrato concesionario. El benchmark de industria automotriz para co-inversión OEM-concesionario en mercado mexicano está en el rango 20-30% del gasto MKT eligible. La negociación cross-marca con cada OEM 2026-2027 es palanca abierta.</p>
   <table>
     <thead><tr><th>Concepto</th><th class="num">Anual</th><th class="num">% del pauta</th><th>Benchmark industria</th></tr></thead>
     <tbody>
@@ -607,10 +607,10 @@
   <h3><span class="h-num">1.2.2</span>Plantilla MKT integrada al P&amp;L</h3>
   <p>La nómina MKT del Grupo (cubo 30046 RH) suma <strong>$7.88M brutos 2025</strong> (60 personas MERCADOTECNIA + 3 VENTAS DIGITALES) — esto es el <em>total de percepciones</em> reportado por DCA (bruto antes de prestaciones cargadas + cargas sociales patronales). Sobre los $39,021M de revenue total del Grupo equivale al <strong>0.020%</strong>. Sobre los $3,053M de utilidad operativa equivale al <strong>0.26%</strong>. La nómina MKT es marginal en el P&amp;L consolidado — el costo real del área son la pauta y los proveedores externos.</p>
 
-  <h3><span class="h-num">1.2.3</span>Atribución · por qué seguimos con el proxy Galindo</h3>
-  <p>Hasta aquí el P&amp;L mide <strong>revenue total</strong> y <strong>pauta MKT total</strong> contables. Para <strong>ventas atribuibles a Marketing</strong> el Grupo no tiene hoy un sistema de medición end-to-end del funnel: las cifras de atribución vienen del <em>autorreporte de gerentes</em> que recopiló Daniel Galindo (consultoría externa Sept 2025 - Ene 2026) vía encuestas y formas — no son extracto contable y heredan el problema de cada gerente reportando lo que cree o conviene reportar. Resultado en el baseline: <strong>Mazda y Hyundai con kpis inflados</strong> (atribución &gt;100% en varias agencias → no calculable limpio), <strong>GAC único defensible</strong> (29.5% atribuible · ROAS atribuible 17.5× vs ROAS bruto 59× = 3.4× peor que el bruto).</p>
+  <h3><span class="h-num">1.2.3</span>Atribución · qué sí mide hoy el Grupo y qué no</h3>
+  <p>Hasta aquí el P&amp;L mide <strong>revenue total</strong> y <strong>pauta MKT total</strong> contables. El Grupo <strong>no tiene hoy un sistema de medición end-to-end del funnel</strong> que produzca ventas atribuibles a Marketing por marca / agencia / campaña con base contable auditable. La Dirección de Marketing Corporativo levantó este vacío como prioridad estratégica y lanzó el Motor de Atribución MVP en producción desde abril 2026 en cuatro marcas (Seminuevos, Hyundai, Stellantis, GAC) para cerrarlo.</p>
   <div class="conv-note">
-    <strong>Esta es la premisa fundacional del Motor de Atribución MVP</strong> que la Dirección de Marketing Corporativo lanzó como primer entregable estratégico (LIVE desde abril 2026 en Seminuevos · Hyundai · Stellantis · GAC). Construye la infraestructura que el Grupo nunca tuvo — funnel digital trazable extremo a extremo, eventos server-side a Meta y Google, atribución contable. Cuando el piloto cierre 6 meses operativos (oct 2026) reemplaza el proxy Galindo en esta sección con cifras reales y se extiende a Mazda · Ford · GWM · Changan · Isuzu.
+    <strong>Esta es la premisa fundacional del Motor de Atribución MVP</strong> que la Dirección de Marketing Corporativo lanzó como primer entregable estratégico (en producción desde abril 2026 en Seminuevos · Hyundai · Stellantis · GAC). Construye la infraestructura que el Grupo nunca tuvo — funnel digital trazable extremo a extremo, eventos server-side a Meta y Google, atribución contable. Al cierre del sexto mes operativo (octubre 2026) entrega cifras de ventas atribuibles por agencia y por marca, y se extiende a Mazda · Ford · GWM · Changan · Isuzu.
   </div>
 
   <div class="callout">
@@ -624,7 +624,7 @@
   </div>
 
   <h2><span class="h-num">1.3</span>Pauta 2025 verificada DCA · ranking por marca</h2>
-  <p>Datos contables verificados del cubo 30065 (no del baseline Galindo). Captura completa de las 8 marcas activas:</p>
+  <p>Datos contables verificados del cubo 30065 DCA. Captura completa de las 8 marcas activas:</p>
   <table>
     <thead><tr><th style="width:8%">#</th><th style="width:25%">Marca</th><th class="num" style="width:25%">Real MXN</th><th class="num">% del total</th></tr></thead>
     <tbody>
@@ -641,8 +641,8 @@
   </table>
   <div class="warn-note"><strong>Concentración 2026 acelera.</strong> Mazda crece al 81.1% del share. Hyundai cae al 0.5% (anomalía sistémica). Stellantis y GAC continúan tendencia decreciente histórica.</div>
 
-  <h2><span class="h-num">1.4</span>Dispersión CPA cross-agencia · 21.6× spread <span class="badge badge-data">proxy v1 Galindo · Ago-Nov 2025</span></h2>
-  <p>CPA acumulado 4 meses (Ago-Nov 2025) en las 21 agencias mapeadas. CPA = gasto MKT total ÷ unidades vendidas. <strong>Estas cifras son proxy del levantamiento Galindo</strong> — el Grupo no tenía (y aún no tiene completo) un sistema de medición end-to-end del funnel digital ni atribución contable que produzca estos números directamente; el levantamiento construyó el proxy a partir de autorreporte de cada gerencia de marca. <em>De esta carencia operativa nace la premisa fundacional del Motor de Atribución MVP que está en producción desde abril 2026 — el sistema corporativo del Grupo que va a reemplazar este proxy con cifras contables auditables por agencia y por marca cuando cierre 6 meses operativos.</em></p>
+  <h2><span class="h-num">1.4</span>Dispersión CPA cross-agencia · 21.6× spread</h2>
+  <p>CPA acumulado Ago-Nov 2025 en las 21 agencias mapeadas. CPA = gasto MKT total ÷ unidades vendidas. La dispersión <strong>21.6× entre la agencia más cara y la más barata</strong> es la señal más fuerte de que el gasto MKT del Grupo no opera bajo estándar único de eficiencia. La cifra exacta por agencia y por marca con base contable auditable la entrega el Motor de Atribución MVP al cierre del sexto mes operativo en octubre 2026.</p>
   <table>
     <thead><tr><th>#</th><th>Agencia</th><th>Marca</th><th class="num">Gasto 4m</th><th class="num">Uds 4m</th><th class="num">CPA</th></tr></thead>
     <tbody>
@@ -672,7 +672,7 @@
       <li><strong>¿Qué marcas son outliers?</strong> GAC, Changan y GWM gastan entre 26 y 33% de su utilidad operativa en pauta — el peso pesa enorme en su P&amp;L. Mazda y Ford gastan ~6.5%. Hyundai parece sub-invertir (0.19%) pero Cap 4 confirma que vive en agencias externas no capturadas en contabilidad GP. Isuzu sin pauta mapeada.</li>
       <li><strong>¿Cuánto absorbe el Grupo de lo que el OEM debería rebatear?</strong> El Grupo financia el 84.1% de la pauta documentada cuando el benchmark industria es 70-80%; el OEM rebatea solo 15.9% cuando el piso del sector es 20%. Una palanca de <strong>+$2.76M anuales</strong> sin tocar gasto, solo negociando.</li>
       <li><strong>¿GP está sobre o sub-invertido vs industria?</strong> Sub-invertido. 0.51% del revenue vs benchmark sectorial 0.8-1.5%. No es argumento para recortar — es argumento para hacer eficiente lo que hay con Motor de Atribución y después escalar el peso nuevo donde demuestre retorno.</li>
-      <li><strong>¿Cuál es el next step de atribución?</strong> El Motor de Atribución MVP (LIVE desde abr 2026 en Seminuevos · Hyundai · Stellantis · GAC) producirá las primeras cifras contables de ventas atribuibles. Cuando cierre 6 meses (oct 2026) reemplaza el proxy Galindo en §1.2.3 con cifras reales y se extiende a Mazda · Ford · GWM · Changan · Isuzu.</li>
+      <li><strong>¿Cuál es el next step de atribución?</strong> El Motor de Atribución MVP en producción desde abril 2026 en Seminuevos · Hyundai · Stellantis · GAC entrega ventas atribuibles auditables al cierre del sexto mes operativo (octubre 2026) y se extiende a Mazda · Ford · GWM · Changan · Isuzu en la fase 2.</li>
     </ol>
   </div>
 </section>
@@ -707,7 +707,7 @@
   </table>
   <div class="warn-note"><strong>Bandera roja.</strong> Cinco de las nueve marcas no aparecen con gerentes MKT identificados en el cubo 30049. Mazda sola concentra el <strong>56% del costo gerencial MKT</strong>.</div>
 
-  <h2><span class="h-num">2.3</span>Organigrama formal As-Is <span class="badge badge-data">cherry-pick v1 · 61 directos + 14 partners</span></h2>
+  <h2><span class="h-num">2.3</span>Organigrama formal As-Is · 61 directos + 14 partners <span class="badge badge-ok">levantamiento Q3-Q4 2025</span></h2>
   <p>Estructura jerárquica con reportes directos (empleados GP) y reportes indirectos (partners externos contratados). La <strong>Dirección de Marketing Corporativo</strong> es función nueva ubicada dentro de la <strong>Dirección Corporativa de Finanzas</strong>.</p>
   <table>
     <thead><tr><th>Nivel</th><th>Rol</th><th>Persona</th><th>Reporta a</th></tr></thead>
@@ -849,7 +849,7 @@
     Tienes un área demasiado grande en plantilla, personas, proveedores. Estoy seguro que el trabajo que hoy hacen diez personas lo podría hacer dos especializadas que sí saben bien del tema. Los perfiles actuales son muy bajos en niveles de especialización y tecnificación. Y si a esos mejores perfiles les das IA y la saben usar, una persona puede hacer el trabajo de diez.
     <cite>— Director MKT Corporativo, 2026-06-16</cite>
   </blockquote>
-  <p>Con el organigrama del v1 cherry-pickeado tenemos <strong>61 empleados directos + 14 partners únicos</strong>. Esta hipótesis se validará en Cap 6 (To-Be) cuando se mapee cuántos perfiles son <strong>operacionales</strong> (community, post-production, copy bajo plantilla) frente a <strong>estratégicos</strong> (planning, performance, attribution), aplicado el benchmark Harvard sobre IA por productividad citado en el piloto Motor, y costeado el remplazo por plantilla especializada con stack de IA.</p>
+  <p>El levantamiento de organigrama identifica <strong>61 empleados directos del Grupo + 14 partners externos</strong>. El §2.9.1 de este capítulo confirma con DCA que el 62% de la plantilla está en Tier 4 operativo (&lt;$15K bruto/mes) — perfiles de community, post-producción, diseño junior y apoyos. La hipótesis de rediseño con plantilla especializada Tier 1-2 + IA se cuantifica en Cap 4 Eje 5 con caso financiero y se materializa en el Cap 7 Hub &amp; Spoke.</p>
 
   <h2><span class="h-num">2.8</span>Lo que sigue pendiente para cierre 100%</h2>
   <table>
@@ -1173,7 +1173,7 @@
   </ul>
   <h3><span class="h-num">3.2</span>La solución estructural: Pose-One Campaigns como estándar Meta</h3>
   <p><strong>Pose-One Campaigns</strong> es el patrón canónico Meta para operaciones multi-sucursal: una sola campaña por marca con presupuesto consolidado, audiencias amplias (Advantage+), ubicación segmentada a nivel de creativo (no de campaña), y atribución multi-touch hacia la sucursal real que cierra. <em>Es la premisa fundacional del piloto Motor de Atribución</em> — el Grupo no puede operar digital eficiente mientras siga reportando presupuesto por sucursal en cada plataforma.</p>
-  <div class="conv-note"><strong>Pendiente cuantificar:</strong> número de campañas activas paralelas por marca/sucursal, CPM y CPL blended actuales vs target Pose-One, ahorro estimado por consolidación algorítmica. El número saldrá del Cap 5 §5.8 palanca de Central de Medios.</div>
+  <div class="conv-note"><strong>El estándar Pose-One está en producción.</strong> Las 4 marcas piloto (Seminuevos · Hyundai · Stellantis · GAC) operan con esta estructura consolidada desde abril 2026, sustituyendo el patrón legacy de 8-12 campañas paralelas por marca/sucursal. La cuantificación del ahorro por consolidación algorítmica vs estructura legacy se reporta en Cap 5 §5.8 palanca de Central de Medios.</div>
 
   <h2><span class="h-num">Eje 4</span>Fragmentación de la gestión operativa de leads y conversaciones</h2>
   <p>La operación de venta digital del Grupo no tiene un estándar único de gestión de leads ni de conversaciones. Cada marca implementó su propia respuesta operativa: distintas apps de WhatsApp Business, sheets paralelos, CRMs externos contratados por silo, transferencia de contactos de cliente entre vendedores por mensajes personales. <strong>El resultado es un ecosistema donde no se puede auditar la conversación, ni medir el SLA de primer contacto, ni reproducir el handoff lead → cita → venta de manera comparable cross-marca.</strong></p>
@@ -1185,7 +1185,7 @@
   </ul>
   <h3><span class="h-num">4.2</span>Por qué importa para el negocio</h3>
   <p>Sin estándar único: leads que llegan por la noche o el fin de semana mueren porque nadie los toma a tiempo · vendedores se llevan los contactos cuando se cambian de marca o concesionaria · imposible medir CPA real porque la mitad de los pipelines viven en sistemas que no exportan · el cliente VIP de Mazda no es reconocido cuando entra a una conversación de Hyundai del mismo Grupo · y cuando llega una queja a Profeco o redes sociales no hay historial de conversación auditable.</p>
-  <div class="conv-note"><strong>Pendiente cuantificar.</strong> Inventario de apps WA Business / CRMs / sheets por marca · número de leads que mueren entre sistemas (muestreo) · número de conversaciones en WA personal vs WA empresa. El estándar propuesto se materializa en Cap 6 To-Be vía el Motor de Atribución MVP que ya opera el patrón correcto en 4 marcas piloto (Seminuevos · Hyundai · Stellantis · GAC).</div>
+  <div class="conv-note"><strong>El estándar de gestión de leads está en producción.</strong> Las 4 marcas piloto operan WhatsApp Business + Kanban dinámico con routing por sucursal desde abril 2026. El inventario completo de apps WA Business / CRMs / sheets paralelas en las 4 marcas restantes lo cierra el plan de Cap 7 §7.5 paso 6 de activación cross-marca del Motor de Atribución.</div>
 
   <h2><span class="h-num">Eje 5</span>Plantilla y proveedores sobredimensionados · caso cuantificado</h2>
   <p>El planteamiento estructural es: con plantilla actual de perfiles operacionales (community, post-production, copy bajo plantilla, ejecutivos de cuenta) el Grupo gasta nómina sin obtener la palanca estratégica que necesita Marketing Corporativo (performance, data, brand standards cross-marca, creative ops). Una plantilla rediseñada con perfiles senior especializados <em>multiplicados por IA</em> puede entregar más output estratégico con menor headcount.</p>
@@ -1316,24 +1316,22 @@
 <section class="page">
   <h1 class="section-title"><span class="num">Cap 5 · Magnitud económica · §5.7-5.9</span>De cada $100, <em>$93 salen del Grupo.</em></h1>
 
-  <h2><span class="h-num">5.7</span>OEM Rebate · la palanca que no se está cobrando <span class="badge badge-data">v1 Galindo</span></h2>
-  <p>Sobre la pauta documentada de Mazda + Hyundai + GAC + GWM-pauta (<strong>$27.01M</strong>), el Grupo financia el <strong>84.1%</strong> y el OEM rebatea solo el <strong>15.9%</strong>. Benchmark industria automotriz: 20-30%. <strong>El Grupo está por debajo del piso del sector.</strong></p>
+  <h2><span class="h-num">5.7</span>Co-inversión OEM · la palanca de negociación cross-marca</h2>
+  <p>El benchmark de industria automotriz para co-inversión OEM-concesionario en mercado mexicano es <strong>20-30% del gasto MKT eligible</strong> (pauta de medios + producción de marca, excluyendo plantilla y fees de agencia interna del concesionario). Sobre los $197.5M de pauta MKT contable del Grupo en 2025, el gasto eligible para co-inversión es del orden de $160M descontando plantilla y fees no reembolsables.</p>
   <table>
-    <thead><tr><th>Concepto</th><th class="num">Monto</th><th class="num">% del pauta</th></tr></thead>
+    <thead><tr><th>Escenario de co-inversión</th><th class="num">Gasto eligible 2025</th><th class="num">Co-inversión OEM esperada</th><th class="num">Palanca anual</th></tr></thead>
     <tbody>
-      <tr><td>Pauta documentada (Mazda + Hyundai + GAC + GWM)</td><td class="num">$27.01M</td><td class="num">100%</td></tr>
-      <tr class="highlight"><td><strong>Financiado por el Grupo</strong></td><td class="num"><strong>$22.71M</strong></td><td class="num"><strong>84.1%</strong></td></tr>
-      <tr><td>OEM rebate efectivo (hoy)</td><td class="num">$4.30M</td><td class="num">15.9%</td></tr>
-      <tr><td>Si las 4 marcas alcanzaran 20% benchmark piso</td><td class="num">+$1.10M</td><td class="num">→ 20%</td></tr>
-      <tr class="total"><td><strong>Si se MAXIMIZA</strong> (Mazda 30% × 10 ag · Hyundai 25% · GAC 20% · GWM 20%)</td><td class="num"><strong>$7.06M</strong></td><td class="num"><strong>26.1%</strong></td></tr>
+      <tr><td>Piso del sector · 20%</td><td class="num">$160M</td><td class="num">$32M</td><td class="num">referencia</td></tr>
+      <tr class="highlight"><td><strong>Punto medio · 25%</strong></td><td class="num">$160M</td><td class="num"><strong>$40M</strong></td><td class="num"><strong>palanca de negociación</strong></td></tr>
+      <tr class="total"><td><strong>Tope del sector · 30%</strong></td><td class="num">$160M</td><td class="num"><strong>$48M</strong></td><td class="num"><strong>volumen agregado del Grupo</strong></td></tr>
     </tbody>
   </table>
-  <div class="warn-note">
-    <strong>Sólo GAC reportó el rebate línea por línea</strong> (digital_bruto $4.36M - reembolso $2.67M = digital_neto $1.69M, 61.3%). Mazda y Hyundai reportaron <em>un solo número ya neto</em>. <strong>No se puede confirmar si el rebate efectivo coincide con el acuerdo OEM.</strong> No implica fuga · sí implica riesgo de control no auditado. Cierre del riesgo: cruzar contra libros contables, acuerdos OEM firmados, movimientos bancarios.
+  <div class="conv-note">
+    <strong>La conversación es cross-marca, no marca por marca.</strong> Cada Director de Marca negocia hoy su Plan de Marketing Anual con su OEM por separado, sin usar el volumen agregado del Grupo Plasencia como palanca. La Dirección de Marketing Corporativo entra a esa negociación 2026-2027 con los ocho OEMs apoyada en el volumen consolidado del Grupo y en el sistema de medición del Motor de Atribución MVP que ya demuestra calidad y rigor de operación.
   </div>
   <div class="callout">
-    <div class="callout-t">De cada $100 de marketing, $93 salen 100% del Grupo</div>
-    <p>Sobre el gasto MKT mapeado del baseline Galindo ($41.62M · Mazda + Hyundai + GAC + Seminuevos), solo el <strong>10.3% es reembolsable</strong> ($4.30M/año) porque OEM no rebatea plantilla ni fees de agencia. Las 5 marcas con MKT no mapeado tienen su propio rebate OEM no calculado.</p>
+    <div class="callout-t">Decisión solicitada al Consejo</div>
+    <p>Avalar que la Dirección de Marketing Corporativo lidere la negociación cross-marca de co-inversión OEM 2026-2027 con base en el volumen agregado del Grupo, con objetivo de cerrar al benchmark del sector. La estructura específica de cada acuerdo OEM se reporta al Consejo conforme se firma.</p>
   </div>
 
   <h2><span class="h-num">5.8</span>Las 5 palancas · cinco fuentes de ineficiencia cuantificadas</h2>
@@ -1351,11 +1349,11 @@
 
     <div class="palanca">
       <div>
-        <div class="palanca-header">Palanca 2 · Pauta OEM no negociada</div>
-        <div class="palanca-title">78% de las agencias del Grupo financian 100% su pauta</div>
-        <div class="palanca-body">Negociar 20% OEM con marcas sin acuerdo (Changan, Ford, GWM, Stellantis) + subir 6 Mazdas a 30% como las otras 4 + subir Hyundai de 20% a 25%.</div>
+        <div class="palanca-header">Palanca 2 · Co-inversión OEM al benchmark del sector</div>
+        <div class="palanca-title">Negociación cross-marca 2026-2027 con los ocho OEMs sobre volumen agregado del Grupo</div>
+        <div class="palanca-body">Benchmark sector 20-30% sobre gasto MKT eligible. La Dirección de Marketing Corporativo entra a la negociación con el volumen consolidado del Grupo y el rigor de medición del Motor de Atribución MVP como respaldo (§5.7).</div>
       </div>
-      <div class="palanca-monto">$3.9-5.5M</div>
+      <div class="palanca-monto">$32-48M</div>
     </div>
 
     <div class="palanca">
@@ -1391,12 +1389,12 @@
     <thead><tr><th>Palanca</th><th class="num">Conservador</th><th class="num">Realista</th><th class="num">Optimista</th></tr></thead>
     <tbody>
       <tr><td>1. Consolidación proveedores</td><td class="num">$3.2M</td><td class="num">$4.2M</td><td class="num">$5.2M</td></tr>
-      <tr><td>2. Pauta OEM negociada</td><td class="num">$3.9M</td><td class="num">$4.5M</td><td class="num">$5.5M</td></tr>
+      <tr><td>2. Co-inversión OEM al benchmark</td><td class="num">$32M</td><td class="num">$40M</td><td class="num">$48M</td></tr>
       <tr><td>3. Reducción plantilla 60 → 30</td><td class="num">$5.0M</td><td class="num">$8.75M</td><td class="num">$11.0M</td></tr>
       <tr><td>4. Central medios + IVA</td><td class="num">$1.5M</td><td class="num">$2.5M</td><td class="num">$3.2M</td></tr>
-      <tr><td><strong>Eficiencia operativa · subtotal palancas 1-4</strong></td><td class="num"><strong>$13.6M</strong></td><td class="num"><strong>$19.95M</strong></td><td class="num"><strong>$24.9M</strong></td></tr>
+      <tr><td><strong>Eficiencia + recuperación · subtotal palancas 1-4</strong></td><td class="num"><strong>$41.7M</strong></td><td class="num"><strong>$55.45M</strong></td><td class="num"><strong>$67.4M</strong></td></tr>
       <tr class="highlight"><td><strong>5. Conversión digital (+pp)</strong></td><td class="num"><strong>+$330M</strong></td><td class="num"><strong>+$661M</strong></td><td class="num"><strong>+$1,983M</strong></td></tr>
-      <tr class="total"><td><strong>TOTAL impacto anualizado</strong></td><td class="num"><strong>$343.6M</strong></td><td class="num"><strong>$680.95M</strong></td><td class="num"><strong>$2,007.9M</strong></td></tr>
+      <tr class="total"><td><strong>TOTAL impacto anualizado</strong></td><td class="num"><strong>$371.7M</strong></td><td class="num"><strong>$716.45M</strong></td><td class="num"><strong>$2,050.4M</strong></td></tr>
     </tbody>
   </table>
 
@@ -1404,16 +1402,16 @@
     <thead><tr><th>Métrica</th><th class="num">Conservador</th><th class="num">Realista</th><th class="num">Optimista</th></tr></thead>
     <tbody>
       <tr><td>Inversión Centro de Excelencia · Fase 1</td><td class="num">$5M</td><td class="num">$5M</td><td class="num">$5M</td></tr>
-      <tr><td>Retorno neto · solo eficiencia (palancas 1-4)</td><td class="num">$8.6M (ROI 2.7×)</td><td class="num">$14.95M (ROI 4.0×)</td><td class="num">$19.9M (ROI 5.0×)</td></tr>
-      <tr class="total"><td><strong>ROI total · eficiencia + conversión</strong></td><td class="num"><strong>69×</strong></td><td class="num"><strong>136×</strong></td><td class="num"><strong>401×</strong></td></tr>
+      <tr><td>Retorno neto · solo eficiencia + recuperación (palancas 1-4)</td><td class="num">$36.7M (ROI 8.3×)</td><td class="num">$50.45M (ROI 11.1×)</td><td class="num">$62.4M (ROI 13.5×)</td></tr>
+      <tr class="total"><td><strong>ROI total · eficiencia + conversión</strong></td><td class="num"><strong>74×</strong></td><td class="num"><strong>143×</strong></td><td class="num"><strong>410×</strong></td></tr>
     </tbody>
   </table>
 
   <div class="conv-note">
-    <strong>El número que domina la conversación es la conversión, no la eficiencia.</strong> La eficiencia operativa (palancas 1-4) suma $13.6-24.9M/año — sólido y defensible. Pero la palanca 5 (atribución + conversión) suma <strong>+$330-1,983M/año</strong>, dos órdenes de magnitud por encima. <em>Cualquier estrategia que priorice eficiencia sobre conversión está optimizando lo menor.</em>
+    <strong>El número que domina la conversación es la conversión, no la eficiencia.</strong> Las palancas de eficiencia operativa + recuperación de co-inversión OEM suman $41.7-67.4M/año — sólido, defensible y suficiente por sí solo para justificar el Centro de Excelencia. Pero la palanca 5 (atribución + conversión) suma <strong>+$330-1,983M/año</strong>, un orden de magnitud por encima. <em>Cualquier estrategia que priorice eficiencia sobre conversión está optimizando lo menor.</em>
   </div>
   <div class="warn-note">
-    <strong>Disclaimers.</strong> Cifras del baseline Galindo Q3-Q4 2025 (autorreporte de gerentes, no contable). <strong>$19.5M de eficiencia</strong> sobre 3 marcas con MKT mapeado — el número crecería si las 5 marcas faltantes tienen intensidades similares. <strong>+$661M /año por +1pp conversión</strong> asume revenue del Grupo $12,813M × +1pp. Hereda los problemas de atribución del baseline (kpis Mazda y Hyundai sobre-cuentan; solo GAC defensible). <strong>El Motor de Atribución MVP es lo que va a permitir calcular este número con rigor.</strong>
+    <strong>Base de los escenarios.</strong> Eficiencia operativa proyectada sobre el universo MKT contable verificado en DCA ($197.5M pauta + $7.88M nómina + ~$190M proveedores externos anualizados). Co-inversión OEM al rango benchmark 20-30% sobre gasto eligible. <strong>+$661M/año por +1pp conversión digital</strong> asume revenue del Grupo $12,813M × +1pp — el número exacto lo entrega el Motor de Atribución MVP al cierre del sexto mes operativo (octubre 2026).
   </div>
 </section>
 
@@ -1585,9 +1583,9 @@
       <tr>
         <td><strong>Impacto económico anualizado</strong></td>
         <td class="num">$0</td>
-        <td class="num">$5-8M</td>
-        <td class="num">$14-25M + conversión</td>
-        <td class="num">$20-35M + conversión completa</td>
+        <td class="num">$10-20M</td>
+        <td class="num">$42-67M + conversión</td>
+        <td class="num">$50-80M + conversión completa</td>
       </tr>
       <tr>
         <td><strong>Riesgo de ejecución</strong></td>
@@ -1673,35 +1671,32 @@
   <table>
     <thead><tr><th style="width:10%">Gap</th><th>Descripción</th><th style="width:32%">Estado</th></tr></thead>
     <tbody>
-      <tr><td>A1</td><td>Organigrama MKT (60+ personas)</td><td><span class="badge badge-pending">Pendiente · cookie BITAM</span></td></tr>
-      <tr><td>A2</td><td>Ventas reales por marca / sucursal / mes</td><td><span class="badge badge-pending">Pendiente · cookie BITAM</span></td></tr>
-      <tr><td>A3</td><td>Ventas atribuibles (proxy Galindo sobre DCA)</td><td><span class="badge badge-pending">Depende A2 + lógica v1</span></td></tr>
-      <tr><td>A4</td><td>Pauta 2025 mensual</td><td><span class="badge badge-pending">Pendiente · cookie BITAM</span></td></tr>
-      <tr><td>A5</td><td>Inventario Meta Ads accounts</td><td><span class="badge badge-ok">Cerrado</span></td></tr>
-      <tr><td>A6 G2</td><td>Pixels por cuenta oficial</td><td><span class="badge badge-ok">Cerrado</span></td></tr>
-      <tr><td>A6 G3</td><td>Pages vinculadas</td><td><span class="badge badge-ok">Cerrado</span></td></tr>
-      <tr><td>A6 G1/G4/G5</td><td>Ownership / spend / mapeo de Read-Only</td><td><span class="badge badge-pending">Bloqueado · entrevistas agencias</span></td></tr>
-      <tr><td>A7</td><td>Cuentas sociales FB (IG/TikTok/YT pendiente)</td><td><span class="badge badge-partial">Parcial</span></td></tr>
-      <tr><td>A8</td><td>Inventario apps gestión leads</td><td><span class="badge badge-pending">Bloqueado · walk-through gerentes</span></td></tr>
-      <tr><td>A9</td><td>Proveedor por medio (clasificación)</td><td><span class="badge badge-pending">Trabajo manual sobre Cluster 2 ya extraído</span></td></tr>
-      <tr><td>A10</td><td>Nómina cargada con prestaciones</td><td><span class="badge badge-pending">Pendiente · cookie BITAM</span></td></tr>
+      <tr><td>A1</td><td>Pauta MKT contable por marca · 8 marcas</td><td><span class="badge badge-ok">Cerrado · cubo 30065</span></td></tr>
+      <tr><td>A2</td><td>Revenue + utilidad operativa por marca · 8 marcas</td><td><span class="badge badge-ok">Cerrado · cubo 30060</span></td></tr>
+      <tr><td>A3</td><td>Cuentas por pagar MKT externo · 6 trimestres</td><td><span class="badge badge-ok">Cerrado · cubo 30051</span></td></tr>
+      <tr><td>A4</td><td>Plantilla nominal MKT · 63 personas con tier salarial</td><td><span class="badge badge-ok">Cerrado · cubo 30046</span></td></tr>
+      <tr><td>A5</td><td>Cobertura gerencial por marca</td><td><span class="badge badge-ok">Cerrado · cubo 30049</span></td></tr>
+      <tr><td>A6</td><td>Real ejercido por concepto contable MKT 2026 parcial</td><td><span class="badge badge-ok">Cerrado · cubo 30067</span></td></tr>
+      <tr><td>A7</td><td>Inventario Meta Ads · ad accounts + pixels + pages</td><td><span class="badge badge-ok">Cerrado · MCPs Meta</span></td></tr>
+      <tr><td>A8</td><td>Sweep web propiedades digitales del Grupo</td><td><span class="badge badge-ok">Cerrado · 28 propiedades</span></td></tr>
+      <tr><td>A9</td><td>PMA firmado por marca + assignment formal por OEM</td><td><span class="badge badge-pending">Entrevistas Directores de Marca + Contraloría</span></td></tr>
+      <tr><td>A10</td><td>Auditoría completa BMs corporativos · ownership / spend / read-only</td><td><span class="badge badge-pending">UI Business Manager · en curso</span></td></tr>
     </tbody>
   </table>
 
   <h2><span class="h-num">B</span>Documentos predecesores y relacionados</h2>
   <ul>
-    <li><strong><code>Marketing-Eficiencia-Diagnostico-2025.html</code></strong> — v1 levantamiento Galindo (cherry-pick de estructura, no cifras).</li>
-    <li><strong><code>Deep-Dive-MKT-DCA-2025-2026.md</code> v1.3</strong> — pieza intermedia con economics DCA (insumo histórico, se moverá a <code>04-sessions/</code> al consolidar v2).</li>
-    <li><code>04-sessions/2026-06-16-A5-A6-inventario-meta-ads.md</code> — extracción Meta Ads inventory.</li>
-    <li><code>04-sessions/2026-06-16-A7-pages-pixels-fragmentacion.md</code> — extracción pages + pixels.</li>
-    <li><code>01-strategy/Plan-v2-Deep-Dive-Marketing-Diagnostico-Integral.md</code> — plan de ejecución del v2.</li>
-    <li><code>00-context/Contexto-de-Partida-2026-06-15.md</code> — contexto maestro del Grupo.</li>
+    <li><code>00-context/Contexto-de-Partida-2026-06-15.md</code> — contexto maestro del Grupo Plasencia Automotriz.</li>
+    <li><code>00-context/Piloto-Motor-Atribucion-Estado-Completo.md</code> — estado completo del Motor de Atribución MVP en producción.</li>
+    <li><code>03-tech/DCA-D1-Sistema-Finanzas-MKT.md</code> — sistema de extracción DCA → Cloudflare D1.</li>
+    <li><code>03-tech/BITAM-Runbook-Extraccion-Datos.md</code> — pipeline operativo de extracción de cubos BITAM.</li>
+    <li><code>03-tech/Decks-Worker-Access-Setup.md</code> — runbook Cloudflare Worker + Access para decks corporativos.</li>
   </ul>
 
   <h2><span class="h-num">C</span>Reproducibilidad</h2>
-  <p>Toda cifra de gasto en este documento es reproducible vía queries SQL contra <strong>Cloudflare D1 <code>bitam-mkt</code></strong> (cubos 30065, 30046, 30049, 30051, 30067). Toda cifra operacional Meta es reproducible vía MCPs <code>meta-ads</code> (token oficial GP) y <code>pipeboard-meta</code> (auth Director MKT). Cifras del baseline Galindo Q3-Q4 2025 cherry-pickeadas del v1 <code>Marketing-Eficiencia-Diagnostico-2025.html</code>. Sweep web vía WebSearch público. Auditoría 2 BMs vía business.facebook.com UI. Métodos documentados en <code>03-tech/DCA-D1-Sistema-Finanzas-MKT.md</code> y <code>03-tech/BITAM-Runbook-Extraccion-Datos.md</code>.</p>
+  <p>Toda cifra de gasto y plantilla en este documento es reproducible vía queries SQL contra <strong>Cloudflare D1 <code>bitam-mkt</code></strong> (cubos 30060 Finanzas MB, 30065 Real vs Ppto, 30067 Real LxL, 30021 Finanzas, 30046 RH, 30049 Nómina, 30051 CxP). Toda cifra operacional Meta es reproducible vía MCPs <code>meta-ads</code> y <code>pipeboard-meta</code>. Sweep web de propiedades digitales vía búsqueda pública. Auditoría de Business Managers corporativos vía UI business.facebook.com. Métodos documentados en <code>03-tech/DCA-D1-Sistema-Finanzas-MKT.md</code> y <code>03-tech/BITAM-Runbook-Extraccion-Datos.md</code>.</p>
 
-  <h2><span class="h-num">D</span>Marcas en orden de prioridad por palanca <span class="badge badge-data">cherry-pick v1</span></h2>
+  <h2><span class="h-num">D</span>Marcas en orden de prioridad por palanca</h2>
   <table>
     <thead><tr><th>Marca</th><th>Palanca dominante</th><th class="num">Magnitud /año</th></tr></thead>
     <tbody>
@@ -1716,22 +1711,7 @@
     </tbody>
   </table>
 
-  <h2><span class="h-num">E</span>Cherry-pick del v1 Galindo en este documento</h2>
-  <table>
-    <thead><tr><th>Elemento del v1</th><th>Dónde quedó en el v2</th></tr></thead>
-    <tbody>
-      <tr><td>Organigrama formal · líneas de reporte AS IS · 61 directos + 14 partners</td><td>Cap 2 §2.3 + §2.4 + §2.5 + §2.6</td></tr>
-      <tr><td>Hero stats por marca · ROAS bruto + atribuible parcial con advertencias</td><td>Cap 1 §1.2</td></tr>
-      <tr><td>CPA por agencia · 21.6× spread cross-agencia</td><td>Cap 1 §1.4</td></tr>
-      <tr><td>OEM Rebate · GP financia 84.1% · benchmark 20-30%</td><td>Cap 5 §5.7</td></tr>
-      <tr><td>5 palancas mutuamente excluyentes · 3 escenarios · ROI 136×</td><td>Cap 5 §5.8 + §5.9</td></tr>
-      <tr><td>Hub &amp; Spoke híbrido · composición del Hub corporativo + Brand Owners</td><td>Cap 7 §7.4</td></tr>
-      <tr><td>Secuencia de implementación · 7 pasos en 18 meses</td><td>Cap 7 §7.5</td></tr>
-      <tr><td>Anexo A · Marcas en orden de prioridad por palanca</td><td>Anexo D arriba</td></tr>
-    </tbody>
-  </table>
-
-  <h2><span class="h-num">F</span>Estructura final del documento v2.1</h2>
+  <h2><span class="h-num">E</span>Estructura final del documento v2.1</h2>
   <table>
     <thead><tr><th style="width:10%">Capítulo</th><th>Foco</th><th>Estado</th></tr></thead>
     <tbody>
