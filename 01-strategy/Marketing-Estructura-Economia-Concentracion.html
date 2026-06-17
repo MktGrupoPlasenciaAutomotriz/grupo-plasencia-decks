@@ -289,6 +289,39 @@
   pre.scenario.conv { border-left-color: var(--gp-red); }
   pre.scenario.ok { border-left-color: var(--gold); }
 
+  /* HERO STATS POR MARCA — P&L Cap 1 */
+  .marca-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4mm; margin: 5mm 0; }
+  .marca-card {
+    border: 1px solid var(--g200); border-top: 4px solid var(--gp-navy);
+    padding: 4mm 5mm; background: var(--paper); page-break-inside: avoid;
+  }
+  .marca-card.outlier { border-top-color: var(--gp-red); }
+  .marca-card .marca-name { font-family: var(--font-display); font-weight: 800; font-size: 18pt; color: var(--gp-navy); line-height: 1; letter-spacing: -0.5px; }
+  .marca-card .marca-tag { font-family: var(--sans); font-size: 7.5pt; color: var(--g500); letter-spacing: 0.5px; text-transform: uppercase; font-weight: 600; margin-top: 1.5mm; }
+  .marca-card.outlier .marca-tag { color: var(--gp-red); }
+  .marca-card .marca-row { display: flex; justify-content: space-between; padding: 1.5mm 0; border-bottom: 1px solid var(--g200); font-size: 8.5pt; }
+  .marca-card .marca-row:last-child { border-bottom: none; }
+  .marca-card .marca-row .lbl { color: var(--g500); font-family: var(--sans); font-size: 8pt; font-weight: 500; }
+  .marca-card .marca-row .val { color: var(--gp-navy); font-family: var(--sans); font-weight: 700; font-variant-numeric: tabular-nums; font-size: 9pt; }
+  .marca-card .marca-row.highlight { background: rgba(200,16,46,0.05); padding: 1.5mm 2mm; margin: 0 -2mm; }
+  .marca-card .marca-row.highlight .val { color: var(--gp-red); font-size: 10pt; font-weight: 800; }
+  .marca-card .marca-row.warn .val { color: var(--amber); }
+  .marca-card.outlier .marca-row.highlight .val { color: var(--gp-red); }
+
+  /* 5 PALANCAS — Cap 5 */
+  .palancas-grid { display: grid; grid-template-columns: 1fr; gap: 3mm; margin: 4mm 0; }
+  .palanca {
+    border: 1px solid var(--g200); border-left: 4px solid var(--gp-navy);
+    padding: 4mm 5mm; background: var(--paper);
+    display: grid; grid-template-columns: 1fr auto; gap: 4mm; align-items: center;
+  }
+  .palanca.dominante { border-left-color: var(--gp-red); background: rgba(200,16,46,0.04); }
+  .palanca .palanca-header { font-family: var(--sans); font-size: 8pt; color: var(--gp-red); font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; }
+  .palanca .palanca-title { font-family: var(--font-display); font-weight: 700; font-size: 12pt; color: var(--gp-navy); margin-top: 1mm; line-height: 1.2; letter-spacing: -0.2px; }
+  .palanca .palanca-body { font-family: var(--sans); font-size: 9pt; color: var(--g700); margin-top: 2mm; line-height: 1.5; }
+  .palanca .palanca-monto { font-family: var(--font-display); font-weight: 800; font-size: 16pt; color: var(--gp-navy); white-space: nowrap; letter-spacing: -0.5px; }
+  .palanca.dominante .palanca-monto { color: var(--gp-red); font-size: 18pt; }
+
   /* SILOS DE MARCA — heredado del v1 Galindo, adaptado al sistema editorial */
   .silos-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; margin: 5mm 0; }
   .silo {
@@ -381,12 +414,12 @@
 
   <div class="toc">
     <div class="toc-item"><span class="toc-num">Cap 0</span><span class="toc-title">En 60 segundos</span><span class="toc-sub">Tesis ejecutiva y cuatro hero stats clave</span><span class="toc-p">3</span></div>
-    <div class="toc-item"><span class="toc-num">Cap 1</span><span class="toc-title">Estado de Resultados por marca</span><span class="toc-sub">Modelo P&L de Marketing, pauta verificada y gap de atribución</span><span class="toc-p">4</span></div>
-    <div class="toc-item"><span class="toc-num">Cap 2</span><span class="toc-title">Estructura organizacional As-Is</span><span class="toc-sub">63 personas, cobertura gerencial e hipótesis de plantilla</span><span class="toc-p">5</span></div>
-    <div class="toc-item"><span class="toc-num">Cap 3</span><span class="toc-title">Concentración del gasto MKT</span><span class="toc-sub">180 cuentas, 450 proveedores, Cluster 1 + Cluster 2</span><span class="toc-p">6-8</span></div>
-    <div class="toc-item"><span class="toc-num">Cap 4</span><span class="toc-title">Problemas estructurales</span><span class="toc-sub">Cinco ejes de fragmentación con evidencia data</span><span class="toc-p">9-11</span></div>
-    <div class="toc-item"><span class="toc-num">Cap 5</span><span class="toc-title">Deducibilidad con vs sin Central de Medios</span><span class="toc-sub">Escenarios A, B, C y palanca fiscal acentuada</span><span class="toc-p">12-13</span></div>
-    <div class="toc-item"><span class="toc-num">Cap 6</span><span class="toc-title">Estructura To-Be</span><span class="toc-sub">Anclajes declarados y visión Director MKT pendiente</span><span class="toc-p">14</span></div>
+    <div class="toc-item"><span class="toc-num">Cap 1</span><span class="toc-title">Estado de Resultados por marca</span><span class="toc-sub">Hero stats Mazda · Hyundai · GAC · dispersión CPA 21.6× cross-agencia</span><span class="toc-p">4</span></div>
+    <div class="toc-item"><span class="toc-num">Cap 2</span><span class="toc-title">Estructura organizacional As-Is</span><span class="toc-sub">8 silos por marca · 61 directos + 14 partners · banderas críticas</span><span class="toc-p">5</span></div>
+    <div class="toc-item"><span class="toc-num">Cap 3</span><span class="toc-title">Concentración del gasto MKT</span><span class="toc-sub">180 cuentas · 450 proveedores · Cluster 1 + Cluster 2</span><span class="toc-p">6-8</span></div>
+    <div class="toc-item"><span class="toc-num">Cap 4</span><span class="toc-title">Problemas estructurales</span><span class="toc-sub">5 ejes · sweep web 28 propiedades · 2 BMs paralelos</span><span class="toc-p">9-11</span></div>
+    <div class="toc-item"><span class="toc-num">Cap 5</span><span class="toc-title">Magnitud económica · Central de Medios + 5 palancas</span><span class="toc-sub">Escenarios A·B·C · OEM rebate · ROI 136× · Google sub-explotado</span><span class="toc-p">12-14</span></div>
+    <div class="toc-item"><span class="toc-num">Cap 6</span><span class="toc-title">Estructura To-Be · Hub &amp; Spoke</span><span class="toc-sub">14-15 personas nucleares · 4 dimensiones taxonomía · secuencia 6 pasos</span><span class="toc-p">15</span></div>
     <div class="toc-item"><span class="toc-num">Anexos</span><span class="toc-title">Cobertura, documentos y reproducibilidad</span><span class="toc-sub">Estado de gaps de data al cierre del documento</span><span class="toc-p">15</span></div>
   </div>
 
@@ -403,27 +436,27 @@
     <div class="hero-card">
       <div class="hero-num">$197.5M</div>
       <div class="hero-label">Pauta MKT 2025 verificada</div>
-      <div class="hero-sub">Cubo 30065 DCA · ocho marcas · Mazda concentra el 64%</div>
+      <div class="hero-sub">DCA cubo 30065 · ocho marcas · Mazda concentra el 64%</div>
     </div>
     <div class="hero-card navy">
-      <div class="hero-num">63 / $7.88M</div>
-      <div class="hero-label">Personas / nómina bruta MKT 2025</div>
-      <div class="hero-sub">Mercadotecnia 60 + Ventas Digitales 3 · organigrama nominal pendiente</div>
+      <div class="hero-num">61 + 14</div>
+      <div class="hero-label">Directos GP + partners externos en 8 silos</div>
+      <div class="hero-sub">Plantilla bruto $7.88M · Director MKT con 0 reportes directos · 14 partners únicos con duplicidades cross-marca</div>
     </div>
     <div class="hero-card amber">
-      <div class="hero-num">22%</div>
-      <div class="hero-label">Cuentas Meta bajo control corporativo</div>
-      <div class="hero-sub">Solo 4 de 18 ad accounts · Mazda, Ford, GWM, Changan, Isuzu corren por agencias</div>
+      <div class="hero-num">$13.6-24.9M</div>
+      <div class="hero-label">Eficiencia operativa anual identificada</div>
+      <div class="hero-sub">Cinco palancas: proveedores · OEM · plantilla · central medios · IVA</div>
     </div>
-    <div class="hero-card">
-      <div class="hero-num">78%</div>
-      <div class="hero-label">Concentración Cluster 2 externo</div>
-      <div class="hero-sub">Agencia MX-5 (oficial Mazda) sola facturó $214M en el periodo extraído</div>
+    <div class="hero-card gold">
+      <div class="hero-num">+$661M</div>
+      <div class="hero-label">Revenue incremental por +1pp conversión</div>
+      <div class="hero-sub">La palanca dominante por dos órdenes de magnitud · ROI total 136× sobre $5M de inversión en Centro de Excelencia Fase 1</div>
     </div>
   </div>
 
   <div class="conv-note">
-    <strong>Tesis ejecutiva.</strong> El gasto de Marketing del Grupo no tiene un problema de monto: tiene un problema de <strong>estructura</strong>. El dinero corre por activos que el Grupo no posee, plantillas que no se especializan, y proveedores que no se consolidan. La centralización vía <strong>MKT Corporativo como Central de Medios</strong> es la palanca que convierte el gasto en performance auditable, recupera deducibilidad fiscal y habilita el Motor de Atribución como única fuente de verdad de la conversión.
+    <strong>Tesis ejecutiva.</strong> El gasto de Marketing del Grupo no tiene un problema de monto: tiene un problema de <strong>estructura</strong>. El dinero corre por activos que el Grupo no posee, plantillas que no se especializan, y proveedores que no se consolidan. La centralización vía <strong>MKT Corporativo como Central de Medios</strong> es la palanca que convierte el gasto en performance auditable, recupera deducibilidad fiscal y habilita el Motor de Atribución como única fuente de verdad de la conversión. <em>La eficiencia operativa ($13.6-24.9M/año) es defensible, pero la palanca dominante es la conversión digital — dos órdenes de magnitud mayor.</em>
   </div>
 </section>
 
@@ -447,8 +480,60 @@
     </tbody>
   </table>
 
-  <h2><span class="h-num">1.2</span>Lo que sí podemos afirmar hoy</h2>
-  <p>Ranking de pauta 2025 por marca según el cubo 30065 (verificado):</p>
+  <h2><span class="h-num">1.2</span>Estado de Resultados por marca <span class="badge badge-data">cherry-pick v1 Galindo · baseline Jul-Sep 2025</span></h2>
+  <p>Sobre las 3 marcas con MKT mapeado en el baseline Galindo. Cifras anualizadas con advertencias del propio baseline documentadas en cada tarjeta. <strong>Ford, Stellantis, Changan, GWM e Isuzu: MKT no mapeado en el levantamiento — solo plantilla y ventas.</strong></p>
+
+  <div class="marca-grid">
+    <div class="marca-card">
+      <div class="marca-name">Mazda</div>
+      <div class="marca-tag">Marca madura · stack BaU completo · IN-HOUSE</div>
+      <div class="marca-row"><span class="lbl">MKT total /año</span><span class="val">$17.40M</span></div>
+      <div class="marca-row"><span class="lbl">Revenue /año</span><span class="val">$5,653M</span></div>
+      <div class="marca-row"><span class="lbl">Unidades /año</span><span class="val">14,129</span></div>
+      <div class="marca-row"><span class="lbl">$MKT / unidad</span><span class="val">$1,232</span></div>
+      <div class="marca-row"><span class="lbl">MKT % revenue</span><span class="val">0.31%</span></div>
+      <div class="marca-row highlight"><span class="lbl">ROAS bruto</span><span class="val">325×</span></div>
+      <div class="marca-row warn"><span class="lbl">% ventas atribuibles*</span><span class="val">≥100% ⚠</span></div>
+      <div class="marca-row"><span class="lbl">ROAS atribuible*</span><span class="val">≈ bruto · no calculable</span></div>
+    </div>
+
+    <div class="marca-card">
+      <div class="marca-name">Hyundai</div>
+      <div class="marca-tag">Marca madura · stack BaU completo + 3 partners</div>
+      <div class="marca-row"><span class="lbl">MKT total /año</span><span class="val">$14.80M</span></div>
+      <div class="marca-row"><span class="lbl">Revenue /año</span><span class="val">$1,793M</span></div>
+      <div class="marca-row"><span class="lbl">Unidades /año</span><span class="val">4,785</span></div>
+      <div class="marca-row"><span class="lbl">$MKT / unidad</span><span class="val">$3,093</span></div>
+      <div class="marca-row"><span class="lbl">MKT % revenue</span><span class="val">0.83%</span></div>
+      <div class="marca-row highlight"><span class="lbl">ROAS bruto</span><span class="val">121×</span></div>
+      <div class="marca-row warn"><span class="lbl">% ventas atribuibles*</span><span class="val">&gt;100% ⚠</span></div>
+      <div class="marca-row"><span class="lbl">ROAS atribuible*</span><span class="val">cap a 121× · no limpio</span></div>
+    </div>
+
+    <div class="marca-card outlier">
+      <div class="marca-name">GAC</div>
+      <div class="marca-tag">Marca mínima · outlier verificado</div>
+      <div class="marca-row"><span class="lbl">MKT total /año</span><span class="val">$6.93M</span></div>
+      <div class="marca-row"><span class="lbl">Revenue /año</span><span class="val">$411M</span></div>
+      <div class="marca-row"><span class="lbl">Unidades /año</span><span class="val">895</span></div>
+      <div class="marca-row warn"><span class="lbl">$MKT / unidad</span><span class="val">$7,743 ⚠</span></div>
+      <div class="marca-row warn"><span class="lbl">MKT % revenue</span><span class="val">1.69% ⚠</span></div>
+      <div class="marca-row"><span class="lbl">ROAS bruto</span><span class="val">59×</span></div>
+      <div class="marca-row"><span class="lbl">% ventas atribuibles</span><span class="val">29.5%</span></div>
+      <div class="marca-row highlight"><span class="lbl">ROAS atribuible</span><span class="val">17.5× ⚠</span></div>
+    </div>
+  </div>
+
+  <div class="warn-note">
+    <strong>Lectura cruzada con advertencias del baseline.</strong>
+    <br>· <strong>Mazda</strong> reporta 5,058 uds atribuidas a MKT en 4m (Ago-Nov 2025) → anualizado ≈ 15,174, mayor que las 14,129 vendidas. Sobre-conteo: incluye TOTAL de uds como si todas fueran atribuibles a MKT. <em>Imposible separar atribuible de orgánico con esta data.</em>
+    <br>· <strong>Hyundai</strong> funnel Jul-Sep reporta 1,419 facturas en 3m → anualizado 5,676 vs 4,785 reales. Advertencia documentada: "Hyundai infla leads digitales con los que vienen de la planta". Atribución ≤ 100% solo por límite matemático.
+    <br>· <strong>GAC es la única marca donde el funnel es defensible:</strong> 66 facturas en 3m → ≈264/año. Solo el <strong>29.5% de sus 895 uds anuales son atribuibles a MKT</strong> — el otro 70% son walk-in / orgánico / referidos. Su <strong>ROAS atribuible real (17.5×) es 3.4× peor que el bruto (59×)</strong>.
+    <br><br>* El baseline NO permite calcular ROAS atribuible limpio para Mazda ni Hyundai. <strong>El Motor de Atribución MVP</strong> (operando desde abr 2026) resuelve esto cuando la data 2026 esté disponible. <strong>Ford, Stellantis, Changan, GWM e Isuzu no tienen hero stats — MKT no mapeado por Galindo.</strong>
+  </div>
+
+  <h2><span class="h-num">1.3</span>Pauta 2025 verificada DCA · ranking por marca</h2>
+  <p>Datos contables verificados del cubo 30065 (no del baseline Galindo). Captura completa de las 8 marcas activas:</p>
   <table>
     <thead><tr><th style="width:8%">#</th><th style="width:25%">Marca</th><th class="num" style="width:25%">Real MXN</th><th class="num">% del total</th></tr></thead>
     <tbody>
@@ -465,11 +550,37 @@
   </table>
   <div class="warn-note"><strong>Concentración 2026 acelera.</strong> Mazda crece al 81.1% del share. Hyundai cae al 0.5% (anomalía sistémica). Stellantis y GAC continúan tendencia decreciente histórica.</div>
 
-  <h2><span class="h-num">1.3</span>Por qué Cap 1 sigue abierto</h2>
-  <p>El <strong>proxy de Galindo</strong> asignaba ventas a Marketing con base en heurísticas operativas. Ese proxy fue la <em>hipótesis fundacional</em> que motivó el lanzamiento del Motor de Atribución como Dirección MKT en 2026.</p>
-  <div class="callout">
-    <div class="callout-t">Implicación estratégica para el Consejo</div>
-    <p>Hablar de "CAC del Grupo" o "ROAS por marca" como cifras únicas hoy es operacional, no contable. La data dura para responder esa pregunta no existe sin el <strong>Motor de Atribución completo</strong>. El Cap 1 final de este documento requiere cierre operacional del piloto (Seminuevos, Hyundai, Stellantis, GAC) más extensión a Mazda, Ford, GWM, Changan e Isuzu.</p>
+  <h2><span class="h-num">1.4</span>Dispersión CPA cross-agencia · 21.6× spread <span class="badge badge-data">v1 Galindo · Ago-Nov 2025</span></h2>
+  <p>CPA acumulado 4 meses (Ago-Nov 2025) en las 21 agencias mapeadas. CPA = gasto MKT total ÷ unidades vendidas.</p>
+  <table>
+    <thead><tr><th>#</th><th>Agencia</th><th>Marca</th><th class="num">Gasto 4m</th><th class="num">Uds 4m</th><th class="num">CPA</th></tr></thead>
+    <tbody>
+      <tr class="highlight"><td>1</td><td><strong>Mazda Colima</strong></td><td>Mazda</td><td class="num">$225,556</td><td class="num">424</td><td class="num"><strong>$532</strong></td></tr>
+      <tr><td>2</td><td>Mazda Santa Anita</td><td>Mazda</td><td class="num">$321,625</td><td class="num">524</td><td class="num">$614</td></tr>
+      <tr><td>3</td><td>Mazda Acueducto</td><td>Mazda</td><td class="num">$410,971</td><td class="num">639</td><td class="num">$643</td></tr>
+      <tr><td>...</td><td colspan="5"><em>17 agencias intermedias (Mazda Américas $752 · Tepic $833 · Plasencia $859 · Vallarta $972 · Galerías $1,025 · Manzanillo $1,039 · González Gallo $1,109 · Hyundai Plasencia $1,666 · Tepic $1,822 · Santa Anita $1,884 · Colima $2,026 · GAC Bugambilias $2,279 · Hyundai Lomas SLP $2,371 · GAC Colima $2,914 · Hyundai Vallarta $3,094 · Carretera 57 $3,377 · GAC PTV $5,117)</em></td></tr>
+      <tr class="highlight"><td>21</td><td><strong>GAC Américas</strong></td><td>GAC</td><td class="num">$286,700</td><td class="num">25</td><td class="num"><strong>$11,468 ⚠</strong></td></tr>
+    </tbody>
+  </table>
+
+  <table style="margin-top:3mm;">
+    <thead><tr><th>Spread CPA del Grupo</th><th class="num">Múltiplo</th><th>Lectura</th></tr></thead>
+    <tbody>
+      <tr class="highlight"><td><strong>Cross-agencia (Mazda Colima vs GAC Américas)</strong></td><td class="num"><strong>21.6×</strong></td><td>Mismo Grupo · diferencia obscena entre la mejor y la peor agencia</td></tr>
+      <tr><td>Spread interno Mazda</td><td class="num">2.1×</td><td>Variación contenida dentro de la marca madura</td></tr>
+      <tr><td>Spread interno Hyundai</td><td class="num">2.0×</td><td>Variación contenida dentro de la marca madura</td></tr>
+      <tr><td>Spread interno GAC</td><td class="num">5.0×</td><td>Variación extrema · marca con outlier $11,468</td></tr>
+    </tbody>
+  </table>
+
+  <h2><span class="h-num">1.5</span>Por qué Cap 1 sigue abierto</h2>
+  <p>El <strong>proxy de Galindo</strong> asignaba ventas a Marketing con base en heurísticas operativas y autorreporte de gerentes (NO data contable). Ese proxy fue la <em>hipótesis fundacional</em> que motivó el lanzamiento del Motor de Atribución como Dirección MKT en 2026.</p>
+  <div class="conv-note">
+    <strong>Implicación estratégica para el Consejo.</strong> Hablar de "CAC del Grupo" o "ROAS por marca" como cifras únicas hoy es operacional, no contable. La data dura para responder esa pregunta no existe sin el <strong>Motor de Atribución completo</strong>. El cierre definitivo del Cap 1 requiere:
+    <br>· (a) cierre operacional del piloto Motor (Seminuevos, Hyundai, Stellantis, GAC abr 2026-)
+    <br>· (b) extensión del Motor a Mazda, Ford, GWM, Changan e Isuzu
+    <br>· (c) validar baseline Galindo contra libros contables reales (cookie BITAM A2 + A3)
+    <br>· (d) recibir ventas reales y nómina cargada por marca (A1 + A2 + A10)
   </div>
 </section>
 
@@ -1001,6 +1112,111 @@
   </div>
 </section>
 
+<!-- CAP 5c: OEM REBATE + 5 PALANCAS -->
+<section class="page">
+  <h1 class="section-title"><span class="num">Cap 5 · Magnitud económica · §5.7-5.9</span>De cada $100, <em>$93 salen del Grupo.</em></h1>
+
+  <h2><span class="h-num">5.7</span>OEM Rebate · la palanca que no se está cobrando <span class="badge badge-data">v1 Galindo</span></h2>
+  <p>Sobre la pauta documentada de Mazda + Hyundai + GAC + GWM-pauta (<strong>$27.01M</strong>), el Grupo financia el <strong>84.1%</strong> y el OEM rebatea solo el <strong>15.9%</strong>. Benchmark industria automotriz: 20-30%. <strong>El Grupo está por debajo del piso del sector.</strong></p>
+  <table>
+    <thead><tr><th>Concepto</th><th class="num">Monto</th><th class="num">% del pauta</th></tr></thead>
+    <tbody>
+      <tr><td>Pauta documentada (Mazda + Hyundai + GAC + GWM)</td><td class="num">$27.01M</td><td class="num">100%</td></tr>
+      <tr class="highlight"><td><strong>Financiado por el Grupo</strong></td><td class="num"><strong>$22.71M</strong></td><td class="num"><strong>84.1%</strong></td></tr>
+      <tr><td>OEM rebate efectivo (hoy)</td><td class="num">$4.30M</td><td class="num">15.9%</td></tr>
+      <tr><td>Si las 4 marcas alcanzaran 20% benchmark piso</td><td class="num">+$1.10M</td><td class="num">→ 20%</td></tr>
+      <tr class="total"><td><strong>Si se MAXIMIZA</strong> (Mazda 30% × 10 ag · Hyundai 25% · GAC 20% · GWM 20%)</td><td class="num"><strong>$7.06M</strong></td><td class="num"><strong>26.1%</strong></td></tr>
+    </tbody>
+  </table>
+  <div class="warn-note">
+    <strong>Sólo GAC reportó el rebate línea por línea</strong> (digital_bruto $4.36M - reembolso $2.67M = digital_neto $1.69M, 61.3%). Mazda y Hyundai reportaron <em>un solo número ya neto</em>. <strong>No se puede confirmar si el rebate efectivo coincide con el acuerdo OEM.</strong> No implica fuga · sí implica riesgo de control no auditado. Cierre del riesgo: cruzar contra libros contables, acuerdos OEM firmados, movimientos bancarios.
+  </div>
+  <div class="callout">
+    <div class="callout-t">De cada $100 de marketing, $93 salen 100% del Grupo</div>
+    <p>Sobre el gasto MKT mapeado del baseline Galindo ($41.62M · Mazda + Hyundai + GAC + Seminuevos), solo el <strong>10.3% es reembolsable</strong> ($4.30M/año) porque OEM no rebatea plantilla ni fees de agencia. Las 5 marcas con MKT no mapeado tienen su propio rebate OEM no calculado.</p>
+  </div>
+
+  <h2><span class="h-num">5.8</span>Las 5 palancas · cinco fuentes de ineficiencia cuantificadas</h2>
+  <p>Las palancas 1-4 son <strong>eficiencia operativa</strong> (ahorro). La palanca 5 es <strong>performance del peso invertido</strong> (revenue incremental) y opera en otro orden de magnitud — dos órdenes por encima.</p>
+
+  <div class="palancas-grid">
+    <div class="palanca">
+      <div>
+        <div class="palanca-header">Palanca 1 · Fragmentación de proveedores</div>
+        <div class="palanca-title">14 proveedores externos sin coordinación, con duplicidades verificables</div>
+        <div class="palanca-body">Consolidación 14 → 3-4 socios + descuento volumen (30-40%) + eliminación duplicidades (15-20%). Auditar primero: Nextilo cross-marca, Like × 3 handles, Dazing concentrado en Ford.</div>
+      </div>
+      <div class="palanca-monto">$3.2-5.2M</div>
+    </div>
+
+    <div class="palanca">
+      <div>
+        <div class="palanca-header">Palanca 2 · Pauta OEM no negociada</div>
+        <div class="palanca-title">78% de las agencias del Grupo financian 100% su pauta</div>
+        <div class="palanca-body">Negociar 20% OEM con marcas sin acuerdo (Changan, Ford, GWM, Stellantis) + subir 6 Mazdas a 30% como las otras 4 + subir Hyundai de 20% a 25%.</div>
+      </div>
+      <div class="palanca-monto">$3.9-5.5M</div>
+    </div>
+
+    <div class="palanca">
+      <div>
+        <div class="palanca-header">Palanca 3 · Plantilla fragmentada</div>
+        <div class="palanca-title">60 personas en 8 silos · dispersión costo/persona 2.1× · objetivo 30 personas en 18 meses</div>
+        <div class="palanca-body">Hub &amp; Spoke híbrido: Hub corporativo del Grupo (6-7 senior cross-marca: Performance · Data · Brand standards · Creative Ops) + Spokes (1 Brand Owner × marca = 8) = 14-15 personas. Construye el nivel corporativo del Grupo que hoy está vacío.</div>
+      </div>
+      <div class="palanca-monto">$5.0-11.0M</div>
+    </div>
+
+    <div class="palanca">
+      <div>
+        <div class="palanca-header">Palanca 4 · Sin Central de Medios</div>
+        <div class="palanca-title">Pauta dispersa · sin comisión central · sin IVA acreditable sistemático</div>
+        <div class="palanca-body">Industria automotriz MX usa central de medios con descuento 5-8% sobre digital. Recuperación IVA acreditable (16%) hoy se pierde inconsistentemente. Es la palanca documentada en §5.1-5.5 del Centro de Excelencia.</div>
+      </div>
+      <div class="palanca-monto">$1.5-3.2M</div>
+    </div>
+
+    <div class="palanca dominante">
+      <div>
+        <div class="palanca-header">Palanca 5 · Sin atribución unificada · DOMINANTE por orden de magnitud</div>
+        <div class="palanca-title">+1pp conversión digital = +$661 MDP/año de revenue incremental</div>
+        <div class="palanca-body">Conversión digital del Grupo 4.3%. Mazda 22%, resto &lt;8%. Motor de Atribución MVP ya construido (abr 2026). Cuello: handoff downstream a vendedor (no captación). <strong>Revenue incremental, no ahorro.</strong></div>
+      </div>
+      <div class="palanca-monto">+$330-1,983M</div>
+    </div>
+  </div>
+
+  <h2><span class="h-num">5.9</span>Magnitud agregada · tres escenarios y ROI del Centro de Excelencia</h2>
+  <table>
+    <thead><tr><th>Palanca</th><th class="num">Conservador</th><th class="num">Realista</th><th class="num">Optimista</th></tr></thead>
+    <tbody>
+      <tr><td>1. Consolidación proveedores</td><td class="num">$3.2M</td><td class="num">$4.2M</td><td class="num">$5.2M</td></tr>
+      <tr><td>2. Pauta OEM negociada</td><td class="num">$3.9M</td><td class="num">$4.5M</td><td class="num">$5.5M</td></tr>
+      <tr><td>3. Reducción plantilla 60 → 30</td><td class="num">$5.0M</td><td class="num">$8.75M</td><td class="num">$11.0M</td></tr>
+      <tr><td>4. Central medios + IVA</td><td class="num">$1.5M</td><td class="num">$2.5M</td><td class="num">$3.2M</td></tr>
+      <tr><td><strong>Eficiencia operativa · subtotal palancas 1-4</strong></td><td class="num"><strong>$13.6M</strong></td><td class="num"><strong>$19.95M</strong></td><td class="num"><strong>$24.9M</strong></td></tr>
+      <tr class="highlight"><td><strong>5. Conversión digital (+pp)</strong></td><td class="num"><strong>+$330M</strong></td><td class="num"><strong>+$661M</strong></td><td class="num"><strong>+$1,983M</strong></td></tr>
+      <tr class="total"><td><strong>TOTAL impacto anualizado</strong></td><td class="num"><strong>$343.6M</strong></td><td class="num"><strong>$680.95M</strong></td><td class="num"><strong>$2,007.9M</strong></td></tr>
+    </tbody>
+  </table>
+
+  <table style="margin-top:4mm;">
+    <thead><tr><th>Métrica</th><th class="num">Conservador</th><th class="num">Realista</th><th class="num">Optimista</th></tr></thead>
+    <tbody>
+      <tr><td>Inversión Centro de Excelencia · Fase 1</td><td class="num">$5M</td><td class="num">$5M</td><td class="num">$5M</td></tr>
+      <tr><td>Retorno neto · solo eficiencia (palancas 1-4)</td><td class="num">$8.6M (ROI 2.7×)</td><td class="num">$14.95M (ROI 4.0×)</td><td class="num">$19.9M (ROI 5.0×)</td></tr>
+      <tr class="total"><td><strong>ROI total · eficiencia + conversión</strong></td><td class="num"><strong>69×</strong></td><td class="num"><strong>136×</strong></td><td class="num"><strong>401×</strong></td></tr>
+    </tbody>
+  </table>
+
+  <div class="conv-note">
+    <strong>El número que domina la conversación es la conversión, no la eficiencia.</strong> La eficiencia operativa (palancas 1-4) suma $13.6-24.9M/año — sólido y defensible. Pero la palanca 5 (atribución + conversión) suma <strong>+$330-1,983M/año</strong>, dos órdenes de magnitud por encima. <em>Cualquier estrategia que priorice eficiencia sobre conversión está optimizando lo menor.</em>
+  </div>
+  <div class="warn-note">
+    <strong>Disclaimers.</strong> Cifras del baseline Galindo Q3-Q4 2025 (autorreporte de gerentes, no contable). <strong>$19.5M de eficiencia</strong> sobre 3 marcas con MKT mapeado — el número crecería si las 5 marcas faltantes tienen intensidades similares. <strong>+$661M /año por +1pp conversión</strong> asume revenue del Grupo $12,813M × +1pp. Hereda los problemas de atribución del baseline (kpis Mazda y Hyundai sobre-cuentan; solo GAC defensible). <strong>El Motor de Atribución MVP es lo que va a permitir calcular este número con rigor.</strong>
+  </div>
+</section>
+
 <!-- CAP 6: TO-BE -->
 <section class="page">
   <h1 class="section-title"><span class="num">Cap 6 · Estructura To-Be del área de Marketing</span>El To-Be <em>se construye con el As-Is en la mano.</em></h1>
@@ -1032,6 +1248,51 @@
       <tr><td>Roadmap fiscal de centralización (de Viceversa a MKT Corp como entidad fiscal)</td><td>Asesores fiscales + Contraloría</td></tr>
       <tr><td>Mapeo de assets digitales por OEM (qué se puede migrar, qué requiere renegociación)</td><td>Walk-through con agencias actuales</td></tr>
       <tr><td>Estándar operativo de gestión de leads (qué app, qué CRM, qué SOPs)</td><td>Decisión Director MKT</td></tr>
+    </tbody>
+  </table>
+
+  <h2><span class="h-num">6.3</span>Modelo Hub &amp; Spoke híbrido <span class="badge badge-data">hipótesis v1 cherry-pickeada</span></h2>
+  <p>El v1 Galindo propone como instrumento del Centro de Excelencia un modelo <strong>Hub &amp; Spoke híbrido</strong> que materializa las 5 palancas. <strong>No es novedad teórica</strong>: Mazda y Hyundai ya operan stack BaU completo a nivel marca; el CdE construye el equivalente al nivel corporativo del Grupo.</p>
+  <table>
+    <thead><tr><th>Capa</th><th>Composición</th><th class="num">Personas</th></tr></thead>
+    <tbody>
+      <tr class="highlight"><td><strong>HUB · Corporativo del Grupo</strong> (hoy vacío)</td><td>6-7 senior cross-marca: Performance · Data · Brand standards · Creative Ops</td><td class="num">6-7</td></tr>
+      <tr><td><strong>SPOKES · Brand Owners por marca</strong></td><td>1 Brand Owner por marca × 8 marcas (puente Hub ↔ silo)</td><td class="num">8</td></tr>
+      <tr class="total"><td><strong>Plantilla nuclear To-Be</strong></td><td>Hub + Spokes · sin contar concesionarios</td><td class="num">14-15</td></tr>
+      <tr><td>Objetivo plantilla total a 18 meses (con recolocaciones)</td><td>Reducción de 60 (As-Is) a 30</td><td class="num">30</td></tr>
+    </tbody>
+  </table>
+  <div class="callout">
+    <div class="callout-t">El CdE no inventa el modelo · lo construye al nivel del Grupo</div>
+    <p>Mazda (Florencia Alcaraz + 6 cross-ag + 14 en concesionarios + IN-HOUSE en 10 agencias) y Hyundai (Verónica Orozco + 4 cross-ag + 6 en concesionarios + 3 partners en 7 agencias) ya operan el stack BaU completo <em>a nivel marca</em>. El Centro de Excelencia replica esa estructura comprobada al nivel corporativo del Grupo · vacío hoy.</p>
+  </div>
+
+  <h2><span class="h-num">6.4</span>Taxonomía propuesta · 4 dimensiones de etiquetado cruzado</h2>
+  <p>Cada gasto del sistema futuro lleva tags simultáneos en 4 dimensiones perpendiculares. Un gasto de Meta Ads para Mazda en octubre se etiqueta como <code>bucket=digital · paid · conversion · marca_especifico · variable · mazda · oem=30%</code>. Permite cortes hoy imposibles.</p>
+  <table>
+    <thead><tr><th>Dimensión</th><th>Estado actual GP</th><th>Benchmark sector</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Paid / Owned / Earned</strong></td><td>90% / 8% / 2%</td><td>60% / 30% / 10%</td></tr>
+      <tr class="highlight"><td><strong>Funnel stage</strong> (awareness / consideration / conversion / retention)</td><td>85% / 10% / 5% / <strong>0% retention</strong></td><td>45% / 27% / 18% / 10%</td></tr>
+      <tr><td><strong>Alcance</strong> (cross-marca / marca-específico)</td><td>5% cross / 95% específico</td><td>25% / 75%</td></tr>
+      <tr><td><strong>Tipo de costo</strong> (fijo recurrente / variable proyectable)</td><td>53% fijo / 47% variable</td><td>30% / 70%</td></tr>
+    </tbody>
+  </table>
+  <div class="warn-note">
+    <strong>Cómo leer las dimensiones.</strong> <strong>Paid</strong> = pauta pagada en plataformas o medios (Meta, Google, OOH). <strong>Owned</strong> = activos propios del Grupo (sitio, CRM, email, contenido, app, base de datos) · ROI compuesto en el tiempo. <strong>Earned</strong> = exposición ganada sin pagar (PR, reseñas, viralidad, recomendación). El benchmark 60/30/10 existe porque <em>owned</em> y <em>earned</em> tienen mejor LTV que <em>paid</em> sostenido. <strong>El Grupo a 90/8/2 está sobre-dependiente de pauta pagada</strong> y con 0% en retention.
+  </div>
+
+  <h2><span class="h-num">6.5</span>Secuencia de implementación · el orden importa más que el contenido</h2>
+  <p>Hipótesis 5 del v1: saltarse pasos destruye el capital político para las palancas posteriores. Orden propuesto:</p>
+  <table>
+    <thead><tr><th class="num">Paso</th><th>Acción</th><th>Por qué este orden</th></tr></thead>
+    <tbody>
+      <tr><td class="num">1</td><td><strong>Hacer visible el 53% invisible</strong></td><td>Etiquetar plantilla y fees como MKT en libros · sin movimientos políticos · habilita las siguientes</td></tr>
+      <tr><td class="num">2</td><td><strong>Negociar OEM rebate</strong></td><td>Quick win sin recortes · capital político positivo · +$3.9-5.5M/año</td></tr>
+      <tr><td class="num">3</td><td><strong>Consolidar Central de Medios</strong></td><td>Captura IVA + comisión negociada · sin tocar plantilla todavía</td></tr>
+      <tr><td class="num">4</td><td><strong>Auditar y consolidar proveedores</strong></td><td>14 → 3-4 socios · arbitraje cross-marca · capital político medio</td></tr>
+      <tr><td class="num">5</td><td><strong>Activar atribución unificada</strong></td><td>Motor de Atribución MVP cross-marca · revenue +pp conversión</td></tr>
+      <tr class="highlight"><td class="num">6</td><td><strong>Reorganizar plantilla</strong></td><td>Lo más costoso políticamente · va al final · ya con la palanca 5 demostrada</td></tr>
     </tbody>
   </table>
 </section>
@@ -1070,7 +1331,38 @@
   </ul>
 
   <h2><span class="h-num">C</span>Reproducibilidad</h2>
-  <p>Toda cifra de gasto en este documento es reproducible vía queries SQL contra <strong>Cloudflare D1 <code>bitam-mkt</code></strong> (cubos 30065, 30046, 30049, 30051, 30067). Toda cifra operacional Meta es reproducible vía MCPs <code>meta-ads</code> (token oficial GP) y <code>pipeboard-meta</code> (auth Director MKT). Métodos documentados en <code>03-tech/DCA-D1-Sistema-Finanzas-MKT.md</code> y <code>03-tech/BITAM-Runbook-Extraccion-Datos.md</code>.</p>
+  <p>Toda cifra de gasto en este documento es reproducible vía queries SQL contra <strong>Cloudflare D1 <code>bitam-mkt</code></strong> (cubos 30065, 30046, 30049, 30051, 30067). Toda cifra operacional Meta es reproducible vía MCPs <code>meta-ads</code> (token oficial GP) y <code>pipeboard-meta</code> (auth Director MKT). Cifras del baseline Galindo Q3-Q4 2025 cherry-pickeadas del v1 <code>Marketing-Eficiencia-Diagnostico-2025.html</code>. Sweep web vía WebSearch público. Auditoría 2 BMs vía business.facebook.com UI. Métodos documentados en <code>03-tech/DCA-D1-Sistema-Finanzas-MKT.md</code> y <code>03-tech/BITAM-Runbook-Extraccion-Datos.md</code>.</p>
+
+  <h2><span class="h-num">D</span>Marcas en orden de prioridad por palanca <span class="badge badge-data">cherry-pick v1</span></h2>
+  <table>
+    <thead><tr><th>Marca</th><th>Palanca dominante</th><th class="num">Magnitud /año</th></tr></thead>
+    <tbody>
+      <tr class="highlight"><td><strong>GAC</strong></td><td>CAC 3.4× peor · dispersión interna 5.0× · 1.69% revenue (más alto del Grupo)</td><td class="num">$2-4M</td></tr>
+      <tr class="highlight"><td><strong>Hyundai</strong></td><td>Tasa pérdida lead→cita 57.1% · conversión venta &lt;10% · gasta $14.8M en 4,785 unidades</td><td class="num">$5-10M</td></tr>
+      <tr><td><strong>Ford</strong></td><td>100% GP sin OEM + $3.81M concentrado en Dazing (56% de su MKT)</td><td class="num">$1.5-2M</td></tr>
+      <tr><td>Mazda</td><td>6 de 10 agencias sin co-inversión OEM</td><td class="num">$1.5-2M</td></tr>
+      <tr><td>Changan</td><td>Plantilla más cara del Grupo · $40K/persona</td><td class="num">$0.7-1M</td></tr>
+      <tr><td>Stellantis</td><td>Plantilla mínima · datos subreportados · fees consolidables</td><td class="num">$0.5-1M</td></tr>
+      <tr><td>GWM</td><td>4 agencias sin OEM + data faltante en fees</td><td class="num">$0.4-0.6M</td></tr>
+      <tr><td>Seminuevos</td><td>1 persona para 7 agencias · cuello operativo</td><td>capacidad</td></tr>
+    </tbody>
+  </table>
+
+  <h2><span class="h-num">E</span>Cherry-pick del v1 Galindo en este documento</h2>
+  <table>
+    <thead><tr><th>Elemento del v1</th><th>Dónde quedó en el v2</th></tr></thead>
+    <tbody>
+      <tr><td>Organigrama formal · líneas de reporte AS IS · 61 directos + 14 partners</td><td>Cap 2 §2.3 + §2.4 + §2.5 + §2.6</td></tr>
+      <tr><td>Hero stats por marca · ROAS bruto + atribuible parcial con advertencias</td><td>Cap 1 §1.2</td></tr>
+      <tr><td>CPA por agencia · 21.6× spread cross-agencia</td><td>Cap 1 §1.4</td></tr>
+      <tr><td>OEM Rebate · GP financia 84.1% · benchmark 20-30%</td><td>Cap 5 §5.7</td></tr>
+      <tr><td>5 palancas mutuamente excluyentes · 3 escenarios · ROI 136×</td><td>Cap 5 §5.8 + §5.9</td></tr>
+      <tr><td>Hub &amp; Spoke híbrido · 14-15 personas nucleares</td><td>Cap 6 §6.3</td></tr>
+      <tr><td>4 dimensiones de etiquetado cruzado · Paid/Owned/Earned · Funnel · Alcance · Tipo de costo</td><td>Cap 6 §6.4</td></tr>
+      <tr><td>Secuencia de implementación · hipótesis 5</td><td>Cap 6 §6.5</td></tr>
+      <tr><td>Anexo A · Marcas en orden de prioridad por palanca</td><td>Anexo D arriba</td></tr>
+    </tbody>
+  </table>
 
   <div class="callout" style="margin-top:8mm;">
     <div class="callout-t">Identidad del documento</div>
