@@ -2,8 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Deep Dive · Marcas Chinas · Unit Economics Post-Venta · DCA Baseline 2025-2026 · v1.0</title>
-<meta name="description" content="Análisis cuantitativo post-venta GAC/Changan/GWM desde DCA (sistema contable). Ventas, retención al taller propio, valor refacciones y tiempo a primer servicio. Insumo Plan v2 Deep Dive MKT Cap 1 + Cap 6.">
+<title>Marcas Chinas · Post-Venta DCA · 2025 + 2026 YTD</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@500;700;800;900&display=swap" rel="stylesheet">
@@ -19,7 +18,6 @@
     --text: #2D3748;
     --serif: 'Playfair Display', Georgia, serif;
     --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    --changan: #D69E2E; --gac: #48BB78; --gwm: #4299E1;
   }
   * { margin:0; padding:0; box-sizing:border-box; }
   html, body { background:var(--bg); }
@@ -28,126 +26,32 @@
   @page {
     size: A4; margin: 16mm 16mm 20mm 16mm;
     @bottom-right { content: counter(page); font-family: 'Inter'; font-size: 9pt; color: #718096; }
-    @bottom-left { content: "Confidencial · Dirección de Marketing Corporativo · v1.0"; font-family: 'Inter'; font-size: 8pt; color: #A0AEC0; }
-    @top-right { content: "Deep Dive · Marcas Chinas · Unit Economics Post-Venta · DCA 2025–2026"; font-family: 'Inter'; font-size: 8pt; color: #A0AEC0; }
+    @bottom-left { content: "Grupo Plasencia · Dirección de Marketing Corporativo"; font-family: 'Inter'; font-size: 8pt; color: #A0AEC0; }
+    @top-right { content: "Marcas Chinas · Post-Venta DCA · 2025 + 2026 YTD"; font-family: 'Inter'; font-size: 8pt; color: #A0AEC0; }
   }
-  @page :first { @top-right { content: ""; } @bottom-right { content: ""; } @bottom-left { content: ""; } }
-  @page cover { margin: 0; }
 
   .page { background: var(--paper); width: 210mm; min-height: 297mm; margin: 0 auto 8mm auto; padding: 16mm 16mm 20mm 16mm; position: relative; page-break-after: always; box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 4px 24px rgba(30,39,64,.08); }
   .page:last-child { page-break-after: auto; }
 
-  /* COVER */
-  .cover { background: var(--gp-navy); color: var(--near-white); padding: 0; page: cover; }
-  .cover-inner { padding: 32mm 20mm 22mm 20mm; min-height: 297mm; display: flex; flex-direction: column; justify-content: space-between;
-    background: radial-gradient(ellipse at 100% 0%, rgba(236,201,75,0.12) 0%, transparent 55%), radial-gradient(ellipse at 0% 100%, rgba(200,16,46,0.10) 0%, transparent 55%), var(--gp-navy); position: relative; }
-  .cover-inner::before { content: ""; position: absolute; top: 22mm; left: 20mm; width: 64mm; height: 1px; background: var(--gold); }
-  .cover-mark { font-family: var(--sans); font-weight: 700; font-size: 11pt; letter-spacing: 4px; color: var(--gold); text-transform: uppercase; }
-  .cover-mark span { display:block; font-weight:400; color:rgba(255,255,255,0.55); margin-top:4px; letter-spacing:1px; font-size:9pt; }
-  .cover-eyebrow { font-family: var(--sans); font-size: 10pt; font-weight: 700; letter-spacing: 5px; color: var(--gp-red); text-transform: uppercase; margin-top: 12mm; }
-  .cover-title { font-family: var(--serif); font-weight: 800; font-size: 46pt; line-height: 1.02; letter-spacing: -1.5px; margin-top: 6mm; color: var(--near-white); }
-  .cover-title em { font-style: italic; color: var(--gold); font-weight: 700; }
-  .cover-subtitle { font-family: var(--serif); font-weight: 500; font-style: italic; font-size: 16pt; color: var(--gold); margin-top: 7mm; letter-spacing: -0.3px; line-height: 1.3; }
-  .cover-pull { font-family: var(--serif); font-weight: 500; font-style: italic; font-size: 11.5pt; color: rgba(255,255,255,0.85); line-height: 1.5; border-left: 3px solid var(--gp-red); padding-left: 7mm; margin-top: 14mm; max-width: 150mm; }
-  .cover-pull cite { display: block; font-style: normal; font-family: var(--sans); font-weight: 600; font-size: 9pt; letter-spacing: 1.5px; color: var(--gp-red); margin-top: 5mm; text-transform: uppercase; }
-  .cover-tags { display:flex; gap:5mm; margin-top: 12mm; flex-wrap:wrap; }
-  .cover-tag { font-family: var(--sans); font-size: 8.5pt; font-weight: 600; letter-spacing: 1px; color: rgba(255,255,255,0.85); border: 1px solid rgba(255,255,255,0.25); padding: 4px 10px; border-radius: 999px; text-transform: uppercase; }
-  .cover-tag.accent { color: var(--gold); border-color: rgba(236,201,75,0.4); }
-  .cover-tag.urgent { color: var(--gp-red); border-color: rgba(200,16,46,0.4); }
-  .cover-meta { display: flex; justify-content: space-between; align-items: flex-end; margin-top: 14mm; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 7mm; }
-  .cover-meta-block { font-size: 9pt; color: rgba(255,255,255,0.65); line-height: 1.7; }
-  .cover-meta-block strong { display:block; color: var(--near-white); font-weight: 700; font-size: 10pt; letter-spacing: .5px; }
+  /* Encabezado del documento */
+  .doc-header { border-top: 3px solid var(--gp-red); padding-top: 5mm; margin-bottom: 8mm; }
+  .doc-header .eyebrow { font-family: var(--sans); font-weight: 700; font-size: 9pt; letter-spacing: 4px; color: var(--gp-red); text-transform: uppercase; margin-bottom: 3mm; }
+  .doc-header h1 { font-family: var(--serif); font-weight: 800; font-size: 28pt; line-height: 1.05; letter-spacing: -0.8px; color: var(--gp-navy); margin-bottom: 3mm; }
+  .doc-header .subtitle { font-family: var(--serif); font-weight: 500; font-style: italic; font-size: 13pt; color: var(--g600); line-height: 1.3; }
+  .doc-header .meta { display: flex; gap: 8mm; margin-top: 5mm; padding-top: 4mm; border-top: 1px solid var(--g100); font-size: 8.5pt; color: var(--g500); }
+  .doc-header .meta strong { color: var(--gp-slate); font-weight: 700; }
 
-  /* TOC */
-  .toc { margin-top: 4mm; }
-  .toc-item { display: flex; justify-content: space-between; align-items: baseline; padding: 3mm 0; border-bottom: 1px dotted var(--g300); font-size: 10.5pt; }
-  .toc-num { font-family: var(--serif); font-weight: 800; font-size: 13pt; color: var(--gp-red); width: 14mm; flex-shrink: 0; }
-  .toc-title { flex: 1; color: var(--gp-navy); font-weight: 700; padding-right: 4mm; }
-  .toc-sub { display: block; font-size: 8.5pt; color: var(--g500); font-weight: 400; margin-top: 1mm; }
-  .toc-page { color: var(--g500); font-family: var(--serif); font-style: italic; font-size: 10pt; flex-shrink: 0; }
-
-  /* TYPOGRAPHY */
-  h1.section-title { font-family: var(--serif); font-weight: 800; font-size: 26pt; line-height: 1.05; letter-spacing: -0.8px; color: var(--gp-navy); border-top: 3px solid var(--gp-red); padding-top: 5mm; margin-bottom: 5mm; }
-  h1.section-title .num { display: block; font-family: var(--sans); font-weight: 700; font-size: 9pt; letter-spacing: 4px; color: var(--gp-red); text-transform: uppercase; margin-bottom: 3mm; }
-  h2.section-h2 { font-size: 14pt; font-weight: 800; color: var(--gp-navy); margin-top: 7mm; margin-bottom: 3mm; line-height: 1.2; }
-  h3.section-h3 { font-size: 11pt; font-weight: 700; color: var(--gp-navy); margin-top: 4mm; margin-bottom: 2mm; }
-  h4.subsection-h4 { font-size: 10pt; font-weight: 800; color: var(--gp-slate); text-transform: uppercase; letter-spacing: 1.5px; margin-top: 5mm; margin-bottom: 2mm; padding-bottom: 1mm; border-bottom: 1px solid var(--g100); }
+  /* Secciones */
+  h2.section-h2 { font-family: var(--serif); font-weight: 800; font-size: 18pt; color: var(--gp-navy); margin-top: 9mm; margin-bottom: 3mm; line-height: 1.2; letter-spacing: -0.4px; }
+  h2.section-h2 .num { font-family: var(--sans); font-weight: 700; font-size: 9pt; letter-spacing: 3px; color: var(--gp-red); text-transform: uppercase; display: block; margin-bottom: 2mm; }
+  h3.section-h3 { font-size: 10pt; font-weight: 800; color: var(--gp-slate); text-transform: uppercase; letter-spacing: 1.5px; margin-top: 5mm; margin-bottom: 2mm; padding-bottom: 1mm; border-bottom: 1px solid var(--g100); }
   p { margin: 0 0 3mm 0; }
   strong { font-weight: 700; color: var(--gp-navy); }
-  em { font-style: italic; }
-  .lead { font-size: 10.5pt; line-height: 1.6; color: var(--g600); margin-bottom: 4mm; }
-  .lead strong { color: var(--gp-navy); }
-  .small { font-size: 8pt; color: var(--g500); line-height: 1.45; }
+  .small { font-size: 8pt; color: var(--g500); line-height: 1.45; margin-top: 2mm; }
   .small strong { color: var(--gp-slate); }
 
-  /* STATEMENT (Answer-First) */
-  .statement { background: var(--gp-navy); color: var(--near-white); padding: 11mm 11mm; margin: 5mm 0 6mm 0; border-left: 5px solid var(--gold); page-break-inside: avoid; position: relative; }
-  .statement::before { content: "\201C"; position: absolute; top: 3mm; right: 10mm; font-family: var(--serif); font-size: 80pt; color: rgba(236,201,75,0.18); line-height: 1; font-weight: 900; }
-  .statement .label { font-family: var(--sans); font-size: 9pt; font-weight: 800; letter-spacing: 3px; color: var(--gold); text-transform: uppercase; margin-bottom: 3mm; display: block; }
-  .statement .text { font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 12pt; line-height: 1.55; color: var(--near-white); letter-spacing: -0.2px; }
-  .statement .text strong { color: var(--gold); font-weight: 700; font-style: normal; font-family: var(--sans); font-size: 11pt; }
-  .statement .footer-stats { margin-top: 5mm; padding-top: 4mm; border-top: 1px solid rgba(255,255,255,0.18); display: grid; grid-template-columns: repeat(4, 1fr); gap: 4mm; font-family: var(--sans); font-style: normal; }
-  .statement .footer-stats .fs-item .v { font-family: var(--serif); font-weight: 800; font-size: 15pt; color: var(--gold); line-height: 1; margin-bottom: 1mm; }
-  .statement .footer-stats .fs-item .l { font-size: 7.5pt; color: rgba(255,255,255,0.7); letter-spacing: 0.5px; text-transform: uppercase; line-height: 1.3; font-weight: 600; }
-
-  /* STAT STRIP */
-  .stat-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3mm; margin: 4mm 0 5mm 0; }
-  .stat-strip .s { background: var(--paper); border: 1px solid var(--g100); border-top: 3px solid var(--gp-navy); padding: 4mm; text-align: left; }
-  .stat-strip .s.accent { border-top-color: var(--gp-red); }
-  .stat-strip .s.gold { border-top-color: var(--gold); }
-  .stat-strip .s.green { border-top-color: var(--deep-green); }
-  .stat-strip .s.amber { border-top-color: var(--amber); }
-  .stat-strip .s.blue { border-top-color: var(--blue); }
-  .stat-strip .s .big { font-family: var(--serif); font-weight: 900; font-size: 20pt; color: var(--gp-navy); line-height: 1; margin-bottom: 1mm; letter-spacing: -0.5px; }
-  .stat-strip .s.accent .big { color: var(--gp-red); }
-  .stat-strip .s.gold .big { color: #997706; }
-  .stat-strip .s.green .big { color: var(--deep-green); }
-  .stat-strip .s.amber .big { color: #997706; }
-  .stat-strip .s.blue .big { color: var(--deep-blue); }
-  .stat-strip .s .lbl { font-size: 7.5pt; color: var(--g500); line-height: 1.3; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600; }
-  .stat-strip.three { grid-template-columns: repeat(3, 1fr); }
-
-  /* DRIVERS */
-  .drivers { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; margin-top: 4mm; }
-  .driver { background: var(--paper); border: 1px solid var(--g100); border-left: 4px solid var(--gp-red); padding: 5mm 6mm; page-break-inside: avoid; }
-  .driver.amber { border-left-color: var(--amber); }
-  .driver.gold { border-left-color: var(--gold); }
-  .driver.blue { border-left-color: var(--blue); }
-  .driver .driver-num { font-family: var(--serif); font-weight: 900; font-size: 34pt; color: var(--gp-red); line-height: 1; float: left; margin: -1mm 4mm 0 0; }
-  .driver.amber .driver-num { color: var(--amber); }
-  .driver.gold .driver-num { color: #997706; }
-  .driver.blue .driver-num { color: var(--deep-blue); }
-  .driver h3 { font-size: 11pt; font-weight: 800; color: var(--gp-navy); margin-bottom: 2mm; line-height: 1.25; overflow: hidden; }
-  .driver p { font-size: 9pt; color: var(--g600); line-height: 1.5; overflow: hidden; margin-bottom: 0; }
-  .driver p strong { color: var(--gp-navy); }
-
-  /* DISTRIBUTION BAR */
-  .distrib { margin: 4mm 0; }
-  .distrib-row { display: grid; grid-template-columns: 60mm 85mm 1fr; gap: 3mm; align-items: center; padding: 2mm 0; border-bottom: 1px solid var(--g100); }
-  .distrib-row:last-child { border-bottom: none; }
-  .distrib-row.total { background: var(--g100); padding: 3mm; font-weight: 700; }
-  .distrib-row .label-d { font-size: 9pt; color: var(--gp-slate); font-weight: 600; }
-  .distrib-row .label-d strong { color: var(--gp-navy); }
-  .distrib-row .bar-wrap { background: var(--g100); height: 7mm; position: relative; border-radius: 2px; overflow: hidden; display:flex; }
-  .distrib-row .bar { height: 100%; border-radius: 2px; }
-  .distrib-row .bar.b-serv { background: var(--blue); }
-  .distrib-row .bar.b-ref { background: var(--green); }
-  .distrib-row .bar.b-hyp { background: var(--gp-red); }
-  .distrib-row .bar.b-changan { background: var(--changan); }
-  .distrib-row .bar.b-gac { background: var(--gac); }
-  .distrib-row .bar.b-gwm { background: var(--gwm); }
-  .distrib-row .value-d { font-family: var(--serif); font-weight: 800; font-size: 11pt; color: var(--gp-navy); text-align: right; letter-spacing: -0.3px; }
-  .distrib-row .value-d span { display: block; font-family: var(--sans); font-weight: 600; font-size: 7.5pt; color: var(--g500); letter-spacing: 0.4px; }
-
-  /* HYPOTHESIS */
-  .hypothesis { background: var(--g100); border-left: 4px solid var(--gp-navy); padding: 5mm 6mm; margin: 4mm 0; page-break-inside: avoid; }
-  .hypothesis .label { display: block; font-family: var(--sans); font-size: 8.5pt; font-weight: 800; letter-spacing: 3px; color: var(--gp-red); text-transform: uppercase; margin-bottom: 2mm; }
-  .hypothesis h3 { font-family: var(--serif); font-weight: 800; font-size: 14pt; color: var(--gp-navy); line-height: 1.25; letter-spacing: -0.3px; margin-bottom: 2mm; }
-  .hypothesis p { font-size: 9.5pt; color: var(--g600); line-height: 1.55; margin-bottom: 0; }
-  .hypothesis p strong { color: var(--gp-navy); }
-
-  /* TABLES */
-  table.data { width: 100%; border-collapse: collapse; margin: 3mm 0; font-size: 8.5pt; page-break-inside: avoid; }
+  /* Tablas */
+  table.data { width: 100%; border-collapse: collapse; margin: 3mm 0; font-size: 8.5pt; page-break-inside: avoid; font-variant-numeric: tabular-nums; }
   table.data th { background: var(--gp-navy); color: var(--near-white); font-family: var(--sans); font-weight: 700; font-size: 8pt; letter-spacing: 0.4px; padding: 2.5mm 3mm; text-align: left; text-transform: uppercase; }
   table.data th.num, table.data td.num { text-align: right; }
   table.data td { padding: 2mm 3mm; border-bottom: 1px solid var(--g100); color: var(--g600); }
@@ -158,364 +62,180 @@
   table.data tr.subtotal td { background: var(--g300) !important; color: var(--gp-navy); font-weight: 700; }
   table.data td strong { color: var(--gp-navy); }
   table.data tr:nth-child(even) td strong { color: var(--gp-navy); }
-  table.data tr.outlier td { background: rgba(214,158,46,0.12) !important; }
-  table.data tr.outlier td strong { color: var(--gp-red); }
-  table.data tr.best td { background: rgba(72,187,120,0.10) !important; }
-  table.data tr.best td strong { color: var(--deep-green); }
   table.data tr.partial td { color: var(--g500); font-style: italic; }
 
-  /* FINANCIAL */
-  .financial { background: var(--paper); border: 1px solid var(--g100); margin-top: 4mm; page-break-inside: avoid; }
-  .financial-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; }
-  .fin-cell { padding: 5mm; border-right: 1px solid var(--g100); border-bottom: 1px solid var(--g100); }
-  .fin-cell:nth-child(3n) { border-right: none; }
-  .fin-cell:nth-last-child(-n+3) { border-bottom: none; }
-  .fin-cell .label { font-size: 7.5pt; font-weight: 800; letter-spacing: 1.5px; color: var(--g500); text-transform: uppercase; margin-bottom: 2mm; }
-  .fin-cell .value { font-family: var(--serif); font-weight: 900; font-size: 20pt; color: var(--gp-navy); line-height: 1; letter-spacing: -0.5px; margin-bottom: 1mm; }
-  .fin-cell .value.gold { color: #997706; }
-  .fin-cell .value.green { color: var(--deep-green); }
-  .fin-cell .value.red { color: var(--gp-red); }
-  .fin-cell .value.amber { color: var(--amber); }
-  .fin-cell p { font-size: 8pt; color: var(--g600); line-height: 1.4; margin: 0; }
+  /* Distribución horizontal */
+  .distrib { margin: 4mm 0; }
+  .distrib-row { display: grid; grid-template-columns: 55mm 1fr 32mm; gap: 4mm; align-items: center; padding: 2mm 0; border-bottom: 1px solid var(--g100); }
+  .distrib-row:last-child { border-bottom: none; }
+  .distrib-row .label-d { font-size: 9pt; color: var(--gp-slate); font-weight: 600; }
+  .distrib-row .label-d strong { color: var(--gp-navy); }
+  .distrib-row .bar-wrap { background: var(--g100); height: 6mm; position: relative; border-radius: 2px; overflow: hidden; }
+  .distrib-row .bar { height: 100%; border-radius: 2px; }
+  .distrib-row .bar.changan { background: var(--amber); }
+  .distrib-row .bar.gac { background: var(--green); }
+  .distrib-row .bar.gwm { background: var(--blue); }
+  .distrib-row .value-d { font-family: var(--serif); font-weight: 800; font-size: 12pt; color: var(--gp-navy); text-align: right; letter-spacing: -0.3px; }
+  .distrib-row .value-d span { display: block; font-family: var(--sans); font-weight: 600; font-size: 7.5pt; color: var(--g500); letter-spacing: 0.4px; text-transform: uppercase; }
 
-  /* KILLER */
-  .killer { background: var(--gp-navy); color: var(--near-white); padding: 7mm 9mm; margin-top: 5mm; border-left: 4px solid var(--gold); page-break-inside: avoid; }
-  .killer .label { font-size: 9pt; font-weight: 800; letter-spacing: 3px; color: var(--gold); text-transform: uppercase; margin-bottom: 2mm; display: block; }
-  .killer h3 { font-family: var(--serif); font-weight: 800; font-size: 15pt; color: var(--near-white); margin-bottom: 2mm; line-height: 1.25; }
-  .killer p { font-size: 9.5pt; color: rgba(255,255,255,0.82); line-height: 1.55; margin-bottom: 0; }
-  .killer strong { color: var(--gold); }
-
-  /* DECISIONS */
-  .decisions { list-style: none; counter-reset: dec; margin-top: 4mm; }
-  .decisions li { display: grid; grid-template-columns: 12mm 1fr 42mm; gap: 4mm; padding: 4mm 0; border-bottom: 1px solid var(--g100); page-break-inside: avoid; align-items: start; }
-  .decisions li:last-child { border-bottom: none; }
-  .decisions li::before { counter-increment: dec; content: counter(dec); font-family: var(--serif); font-weight: 900; font-size: 26pt; color: var(--gp-red); line-height: 1; }
-  .decisions h4 { font-size: 11pt; font-weight: 800; color: var(--gp-navy); margin: 0 0 1.5mm 0; line-height: 1.25; }
-  .decisions p { font-size: 9pt; color: var(--g600); margin: 0; line-height: 1.5; }
-  .dec-options { font-family: var(--sans); font-size: 8pt; color: var(--g500); line-height: 1.5; border-left: 2px solid var(--g300); padding-left: 3mm; }
-  .dec-options strong { display: block; font-weight: 700; color: var(--gp-navy); text-transform: uppercase; font-size: 7.5pt; letter-spacing: 1px; margin-bottom: 1mm; }
-
-  /* ANNEX */
-  .annex-block { background: var(--paper); border: 1px solid var(--g100); padding: 5mm 6mm; margin-bottom: 4mm; page-break-inside: avoid; }
-  .annex-block h3 { font-family: var(--serif); font-weight: 800; font-size: 13pt; color: var(--gp-navy); margin-bottom: 2mm; border-bottom: 1px solid var(--g100); padding-bottom: 2mm; }
-  .annex-block .annex-tag { display: inline-block; font-family: var(--sans); font-size: 8pt; font-weight: 800; letter-spacing: 2px; color: var(--gp-red); text-transform: uppercase; margin-bottom: 2mm; }
-  .annex-block ul { list-style: none; padding: 0; }
-  .annex-block ul li { font-size: 8.5pt; color: var(--g600); padding: 1mm 0 1mm 5mm; position: relative; line-height: 1.5; }
-  .annex-block ul li::before { content: "\25B8"; position: absolute; left: 0; color: var(--gp-red); }
-  .annex-block ul li strong { color: var(--gp-navy); }
-  .annex-block pre { background: var(--gp-navy); color: var(--near-white); padding: 4mm 5mm; font-family: 'Menlo','SF Mono',monospace; font-size: 7.5pt; line-height: 1.5; border-radius: 2px; margin: 2mm 0; overflow-x: hidden; white-space: pre-wrap; }
-  .annex-block pre .k { color: var(--gold); font-weight: 700; }
-  .annex-block pre .c { color: var(--g400); font-style: italic; }
-
-  /* CLOSING */
-  .closing { background: var(--gp-navy); color: var(--near-white); padding: 28mm 22mm; margin: -16mm; margin-top: 0; min-height: 265mm; display: flex; flex-direction: column; justify-content: center; text-align: center;
-    background: radial-gradient(ellipse at 50% 0%, rgba(236,201,75,0.12) 0%, transparent 60%), radial-gradient(ellipse at 50% 100%, rgba(200,16,46,0.10) 0%, transparent 60%), var(--gp-navy); }
-  .closing .ribbon { font-family: var(--sans); font-size: 9pt; font-weight: 700; letter-spacing: 5px; color: var(--gp-red); text-transform: uppercase; margin-bottom: 10mm; }
-  .closing h2 { font-family: var(--serif); font-weight: 800; font-size: 32pt; color: var(--near-white); margin-bottom: 7mm; line-height: 1.05; letter-spacing: -1px; }
-  .closing h2 em { font-style: italic; color: var(--gold); font-weight: 700; }
-  .closing .pull { font-family: var(--serif); font-style: italic; font-size: 13pt; color: var(--gold); line-height: 1.5; max-width: 150mm; margin: 0 auto 8mm auto; }
-  .closing .body-text { font-size: 10.5pt; color: rgba(255,255,255,0.78); max-width: 150mm; margin: 0 auto; line-height: 1.65; }
-  .closing .signature { margin-top: 12mm; font-size: 9pt; color: rgba(255,255,255,0.5); letter-spacing: 1.5px; }
-  .closing .signature strong { color: var(--gold); display: block; font-size: 11pt; letter-spacing: 2.5px; margin-bottom: 1mm; }
-
-  /* MARCA HERO STATS */
-  .marca-hero { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 3mm; margin: 4mm 0 5mm 0; }
-  .marca-card { background: var(--paper); border: 1px solid var(--g100); border-top: 4px solid var(--g500); padding: 4mm 5mm; page-break-inside: avoid; }
-  .marca-card.changan { border-top-color: var(--changan); }
-  .marca-card.gac { border-top-color: var(--gac); }
-  .marca-card.gwm { border-top-color: var(--gwm); }
-  .marca-card .marca-name { font-family: var(--serif); font-weight: 800; font-size: 18pt; color: var(--gp-navy); line-height: 1; letter-spacing: -0.5px; margin-bottom: 1mm; }
-  .marca-card.changan .marca-name { color: #997706; }
-  .marca-card.gac .marca-name { color: var(--deep-green); }
-  .marca-card.gwm .marca-name { color: var(--deep-blue); }
-  .marca-card .marca-tagline { font-size: 7.5pt; font-weight: 700; color: var(--g500); text-transform: uppercase; letter-spacing: 1.2px; margin-bottom: 3mm; padding-bottom: 2mm; border-bottom: 1px dotted var(--g300); }
-  .marca-card .marca-line { display: flex; justify-content: space-between; padding: 1.5mm 0; font-size: 8.5pt; }
-  .marca-card .marca-line .lbl { color: var(--g600); }
-  .marca-card .marca-line .val { font-family: var(--serif); font-weight: 700; color: var(--gp-navy); font-variant-numeric: tabular-nums; letter-spacing: -0.2px; }
-  .marca-card .marca-line.highlight { background: var(--g100); margin: 1mm -3mm; padding: 1.5mm 3mm; }
-  .marca-card .marca-line.highlight .val { color: var(--gp-red); font-weight: 800; }
-
-  /* TIME BUCKETS */
-  .buckets { margin-top: 4mm; }
-  .bucket-row { display: grid; grid-template-columns: 22mm 1fr 1fr 1fr; gap: 3mm; align-items: center; padding: 2mm 0; border-bottom: 1px solid var(--g100); }
-  .bucket-row.header { font-size: 8pt; color: var(--g500); font-weight: 700; text-transform: uppercase; letter-spacing: 0.4px; padding-bottom: 2mm; }
-  .bucket-row .b-label { font-family: var(--serif); font-weight: 700; font-size: 10pt; color: var(--gp-navy); letter-spacing: -0.2px; }
+  /* Buckets de tiempo · 3 columnas */
+  .buckets { margin-top: 3mm; }
+  .bucket-row { display: grid; grid-template-columns: 24mm 1fr 1fr 1fr; gap: 4mm; align-items: center; padding: 2mm 0; border-bottom: 1px solid var(--g100); }
+  .bucket-row.header { font-size: 7.5pt; color: var(--g500); font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; padding-bottom: 2mm; border-bottom: 1px solid var(--g300); }
+  .bucket-row .b-label { font-family: var(--serif); font-weight: 700; font-size: 11pt; color: var(--gp-navy); letter-spacing: -0.2px; }
   .bucket-row .b-bar { display: flex; align-items: center; gap: 2mm; }
-  .bucket-row .b-bar .barv { height: 5mm; border-radius: 2px; }
-  .bucket-row .b-bar .barv.changan { background: var(--changan); }
-  .bucket-row .b-bar .barv.gac { background: var(--gac); }
-  .bucket-row .b-bar .barv.gwm { background: var(--gwm); }
-  .bucket-row .b-bar .barv-num { font-family: var(--serif); font-weight: 700; font-size: 10pt; color: var(--gp-navy); }
-
-  /* CALLOUT INLINE */
-  .callout-inline { background: rgba(214,158,46,0.10); border: 1px solid rgba(214,158,46,0.3); border-left: 4px solid var(--amber); padding: 4mm 5mm; margin: 4mm 0; font-size: 9pt; line-height: 1.5; color: var(--g600); page-break-inside: avoid; }
-  .callout-inline.danger { background: rgba(200,16,46,0.06); border-color: rgba(200,16,46,0.3); border-left-color: var(--gp-red); }
-  .callout-inline.info { background: rgba(66,153,225,0.06); border-color: rgba(66,153,225,0.3); border-left-color: var(--blue); }
-  .callout-inline strong { color: var(--gp-navy); }
-  .callout-inline .lbl { display:block; font-family: var(--sans); font-size: 8pt; font-weight: 800; letter-spacing: 2px; color: var(--amber); text-transform: uppercase; margin-bottom: 1.5mm; }
-  .callout-inline.danger .lbl { color: var(--gp-red); }
-  .callout-inline.info .lbl { color: var(--deep-blue); }
+  .bucket-row .b-bar .barv { height: 5mm; border-radius: 2px; min-width: 1mm; }
+  .bucket-row .b-bar .barv.changan { background: var(--amber); }
+  .bucket-row .b-bar .barv.gac { background: var(--green); }
+  .bucket-row .b-bar .barv.gwm { background: var(--blue); }
+  .bucket-row .b-bar .barv-num { font-family: var(--serif); font-weight: 700; font-size: 11pt; color: var(--gp-navy); }
 </style>
 </head>
 <body>
 
-<!-- ============ COVER ============ -->
-<section class="page cover">
-  <div class="cover-inner">
-    <div>
-      <div class="cover-mark">Grupo Plasencia<span>Dirección de Marketing Corporativo · Junio 2026</span></div>
-      <p class="cover-eyebrow">Deep Dive · Marcas Chinas · DCA Baseline 2025–2026</p>
-      <h1 class="cover-title">Post-Venta <em>Unit Economics.</em></h1>
-      <p class="cover-subtitle">GAC · Changan · GWM. Retención al taller propio, valor de refacciones y velocidad de visita al servicio. Tres marcas, una palanca.</p>
-      <p class="cover-pull">
-        Reporte derivado de la <strong>capa F · DCA</strong> (sistema contable interno del Grupo), no del autorreporte Galindo. Pipeline E2E: re-extracción mensual de cubo 30008 con cols monetarias → ingest a D1 <code>bitam-mkt</code> → join VIN con cubo 30003. <strong>El parque chino captura 73% al taller propio pero su ticket post-venta promedia 1.71% del revenue de venta</strong> — vs benchmark NADA de 8–12%. Headroom estructural 5–7×, cuantificable como palanca al Consejo. <strong>No es propuesta de estrategia</strong> — es el AS IS post-venta para anclar la conversación de Plan v2 (Cap 1 Economics + Cap 6 To-Be).
-        <cite>v1.0 · 8 secciones · Insumo Plan v2 Deep Dive MKT</cite>
-      </p>
-      <div class="cover-tags">
-        <span class="cover-tag">Capa F · DCA</span>
-        <span class="cover-tag accent">Baseline 2025 + 2026 YTD</span>
-        <span class="cover-tag urgent">Headroom 5–7× post-venta</span>
-      </div>
-    </div>
-    <div>
-      <div class="cover-meta">
-        <div class="cover-meta-block"><strong>Autor · Función</strong>Director MKT corporativo en auditoría continua · Pipeline reusable</div>
-        <div class="cover-meta-block" style="text-align:right;"><strong>16 jun 2026 · v1.0</strong>9 páginas · Paper A4 · DCA Baseline</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ PAGE 2: TOC + §1 ANSWER-FIRST ============ -->
+<!-- ============ PAGE 1: ENCABEZADO + §1 VENTAS ============ -->
 <section class="page">
-  <h1 class="section-title"><span class="num">Contenido y respuesta primero</span>El reporte, en una página.</h1>
-
-  <div class="toc">
-    <div class="toc-item"><span class="toc-num">§1</span><span class="toc-title">Answer-First<span class="toc-sub">El hallazgo central + cuatro cifras que lo anclan</span></span><span class="toc-page">02</span></div>
-    <div class="toc-item"><span class="toc-num">§2</span><span class="toc-title">Situación · El parque de las 3 chinas<span class="toc-sub">Ventas nuevas DCA 2025 + 2026 YTD · revenue por marca · DCA reemplaza Galindo</span></span><span class="toc-page">03</span></div>
-    <div class="toc-item"><span class="toc-num">§3</span><span class="toc-title">Servicio post-venta · ¿quiénes vuelven al taller?<span class="toc-sub">OR distintas mensuales · ratio OR/Venta · cobertura del parque</span></span><span class="toc-page">04</span></div>
-    <div class="toc-item"><span class="toc-num">§4</span><span class="toc-title">Valor monetario post-venta<span class="toc-sub">$40.4M acumulados · GWM concentra 52% · headroom 5–7× NADA</span></span><span class="toc-page">05</span></div>
-    <div class="toc-item"><span class="toc-num">§5</span><span class="toc-title">Tiempo a primer servicio<span class="toc-sub">Join VIN ventas ⨝ servicio · buckets de días · 3 patrones distintos</span></span><span class="toc-page">06</span></div>
-    <div class="toc-item"><span class="toc-num">§6</span><span class="toc-title">Hipótesis de trabajo · qué hacer con esto<span class="toc-sub">5 hipótesis a discutir con el Consejo (no decididas)</span></span><span class="toc-page">07</span></div>
-    <div class="toc-item"><span class="toc-num">§7</span><span class="toc-title">Pendientes de validación<span class="toc-sub">4 inputs que Inés / DMS debe resolver antes de publicar al Consejo</span></span><span class="toc-page">08</span></div>
-    <div class="toc-item"><span class="toc-num">§8</span><span class="toc-title">Anexos<span class="toc-sub">Pipeline DCA · queries SQL canónicas · clasificación tipo orden</span></span><span class="toc-page">09</span></div>
-  </div>
-
-  <div class="statement">
-    <span class="label">§1 · Hallazgos centrales</span>
-    <p class="text">
-      <strong>Lo que la auditoría post-venta de las 3 chinas revela con data DCA contable verificada (no Galindo):</strong> el parque acumulado 2025+2026 YTD es de <strong>6,085 unidades nuevas</strong> ($2,229M en revenue) repartidas como Changan 2,459 / GAC 1,754 / GWM 1,872. El taller propio captura <strong>73% promedio de retención</strong> (GWM 78.7%, GAC 75.2%, <strong>Changan 66.2% — outlier negativo</strong>), pero el ticket post-venta promedio es de solo <strong>1.71% del revenue de venta nueva</strong> ($40.4M en servicio + refacciones + hojalatería) — <strong>vs benchmark NADA US de 8–12%, headroom estructural 5–7×</strong>. La data DCA supera al autorreporte Galindo en 24-54% (Changan +30.7%, GWM +53.7%), confirmando que <strong>DCA reemplaza a Galindo</strong> como fuente cuantitativa para el Plan v2. GWM concentra <strong>$6.14M en hojalatería</strong> (vs $0.09M Changan y $0.03M GAC); pendiente validar si es siniestralidad real del parque o atribución cruzada del taller.
-    </p>
-    <div class="footer-stats">
-      <div class="fs-item"><div class="v">$2,229M</div><div class="l">Revenue ventas chinas 2025+26 YTD</div></div>
-      <div class="fs-item"><div class="v">73.0%</div><div class="l">Retención al taller propio</div></div>
-      <div class="fs-item"><div class="v">$40.4M</div><div class="l">Ticket post-venta acumulado</div></div>
-      <div class="fs-item"><div class="v">5–7×</div><div class="l">Headroom vs benchmark NADA</div></div>
+  <div class="doc-header">
+    <p class="eyebrow">Reporte · DCA · Junio 2026</p>
+    <h1>Marcas Chinas · Post-Venta.</h1>
+    <p class="subtitle">Ventas de autos nuevos, órdenes de servicio, valor de refacciones y tiempo compra → primer servicio. GAC · Changan · GWM. 2025 + 2026 YTD.</p>
+    <div class="meta">
+      <div><strong>Fecha de corte</strong> · 15 jun 2026</div>
+      <div><strong>Fuente</strong> · DCA · cubos 30003 + 30008 (BITAM Artus)</div>
+      <div><strong>Periodo</strong> · 2025-01-01 a 2026-06-15</div>
     </div>
   </div>
-</section>
 
-<!-- ============ PAGE 3: §2 SITUACION ============ -->
-<section class="page">
-  <h1 class="section-title"><span class="num">§2 · Situación</span>El parque de las 3 chinas.</h1>
-
-  <p class="lead">
-    Las 3 marcas chinas del Grupo (GAC, Changan, GWM) cierran 2025 con <strong>4,243 unidades</strong> y crecen a <strong>1,842 unidades adicionales</strong> en 2026 YTD (al 15-jun). El acumulado es 6,085 unidades por <strong>$2,229M MXN</strong> de revenue verificado contable (DCA cubo 30003, no autorreporte).
-  </p>
-
-  <h4 class="subsection-h4">2.1 · Ventas autos nuevos DCA — anual y acumulado</h4>
-
-  <div class="stat-strip">
-    <div class="s"><div class="big">4,243</div><div class="lbl">Uds 2025 · 3 marcas chinas combinadas</div></div>
-    <div class="s accent"><div class="big">$1,589M</div><div class="lbl">Revenue 2025 · capa F contable</div></div>
-    <div class="s gold"><div class="big">1,842</div><div class="lbl">Uds 2026 YTD al 15-jun</div></div>
-    <div class="s green"><div class="big">$639M</div><div class="lbl">Revenue 2026 YTD</div></div>
-  </div>
+  <h2 class="section-h2"><span class="num">§1</span>Ventas de autos nuevos por mes</h2>
 
   <table class="data">
     <thead>
-      <tr><th>Marca</th><th class="num">Uds 2025</th><th class="num">Revenue 2025 (M)</th><th class="num">Uds 2026 YTD</th><th class="num">Revenue 2026 YTD (M)</th><th class="num">Uds acum</th><th class="num">Revenue acum (M)</th><th class="num">$ / uds</th></tr>
+      <tr><th>Mes</th><th class="num">CHANGAN uds</th><th class="num">GAC uds</th><th class="num">GWM uds</th><th class="num">CHANGAN $</th><th class="num">GAC $</th><th class="num">GWM $</th><th class="num">Total uds</th></tr>
     </thead>
     <tbody>
-      <tr><td><strong>CHANGAN</strong></td><td class="num">1,741</td><td class="num">$562.2</td><td class="num">718</td><td class="num">$216.5</td><td class="num"><strong>2,459</strong></td><td class="num"><strong>$778.7</strong></td><td class="num">$317K</td></tr>
-      <tr><td><strong>GAC</strong></td><td class="num">1,096</td><td class="num">$490.1</td><td class="num">658</td><td class="num">$244.1</td><td class="num"><strong>1,754</strong></td><td class="num"><strong>$734.3</strong></td><td class="num">$419K</td></tr>
-      <tr><td><strong>GWM</strong></td><td class="num">1,406</td><td class="num">$537.0</td><td class="num">466</td><td class="num">$178.6</td><td class="num"><strong>1,872</strong></td><td class="num"><strong>$715.6</strong></td><td class="num">$382K</td></tr>
-      <tr class="total"><td><strong>TOTAL CHINAS</strong></td><td class="num"><strong>4,243</strong></td><td class="num"><strong>$1,589.4</strong></td><td class="num"><strong>1,842</strong></td><td class="num"><strong>$639.2</strong></td><td class="num"><strong>6,085</strong></td><td class="num"><strong>$2,228.6</strong></td><td class="num"><strong>$366K</strong></td></tr>
+      <tr><td>2025/01</td><td class="num">47</td><td class="num">151</td><td class="num">114</td><td class="num">$17.0M</td><td class="num">$68.0M</td><td class="num">$47.4M</td><td class="num"><strong>312</strong></td></tr>
+      <tr><td>2025/02</td><td class="num">61</td><td class="num">58</td><td class="num">117</td><td class="num">$18.6M</td><td class="num">$27.5M</td><td class="num">$51.4M</td><td class="num"><strong>236</strong></td></tr>
+      <tr><td>2025/03</td><td class="num">95</td><td class="num">75</td><td class="num">120</td><td class="num">$31.6M</td><td class="num">$37.5M</td><td class="num">$49.8M</td><td class="num"><strong>290</strong></td></tr>
+      <tr><td>2025/04</td><td class="num">106</td><td class="num">43</td><td class="num">104</td><td class="num">$35.2M</td><td class="num">$17.7M</td><td class="num">$32.1M</td><td class="num"><strong>253</strong></td></tr>
+      <tr><td>2025/05</td><td class="num">158</td><td class="num">82</td><td class="num">89</td><td class="num">$49.5M</td><td class="num">$32.9M</td><td class="num">$32.9M</td><td class="num"><strong>329</strong></td></tr>
+      <tr><td>2025/06</td><td class="num">138</td><td class="num">74</td><td class="num">111</td><td class="num">$44.4M</td><td class="num">$36.8M</td><td class="num">$36.3M</td><td class="num"><strong>323</strong></td></tr>
+      <tr><td>2025/07</td><td class="num">191</td><td class="num">110</td><td class="num">103</td><td class="num">$60.7M</td><td class="num">$53.8M</td><td class="num">$45.7M</td><td class="num"><strong>404</strong></td></tr>
+      <tr><td>2025/08</td><td class="num">207</td><td class="num">116</td><td class="num">148</td><td class="num">$66.6M</td><td class="num">$55.0M</td><td class="num">$48.6M</td><td class="num"><strong>471</strong></td></tr>
+      <tr><td>2025/09</td><td class="num">185</td><td class="num">107</td><td class="num">129</td><td class="num">$65.3M</td><td class="num">$44.3M</td><td class="num">$43.0M</td><td class="num"><strong>421</strong></td></tr>
+      <tr><td>2025/10</td><td class="num">216</td><td class="num">95</td><td class="num">106</td><td class="num">$69.7M</td><td class="num">$34.0M</td><td class="num">$34.6M</td><td class="num"><strong>417</strong></td></tr>
+      <tr><td>2025/11</td><td class="num">146</td><td class="num">86</td><td class="num">129</td><td class="num">$49.2M</td><td class="num">$41.7M</td><td class="num">$62.8M</td><td class="num"><strong>361</strong></td></tr>
+      <tr><td>2025/12</td><td class="num">191</td><td class="num">99</td><td class="num">136</td><td class="num">$54.4M</td><td class="num">$40.9M</td><td class="num">$52.3M</td><td class="num"><strong>426</strong></td></tr>
+      <tr class="subtotal"><td><strong>Total 2025</strong></td><td class="num"><strong>1,741</strong></td><td class="num"><strong>1,096</strong></td><td class="num"><strong>1,406</strong></td><td class="num"><strong>$562.2M</strong></td><td class="num"><strong>$490.1M</strong></td><td class="num"><strong>$537.0M</strong></td><td class="num"><strong>4,243</strong></td></tr>
+      <tr><td>2026/01</td><td class="num">121</td><td class="num">68</td><td class="num">114</td><td class="num">$36.6M</td><td class="num">$28.4M</td><td class="num">$36.9M</td><td class="num"><strong>303</strong></td></tr>
+      <tr><td>2026/02</td><td class="num">104</td><td class="num">84</td><td class="num">86</td><td class="num">$35.1M</td><td class="num">$34.7M</td><td class="num">$37.5M</td><td class="num"><strong>274</strong></td></tr>
+      <tr><td>2026/03</td><td class="num">155</td><td class="num">140</td><td class="num">94</td><td class="num">$52.9M</td><td class="num">$60.1M</td><td class="num">$41.4M</td><td class="num"><strong>389</strong></td></tr>
+      <tr><td>2026/04</td><td class="num">160</td><td class="num">92</td><td class="num">75</td><td class="num">$48.9M</td><td class="num">$41.1M</td><td class="num">$28.5M</td><td class="num"><strong>327</strong></td></tr>
+      <tr><td>2026/05</td><td class="num">133</td><td class="num">171</td><td class="num">77</td><td class="num">$40.9M</td><td class="num">$73.6M</td><td class="num">$27.4M</td><td class="num"><strong>381</strong></td></tr>
+      <tr class="partial"><td>2026/06 *</td><td class="num">45</td><td class="num">103</td><td class="num">20</td><td class="num">$2.1M</td><td class="num">$6.3M</td><td class="num">$6.9M</td><td class="num"><strong>168</strong></td></tr>
+      <tr class="subtotal"><td><strong>Total 2026 YTD</strong></td><td class="num"><strong>718</strong></td><td class="num"><strong>658</strong></td><td class="num"><strong>466</strong></td><td class="num"><strong>$216.5M</strong></td><td class="num"><strong>$244.1M</strong></td><td class="num"><strong>$178.6M</strong></td><td class="num"><strong>1,842</strong></td></tr>
+      <tr class="total"><td><strong>Acumulado 2025+26 YTD</strong></td><td class="num"><strong>2,459</strong></td><td class="num"><strong>1,754</strong></td><td class="num"><strong>1,872</strong></td><td class="num"><strong>$778.7M</strong></td><td class="num"><strong>$734.3M</strong></td><td class="num"><strong>$715.6M</strong></td><td class="num"><strong>6,085</strong></td></tr>
     </tbody>
   </table>
 
-  <p class="small"><strong>Fuente:</strong> DCA cubo 30003 (Venta Autos), filtrado a <code>nuevo_usado='AUTOS NUEVOS'</code> y marca del auto ∈ {GAC, CHANGAN, GWM}. Extraído 15-jun-2026 vía cookie BITAM cuenta Pepe Morales, ingerido a D1 <code>bitam-mkt</code>.<br><strong>Caveat junio 2026:</strong> el mes está parcial (corte 15-jun) con importes inconsistentes vs unidades (Changan $46K/uds, GAC $61K/uds). DMS sin facturación completa todavía. <em>No citar el mes de junio aislado sin validar con Inés.</em></p>
-
-  <h4 class="subsection-h4">2.2 · DCA reemplaza Galindo como fuente cuantitativa</h4>
-
-  <p>El autorreporte Galindo (capa A, encuestas a gerentes sept 2025 – ene 2026) subreporta sistemáticamente. La auditoría DCA muestra magnitudes 24–54% mayores. Esto valida la decisión del <strong>Plan v2 Deep Dive MKT</strong>: DCA es la fuente primaria para cifras; Galindo queda como contexto cualitativo (estructura, narrativas).</p>
-
-  <table class="data">
-    <thead><tr><th>Marca</th><th class="num">Galindo 2025</th><th class="num">DCA 2025</th><th class="num">Delta absoluto</th><th class="num">Delta %</th><th>Lectura</th></tr></thead>
-    <tbody>
-      <tr class="outlier"><td><strong>GWM</strong></td><td class="num">915</td><td class="num">1,406</td><td class="num">+491</td><td class="num"><strong>+53.7%</strong></td><td>Subreporte severo</td></tr>
-      <tr><td><strong>Changan</strong></td><td class="num">1,332</td><td class="num">1,741</td><td class="num">+409</td><td class="num"><strong>+30.7%</strong></td><td>Subreporte sustancial</td></tr>
-      <tr class="partial"><td><strong>GAC</strong></td><td class="num">895 (estimado)</td><td class="num">1,096</td><td class="num">+201</td><td class="num">+22.5%</td><td>No estaba en Contexto Galindo</td></tr>
-    </tbody>
-  </table>
-
-  <div class="callout-inline info">
-    <span class="lbl">Lectura del delta</span>
-    Galindo no es "incorrecto" — es una capa de granularidad distinta. Las gerentes reportan lo que ven en sus dashboards operativos; DCA registra lo que llega a libros contables. Para cifras de Consejo, <strong>siempre cita DCA</strong>. Para narrativa de campo (qué hace cada gerente), Galindo sigue vigente.
-  </div>
+  <p class="small"><strong>(*) Junio 2026 parcial al 15-jun.</strong> Importes inconsistentes vs unidades (Changan $46K/uds, GAC $61K/uds) — DMS sin facturación completa de ese mes. Validar con Inés antes de citar el mes aislado.</p>
 </section>
 
-<!-- ============ PAGE 4: §3 SERVICIO ============ -->
+<!-- ============ PAGE 2: §2 ÓRDENES DE SERVICIO ============ -->
 <section class="page">
-  <h1 class="section-title"><span class="num">§3 · Servicio post-venta</span>¿Quiénes vuelven al taller?</h1>
+  <h2 class="section-h2"><span class="num">§2</span>Órdenes de servicio post-venta por mes</h2>
 
-  <p class="lead">
-    Filtrado a <strong>órdenes de servicio reales del cliente</strong> (categorías Público, Previa, Express, Reparación, Garantía, Aseguradora, Hojalatería, Estética). <em>Excluye</em> internas, devoluciones y venta de mostrador. Orden distinta calculada por <code>Folio Orden Reparacion</code>.
-  </p>
-
-  <h4 class="subsection-h4">3.1 · Volumen total — OR distintas acumuladas</h4>
-
-  <div class="stat-strip">
-    <div class="s amber"><div class="big">2,439</div><div class="lbl">OR Changan · 2025+26 YTD</div></div>
-    <div class="s green"><div class="big">3,651</div><div class="lbl">OR GAC · 2025+26 YTD</div></div>
-    <div class="s blue"><div class="big">4,083</div><div class="lbl">OR GWM · 2025+26 YTD</div></div>
-    <div class="s gold"><div class="big">10,173</div><div class="lbl">OR total chinas en taller propio</div></div>
-  </div>
-
-  <h4 class="subsection-h4">3.2 · OR mensuales por marca</h4>
+  <p class="small" style="margin-bottom:4mm;"><strong>Filtro:</strong> categoría Servicio (Público, Previa, Express, Reparación, Garantía, Aseguradora, Hojalatería, Estética). Excluye Internas, Devoluciones y venta de Mostrador. OR distinta calculada por Folio Orden Reparación.</p>
 
   <table class="data">
-    <thead><tr><th>Mes</th><th class="num">CHANGAN</th><th class="num">GAC</th><th class="num">GWM</th><th class="num">Total</th></tr></thead>
+    <thead><tr><th>Mes</th><th class="num">CHANGAN</th><th class="num">GAC</th><th class="num">GWM</th><th class="num">Total OR</th></tr></thead>
     <tbody>
       <tr><td>2025/01</td><td class="num">68</td><td class="num">90</td><td class="num">162</td><td class="num"><strong>320</strong></td></tr>
       <tr><td>2025/02</td><td class="num">101</td><td class="num">104</td><td class="num">214</td><td class="num"><strong>419</strong></td></tr>
       <tr><td>2025/03</td><td class="num">98</td><td class="num">255</td><td class="num">209</td><td class="num"><strong>562</strong></td></tr>
-      <tr><td>2025/Q2</td><td class="num">458</td><td class="num">723</td><td class="num">865</td><td class="num"><strong>2,046</strong></td></tr>
-      <tr><td>2025/Q3</td><td class="num">502</td><td class="num">794</td><td class="num">966</td><td class="num"><strong>2,262</strong></td></tr>
-      <tr><td>2025/Q4</td><td class="num">748</td><td class="num">926</td><td class="num">996</td><td class="num"><strong>2,670</strong></td></tr>
+      <tr><td>2025/04</td><td class="num">144</td><td class="num">234</td><td class="num">310</td><td class="num"><strong>688</strong></td></tr>
+      <tr><td>2025/05</td><td class="num">151</td><td class="num">271</td><td class="num">275</td><td class="num"><strong>697</strong></td></tr>
+      <tr><td>2025/06</td><td class="num">163</td><td class="num">218</td><td class="num">280</td><td class="num"><strong>661</strong></td></tr>
+      <tr><td>2025/07</td><td class="num">174</td><td class="num">251</td><td class="num">340</td><td class="num"><strong>765</strong></td></tr>
+      <tr><td>2025/08</td><td class="num">170</td><td class="num">244</td><td class="num">315</td><td class="num"><strong>729</strong></td></tr>
+      <tr><td>2025/09</td><td class="num">191</td><td class="num">299</td><td class="num">310</td><td class="num"><strong>800</strong></td></tr>
+      <tr><td>2025/10</td><td class="num">236</td><td class="num">332</td><td class="num">331</td><td class="num"><strong>899</strong></td></tr>
+      <tr><td>2025/11</td><td class="num">224</td><td class="num">286</td><td class="num">289</td><td class="num"><strong>799</strong></td></tr>
+      <tr><td>2025/12</td><td class="num">298</td><td class="num">308</td><td class="num">399</td><td class="num"><strong>1,005</strong></td></tr>
       <tr class="subtotal"><td><strong>Total 2025</strong></td><td class="num"><strong>1,422</strong></td><td class="num"><strong>2,169</strong></td><td class="num"><strong>2,595</strong></td><td class="num"><strong>6,186</strong></td></tr>
-      <tr><td>2026/Q1</td><td class="num">881</td><td class="num">1,188</td><td class="num">1,268</td><td class="num"><strong>3,337</strong></td></tr>
-      <tr><td>2026/Q2 parcial</td><td class="num">805</td><td class="num">1,020</td><td class="num">1,061</td><td class="num"><strong>2,886</strong></td></tr>
+      <tr><td>2026/01</td><td class="num">294</td><td class="num">376</td><td class="num">447</td><td class="num"><strong>1,117</strong></td></tr>
+      <tr><td>2026/02</td><td class="num">267</td><td class="num">396</td><td class="num">385</td><td class="num"><strong>1,048</strong></td></tr>
+      <tr><td>2026/03</td><td class="num">320</td><td class="num">416</td><td class="num">436</td><td class="num"><strong>1,172</strong></td></tr>
+      <tr><td>2026/04</td><td class="num">285</td><td class="num">420</td><td class="num">404</td><td class="num"><strong>1,109</strong></td></tr>
+      <tr><td>2026/05</td><td class="num">364</td><td class="num">406</td><td class="num">413</td><td class="num"><strong>1,183</strong></td></tr>
+      <tr><td>2026/06 *</td><td class="num">156</td><td class="num">194</td><td class="num">244</td><td class="num"><strong>594</strong></td></tr>
       <tr class="subtotal"><td><strong>Total 2026 YTD</strong></td><td class="num"><strong>1,420</strong></td><td class="num"><strong>2,087</strong></td><td class="num"><strong>2,076</strong></td><td class="num"><strong>5,583</strong></td></tr>
-      <tr class="total"><td><strong>ACUMULADO 25+26 YTD</strong></td><td class="num"><strong>2,439</strong></td><td class="num"><strong>3,651</strong></td><td class="num"><strong>4,083</strong></td><td class="num"><strong>10,173</strong></td></tr>
+      <tr class="total"><td><strong>Acumulado 2025+26 YTD</strong></td><td class="num"><strong>2,439</strong></td><td class="num"><strong>3,651</strong></td><td class="num"><strong>4,083</strong></td><td class="num"><strong>10,173</strong></td></tr>
     </tbody>
   </table>
 
-  <h4 class="subsection-h4">3.3 · Cobertura del parque · ¿qué % de autos vendidos volvieron al taller?</h4>
+  <h2 class="section-h2"><span class="num">§3</span>Ratio órdenes de servicio / autos vendidos</h2>
 
-  <table class="data">
-    <thead><tr><th>Marca</th><th class="num">Vendidos en periodo</th><th class="num">Con ≥1 servicio</th><th class="num">% Cobertura</th><th class="num">% No-retorno</th><th>Lectura</th></tr></thead>
-    <tbody>
-      <tr class="best"><td><strong>GWM</strong></td><td class="num">1,333</td><td class="num">1,049</td><td class="num"><strong>78.7%</strong></td><td class="num">21.3%</td><td>Mejor retención del grupo chino</td></tr>
-      <tr><td><strong>GAC</strong></td><td class="num">1,402</td><td class="num">1,055</td><td class="num"><strong>75.2%</strong></td><td class="num">24.8%</td><td>Alineado a modelo OEM tradicional</td></tr>
-      <tr class="outlier"><td><strong>CHANGAN</strong></td><td class="num">1,819</td><td class="num">1,205</td><td class="num"><strong>66.2% ⚠</strong></td><td class="num"><strong>33.8%</strong></td><td>Outlier negativo · 1 de cada 3 no vuelve</td></tr>
-      <tr class="total"><td><strong>TOTAL CHINAS</strong></td><td class="num"><strong>4,554</strong></td><td class="num"><strong>3,309</strong></td><td class="num"><strong>72.7%</strong></td><td class="num"><strong>27.3%</strong></td><td>Arriba del benchmark NADA (50-65% post 1er año)</td></tr>
-    </tbody>
-  </table>
-
-  <h4 class="subsection-h4">3.4 · Velocidad de visita · ratio OR/Venta acumulado</h4>
+  <p class="small" style="margin-bottom:4mm;">Ratio acumulado 2025 + 2026 YTD. <strong>Lectura:</strong> velocidad de visita en el periodo (OR del periodo / autos vendidos del periodo). Las visitas incluyen autos de cohortes anteriores; no es frecuencia por unidad.</p>
 
   <div class="distrib">
-    <div class="distrib-row"><div class="label-d"><strong>CHANGAN</strong> · 2,439 OR / 2,459 uds vendidas</div><div class="bar-wrap"><div class="bar b-changan" style="width:45.4%"></div></div><div class="value-d">0.99<span>OR / AUTO VENDIDO</span></div></div>
-    <div class="distrib-row"><div class="label-d"><strong>GAC</strong> · 3,651 OR / 1,754 uds vendidas</div><div class="bar-wrap"><div class="bar b-gac" style="width:95.4%"></div></div><div class="value-d">2.08<span>OR / AUTO VENDIDO</span></div></div>
-    <div class="distrib-row"><div class="label-d"><strong>GWM</strong> · 4,083 OR / 1,872 uds vendidas</div><div class="bar-wrap"><div class="bar b-gwm" style="width:100%"></div></div><div class="value-d">2.18<span>OR / AUTO VENDIDO</span></div></div>
-  </div>
-
-  <div class="callout-inline">
-    <span class="lbl">Lectura del ratio</span>
-    El ratio es <strong>velocidad de visita</strong> (OR del periodo / ventas del periodo). NO es frecuencia por unidad, porque las visitas 2026 incluyen autos de cohortes 2024 y anteriores. Que Changan tenga ratio 0.99 vs ~2.10 GAC/GWM apunta a que <strong>su parque visita menos el taller incluso entre los que sí vuelven</strong> — consistente con el dato de cobertura más baja (66.2%).
+    <div class="distrib-row"><div class="label-d"><strong>CHANGAN</strong> · 2,439 OR / 2,459 uds</div><div class="bar-wrap"><div class="bar changan" style="width:45.4%"></div></div><div class="value-d">0.99<span>OR / VENTA</span></div></div>
+    <div class="distrib-row"><div class="label-d"><strong>GAC</strong> · 3,651 OR / 1,754 uds</div><div class="bar-wrap"><div class="bar gac" style="width:95.4%"></div></div><div class="value-d">2.08<span>OR / VENTA</span></div></div>
+    <div class="distrib-row"><div class="label-d"><strong>GWM</strong> · 4,083 OR / 1,872 uds</div><div class="bar-wrap"><div class="bar gwm" style="width:100%"></div></div><div class="value-d">2.18<span>OR / VENTA</span></div></div>
   </div>
 </section>
 
-<!-- ============ PAGE 5: §4 VALOR MONETARIO ============ -->
+<!-- ============ PAGE 3: §4 VALOR REFACCIONES ============ -->
 <section class="page">
-  <h1 class="section-title"><span class="num">§4 · Valor monetario post-venta</span>$40.4M acumulados · GWM concentra 52%.</h1>
+  <h2 class="section-h2"><span class="num">§4</span>Valor de refacciones vendidas</h2>
 
-  <p class="lead">
-    Cubo DCA 30008 re-extraído 16-jun-2026 con cols monetarias <code>I_30498</code> (Vta Servicio), <code>I_30500</code> (Vta Refacciones), <code>I_30499</code> (Vta HyP). 836,814 filas en D1 <code>bitam-mkt</code>.
-  </p>
-
-  <h4 class="subsection-h4">4.1 · Composición acumulada por marca</h4>
+  <p class="small" style="margin-bottom:4mm;">Desglose por categoría monetaria del cubo 30008 (indicadores I_30498 Servicio, I_30500 Refacciones, I_30499 Hojalatería). Acumulado 2025 + 2026 YTD.</p>
 
   <table class="data">
-    <thead><tr><th>Marca</th><th class="num">Servicio $</th><th class="num">Refacciones $</th><th class="num">Hojalatería $</th><th class="num">Total $</th><th class="num">% vs Revenue venta</th></tr></thead>
+    <thead><tr><th>Marca</th><th class="num">Servicio $</th><th class="num">Refacciones $</th><th class="num">Hojalatería $</th><th class="num">Total post-venta $</th><th class="num">% vs Revenue venta</th></tr></thead>
     <tbody>
-      <tr><td><strong>CHANGAN</strong></td><td class="num">$3,246K</td><td class="num">$3,895K</td><td class="num">$88K</td><td class="num"><strong>$7,229K</strong></td><td class="num">0.93%</td></tr>
-      <tr><td><strong>GAC</strong></td><td class="num">$3,652K</td><td class="num">$8,491K</td><td class="num">$35K</td><td class="num"><strong>$12,177K</strong></td><td class="num">1.66%</td></tr>
-      <tr class="outlier"><td><strong>GWM</strong></td><td class="num">$4,817K</td><td class="num">$10,008K</td><td class="num"><strong>$6,144K ⚠</strong></td><td class="num"><strong>$20,969K</strong></td><td class="num"><strong>2.93%</strong></td></tr>
-      <tr class="total"><td><strong>TOTAL CHINAS</strong></td><td class="num"><strong>$11,715K</strong></td><td class="num"><strong>$22,394K</strong></td><td class="num"><strong>$6,266K</strong></td><td class="num"><strong>$40,376K</strong></td><td class="num"><strong>1.71%</strong></td></tr>
+      <tr><td><strong>CHANGAN</strong></td><td class="num">$3,246,432</td><td class="num">$3,895,092</td><td class="num">$87,638</td><td class="num"><strong>$7,229,162</strong></td><td class="num">0.93%</td></tr>
+      <tr><td><strong>GAC</strong></td><td class="num">$3,651,810</td><td class="num">$8,491,002</td><td class="num">$34,591</td><td class="num"><strong>$12,177,403</strong></td><td class="num">1.66%</td></tr>
+      <tr><td><strong>GWM</strong></td><td class="num">$4,817,297</td><td class="num">$10,008,087</td><td class="num">$6,143,904</td><td class="num"><strong>$20,969,288</strong></td><td class="num">2.93%</td></tr>
+      <tr class="total"><td><strong>TOTAL CHINAS</strong></td><td class="num"><strong>$11,715,539</strong></td><td class="num"><strong>$22,394,181</strong></td><td class="num"><strong>$6,266,133</strong></td><td class="num"><strong>$40,375,853</strong></td><td class="num"><strong>1.71%</strong></td></tr>
     </tbody>
   </table>
 
-  <h4 class="subsection-h4">4.2 · Distribución visual · % de cada componente del total chinas</h4>
+  <h3 class="section-h3">Refacciones $ por marca · vista comparativa</h3>
 
   <div class="distrib">
-    <div class="distrib-row"><div class="label-d"><strong>Refacciones</strong> · ingreso recurrente del parque</div><div class="bar-wrap"><div class="bar b-ref" style="width:55.5%"></div></div><div class="value-d">$22.39M<span>55.5%</span></div></div>
-    <div class="distrib-row"><div class="label-d"><strong>Hojalatería y pintura</strong> · siniestros + colisiones</div><div class="bar-wrap"><div class="bar b-hyp" style="width:15.5%"></div></div><div class="value-d">$6.27M<span>15.5%</span></div></div>
-    <div class="distrib-row"><div class="label-d"><strong>Mano de obra de servicio</strong> · mantenimientos + reparaciones</div><div class="bar-wrap"><div class="bar b-serv" style="width:29.0%"></div></div><div class="value-d">$11.72M<span>29.0%</span></div></div>
-    <div class="distrib-row total"><div class="label-d"><strong>TOTAL POST-VENTA 3 CHINAS · 2025+26 YTD</strong></div><div class="bar-wrap" style="background:transparent;"></div><div class="value-d" style="color:var(--gp-red);">$40.38M<span>1.71% DEL REVENUE DE VENTA</span></div></div>
+    <div class="distrib-row"><div class="label-d"><strong>CHANGAN</strong> · refacciones</div><div class="bar-wrap"><div class="bar changan" style="width:38.9%"></div></div><div class="value-d">$3.90M<span>17.4% del total</span></div></div>
+    <div class="distrib-row"><div class="label-d"><strong>GAC</strong> · refacciones</div><div class="bar-wrap"><div class="bar gac" style="width:84.8%"></div></div><div class="value-d">$8.49M<span>37.9% del total</span></div></div>
+    <div class="distrib-row"><div class="label-d"><strong>GWM</strong> · refacciones</div><div class="bar-wrap"><div class="bar gwm" style="width:100%"></div></div><div class="value-d">$10.01M<span>44.7% del total</span></div></div>
   </div>
 
-  <h4 class="subsection-h4">4.3 · Headroom estructural vs benchmark NADA US</h4>
-
-  <div class="financial">
-    <div class="financial-grid">
-      <div class="fin-cell">
-        <div class="label">Chinas actual</div>
-        <div class="value">1.71%</div>
-        <p>Post-venta como % del revenue de venta nueva (acumulado 25+26 YTD)</p>
-      </div>
-      <div class="fin-cell">
-        <div class="label">Benchmark NADA US</div>
-        <div class="value gold">8–12%</div>
-        <p>Dealers tradicionales con programa post-venta maduro (NADA Data 2024)</p>
-      </div>
-      <div class="fin-cell">
-        <div class="label">Headroom estructural</div>
-        <div class="value red">5–7×</div>
-        <p>Multiplicador potencial si el ticket promedio se acerca al benchmark</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="killer">
-    <span class="label">El número grande</span>
-    <h3>El parque chino captura visitas pero no captura ticket.</h3>
-    <p>El 73% de cobertura está <strong>arriba</strong> del benchmark NADA (50–65% post-primer año). El problema no es que no vengan: es que cuando vienen, <strong>compran solo mantenimiento básico</strong>. Refacciones genuinas, accesorios, paquetes extendidos y servicios mayores aparentemente ocurren fuera del Grupo. Si llevamos las 3 chinas de 1.71% a 5% (mitad del bench bajo), el upside es <strong>$77M MXN adicionales/año</strong> sobre el revenue actual del parque.</p>
-  </div>
-
-  <div class="callout-inline danger">
-    <span class="lbl">⚠ GWM concentra hojalatería · $6.14M vs ~$0 las otras</span>
-    Tres hipótesis no excluyentes a validar con Inés antes de citar este número en Consejo:
-    <strong>(a) Siniestralidad real:</strong> el parque GWM tiene más accidentes/colisiones por mix de modelos o perfil de cliente.
-    <strong>(b) Atribución cruzada del taller:</strong> el dealer GWM tiene infraestructura HyP que atiende vehículos no-GWM, y la dimensión <em>Marca</em> del cubo 30008 está capturando el dealer en lugar del auto.
-    <strong>(c) Cobertura unilateral:</strong> los dealers Changan y GAC no operan HyP propio y derivan a terceros.
-  </div>
+  <p class="small"><strong>Nota sobre Hojalatería GWM ($6.14M):</strong> GWM concentra 98% del valor HyP de las 3 chinas. Antes de citar este desglose externamente, validar con Inés si la dimensión Marca del cubo 30008 captura marca del auto atendido o marca del dealer (el dealer GWM puede estar atendiendo HyP de otras marcas y atribuyéndolo a la marca propia).</p>
 </section>
 
-<!-- ============ PAGE 6: §5 TIEMPO PRIMER SERVICIO ============ -->
+<!-- ============ PAGE 4: §5 TIEMPO COMPRA → PRIMER SERVICIO ============ -->
 <section class="page">
-  <h1 class="section-title"><span class="num">§5 · Tiempo a primer servicio</span>Tres patrones distintos.</h1>
+  <h2 class="section-h2"><span class="num">§5</span>Tiempo entre compra y primer servicio</h2>
 
-  <p class="lead">
-    Calculado vía join VIN limpio (sin asteriscos) entre cubo 30003 (ventas) y cubo 30008 v2 (servicio). Filtro <code>fecha_servicio ≥ fecha_venta</code>. Solo cat=SERVICIO. <strong>Mediana</strong> es el indicador robusto; el promedio se infla con casos atípicos al final del periodo.
-  </p>
-
-  <h4 class="subsection-h4">5.1 · Métricas centrales por marca</h4>
+  <p class="small" style="margin-bottom:4mm;"><strong>Método:</strong> join VIN limpio (sin asteriscos) entre cubo 30003 (ventas) y cubo 30008 (servicio). Solo categoría Servicio. Filtro <code style="background:var(--g100);padding:1px 4px;">fecha_servicio ≥ fecha_venta</code>. La <strong>mediana</strong> es el indicador robusto; el promedio se ve afectado por casos atípicos al final del periodo.</p>
 
   <table class="data">
-    <thead><tr><th>Marca</th><th class="num">Vendidos</th><th class="num">Con servicio</th><th class="num">% Cobertura</th><th class="num">Prom días</th><th class="num">Mediana días</th><th class="num">Min</th><th class="num">Max</th></tr></thead>
+    <thead><tr><th>Marca</th><th class="num">Vendidos en periodo</th><th class="num">Con ≥1 servicio</th><th class="num">% Cobertura</th><th class="num">Promedio días</th><th class="num">Mediana días</th><th class="num">Min</th><th class="num">Max</th></tr></thead>
     <tbody>
       <tr><td><strong>CHANGAN</strong></td><td class="num">1,819</td><td class="num">1,205</td><td class="num">66.2%</td><td class="num">91</td><td class="num">46</td><td class="num">0</td><td class="num">461</td></tr>
       <tr><td><strong>GAC</strong></td><td class="num">1,402</td><td class="num">1,055</td><td class="num">75.2%</td><td class="num">66</td><td class="num">46</td><td class="num">0</td><td class="num">481</td></tr>
-      <tr class="best"><td><strong>GWM</strong></td><td class="num">1,333</td><td class="num">1,049</td><td class="num">78.7%</td><td class="num">73</td><td class="num"><strong>27</strong></td><td class="num">0</td><td class="num">437</td></tr>
+      <tr><td><strong>GWM</strong></td><td class="num">1,333</td><td class="num">1,049</td><td class="num">78.7%</td><td class="num">73</td><td class="num">27</td><td class="num">0</td><td class="num">437</td></tr>
+      <tr class="total"><td><strong>TOTAL CHINAS</strong></td><td class="num"><strong>4,554</strong></td><td class="num"><strong>3,309</strong></td><td class="num"><strong>72.7%</strong></td><td class="num"><strong>77</strong></td><td class="num"><strong>40</strong></td><td class="num">0</td><td class="num">481</td></tr>
     </tbody>
   </table>
 
-  <h4 class="subsection-h4">5.2 · Distribución por bucket de días</h4>
+  <h3 class="section-h3">Distribución por bucket de días hasta primer servicio</h3>
 
   <div class="buckets">
-    <div class="bucket-row header"><div>Bucket</div><div>CHANGAN</div><div>GAC</div><div>GWM</div></div>
+    <div class="bucket-row header">
+      <div>Bucket</div>
+      <div>CHANGAN</div>
+      <div>GAC</div>
+      <div>GWM</div>
+    </div>
     <div class="bucket-row">
       <div class="b-label">0–30 d</div>
       <div class="b-bar"><div class="barv changan" style="width:88%"></div><div class="barv-num">533</div></div>
@@ -548,215 +268,7 @@
     </div>
   </div>
 
-  <h4 class="subsection-h4">5.3 · Tres patrones distintos · una lectura por marca</h4>
-
-  <div class="marca-hero">
-    <div class="marca-card changan">
-      <div class="marca-name">CHANGAN</div>
-      <div class="marca-tagline">Patrón distribuido</div>
-      <div class="marca-line"><span class="lbl">Pico inicial 0-30d</span><span class="val">44%</span></div>
-      <div class="marca-line"><span class="lbl">Visitas 181-365d</span><span class="val">22%</span></div>
-      <div class="marca-line"><span class="lbl">Mediana</span><span class="val">46 d</span></div>
-      <div class="marca-line highlight"><span class="lbl">Cobertura</span><span class="val">66.2%</span></div>
-      <p style="font-size:8.5pt; color:var(--g600); margin-top:3mm; line-height:1.5;">Distribución ancha sin pico claro de mantenimiento programado. Sugiere mezcla de PDI/garantía inicial + clientes que vuelven al año. <strong>Cobertura más baja del grupo chino.</strong></p>
-    </div>
-    <div class="marca-card gac">
-      <div class="marca-name">GAC</div>
-      <div class="marca-tagline">Patrón "Mantenimiento 90"</div>
-      <div class="marca-line"><span class="lbl">Concentración 31-180d</span><span class="val">52%</span></div>
-      <div class="marca-line"><span class="lbl">Visitas 181+d</span><span class="val">5%</span></div>
-      <div class="marca-line"><span class="lbl">Mediana</span><span class="val">46 d</span></div>
-      <div class="marca-line highlight"><span class="lbl">Cobertura</span><span class="val">75.2%</span></div>
-      <p style="font-size:8.5pt; color:var(--g600); margin-top:3mm; line-height:1.5;">Concentración fuerte en 1-3 meses. Mediana 46d alineada con mantenimiento programado a 3 meses / 5,000 km. <strong>El más alineado al modelo OEM tradicional.</strong></p>
-    </div>
-    <div class="marca-card gwm">
-      <div class="marca-name">GWM</div>
-      <div class="marca-tagline">Patrón bimodal</div>
-      <div class="marca-line"><span class="lbl">Pico inicial 0-30d</span><span class="val">56%</span></div>
-      <div class="marca-line"><span class="lbl">Pico 181-365d</span><span class="val">17%</span></div>
-      <div class="marca-line"><span class="lbl">Mediana</span><span class="val">27 d</span></div>
-      <div class="marca-line highlight"><span class="lbl">Cobertura</span><span class="val">78.7%</span></div>
-      <p style="font-size:8.5pt; color:var(--g600); margin-top:3mm; line-height:1.5;">Doble peak: entrega (0-30d) + visita anual. Mediana 27d es la más baja — la mayor parte de "primer servicio" sucede el primer mes. <strong>Mejor retención pero también más actividad pre-venta capturada como OR.</strong></p>
-    </div>
-  </div>
-
-  <div class="callout-inline">
-    <span class="lbl">Lectura del bucket 0-30d</span>
-    Las 3 marcas tienen un peak grande en el primer mes (1,568 servicios combinados). Probablemente incluye PDI, entregas, garantía inicial y servicios de cortesía registrados como OR — <strong>no mantenimiento programado del cliente final</strong>. Para análisis de retención "pura" filtrar también <code>tipo_orden NOT LIKE '%GARANTIA%'</code> en próxima iteración.
-  </div>
-</section>
-
-<!-- ============ PAGE 7: §6 HIPOTESIS DE TRABAJO ============ -->
-<section class="page">
-  <h1 class="section-title"><span class="num">§6 · Hipótesis de trabajo</span>Qué hacer con esto.</h1>
-
-  <p class="lead">
-    <strong>5 hipótesis a discutir con el Consejo, no decididas.</strong> Son input directo del Plan v2 Deep Dive MKT (Cap 1 Economics + Cap 6 To-Be). Cada hipótesis explicita la lectura, la magnitud y la opción binaria que requiere decisión.
-  </p>
-
-  <ul class="decisions">
-    <li>
-      <div>
-        <h4>Llevar las 3 chinas de 1.71% a 5% de revenue post-venta</h4>
-        <p><strong>Lectura:</strong> el parque captura presencia pero pierde ticket. Cerrar la mitad del gap al benchmark NADA bajo significa <strong>+$77M MXN/año</strong> de revenue sobre el parque actual sin necesidad de vender más unidades. Palanca: paquetes de mantenimiento extendido, refacciones genuinas con financiación, accesorios como upsell post-venta.</p>
-      </div>
-      <div class="dec-options">
-        <strong>Opción A</strong>Pilotar 1 marca (recomendado GAC, mediana 46d alineada)<br>
-        <strong>Opción B</strong>Lanzar las 3 simultáneo<br>
-        <strong>Opción C</strong>No-hacer hasta tener Cap 6 completo
-      </div>
-    </li>
-    <li>
-      <div>
-        <h4>Diagnosticar el problema de retención Changan (33.8% no-retorno)</h4>
-        <p><strong>Lectura:</strong> 1 de cada 3 Changan vendidos no regresa al taller propio. Es 50% más alto que GWM (21.3%) y 36% más alto que GAC (24.8%). No es benchmark — es <strong>anomalía propia</strong>. Posibles causas: experiencia de servicio (NPS Changan), distancia geográfica al taller, posicionamiento del producto (clientes price-sensitive que evitan dealer), o problema operativo en el dealer Changan.</p>
-      </div>
-      <div class="dec-options">
-        <strong>Opción A</strong>Audit operativo del dealer Changan (Q3 2026)<br>
-        <strong>Opción B</strong>Encuesta NPS post-compra a no-retornantes<br>
-        <strong>Opción C</strong>Datos insuficientes — observar otro trimestre
-      </div>
-    </li>
-    <li>
-      <div>
-        <h4>Validar atribución del $6.14M HyP de GWM</h4>
-        <p><strong>Lectura:</strong> el monto es 29% del total post-venta GWM y 175× más que Changan ($88K) y GAC ($35K) combinados. Antes de citarlo en deck público, hay que confirmar con Inés si la dimensión <em>Marca</em> del cubo 30008 captura <strong>marca del auto atendido</strong> o <strong>marca del dealer que opera el taller</strong>. La respuesta cambia la narrativa.</p>
-      </div>
-      <div class="dec-options">
-        <strong>Acción</strong>Reunión Inés (DCA admin) en 7 días<br>
-        <strong>Bloqueante</strong>Cita en deck Consejo<br>
-        <strong>Workaround</strong>Citar "$40.4M post-venta total chinas" sin desglose HyP por marca
-      </div>
-    </li>
-    <li>
-      <div>
-        <h4>Ampliar la auditoría a las 5 marcas restantes (Mazda, STL, Ford, HYU, Isuzu)</h4>
-        <p><strong>Lectura:</strong> el pipeline es reusable. Mazda + Hyundai + Ford son el 81% del revenue del Grupo y son el verdadero objetivo del Cap 1 del Plan v2. Tiempo estimado de extracción + ingest: 2-3 hrs adicionales. <strong>Bloqueador:</strong> el cubo 30003 actualmente no contiene Hyundai, Ford ni Isuzu (verificar con Inés si operan DMS independiente).</p>
-      </div>
-      <div class="dec-options">
-        <strong>Bloqueador 1</strong>Confirmar con Inés acceso DMS HYU/Ford/Isuzu<br>
-        <strong>Bloqueador 2</strong>Capacidad cómputo D1 (1.23 GB hoy)<br>
-        <strong>Acción</strong>Mazda + STL en próxima sesión
-      </div>
-    </li>
-    <li>
-      <div>
-        <h4>Endpoint público en bitam-mkt-api para queries post-venta</h4>
-        <p><strong>Lectura:</strong> hoy las queries viven en SQL ad-hoc contra D1 vía wrangler. Para que cualquier stakeholder del Grupo (Pepe Morales, Directores de Marca, Sergio Barroso) pueda ver el dashboard sin escribir SQL, exponer <code>GET /chinas/postventa?marca=X&periodo=2026</code> en el worker existente. ETA 1 hora de scripting.</p>
-      </div>
-      <div class="dec-options">
-        <strong>Opción A</strong>Endpoint público interno (auth WAB)<br>
-        <strong>Opción B</strong>Dashboard estático regenerado mensual<br>
-        <strong>Opción C</strong>Mantener acceso SQL solo a Director MKT
-      </div>
-    </li>
-  </ul>
-</section>
-
-<!-- ============ PAGE 8: §7 PENDIENTES + §8 ANEXOS ============ -->
-<section class="page">
-  <h1 class="section-title"><span class="num">§7 · Pendientes de validación</span>Cuatro inputs antes de publicar al Consejo.</h1>
-
-  <div class="drivers">
-    <div class="driver">
-      <span class="driver-num">1</span>
-      <h3>Cierre real del corte junio 2026</h3>
-      <p><strong>Riesgo:</strong> el mes de junio 2026 está parcial (Changan 45 uds × $46K/uds, GAC 103 × $61K/uds — DMS sin facturar completo). Si se cita el mes aislado en deck Consejo, induce subreporte. <strong>Acción:</strong> validar con Inés cuándo se cierra el corte mensual de DCA y rehacer extracción cuando esté completo.</p>
-    </div>
-    <div class="driver amber">
-      <span class="driver-num">2</span>
-      <h3>Atribución de Hojalatería GWM</h3>
-      <p><strong>Riesgo:</strong> los $6.14M HyP GWM pueden estar contando autos no-GWM atendidos en el taller GWM. <strong>Acción:</strong> confirmar con Inés si la dimensión <em>Marca</em> del cubo 30008 captura marca del auto o marca del dealer. La respuesta cambia 29% del valor reportado GWM.</p>
-    </div>
-    <div class="driver gold">
-      <span class="driver-num">3</span>
-      <h3>Cobertura DMS de Hyundai, Ford e Isuzu</h3>
-      <p><strong>Riesgo:</strong> el cubo 30003 actualmente solo cubre 5 marcas (Mazda, STL, Changan, GWM, GAC). HYU/Ford/Isuzu no aparecen — hipótesis: operan DMS independiente no integrado a DCA. <strong>Acción:</strong> confirmar con Inés. Sin esto, el Cap 1 del Plan v2 cubre solo 5 de 8 marcas.</p>
-    </div>
-    <div class="driver blue">
-      <span class="driver-num">4</span>
-      <h3>Limpieza del campo "Fuente Venta" en DCA</h3>
-      <p><strong>Riesgo:</strong> el campo está 100% vacío. Sin este dato no podemos atribuir ventas a un canal MKT específico (digital, walk-in, lead form, referido). <strong>Acción:</strong> solicitar a Inés que active el llenado del campo en captura DMS. Tiempo a tener data útil: 3-6 meses post-activación.</p>
-    </div>
-  </div>
-
-  <h1 class="section-title" style="margin-top:10mm;"><span class="num">§8 · Anexos</span>Pipeline, queries y trazabilidad.</h1>
-
-  <div class="annex-block">
-    <span class="annex-tag">Anexo A · Pipeline ejecutado</span>
-    <h3>De BITAM Artus a D1 bitam-mkt, en 5 pasos</h3>
-    <ul>
-      <li><strong>1. Cookie BITAM fresca</strong> · MCP Chrome + Blob-download · cuenta Pepe Morales (jmorales@grupoplasencia.com user 261) · cookie en <code>/tmp/bitam_extract/cookie.txt chmod 600</code></li>
-      <li><strong>2. Re-extracción cubo 30008 con 30 cols</strong> (16 dims + 14 inds monetarios) · workaround chunks <em>mensuales</em> (no trimestrales — BITAM falla silenciosamente con alto volumen) · 18 archivos × ~20MB = 345MB · 21 min total</li>
-      <li><strong>3. Migration 0004_ventas_servicio.sql</strong> aplicada a D1 bitam-mkt · 2 tablas (cubo_30003_ventas + cubo_30008_servicio) · 17 índices total · DB final 1.23 GB</li>
-      <li><strong>4. Ingest idempotente</strong> con <code>scripts/ingest_ventas_servicio.py</code> · 40,268 rows (30003, 56s) + 836,814 rows (30008, 19 min) · VINs con asteriscos limpiados · Importe Factura parseado de raw a REAL</li>
-      <li><strong>5. Análisis Python + queries SQL canónicas</strong> sobre D1 · cookie destruida con <code>rm -P</code> al cierre</li>
-    </ul>
-  </div>
-
-  <div class="annex-block">
-    <span class="annex-tag">Anexo B · Queries SQL canónicas en D1 bitam-mkt</span>
-    <h3>Reusables para cualquier marca o segmento</h3>
-    <pre><span class="c">-- Q1: Ventas nuevas por mes × marca</span>
-<span class="k">SELECT</span> mes, marca, COUNT(*) <span class="k">AS</span> uds, ROUND(SUM(importe_factura),0) <span class="k">AS</span> importe
-<span class="k">FROM</span> cubo_30003_ventas
-<span class="k">WHERE</span> nuevo_usado = 'AUTOS NUEVOS' <span class="k">AND</span> marca <span class="k">IN</span> ('GAC','CHANGAN','GWM')
-<span class="k">GROUP BY</span> mes, marca <span class="k">ORDER BY</span> mes, marca;
-
-<span class="c">-- Q2: Servicio post-venta con valor $ por mes × marca</span>
-<span class="k">SELECT</span> mes, marca, COUNT(DISTINCT folio_or) <span class="k">AS</span> or_distintas,
-  ROUND(SUM(vta_serv),0) <span class="k">AS</span> serv_$, ROUND(SUM(vta_ref),0) <span class="k">AS</span> ref_$,
-  ROUND(SUM(vta_hyp),0) <span class="k">AS</span> hyp_$
-<span class="k">FROM</span> cubo_30008_servicio
-<span class="k">WHERE</span> marca <span class="k">IN</span> ('GAC','CHANGAN','GWM')
-  <span class="k">AND</span> tipo_venta_serv_most <span class="k">IN</span> ('Servicio','Hojalatería')
-  <span class="k">AND</span> tipo_orden <span class="k">NOT LIKE</span> '%INTERNA%' <span class="k">AND</span> tipo_orden <span class="k">NOT LIKE</span> 'DEV%'
-<span class="k">GROUP BY</span> mes, marca;
-
-<span class="c">-- Q3: Tiempo compra → primer servicio (join VIN limpio)</span>
-<span class="k">WITH</span> ps <span class="k">AS</span> (<span class="k">SELECT</span> vin, marca, MIN(fecha_facturacion) <span class="k">AS</span> f
-            <span class="k">FROM</span> cubo_30008_servicio
-            <span class="k">WHERE</span> tipo_orden <span class="k">NOT LIKE</span> '%INTERNA%' <span class="k">GROUP BY</span> vin, marca),
-     v <span class="k">AS</span> (<span class="k">SELECT</span> vin, marca, MIN(fecha_venta) <span class="k">AS</span> f
-            <span class="k">FROM</span> cubo_30003_ventas
-            <span class="k">WHERE</span> nuevo_usado='AUTOS NUEVOS' <span class="k">GROUP BY</span> vin, marca)
-<span class="k">SELECT</span> v.marca, COUNT(*) <span class="k">AS</span> con_servicio,
-  ROUND(AVG(JULIANDAY(ps.f)-JULIANDAY(v.f)),0) <span class="k">AS</span> dias_prom
-<span class="k">FROM</span> v <span class="k">JOIN</span> ps <span class="k">ON</span> v.vin = ps.vin
-<span class="k">WHERE</span> ps.f &gt;= v.f <span class="k">GROUP BY</span> v.marca;</pre>
-  </div>
-
-  <div class="annex-block">
-    <span class="annex-tag">Anexo C · Clasificación de Tipo Orden (cubo 30008)</span>
-    <h3>Heurística de inclusión/exclusión</h3>
-    <ul>
-      <li><strong>SERVICIO (incluido):</strong> Publico, Previa, Express, Reparacion, Garantia, Aseguradora, Hojalateria, Estetica, HYP, Filiales — todo lo que es trabajo al auto del cliente final</li>
-      <li><strong>MOSTRADOR (excluido):</strong> VM.*, Mostrador, Mayoreo, Accesorios, Llantas, códigos numéricos — venta de refacciones sin servicio asociado</li>
-      <li><strong>INTERNA (excluido):</strong> INTERNA*, INTERNO — movimientos internos del dealer</li>
-      <li><strong>DEV (excluido):</strong> DEV*, Devoluciones — operaciones reversas</li>
-      <li><strong>Filtro adicional v3 sugerido:</strong> excluir Garantía Planta para análisis de "mantenimiento programado puro" — eliminaría el peak 0-30d sospechoso de PDI</li>
-    </ul>
-  </div>
-</section>
-
-<!-- ============ PAGE 9: CLOSING ============ -->
-<section class="page">
-  <div class="closing">
-    <div class="ribbon">Cierre · Reporte v1.0 · 16 jun 2026</div>
-    <h2>El parque existe.<br>El ticket <em>no.</em></h2>
-    <p class="pull">
-      "73% de las 3 chinas vuelve al taller. Llevarlas de 1.71% a 5% de revenue post-venta es 77 millones de pesos al año sobre el parque actual — sin vender una unidad más."
-    </p>
-    <p class="body-text">
-      Este reporte es el primer Deep Dive cuantitativo sobre data DCA contable verificada. El pipeline es reusable para Mazda, Stellantis y las marcas que se vayan incorporando. Las 5 hipótesis del §6 son input directo del Plan v2 Cap 1 (Economics) y Cap 6 (To-Be). Los 4 pendientes del §7 son los bloqueadores que Inés / DMS deben resolver antes de la presentación al Consejo.
-      <br><br>
-      <strong style="color:var(--gold);">DCA reemplaza Galindo. Confirmado.</strong>
-    </p>
-    <div class="signature">
-      <strong>Dirección de Marketing Corporativo</strong>
-      Grupo Plasencia Automotriz · Junio 2026
-    </div>
-  </div>
+  <p class="small" style="margin-top:5mm;"><strong>Nota sobre el bucket 0–30 d:</strong> las 3 marcas tienen un pico grande en el primer mes (1,568 servicios combinados). Probablemente incluye PDI, entregas, garantía inicial y servicios de cortesía registrados como OR — no necesariamente mantenimiento programado del cliente final.</p>
 </section>
 
 </body>
