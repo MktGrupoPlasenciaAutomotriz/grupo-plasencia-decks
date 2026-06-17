@@ -225,19 +225,23 @@
     letter-spacing: 1.5px; text-transform: uppercase; font-weight: 700;
   }
 
-  /* HERO STATS GRID */
-  .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm; margin: 5mm 0 4mm; }
+  /* HERO STATS GRID — 3 cards (Pauta · Nómina · Proveedores) con desgloses internos */
+  .hero-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4mm; margin: 5mm 0 4mm; }
   .hero-card {
     background: var(--paper); border: 1px solid var(--g200);
-    border-top: 3px solid var(--gp-red); padding: 5mm 6mm;
-    position: relative;
+    border-top: 4px solid var(--gp-red); padding: 5mm;
+    position: relative; page-break-inside: avoid;
   }
   .hero-card.navy { border-top-color: var(--gp-navy); }
   .hero-card.gold { border-top-color: var(--gold); }
   .hero-card.amber { border-top-color: var(--amber); }
   .hero-card .hero-num {
-    font-family: var(--serif); font-size: 28pt; font-weight: 800;
-    color: var(--gp-navy); line-height: 1; letter-spacing: -1.2px;
+    font-family: var(--serif); font-size: 24pt; font-weight: 800;
+    color: var(--gp-navy); line-height: 1; letter-spacing: -1px;
+  }
+  .hero-card .hero-num-sub {
+    font-family: var(--sans); font-size: 8pt; color: var(--g500);
+    font-weight: 500; margin-top: 1mm;
   }
   .hero-card .hero-label {
     font-family: var(--sans); font-size: 8pt; font-weight: 700;
@@ -247,6 +251,31 @@
   .hero-card.navy .hero-label { color: var(--gp-navy); }
   .hero-card.gold .hero-label { color: #B7791F; }
   .hero-card.amber .hero-label { color: #B7791F; }
+  .hero-card .hero-tagline {
+    font-family: var(--sans); font-size: 8.5pt; color: var(--g700);
+    margin-top: 2mm; line-height: 1.45;
+  }
+  .hero-card .hero-breakdown {
+    margin-top: 4mm; padding-top: 3mm; border-top: 1px solid var(--g200);
+  }
+  .hero-card .hero-breakdown-label {
+    font-family: var(--sans); font-size: 7pt; letter-spacing: 1px;
+    text-transform: uppercase; color: var(--g500); font-weight: 700;
+    margin-bottom: 2mm;
+  }
+  .hero-card .hero-breakdown-row {
+    display: flex; justify-content: space-between; padding: 1mm 0;
+    font-size: 8pt; border-bottom: 1px dotted var(--g200);
+  }
+  .hero-card .hero-breakdown-row:last-child { border-bottom: none; }
+  .hero-card .hero-breakdown-row .lbl {
+    color: var(--g600); font-family: var(--sans); font-size: 8pt;
+  }
+  .hero-card .hero-breakdown-row .val {
+    color: var(--gp-navy); font-family: var(--sans); font-weight: 700;
+    font-variant-numeric: tabular-nums; font-size: 8pt;
+  }
+  .hero-card .hero-breakdown-row.highlight .val { color: var(--gp-red); }
   .hero-card .hero-sub {
     font-family: var(--sans); font-size: 9pt; color: var(--g600);
     margin-top: 2mm; line-height: 1.45;
@@ -433,36 +462,71 @@
   <p class="lead">El área de Marketing del Grupo opera con un gasto anual de aproximadamente <em>doscientos millones de pesos</em> distribuidos en ocho marcas, sesenta y tres personas en plantilla, cuatro cuentas oficiales en Business Manager corporativo, cuatrocientos cincuenta proveedores facturando, y un sistema de medición fragmentado que impide saber con precisión qué marca y qué peso de inversión están generando ventas atribuibles.</p>
 
   <div class="hero-grid">
+
     <div class="hero-card">
       <div class="hero-num">$197.5M</div>
-      <div class="hero-label">Pauta MKT 2025 verificada</div>
-      <div class="hero-sub">DCA cubo 30065 · ocho marcas · Mazda concentra el 64%</div>
+      <div class="hero-num-sub">Pauta 2025 · DCA cubo 30065 verificado</div>
+      <div class="hero-label">Pauta MKT</div>
+      <div class="hero-tagline">Ocho marcas · concentración severa Mazda 64% (acelera a 81% en 2026 parcial).</div>
+      <div class="hero-breakdown">
+        <div class="hero-breakdown-label">Por marca · top 4</div>
+        <div class="hero-breakdown-row highlight"><span class="lbl">Mazda</span><span class="val">$126.4M · 64%</span></div>
+        <div class="hero-breakdown-row"><span class="lbl">Ford</span><span class="val">$27.7M · 14%</span></div>
+        <div class="hero-breakdown-row"><span class="lbl">GWM</span><span class="val">$12.7M · 6%</span></div>
+        <div class="hero-breakdown-row"><span class="lbl">Hyundai</span><span class="val">$11.4M · 6%</span></div>
+        <div class="hero-breakdown-row"><span class="lbl">GAC + Changan + STL + Isuzu</span><span class="val">$19.3M · 10%</span></div>
+      </div>
+      <div class="hero-breakdown">
+        <div class="hero-breakdown-label">Por concepto contable (cubo 30067 REAL 2026 parcial)</div>
+        <div class="hero-breakdown-row highlight"><span class="lbl">PROMO 2</span><span class="val">$56.2M · 63%</span></div>
+        <div class="hero-breakdown-row"><span class="lbl">PROMOCION</span><span class="val">$19.1M · 21%</span></div>
+        <div class="hero-breakdown-row"><span class="lbl">PUBLICIDAD</span><span class="val">$13.2M · 15%</span></div>
+        <div class="hero-breakdown-row"><span class="lbl">COMISIONES DIGITAL</span><span class="val">$0.7M · 1%</span></div>
+      </div>
     </div>
+
+    <div class="hero-card navy">
+      <div class="hero-num">$7.88M</div>
+      <div class="hero-num-sub">Bruto 2025 · 63 personas · DCA cubo 30046</div>
+      <div class="hero-label">Nómina MKT</div>
+      <div class="hero-tagline">61 directos GP + 14 partners externos en 8 silos · Director MKT con 0 reportes directos · 5 marcas sin gerencia identificada.</div>
+      <div class="hero-breakdown">
+        <div class="hero-breakdown-label">Por departamento</div>
+        <div class="hero-breakdown-row"><span class="lbl">MERCADOTECNIA · 60 personas</span><span class="val">$7.61M</span></div>
+        <div class="hero-breakdown-row"><span class="lbl">VENTAS DIGITALES · 3 personas</span><span class="val">$0.27M</span></div>
+        <div class="hero-breakdown-row"><span class="lbl">Neto pagado</span><span class="val">$6.40M</span></div>
+      </div>
+      <div class="hero-breakdown">
+        <div class="hero-breakdown-label">Cobertura gerencial visible (cubo 30049)</div>
+        <div class="hero-breakdown-row highlight"><span class="lbl">Mazda · 9 gerentes</span><span class="val">$2.23M · 56%</span></div>
+        <div class="hero-breakdown-row"><span class="lbl">Stellantis · 4 gerentes</span><span class="val">$0.45M</span></div>
+        <div class="hero-breakdown-row"><span class="lbl">Ford · 2 gerentes</span><span class="val">$0.38M</span></div>
+        <div class="hero-breakdown-row"><span class="lbl">GAC · 1 gerente</span><span class="val">$0.16M</span></div>
+        <div class="hero-breakdown-row"><span class="lbl">Hyundai · GWM · Changan · Isuzu · Sem.</span><span class="val">— sin gerencia</span></div>
+      </div>
+    </div>
+
     <div class="hero-card">
       <div class="hero-num">~$280M</div>
-      <div class="hero-label">Facturado a proveedores MKT externos</div>
-      <div class="hero-sub">Cluster 2 verificado (cubo 30051 CxP, 6 trimestres) · <strong>Agencia MX-5 sola concentra $214M (78%)</strong> · cola larga muy fragmentada</div>
+      <div class="hero-num-sub">Facturado externo Cluster 2 · cubo 30051 CxP · 6 trimestres</div>
+      <div class="hero-label">Proveedores</div>
+      <div class="hero-tagline">Concentración brutal en una sola agencia. Cola larga fragmentada con 7 proveedores en 3-5 marcas paralelas sin negociación cross-marca.</div>
+      <div class="hero-breakdown">
+        <div class="hero-breakdown-label">Cluster 2 externo · top concentración</div>
+        <div class="hero-breakdown-row highlight"><span class="lbl">AGENCIA MX-5 (Mazda)</span><span class="val">$214M · 78%</span></div>
+        <div class="hero-breakdown-row"><span class="lbl">Galleta Marketing Digital</span><span class="val">$12.4M</span></div>
+        <div class="hero-breakdown-row"><span class="lbl">Plasico Promotora</span><span class="val">$10.4M</span></div>
+        <div class="hero-breakdown-row"><span class="lbl">Otros 28+ proveedores</span><span class="val">$43.2M · 16%</span></div>
+      </div>
+      <div class="hero-breakdown">
+        <div class="hero-breakdown-label">Cluster 1 intercompany (separado · análisis fiscal aparte)</div>
+        <div class="hero-breakdown-row"><span class="lbl">PROMOTORA LPM</span><span class="val">$221.2M</span></div>
+        <div class="hero-breakdown-row"><span class="lbl">PROMOTORA LPR</span><span class="val">$101.9M</span></div>
+        <div class="hero-breakdown-row"><span class="lbl">PROMOTORA JGPM + PMML + ANYP</span><span class="val">$115.8M</span></div>
+        <div class="hero-breakdown-row highlight"><span class="lbl">Subtotal Cluster 1</span><span class="val">~$438.9M</span></div>
+      </div>
     </div>
-    <div class="hero-card navy">
-      <div class="hero-num">61 + 14</div>
-      <div class="hero-label">Directos GP + partners externos en 8 silos</div>
-      <div class="hero-sub">Plantilla bruto $7.88M · Director MKT con 0 reportes directos · 14 partners únicos con duplicidades cross-marca</div>
-    </div>
-    <div class="hero-card amber">
-      <div class="hero-num">$13.6-24.9M</div>
-      <div class="hero-label">Eficiencia operativa anual identificada</div>
-      <div class="hero-sub">Cinco palancas: proveedores · OEM · plantilla · central medios · IVA</div>
-    </div>
-    <div class="hero-card gold">
-      <div class="hero-num">+$661M</div>
-      <div class="hero-label">Revenue incremental por +1pp conversión</div>
-      <div class="hero-sub">La palanca dominante por dos órdenes de magnitud · ROI total 136× sobre $5M de inversión en Centro de Excelencia Fase 1</div>
-    </div>
-    <div class="hero-card">
-      <div class="hero-num">$438.9M</div>
-      <div class="hero-label">Promotoras intercompany (Cluster 1)</div>
-      <div class="hero-sub">PROMOTORA LPM · LPR · JGPM · PMML · ANYP · entidades fiscales internas del Grupo · NO son agencias externas · requiere análisis fiscal aparte con Contraloría</div>
-    </div>
+
   </div>
 
   <div class="conv-note">
