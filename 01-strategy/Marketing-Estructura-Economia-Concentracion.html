@@ -289,6 +289,42 @@
   pre.scenario.conv { border-left-color: var(--gp-red); }
   pre.scenario.ok { border-left-color: var(--gold); }
 
+  /* SILOS DE MARCA — heredado del v1 Galindo, adaptado al sistema editorial */
+  .silos-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; margin: 5mm 0; }
+  .silo {
+    border: 1px solid var(--g200); border-top: 3px solid var(--gp-navy);
+    padding: 4mm 5mm; background: var(--paper); page-break-inside: avoid;
+  }
+  .silo.maduro { border-top-color: var(--gp-navy); }
+  .silo.parcial { border-top-color: var(--amber); }
+  .silo.anti { border-top-color: var(--gp-red); }
+  .silo.minimo { border-top-color: var(--gold); }
+  .silo.cuello { border-top-color: var(--gp-red); }
+  .silo .director {
+    font-family: var(--font-display); font-weight: 700; font-size: 11pt;
+    color: var(--gp-navy); margin-bottom: 1.5mm; letter-spacing: -0.2px;
+  }
+  .silo .director .tag {
+    display: block; font-family: var(--sans); font-weight: 600; font-size: 7.5pt;
+    color: var(--g500); margin-top: 1mm; letter-spacing: 0.5px; text-transform: uppercase;
+  }
+  .silo.maduro .director .tag { color: var(--gp-navy); }
+  .silo.parcial .director .tag { color: #B7791F; }
+  .silo.anti .director .tag, .silo.cuello .director .tag { color: var(--gp-red); }
+  .silo.minimo .director .tag { color: #B7791F; }
+  .silo ul { list-style: none; margin: 0; padding: 0; }
+  .silo li {
+    display: grid; grid-template-columns: 38% 1fr; gap: 2mm;
+    padding: 1.8mm 0; border-bottom: 1px solid var(--g200);
+    font-size: 8.5pt;
+  }
+  .silo li:last-child { border-bottom: none; }
+  .silo li .lbl { font-family: var(--sans); font-weight: 600; font-size: 7.5pt; color: var(--g500); letter-spacing: 0.4px; text-transform: uppercase; line-height: 1.3; padding-top: 0.5mm; }
+  .silo li .val { font-family: var(--sans); color: var(--g700); font-size: 9pt; line-height: 1.4; }
+  .silo li .val strong { color: var(--gp-navy); }
+  .silo li.warn .val strong { color: var(--gp-red); }
+  .silo li.warn .val em { color: var(--gp-red); font-style: italic; }
+
   @media screen { body { padding: 12mm 0; } }
   @media print {
     body { background: white; }
@@ -467,23 +503,161 @@
   </table>
   <div class="warn-note"><strong>Bandera roja.</strong> Cinco de las nueve marcas no aparecen con gerentes MKT identificados en el cubo 30049. Mazda sola concentra el <strong>56% del costo gerencial MKT</strong>.</div>
 
-  <h2><span class="h-num">2.3</span>Lo que sigue pendiente</h2>
+  <h2><span class="h-num">2.3</span>Organigrama formal As-Is <span class="badge badge-data">cherry-pick v1 · 61 directos + 14 partners</span></h2>
+  <p>Estructura jerárquica con reportes directos (empleados GP) y reportes indirectos (partners externos contratados). La <strong>Dirección de Marketing Corporativo</strong> es función nueva ubicada dentro de la <strong>Dirección Corporativa de Finanzas</strong>.</p>
   <table>
-    <thead><tr><th style="width:38%">Item</th><th style="width:37%">Origen</th><th>Bloqueo</th></tr></thead>
+    <thead><tr><th>Nivel</th><th>Rol</th><th>Persona</th><th>Reporta a</th></tr></thead>
     <tbody>
-      <tr><td><strong>Organigrama nominal de las 60+ personas MKT</strong></td><td>Cubo 30046 con Nombre + Puesto + Reporta_A + Sucursal</td><td><span class="badge badge-pending">Cookie BITAM (A1)</span></td></tr>
-      <tr><td>Reportes directos vs indirectos por gerente de marca</td><td>Cubo 30046 + tabla de relaciones</td><td><span class="badge badge-pending">A1</span></td></tr>
-      <tr><td>Nómina cargada total (con prestaciones + cargas sociales)</td><td>Cubo 30046 extendido</td><td><span class="badge badge-pending">A10</span></td></tr>
-      <tr><td>Mapeo organigrama vs PMA de OEM</td><td>Entrevistas + organigrama A1</td><td><span class="badge badge-pending">A1 + walk-through</span></td></tr>
+      <tr><td>Grupo</td><td>Consejo Directivo</td><td>—</td><td>—</td></tr>
+      <tr><td>Corporativo</td><td>Dirección Corp. de Finanzas</td><td>Pepe Morales</td><td>Consejo</td></tr>
+      <tr class="highlight"><td>Corporativo</td><td><strong>Dirección de Marketing</strong></td><td><strong>Jesús Pérez Porras</strong> · marzo 2026</td><td>Pepe Morales (Finanzas) · <strong>0 reportes directos</strong></td></tr>
+      <tr><td>Marca</td><td>8 Directores de Marca</td><td>uno por silo concesionario</td><td>Consejo directamente · estructura atípica</td></tr>
+    </tbody>
+  </table>
+  <div class="warn-note"><strong>Línea funcional (no jerárquica) Director MKT ↔ Directores y Gerentes de Marca: pendiente de formalizar.</strong> En el As-Is los 3 elementos internos de cada silo (gerencia de marca + equipo cross-agencia + personas en concesionarios) reportan a su Director de Marca, no al Director MKT del Grupo. Las agencias y partners externos son relación contractual con el silo, no laboral.</div>
+
+  <h2><span class="h-num">2.4</span>Ocho silos por marca · detalle as-is</h2>
+  <p>Cada Director de Marca tiene 4 elementos bajo su silo BaU: <strong>(a)</strong> gerencia de marca · <strong>(b)</strong> equipo interno cross-agencia · <strong>(c)</strong> personas en concesionarios · <strong>(d)</strong> agencias y partners externos. Solo Mazda y Hyundai operan con stack completo; el resto opera con stack incompleto.</p>
+
+  <div class="silos-grid">
+    <div class="silo maduro">
+      <div class="director">Mazda <span class="tag">Marca madura · IN-HOUSE</span></div>
+      <ul>
+        <li><span class="lbl">Director</span><span class="val"><em>a confirmar</em></span></li>
+        <li><span class="lbl">Gerencia de marca</span><span class="val"><strong>Florencia Alcaraz</strong></span></li>
+        <li><span class="lbl">Equipo cross-agencia</span><span class="val"><strong>6 personas</strong> · cubren 10 agencias</span></li>
+        <li><span class="lbl">Personas en concesionarios</span><span class="val"><strong>14 personas</strong> locales · 10 sucursales</span></li>
+        <li><span class="lbl">Partners externos</span><span class="val"><em>0 partners · in-house total</em></span></li>
+      </ul>
+    </div>
+
+    <div class="silo maduro">
+      <div class="director">Hyundai <span class="tag">Marca madura</span></div>
+      <ul>
+        <li><span class="lbl">Director</span><span class="val"><em>a confirmar</em></span></li>
+        <li><span class="lbl">Gerencia de marca</span><span class="val"><strong>Verónica Orozco</strong> · jun 2026 (reemplazó a Ana Luisa García)</span></li>
+        <li><span class="lbl">Equipo cross-agencia</span><span class="val"><strong>4 personas</strong> · cubren 7 agencias</span></li>
+        <li><span class="lbl">Personas en concesionarios</span><span class="val"><strong>6 personas</strong> locales · 7 sucursales</span></li>
+        <li><span class="lbl">Partners externos</span><span class="val"><strong>3 partners</strong> · Viceversa · Nextilo · Karbot</span></li>
+      </ul>
+    </div>
+
+    <div class="silo parcial">
+      <div class="director">Changan <span class="tag">Marca parcial · MKT no mapeado</span></div>
+      <ul>
+        <li><span class="lbl">Director</span><span class="val"><strong>Fernando Mora</strong> ⚠ comparte con GWM</span></li>
+        <li><span class="lbl">Gerencia de marca</span><span class="val"><strong>Mauricio Castro</strong></span></li>
+        <li><span class="lbl">Equipo cross-agencia</span><span class="val"><strong>1 persona</strong> (Mauricio) · cubre 4 agencias</span></li>
+        <li><span class="lbl">Personas en concesionarios</span><span class="val"><strong>6 personas</strong> locales · 4 sucursales</span></li>
+        <li><span class="lbl">Partners externos</span><span class="val"><strong>1 partner</strong> · Paola Like (4 ag)</span></li>
+      </ul>
+    </div>
+
+    <div class="silo parcial">
+      <div class="director">Ford <span class="tag">Marca parcial · MKT no mapeado</span></div>
+      <ul>
+        <li><span class="lbl">Director</span><span class="val"><em>a confirmar</em></span></li>
+        <li><span class="lbl">Gerencia de marca</span><span class="val"><strong>Karen Michel Patiño</strong></span></li>
+        <li><span class="lbl">Equipo cross-agencia</span><span class="val"><strong>1 persona</strong> (Karen) · cubre 2 agencias</span></li>
+        <li><span class="lbl">Personas en concesionarios</span><span class="val"><strong>8 personas</strong> locales · 6 sucursales</span></li>
+        <li class="warn"><span class="lbl">Partners externos</span><span class="val"><strong>4 partners</strong> · Dazing + 3 · <em>$3.81M/año concentrado en Dazing (56% del MKT Ford)</em></span></li>
+      </ul>
+    </div>
+
+    <div class="silo anti">
+      <div class="director">GWM <span class="tag">Sin equipo de marca · MKT no mapeado</span></div>
+      <ul>
+        <li><span class="lbl">Director</span><span class="val"><strong>Fernando Mora</strong> ⚠ mismo de Changan</span></li>
+        <li class="warn"><span class="lbl">Gerencia de marca</span><span class="val"><em>Sin gerente cross-agencia identificado</em></span></li>
+        <li class="warn"><span class="lbl">Equipo cross-agencia</span><span class="val"><strong>0 personas</strong> · no hay cross-ag</span></li>
+        <li><span class="lbl">Personas en concesionarios</span><span class="val"><strong>7 personas</strong> locales · 4 sucursales</span></li>
+        <li><span class="lbl">Partners externos</span><span class="val"><strong>3 partners</strong> · Like · Fabula · Paola Like</span></li>
+      </ul>
+    </div>
+
+    <div class="silo minimo">
+      <div class="director">GAC <span class="tag">Marca mínima · rebate transparente</span></div>
+      <ul>
+        <li><span class="lbl">Director</span><span class="val"><strong>Jorge Alberto García</strong></span></li>
+        <li><span class="lbl">Gerencia de marca</span><span class="val"><strong>Elia García</strong></span></li>
+        <li><span class="lbl">Equipo cross-agencia</span><span class="val"><strong>1 persona</strong> (Elia) · cubre 4 agencias</span></li>
+        <li><span class="lbl">Personas en concesionarios</span><span class="val"><strong>4 personas</strong> locales · 4 sucursales</span></li>
+        <li><span class="lbl">Partners externos</span><span class="val"><strong>4 partners</strong> · Idea · Galleta · S. Oliveira · Kamote</span></li>
+      </ul>
+    </div>
+
+    <div class="silo parcial">
+      <div class="director">Stellantis <span class="tag">Marca parcial · MKT no mapeado</span></div>
+      <ul>
+        <li><span class="lbl">Director</span><span class="val"><strong>Rafael Benítez</strong></span></li>
+        <li><span class="lbl">Gerencia de marca</span><span class="val"><strong>Berenice Pérez</strong> · jun 2026</span></li>
+        <li><span class="lbl">Equipo cross-agencia</span><span class="val"><strong>1 persona</strong> (Alejandra) · cubre 2 agencias</span></li>
+        <li class="warn"><span class="lbl">Personas en concesionarios</span><span class="val"><strong>0 personas</strong> locales</span></li>
+        <li class="warn"><span class="lbl">Partners externos</span><span class="val"><strong>2 partners</strong> · Infinito Lab + Nextilo · <em>Nextilo duplicado cross-marca con Hyundai</em></span></li>
+      </ul>
+    </div>
+
+    <div class="silo cuello">
+      <div class="director">Seminuevos <span class="tag">Solo gerente · cuello operativo</span></div>
+      <ul>
+        <li><span class="lbl">Director Comercial</span><span class="val"><strong>Jonathan Medina</strong></span></li>
+        <li><span class="lbl">Gerencia de marca</span><span class="val"><strong>José Reyes López Rivas</strong></span></li>
+        <li><span class="lbl">Equipo cross-agencia</span><span class="val"><strong>1 persona</strong> (José) · cubre 7 agencias</span></li>
+        <li class="warn"><span class="lbl">Personas en concesionarios</span><span class="val"><strong>0 personas</strong> locales · <em>cuello operativo</em></span></li>
+        <li><span class="lbl">Partners externos</span><span class="val"><strong>3 partners</strong> · Maxipublica · Fabula · MercadoLibre</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <h2><span class="h-num">2.5</span>Reportes directos e indirectos por silo</h2>
+  <p>En el As-Is todos en el silo reportan al Director de Marca, no al Gerente de Marca. <strong>Directos</strong> = empleados GP (gerente + equipo cross-agencia + personas en concesionarios). <strong>Indirectos</strong> = agencias y partners externos contratados.</p>
+  <table>
+    <thead><tr><th>Silo de marca</th><th>Gerente</th><th class="num">Equipo cross-ag</th><th class="num">Concesionarios</th><th class="num">Total directos</th><th>Indirectos (partners)</th></tr></thead>
+    <tbody>
+      <tr class="highlight"><td><strong>Mazda</strong></td><td>Florencia Alcaraz</td><td class="num">6 (incl. gerente)</td><td class="num">14</td><td class="num"><strong>20</strong></td><td><em>0 · in-house</em></td></tr>
+      <tr><td><strong>Hyundai</strong></td><td>Verónica Orozco (jun 2026)</td><td class="num">4 (incl. gerente)</td><td class="num">6</td><td class="num"><strong>10</strong></td><td>3 · Viceversa · Nextilo · Karbot</td></tr>
+      <tr><td><strong>Changan</strong> ⚠ Fernando Mora dual</td><td>Mauricio Castro</td><td class="num">1 (gerente)</td><td class="num">6</td><td class="num"><strong>7</strong></td><td>1 · Paola Like (4 ag)</td></tr>
+      <tr><td><strong>Ford</strong></td><td>Karen Michel Patiño</td><td class="num">1 (gerente)</td><td class="num">8</td><td class="num"><strong>9</strong></td><td>4 · Dazing+3 · ⚠ $3.81M concentrado</td></tr>
+      <tr><td><strong>GWM</strong> ⚠ Fernando Mora dual</td><td><em>sin gerente cross-ag</em></td><td class="num"><strong>0</strong></td><td class="num">7</td><td class="num"><strong>7</strong></td><td>3 · Like · Fabula · Paola</td></tr>
+      <tr><td><strong>GAC</strong></td><td>Elia García</td><td class="num">1 (gerente)</td><td class="num">4</td><td class="num"><strong>5</strong></td><td>4 · Idea · Galleta · S.Oliveira · Kamote</td></tr>
+      <tr><td><strong>Stellantis</strong></td><td>Berenice Pérez</td><td class="num">1 (Alejandra)</td><td class="num">0</td><td class="num"><strong>2</strong></td><td>2 · Infinito Lab · ⚠ Nextilo dup HYU</td></tr>
+      <tr><td><strong>Seminuevos</strong></td><td>José Reyes López Rivas</td><td class="num">1 (gerente)</td><td class="num">0</td><td class="num"><strong>1</strong></td><td>3 · Maxipublica · Fabula · MercadoLibre</td></tr>
+      <tr class="total"><td><strong>TOTAL As-Is</strong></td><td>8 gerentes</td><td class="num"><strong>15</strong></td><td class="num"><strong>45</strong></td><td class="num"><strong>61</strong></td><td><strong>14 partners únicos</strong> (varios duplicados cross-marca)</td></tr>
     </tbody>
   </table>
 
-  <h2><span class="h-num">2.4</span>Hipótesis a validar en el cierre</h2>
+  <h2><span class="h-num">2.6</span>Banderas críticas del As-Is</h2>
+  <table>
+    <thead><tr><th style="width:30%">Bandera</th><th>Implicación</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Fernando Mora</strong> dirige Changan + GWM simultáneamente</td><td>Dos marcas distintas bajo un solo Director — atención fragmentada estructural</td></tr>
+      <tr><td><strong>Nextilo</strong> duplicado en Hyundai + Stellantis</td><td>Partner externo facturando a dos silos sin negociación consolidada</td></tr>
+      <tr><td><strong>Paola Like</strong> en Changan + GWM + 1 más</td><td>Partner externo en 3 silos paralelos · oportunidad de consolidación</td></tr>
+      <tr><td><strong>Dazing</strong> concentra $3.81M/año del Ford</td><td>56% del MKT Ford en un solo partner externo · riesgo de dependencia</td></tr>
+      <tr><td><strong>GWM sin gerente cross-agencia</strong></td><td>Marca operando 100% delegada a sucursales + 3 partners externos · sin propietario interno</td></tr>
+      <tr><td><strong>Stellantis y Seminuevos con 0 personas en concesionarios</strong></td><td>Sin presencia local en sucursales · cuello operativo</td></tr>
+      <tr><td><strong>Director MKT con 0 reportes directos</strong></td><td>Función nueva, sin equipo cross-marca · auditoría y visioning solo</td></tr>
+    </tbody>
+  </table>
+
+  <h2><span class="h-num">2.7</span>Hipótesis a validar en el cierre</h2>
   <blockquote>
     Tienes un área demasiado grande en plantilla, personas, proveedores. Estoy seguro que el trabajo que hoy hacen diez personas lo podría hacer dos especializadas que sí saben bien del tema. Los perfiles actuales son muy bajos en niveles de especialización y tecnificación. Y si a esos mejores perfiles les das IA y la saben usar, una persona puede hacer el trabajo de diez.
     <cite>— Director MKT Corporativo, 2026-06-16</cite>
   </blockquote>
-  <p>Esta hipótesis se validará en Cap 6 (To-Be) cuando se mapee cuántos perfiles del As-Is son <strong>operacionales</strong> (community, post-production, copy bajo plantilla) frente a <strong>estratégicos</strong> (planning, performance, attribution); el benchmark Harvard sobre IA por productividad citado en el piloto Motor; y el costo de remplazo por plantilla especializada con stack de IA aplicado.</p>
+  <p>Con el organigrama del v1 cherry-pickeado tenemos <strong>61 empleados directos + 14 partners únicos</strong>. Esta hipótesis se validará en Cap 6 (To-Be) cuando se mapee cuántos perfiles son <strong>operacionales</strong> (community, post-production, copy bajo plantilla) frente a <strong>estratégicos</strong> (planning, performance, attribution), aplicado el benchmark Harvard sobre IA por productividad citado en el piloto Motor, y costeado el remplazo por plantilla especializada con stack de IA.</p>
+
+  <h2><span class="h-num">2.8</span>Lo que sigue pendiente para cierre 100%</h2>
+  <table>
+    <thead><tr><th style="width:42%">Item</th><th>Bloqueo</th></tr></thead>
+    <tbody>
+      <tr><td>Nombres de Directores de Marca pendientes (Mazda · Hyundai · Ford)</td><td><span class="badge badge-pending">Entrevistas + RRHH</span></td></tr>
+      <tr><td>Conciliación 61 directos del v1 (Galindo, dic 2025) con 63 del DCA (cubo 30046 2025)</td><td><span class="badge badge-pending">A1 cubo extendido</span></td></tr>
+      <tr><td>Nómina cargada total por silo (con prestaciones + cargas sociales)</td><td><span class="badge badge-pending">A10</span></td></tr>
+      <tr><td>Mapeo organigrama vs PMA de OEM (qué gerente reporta a qué OEM)</td><td><span class="badge badge-pending">Walk-through gerentes</span></td></tr>
+      <tr><td>Validar evolución dic 2025 → jun 2026 (Ana Luisa García salió Hyundai)</td><td><span class="badge badge-pending">A1 + entrevistas</span></td></tr>
+    </tbody>
+  </table>
 </section>
 
 <!-- CAP 3a: CONCENTRACIÓN POR CONCEPTO -->
@@ -614,36 +788,80 @@
 <section class="page">
   <h1 class="section-title"><span class="num">Cap 4 · Problemas estructurales · Ejes 1-2</span>Cuentas. Pixels. <em>Dueñidad.</em></h1>
 
-  <h2><span class="h-num">Eje 1</span>Fragmentación de cuentas sociales <span class="badge badge-ok">A7 verificado</span></h2>
+  <h2><span class="h-num">Eje 1</span>Fragmentación de cuentas sociales <span class="badge badge-ok">A7 verificado + sweep web público</span></h2>
+
+  <h3><span class="h-num">1.a</span>Visible desde el Business Manager corporativo</h3>
   <table>
     <thead><tr><th style="width:60%">Tipo de fragmentación</th><th class="num">Conteo verificado</th></tr></thead>
     <tbody>
       <tr><td>Pages Facebook Seminuevos paralelas</td><td class="num">5 (Principal 77,685 fans + 4 satélite 77-3,141)</td></tr>
       <tr><td>Pages Facebook corporativas duplicadas/zombies</td><td class="num">2 (Grupo Plasencia 1,968 + Corporativo zombie 1 fan)</td></tr>
       <tr><td>Pages con URL legacy mal renombrada</td><td class="num">1 (Stellantis con <code>@Peugeot.professional.plasencia</code>)</td></tr>
-      <tr class="highlight"><td><strong>Marcas SIN page bajo control corporativo</strong></td><td class="num">6 de 8 (Mazda, Ford, GWM, Hyundai, Changan, Isuzu)</td></tr>
     </tbody>
   </table>
-  <div class="warn-note"><strong>Impacto.</strong> Dispersión de followers (95.7% concentrado en principal frente a 4.3% en cuatro satélites), confusión del consumidor (¿a cuál cuenta pregunto?), debilita marca, hace impractical la auditoría del esfuerzo publicitario y la atribución cross-channel.</div>
-  <p><strong>Pendiente</strong> (entrevistas + sweep manual): cuentas Instagram, TikTok y YouTube más cuentas personales de vendedores ofreciendo unidades en marketplace, FB groups y stories propias.</p>
 
-  <h2><span class="h-num">Eje 2</span>Fragmentación del ecosistema publicitario <span class="badge badge-ok">A5 + A6 + A7 verificado</span></h2>
+  <h3><span class="h-num">1.b</span>Sweep web público — lo que existe afuera del BM corporativo <span class="badge badge-data">2026-06-16</span></h3>
+  <p>Búsqueda pública en Facebook, Instagram, Google y dominios web por marca y sucursal. <strong>Mínimo 28 propiedades digitales asociadas al nombre Plasencia</strong> identificadas en 8 búsquedas (no exhaustivo, hay más). El problema NO es ausencia de presencia digital — es <strong>dispersión de ownership</strong>.</p>
+  <table>
+    <thead><tr><th>Marca</th><th class="num">Cuentas IG</th><th class="num">Pages FB</th><th>Dominio web externo (NO subdominio oficial)</th></tr></thead>
+    <tbody>
+      <tr class="highlight"><td><strong>Mazda</strong></td><td class="num">3 (corp + AF + seminuevos)</td><td class="num">1</td><td>mazdaplasencia.com · <em>sin subdominio oficial</em></td></tr>
+      <tr class="highlight"><td><strong>Hyundai</strong></td><td class="num">3 (GDL + Lomas SLP + Carretera 57)</td><td class="num">1</td><td>hyundaidistribuidor.com.mx/plasencia</td></tr>
+      <tr><td>Stellantis</td><td class="num">indeterminado</td><td class="num">1 (legacy Peugeot)</td><td>stellantisplasencia.com · paralelo al subdominio oficial</td></tr>
+      <tr class="highlight"><td><strong>GAC</strong></td><td class="num">3 (Motor Bugambilias + Bugambilias + Plasencia)</td><td class="num">1</td><td>gacbugambilias.com</td></tr>
+      <tr><td>GWM</td><td class="num">1</td><td class="num">1</td><td>—</td></tr>
+      <tr class="warn"><td>Ford</td><td class="num">no visible</td><td class="num">no visible</td><td>2 dominios · fordsantaanita.mx + fordplasencia.mx</td></tr>
+      <tr class="warn"><td><strong>Changan</strong></td><td class="num">0</td><td class="num">0</td><td>— · <em>cero presencia pública bajo nombre Plasencia a pesar de $5.7M de pauta 2025</em></td></tr>
+      <tr><td>Seminuevos</td><td class="num">2+</td><td class="num">4+ incl. Hyundai Tepic + Chevrolet Tepic ⚠</td><td>—</td></tr>
+      <tr class="total"><td><strong>Total identificado</strong></td><td class="num"><strong>12+ IG</strong></td><td class="num"><strong>9+ FB</strong></td><td><strong>6 dominios externos</strong></td></tr>
+    </tbody>
+  </table>
+
+  <h3><span class="h-num">1.c</span>Hallazgos que validan la hipótesis del Director MKT</h3>
+  <div class="conv-note">
+    <strong>Cuenta zombie con marca ajena al portafolio.</strong> Existe page Facebook <code>seminuevoschevrolettepic</code> — Chevrolet <em>no está en el portafolio del Grupo</em>. O es legacy, secuestrada, o existe operación de seminuevos vendiendo multi-marca bajo nombre Plasencia que el corporativo no controla.
+  </div>
+  <div class="conv-note">
+    <strong>Grupo de Facebook de vendedores detectado.</strong> Existe grupo público <em>SEMINUEVOS PLASENCIA ALASKA TEPIC</em> donde vendedores publican unidades — exactamente el patrón descrito por el Director MKT en su brief verbatim.
+  </div>
+  <div class="conv-note">
+    <strong>Changan invisible bajo nombre Plasencia.</strong> $5.7M de pauta 2025 + $39.5M de promoción intercompany vía PROMOTORA LPM. Cero propiedades públicas. El consumidor que busca "Changan Plasencia" en Google no encuentra al Grupo. Los activos digitales viven 100% en BMs de agencias.
+  </div>
+  <div class="warn-note"><strong>Impacto agregado.</strong> Dispersión de followers (95.7% concentrado en una page Seminuevos vs 4.3% en cuatro satélites), confusión del consumidor (¿a cuál cuenta pregunto?), debilita marca, hace impractical la auditoría del esfuerzo publicitario y la atribución cross-channel. <strong>Estimado: solo ~32% bajo control corporativo directo · ~68% fuera de control.</strong></div>
+  <p><strong>Pendiente para 100%</strong> (sucursal por sucursal): TikTok, YouTube, Google Business listings por sucursal, cuentas personales de vendedores en Marketplace, Reels y groups; cuentas Mercado Libre / Autocosmos / Kavak listings con nombre "Plasencia". Estimación 4-6h adicionales de sweep web.</p>
+
+  <h2><span class="h-num">Eje 2</span>Fragmentación del ecosistema publicitario <span class="badge badge-ok">A5+A6+A7 + auditoría UI BM 2026-06-16</span></h2>
+
+  <h3><span class="h-num">2.a</span>Existen DOS Business Managers corporativos del Grupo en paralelo</h3>
+  <p>Auditoría directa en business.facebook.com (UI Meta Business Suite) reveló que <strong>el Grupo opera 2 Business Managers corporativos simultáneos</strong>, no uno. El MCP <code>meta-ads</code> con token oficial solo veía 4 de las 10 ad accounts del BM corp — la realidad es significativamente más fragmentada.</p>
+  <table>
+    <thead><tr><th>Business Manager</th><th class="num">Ad accounts</th><th class="num">Pages</th><th class="num">Personas</th><th>Naturaleza</th></tr></thead>
+    <tbody>
+      <tr class="highlight"><td><strong>Grupo Plasencia</strong></td><td class="num">5</td><td class="num">22</td><td class="num"><strong>27</strong></td><td>BM legacy · todas las pages históricas · acceso ampliado a equipo</td></tr>
+      <tr><td><strong>Grupo Plasencia Automotriz · Corporativo</strong></td><td class="num">10</td><td class="num">21</td><td class="num">2</td><td>BM del piloto Motor de Atribución · acceso restringido</td></tr>
+      <tr class="total"><td><strong>Suma BMs corporativos GP</strong></td><td class="num"><strong>15</strong></td><td class="num"><strong>43</strong></td><td class="num"><strong>29</strong></td><td>Dualidad estructural sin migración resuelta</td></tr>
+    </tbody>
+  </table>
+  <div class="conv-note">
+    <strong>Riesgo de seguridad detectado.</strong> El BM legacy <em>Grupo Plasencia</em> tiene <strong>27 personas con acceso</strong> — prácticamente toda la plantilla MKT histórica. Si hay ex-empleados sin baja, tienen acceso vigente a 5 ad accounts y 22 pages corporativas. Auditoría de accesos pendiente.
+  </div>
+  <div class="warn-note"><strong>Implicación cuantitativa.</strong> El hero stat anterior decía "4 de 18 ad accounts (22%) bajo control corporativo". La realidad es <strong>15 ad accounts entre 2 BMs corporativos + N ad accounts en BMs de agencias</strong>. La fragmentación es <em>peor</em> de lo que el MCP veía. Falta auditar a fondo los activos de cada BM (pixels, datasets, catalogs, custom audiences) — requiere autenticación 2FA con el Director MKT.</div>
+
+  <h3><span class="h-num">2.b</span>Activos en BMs de terceros (Read-Only para el Grupo)</h3>
   <table>
     <thead><tr><th>Métrica</th><th class="num">Valor</th><th>Lectura</th></tr></thead>
     <tbody>
-      <tr><td>Ad accounts vinculadas a GP o sus marcas</td><td class="num">18</td><td>Universo fragmentado</td></tr>
-      <tr><td>Bajo control del BM corporativo</td><td class="num">4 (22%)</td><td>Solo Seminuevos, GAC, Hyundai, Stellantis</td></tr>
-      <tr class="highlight"><td><strong>Read-Only (activos en BMs de terceros)</strong></td><td class="num">9</td><td>50% del inventario es propiedad de agencias</td></tr>
-      <tr class="highlight"><td><strong>Marcas SIN cuenta editable propia</strong></td><td class="num">5 de 8</td><td>Mazda, Ford, GWM, Changan, Isuzu</td></tr>
+      <tr class="highlight"><td><strong>Read-Only desde el user del Director MKT</strong></td><td class="num">9</td><td>Activos GP que viven en BMs de agencias (acceso de lectura, no propiedad)</td></tr>
+      <tr class="highlight"><td><strong>Marcas SIN cuenta editable propia</strong></td><td class="num">5 de 8</td><td>Mazda, Ford, GWM, Changan, Isuzu corren por agencias</td></tr>
       <tr><td>Cuentas Mazda paralelas por sucursal</td><td class="num">6 (Read-Only)</td><td>Plasencia · Plasencia 2 · Galerías · Américas · González Gallo · Sem López Mateos</td></tr>
       <tr><td>Cuentas Hyundai paralelas activas</td><td class="num">3</td><td>Pixels independientes — aprendizaje fragmentado</td></tr>
-      <tr><td>Cuentas zombie / duplicadas</td><td class="num">mín. 3</td><td>Stellantis "NO SIRVE", 2 Corp Read-Only</td></tr>
+      <tr><td>Cuentas zombie / duplicadas</td><td class="num">mín. 3</td><td>Stellantis "NO SIRVE" · 2 Corp Read-Only</td></tr>
       <tr class="highlight"><td><strong>Pixels paralelos en Seminuevos</strong></td><td class="num">2</td><td>Doble conteo de conversiones</td></tr>
     </tbody>
   </table>
   <div class="conv-note">
     <strong>El hallazgo que cierra el caso.</strong> Agencia MX-5 facturó $214M (78% del Cluster 2) y las seis ad accounts Mazda son Read-Only para el Grupo. El Grupo paga el spend Mazda pero <em>no es dueño de los activos digitales donde se ejecuta.</em> Esto se replica con menor monto en GWM, Changan, Ford, Hyundai oficial e Isuzu.<br><br>
-    <strong>Acción en curso</strong> (declarada por el Director MKT): consolidación de assets en un solo Business Manager corporativo. Migración progresiva.
+    <strong>Acción en curso</strong> (declarada por el Director MKT): consolidación de assets en un solo Business Manager corporativo. Migración progresiva — incluye <em>también</em> la consolidación entre los 2 BMs internos legacy + piloto.
   </div>
 </section>
 
@@ -687,7 +905,7 @@
   <h2><span class="h-num">5.1</span>El problema fiscal de la pauta digital pagada directo</h2>
   <ol>
     <li><strong>Meta Ireland no emite CFDI mexicano.</strong> El gasto pagado directo a Meta por las cuentas MXN es <em>gasto NO deducible de IVA</em> en México (~16% no recuperable sobre el monto del pauta).</li>
-    <li><strong>Google Ads, TikTok Ads y otras plataformas internacionales</strong> tienen restricciones similares según jurisdicción de facturación.</li>
+    <li><strong>TikTok Ads y otras plataformas con facturación internacional</strong> tienen restricciones similares según jurisdicción. <em>Google Ads NO entra en este problema</em> — Google Operations México emite CFDI mexicano. El reto de Google es otro: las marcas no invierten en él. Se trata en §5.6.</li>
   </ol>
   <table>
     <thead><tr><th>Concepto</th><th class="num">Monto</th></tr></thead>
@@ -753,6 +971,33 @@
   </table>
   <div class="gold-note">
     <strong>El caso completo.</strong> La centralización vía MKT Corporativo no es una decisión fiscal aislada — es la <em>palanca que habilita simultáneamente</em> deducibilidad ($20-55M/año), eficiencia de procurement (10-15% cross-marca), capacidad operativa (plantilla especializada + IA) y medición auditable (Motor de Atribución con única fuente de verdad). Es la decisión estructural que define los próximos tres años de Marketing en el Grupo.
+  </div>
+
+  <h2><span class="h-num">5.6</span>Google Ads · oportunidad sub-explotada (problema NO es fiscal)</h2>
+  <p>A diferencia de Meta Ireland, <strong>Google Operations México emite CFDI mexicano</strong> — el gasto en Google Ads <em>sí es deducible de IVA</em> sin necesidad de intermediario. El problema con Google en el Grupo no es fiscal; es de decisión de inversión.</p>
+  <table>
+    <thead><tr><th>Dimensión</th><th>Meta</th><th>Google</th></tr></thead>
+    <tbody>
+      <tr><td>Facturación CFDI mexicano</td><td>NO (Meta Ireland) · requiere Viceversa o MKT Corp</td><td><strong>SÍ</strong> (Google Operations México)</td></tr>
+      <tr><td>Deducibilidad IVA directa</td><td>No deducible si se paga directo</td><td><strong>Deducible 100% al pagar directo</strong></td></tr>
+      <tr><td>Adopción actual en marcas del Grupo</td><td>8 marcas con pauta histórica</td><td><em>Solo Seminuevos vía piloto MKT Corp</em></td></tr>
+      <tr><td>Razón declarada por las marcas para no invertir</td><td>—</td><td><strong>"Google encarece las pujas"</strong> (creencia)</td></tr>
+    </tbody>
+  </table>
+
+  <h3><span class="h-num">5.6.1</span>El sesgo de las marcas: "Google encarece las pujas"</h3>
+  <p>Las marcas del Grupo no invierten en Google Ads bajo la premisa de que <em>al competir en Google se encarecen las pujas</em>. Esta creencia opera como un sesgo colectivo del portafolio, no como una decisión sustentada en performance medido.</p>
+
+  <h3><span class="h-num">5.6.2</span>Evidencia contraria desde el piloto MKT Corporativo</h3>
+  <div class="callout">
+    <div class="callout-t">Caso Seminuevos · piloto Motor de Atribución</div>
+    <p>Desde el piloto MKT Corp se invierte en Google Ads <strong>solo para Seminuevos</strong> y los resultados son positivos. Es la única línea de negocio del Grupo que tiene presencia activa en Google Ads gestionada por el corporativo — y demuestra que la creencia "Google encarece las pujas" no se sostiene contra evidencia operativa real.</p>
+  </div>
+
+  <h3><span class="h-num">5.6.3</span>Implicación estratégica</h3>
+  <div class="conv-note">
+    <strong>Google Ads es la oportunidad sub-explotada más obvia del portafolio MKT del Grupo.</strong> Suma sobre el caso del Centro de Excelencia: además de las palancas de Cap 5.4 (Meta + IVA + consolidación), existe la oportunidad de <em>activar Google Ads cross-marca</em> con CFDI directo, sin Viceversa, sin pérdida de IVA, y con el aprendizaje algorítmico de Google entrenado sobre la operación real de cada marca.<br><br>
+    <strong>Acción propuesta:</strong> presentar evidencia del caso Seminuevos a las marcas como base para abrir Google Ads cross-marca desde el corporativo. La conversación con cada Dirección de Marca debe partir del dato del piloto, no de la creencia generalizada.
   </div>
 </section>
 
