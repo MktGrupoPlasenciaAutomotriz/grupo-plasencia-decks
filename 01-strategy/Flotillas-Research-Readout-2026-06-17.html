@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Flotillas Grupo Plasencia · Research Readout · Junio 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@500;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gp-red: #C8102E; --gp-navy: #1E2740; --gp-slate: #2D3748;
+    --green: #48BB78; --deep-green: #276749;
+    --blue: #4299E1; --deep-blue: #2B6CB0;
+    --amber: #D69E2E; --gold: #ECC94B;
+    --purple: #805AD5;
+    --bg: #F0F4F8; --paper: #FFFFFF; --near-white: #F7FAFC;
+    --g100: #EDF2F7; --g300: #CBD5E0; --g400: #A0AEC0;
+    --g500: #718096; --g600: #4A5568;
+    --text: #2D3748;
+    --serif: 'Playfair Display', Georgia, serif;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html, body { background:var(--bg); }
+  body { font-family: var(--sans); color: var(--text); line-height: 1.55; font-size: 9.5pt; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+  @page {
+    size: A4; margin: 16mm 16mm 20mm 16mm;
+    @bottom-right { content: counter(page); font-family: 'Inter'; font-size: 9pt; color: #718096; }
+    @bottom-left { content: "Grupo Plasencia · Dirección de Marketing Corporativo"; font-family: 'Inter'; font-size: 8pt; color: #A0AEC0; }
+    @top-right { content: "Flotillas · Research Readout · Junio 2026"; font-family: 'Inter'; font-size: 8pt; color: #A0AEC0; }
+  }
+
+  .page { background: var(--paper); width: 210mm; min-height: 297mm; margin: 0 auto 8mm auto; padding: 16mm 16mm 20mm 16mm; position: relative; page-break-after: always; box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 4px 24px rgba(30,39,64,.08); }
+  .page:last-child { page-break-after: auto; }
+
+  .doc-header { border-top: 3px solid var(--gp-red); padding-top: 5mm; margin-bottom: 8mm; }
+  .doc-header .eyebrow { font-family: var(--sans); font-weight: 700; font-size: 9pt; letter-spacing: 4px; color: var(--gp-red); text-transform: uppercase; margin-bottom: 3mm; }
+  .doc-header h1 { font-family: var(--serif); font-weight: 800; font-size: 28pt; line-height: 1.05; letter-spacing: -0.8px; color: var(--gp-navy); margin-bottom: 3mm; }
+  .doc-header .subtitle { font-family: var(--serif); font-weight: 500; font-style: italic; font-size: 13pt; color: var(--g600); line-height: 1.3; }
+  .doc-header .meta { display: flex; gap: 8mm; flex-wrap: wrap; margin-top: 5mm; padding-top: 4mm; border-top: 1px solid var(--g100); font-size: 8.5pt; color: var(--g500); }
+  .doc-header .meta strong { color: var(--gp-slate); font-weight: 700; }
+
+  h2.section-h2 { font-family: var(--serif); font-weight: 800; font-size: 18pt; color: var(--gp-navy); margin-top: 9mm; margin-bottom: 3mm; line-height: 1.2; letter-spacing: -0.4px; }
+  h2.section-h2 .num { font-family: var(--sans); font-weight: 700; font-size: 9pt; letter-spacing: 3px; color: var(--gp-red); text-transform: uppercase; display: block; margin-bottom: 2mm; }
+  h3.section-h3 { font-size: 10pt; font-weight: 800; color: var(--gp-slate); text-transform: uppercase; letter-spacing: 1.5px; margin-top: 5mm; margin-bottom: 2mm; padding-bottom: 1mm; border-bottom: 1px solid var(--g100); }
+  p { margin: 0 0 3mm 0; }
+  strong { font-weight: 700; color: var(--gp-navy); }
+  .small { font-size: 8pt; color: var(--g500); line-height: 1.45; margin-top: 2mm; }
+  .small strong { color: var(--gp-slate); }
+
+  .kpi-band { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3mm; margin: 5mm 0 3mm 0; }
+  .kpi { padding: 4mm 3mm; background: var(--near-white); border-left: 3px solid var(--gp-red); }
+  .kpi .k-label { font-family: var(--sans); font-weight: 700; font-size: 7pt; letter-spacing: 1.2px; color: var(--g500); text-transform: uppercase; margin-bottom: 2mm; }
+  .kpi .k-value { font-family: var(--serif); font-weight: 800; font-size: 18pt; color: var(--gp-navy); letter-spacing: -0.5px; line-height: 1; }
+  .kpi .k-delta { display: block; margin-top: 1mm; font-family: var(--sans); font-weight: 600; font-size: 8pt; color: var(--deep-green); letter-spacing: 0.2px; }
+  .kpi.alt { border-left-color: var(--gp-navy); }
+  .kpi.alt .k-delta { color: var(--deep-blue); }
+
+  table.data { width: 100%; border-collapse: collapse; margin: 3mm 0; font-size: 8.5pt; page-break-inside: avoid; font-variant-numeric: tabular-nums; }
+  table.data th { background: var(--gp-navy); color: var(--near-white); font-family: var(--sans); font-weight: 700; font-size: 8pt; letter-spacing: 0.4px; padding: 2.5mm 3mm; text-align: left; text-transform: uppercase; }
+  table.data th.num, table.data td.num { text-align: right; }
+  table.data td { padding: 2mm 3mm; border-bottom: 1px solid var(--g100); color: var(--g600); }
+  table.data tr:nth-child(even) td { background: var(--g100); }
+  table.data tr:last-child td { border-bottom: none; }
+  table.data tr.total td { background: var(--gp-navy) !important; color: var(--near-white); font-weight: 700; }
+  table.data tr.total td strong { color: var(--gold); }
+  table.data td strong { color: var(--gp-navy); }
+  table.data tr:nth-child(even) td strong { color: var(--gp-navy); }
+
+  .callout { background: var(--near-white); border-left: 3px solid var(--gp-red); padding: 3mm 4mm; margin: 3mm 0; font-size: 8.5pt; color: var(--g600); line-height: 1.5; page-break-inside: avoid; }
+  .callout strong { color: var(--gp-navy); font-weight: 700; }
+  .callout .cl-title { display: block; font-family: var(--sans); font-weight: 700; font-size: 7.5pt; letter-spacing: 1.4px; color: var(--gp-red); text-transform: uppercase; margin-bottom: 1.5mm; }
+  .callout.gold { border-left-color: var(--gold); }
+  .callout.gold .cl-title { color: var(--amber); }
+
+  .pill { display: inline-block; padding: 0.5mm 2mm; border-radius: 999px; font-family: var(--sans); font-weight: 700; font-size: 7pt; letter-spacing: 0.6px; text-transform: uppercase; }
+  .pill.aaa { background: rgba(214, 158, 46, .14); color: var(--amber); }
+  .pill.aa  { background: rgba(72, 187, 120, .14); color: var(--deep-green); }
+  .pill.a   { background: rgba(66, 153, 225, .14); color: var(--deep-blue); }
+
+  .persona-card { background: var(--near-white); border: 1px solid var(--g100); border-radius: 2mm; padding: 4mm; margin-bottom: 3mm; page-break-inside: avoid; }
+  .persona-card .p-eyebrow { font-family: var(--sans); font-weight: 700; font-size: 7.5pt; letter-spacing: 1.5px; color: var(--gp-red); text-transform: uppercase; margin-bottom: 1.5mm; }
+  .persona-card .p-name { font-family: var(--serif); font-weight: 800; font-size: 14pt; color: var(--gp-navy); letter-spacing: -0.3px; margin-bottom: 1mm; }
+  .persona-card .p-role { font-size: 8.5pt; color: var(--g500); font-style: italic; margin-bottom: 2mm; }
+  .persona-card .p-quote { font-family: var(--serif); font-style: italic; font-weight: 600; font-size: 10pt; color: var(--gp-slate); padding-left: 4mm; border-left: 2px solid var(--gold); margin-bottom: 3mm; line-height: 1.4; }
+  .persona-card .p-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3mm; font-size: 8pt; color: var(--g600); }
+  .persona-card .p-grid strong { color: var(--gp-navy); display: block; font-size: 7.5pt; letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 0.5mm; }
+
+  .decision-list { margin: 3mm 0; }
+  .decision-list .d-row { padding: 3mm 0; border-bottom: 1px solid var(--g100); display: grid; grid-template-columns: 5mm 1fr; gap: 3mm; }
+  .decision-list .d-row:last-child { border-bottom: none; }
+  .decision-list .d-num { font-family: var(--serif); font-weight: 800; color: var(--gp-red); font-size: 11pt; line-height: 1.1; }
+  .decision-list .d-text { font-size: 9pt; color: var(--gp-slate); line-height: 1.5; }
+  .decision-list .d-text strong { color: var(--gp-navy); }
+  .decision-list .d-text .d-derived { display: block; margin-top: 1mm; font-size: 7.5pt; color: var(--g500); font-style: italic; }
+</style>
+</head>
+<body>
+
+<!-- ============ PAGE 1: ENCABEZADO + §1 RESUMEN + §2 PREGUNTA Y MÉTODO ============ -->
+<section class="page">
+  <div class="doc-header">
+    <p class="eyebrow">Research Readout · Dirección de Marketing Corporativo · Junio 2026</p>
+    <h1>Flotillas Grupo Plasencia.</h1>
+    <p class="subtitle">Síntesis ejecutiva de la investigación que sustenta el diseño del programa B2B y la SPA flotillas.grupoplasencia.com. Tres capas: data interna, snapshot competitivo MX, psicología de compra B2B. De research a decisión de diseño.</p>
+    <div class="doc-header .meta meta">
+      <div><strong>Fecha de corte</strong> · 17 jun 2026</div>
+      <div><strong>Producido por</strong> · Dirección Marketing Corporativo</div>
+      <div><strong>Periodo análisis</strong> · 2025 ene–dic + 2026 ene–may</div>
+      <div><strong>Audiencia</strong> · Consejo / Aurora del Pozo / Direcciones de Marca</div>
+    </div>
+  </div>
+
+  <h2 class="section-h2"><span class="num">§1</span>Lo que la investigación encontró — resumen para Consejo</h2>
+
+  <p>El Grupo Plasencia tiene una División Flotillas en <strong>explosión sostenida</strong> (2026 ene–may quintuplicó el volumen del mismo periodo 2025, con margen subiendo +1.17 pts), pero la captación es 100% relacional. <strong>No hay un esfuerzo digital dirigido a flotillas y no había, hasta esta investigación, un perfil del cliente B2B documentado para diseñar producto.</strong></p>
+
+  <p>El piloto digital del track B2B debe enfocarse en el segmento <strong>AA (Empresas, 10–30 unidades, decisión racional con TCO y comité)</strong>. Es donde digital tiene palanca real: AAA llega por relaciones (Element, ARI, Promotora Caribeña, ALD), Gobierno por RFP, Renta Diaria por modelo propio. Solo AA — que ya crece en mix (+5.5 pts vs 2025) — necesita un canal digital de captación que no compita con los que ya funcionan.</p>
+
+  <div class="kpi-band">
+    <div class="kpi"><div class="k-label">Volumen ene–may 2026</div><div class="k-value">749</div><span class="k-delta">+435% vs 2025 ene–may</span></div>
+    <div class="kpi"><div class="k-label">Factura YTD</div><div class="k-value">$441.7M</div><span class="k-delta">+457% vs 2025</span></div>
+    <div class="kpi"><div class="k-label">Mix AA Empresas</div><div class="k-value">21.5%</div><span class="k-delta">+5.5 pts vs 2025</span></div>
+    <div class="kpi alt"><div class="k-label">Margen operativo</div><div class="k-value">5.26%</div><span class="k-delta">+1.17 pts</span></div>
+  </div>
+
+  <h2 class="section-h2"><span class="num">§2</span>Pregunta de investigación y método</h2>
+
+  <p><strong>Pregunta:</strong> ¿Cómo debe ser una SPA B2B Flotillas que (a) refleje el negocio real de la División, (b) hable al cliente correcto en su lenguaje, (c) no canibalice las cuentas AAA que llegan por relaciones, y (d) genere leads calificados al equipo de Aurora del Pozo? Dicho de otro modo: ¿qué cliente B2B podemos captar mejor con digital que con la captación relacional actual, y cómo le hablamos?</p>
+
+  <h3 class="section-h3">Tres capas de investigación cruzadas</h3>
+
+  <table class="data">
+    <thead>
+      <tr><th>Capa</th><th>Insumo</th><th>Fuente</th><th>Procesamiento</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Interna</strong></td><td>Histórico ventas Flotillas 2025 + 2026 YTD</td><td>2 Excels operativos de Aurora del Pozo (`Cuaderno 2025.1.xlsx` + `Cuaderno 2026.1.xlsx`)</td><td>Tabulaciones cruzadas mes × marca × segmento × sucursal × vendedor × compañía × tipo venta × status × días crédito × cliente. Filtro `Origen ∈ {Flotilla, Flotillas}`</td></tr>
+      <tr><td><strong>Competitiva</strong></td><td>Snapshot mercado MX 2026</td><td>10 players auditados (Arval MX, Element MX, Ayvens, Ford Pro MX, Localiza, Hyundai pasajeros MX, Jeep / RAM, GAC, Changan, TIP)</td><td>Tear-down UX (lead form literal, propuesta de valor, journey), agente paralelo `af6c83daca47ee826` documentado en `Flotillas-Snapshot-Competitivo-MX-2026-06-12.md`</td></tr>
+      <tr><td><strong>Psicológica</strong></td><td>Modelo ICP A/AA/AAA + psicología compra B2B</td><td>Aurora del Pozo + Chucho Porras, entrevista 2026-06-17</td><td>Definición de 3 tipos de cliente flotilla (A 2–15 uds margen 10% / AA 10–30 uds 8% / AAA 20–50+ uds 3%) + psicología (A emocional, AA racional, AAA conveniencia/precio)</td></tr>
+    </tbody>
+  </table>
+
+  <p>El cruce de las tres capas — qué vende el Grupo de hecho × qué hacen los competidores × cómo decide cada tipo de cliente — produce el ICP digital captable y la traducción a diseño de SPA.</p>
+</section>
+
+<!-- ============ PAGE 2: §3 LA CAPA INTERNA — DATA DE VENTAS ============ -->
+<section class="page">
+
+  <h2 class="section-h2"><span class="num">§3</span>Capa interna — la División Flotillas no se ve como lo veíamos</h2>
+
+  <p>Antes de los Excels, el mental model interno era "Flotillas es mucha arrendadora + algo de empresa + gobierno + renta diaria". La data muestra un mix que cambia estructuralmente entre 2025 y 2026, y un piloto digital con palanca real solo en uno de esos segmentos.</p>
+
+  <h3 class="section-h3">Mix de segmentos 2025 vs 2026 (cambios estructurales)</h3>
+
+  <table class="data">
+    <thead>
+      <tr><th>Segmento</th><th class="num">2025 uds</th><th class="num">2025 %</th><th class="num">2026 YTD uds</th><th class="num">2026 %</th><th class="num">Δ pts</th><th>ICP digital</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>ARRENDADORAS</strong></td><td class="num">507</td><td class="num">37%</td><td class="num">434</td><td class="num"><strong>58%</strong></td><td class="num"><strong>+21 pts</strong></td><td><span class="pill aaa">AAA · NO digital</span></td></tr>
+      <tr><td><strong>EMPRESAS</strong></td><td class="num">218</td><td class="num">16%</td><td class="num">161</td><td class="num"><strong>21.5%</strong></td><td class="num"><strong>+5.5 pts</strong></td><td><span class="pill aa">AA · TARGET DIGITAL</span></td></tr>
+      <tr><td>RENTA DIARIA</td><td class="num">502</td><td class="num">37%</td><td class="num">116</td><td class="num">15.5%</td><td class="num">−21.5 pts</td><td>Modelo propio</td></tr>
+      <tr><td>PERSONA FÍSICA</td><td class="num">7</td><td class="num">0.5%</td><td class="num">23</td><td class="num">3.1%</td><td class="num">+2.6 pts</td><td><span class="pill a">A · digital edge</span></td></tr>
+      <tr><td>GOBIERNO</td><td class="num">130</td><td class="num">10%</td><td class="num">12</td><td class="num">1.6%</td><td class="num">−8.4 pts</td><td>Sales-led RFP</td></tr>
+      <tr><td>INTEGRADORA</td><td class="num">—</td><td class="num">—</td><td class="num">3</td><td class="num">0.4%</td><td class="num">nuevo</td><td>Nicho</td></tr>
+      <tr class="total"><td><strong>Total</strong></td><td class="num"><strong>1,364</strong></td><td class="num">100%</td><td class="num"><strong>749</strong></td><td class="num">100%</td><td class="num">—</td><td>—</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    <span class="cl-title">Insight 1 · El espacio blanco del digital está en AA</span>
+    AAA (Arrendadoras, 58% del mix 2026) <strong>ya está cubierto por el equipo comercial existente</strong> — son cuentas de relación recurrentes que llegan por contactos directos de Aurora y su equipo (Element Fleet, Promotora Caribeña, ARI Fleet, ALD, ARRENDADORA CAB, START BANREGIO). <strong>El digital no debe canibalizarlas: debe abrir AA</strong>, segmento que ya crece en mix (+5.5 pts) y que hoy llega por contactos sueltos. Es el único lugar donde una SPA bien diseñada tiene palanca real.
+  </div>
+
+  <h3 class="section-h3">Lineup ponderado por volumen y utilidad — qué vende la División hoy</h3>
+
+  <table class="data">
+    <thead>
+      <tr><th>Marca</th><th class="num">2026 YTD uds</th><th class="num">2026 YTD utilidad</th><th class="num">Ritmo anual vs 2025</th><th>Lectura para diseño</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Ford</strong></td><td class="num">200</td><td class="num">$6.2M</td><td class="num">+46% · líder absoluto</td><td>Pilar del lineup. Pickup + van.</td></tr>
+      <tr><td><strong>Mazda</strong></td><td class="num">180</td><td class="num">$7.3M</td><td class="num"><strong>+71% · #2 utilidad</strong></td><td>Pilar. SUV + pickup. Ritmo creciente.</td></tr>
+      <tr><td>Stellantis</td><td class="num">135</td><td class="num">$4.1M</td><td class="num">similar</td><td>Medio-alto. RAM + Promaster + Peugeot.</td></tr>
+      <tr><td>Hyundai</td><td class="num">121</td><td class="num">$3.3M</td><td class="num">similar</td><td>Medio. Sedanes + SUV ventas.</td></tr>
+      <tr><td>GAC</td><td class="num">79</td><td class="num">$1.3M</td><td class="num"><strong>+79%</strong></td><td>Medio. SUVs emergente.</td></tr>
+      <tr><td>Changan</td><td class="num">22</td><td class="num">$0.58M</td><td class="num"><strong>+178%</strong></td><td>Emergente.</td></tr>
+      <tr><td>GWM</td><td class="num">12</td><td class="num">$0.38M</td><td class="num"><strong>+260%</strong></td><td>Emergente.</td></tr>
+      <tr><td>Isuzu</td><td class="num">0</td><td class="num">$0</td><td class="num">−100% · desapareció</td><td>Excluir del lineup digital pendiente decisión Aurora.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    <span class="cl-title">Insight 2 · Ford + Mazda son 38% del flujo — el lineup debe representarlos</span>
+    Si la SPA solo mostrara HYU + STL + GAC (las marcas heredadas del piloto B2C del Motor de Atribución), <strong>ignoraría 38% del flujo histórico de Flotillas</strong> y subrepresentaría las dos marcas con mejor ritmo combinado YoY. El lineup digital tiene que ser <strong>cross-marca real</strong> con Ford y Mazda como pilares visuales, no decorativos.
+  </div>
+
+  <h3 class="section-h3">Cobranza — el negocio se vuelve más predecible</h3>
+
+  <table class="data">
+    <thead><tr><th>Días crédito</th><th class="num">2025 %</th><th class="num">2026 YTD %</th><th class="num">Δ pts</th></tr></thead>
+    <tbody>
+      <tr><td>0 (contado)</td><td class="num">12.3%</td><td class="num">9.3%</td><td class="num">−3 pts</td></tr>
+      <tr><td><strong>30 días</strong></td><td class="num">54.5%</td><td class="num"><strong>62.2%</strong></td><td class="num"><strong>+7.7 pts</strong></td></tr>
+      <tr><td>60</td><td class="num">7.1%</td><td class="num">11.5%</td><td class="num">+4.4 pts</td></tr>
+      <tr><td>90</td><td class="num">14.1%</td><td class="num">5.6%</td><td class="num">−8.5 pts</td></tr>
+      <tr><td>120</td><td class="num">6.6%</td><td class="num">4.3%</td><td class="num">−2.3 pts</td></tr>
+      <tr><td>150</td><td class="num">3.7%</td><td class="num">6.7%</td><td class="num">+3 pts</td></tr>
+    </tbody>
+  </table>
+
+  <p class="small"><strong>Implicación para el lead form:</strong> capturar plazo de crédito esperado del cliente como campo opcional permite pre-calificar el lead financieramente y reduce ciclo de evaluación interna. El piloto digital con un lead form sin este campo trabajaría a ciegas.</p>
+</section>
+
+<!-- ============ PAGE 3: §4 LA CAPA COMPETITIVA + §5 LA CAPA PSICOLÓGICA ============ -->
+<section class="page">
+
+  <h2 class="section-h2"><span class="num">§4</span>Capa competitiva — el piso del mercado MX está bajo y hay white space</h2>
+
+  <p>El tear-down de 10 players (mezcla de OEM, arrendadoras nacionales, distribuidores regionales y referentes globales) muestra que el piso de atención digital al cliente B2B Flotillas en México está en el suelo y que un distribuidor regional con red dealer real tiene una ventaja sin explotar.</p>
+
+  <table class="data">
+    <thead><tr><th>Player</th><th>Categoría</th><th>Hallazgo clave para diseño</th></tr></thead>
+    <tbody>
+      <tr><td>Hyundai pasajeros MX</td><td>OEM directo</td><td>Sin sección flotillas en sitio oficial. Asume que B2B llama por teléfono al concesionario.</td></tr>
+      <tr><td>Jeep / RAM MX</td><td>OEM directo</td><td>Sin sección flotillas. Mismo patrón que Hyundai.</td></tr>
+      <tr><td>GAC MX</td><td>OEM directo</td><td>Sin sección flotillas. Mismo patrón.</td></tr>
+      <tr><td>Changan MX</td><td>OEM directo</td><td>Sin sección flotillas.</td></tr>
+      <tr><td><strong>Ford Pro MX</strong></td><td>OEM con producto B2B</td><td><strong>Techo del mercado en MX.</strong> Ecosistema integrado de productos flotilla, financiamiento, telematics. Umbral declarado: 3 unidades. Punto de referencia para "qué es bueno".</td></tr>
+      <tr><td><strong>Element Fleet MX</strong></td><td>Arrendadora nacional</td><td>Vertical TPM/leasing puro. Sin red dealer. No multi-marca cross-OEM real. Cubre AAA grandes.</td></tr>
+      <tr><td>Ayvens (ex ALD)</td><td>Arrendadora nacional</td><td>Similar a Element. Foco TPM.</td></tr>
+      <tr><td>Arval MX</td><td>Arrendadora nacional</td><td><strong>No existe como entidad local activa.</strong> El sitio MX es portal vitrina.</td></tr>
+      <tr><td>Localiza (Brasil)</td><td>Renta + flotilla regional</td><td>Referente LatAm para diseño UX B2B con red propia.</td></tr>
+      <tr><td>TIP México</td><td>Arrendadora especializada transportes</td><td>Vertical pesado. Otro modelo.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    <span class="cl-title">Insight 3 · Tres conclusiones del competitivo</span>
+    <strong>1.</strong> Los OEM directos no compiten con el distribuidor regional en este espacio — su sitio web no atiende B2B Flotillas. <strong>2.</strong> Las arrendadoras (Element, Ayvens) ofrecen un solo paquete (lease puro), sin red dealer física, sin multi-marca real. <strong>3.</strong> Ford Pro MX es el techo del mercado — un ecosistema bueno pero de una sola marca. <strong>El white space del distribuidor regional multimarca es real:</strong> 11 marcas bajo un solo asesor, red dealer física, crédito directo del distribuidor sin lease forzado, taller propio, trámite placas nacional. Eso ningún competidor lo ofrece junto.
+  </div>
+
+  <h3 class="section-h3">Lo que el competitivo dice sobre el lead form</h3>
+
+  <p>Los 10 players tienen lead forms de calidad muy desigual. Los OEM directos (Hyundai, Jeep, GAC) no tienen lead form B2B — el cliente debe llamar. Las arrendadoras (Element, Ayvens) tienen forms genéricos sin captura por # unidades ni industria. <strong>Ford Pro MX es el único que pregunta por volumen y uso al inicio</strong> — y por eso es el que mejor convierte leads B2B en el mercado.</p>
+
+  <p>Decisión derivada para el diseño de la SPA: <strong>ICP gate al inicio</strong> (rango de unidades como primer paso) + captura de industria + uso principal + modalidad de financiamiento. Mejora la calidad del lead vs todos los competidores excepto Ford Pro, y supera a Ford Pro en multimarca.</p>
+
+  <h2 class="section-h2"><span class="num">§5</span>Capa psicológica — tres tipos de cliente, tres journeys</h2>
+
+  <p>Aurora del Pozo y Chucho Porras definen tres tipos de cliente flotilla según volumen, margen y psicología de compra. La SPA tiene que respetar esa psicología — no presentarle al cliente AAA un journey AA ni al revés.</p>
+
+  <table class="data">
+    <thead><tr><th>Tipo</th><th>Volumen típico</th><th>Margen op. estimado</th><th>Psicología de compra</th><th>Canal correcto</th></tr></thead>
+    <tbody>
+      <tr><td><span class="pill a">A</span></td><td>2–15 uds</td><td>~10%</td><td>Emocional. Compra desbalancea finanzas. Consulta pareja.</td><td>Digital + trust signals</td></tr>
+      <tr><td><span class="pill aa">AA · target</span></td><td>10–30 uds</td><td>~8%</td><td><strong>Racional.</strong> CFO + Compras + Operaciones. Análisis TCO.</td><td><strong>Digital + calculadora TCO + casos</strong></td></tr>
+      <tr><td><span class="pill aaa">AAA</span></td><td>20–50+ uds</td><td>~3%</td><td>Conveniencia / precio. Gana mejor deal o licitación.</td><td>Sales-led ABM / RFP (NO digital)</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout gold">
+    <span class="cl-title">Insight 4 · La SPA no debe optimizar para AAA</span>
+    Los corporativos grandes deciden por precio puntual o por relación pre-existente. <strong>Una SPA bonita no mueve la aguja con ellos.</strong> Lo que la mueve es el ABM + las visitas comerciales + la red de contactos de Aurora. <strong>Optimizar la SPA para AAA sería ineficiencia.</strong> La SPA debe optimizar para AA (decisión racional con criterios técnicos) y abrir el journey a A grande / A para captura adicional sin canibalizar AAA.
+  </div>
+</section>
+
+<!-- ============ PAGE 4: §6 PERSONAS + §7 DECISIONES DE DISEÑO ============ -->
+<section class="page">
+
+  <h2 class="section-h2"><span class="num">§6</span>Las tres personas que diseñamos para servir</h2>
+
+  <p>Del cruce data interna + competitivo + psicología, derivamos tres personas B2B reales que cubren ~95% del flujo digital captable. Cada una con su lenguaje, sus criterios de decisión y su journey.</p>
+
+  <div class="persona-card">
+    <div class="p-eyebrow">~60% del flujo digital captable · AA · 10–30 uds</div>
+    <div class="p-name">Diana — Gerente de Operaciones de PYME industrial</div>
+    <div class="p-role">Empresa 50–200 empleados. Industria, distribución, manufactura, retail regional.</div>
+    <div class="p-quote">"Necesito renovar la flota sin pelearme tres semanas con cinco dealers diferentes."</div>
+    <div class="p-grid">
+      <div><strong>Decision unit</strong>Diana + CFO + Operaciones. Comité.</div>
+      <div><strong>Ciclo decisión</strong>60–90 días con TCO. Renueva cada 3–5 años.</div>
+      <div><strong>Mix típico</strong>Pickups + vans + algunas SUVs ejecutivas.</div>
+      <div><strong>Criterio clave</strong>TCO 3 años + tiempos entrega + cobertura plazas.</div>
+      <div><strong>Pain</strong>Las arrendadoras solo le ofrecen lease puro. Los OEM no le hablan por volumen.</div>
+      <div><strong>Lo que digital le resuelve</strong>Cotización empresarial seria sin hablar con 5 dealers.</div>
+    </div>
+  </div>
+
+  <div class="persona-card">
+    <div class="p-eyebrow">~25% del flujo digital captable · A grande / AA pequeña · 3–9 uds</div>
+    <div class="p-name">Mario — Dueño de PYME servicios o constructora</div>
+    <div class="p-role">Empresa 5–30 empleados. Constructora, despacho, agencia, consultora, comercio.</div>
+    <div class="p-quote">"Quiero que me traten como empresa aunque solo compre 4 autos, no como persona física."</div>
+    <div class="p-grid">
+      <div><strong>Decision unit</strong>Él directo (o con esposa). Sin comité.</div>
+      <div><strong>Ciclo decisión</strong>Semanas. Atención inmediata.</div>
+      <div><strong>Mix típico</strong>Pickups trabajo + SUVs ejecutivo / personal.</div>
+      <div><strong>Criterio clave</strong>Crédito empresarial flexible + atención rápida.</div>
+      <div><strong>Pain</strong>Los OEM y arrendadoras no le hablan a su volumen. Se queda con financiamiento personal.</div>
+      <div><strong>Lo que digital le resuelve</strong>Trato empresarial sin volumen mínimo absurdo.</div>
+    </div>
+  </div>
+
+  <div class="persona-card">
+    <div class="p-eyebrow">~10% del flujo digital captable · AAA pequeña/long tail · 10–30 puntual</div>
+    <div class="p-name">Lucía — Gerente de Compras de arrendadora regional / SOFOM</div>
+    <div class="p-role">Arrendadora regional, SOFOM, fintech automotriz. NO Element / Promotora / ARI top (esos llegan por relación).</div>
+    <div class="p-quote">"Necesito 8 unidades específicas en menos de 30 días — sin pasar por mi proveedor anual."</div>
+    <div class="p-grid">
+      <div><strong>Decision unit</strong>Ella directo. Aprobación rápida.</div>
+      <div><strong>Ciclo decisión</strong>30 días. Pedido puntual fuera del rolling.</div>
+      <div><strong>Mix típico</strong>Mezcla según pedido cliente final.</div>
+      <div><strong>Criterio clave</strong>Disponibilidad + modelo/versión específicos.</div>
+      <div><strong>Pain</strong>Su proveedor anual no tiene stock o tarda 60+ días en pedido puntual.</div>
+      <div><strong>Lo que digital le resuelve</strong>Acceso a inventario disponible en plaza + factura corporativa rápida.</div>
+    </div>
+  </div>
+
+  <h2 class="section-h2"><span class="num">§7</span>De research a producto — ocho decisiones de diseño derivadas</h2>
+
+  <div class="decision-list">
+    <div class="d-row"><div class="d-num">01</div><div class="d-text"><strong>SPA dedicada cross-marca, no sección dentro de cada SPA D2C.</strong> El cliente B2B no piensa en marcas dealer — piensa en su flota. Una SPA propia con lineup ponderado real ayuda a Diana y Lucía a verse representadas.<span class="d-derived">Deriva del Insight 1 (AA digital target) + Insight 2 (Ford+Mazda son 38% del flujo) + Insight 3 (white space multimarca).</span></div></div>
+
+    <div class="d-row"><div class="d-num">02</div><div class="d-text"><strong>ICP gate como primer paso, antes del lead form completo.</strong> Pregunta el rango de unidades primero. Es lo que Ford Pro MX hace bien y nadie más en MX.<span class="d-derived">Deriva del análisis competitivo y de la psicología A/AA/AAA — el rango define todo el journey.</span></div></div>
+
+    <div class="d-row"><div class="d-num">03</div><div class="d-text"><strong>Sin catálogo de modelos con precio individual.</strong> El precio empresarial depende de volumen, modalidad y disponibilidad del mes. Mostrar catálogo cerrado anclaría expectativas falsas. La cotización se hace a medida.<span class="d-derived">Deriva de la regla canónica GP "no inventar info" + de no tener fuente formal validada por OEM como tienen las SPAs D2C (Vero HYU, Berenice STL, Elia GAC).</span></div></div>
+
+    <div class="d-row"><div class="d-num">04</div><div class="d-text"><strong>Lineup como tile-grid de marcas con dato cuantitativo real.</strong> Ford "200 uds YTD · #1", Mazda "+71% YoY", GAC "+79%", Changan "+178%", GWM "+260%". El cliente reconoce que sí trabajamos sus marcas; el dato verificable construye confianza.<span class="d-derived">Deriva del análisis interno + de la sustitución del catálogo cerrado por una propuesta de valor cuantificada.</span></div></div>
+
+    <div class="d-row"><div class="d-num">05</div><div class="d-text"><strong>Cobertura por uso de flota (Carga / Reparto / Ventas / Ejecutivo) sin modelos específicos.</strong> Cada uso describe el tipo de vehículo adecuado y el atributo de servicio sin inventar specs por modelo.<span class="d-derived">Deriva del mix real de uso 2026 (pickups 40%, SUVs 30%, vans 20%, sedanes 10%) y del modelo decisional B2B que parte del uso, no del modelo.</span></div></div>
+
+    <div class="d-row"><div class="d-num">06</div><div class="d-text"><strong>Tres personas (Diana / Mario / Lucía) explícitas en la SPA.</strong> El cliente B2B se reconoce, no necesita "decodificar" si Plasencia es para él.<span class="d-derived">Deriva de la cobertura ~95% del target digital captable. Mapea 1:1 a los 4 rangos del ICP gate (1-2 / 3-9 / 10-30 / 30+).</span></div></div>
+
+    <div class="d-row"><div class="d-num">07</div><div class="d-text"><strong>Lead form con 12 campos B2B</strong> (RFC, empresa, # unidades exacto, industria, uso, modalidad de financiamiento, días crédito, ciclo renovación, flota actual, marcas de interés, cargo, email corporativo). Pre-cualifica al lead y permite routing serio.<span class="d-derived">Deriva del Insight 1 (routing por unidades + zona + industria) y del competitivo (los demás piden 4 campos genéricos, perdiendo señal).</span></div></div>
+
+    <div class="d-row"><div class="d-num">08</div><div class="d-text"><strong>Social proof cuantitativo (sección "El motor de Flotillas, en cifras públicas")</strong> con +435% volumen YoY, $441.7 MDP, 21.5% mix AA y 11 marcas / ~71 puntos. Reduce friction CRO para Diana y Mario que dudan si Plasencia atiende flotillas seriamente.<span class="d-derived">Deriva del Insight 1 (la división está en explosión, hay que mostrarlo) + del principio de transparencia que diferencia a Plasencia de las arrendadoras (que no publican volumen).</span></div></div>
+  </div>
+</section>
+
+<!-- ============ PAGE 5: §8 LO QUE QUEDA POR VALIDAR ============ -->
+<section class="page">
+
+  <h2 class="section-h2"><span class="num">§8</span>Lo que queda por validar — limitaciones y siguientes pasos</h2>
+
+  <p>Este Readout sustenta el diseño del MVP. Algunas piezas se construyen con investigación adicional o con conversaciones que aún no cerramos. Documentarlas evita que el siguiente sprint repita preguntas.</p>
+
+  <h3 class="section-h3">Preguntas operativas pendientes con Aurora</h3>
+
+  <table class="data">
+    <thead><tr><th>Pregunta</th><th>Por qué importa</th></tr></thead>
+    <tbody>
+      <tr><td>¿Por qué desapareció Isuzu del flotilla 2026?</td><td>Define si el lineup digital lo incluye o queda fuera (hoy provisional fuera).</td></tr>
+      <tr><td>¿Por qué cayó Hyundai Guadalajara de 152 → 33 unidades?</td><td>Posible problema operativo de sucursal o rotación equipo. Diagnóstico antes de canalizar leads digitales a HYU GDL.</td></tr>
+      <tr><td>¿Por qué cayó Ford Nayarit de 48 → 4?</td><td>Diagnóstico antes de invertir digital en la plaza.</td></tr>
+      <tr><td>¿LL MEX y NR FINANCE — por qué salieron del top de clientes?</td><td>Confirmar si es ruptura, pausa o no comparable. Impacta discurso comercial con cuentas similares.</td></tr>
+      <tr><td>JAVIER LOPEZ TORRES y LUIS JAVIER LOPEZ TORRES — ¿misma persona?</td><td>Asignación de leads digitales precisa en kanban.</td></tr>
+      <tr><td>Cuenta FLOTILLA CORPORATIVA — ¿reagrupa a qué humano(s)?</td><td>Routing WhatsApp del kanban no puede notificar a cuenta de equipo.</td></tr>
+      <tr><td>RENTA DIARIA bajó 22 pts. ¿Estacional, estratégico u operativo?</td><td>Define si entra en scope del piloto digital o no.</td></tr>
+      <tr><td>Gobierno se redujo a un sexto. ¿Hay pipeline RFP H2?</td><td>Si entran RFPs ganados en H2, el cierre 2026 puede ser muy distinto al proyectado lineal.</td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="section-h3">Activos pendientes que no producimos en este sprint</h3>
+
+  <ul style="list-style:disc;padding-left:5mm;margin:3mm 0;">
+    <li style="font-size:9pt;color:var(--g600);margin-bottom:2mm;"><strong>Logos OEM oficiales</strong> (Ford, Mazda, RAM, Jeep, Peugeot, Dodge/Fiat, Hyundai, Changan, GWM, Seminuevos). La SPA hoy muestra tile grid tipográfico con datos cuantitativos. Logos oficiales requieren autorización OEM o request a Dir Comunicación del Grupo. <strong>NO descargados de internet</strong> por la regla canónica anti-invención y por trademark.</li>
+    <li style="font-size:9pt;color:var(--g600);margin-bottom:2mm;"><strong>Casos cliente con logo / testimonio</strong>. Las cuentas ancla (Element, Promotora Caribeña, ARI Fleet) no se mencionan en la SPA hasta tener permiso explícito del cliente. Aurora gestiona escalación legal.</li>
+    <li style="font-size:9pt;color:var(--g600);margin-bottom:2mm;"><strong>Calculadora TCO</strong>. Diana pide TCO 3 años en su decisión. El MVP tiene cotización formal a 7 días vía ejecutivo; calculadora self-service queda para el sprint siguiente con metodología validada por Aurora.</li>
+    <li style="font-size:9pt;color:var(--g600);margin-bottom:2mm;"><strong>Routing B2B por vendedor real</strong>. Hoy todo cae a Chucho como triaje. Cuando Aurora asigne vendedores B2B (5 candidatos top del análisis 2026: JAIR, YOSEF, SHEYLA, JAVIER, LUIS JAVIER), el worker se actualiza con routing por rango + zona.</li>
+  </ul>
+
+  <h3 class="section-h3">Métricas de éxito del piloto digital — los próximos 90 días</h3>
+
+  <table class="data">
+    <thead><tr><th>KPI</th><th class="num">Baseline (hoy)</th><th class="num">Meta 90 días</th><th>Lectura</th></tr></thead>
+    <tbody>
+      <tr><td>Leads B2B / mes</td><td class="num">0 digital</td><td class="num">15–30</td><td>Volumen base para validar el funnel</td></tr>
+      <tr><td>Lead cualificado AA (10–30 uds)</td><td class="num">0</td><td class="num">5–10/mes</td><td>El segmento target del piloto</td></tr>
+      <tr><td>Tiempo respuesta lead → WA</td><td class="num">n/a</td><td class="num">&lt; 24 hrs hábiles</td><td>SLA prometido en la SPA</td></tr>
+      <tr><td>Tiempo lead → propuesta formal</td><td class="num">n/a</td><td class="num">&lt; 7 días</td><td>Promesa "3 a 7 días" del journey</td></tr>
+      <tr><td>Conversión lead → cita corporativa</td><td class="num">n/a</td><td class="num">40–60%</td><td>Benchmark B2B típico para leads pre-cualificados</td></tr>
+      <tr><td>Conversión cita → cotización formal</td><td class="num">n/a</td><td class="num">60–80%</td><td>Cita corporativa es alta intención</td></tr>
+      <tr><td>Conversión cotización → cierre</td><td class="num">n/a</td><td class="num">20–40%</td><td>Ciclo B2B 60–180 días — primer cierre digital en Q4</td></tr>
+    </tbody>
+  </table>
+
+  <p class="small" style="margin-top:5mm;"><strong>Nota de procedencia:</strong> este Readout sintetiza tres capas de investigación corridas entre 2026-06-12 y 2026-06-17 — (1) snapshot competitivo MX vía agente paralelo `af6c83daca47ee826` con tear-down UX de 10 players; (2) procesamiento al 100% de dos archivos Excel operativos con tabulaciones cruzadas mes × marca × segmento × sucursal × vendedor × compañía × tipo venta × días crédito × cliente; (3) entrevista con Aurora del Pozo y Chucho Porras 2026-06-17 sobre psicología de compra A/AA/AAA. Verificable contra los docs canónicos `00-context/Flotillas-Analisis-Ventas-2025-vs-2026.md`, `00-context/Flotillas-Snapshot-Competitivo-MX-2026-06-12.md` y `00-context/Piloto-Flotillas-Estado-Inicial.md` del repo source-of-truth.</p>
+
+  <p class="small"><strong>Documentos hermanos:</strong> el <a href="Reporte-Flotillas-Ventas-2026-06-17.html" style="color:var(--gp-red);font-weight:600;">Reporte ejecutivo · División Flotillas Ventas 2025 vs 2026</a> presenta el dato puro. Este Research Readout presenta la síntesis y las decisiones de diseño derivadas. La SPA viva en <a href="https://flotillas.grupoplasencia.com" style="color:var(--gp-red);font-weight:600;">flotillas.grupoplasencia.com</a> es la traducción a producto.</p>
+
+</section>
+
+</body>
+</html>
