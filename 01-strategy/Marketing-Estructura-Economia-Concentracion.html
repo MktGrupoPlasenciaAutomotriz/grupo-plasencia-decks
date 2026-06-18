@@ -542,19 +542,18 @@
 <section class="page">
   <h1 class="section-title"><span class="num">Cap 1 · Estado de Resultados de Marketing por marca</span>El P&L <em>cerrado.</em></h1>
 
-  <h2><span class="h-num">1.1</span>Modelo conceptual</h2>
-  <p>Por cada una de las ocho marcas activas más Seminuevos, el estado de resultados de Marketing tiene la siguiente forma:</p>
+  <h2><span class="h-num">1.1</span>Modelo conceptual del P&amp;L de Marketing por marca</h2>
+  <p>El estado de resultados de Marketing por marca combina cuatro líneas de gasto contable del DCA y dos líneas de ingreso/atribución. El cuadro siguiente lista qué entrega hoy el DCA y qué entrega el Motor de Atribución MVP en producción:</p>
   <table>
-    <thead><tr><th style="width:42%">Renglón</th><th style="width:35%">Origen DCA</th><th>Estado</th></tr></thead>
+    <thead><tr><th style="width:42%">Renglón</th><th style="width:35%">Fuente</th><th>Estado al cierre del documento</th></tr></thead>
     <tbody>
-      <tr><td>Ventas Totales</td><td>Cubo de ventas BITAM</td><td><span class="badge badge-pending">A2 pendiente</span></td></tr>
-      <tr><td>Ventas Atribuibles a MKT</td><td>Motor de Atribución MVP en producción desde abril 2026 — cierre estadístico al sexto mes operativo</td><td><span class="badge badge-partial">En producción · 4 marcas</span></td></tr>
-      <tr><td>Ventas no atribuibles</td><td>Derivado</td><td><span class="badge badge-pending">depende A2+A3</span></td></tr>
-      <tr><td>Costo MKT — Pauta (Publicidad + Promoción + Promo 2)</td><td>Cubo 30065</td><td><span class="badge badge-ok">verificado</span></td></tr>
-      <tr><td>Costo MKT — Nómina cargada (bruto + prestaciones)</td><td>Cubo 30046 extendido</td><td><span class="badge badge-pending">A1+A10 pendiente</span></td></tr>
-      <tr><td>Costo MKT — Servicios externos / agencias</td><td>Cubo 30051 Cluster 2</td><td><span class="badge badge-ok">verificado · Cap 3</span></td></tr>
-      <tr><td>Costo MKT — Comisiones digitales</td><td>Cubo 30067</td><td><span class="badge badge-ok">verificado</span></td></tr>
-      <tr class="total"><td><strong>Eficiencia MKT = Ventas Atribuibles / Costo MKT Total</strong></td><td>Derivado</td><td><span class="badge badge-pending" style="background:rgba(236,201,75,0.18);color:var(--gold);">bloqueado</span></td></tr>
+      <tr><td>Ventas Totales por marca</td><td>Cubo 30060 Finanzas Concentrado MB</td><td><span class="badge badge-ok">verificado · §1.2</span></td></tr>
+      <tr><td>Utilidad Operativa por marca</td><td>Cubo 30060 Finanzas Concentrado MB</td><td><span class="badge badge-ok">verificado · §1.2</span></td></tr>
+      <tr><td>Pauta MKT contable (Publicidad + Promoción + Promo 2)</td><td>Cubo 30065 Real vs Ppto</td><td><span class="badge badge-ok">verificado · §1.2 + §1.3</span></td></tr>
+      <tr><td>Nómina del área MKT centralizada (bruto al empleado)</td><td>Cubo 30046 RH depto MERCADOTECNIA + VENTAS DIGITALES</td><td><span class="badge badge-ok">verificado · §1.2.2 + §2.9</span></td></tr>
+      <tr><td>Nómina y comisiones supervisores digitales en sucursales</td><td>Cubo 30067 LxL cuentas SUPERVISORES DIGITAL</td><td><span class="badge badge-ok">verificado · §1.2.2 + §2.9.4</span></td></tr>
+      <tr><td>Identificación nominal de proveedores MKT externos</td><td>Catálogo DCA actual no entrega · ruta de cierre en Cap 3 §3.3</td><td><span class="badge badge-partial">3 rutas tangibles</span></td></tr>
+      <tr><td>Ventas atribuibles a MKT por marca · agencia · campaña</td><td>Motor de Atribución MVP en producción desde abril 2026</td><td><span class="badge badge-partial">cierre operativo octubre 2026 · 4 marcas piloto</span></td></tr>
     </tbody>
   </table>
 
@@ -610,9 +609,10 @@
   </div>
 
   <h3><span class="h-num">1.2.2</span>Plantilla MKT integrada al P&amp;L</h3>
-  <p>La nómina del área MKT centralizada (cubo 30046 RH, departamentos MERCADOTECNIA + VENTAS DIGITALES) suma <strong>$7.88M brutos 2025</strong> · 63 personas. Esta cifra es el <em>total de percepciones</em> bruto al empleado, antes de cargas patronales (IMSS, Infonavit, aguinaldo provisionado, vacaciones, prima vacacional, INFONAVIT — típicamente +25-35% sobre el bruto al empleado).</p>
-  <p>Adicionalmente, el cubo 30067 LxL registra <strong>$3.72M en sueldos y comisiones de "Supervisores Digital"</strong> distribuidos en sucursales específicas (Mazda Plasencia, Mazda Galerías, Mazda Santa Anita, Changan Bugambilias, Changan González Gallo, GWM Plasencia, GWM Santa Anita). Estos supervisores ejecutan operación digital de marca pero no aparecen en la nómina del área MKT centralizada — su depto contable de origen es VENTAS de sucursal, no MERCADOTECNIA corporativo.</p>
-  <p><strong>La plantilla operativa real de Marketing del Grupo en 2025 es entonces 63 personas centralizadas + mínimo 7 supervisores digitales en sucursales = 70+ personas</strong>, con $11.6M de nómina bruta sumada (cubo 30046 + cubo 30067 cuentas Supervisores Digital). Cargado al P&amp;L con cargas patronales aproximadas al 30%, ronda los <strong>$15M anuales</strong>.</p>
+  <p>La nómina del área MKT centralizada (cubo 30046 RH, departamentos MERCADOTECNIA + VENTAS DIGITALES) suma <strong>$7.88M brutos 2025</strong> · 63 personas. Esta cifra es el <em>total de percepciones</em> bruto al empleado, sin ISR retenido al empleado (≈12% del bruto) y sin cargas patronales del Grupo (IMSS, INFONAVIT, SAR, aguinaldo y vacaciones provisionadas, impuesto estatal sobre nómina · entre 25% y 35% adicional sobre el bruto).</p>
+  <p>Adicionalmente, el cubo 30067 LxL registra <strong>$3.72M en sueldos y comisiones de Supervisores Digital</strong> distribuidos en siete sucursales (Mazda Plasencia, Galerías y Santa Anita · Changan Bugambilias y González Gallo · GWM Plasencia y Santa Anita). Estos supervisores ejecutan operación digital de marca pero su departamento contable de origen es VENTAS de sucursal, no MERCADOTECNIA corporativo · por eso no aparecen en la nómina del cubo 30046.</p>
+  <p>La plantilla operativa real de Marketing del Grupo en 2025 suma entonces <strong>70+ personas con $11.6M de nómina bruta consolidada</strong> (cubo 30046 + cubo 30067 cuentas Supervisores Digital). Aplicando un factor de cargas patronales de 30% sobre el bruto, el costo cargado al P&amp;L del Grupo ronda los <strong>$15.1M anuales</strong>.</p>
+  <p>Una capa adicional queda fuera del cálculo contable: los <strong>vendedores digitales</strong> que reportan a cada Supervisor Digital en sucursal. Su nómina y comisiones se contabilizan bajo las cuentas genéricas COMISIONES VENTAS NUEVOS y SUELDOS NUEVOS junto con vendedores no digitales, sin distinción contable. La identificación nominal del headcount de vendedores digitales y su masa salarial requiere cruce con RRHH operativa por sucursal, no DCA.</p>
 
   <h3><span class="h-num">1.2.3</span>Atribución · qué sí mide hoy el Grupo y qué no</h3>
   <p>Hasta aquí el P&amp;L mide <strong>revenue total</strong> y <strong>pauta MKT total</strong> contables. El Grupo <strong>no tiene hoy un sistema de medición end-to-end del funnel</strong> que produzca ventas atribuibles a Marketing por marca / agencia / campaña con base contable auditable. La Dirección de Marketing Corporativo levantó este vacío como prioridad estratégica y lanzó el Motor de Atribución MVP en producción desde abril 2026 en cuatro marcas (Seminuevos, Hyundai, Stellantis, GAC) para cerrarlo.</p>
@@ -854,22 +854,18 @@
     </tbody>
   </table>
 
-  <h2><span class="h-num">2.7</span>Hipótesis a validar en el cierre</h2>
-  <blockquote>
-    Tienes un área demasiado grande en plantilla, personas, proveedores. Estoy seguro que el trabajo que hoy hacen diez personas lo podría hacer dos especializadas que sí saben bien del tema. Los perfiles actuales son muy bajos en niveles de especialización y tecnificación. Y si a esos mejores perfiles les das IA y la saben usar, una persona puede hacer el trabajo de diez.
-    <cite>— Director MKT Corporativo, 2026-06-16</cite>
-  </blockquote>
-  <p>El levantamiento de organigrama identifica <strong>61 empleados directos del Grupo + 14 partners externos</strong>. El §2.9.1 de este capítulo confirma con DCA que el 62% de la plantilla está en Tier 4 operativo (&lt;$15K bruto/mes) — perfiles de community, post-producción, diseño junior y apoyos. La hipótesis de rediseño con plantilla especializada Tier 1-2 + IA se cuantifica en Cap 4 Eje 5 con caso financiero y se materializa en el Cap 7 Hub &amp; Spoke.</p>
+  <h2><span class="h-num">2.7</span>La hipótesis estructural sobre el área</h2>
+  <p>El área de Marketing del Grupo opera hoy sobredimensionada en plantilla, personas y proveedores frente a la palanca estratégica que entrega. Los perfiles actuales operan con bajo nivel de especialización y tecnificación. Una plantilla con menor headcount pero mayor seniority por persona, equipada con stack de IA aplicada a creative ops y data, entrega más output estratégico que el modelo actual basado en proliferación de perfiles operativos junior.</p>
+  <p>El §2.9 de este capítulo confirma con DCA que el 62% de la plantilla del área centralizada está en Tier 4 operativo (&lt;$15K bruto/mes) — perfiles de community, post-producción, diseño junior y apoyos. Sumando los supervisores digitales en sucursales (§2.9.4) la plantilla operativa real del Grupo supera las 70 personas. El caso financiero del rediseño hacia plantilla especializada Tier 1-2 + IA se cuantifica en Cap 4 Eje 5 y se materializa en el modelo Hub &amp; Spoke del Cap 7.</p>
 
   <h2><span class="h-num">2.8</span>Lo que sigue pendiente para cierre 100%</h2>
   <table>
     <thead><tr><th style="width:42%">Item</th><th>Plan de cierre</th></tr></thead>
     <tbody>
-      <tr><td>Nombres de Directores de Marca pendientes (Mazda · Hyundai · Ford)</td><td>Walk-through con RRHH y Dirección Corporativa de Finanzas (Pepe Morales). Triangular con asistencia a reuniones de marca y firmantes de pólizas de OEM.</td></tr>
-      <tr><td>Mapeo organigrama vs PMA de OEM (qué gerente reporta a qué OEM y bajo qué KPI)</td><td>Entrevistas con cada Gerente de Marca + cruce con contratos concesionarios firmados. Importante para el caso del Cap 5 (negociar OEM rebate al benchmark industria).</td></tr>
-      <tr><td>Nómina cargada con prestaciones + cargas sociales (full burden cost por persona)</td><td>Cubo 30046 RH actual reporta <em>total_percepciones</em> (bruto) y <em>total_pagado</em> (neto) pero no incluye IMSS patronal · Infonavit · vacaciones provisionadas. Solicitar a Contraloría tabla complementaria de cargas para sumar el costo cargado real por persona.</td></tr>
-      <tr><td>Evolución plantilla dic 2025 → jun 2026 (rotación, nuevas incorporaciones, salidas)</td><td>Crear vista mensual del cubo 30046 con ventana móvil. Documentar movimientos relevantes (ej. Ana Luisa García salió Hyundai · Verónica Orozco entró jun 2026 · Luis Hernández entró GWM jun 2026).</td></tr>
-      <tr><td>Cobertura gerencial 5 marcas sin gerencia identificada (Hyundai · GWM · Changan · Isuzu · Seminuevos)</td><td>Cuestión estructural — algunas marcas operan con gerencia tipo "Director comparte" o sin gerente cross-agencia formal. Validar con entrevistas si es subreporte de cubo 30049 o realmente ausencia operativa de rol.</td></tr>
+      <tr><td>Puesto formal y sucursal específica por persona</td><td>Cubo 30046 reporta departamento_rh pero no entrega puesto ni sucursal. Cierre vía cruce con organigrama formal del PMA de cada OEM en entrevistas con Directores de Marca.</td></tr>
+      <tr><td>Cobertura gerencial cross-marca</td><td>Cinco marcas (Hyundai, GWM, Changan, Isuzu, Seminuevos) operan sin gerente formal de MKT identificado en nómina centralizada. Verificar con RRHH si es subreporte contable o ausencia operativa real del rol.</td></tr>
+      <tr><td>Mapeo organigrama → PMA de OEM</td><td>Qué Gerente de Marca reporta a qué OEM bajo qué KPI. Entrevistas con cada Director de Marca + cruce con contratos concesionarios. Insumo del Cap 5 §5.7 para la negociación cross-OEM.</td></tr>
+      <tr><td>Identificación nominal de vendedores digitales en sucursal</td><td>Los supervisores digitales tienen cuenta contable propia en cubo 30067 (§2.9.4). Los vendedores digitales bajo cada supervisor cobran como vendedores generales del depto VENTAS y no se separan contablemente. Cierre vía RRHH operativa por sucursal.</td></tr>
     </tbody>
   </table>
 </section>
@@ -878,7 +874,7 @@
 <section class="page">
   <h1 class="section-title"><span class="num">Cap 2 · Organigrama nominal As-Is · §2.9</span>Sesenta y tres nombres. <em>Treinta y nueve operativos.</em></h1>
 
-  <p class="lead">Listado nominal completo del As-Is extraído del cubo 30046 RH · 63 personas con costo bruto promedio mensual 2025. La distribución por tier salarial valida cuantitativamente la tesis estructural: <strong>62% de la plantilla está por debajo de $15K bruto/mes</strong> — perfiles operativos/junior haciendo trabajo que con IA + plantilla especializada cubrirían 6-8 personas senior con multiplicadores de productividad documentados (caso Harvard 12-25%).</p>
+  <p class="lead">El cubo 30046 RH lista las 63 personas del área MKT centralizada con su costo bruto promedio mensual 2025. La distribución por tier salarial valida cuantitativamente el sobre-dimensionamiento en perfiles operativos: <strong>62% de la plantilla cobra menos de $15K brutos al mes</strong> · community, post-producción, diseño junior y apoyos administrativos. Un rediseño con plantilla menor pero más senior, equipada con stack de IA aplicada, entrega más output estratégico bajo el modelo Hub &amp; Spoke del Cap 7.</p>
 
   <h2><span class="h-num">2.9.1</span>Distribución por tier salarial <span class="badge badge-ok">cubo 30046 verificado</span></h2>
   <table>
@@ -1138,12 +1134,12 @@
     </tbody>
   </table>
 
-  <h3><span class="h-num">1.c</span>Hallazgos que validan la hipótesis del Director MKT</h3>
+  <h3><span class="h-num">1.c</span>Hallazgos del sweep web que materializan el problema</h3>
   <div class="conv-note">
     <strong>Cuenta zombie con marca ajena al portafolio.</strong> Existe page Facebook <code>seminuevoschevrolettepic</code> — Chevrolet <em>no está en el portafolio del Grupo</em>. O es legacy, secuestrada, o existe operación de seminuevos vendiendo multi-marca bajo nombre Plasencia que el corporativo no controla.
   </div>
   <div class="conv-note">
-    <strong>Grupo de Facebook de vendedores detectado.</strong> Existe grupo público <em>SEMINUEVOS PLASENCIA ALASKA TEPIC</em> donde vendedores publican unidades — exactamente el patrón descrito por el Director MKT en su brief verbatim.
+    <strong>Grupo de Facebook de vendedores detectado.</strong> Existe el grupo público <em>SEMINUEVOS PLASENCIA ALASKA TEPIC</em> donde vendedores publican unidades sin gobierno corporativo de marca, contenido ni atención al lead — patrón que confirma la dispersión operativa fuera del control del área MKT del Grupo.
   </div>
   <div class="conv-note">
     <strong>Changan invisible bajo nombre Plasencia.</strong> $5.7M de pauta 2025 y cero propiedades públicas. El consumidor que busca "Changan Plasencia" en Google no encuentra al Grupo. Los activos digitales viven 100% en BMs de agencias.
