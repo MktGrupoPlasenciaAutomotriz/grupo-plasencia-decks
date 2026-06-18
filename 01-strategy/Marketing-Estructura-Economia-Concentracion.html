@@ -44,7 +44,7 @@
     size: A4;
     margin: 20mm 18mm 22mm 18mm;
     @bottom-right { content: counter(page) " / " counter(pages); font-family: 'Inter', sans-serif; font-size: 8.5pt; color: #718096; font-weight: 500; }
-    @bottom-left  { content: "Marketing: Estructura, Economía y Concentración · v2.0 · Confidencial · Grupo Plasencia Automotriz"; font-family: 'Inter', sans-serif; font-size: 7.5pt; color: #A0AEC0; letter-spacing: 0.3px; }
+    @bottom-left  { content: "Marketing: Estructura, Economía y Concentración · v3.2.1 · Confidencial · Grupo Plasencia Automotriz"; font-family: 'Inter', sans-serif; font-size: 7.5pt; color: #A0AEC0; letter-spacing: 0.3px; }
     @top-right    { content: "Diagnóstico Integral · Dirección de Marketing Corporativo"; font-family: 'Inter', sans-serif; font-size: 7.5pt; color: #A0AEC0; letter-spacing: 0.3px; }
   }
   @page :first { @top-right { content: ""; } @bottom-right { content: ""; } @bottom-left { content: ""; } }
@@ -54,11 +54,11 @@
     background: var(--paper);
     width: 210mm;
     min-height: 297mm;
-    margin: 0 auto 8mm auto;
-    padding: 20mm 18mm 22mm 18mm;
+    margin: 0 auto 10mm auto;
+    padding: 22mm 20mm 24mm 20mm;
     position: relative;
     page-break-after: always;
-    box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 4px 24px rgba(30,39,64,.08);
+    box-shadow: 0 1px 3px rgba(0,0,0,.05), 0 8px 32px rgba(30,39,64,.10);
   }
   .page:last-child { page-break-after: auto; }
 
@@ -88,15 +88,15 @@
     color: var(--gold); text-transform: uppercase; margin-top: 13mm;
   }
   .cover-title {
-    font-family: var(--serif); font-weight: 800; font-size: 42pt; line-height: 1.06;
-    letter-spacing: -1.4px; margin-top: 7mm; color: var(--near-white);
+    font-family: var(--serif); font-weight: 800; font-size: 44pt; line-height: 1.05;
+    letter-spacing: -1.6px; margin-top: 8mm; color: var(--near-white);
   }
   .cover-title em {
     font-style: italic; font-weight: 500; color: var(--gold);
   }
   .cover-title-after {
     font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 12.5pt;
-    color: rgba(255,255,255,0.78); margin-top: 8mm; letter-spacing: -0.1px; line-height: 1.5;
+    color: rgba(255,255,255,0.82); margin-top: 9mm; letter-spacing: -0.05px; line-height: 1.55;
     max-width: 152mm;
   }
   .cover-control {
@@ -108,31 +108,37 @@
 
   /* SECTION TITLES */
   h1.section-title {
-    font-family: var(--serif); font-weight: 800; font-size: 24pt; line-height: 1.12;
-    letter-spacing: -0.6px; color: var(--gp-navy);
-    border-top: 3px solid var(--gp-red); padding-top: 7mm; margin-bottom: 6mm;
+    font-family: var(--serif); font-weight: 800; font-size: 26pt; line-height: 1.1;
+    letter-spacing: -0.8px; color: var(--gp-navy);
+    border-top: 3px solid var(--gp-red); padding-top: 8mm; margin-bottom: 7mm;
     page-break-after: avoid;
   }
   h1.section-title .num {
-    display: block; font-family: var(--sans); font-weight: 700; font-size: 9pt;
-    letter-spacing: 3.5px; color: var(--gp-red); text-transform: uppercase; margin-bottom: 3mm;
+    display: block; font-family: var(--sans); font-weight: 700; font-size: 8.5pt;
+    letter-spacing: 4px; color: var(--gp-red); text-transform: uppercase; margin-bottom: 3.5mm;
   }
   h1.section-title em {
     font-family: var(--serif); font-style: italic; font-weight: 500; color: var(--gp-red);
   }
   h2 {
-    font-family: var(--sans); font-weight: 700; font-size: 12pt; color: var(--gp-navy);
-    margin-top: 7mm; margin-bottom: 3mm; letter-spacing: -0.1px; line-height: 1.35;
+    font-family: var(--sans); font-weight: 700; font-size: 12.5pt; color: var(--gp-navy);
+    margin-top: 8mm; margin-bottom: 3mm; letter-spacing: -0.15px; line-height: 1.3;
     page-break-after: avoid;
   }
-  h2:first-of-type { margin-top: 2mm; }
-  h2 .h-num { color: var(--gp-red); font-weight: 800; margin-right: 4mm; font-variant-numeric: tabular-nums; }
+  h2:first-of-type { margin-top: 3mm; }
+  h2 .h-num {
+    color: var(--gp-red); font-weight: 800; margin-right: 3.5mm;
+    font-variant-numeric: tabular-nums; font-size: 11pt;
+  }
   h3 {
-    font-family: var(--sans); font-weight: 700; font-size: 10.5pt; color: var(--gp-navy);
-    margin-top: 5mm; margin-bottom: 2mm; letter-spacing: -0.05px; line-height: 1.35;
+    font-family: var(--sans); font-weight: 700; font-size: 11pt; color: var(--gp-navy);
+    margin-top: 6mm; margin-bottom: 2.5mm; letter-spacing: -0.1px; line-height: 1.3;
     page-break-after: avoid; break-after: avoid;
   }
-  h3 .h-num { color: var(--gp-red); font-weight: 700; margin-right: 3mm; font-variant-numeric: tabular-nums; }
+  h3 .h-num {
+    color: var(--gp-red); font-weight: 700; margin-right: 2.5mm;
+    font-variant-numeric: tabular-nums; font-size: 10pt;
+  }
 
   p { margin-bottom: 3mm; font-size: 10.5pt; color: var(--g700); line-height: 1.6; }
   p.lead { font-size: 12pt; color: var(--g700); line-height: 1.55; margin-bottom: 5mm; }
@@ -152,14 +158,14 @@
   tr { page-break-inside: avoid; }
   th {
     background: var(--gp-navy); color: var(--near-white);
-    font-family: var(--sans); font-weight: 700; font-size: 8pt; letter-spacing: 1.2px;
-    text-transform: uppercase; padding: 3mm 3.5mm; text-align: left; vertical-align: middle;
-    border-right: 1px solid rgba(255,255,255,0.1); line-height: 1.35;
+    font-family: var(--sans); font-weight: 700; font-size: 7.8pt; letter-spacing: 1.3px;
+    text-transform: uppercase; padding: 3.2mm 3.8mm; text-align: left; vertical-align: middle;
+    border-right: 1px solid rgba(255,255,255,0.12); line-height: 1.35;
   }
   th:last-child { border-right: none; }
   th.num { text-align: right; }
   td {
-    padding: 3mm 3.5mm; border-bottom: 1px solid var(--g200);
+    padding: 3.2mm 3.8mm; border-bottom: 1px solid var(--g200);
     vertical-align: top; line-height: 1.55; color: var(--g700); font-size: 9.5pt;
   }
   tr:nth-child(even) td { background: var(--g100); }
@@ -178,40 +184,44 @@
   .nota strong { font-style: normal; color: var(--gp-navy); }
 
   .callout {
-    background: linear-gradient(to right, rgba(30,39,64,0.04), rgba(30,39,64,0.01));
-    border-left: 4px solid var(--gp-navy); padding: 4mm 5mm; margin: 4mm 0;
+    background: linear-gradient(to right, rgba(30,39,64,0.05), rgba(30,39,64,0.01));
+    border-left: 4px solid var(--gp-navy); padding: 4.5mm 5.5mm; margin: 5mm 0;
+    border-radius: 0 2px 2px 0; page-break-inside: avoid;
   }
-  .callout-t { font-family: var(--serif); font-weight: 700; font-style: italic; color: var(--gp-navy); margin-bottom: 2mm; font-size: 12pt; letter-spacing: -0.2px; }
+  .callout-t { font-family: var(--serif); font-weight: 700; font-style: italic; color: var(--gp-navy); margin-bottom: 2.5mm; font-size: 12.5pt; letter-spacing: -0.3px; line-height: 1.25; }
   .callout p:last-child { margin-bottom: 0; }
 
   .conv-note {
     background: linear-gradient(to right, rgba(200,16,46,0.06), rgba(200,16,46,0.01));
-    border-left: 4px solid var(--gp-red); padding: 4mm 5mm; margin: 4mm 0;
+    border-left: 4px solid var(--gp-red); padding: 4.5mm 5.5mm; margin: 5mm 0;
+    border-radius: 0 2px 2px 0; page-break-inside: avoid;
   }
   .conv-note strong { color: var(--gp-red); }
 
   .warn-note {
     background: linear-gradient(to right, rgba(214,158,46,0.08), rgba(214,158,46,0.01));
-    border-left: 4px solid var(--amber); padding: 4mm 5mm; margin: 4mm 0;
+    border-left: 4px solid var(--amber); padding: 4.5mm 5.5mm; margin: 5mm 0;
+    border-radius: 0 2px 2px 0; page-break-inside: avoid;
   }
   .warn-note strong { color: #B7791F; }
 
   .gold-note {
     background: linear-gradient(to right, rgba(236,201,75,0.12), rgba(236,201,75,0.02));
-    border-left: 4px solid var(--gold); padding: 4mm 5mm; margin: 4mm 0;
+    border-left: 4px solid var(--gold); padding: 4.5mm 5.5mm; margin: 5mm 0;
+    border-radius: 0 2px 2px 0; page-break-inside: avoid;
   }
   .gold-note strong { color: #B7791F; }
 
   /* BADGES */
   .badge {
     display: inline-block; font-family: var(--sans); font-size: 7.5pt; font-weight: 700;
-    letter-spacing: 0.6px; text-transform: uppercase; padding: 1mm 2.5mm;
-    border-radius: 2px; vertical-align: middle; line-height: 1.4; margin-left: 2mm;
+    letter-spacing: 0.7px; text-transform: uppercase; padding: 1.2mm 2.8mm;
+    border-radius: 2px; vertical-align: middle; line-height: 1.4; margin-left: 2.5mm;
   }
-  .badge-ok { background: rgba(72,187,120,0.12); color: #276749; }
+  .badge-ok { background: rgba(72,187,120,0.14); color: #276749; }
   .badge-pending { background: rgba(200,16,46,0.10); color: var(--gp-red); }
-  .badge-partial { background: rgba(214,158,46,0.12); color: #B7791F; }
-  .badge-data { background: rgba(30,39,64,0.08); color: var(--gp-navy); }
+  .badge-partial { background: rgba(214,158,46,0.14); color: #B7791F; }
+  .badge-data { background: rgba(30,39,64,0.09); color: var(--gp-navy); }
 
   /* BLOCKQUOTES — citas del Director */
   blockquote {
@@ -226,59 +236,74 @@
   }
 
   /* HERO STATS GRID — 3 cards (Pauta · Nómina · Proveedores) con desgloses internos */
-  .hero-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4mm; margin: 5mm 0 4mm; }
+  .hero-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4.5mm; margin: 5mm 0 4mm; }
   .hero-card {
     background: var(--paper); border: 1px solid var(--g200);
-    border-top: 4px solid var(--gp-red); padding: 5mm;
+    border-top: 4px solid var(--gp-red); padding: 5.5mm 5.5mm 5mm 5.5mm;
     position: relative; page-break-inside: avoid;
+    box-shadow: 0 1px 2px rgba(30,39,64,.04);
   }
   .hero-card.navy { border-top-color: var(--gp-navy); }
   .hero-card.gold { border-top-color: var(--gold); }
   .hero-card.amber { border-top-color: var(--amber); }
   .hero-card .hero-num {
-    font-family: var(--serif); font-size: 24pt; font-weight: 800;
-    color: var(--gp-navy); line-height: 1; letter-spacing: -1px;
+    font-family: var(--serif); font-size: 26pt; font-weight: 800;
+    color: var(--gp-navy); line-height: 1; letter-spacing: -1.2px;
   }
   .hero-card .hero-num-sub {
-    font-family: var(--sans); font-size: 8pt; color: var(--g500);
-    font-weight: 500; margin-top: 1mm;
+    font-family: var(--sans); font-size: 7.8pt; color: var(--g500);
+    font-weight: 500; margin-top: 1.2mm; line-height: 1.4;
   }
   .hero-card .hero-label {
-    font-family: var(--sans); font-size: 8pt; font-weight: 700;
-    letter-spacing: 1.5px; text-transform: uppercase;
-    color: var(--gp-red); margin-top: 3mm;
+    font-family: var(--sans); font-size: 8pt; font-weight: 800;
+    letter-spacing: 1.8px; text-transform: uppercase;
+    color: var(--gp-red); margin-top: 3.5mm;
   }
   .hero-card.navy .hero-label { color: var(--gp-navy); }
   .hero-card.gold .hero-label { color: #B7791F; }
   .hero-card.amber .hero-label { color: #B7791F; }
   .hero-card .hero-tagline {
     font-family: var(--sans); font-size: 8.5pt; color: var(--g700);
-    margin-top: 2mm; line-height: 1.45;
+    margin-top: 2mm; line-height: 1.5;
   }
   .hero-card .hero-breakdown {
     margin-top: 4mm; padding-top: 3mm; border-top: 1px solid var(--g200);
   }
   .hero-card .hero-breakdown-label {
-    font-family: var(--sans); font-size: 7pt; letter-spacing: 1px;
+    font-family: var(--sans); font-size: 6.8pt; letter-spacing: 1.2px;
     text-transform: uppercase; color: var(--g500); font-weight: 700;
-    margin-bottom: 2mm;
+    margin-bottom: 2.2mm;
   }
   .hero-card .hero-breakdown-row {
-    display: flex; justify-content: space-between; padding: 1mm 0;
-    font-size: 8pt; border-bottom: 1px dotted var(--g200);
+    display: flex; justify-content: space-between; padding: 1.2mm 0;
+    font-size: 8pt; border-bottom: 1px dotted var(--g200); gap: 3mm;
   }
   .hero-card .hero-breakdown-row:last-child { border-bottom: none; }
   .hero-card .hero-breakdown-row .lbl {
-    color: var(--g600); font-family: var(--sans); font-size: 8pt;
+    color: var(--g600); font-family: var(--sans); font-size: 8pt; line-height: 1.4;
   }
   .hero-card .hero-breakdown-row .val {
     color: var(--gp-navy); font-family: var(--sans); font-weight: 700;
-    font-variant-numeric: tabular-nums; font-size: 8pt;
+    font-variant-numeric: tabular-nums; font-size: 8pt; text-align: right; white-space: nowrap;
   }
   .hero-card .hero-breakdown-row.highlight .val { color: var(--gp-red); }
   .hero-card .hero-sub {
     font-family: var(--sans); font-size: 9pt; color: var(--g600);
     margin-top: 2mm; line-height: 1.45;
+  }
+
+  /* SVG FIGURE WRAPPER */
+  .svg-figure {
+    background: var(--near-white); padding: 6mm 6mm 5mm 6mm;
+    border: 1px solid var(--g200); border-radius: 3px;
+    margin: 4mm 0; page-break-inside: avoid;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.6), 0 1px 2px rgba(30,39,64,.04);
+  }
+  .svg-figure svg { display: block; width: 100%; height: auto; }
+  .svg-caption {
+    font-family: var(--sans); font-size: 7.5pt; color: var(--g500);
+    text-align: center; margin-top: 3mm; letter-spacing: 0.4px;
+    font-style: italic;
   }
 
   /* TOC */
@@ -325,7 +350,7 @@
     padding: 4mm 5mm; background: var(--paper); page-break-inside: avoid;
   }
   .marca-card.outlier { border-top-color: var(--gp-red); }
-  .marca-card .marca-name { font-family: var(--font-display); font-weight: 800; font-size: 18pt; color: var(--gp-navy); line-height: 1; letter-spacing: -0.5px; }
+  .marca-card .marca-name { font-family: var(--serif); font-weight: 800; font-size: 18pt; color: var(--gp-navy); line-height: 1; letter-spacing: -0.5px; }
   .marca-card .marca-tag { font-family: var(--sans); font-size: 7.5pt; color: var(--g500); letter-spacing: 0.5px; text-transform: uppercase; font-weight: 600; margin-top: 1.5mm; }
   .marca-card.outlier .marca-tag { color: var(--gp-red); }
   .marca-card .marca-row { display: flex; justify-content: space-between; padding: 1.5mm 0; border-bottom: 1px solid var(--g200); font-size: 8.5pt; }
@@ -346,9 +371,9 @@
   }
   .palanca.dominante { border-left-color: var(--gp-red); background: rgba(200,16,46,0.04); }
   .palanca .palanca-header { font-family: var(--sans); font-size: 8pt; color: var(--gp-red); font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; }
-  .palanca .palanca-title { font-family: var(--font-display); font-weight: 700; font-size: 12pt; color: var(--gp-navy); margin-top: 1mm; line-height: 1.2; letter-spacing: -0.2px; }
+  .palanca .palanca-title { font-family: var(--serif); font-weight: 700; font-size: 12pt; color: var(--gp-navy); margin-top: 1mm; line-height: 1.2; letter-spacing: -0.2px; }
   .palanca .palanca-body { font-family: var(--sans); font-size: 9pt; color: var(--g700); margin-top: 2mm; line-height: 1.5; }
-  .palanca .palanca-monto { font-family: var(--font-display); font-weight: 800; font-size: 16pt; color: var(--gp-navy); white-space: nowrap; letter-spacing: -0.5px; }
+  .palanca .palanca-monto { font-family: var(--serif); font-weight: 800; font-size: 16pt; color: var(--gp-navy); white-space: nowrap; letter-spacing: -0.5px; }
   .palanca.dominante .palanca-monto { color: var(--gp-red); font-size: 18pt; }
 
   /* SILOS DE MARCA */
@@ -363,7 +388,7 @@
   .silo.minimo { border-top-color: var(--gold); }
   .silo.cuello { border-top-color: var(--gp-red); }
   .silo .director {
-    font-family: var(--font-display); font-weight: 700; font-size: 11pt;
+    font-family: var(--serif); font-weight: 700; font-size: 11pt;
     color: var(--gp-navy); margin-bottom: 1.5mm; letter-spacing: -0.2px;
   }
   .silo .director .tag {
@@ -411,7 +436,7 @@
     <div class="cover-control">
       <div class="cover-control-item">
         <strong>Versión</strong>
-        3.2
+        3.2.1
       </div>
       <div class="cover-control-item">
         <strong>Fecha de corte</strong>
