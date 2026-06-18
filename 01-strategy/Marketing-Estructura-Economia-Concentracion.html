@@ -44,7 +44,7 @@
     size: A4;
     margin: 20mm 18mm 22mm 18mm;
     @bottom-right { content: counter(page) " / " counter(pages); font-family: 'Inter', sans-serif; font-size: 8.5pt; color: #718096; font-weight: 500; }
-    @bottom-left  { content: "Marketing: Estructura, Economía y Concentración · v3.6 · Confidencial · Grupo Plasencia Automotriz"; font-family: 'Inter', sans-serif; font-size: 7.5pt; color: #A0AEC0; letter-spacing: 0.3px; }
+    @bottom-left  { content: "Marketing: Estructura, Economía y Concentración · v3.7 · Confidencial · Grupo Plasencia Automotriz"; font-family: 'Inter', sans-serif; font-size: 7.5pt; color: #A0AEC0; letter-spacing: 0.3px; }
     @top-right    { content: "Diagnóstico Integral · Dirección de Marketing Corporativo"; font-family: 'Inter', sans-serif; font-size: 7.5pt; color: #A0AEC0; letter-spacing: 0.3px; }
   }
   @page :first { @top-right { content: ""; } @bottom-right { content: ""; } @bottom-left { content: ""; } }
@@ -436,7 +436,7 @@
     <div class="cover-control">
       <div class="cover-control-item">
         <strong>Versión</strong>
-        3.6
+        3.7
       </div>
       <div class="cover-control-item">
         <strong>Fecha de corte</strong>
@@ -486,7 +486,7 @@
 <section class="page">
   <h1 class="section-title"><span class="num">Cap 0 · En 60 segundos</span>El Grupo no necesita gastar menos. <em>Necesita gobernar lo que ya gasta.</em></h1>
 
-  <p class="lead">El gasto MKT del Grupo cargado al P&amp;L en 2025 suma <strong>$212.6 millones de pesos</strong>: $197.5M de pauta contable (cubo 30065) más $15.1M de nómina cargada con cargas patronales (cubo 30046 área MKT centralizada + cubo 30067 supervisores digitales en sucursales). Equivalente al <strong>0.54% del revenue del Grupo</strong>, por debajo del benchmark del sector automotriz mexicano (0.8-1.5%). <strong>El problema no es el monto. Es la ausencia de gobierno corporativo:</strong> cada Director de Marca opera bajo su propio Plan de Marketing Anual con el OEM, sin coordinación cross-marca, sin sistema de medición unificado, y sin negociación cross-OEM. Ocho empresas paralelas que comparten dueño.</p>
+  <p class="lead">El gasto MKT del Grupo cargado al P&amp;L en 2025 suma <strong>$212.6 millones de pesos</strong>: $197.5M de pauta contable (cubo 30065) más $15.1M de nómina cargada con cargas patronales (cubo 30046 área MKT centralizada + cubo 30067 supervisores digitales en sucursales). Equivalente al <strong>0.54% del revenue del Grupo</strong>, por debajo del benchmark del sector automotriz mexicano (0.8-1.5%). El cubo 30051 de Cuentas por Pagar adiciona una vista nominal complementaria con <strong>285 razones sociales de proveedores MKT externos inferidos por ~$80M anualizados</strong> (Cap 3 §3.5) · vista útil para identificar consolidación cross-marca, no aditiva al total contable. <strong>El problema no es el monto. Es la ausencia de gobierno corporativo:</strong> cada Director de Marca opera bajo su propio Plan de Marketing Anual con el OEM, sin coordinación cross-marca, sin sistema de medición unificado, y sin negociación cross-OEM. Ocho empresas paralelas que comparten dueño.</p>
 
   <div class="hero-grid">
 
@@ -1288,30 +1288,46 @@
   <div class="warn-note"><strong>Por qué importa cerrar la taxonomía.</strong> Si <em>Promo 2</em> es efectivamente bono comercial OEM cargado como promoción, entonces parte de ese gasto debería ser <strong>fondeado por el OEM</strong> (rebate / co-inversión) y no absorbido por el Grupo. La anomalía 2026 (Promo 2 al 170% del presupuesto anual mientras Publicidad apenas se ejecuta al 6.6%) sugiere además reclasificación entre categorías. <em>Pendiente: validar con Contraloría + Acuerdos OEM firmados + movimientos bancarios para cerrar tanto la taxonomía como el riesgo de control sobre el rebate efectivamente recibido (ver Cap 5 §5.7).</em></div>
 
   <h2><span class="h-num">3.1.1</span>Top 15 cuentas MKT con gasto REAL ejercido 2026 parcial</h2>
-  <p>Cuentas contables del cubo 30067 LxL con <em>real ejercido</em> (no presupuesto). Cada fila es un asiento de gasto MKT que ya se erogó del bolsillo del Grupo (o vía rebate OEM si aplica · ver Cap 5).</p>
+  <p>Cuentas contables del cubo 30067 LxL con <em>real ejercido</em> (no presupuesto). La lectura honesta de este top 15 separa tres naturalezas distintas: <strong>(a)</strong> programas OEM bi-direccionales que el dealer ejecuta y el fabricante contraparte vía rebate, nota de crédito o pago directo · <strong>(b)</strong> reembolsos OEM ya documentados en libros que representan ingreso del Grupo registrado como gasto negativo · <strong>(c)</strong> gasto MKT puro del Grupo en publicidad y promoción tradicional o digital. Solo la tercera naturaleza sale del bolsillo del Grupo sin contraparte.</p>
   <table>
-    <thead><tr><th style="width:5%">#</th><th>Cuenta</th><th class="num" style="width:20%">Real MXN</th><th style="width:20%">Marca</th></tr></thead>
+    <thead><tr><th style="width:4%">#</th><th>Cuenta</th><th class="num" style="width:16%">Real MXN</th><th style="width:18%">Marca</th><th style="width:24%">Naturaleza</th></tr></thead>
     <tbody>
-      <tr class="highlight"><td>1</td><td><strong>PROMO MMDM PLANTA</strong></td><td class="num"><strong>$44,939,795</strong></td><td>Mazda</td></tr>
-      <tr><td>2</td><td>PROMOCION SANTA ANITA</td><td class="num">$4,115,268</td><td>Ford</td></tr>
-      <tr><td>3</td><td>PROMO DOS INTERNA BOLETINES</td><td class="num">$3,701,029</td><td>Mazda</td></tr>
-      <tr><td>4</td><td>PUBLICIDAD</td><td class="num">$2,161,589</td><td>Ford + Hyundai</td></tr>
-      <tr><td>5</td><td>PUBLICIDAD NUEVOS PLASENCIA</td><td class="num">$1,996,650</td><td>Mazda</td></tr>
-      <tr><td>6</td><td>PUBLICIDAD NUEVOS GALERIAS</td><td class="num">$1,900,950</td><td>Mazda</td></tr>
-      <tr><td>7</td><td>PROMOCION NUEVOS</td><td class="num">$1,664,661</td><td>Ford</td></tr>
-      <tr><td>8</td><td>PROMOCION DIGITAL</td><td class="num">$1,607,443</td><td>Mazda</td></tr>
-      <tr><td>9</td><td>PUBLICIDAD NUEVOS - STA ANITA</td><td class="num">$1,501,950</td><td>Mazda</td></tr>
-      <tr><td>10</td><td>PROMOCION</td><td class="num">$1,321,454</td><td>Ford</td></tr>
-      <tr><td>11</td><td>PROMO 2 AGENCIA MATRIZ</td><td class="num">$1,235,646</td><td>GWM</td></tr>
-      <tr><td>12</td><td>REEMBOLSO DE PUBLICIDAD</td><td class="num">$1,096,035</td><td>Ford</td></tr>
-      <tr><td>13</td><td>PROMO 2 NUEVO MATRIZ</td><td class="num">$1,087,799</td><td>Changan + GWM</td></tr>
-      <tr><td>14</td><td>PUBLICIDAD FRANJAS</td><td class="num">$1,071,480</td><td>Ford</td></tr>
-      <tr><td>15</td><td>PROMOCION TRADICIONAL MKT</td><td class="num">$861,124</td><td>Mazda</td></tr>
+      <tr class="highlight"><td>1</td><td><strong>PROMO MMDM PLANTA</strong></td><td class="num"><strong>$44,939,795</strong></td><td>Mazda</td><td>Programa OEM bi-direccional · Mazda Motor de México</td></tr>
+      <tr><td>2</td><td>PROMOCION SANTA ANITA</td><td class="num">$4,115,268</td><td>Ford</td><td>Gasto puro · sucursal</td></tr>
+      <tr><td>3</td><td>PROMO DOS INTERNA BOLETINES</td><td class="num">$3,701,029</td><td>Mazda</td><td>Programa OEM bi-direccional · MMDM interna</td></tr>
+      <tr><td>4</td><td>PUBLICIDAD</td><td class="num">$2,161,589</td><td>Ford + Hyundai</td><td>Gasto puro · publicidad genérica</td></tr>
+      <tr><td>5</td><td>PUBLICIDAD NUEVOS PLASENCIA</td><td class="num">$1,996,650</td><td>Mazda</td><td>Gasto puro · sucursal</td></tr>
+      <tr><td>6</td><td>PUBLICIDAD NUEVOS GALERIAS</td><td class="num">$1,900,950</td><td>Mazda</td><td>Gasto puro · sucursal</td></tr>
+      <tr><td>7</td><td>PROMOCION NUEVOS</td><td class="num">$1,664,661</td><td>Ford</td><td>Gasto puro · promoción genérica</td></tr>
+      <tr><td>8</td><td>PROMOCION DIGITAL</td><td class="num">$1,607,443</td><td>Mazda</td><td>Gasto puro · pauta digital</td></tr>
+      <tr><td>9</td><td>PUBLICIDAD NUEVOS - STA ANITA</td><td class="num">$1,501,950</td><td>Mazda</td><td>Gasto puro · sucursal</td></tr>
+      <tr><td>10</td><td>PROMOCION</td><td class="num">$1,321,454</td><td>Ford</td><td>Gasto puro · promoción genérica</td></tr>
+      <tr><td>11</td><td>PROMO 2 AGENCIA MATRIZ</td><td class="num">$1,235,646</td><td>GWM</td><td>Programa OEM bi-direccional · matriz GWM</td></tr>
+      <tr class="highlight"><td>12</td><td><strong>REEMBOLSO DE PUBLICIDAD</strong></td><td class="num"><strong>$1,096,035</strong></td><td>Ford</td><td><strong>Reembolso OEM · ingreso de Ford registrado</strong></td></tr>
+      <tr><td>13</td><td>PROMO 2 NUEVO MATRIZ</td><td class="num">$1,087,799</td><td>Changan + GWM</td><td>Programa OEM bi-direccional · matriz Changan / GWM</td></tr>
+      <tr><td>14</td><td>PUBLICIDAD FRANJAS</td><td class="num">$1,071,480</td><td>Ford</td><td>Gasto puro · pauta OOH / franjas</td></tr>
+      <tr><td>15</td><td>PROMOCION TRADICIONAL MKT</td><td class="num">$861,124</td><td>Mazda</td><td>Gasto puro · promoción tradicional</td></tr>
     </tbody>
   </table>
+
   <div class="callout">
-    <div class="callout-t">Lectura</div>
-    <p>Las top 15 cuentas concentran <strong>$70.3M = 79% del total</strong>. La cola larga (165 cuentas restantes) representa solo $18.8M. Esto significa que <em>la gestión presupuestal del 80% del gasto MKT del Grupo se puede auditar revisando quince partidas.</em></p>
+    <div class="callout-t">Lectura honesta del top 15</div>
+    <table style="margin-top:2mm;">
+      <thead><tr><th>Naturaleza</th><th class="num">Monto</th><th class="num">% del top 15</th><th>Implicación</th></tr></thead>
+      <tbody>
+        <tr class="highlight"><td><strong>Programa OEM bi-direccional</strong> · cuentas 1, 3, 11, 13</td><td class="num"><strong>$50.9M</strong></td><td class="num"><strong>72.4%</strong></td><td>El dealer ejecuta el programa comercial OEM al cliente · el OEM contraparte vía rebate, nota de crédito o pago directo · el neto del Grupo es lo que absorbe menos lo que el OEM reembolsa</td></tr>
+        <tr><td><strong>Gasto puro del Grupo</strong> · cuentas 2, 4-10, 14, 15</td><td class="num">$18.3M</td><td class="num">26.1%</td><td>Outflow neto del Grupo en publicidad y promoción tradicional o digital · es el universo donde la consolidación cross-marca opera sin negociar con el OEM</td></tr>
+        <tr><td><strong>Reembolso OEM documentado</strong> · cuenta 12</td><td class="num">$1.1M</td><td class="num">1.5%</td><td>Ford SÍ tiene rebate de publicidad documentado en libros del Grupo · ver §5.7</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="warn-note">
+    <strong>Ford no está al 0% de co-inversión OEM.</strong> El levantamiento Q3-Q4 2025 que alimenta el Cap 5 §5.7 reporta que Ford no rebatea publicidad al dealer. El cubo 30067 contradice ese reporte: la cuenta REEMBOLSO DE PUBLICIDAD para Ford registra $1,096,035 ejercidos en 2026 parcial como ingreso del Grupo. La cuantificación del rebate efectivo recibido del Ford 2025 contra el monto bruto cargado a las cuentas de Publicidad y Promoción Ford es entregable de Contraloría.
+  </div>
+
+  <div class="conv-note">
+    <strong>Recomendación a Contraloría · cierre del top 15.</strong> Cuantificar la contraparte efectiva del OEM 2025 contra el monto bruto cargado a las cuentas de Programa OEM bi-direccional (PROMO MMDM PLANTA, PROMO DOS INTERNA BOLETINES, PROMO 2 AGENCIA MATRIZ, PROMO 2 NUEVO MATRIZ) y contra el monto reembolsado en REEMBOLSO DE PUBLICIDAD Ford. El número neto que absorbe el Grupo en programa OEM 2025, una vez aplicada la contraparte, es la línea base contable que la Dirección de Marketing Corporativo lleva a la negociación PMA 2026-2027 con cada OEM (palanca del Cap 5 §5.7).
   </div>
 </section>
 
@@ -1423,11 +1439,17 @@
 
   <h2><span class="h-num">3.5.3</span>Lo que el documento NO afirma</h2>
   <div class="warn-note">
-    <strong>El listado es inferencia operativa, no afirmación contable.</strong> El cubo 30051 CxP del DCA no clasifica el gasto por concepto MKT (Cap 3 §3.2). El filtro por razón social captura el universo más probable de proveedores MKT pero (a) puede incluir proveedores con razón social que sugiere MKT pero opera otros conceptos (caso telecomunicaciones operativas), y (b) puede excluir proveedores MKT con razón social genérica (consultoras, freelance, personas físicas con nombre propio). El cierre contable exacto se entrega al ejecutar la ruta del Cap 3 §3.3: extensión del catálogo DCA con un cubo que cruce CxP × cuenta de gasto a nivel póliza, o auditoría manual de CFDIs por Contraloría.
+    <strong>El listado es inferencia operativa, no afirmación contable.</strong> El catálogo DCA actual del Grupo Plasencia no clasifica el gasto por concepto MKT en el cubo 30051 CxP (Cap 3 §3.2). El filtro por razón social captura el universo más probable de proveedores MKT pero (a) puede incluir proveedores con razón social que sugiere MKT pero opera otros conceptos (caso telecomunicaciones operativas), y (b) puede excluir proveedores MKT con razón social genérica (consultoras, freelance, personas físicas con nombre propio que facturan servicios MKT).
   </div>
 
-  <h2><span class="h-num">3.5.4</span>Solapamiento potencial con la pauta del cubo 30065</h2>
+  <h2><span class="h-num">3.5.4</span>El cierre contable nominal requiere extensión del catálogo DCA</h2>
   <div class="conv-note">
+    <strong>La identificación nominal definitiva de proveedores MKT por razón social y monto contable depende de que el DCA del Grupo categorice el gasto por línea estratégica en CxP.</strong> Hoy ese campo no existe en el catálogo: el cubo 30051 registra al proveedor contra una cuenta de pasivo genérica (CXP PROVEEDORES, CXP PROVEEDORES CONCESIÓN, ACREEDORES DIVERSOS) sin atar cada factura a su cuenta de gasto MKT del cubo 30067. Es decir, el sistema sabe a quién le pagamos pero no sabe en qué concepto operativo del marketing. La consecuencia es que toda lista nominal de proveedores MKT del Grupo es hoy inferencia (la del Cap 3 §3.5.1 lo es) y todo número de gasto MKT por proveedor es hoy estimación.<br/><br/>
+    <strong>La Dirección de Marketing Corporativo identifica como entregable necesario que Contraloría y el equipo de DCA extiendan el catálogo del cubo 30051 con la línea estratégica de gasto al nivel póliza</strong>, equivalente a la dimensión que el cubo 30067 LxL ya carga para el lado del gasto. Sin esa extensión, la decisión de consolidación de proveedores cross-marca del Cap 7 §7.5 se ejecuta con la lista inferida del §3.5.1 y se cierra contablemente con la auditoría manual de CFDIs por Contraloría · la primera ruta es estructural y permanente, la segunda es operativa y trimestral.
+  </div>
+
+  <h2><span class="h-num">3.5.5</span>Solapamiento potencial con la pauta del cubo 30065</h2>
+  <div class="warn-note">
     <strong>$80M anualizados de proveedores no equivalen a $80M adicionales al gasto MKT del Grupo.</strong> Una parte de estos pagos a proveedores externos puede estar contabilizada también como Promoción, Promo 2 o Publicidad en el cubo 30065 (los $197.5M de pauta verificada). En ese caso, la cifra del cubo 30051 y la del cubo 30065 cubren la misma transacción desde el lado del pasivo y desde el lado del gasto. El gasto MKT cargado al P&amp;L del Grupo en 2025 sigue siendo <strong>$212.6M = $197.5M pauta + $15.1M nómina cargada</strong>. Los $80M inferidos de proveedores externos son una vista nominal complementaria · útil para identificar consolidación cross-marca, no aditiva al total contable.
   </div>
 </section>
