@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marketing del Grupo · Resumen Ejecutivo del Deep Dive · Consejo Junio 2026 · Grupo Plasencia Automotriz</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@500;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gp-red: #C8102E; --gp-navy: #1E2740; --gp-slate: #2D3748;
+  --green: #48BB78; --deep-green: #276749;
+  --blue: #4299E1; --deep-blue: #2B6CB0;
+  --amber: #D69E2E; --gold: #ECC94B;
+  --bg: #F0F4F8; --paper: #FFFFFF; --near-white: #F7FAFC;
+  --g100: #EDF2F7; --g200: #E2E8F0; --g300: #CBD5E0; --g400: #A0AEC0; --g500: #718096; --g600: #4A5568;
+  --text: #2D3748;
+  --serif: 'Playfair Display', Georgia, serif;
+  --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { width:100%; height:100%; overflow:hidden; background:#0d1117; font-family:var(--sans); -webkit-font-smoothing:antialiased; }
+.deck { width:100vw; height:100vh; position:relative; }
+.slide {
+  overflow:hidden; position:absolute; top:0; left:0;
+  width:1280px; height:720px; transform-origin:top left;
+  opacity:0; visibility:hidden;
+  transition: opacity .6s cubic-bezier(.4,0,.2,1);
+  display:flex; flex-direction:column;
+  background: var(--bg); color: var(--text);
+  box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 12px 40px rgba(30,39,64,.12);
+}
+.slide.active { opacity:1; visibility:visible; }
+.slide.cover, .slide.closing { background: var(--gp-navy); color: var(--near-white); }
+
+#progress { opacity:.6; position:fixed; top:0; left:0; height:2px; background: var(--gold); z-index:9999; transition: width .4s cubic-bezier(.4,0,.2,1); }
+#counter { position:fixed; bottom:14px; right:22px; font-size:12px; font-weight:500; color: rgba(255,255,255,.85); z-index:9999; letter-spacing:.5px; font-family: var(--sans); background:rgba(0,0,0,.5); padding:6px 12px; border-radius:14px; backdrop-filter:blur(8px); }
+.nav-btn { position:fixed; top:50%; transform:translateY(-50%); z-index:9999; width:48px; height:64px; background:rgba(0,0,0,.55); backdrop-filter:blur(8px); color:#FFF; border:none; cursor:pointer; font-size:24px; display:flex; align-items:center; justify-content:center; transition:background .2s; border-radius:8px; }
+.nav-btn:hover { background:rgba(200,16,46,.85); }
+#nav-prev { left:18px; } #nav-next { right:18px; }
+#review-toggle { position:fixed; top:14px; right:22px; z-index:9999; background:rgba(0,0,0,.55); backdrop-filter:blur(8px); color:#FFF; border:none; cursor:pointer; font-size:11px; font-weight:600; font-family:var(--sans); padding:7px 14px; border-radius:14px; letter-spacing:.5px; text-transform:uppercase; transition:background .2s; }
+#review-toggle:hover { background:rgba(200,16,46,.85); }
+body.review-mode { overflow-y:auto; background:#0A0F1F; padding:32px 0; }
+body.review-mode .slide { position:relative !important; opacity:1 !important; visibility:visible !important; transform:none !important; left:auto !important; top:auto !important; margin:0 auto 32px auto; box-shadow:0 8px 32px rgba(0,0,0,.4); }
+body.review-mode #nav-prev, body.review-mode #nav-next, body.review-mode #counter, body.review-mode #progress { display:none; }
+
+.cover-inner { padding: 60px 80px 50px 80px; flex:1; display:flex; flex-direction:column; justify-content:space-between;
+  background: radial-gradient(ellipse at 100% 0%, rgba(236,201,75,.20) 0%, transparent 55%), radial-gradient(ellipse at 0% 100%, rgba(200,16,46,.16) 0%, transparent 55%), var(--gp-navy); }
+.cover-top { display:flex; justify-content:space-between; align-items:flex-start; }
+.cover-mark { font-family:var(--sans); font-weight:700; font-size:11pt; letter-spacing:4px; color: var(--gold); text-transform:uppercase; }
+.cover-mark span { display:block; font-weight:400; color: rgba(255,255,255,.6); margin-top:4px; letter-spacing:1px; font-size:9pt; }
+.cover-confidencial { font-family:var(--sans); font-weight:700; font-size:9.5pt; letter-spacing:3.5px; color: var(--gp-red); text-transform:uppercase; }
+.cover-rule { width:140px; height:1px; background: var(--gold); margin: 14px 0 0 0; }
+.cover-eyebrow { font-family:var(--sans); font-size:11pt; font-weight:700; letter-spacing:5px; color: var(--gp-red); text-transform:uppercase; margin-top:22px; }
+.cover-title { font-family:var(--serif); font-weight:800; font-size:54pt; line-height:1.04; letter-spacing:-1.8px; margin-top:16px; color: var(--near-white); max-width:1100px; }
+.cover-title em { font-style:italic; color: var(--gold); font-weight:700; }
+.cover-subtitle { font-family:var(--serif); font-weight:500; font-style:italic; font-size:16pt; color: rgba(255,255,255,.86); margin-top:18px; letter-spacing:-.2px; line-height:1.4; max-width:980px; }
+.cover-meta { display:grid; grid-template-columns: repeat(4, 1fr); gap: 16px; border-top: 1px solid rgba(255,255,255,.18); padding-top:18px; margin-top: 28px; }
+.cover-meta-block { font-size:9pt; color: rgba(255,255,255,.7); line-height:1.6; font-family: var(--sans); }
+.cover-meta-block strong { display:block; color: var(--gold); font-weight:700; font-size:8.5pt; letter-spacing:1.5px; margin-bottom:3px; text-transform:uppercase; }
+.cover-meta-block span { color: rgba(255,255,255,.92); font-weight:500; font-size:10pt; }
+
+.content { padding: 50px 80px 50px 80px; flex:1; display:flex; flex-direction:column; gap: 18px; position:relative; }
+.section-num { font-family:var(--sans); font-size:10pt; font-weight:700; letter-spacing:4.5px; color: var(--gp-red); text-transform:uppercase; }
+.slide-h1 { font-family:var(--serif); font-weight:800; font-size:38pt; line-height:1.08; letter-spacing:-1.2px; color: var(--gp-navy); margin-top:6px; }
+.slide-h1 em { font-style:italic; color: var(--gp-red); font-weight:700; }
+.slide-lede { font-family:var(--sans); font-size:13pt; color: var(--g600); line-height:1.5; margin-top: 4px; max-width: 1100px; }
+.slide-lede strong { color: var(--gp-navy); font-weight:700; }
+.slide-lede em { font-style: italic; color: var(--gp-navy); }
+.slide-footer { position:absolute; bottom:24px; left:80px; right:80px; display:flex; justify-content:space-between; align-items:center; font-family: var(--sans); font-size: 8.5pt; color: var(--g500); border-top: 1px solid var(--g200); padding-top: 10px; }
+.slide-footer .dot { display:inline-block; width:8px; height:8px; background: var(--gp-red); border-radius:50%; margin-right:6px; vertical-align:middle; }
+
+/* KPI cards */
+.kpi-grid { display:grid; gap:18px; }
+.kpi-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+.kpi-grid.cols-4 { grid-template-columns: repeat(4, 1fr); }
+.kpi-card { background: var(--paper); border: 1px solid var(--g200); border-radius: 10px; padding: 22px 24px; position:relative; box-shadow: 0 1px 3px rgba(30,39,64,.05); }
+.kpi-card::before { content:""; position:absolute; top:0; left:0; right:0; height:4px; background: var(--gp-red); border-radius: 10px 10px 0 0; }
+.kpi-card.navy::before { background: var(--gp-navy); }
+.kpi-card.gold::before { background: var(--gold); }
+.kpi-card.amber::before { background: var(--amber); }
+.kpi-card.green::before { background: var(--green); }
+.kpi-label { font-family:var(--sans); font-size:9pt; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color: var(--g500); margin-bottom: 8px; }
+.kpi-num { font-family:var(--serif); font-weight:900; font-size:42pt; line-height:1.02; letter-spacing:-1.8px; color: var(--gp-navy); }
+.kpi-num.red { color: var(--gp-red); }
+.kpi-num.gold { color: var(--amber); }
+.kpi-num.green { color: var(--deep-green); }
+.kpi-sub { font-family: var(--sans); font-size: 10pt; color: var(--g600); margin-top: 8px; line-height: 1.5; }
+.kpi-sub strong { color: var(--gp-navy); font-weight:700; }
+
+/* Pilar cards */
+.pilar-grid { display:grid; grid-template-columns: repeat(3, 1fr); gap:16px; }
+.pilar-card { background: var(--paper); border: 1px solid var(--g200); border-left: 4px solid var(--gp-navy); border-radius: 6px; padding: 20px 22px; box-shadow: 0 1px 2px rgba(30,39,64,.04); display:flex; flex-direction:column; gap:8px; }
+.pilar-card.gold { border-left-color: var(--gold); }
+.pilar-card.red { border-left-color: var(--gp-red); }
+.pilar-card.green { border-left-color: var(--green); }
+.pilar-header { font-family:var(--sans); font-size:9pt; font-weight:700; letter-spacing:1.6px; text-transform:uppercase; color: var(--gp-navy); }
+.pilar-card.gold .pilar-header { color: var(--amber); }
+.pilar-card.red .pilar-header { color: var(--gp-red); }
+.pilar-card.green .pilar-header { color: var(--deep-green); }
+.pilar-title { font-family:var(--serif); font-weight:800; font-size:18pt; line-height:1.2; letter-spacing:-.4px; color: var(--gp-navy); }
+.pilar-body { font-family:var(--sans); font-size:11pt; color: var(--g600); line-height:1.5; }
+.pilar-body strong { color: var(--gp-navy); font-weight:700; }
+.pilar-num { display:inline-block; font-family:var(--serif); font-weight:900; font-size:22pt; line-height:1; color: var(--gp-red); margin-bottom: 4px; }
+.pilar-card.gold .pilar-num { color: var(--amber); }
+.pilar-card.green .pilar-num { color: var(--deep-green); }
+
+/* Tables */
+table.deck-table { width:100%; border-collapse: collapse; font-family: var(--sans); font-size: 11pt; background: var(--paper); border-radius: 8px; overflow:hidden; box-shadow: 0 1px 2px rgba(30,39,64,.04); }
+.deck-table th { background: var(--gp-navy); color: var(--near-white); font-weight:700; font-size:9pt; letter-spacing:1.4px; text-transform:uppercase; padding: 12px 16px; text-align:left; }
+.deck-table th.num { text-align:right; }
+.deck-table td { padding: 12px 16px; border-bottom: 1px solid var(--g200); color: var(--g600); vertical-align: middle; line-height:1.45; }
+.deck-table tr:nth-child(even) td { background: var(--g100); }
+.deck-table td strong { color: var(--gp-navy); font-weight:700; }
+.deck-table td.num { text-align:right; font-variant-numeric: tabular-nums; font-weight: 700; color: var(--gp-navy); }
+.deck-table tr.highlight td { background: rgba(72,187,120,.10); }
+.deck-table tr.highlight td strong { color: var(--deep-green); }
+.deck-table tr.total td { background: var(--gp-navy); color: var(--near-white); font-weight: 700; }
+.deck-table tr.total td strong { color: var(--gold); }
+.deck-table tr.total td.num { color: var(--gold); font-weight: 800; }
+.ask-num { background: var(--gp-red); color: var(--near-white); font-family: var(--serif); font-weight: 800; font-size: 14pt; text-align: center; width: 36px; vertical-align: middle; }
+
+/* Callouts */
+.callout-big { background: linear-gradient(to right, rgba(30,39,64,0.06), rgba(30,39,64,0.01)); border-left: 4px solid var(--gp-navy); padding: 18px 24px; border-radius: 0 6px 6px 0; }
+.callout-big.red { background: linear-gradient(to right, rgba(200,16,46,0.07), rgba(200,16,46,0.01)); border-left-color: var(--gp-red); }
+.callout-big.gold { background: linear-gradient(to right, rgba(236,201,75,0.14), rgba(236,201,75,0.02)); border-left-color: var(--gold); }
+.callout-big.green { background: linear-gradient(to right, rgba(72,187,120,0.10), rgba(72,187,120,0.02)); border-left-color: var(--green); }
+.callout-t { font-family: var(--serif); font-weight: 700; font-style: italic; color: var(--gp-navy); margin-bottom: 6px; font-size: 15pt; letter-spacing: -0.3px; line-height: 1.2; }
+.callout-big.red .callout-t { color: var(--gp-red); }
+.callout-big p { font-family: var(--sans); font-size: 11pt; color: var(--g600); line-height: 1.55; }
+.callout-big p strong { color: var(--gp-navy); font-weight:700; }
+.callout-big.red p strong { color: var(--gp-red); }
+
+/* Killer metric */
+.killer-wrap { display:grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 16px; margin-top: 6px; }
+.killer-main { background: var(--gp-navy); color: var(--near-white); border-radius: 12px; padding: 30px 32px; position:relative; overflow:hidden; }
+.killer-main::before { content:""; position:absolute; top:0; right:0; width:220px; height:220px; background: radial-gradient(circle, rgba(236,201,75,.24) 0%, transparent 70%); }
+.killer-main .label { font-family: var(--sans); font-size: 10pt; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); }
+.killer-main .num { font-family: var(--serif); font-weight: 900; font-size: 100pt; line-height: 1; letter-spacing: -4px; color: var(--gold); margin-top: 6px; }
+.killer-main .sub { font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 15pt; color: rgba(255,255,255,.92); margin-top: 10px; line-height: 1.3; }
+.killer-side { background: var(--paper); border: 1px solid var(--g200); border-top: 4px solid var(--gp-red); border-radius: 10px; padding: 20px 22px; display:flex; flex-direction:column; justify-content:center; box-shadow: 0 1px 2px rgba(30,39,64,.04); }
+.killer-side.navy { border-top-color: var(--gp-navy); }
+.killer-side .label { font-family: var(--sans); font-size: 9pt; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gp-red); margin-bottom: 8px; }
+.killer-side.navy .label { color: var(--gp-navy); }
+.killer-side .num { font-family: var(--serif); font-weight: 900; font-size: 36pt; line-height: 1.05; letter-spacing: -1.4px; color: var(--gp-navy); }
+.killer-side .sub { font-family: var(--sans); font-size: 9.5pt; color: var(--g600); margin-top: 8px; line-height: 1.5; }
+
+/* Badges del catálogo Contraloría */
+.cat-badge { display:inline-block; font-family: var(--sans); font-size: 9.5pt; font-weight: 700; letter-spacing: 0.7px; text-transform: uppercase; padding: 4px 12px; border-radius: 3px; white-space: nowrap; }
+.cat-trad { background: rgba(183,121,31,0.16); color: #7B3F00; }
+.cat-digital { background: rgba(43,108,176,0.14); color: #2C5282; }
+.cat-rpac { background: rgba(72,187,120,0.14); color: #22543D; }
+
+/* Closing */
+.closing-inner { padding: 80px 80px; flex:1; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; background: radial-gradient(ellipse at center, rgba(236,201,75,.10) 0%, transparent 60%), var(--gp-navy); }
+.closing-eyebrow { font-family: var(--sans); font-size: 10pt; font-weight: 700; letter-spacing: 5px; color: var(--gold); text-transform: uppercase; }
+.closing-rule { width: 80px; height: 1px; background: var(--gold); margin: 16px auto; opacity: .7; }
+.closing-h { font-family: var(--serif); font-weight: 800; font-size: 58pt; line-height: 1.05; letter-spacing: -2px; color: var(--near-white); margin-top: 12px; max-width: 1020px; }
+.closing-h em { font-style: italic; color: var(--gold); font-weight: 700; }
+.closing-sub { font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 16pt; color: rgba(255,255,255,.78); margin-top: 28px; line-height: 1.4; max-width: 900px; }
+
+@media print {
+  @page { size: 1280px 720px landscape; margin: 0; }
+  html, body { background: white; overflow: visible; }
+  .slide { position: relative !important; opacity: 1 !important; visibility: visible !important; transform: none !important; left: auto !important; top: auto !important; page-break-after: always; box-shadow: none; }
+  #progress, #counter, .nav-btn, #review-toggle { display: none !important; }
+}
+</style>
+</head>
+<body>
+
+<div id="progress"></div>
+<div id="counter">1 / 12</div>
+<button id="nav-prev" class="nav-btn">‹</button>
+<button id="nav-next" class="nav-btn">›</button>
+<button id="review-toggle">Ver todo ↕</button>
+
+<div class="deck" id="deck">
+
+<!-- 1 · COVER -->
+<section class="slide cover active">
+  <div class="cover-inner">
+    <div class="cover-top">
+      <div class="cover-mark">Resumen ejecutivo · Marketing del Grupo
+        <span>Dirección de Marketing Corporativo · Grupo Plasencia Automotriz</span>
+      </div>
+      <div class="cover-confidencial">Confidencial</div>
+    </div>
+    <div>
+      <div class="cover-rule"></div>
+      <div class="cover-eyebrow">Sesión del Consejo · Junio 2026</div>
+      <div class="cover-title">Marketing del <em>Grupo Plasencia.</em></div>
+      <div class="cover-subtitle">Doce slides con lo que aprendimos en 90 días de piloto, lo que queremos hacer en los próximos 24 meses y qué necesitamos del Consejo para hacerlo. El Deep Dive completo acompaña como anexo técnico.</div>
+    </div>
+    <div class="cover-meta">
+      <div class="cover-meta-block"><strong>Para</strong><span>Consejo Directivo</span></div>
+      <div class="cover-meta-block"><strong>De</strong><span>Jesús Pérez Porras<br/>Director MKT Corporativo</span></div>
+      <div class="cover-meta-block"><strong>Ya invertido</strong><span>Piloto en producción desde 17 abril 2026</span></div>
+      <div class="cover-meta-block"><strong>Ask del Consejo</strong><span>Mandato + $1.5M inversión Fase 1</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 2 · EL PUNTO DE PARTIDA -->
+<section class="slide">
+  <div class="content">
+    <div class="section-num">El Marketing del Grupo hoy</div>
+    <h1 class="slide-h1">El punto de partida <em>contable.</em></h1>
+    <p class="slide-lede">Cifras del DCA cerradas 2025. Sin estimaciones, sin proxies. Esto es lo que el Grupo invierte hoy en Marketing y cómo se compara con la industria.</p>
+
+    <div class="kpi-grid cols-4" style="margin-top: 12px;">
+      <div class="kpi-card navy">
+        <div class="kpi-label">Lo que vende el Grupo</div>
+        <div class="kpi-num">$39,021M</div>
+        <div class="kpi-sub">revenue 2025 · ocho marcas consolidadas · <strong>7.8% utilidad operativa</strong></div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Lo que invierte en Marketing</div>
+        <div class="kpi-num red">$212.6M</div>
+        <div class="kpi-sub">pauta + nómina cargada · <strong>0.54% del revenue</strong> · debajo del piso del sector (0.8-1.5%)</div>
+      </div>
+      <div class="kpi-card gold">
+        <div class="kpi-label">Cómo lo invierte</div>
+        <div class="kpi-num gold" style="font-size: 28pt;">Marca por marca</div>
+        <div class="kpi-sub">cada Director con su agencia y su PMA OEM · <strong>cero coordinación cross-marca</strong></div>
+      </div>
+      <div class="kpi-card green">
+        <div class="kpi-label">Lo que probamos en 90 días</div>
+        <div class="kpi-num green" style="font-size: 28pt;">Sí se puede</div>
+        <div class="kpi-sub">arrancamos un piloto con 4 marcas · <strong>primera vez que medimos qué peso de pauta produjo qué venta</strong></div>
+      </div>
+    </div>
+
+    <div class="callout-big" style="margin-top: 22px;">
+      <p style="font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 15pt; color: var(--gp-navy); line-height: 1.4;">$212 millones al año no es poco. Pero el problema del Marketing del Grupo no es <em>cuánto</em> invertimos — es <strong style="font-style: normal;">cómo lo manejamos</strong>.</p>
+    </div>
+  </div>
+  <div class="slide-footer"><span>Slide 2 · Punto de partida contable · DCA cubos 30060 + 30065 + 30046 + 30067</span><span><span class="dot"></span>Grupo Plasencia · Dirección MKT Corporativo</span></div>
+</section>
+
+<!-- 3 · EL PILOTO -->
+<section class="slide">
+  <div class="content">
+    <div class="section-num">Lo que construimos en 90 días</div>
+    <h1 class="slide-h1">Un sistema para <em>medir lo que invertimos.</em></h1>
+    <p class="slide-lede">Por primera vez en el Grupo, tenemos manera de rastrear cada venta digital hasta el peso de pauta que la produjo. Lo arrancamos el <strong>17 de abril de 2026</strong> con cuatro marcas piloto.</p>
+
+    <div class="kpi-grid cols-4" style="margin-top: 12px;">
+      <div class="kpi-card navy">
+        <div class="kpi-label">Días de operación</div>
+        <div class="kpi-num">90</div>
+        <div class="kpi-sub">17 abril → 17 junio 2026 · piloto vivo</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Marcas piloto</div>
+        <div class="kpi-num">4</div>
+        <div class="kpi-sub">Seminuevos · Hyundai · Stellantis · GAC</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Oportunidades digitales</div>
+        <div class="kpi-num">1,445</div>
+        <div class="kpi-sub">leads digitales auditados</div>
+      </div>
+      <div class="kpi-card gold">
+        <div class="kpi-label">Cierres reportables</div>
+        <div class="kpi-num gold">43</div>
+        <div class="kpi-sub">ventas auditadas contra los libros del DCA</div>
+      </div>
+    </div>
+
+    <div class="callout-big green" style="margin-top: 22px;">
+      <div class="callout-t" style="color: var(--deep-green);">El dato que importa</div>
+      <p>Las 43 ventas las podemos <strong>rastrear una por una hasta el anuncio que las generó</strong>. Eso antes no se podía hacer en ninguna marca del Grupo. Es la primera infraestructura del Grupo para medir el retorno del peso invertido en Marketing digital con dato contable verificable.</p>
+    </div>
+  </div>
+  <div class="slide-footer"><span>Slide 3 · Lo que construimos · snapshot oficial 15-jun-2026</span><span><span class="dot"></span>Grupo Plasencia · Dirección MKT Corporativo</span></div>
+</section>
+
+<!-- 4 · EL HALLAZGO -->
+<section class="slide">
+  <div class="content">
+    <div class="section-num">Lo que el piloto demostró</div>
+    <h1 class="slide-h1">Mismo embudo, <em>distinta gestión.</em></h1>
+    <p class="slide-lede">Las tres marcas piloto (Seminuevos · Hyundai · Stellantis) comparten el mismo embudo digital. El sistema técnico es idéntico. <strong>La diferencia es de gestión del cliente después de que llega.</strong></p>
+
+    <table class="deck-table" style="margin-top: 12px;">
+      <thead><tr><th>Marca</th><th class="num">Oportunidades</th><th class="num">Cierres</th><th class="num">Costo por cliente</th><th>Cómo se compara</th></tr></thead>
+      <tbody>
+        <tr class="highlight"><td><strong>Seminuevos</strong></td><td class="num">717</td><td class="num">~21</td><td class="num">$1,571</td><td><strong>ROAS 39.5×</strong> · cierra digital con IA Vambe</td></tr>
+        <tr><td><strong>Hyundai</strong></td><td class="num">443</td><td class="num">1</td><td class="num">$67 por lead</td><td>0.2% conversión · 75% del cohort descartado sin primera llamada</td></tr>
+        <tr><td><strong>Stellantis</strong></td><td class="num">266</td><td class="num">1</td><td class="num">$108 por lead</td><td>0.4% conversión · 78% atorado en "Por contactar"</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout-big red" style="margin-top: 18px;">
+      <p style="font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 16pt; color: var(--gp-navy); line-height: 1.4;">Lo mismo en el resto del Grupo · <strong style="font-style: normal; color: var(--gp-red);">Mazda cierra 22 de cada 100 leads · Hyundai 7 · GAC 6.</strong> Pagamos lo mismo por traer al cliente. Cerramos un tercio. La diferencia no es de marketing · es de cómo cada marca trata al cliente cuando llega.</p>
+    </div>
+  </div>
+  <div class="slide-footer"><span>Slide 4 · Mismo embudo digital, distinta gestión humana · piloto Motor de Atribución MVP</span><span><span class="dot"></span>Grupo Plasencia · Dirección MKT Corporativo</span></div>
+</section>
+
+<!-- 5 · EL PROBLEMA -->
+<section class="slide">
+  <div class="content">
+    <div class="section-num">El diagnóstico</div>
+    <h1 class="slide-h1">No es problema de monto. <em>Es de gobierno.</em></h1>
+    <p class="slide-lede">Los $212.6M anuales se gastan sin coordinación cross-marca, sin estándar de medición unificado, sin negociación cross-OEM sobre el volumen agregado del Grupo, sin auditoría folio sobre proveedores externos. <em>Ocho marcas operando como ocho empresas paralelas que comparten dueño.</em></p>
+
+    <div class="pilar-grid" style="margin-top: 14px;">
+      <div class="pilar-card red">
+        <div class="pilar-num">1</div>
+        <div class="pilar-header">Conversión digital dispersa</div>
+        <div class="pilar-title">4.35% blended</div>
+        <div class="pilar-body">Mazda <strong>22% gold</strong> · Hyundai <strong>6.9%</strong> · GAC <strong>5.6%</strong>. La diferencia es gestión humana del lead, no OEM ni canal digital.</div>
+      </div>
+      <div class="pilar-card">
+        <div class="pilar-num">2</div>
+        <div class="pilar-header">Proveedores sin consolidación</div>
+        <div class="pilar-title">285 razones sociales · ~$80M</div>
+        <div class="pilar-body">Top 30 concentra <strong>81% del universo</strong>. Dos razones sociales facturan a 5-6 marcas. La consolidación cross-marca es viable hoy.</div>
+      </div>
+      <div class="pilar-card gold">
+        <div class="pilar-num">3</div>
+        <div class="pilar-header">Co-inversión OEM fragmentada</div>
+        <div class="pilar-title">$32-48M sobre la mesa</div>
+        <div class="pilar-body">Benchmark sector <strong>20-30%</strong> sobre ~$160M pauta eligible. Ocho conversaciones paralelas · cero volumen agregado. Ventana 2026-2027 abierta.</div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer"><span>Slide 5 · El diagnóstico · cifras DCA verificadas</span><span><span class="dot"></span>Grupo Plasencia · Dirección MKT Corporativo</span></div>
+</section>
+
+<!-- 6 · CONTRALORIA HALLAZGO -->
+<section class="slide">
+  <div class="content">
+    <div class="section-num">El aparato contable ya se preparó</div>
+    <h1 class="slide-h1">Contraloría <em>ya tiene</em> el catálogo.</h1>
+    <p class="slide-lede">Contraloría del Grupo publicó el <strong>15 de octubre de 2025</strong> la guía formal del catálogo MKT. Desde esa fecha, cada peso de gasto MKT del Grupo cae obligatoriamente en uno de tres sub-buckets oficiales del centro de costo Promo1.</p>
+
+    <div class="pilar-grid" style="margin-top: 16px;">
+      <div class="pilar-card">
+        <div class="pilar-header" style="margin-bottom: 6px;"><span class="cat-badge cat-trad">MKT Tradicional</span></div>
+        <div class="pilar-title" style="font-size: 14pt;">Medios offline · materiales · stands</div>
+        <div class="pilar-body">Pauta TV · radio · impresos · lonas · stands publicitarios · expos · producción audiovisual · personal externo promocional · mobiliario.</div>
+      </div>
+      <div class="pilar-card">
+        <div class="pilar-header" style="margin-bottom: 6px;"><span class="cat-badge cat-digital">MKT Digital</span></div>
+        <div class="pilar-title" style="font-size: 14pt;">Campañas digitales · agencias · plataformas</div>
+        <div class="pilar-body">Pauta digital · agencias de publicidad y diseño · servicios de fotografía · <strong>agencia de compras de medios</strong> · apps · páginas internet · influencers.</div>
+      </div>
+      <div class="pilar-card">
+        <div class="pilar-header" style="margin-bottom: 6px;"><span class="cat-badge cat-rpac">RP / AC</span></div>
+        <div class="pilar-title" style="font-size: 14pt;">Activaciones con clientes · eventos · regalos</div>
+        <div class="pilar-body">Souvenirs · bebidas · alimentos · limpieza y seguridad eventos · permisos · imagen y vestimenta · regalos especiales. <strong>Ingreso Reembolso Planta</strong> en los 3 buckets.</div>
+      </div>
+    </div>
+
+    <div class="callout-big green" style="margin-top: 18px;">
+      <p style="font-size: 11.5pt;"><strong>El cubo 30067 LxL del DCA ya refleja esta clasificación</strong> · 775,500 filas de gasto MKT 2025-2026 YTD con la taxonomía vigente. El aparato contable del Grupo ya se preparó para gobierno corporativo. <em>Falta el cruce folio entre el cubo de proveedores (30051) y el cubo de clasificación (30067) para entregar la lista nominal contable</em> · y falta el mandato del Consejo para ejecutar.</p>
+    </div>
+  </div>
+  <div class="slide-footer"><span>Slide 6 · Catálogo Contraloría vigente desde 15-oct-2025 · verificado en D1 bitam-mkt</span><span><span class="dot"></span>Grupo Plasencia · Dirección MKT Corporativo</span></div>
+</section>
+
+<!-- 7 · LO QUE QUEREMOS HACER -->
+<section class="slide">
+  <div class="content">
+    <div class="section-num">Lo que queremos hacer en 24 meses</div>
+    <h1 class="slide-h1">Cuatro cosas <em>concretas.</em></h1>
+    <p class="slide-lede">Cada una con resultado medible que enseñamos al Consejo cada trimestre. Sin presupuesto incremental al cierre 2025. Inversión total acotada a $5M en 24 meses.</p>
+
+    <div class="kpi-grid cols-4" style="margin-top: 14px;">
+      <div class="kpi-card navy">
+        <div class="kpi-label">1 · Extender el sistema</div>
+        <div class="kpi-num navy" style="font-size: 28pt; line-height:1.1;">A las 4 marcas faltantes</div>
+        <div class="kpi-sub">Mazda · Ford · Changan · GWM · Isuzu entran al modelo del piloto · misma medición auditada vs DCA</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">2 · Comprar como Grupo</div>
+        <div class="kpi-num red" style="font-size: 28pt; line-height:1.1;">2 agencias únicas</div>
+        <div class="kpi-sub">Consolidar 285 proveedores → 2 agencias principales (digital + análogo) · descuento de volumen + eliminación duplicidades</div>
+      </div>
+      <div class="kpi-card gold">
+        <div class="kpi-label">3 · Renegociar con OEMs</div>
+        <div class="kpi-num gold" style="font-size: 28pt; line-height:1.1;">Por volumen del Grupo</div>
+        <div class="kpi-sub">Cross-OEM 2026-2027 acompañando a cada Director · benchmark sector 20-30% sobre $160M eligible · titularidad PMA preservada</div>
+      </div>
+      <div class="kpi-card green">
+        <div class="kpi-label">4 · Hacer en Hyundai+GAC lo que Mazda hace</div>
+        <div class="kpi-num green" style="font-size: 28pt; line-height:1.1;">Subir conversión</div>
+        <div class="kpi-sub">De 6.9% / 5.6% a 10% mediana sector con el playbook Mazda · cierre operativo del sistema octubre 2026 · reporte trimestral al Consejo</div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer"><span>Slide 7 · Las cuatro cosas concretas · 24 meses · $5M inversión total</span><span><span class="dot"></span>Grupo Plasencia · Dirección MKT Corporativo</span></div>
+</section>
+
+<!-- 8 · CUÁNTO SACAMOS -->
+<section class="slide">
+  <div class="content">
+    <div class="section-num">Plata que está en la mesa cada año</div>
+    <h1 class="slide-h1">$50-70M en eficiencia. <em>+$1,220M en venta.</em></h1>
+    <p class="slide-lede">Lo primero (eficiencia operativa) no requiere vender un auto más · es solo dejar de pagar de más y comprar como Grupo. Lo segundo (revenue por conversión) es la palanca dominante, por orden de magnitud por encima.</p>
+
+    <table class="deck-table" style="margin-top: 12px;">
+      <thead><tr><th>De dónde sale</th><th class="num">Conservador</th><th class="num">Realista</th><th class="num">Optimista</th></tr></thead>
+      <tbody>
+        <tr><td>Consolidación cross-marca de proveedores ($80M cubo 30051)</td><td class="num">$8M</td><td class="num">$10M</td><td class="num">$12M</td></tr>
+        <tr><td>Co-inversión OEM al benchmark del sector</td><td class="num">$32M</td><td class="num">$40M</td><td class="num">$48M</td></tr>
+        <tr><td>Equipo más profesional · menos personas, más senior</td><td class="num">$5M</td><td class="num">$8.75M</td><td class="num">$11M</td></tr>
+        <tr><td>Central de Medios + recuperación IVA acreditable</td><td class="num">$1.5M</td><td class="num">$2.5M</td><td class="num">$3.2M</td></tr>
+        <tr class="highlight"><td><strong>Lo que sacamos por eficiencia (palancas 1-4)</strong></td><td class="num"><strong>$46.5M</strong></td><td class="num"><strong>$61.25M</strong></td><td class="num"><strong>$74.2M</strong></td></tr>
+        <tr><td>Subir +1pp conversión digital (palanca dominante)</td><td class="num">+$330M</td><td class="num">+$661M</td><td class="num">+$1,983M</td></tr>
+        <tr class="total"><td><strong>Plata total al año</strong></td><td class="num"><strong>$376.5M</strong></td><td class="num"><strong>$722.25M</strong></td><td class="num"><strong>$2,057.2M</strong></td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout-big gold" style="margin-top: 14px;">
+      <p style="font-size: 11.5pt;"><strong>Por marca: Hyundai 6.9% → 10% = +$874M anuales. GAC 5.6% → 10% = +$346M.</strong> Solo esas dos marcas concentran <strong>+$1,220M de venta incremental al año</strong> si las llevamos a la mediana del sector. Sin tocar a Mazda. Sin tocar la pauta total del Grupo.</p>
+    </div>
+  </div>
+  <div class="slide-footer"><span>Slide 8 · La plata sobre la mesa · cifras DCA + Motor de Atribución MVP</span><span><span class="dot"></span>Grupo Plasencia · Dirección MKT Corporativo</span></div>
+</section>
+
+<!-- 9 · KILLER METRIC -->
+<section class="slide">
+  <div class="content">
+    <div class="section-num">El killer metric</div>
+    <h1 class="slide-h1">9.3× <em>antes</em> de tocar conversión.</h1>
+    <p class="slide-lede">Sobre $5M de inversión, retornamos $46.5M en captura operativa contable (palancas 1-4). Sin que un solo punto porcentual de conversión digital se mueva. <em>La conversión es el bono · la eficiencia operativa sola ya hace el caso.</em></p>
+
+    <div class="killer-wrap" style="margin-top: 14px;">
+      <div class="killer-main">
+        <div class="label">ROI conservador palancas 1-4</div>
+        <div class="num">9.3×</div>
+        <div class="sub">Sobre $5M invertidos · $46.5M retorno operativo contable. El bono · no la apuesta.</div>
+      </div>
+      <div class="killer-side navy">
+        <div class="label">Captura anual sostenible</div>
+        <div class="num">$50-70M</div>
+        <div class="sub">Sin tocar pauta total · sin presupuesto incremental al cierre 2025 · cada año sin actuar, esta cifra queda en la mesa.</div>
+      </div>
+      <div class="killer-side">
+        <div class="label">Hyundai + GAC al 10%</div>
+        <div class="num">+$1,220M</div>
+        <div class="sub">Revenue incremental anual de solo dos marcas al converger a la mediana del sector.</div>
+      </div>
+    </div>
+
+    <div class="callout-big" style="margin-top: 16px;">
+      <p style="font-size: 11pt;"><strong>Benchmark sectorial.</strong> El Grupo invierte <strong>0.54% del revenue</strong> en Marketing · por debajo del piso del sector automotriz mexicano (0.8-1.5%). Esta estrategia no propone gastar más. Propone gobernar el gasto actual con la disciplina que el benchmark sectorial ya aplica desde hace una década.</p>
+    </div>
+  </div>
+  <div class="slide-footer"><span>Slide 9 · El killer metric · ROI antes de tocar la palanca dominante</span><span><span class="dot"></span>Grupo Plasencia · Dirección MKT Corporativo</span></div>
+</section>
+
+<!-- 10 · ASK -->
+<section class="slide">
+  <div class="content">
+    <div class="section-num">Lo que pedimos al Consejo</div>
+    <h1 class="slide-h1">Tres decisiones <em>de sí o no.</em></h1>
+    <p class="slide-lede">Cada decisión binaria · cada una con costo explícito · cada una con un kill criterion del Consejo si no funciona.</p>
+
+    <table class="deck-table" style="margin-top: 14px;">
+      <thead><tr><th class="num" style="width:5%">#</th><th>Decisión binaria</th><th class="num" style="width:12%">Costo</th><th>Kill criterion</th></tr></thead>
+      <tbody>
+        <tr><td class="ask-num">1</td><td><strong>Mandato formal del Consejo</strong> a la Dirección de MKT Corporativo para coordinar el Marketing del Grupo cross-marca · sin esto, los 8 Directores de Marca no nos hacen caso</td><td class="num">$0</td><td>Captura palancas 1-2 año uno bajo $25M auditados vs DCA</td></tr>
+        <tr><td class="ask-num">2</td><td><strong>Aprobación inversión Fase 1 · $1.5M</strong> los próximos 3 meses · seis personas senior del equipo central + pre-selección de las 2 agencias principales + extensión del sistema de medición a las 8 marcas</td><td class="num">$1.5M</td><td>Si las 6 personas no están al mes 3 · el Consejo activa kill</td></tr>
+        <tr><td class="ask-num">3</td><td><strong>Autorización para negociar con las 8 fábricas hablando como Grupo</strong> · acompañando al Director de Marca (no en lugar de él) · titularidad del PMA preservada · ventana 2026-2027 ya abierta</td><td class="num">$0</td><td>Si 3 fábricas no cierran a benchmark sector al cierre del año uno · el Consejo revisa la palanca</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout-big red" style="margin-top: 14px;">
+      <p style="font-size: 11pt;"><strong>Inversión comprometida hoy: $1.5M.</strong> Los $3.5M restantes de la Fase 2-3 son aprobación condicional · solo se activan al cierre de los phase gates explícitos (Motor octubre 2026 + captura palancas 1-4 verificable año uno). No hay sunk cost catastrófico.</p>
+    </div>
+  </div>
+  <div class="slide-footer"><span>Slide 10 · El ask · 3 decisiones binarias con kill criteria</span><span><span class="dot"></span>Grupo Plasencia · Dirección MKT Corporativo</span></div>
+</section>
+
+<!-- 11 · QUE PASA SI SI / SI NO -->
+<section class="slide">
+  <div class="content">
+    <div class="section-num">Qué pasa si sí · qué pasa si no</div>
+    <h1 class="slide-h1">Las <em>dos puertas.</em></h1>
+
+    <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 22px;">
+      <div class="callout-big green" style="padding: 24px 26px;">
+        <div class="callout-t" style="color: var(--deep-green); font-size: 14pt;">Si el Consejo dice SÍ hoy · arrancamos el lunes</div>
+        <p style="margin-top: 6px; font-size: 10.5pt; line-height: 1.55;"><strong>Semana 1</strong> · comunicación formal a los 8 Directores de Marca + activación del doble reporting de los Coordinadores actuales al Director MKT Corporativo.</p>
+        <p style="margin-top: 8px; font-size: 10.5pt; line-height: 1.55;"><strong>Semana 2</strong> · abrimos las 6 contrataciones del equipo central + primera reunión cross-marca formalmente mandatada por el Consejo.</p>
+        <p style="margin-top: 8px; font-size: 10.5pt; line-height: 1.55;"><strong>Semana 3</strong> · pre-seleccionamos las 2 agencias principales sobre los 285 proveedores ya identificados.</p>
+        <p style="margin-top: 8px; font-size: 10.5pt; line-height: 1.55;"><strong>Semana 4</strong> · reunión con Contraloría para arrancar el cruce folio cubo 30051 × clasificación 30067 vigente desde octubre 2025.</p>
+      </div>
+      <div class="callout-big red" style="padding: 24px 26px;">
+        <div class="callout-t" style="color: var(--gp-red); font-size: 14pt;">Si el Consejo dice NO hoy · el piloto sigue, el Grupo no</div>
+        <p style="margin-top: 6px; font-size: 10.5pt; line-height: 1.55;">El sistema de medición sigue corriendo con las 4 marcas piloto · no se apaga.</p>
+        <p style="margin-top: 8px; font-size: 10.5pt; line-height: 1.55;"><strong>$50-70M anuales</strong> de eficiencia operativa quedan en la mesa otro año fiscal.</p>
+        <p style="margin-top: 8px; font-size: 10.5pt; line-height: 1.55;">La negociación con las fábricas 2026-2027 se hace marca por marca · como siempre.</p>
+        <p style="margin-top: 8px; font-size: 10.5pt; line-height: 1.55;">Las otras 4 marcas del Grupo siguen operando sin manera de medir el retorno del peso invertido.</p>
+        <p style="margin-top: 8px; font-size: 10.5pt; line-height: 1.55; font-style: italic; color: var(--gp-red);">Cada trimestre que pasa es una ola de captura que se evapora.</p>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer"><span>Slide 11 · Las dos puertas · el costo de no actuar año por año</span><span><span class="dot"></span>Grupo Plasencia · Dirección MKT Corporativo</span></div>
+</section>
+
+<!-- 12 · CIERRE -->
+<section class="slide closing">
+  <div class="closing-inner">
+    <div class="closing-eyebrow">El Marketing del Grupo · resumido en una frase</div>
+    <div class="closing-rule"></div>
+    <div class="closing-h">El piloto <em>demuestra.</em><br/>El mandato <em>captura.</em></div>
+    <div class="closing-sub">El sistema de medición sigue corriendo en las 4 marcas piloto con o sin la decisión del Consejo. Lo que el Consejo decide hoy es si las otras 4 marcas del Grupo entran al modelo · y si lo que probamos en las primeras 4 se convierte en disciplina del Grupo entero.</div>
+  </div>
+</section>
+
+</div>
+
+<script>
+const slides = Array.from(document.querySelectorAll('.slide'));
+let idx = 0;
+const progress = document.getElementById('progress');
+const counter = document.getElementById('counter');
+function show(i) { if (i < 0 || i >= slides.length) return; slides[idx].classList.remove('active'); idx = i; slides[idx].classList.add('active'); progress.style.width = ((idx + 1) / slides.length * 100) + '%'; counter.textContent = (idx + 1) + ' / ' + slides.length; }
+document.addEventListener('keydown', (e) => { if (document.body.classList.contains('review-mode')) return; if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') { e.preventDefault(); show(idx + 1); } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); show(idx - 1); } else if (e.key === 'Home') { e.preventDefault(); show(0); } else if (e.key === 'End') { e.preventDefault(); show(slides.length - 1); } });
+document.getElementById('nav-prev').addEventListener('click', () => show(idx - 1));
+document.getElementById('nav-next').addEventListener('click', () => show(idx + 1));
+const reviewToggle = document.getElementById('review-toggle');
+reviewToggle.addEventListener('click', () => { const isReview = document.body.classList.toggle('review-mode'); reviewToggle.textContent = isReview ? 'Modo presentación ▶' : 'Ver todo ↕'; if (isReview) { slides.forEach(s => { s.style.transform = 'none'; }); window.scrollTo(0, 0); } else { scaleSlides(); } });
+function scaleSlides() { if (document.body.classList.contains('review-mode')) return; const baseW = 1280, baseH = 720; const scale = Math.min(window.innerWidth / baseW, window.innerHeight / baseH); const tx = (window.innerWidth - baseW * scale) / 2; const ty = (window.innerHeight - baseH * scale) / 2; slides.forEach(s => { s.style.transform = `translate(${tx}px, ${ty}px) scale(${scale})`; }); }
+window.addEventListener('resize', scaleSlides);
+scaleSlides();
+show(0);
+</script>
+
+</body>
+</html>
