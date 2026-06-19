@@ -68,8 +68,9 @@ body.review-mode #nav-prev, body.review-mode #nav-next, body.review-mode #counte
 .slide-lede { font-family:var(--sans); font-size:13pt; color: var(--g600); line-height:1.5; margin-top: 4px; max-width: 1100px; }
 .slide-lede strong { color: var(--gp-navy); font-weight:700; }
 .slide-lede em { font-style: italic; color: var(--gp-navy); }
-.slide-footer { position:absolute; bottom:24px; left:80px; right:80px; display:flex; justify-content:space-between; align-items:center; font-family: var(--sans); font-size: 8.5pt; color: var(--g500); border-top: 1px solid var(--g200); padding-top: 10px; }
+.slide-footer { position:absolute; bottom:24px; left:80px; right:80px; display:flex; justify-content:space-between; align-items:center; font-family: var(--sans); font-size: 8.5pt; color: var(--g500); border-top: 1px solid var(--g200); padding-top: 10px; gap: 16px; }
 .slide-footer .dot { display:inline-block; width:8px; height:8px; background: var(--gp-red); border-radius:50%; margin-right:6px; vertical-align:middle; }
+.slide-footer .gp-logo { height: 22px; width: auto; opacity: 0.75; }
 
 /* KPI cards */
 .kpi-grid { display:grid; gap:18px; }
@@ -119,7 +120,8 @@ table.deck-table { width:100%; border-collapse: collapse; font-family: var(--san
 .deck-table tr.total td { background: var(--gp-navy); color: var(--near-white); font-weight: 700; }
 .deck-table tr.total td strong { color: var(--gold); }
 .deck-table tr.total td.num { color: var(--gold); font-weight: 800; }
-.ask-num { background: var(--gp-red); color: var(--near-white); font-family: var(--serif); font-weight: 800; font-size: 14pt; text-align: center; width: 36px; vertical-align: middle; }
+.ask-num { background: var(--gp-red); color: #FFFFFF !important; font-family: var(--serif); font-weight: 900; font-size: 16pt; text-align: center; width: 40px; vertical-align: middle; text-shadow: 0 1px 0 rgba(0,0,0,0.15); }
+.deck-table tr:nth-child(even) td.ask-num { background: var(--gp-red); color: #FFFFFF !important; }
 
 /* Callouts */
 .callout-big { background: linear-gradient(to right, rgba(30,39,64,0.06), rgba(30,39,64,0.01)); border-left: 4px solid var(--gp-navy); padding: 18px 24px; border-radius: 0 6px 6px 0; }
@@ -185,7 +187,10 @@ table.deck-table { width:100%; border-collapse: collapse; font-family: var(--san
       <div class="cover-mark">Resumen ejecutivo · Marketing del Grupo
         <span>Dirección de Marketing Corporativo · Grupo Plasencia Automotriz</span>
       </div>
-      <div class="cover-confidencial">Confidencial</div>
+      <div style="display:flex; align-items:center; gap:18px;">
+        <img src="../assets/logos/LOGO-GP-Blanco.png" alt="Grupo Plasencia Automotriz" style="height:52px; width:auto; mix-blend-mode:screen; opacity:.95;"/>
+        <div class="cover-confidencial">Confidencial</div>
+      </div>
     </div>
     <div>
       <div class="cover-rule"></div>
@@ -238,7 +243,7 @@ table.deck-table { width:100%; border-collapse: collapse; font-family: var(--san
       </tbody>
     </table>
   </div>
-  <div class="slide-footer"><span>Slide 2 · Punto de partida contable · DCA cubos 30060 + 30065 verificados · neto de incentivos planta marketing</span><span><span class="dot"></span>Grupo Plasencia · Dirección MKT Corporativo</span></div>
+  <div class="slide-footer"><span>Slide 2 · Punto de partida contable · DCA cubos 30060 + 30065 verificados · neto de incentivos planta marketing</span><span style="display:flex; align-items:center; gap:8px;"><img class="gp-logo" src="../assets/logos/Logo-GP-Negro.png" alt="GP"/>Grupo Plasencia · Dirección MKT Corporativo</span></div>
 </section>
 
 <!-- 3 · EL PILOTO -->
@@ -276,7 +281,7 @@ table.deck-table { width:100%; border-collapse: collapse; font-family: var(--san
       <p style="font-size: 11pt;">Antes: la marca pedía LeadGen, el lead caía en WhatsApp personal del vendedor, y la venta no se podía rastrear. <strong>Hoy: el lead entra al sitio web del Grupo con datalayer enriquecido · los eventos viajan vía CAPI server-side a Meta y Google · el algoritmo recibe señales de calidad, no solo de volumen · cada cierre hace matching contable contra DCA.</strong> Es la primera infraestructura del Grupo donde el algoritmo aprende de la venta, no del lead.</p>
     </div>
   </div>
-  <div class="slide-footer"><span>Slide 3 · Lo que construimos · cambio de mecánica de prospección · snapshot oficial 15-jun-2026</span><span><span class="dot"></span>Grupo Plasencia · Dirección MKT Corporativo</span></div>
+  <div class="slide-footer"><span>Slide 3 · Lo que construimos · cambio de mecánica de prospección · snapshot oficial 15-jun-2026</span><span style="display:flex; align-items:center; gap:8px;"><img class="gp-logo" src="../assets/logos/Logo-GP-Negro.png" alt="GP"/>Grupo Plasencia · Dirección MKT Corporativo</span></div>
 </section>
 
 <!-- 4 · EL HALLAZGO -->
@@ -299,7 +304,7 @@ table.deck-table { width:100%; border-collapse: collapse; font-family: var(--san
       <p style="font-size: 11pt; line-height: 1.5;"><strong>La lectura del Consejo:</strong> el piloto demostró empíricamente que el problema NO es de marketing. Hyundai pagó el <strong>CPL más bajo del trío ($67)</strong> y solo cerró 1 venta de 443 porque el vendedor no llamó. En el resto del Grupo (las 5 marcas fuera del piloto) <em>pasa exactamente lo mismo</em> · solo que no era visible ni atribuible. <strong>El piloto lo hizo visible y atribuible.</strong></p>
     </div>
   </div>
-  <div class="slide-footer"><span>Slide 4 · El handoff a ventas es el cuello · evidencia empírica del piloto · matching v8.2 vs DCA</span><span><span class="dot"></span>Grupo Plasencia · Dirección MKT Corporativo</span></div>
+  <div class="slide-footer"><span>Slide 4 · El handoff a ventas es el cuello · evidencia empírica del piloto · matching v8.2 vs DCA</span><span style="display:flex; align-items:center; gap:8px;"><img class="gp-logo" src="../assets/logos/Logo-GP-Negro.png" alt="GP"/>Grupo Plasencia · Dirección MKT Corporativo</span></div>
 </section>
 
 <!-- 5 · AS-IS vs TO-BE -->
@@ -318,11 +323,11 @@ table.deck-table { width:100%; border-collapse: collapse; font-family: var(--san
         <tr class="highlight"><td><strong>Handoff a ventas</strong></td><td><strong>El cuello del piloto:</strong> LeadGen + WA personal · 75% descartado sin primera llamada · SLA débil</td><td><strong>Plasi (IA) en HYU/STL + Customer Success por marca + SLA primera llamada</strong> + vendedores piloto con reporte punteado</td></tr>
         <tr><td><strong>Atribución</strong></td><td>Reporting concesionaria→OEM · proxy · no auditable 1 a 1</td><td>Matching contable vs DCA + eventos CAPI server-side · auditable</td></tr>
         <tr><td><strong>Plantilla</strong></td><td>70+ personas operativas en 8 silos paralelos · 62% en Tier 4</td><td>~44 internos (Hub + Spokes + onsite) + 2 agencias únicas</td></tr>
-        <tr class="total"><td><strong>Beneficio anual</strong></td><td>—</td><td><strong>$50-70M captura operativa + $1,220M revenue incremental Hyundai+GAC al 10% conversión</strong></td></tr>
+        <tr class="total"><td><strong>Beneficio anual del ahorro</strong></td><td>—</td><td><strong>$50-70M anuales en ahorro operativo · sin vender un auto adicional · más el bono de revenue si arreglamos también el handoff a ventas</strong></td></tr>
       </tbody>
     </table>
   </div>
-  <div class="slide-footer"><span>Slide 5 · As-Is vs To-Be · el beneficio de oportunidad del Deep Dive</span><span><span class="dot"></span>Grupo Plasencia · Dirección MKT Corporativo</span></div>
+  <div class="slide-footer"><span>Slide 5 · As-Is vs To-Be · el beneficio de oportunidad del Deep Dive</span><span style="display:flex; align-items:center; gap:8px;"><img class="gp-logo" src="../assets/logos/Logo-GP-Negro.png" alt="GP"/>Grupo Plasencia · Dirección MKT Corporativo</span></div>
 </section>
 
 <!-- 6 · CATALOGO DCA -->
@@ -354,7 +359,7 @@ table.deck-table { width:100%; border-collapse: collapse; font-family: var(--san
       <p style="font-size: 11pt; line-height: 1.5;"><strong>El gran asterisco · el 57% restante.</strong> $112M anualizados del cubo 30067 son <strong>PROMO 2 / Programa MMDM PLANTA Mazda</strong> · es flujo <em>bi-direccional</em> con la planta Mazda Motor de México (no gasto puro del Grupo · el OEM contraparte vía rebate). Sumando todo el universo: <strong>$197.5M pauta contable + $15.1M nómina cargada = $212.6M</strong>. El gasto puro del Grupo bajo las 3 líneas oficiales es ~$68-82M anualizados · el resto es programa OEM bi-direccional.</p>
     </div>
   </div>
-  <div class="slide-footer"><span>Slide 6 · El catálogo del DCA · estimación operativa pendiente cierre folio cubo 30067 con campo real</span><span><span class="dot"></span>Grupo Plasencia · Dirección MKT Corporativo</span></div>
+  <div class="slide-footer"><span>Slide 6 · El catálogo del DCA · estimación operativa pendiente cierre folio cubo 30067 con campo real</span><span style="display:flex; align-items:center; gap:8px;"><img class="gp-logo" src="../assets/logos/Logo-GP-Negro.png" alt="GP"/>Grupo Plasencia · Dirección MKT Corporativo</span></div>
 </section>
 
 <!-- 7 · LO QUE QUEREMOS HACER -->
@@ -387,34 +392,32 @@ table.deck-table { width:100%; border-collapse: collapse; font-family: var(--san
       </div>
     </div>
   </div>
-  <div class="slide-footer"><span>Slide 7 · Las cuatro cosas concretas · 24 meses · $5M inversión total</span><span><span class="dot"></span>Grupo Plasencia · Dirección MKT Corporativo</span></div>
+  <div class="slide-footer"><span>Slide 7 · Las cuatro cosas concretas · 24 meses · $5M inversión total</span><span style="display:flex; align-items:center; gap:8px;"><img class="gp-logo" src="../assets/logos/Logo-GP-Negro.png" alt="GP"/>Grupo Plasencia · Dirección MKT Corporativo</span></div>
 </section>
 
 <!-- 8 · CUÁNTO SACAMOS -->
 <section class="slide">
-  <div class="content" style="gap: 12px;">
-    <div class="section-num">Plata que está en la mesa cada año</div>
-    <h1 class="slide-h1" style="font-size: 34pt;">$50-70M en eficiencia. <em>+$1,220M en venta.</em></h1>
-    <p class="slide-lede" style="font-size: 12pt;">Lo primero (eficiencia operativa) no requiere vender un auto más. Lo segundo (revenue por conversión) opera por orden de magnitud por encima.</p>
+  <div class="content" style="gap: 14px;">
+    <div class="section-num">Plata que está en la mesa cada año · solo del ahorro</div>
+    <h1 class="slide-h1" style="font-size: 36pt;">$50-70M al año. <em>Sin vender un auto más.</em></h1>
+    <p class="slide-lede" style="font-size: 12.5pt;">Cuatro fuentes de ahorro contable verificable contra DCA. Cada una se mide trimestre tras trimestre. <strong>Esta cifra se da con las ventas que el Grupo hace hoy</strong> — no depende de subir conversión digital ni de arreglar el handoff a ventas. Eso último (el bono) viene encima cuando arreglemos el funnel completo con el área comercial.</p>
 
-    <table class="deck-table" style="margin-top: 4px; font-size: 10.5pt;">
-      <thead><tr><th>De dónde sale</th><th class="num">Conservador</th><th class="num">Realista</th><th class="num">Optimista</th></tr></thead>
+    <table class="deck-table" style="margin-top: 6px; font-size: 11pt;">
+      <thead><tr><th>De dónde sale el ahorro</th><th class="num">Conservador</th><th class="num">Realista</th><th class="num">Optimista</th></tr></thead>
       <tbody>
-        <tr><td>Consolidación cross-marca de proveedores ($80M cubo 30051)</td><td class="num">$8M</td><td class="num">$10M</td><td class="num">$12M</td></tr>
-        <tr><td>Co-inversión OEM al benchmark del sector</td><td class="num">$32M</td><td class="num">$40M</td><td class="num">$48M</td></tr>
-        <tr><td>Equipo más profesional · menos personas, más senior</td><td class="num">$5M</td><td class="num">$8.75M</td><td class="num">$11M</td></tr>
-        <tr><td>Central de Medios + recuperación IVA acreditable</td><td class="num">$1.5M</td><td class="num">$2.5M</td><td class="num">$3.2M</td></tr>
-        <tr class="highlight"><td><strong>Lo que sacamos por eficiencia (palancas 1-4)</strong></td><td class="num"><strong>$46.5M</strong></td><td class="num"><strong>$61.25M</strong></td><td class="num"><strong>$74.2M</strong></td></tr>
-        <tr><td>Subir +1pp conversión digital (palanca dominante)</td><td class="num">+$330M</td><td class="num">+$661M</td><td class="num">+$1,983M</td></tr>
-        <tr class="total"><td><strong>Plata total al año</strong></td><td class="num"><strong>$376.5M</strong></td><td class="num"><strong>$722.25M</strong></td><td class="num"><strong>$2,057.2M</strong></td></tr>
+        <tr><td>Comprar marketing como Grupo · consolidar 285 proveedores externos a 2 agencias</td><td class="num">$8M</td><td class="num">$10M</td><td class="num">$12M</td></tr>
+        <tr><td>Renegociar con las 8 fábricas hablando por el Grupo (no marca por marca)</td><td class="num">$32M</td><td class="num">$40M</td><td class="num">$48M</td></tr>
+        <tr><td>Equipo más profesional con menos personas y más seniors · footprint por ciudad</td><td class="num">$5M</td><td class="num">$8.75M</td><td class="num">$11M</td></tr>
+        <tr><td>Central de Medios + recuperación de IVA acreditable que hoy se pierde</td><td class="num">$1.5M</td><td class="num">$2.5M</td><td class="num">$3.2M</td></tr>
+        <tr class="total"><td><strong>Ahorro total al año del Grupo</strong></td><td class="num"><strong>$46.5M</strong></td><td class="num"><strong>$61.25M</strong></td><td class="num"><strong>$74.2M</strong></td></tr>
       </tbody>
     </table>
 
-    <div class="callout-big gold" style="margin-top: 6px; padding: 12px 20px;">
-      <p style="font-size: 11pt; line-height: 1.45;"><strong>Por marca: Hyundai 6.9% → 10% = +$874M anuales. GAC 5.6% → 10% = +$346M.</strong> Solo esas dos marcas concentran <strong>+$1,220M de venta incremental al año</strong> al converger a la mediana del sector. Sin tocar a Mazda. Sin tocar la pauta total del Grupo.</p>
+    <div class="callout-big gold" style="margin-top: 8px; padding: 12px 20px;">
+      <p style="font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 13pt; color: var(--gp-navy); line-height: 1.35;">El bono encima · si además arreglamos el handoff a ventas. <strong style="font-style: normal;">Cada punto porcentual de conversión digital sobre el revenue del Grupo de $12,813M anuales son cientos de millones de venta más.</strong> El Motor entrega la cifra exacta en octubre 2026. Hoy pedimos el ahorro · el bono se gana después.</p>
     </div>
   </div>
-  <div class="slide-footer"><span>Slide 8 · La plata sobre la mesa · cifras DCA + Motor de Atribución MVP</span><span><span class="dot"></span>Grupo Plasencia · Dirección MKT Corporativo</span></div>
+  <div class="slide-footer"><span>Slide 8 · La plata sobre la mesa · solo el ahorro contable · sin contar el bono de revenue incremental</span><span style="display:flex; align-items:center; gap:8px;"><img class="gp-logo" src="../assets/logos/Logo-GP-Negro.png" alt="GP"/>Grupo Plasencia · Dirección MKT Corporativo</span></div>
 </section>
 
 <!-- 9 · KILLER METRIC -->
@@ -436,9 +439,9 @@ table.deck-table { width:100%; border-collapse: collapse; font-family: var(--san
         <div class="sub">Eficiencia operativa + co-inversión OEM + consolidación de proveedores · año tras año.</div>
       </div>
       <div class="killer-side">
-        <div class="label">El bono · si la conversión se mueve</div>
-        <div class="num">+$1,220M</div>
-        <div class="sub">Revenue incremental anual de Hyundai+GAC al converger al sector 10%. Esto es bono · no apuesta.</div>
+        <div class="label">El bono · si arreglamos el handoff a ventas</div>
+        <div class="num" style="font-size: 28pt; line-height: 1.1;">Revenue Grupo</div>
+        <div class="sub">Cada punto porcentual de conversión digital recuperado sobre los <strong>$12,813M anuales</strong> del Grupo son cientos de millones de venta adicional. El Motor entrega la cifra exacta en octubre 2026.</div>
       </div>
     </div>
 
@@ -446,7 +449,7 @@ table.deck-table { width:100%; border-collapse: collapse; font-family: var(--san
       <p style="font-size: 11pt;"><strong>Cómo leer este número en una frase.</strong> El Grupo invierte hoy $197.5M en pauta MKT · 0.54% del revenue · por debajo del piso del sector (0.8-1.5%). No pedimos gastar más. <em>Pedimos gobernar lo que ya gastamos con la disciplina que el sector aplica desde hace una década. Esa disciplina vale $9.30 por cada $1 antes de tocar la palanca de venta digital.</em></p>
     </div>
   </div>
-  <div class="slide-footer"><span>Slide 9 · El killer metric · $9.30 por cada $1 sin tocar ventas · solo reestructura</span><span><span class="dot"></span>Grupo Plasencia · Dirección MKT Corporativo</span></div>
+  <div class="slide-footer"><span>Slide 9 · El killer metric · $9.30 por cada $1 sin tocar ventas · solo reestructura</span><span style="display:flex; align-items:center; gap:8px;"><img class="gp-logo" src="../assets/logos/Logo-GP-Negro.png" alt="GP"/>Grupo Plasencia · Dirección MKT Corporativo</span></div>
 </section>
 
 <!-- 10 · ASK -->
@@ -469,7 +472,7 @@ table.deck-table { width:100%; border-collapse: collapse; font-family: var(--san
       <p style="font-size: 10.5pt; line-height: 1.5;"><strong>Lo que NO estamos pidiendo:</strong> ni $1 adicional a la pauta del Grupo · ni reemplazar a ningún Director de Marca · ni centralizar los PMA OEM · ni cambiar la titularidad del cliente final. <em>El director de Marca sigue siendo el dueño del KPI de volumen de su marca. El Centro acompaña con volumen agregado del Grupo, atribución contable y el playbook que el piloto demostró que funciona.</em></p>
     </div>
   </div>
-  <div class="slide-footer"><span>Slide 10 · El ask · 3 sí binarios · lenguaje Pepe Morales · footprint por ciudad</span><span><span class="dot"></span>Grupo Plasencia · Dirección MKT Corporativo</span></div>
+  <div class="slide-footer"><span>Slide 10 · El ask · 3 sí binarios · lenguaje Pepe Morales · footprint por ciudad</span><span style="display:flex; align-items:center; gap:8px;"><img class="gp-logo" src="../assets/logos/Logo-GP-Negro.png" alt="GP"/>Grupo Plasencia · Dirección MKT Corporativo</span></div>
 </section>
 
 <!-- 11 · QUE PASA SI SI / SI NO -->
@@ -496,7 +499,7 @@ table.deck-table { width:100%; border-collapse: collapse; font-family: var(--san
       </div>
     </div>
   </div>
-  <div class="slide-footer"><span>Slide 11 · Las dos puertas · el costo de no actuar año por año</span><span><span class="dot"></span>Grupo Plasencia · Dirección MKT Corporativo</span></div>
+  <div class="slide-footer"><span>Slide 11 · Las dos puertas · el costo de no actuar año por año</span><span style="display:flex; align-items:center; gap:8px;"><img class="gp-logo" src="../assets/logos/Logo-GP-Negro.png" alt="GP"/>Grupo Plasencia · Dirección MKT Corporativo</span></div>
 </section>
 
 <!-- 12 · CIERRE -->
