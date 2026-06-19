@@ -222,6 +222,11 @@
   .badge-pending { background: rgba(200,16,46,0.10); color: var(--gp-red); }
   .badge-partial { background: rgba(214,158,46,0.14); color: #B7791F; }
   .badge-data { background: rgba(30,39,64,0.09); color: var(--gp-navy); }
+  .badge-digital { background: rgba(43,108,176,0.14); color: #2C5282; }
+  .badge-trad { background: rgba(183,121,31,0.16); color: #7B3F00; }
+  .badge-rpac { background: rgba(72,187,120,0.14); color: #22543D; }
+  .badge-oem { background: rgba(200,16,46,0.10); color: var(--gp-red); }
+  .badge-nomkt { background: rgba(160,174,192,0.20); color: #4A5568; }
 
   /* BLOCKQUOTES — citas del Director */
   blockquote {
@@ -1429,11 +1434,11 @@
   <h2><span class="h-num">3.5.0</span>Los tres buckets oficiales del catálogo Contraloría (15-oct-2025)</h2>
   <p>Cada peso de gasto MKT del Grupo cae en uno de los tres sub-buckets oficiales del centro de costo Promo1 definidos por la guía formal de Contraloría vigente desde el 15 de octubre de 2025. La asignación bucket × proveedor en la tabla §3.5.1 es inferencia operativa sobre la razón social pendiente del cruce contable folio 30051 × 30067.</p>
   <table>
-    <thead><tr><th style="width:18%">Bucket Promo1</th><th>Definición Contraloría</th><th>Conceptos contables incluidos</th></tr></thead>
+    <thead><tr><th style="width:20%">Bucket Promo1</th><th style="width:32%">Definición Contraloría</th><th>Conceptos contables incluidos</th></tr></thead>
     <tbody>
-      <tr><td><strong>MKT Tradicional</strong></td><td>Marketing convencional físico · medios offline · materiales</td><td>Pauta TV · radio · impresos · lonas · impresiones promocionales · stands publicitarios · expos · personal externo promocional · producción audiovisual · mobiliario · Ingreso Reembolso Planta</td></tr>
-      <tr><td><strong>MKT Digital</strong></td><td>Campañas, anuncios, agencias y plataformas digitales</td><td>Pauta digital · agencias de publicidad · agencias de diseño · servicios de fotografía · agencia de compras de medios · aplicaciones digitales · páginas de internet · influencers · Ingreso Reembolso Planta</td></tr>
-      <tr><td><strong>RP/AC</strong> · Relaciones Públicas y Activaciones con Clientes</td><td>Activaciones físicas con clientes · eventos · regalos</td><td>Souvenirs promocionales · bebidas · alimentos · limpieza eventos · seguridad eventos · servicios de salud · permisos y autoridades · imagen y vestimenta de eventos · regalos especiales · Ingreso Reembolso Planta</td></tr>
+      <tr><td><span class="badge badge-trad">MKT Tradicional</span></td><td>Marketing convencional físico · medios offline · materiales</td><td>Pauta TV · radio · impresos · lonas · impresiones promocionales · stands publicitarios · expos · personal externo promocional · producción audiovisual · mobiliario · Ingreso Reembolso Planta</td></tr>
+      <tr><td><span class="badge badge-digital">MKT Digital</span></td><td>Campañas, anuncios, agencias y plataformas digitales</td><td>Pauta digital · agencias de publicidad · agencias de diseño · servicios de fotografía · agencia de compras de medios · aplicaciones digitales · páginas de internet · influencers · Ingreso Reembolso Planta</td></tr>
+      <tr><td><span class="badge badge-rpac">RP/AC</span> Relaciones Públicas y Activaciones con Clientes</td><td>Activaciones físicas con clientes · eventos · regalos</td><td>Souvenirs promocionales · bebidas · alimentos · limpieza eventos · seguridad eventos · servicios de salud · permisos y autoridades · imagen y vestimenta de eventos · regalos especiales · Ingreso Reembolso Planta</td></tr>
     </tbody>
   </table>
   <div class="nota"><strong>Cómo leer la columna "Bucket inferido" del §3.5.1.</strong> La asignación se construye por análisis de la razón social contra los conceptos contables incluidos en cada bucket. Las promotoras Mazda (PMML · ANYP · PLASICO · CARIBEÑA · PLABA) se marcan <em>Programa OEM</em> porque operan dentro del flujo bi-direccional MMDM PLANTA del Cap 3 §3.1.1 — no son gasto puro del Grupo. Telecomunicaciones (MEGACABLE · TOTAL PLAY · CS · IP AIR) se marcan <em>No-MKT</em> porque probablemente capturan internet operativo de sucursal, pendiente de validar con Contraloría. El cierre definitivo entrega el cruce folio 30051 × 30067 (Cap 3 §3.3).</div>
@@ -1443,36 +1448,36 @@
   <table style="font-size:8.5pt;">
     <thead><tr><th style="width:3%">#</th><th>Razón social DCA</th><th class="num" style="width:11%">Monto acum.</th><th class="num" style="width:5%">Movs</th><th style="width:24%">Marcas atendidas</th><th style="width:11%">Bucket inferido</th></tr></thead>
     <tbody>
-      <tr class="highlight"><td>1</td><td><strong>IMPULSORA REAL SOLUCIONES INTEGRALES SA DE CV</strong></td><td class="num"><strong>$16,940,789</strong></td><td class="num">21</td><td>Mazda · Ford</td><td>MKT Digital</td></tr>
-      <tr><td>2</td><td>GALLETA MARKETING DIGITAL</td><td class="num">$12,391,257</td><td class="num">53</td><td>Mazda · GWM · GAC · Changan</td><td>MKT Digital</td></tr>
-      <tr><td>3</td><td>PROMOTORA PMML INC</td><td class="num">$10,597,904</td><td class="num">25</td><td>Mazda</td><td>Programa OEM</td></tr>
-      <tr><td>4</td><td>PROMOTORA ANYP</td><td class="num">$10,492,181</td><td class="num">28</td><td>Mazda</td><td>Programa OEM</td></tr>
-      <tr><td>5</td><td>PLASICO PROMOTORA E IMPULSORA</td><td class="num">$10,420,104</td><td class="num">61</td><td>Mazda · GWM · Changan</td><td>Programa OEM</td></tr>
-      <tr><td>6</td><td>COMERCIALIZADORA INNOVACION QUIMICA SA DE CV</td><td class="num">$9,900,000</td><td class="num">11</td><td>Ford</td><td>MKT Tradicional</td></tr>
-      <tr><td>7</td><td>PROMOTORA CARIBEÑA SA DE CV</td><td class="num">$8,898,800</td><td class="num">16</td><td>Hyundai · Mazda</td><td>Programa OEM</td></tr>
-      <tr><td>8</td><td>PROMOTORA PLABA</td><td class="num">$7,907,835</td><td class="num">52</td><td>Mazda · GWM · Changan</td><td>Programa OEM</td></tr>
-      <tr><td>9</td><td>MEGACABLE COMUNICACIONES DE MEXICO</td><td class="num">$5,295,401</td><td class="num">64</td><td>Mazda · GWM · GAC · Stellantis</td><td>No-MKT operativo</td></tr>
-      <tr><td>10</td><td>DISTRIBUCION DIGITAL AUTOMOTRIZ</td><td class="num">$3,656,905</td><td class="num">97</td><td>Mazda · GAC · Stellantis · GWM · Changan</td><td>MKT Digital</td></tr>
-      <tr><td>11</td><td>TOTAL PLAY TELECOMUNICACIONES</td><td class="num">$3,419,798</td><td class="num">76</td><td>Mazda · GWM · GAC</td><td>No-MKT operativo</td></tr>
-      <tr><td>12</td><td>PIMSA PUBLICIDAD</td><td class="num">$3,355,768</td><td class="num">61</td><td>Mazda · GWM · GAC · Changan</td><td>MKT Tradicional</td></tr>
-      <tr><td>13</td><td>MAREDUTTI DESIGN S.A. DE C.V.</td><td class="num">$3,238,759</td><td class="num">35</td><td>Stellantis</td><td>MKT Digital</td></tr>
-      <tr><td>14</td><td>CS EN TELECOMUNICACIONES</td><td class="num">$3,191,079</td><td class="num">19</td><td>Mazda · GAC</td><td>No-MKT operativo</td></tr>
-      <tr><td>15</td><td>COEFICIENTE COMUNICACIONES</td><td class="num">$2,750,060</td><td class="num">70</td><td>Mazda · GWM · GAC · Stellantis · Changan</td><td>MKT Digital</td></tr>
-      <tr><td>16</td><td>TRANDEO PUBLICITARIA</td><td class="num">$2,633,360</td><td class="num">14</td><td>Mazda</td><td>MKT Tradicional</td></tr>
-      <tr><td>17</td><td>MOVILIDAD DIGITAL TC</td><td class="num">$2,488,820</td><td class="num">15</td><td>Mazda</td><td>MKT Digital</td></tr>
-      <tr><td>18</td><td>AUTOMOTIVE ONLINE PUBLISHING SOLUTIONS SA DE CV</td><td class="num">$2,426,227</td><td class="num">26</td><td>Mazda · Hyundai</td><td>MKT Digital</td></tr>
-      <tr><td>19</td><td>AUTOMOTIVE ONLINE PUBLISHING SOLUTIONS</td><td class="num">$2,110,801</td><td class="num">73</td><td>Mazda · GWM · GAC · Stellantis · Ford</td><td>MKT Digital</td></tr>
-      <tr><td>20</td><td>INDUSTRIA PUBLICITARIA DE JALISCO</td><td class="num">$1,866,106</td><td class="num">77</td><td>Mazda · GWM · GAC · Stellantis · Hyundai · Changan</td><td>MKT Tradicional</td></tr>
-      <tr><td>21</td><td>FABULA COMUNICACION</td><td class="num">$1,659,130</td><td class="num">28</td><td>GWM · GAC · Changan</td><td>MKT Digital</td></tr>
-      <tr><td>22</td><td>PROMOTORA CARIBEÑA</td><td class="num">$1,579,180</td><td class="num">6</td><td>Mazda · Stellantis</td><td>Programa OEM</td></tr>
-      <tr><td>23</td><td>COEFICIENTE COMUNICACIONES SA DE CV</td><td class="num">$1,502,159</td><td class="num">31</td><td>Mazda · Hyundai</td><td>MKT Digital</td></tr>
-      <tr><td>24</td><td>PUBLICIDAD KREUZ</td><td class="num">$1,353,762</td><td class="num">10</td><td>Stellantis</td><td>MKT Tradicional</td></tr>
-      <tr><td>25</td><td>AGENCIA CREATIVA TORUVIEL</td><td class="num">$1,237,641</td><td class="num">59</td><td>Mazda · Hyundai</td><td>MKT Digital</td></tr>
-      <tr><td>26</td><td>CENTRO DE INNOVACION, CIENCIA Y TECNOLOGIA JALISCO</td><td class="num">$1,231,928</td><td class="num">11</td><td>Stellantis</td><td>RP/AC</td></tr>
-      <tr><td>27</td><td>IP AIR TELECOMUNICACIONES</td><td class="num">$1,226,651</td><td class="num">4</td><td>Mazda</td><td>No-MKT operativo</td></tr>
-      <tr><td>28</td><td>EVENTOS LAMPA</td><td class="num">$1,108,960</td><td class="num">8</td><td>Mazda</td><td>RP/AC</td></tr>
-      <tr><td>29</td><td>ARTICULOS PROMOCIONALES CAJA SA DE CV</td><td class="num">$1,095,628</td><td class="num">20</td><td>Mazda</td><td>RP/AC</td></tr>
-      <tr><td>30</td><td>MAQUILADORA DE DISEÑOS ITALIANOS</td><td class="num">$1,003,960</td><td class="num">4</td><td>Stellantis</td><td>MKT Tradicional</td></tr>
+      <tr class="highlight"><td>1</td><td><strong>IMPULSORA REAL SOLUCIONES INTEGRALES SA DE CV</strong></td><td class="num"><strong>$16,940,789</strong></td><td class="num">21</td><td>Mazda · Ford</td><td><span class="badge badge-digital">MKT Digital</span></td></tr>
+      <tr><td>2</td><td>GALLETA MARKETING DIGITAL</td><td class="num">$12,391,257</td><td class="num">53</td><td>Mazda · GWM · GAC · Changan</td><td><span class="badge badge-digital">MKT Digital</span></td></tr>
+      <tr><td>3</td><td>PROMOTORA PMML INC</td><td class="num">$10,597,904</td><td class="num">25</td><td>Mazda</td><td><span class="badge badge-oem">Programa OEM</span></td></tr>
+      <tr><td>4</td><td>PROMOTORA ANYP</td><td class="num">$10,492,181</td><td class="num">28</td><td>Mazda</td><td><span class="badge badge-oem">Programa OEM</span></td></tr>
+      <tr><td>5</td><td>PLASICO PROMOTORA E IMPULSORA</td><td class="num">$10,420,104</td><td class="num">61</td><td>Mazda · GWM · Changan</td><td><span class="badge badge-oem">Programa OEM</span></td></tr>
+      <tr><td>6</td><td>COMERCIALIZADORA INNOVACION QUIMICA SA DE CV</td><td class="num">$9,900,000</td><td class="num">11</td><td>Ford</td><td><span class="badge badge-trad">MKT Tradicional</span></td></tr>
+      <tr><td>7</td><td>PROMOTORA CARIBEÑA SA DE CV</td><td class="num">$8,898,800</td><td class="num">16</td><td>Hyundai · Mazda</td><td><span class="badge badge-oem">Programa OEM</span></td></tr>
+      <tr><td>8</td><td>PROMOTORA PLABA</td><td class="num">$7,907,835</td><td class="num">52</td><td>Mazda · GWM · Changan</td><td><span class="badge badge-oem">Programa OEM</span></td></tr>
+      <tr><td>9</td><td>MEGACABLE COMUNICACIONES DE MEXICO</td><td class="num">$5,295,401</td><td class="num">64</td><td>Mazda · GWM · GAC · Stellantis</td><td><span class="badge badge-nomkt">No-MKT operativo</span></td></tr>
+      <tr><td>10</td><td>DISTRIBUCION DIGITAL AUTOMOTRIZ</td><td class="num">$3,656,905</td><td class="num">97</td><td>Mazda · GAC · Stellantis · GWM · Changan</td><td><span class="badge badge-digital">MKT Digital</span></td></tr>
+      <tr><td>11</td><td>TOTAL PLAY TELECOMUNICACIONES</td><td class="num">$3,419,798</td><td class="num">76</td><td>Mazda · GWM · GAC</td><td><span class="badge badge-nomkt">No-MKT operativo</span></td></tr>
+      <tr><td>12</td><td>PIMSA PUBLICIDAD</td><td class="num">$3,355,768</td><td class="num">61</td><td>Mazda · GWM · GAC · Changan</td><td><span class="badge badge-trad">MKT Tradicional</span></td></tr>
+      <tr><td>13</td><td>MAREDUTTI DESIGN S.A. DE C.V.</td><td class="num">$3,238,759</td><td class="num">35</td><td>Stellantis</td><td><span class="badge badge-digital">MKT Digital</span></td></tr>
+      <tr><td>14</td><td>CS EN TELECOMUNICACIONES</td><td class="num">$3,191,079</td><td class="num">19</td><td>Mazda · GAC</td><td><span class="badge badge-nomkt">No-MKT operativo</span></td></tr>
+      <tr><td>15</td><td>COEFICIENTE COMUNICACIONES</td><td class="num">$2,750,060</td><td class="num">70</td><td>Mazda · GWM · GAC · Stellantis · Changan</td><td><span class="badge badge-digital">MKT Digital</span></td></tr>
+      <tr><td>16</td><td>TRANDEO PUBLICITARIA</td><td class="num">$2,633,360</td><td class="num">14</td><td>Mazda</td><td><span class="badge badge-trad">MKT Tradicional</span></td></tr>
+      <tr><td>17</td><td>MOVILIDAD DIGITAL TC</td><td class="num">$2,488,820</td><td class="num">15</td><td>Mazda</td><td><span class="badge badge-digital">MKT Digital</span></td></tr>
+      <tr><td>18</td><td>AUTOMOTIVE ONLINE PUBLISHING SOLUTIONS SA DE CV</td><td class="num">$2,426,227</td><td class="num">26</td><td>Mazda · Hyundai</td><td><span class="badge badge-digital">MKT Digital</span></td></tr>
+      <tr><td>19</td><td>AUTOMOTIVE ONLINE PUBLISHING SOLUTIONS</td><td class="num">$2,110,801</td><td class="num">73</td><td>Mazda · GWM · GAC · Stellantis · Ford</td><td><span class="badge badge-digital">MKT Digital</span></td></tr>
+      <tr><td>20</td><td>INDUSTRIA PUBLICITARIA DE JALISCO</td><td class="num">$1,866,106</td><td class="num">77</td><td>Mazda · GWM · GAC · Stellantis · Hyundai · Changan</td><td><span class="badge badge-trad">MKT Tradicional</span></td></tr>
+      <tr><td>21</td><td>FABULA COMUNICACION</td><td class="num">$1,659,130</td><td class="num">28</td><td>GWM · GAC · Changan</td><td><span class="badge badge-digital">MKT Digital</span></td></tr>
+      <tr><td>22</td><td>PROMOTORA CARIBEÑA</td><td class="num">$1,579,180</td><td class="num">6</td><td>Mazda · Stellantis</td><td><span class="badge badge-oem">Programa OEM</span></td></tr>
+      <tr><td>23</td><td>COEFICIENTE COMUNICACIONES SA DE CV</td><td class="num">$1,502,159</td><td class="num">31</td><td>Mazda · Hyundai</td><td><span class="badge badge-digital">MKT Digital</span></td></tr>
+      <tr><td>24</td><td>PUBLICIDAD KREUZ</td><td class="num">$1,353,762</td><td class="num">10</td><td>Stellantis</td><td><span class="badge badge-trad">MKT Tradicional</span></td></tr>
+      <tr><td>25</td><td>AGENCIA CREATIVA TORUVIEL</td><td class="num">$1,237,641</td><td class="num">59</td><td>Mazda · Hyundai</td><td><span class="badge badge-digital">MKT Digital</span></td></tr>
+      <tr><td>26</td><td>CENTRO DE INNOVACION, CIENCIA Y TECNOLOGIA JALISCO</td><td class="num">$1,231,928</td><td class="num">11</td><td>Stellantis</td><td><span class="badge badge-rpac">RP/AC</span></td></tr>
+      <tr><td>27</td><td>IP AIR TELECOMUNICACIONES</td><td class="num">$1,226,651</td><td class="num">4</td><td>Mazda</td><td><span class="badge badge-nomkt">No-MKT operativo</span></td></tr>
+      <tr><td>28</td><td>EVENTOS LAMPA</td><td class="num">$1,108,960</td><td class="num">8</td><td>Mazda</td><td><span class="badge badge-rpac">RP/AC</span></td></tr>
+      <tr><td>29</td><td>ARTICULOS PROMOCIONALES CAJA SA DE CV</td><td class="num">$1,095,628</td><td class="num">20</td><td>Mazda</td><td><span class="badge badge-rpac">RP/AC</span></td></tr>
+      <tr><td>30</td><td>MAQUILADORA DE DISEÑOS ITALIANOS</td><td class="num">$1,003,960</td><td class="num">4</td><td>Stellantis</td><td><span class="badge badge-trad">MKT Tradicional</span></td></tr>
       <tr class="total"><td colspan="2"><strong>Subtotal top 30 · 5 categorías inferidas</strong></td><td class="num"><strong>$136.3M</strong></td><td class="num"><strong>1,084</strong></td><td colspan="2"><strong>81% del universo inferido $167.9M</strong></td></tr>
     </tbody>
   </table>
