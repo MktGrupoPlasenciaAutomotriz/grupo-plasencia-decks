@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Strategy Definition · Gobierno Corporativo de Marketing · Grupo Plasencia Automotriz</title>
+<meta name="description" content="Documento estratégico para el Consejo Directivo del Grupo Plasencia Automotriz. Mandato formal a la Dirección de Marketing Corporativo bajo Hub & Spoke + Centro de Excelencia + Motor de Atribución MVP. Captura $50-70M anuales en eficiencia + palanca dominante de revenue incremental +$330-661M por +1pp conversión digital. Junio 2026.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@500;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gp-red: #C8102E; --gp-navy: #1E2740; --gold: #ECC94B; --amber: #D69E2E;
+    --bg: #F0F4F8; --paper: #FFFFFF; --near-white: #F7FAFC;
+    --g100: #EDF2F7; --g200: #E2E8F0; --g300: #CBD5E0; --g500: #718096; --g600: #4A5568; --g700: #2D3748;
+    --text: #2D3748;
+    --serif: 'Playfair Display', Georgia, serif;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html, body { background:var(--bg); }
+  body {
+    font-family: var(--sans); color: var(--text); line-height: 1.6; font-size: 10.5pt;
+    -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+    widows: 3; orphans: 3; text-rendering: optimizeLegibility;
+  }
+  @page {
+    size: A4; margin: 20mm 18mm 22mm 18mm;
+    @bottom-right { content: counter(page) " / " counter(pages); font-family: 'Inter', sans-serif; font-size: 8.5pt; color: #718096; font-weight: 500; }
+    @bottom-left  { content: "Strategy Definition · Gobierno Corporativo de Marketing · v1.0 · Confidencial · Grupo Plasencia Automotriz"; font-family: 'Inter', sans-serif; font-size: 7.5pt; color: #A0AEC0; letter-spacing: 0.3px; }
+    @top-right    { content: "Documento Estratégico · Dirección de Marketing Corporativo"; font-family: 'Inter', sans-serif; font-size: 7.5pt; color: #A0AEC0; letter-spacing: 0.3px; }
+  }
+  @page :first { @top-right { content: ""; } @bottom-right { content: ""; } @bottom-left { content: ""; } }
+  @page cover { margin: 0; }
+  .page {
+    background: var(--paper); width: 210mm; min-height: 297mm;
+    margin: 0 auto 10mm auto; padding: 22mm 20mm 24mm 20mm;
+    position: relative; page-break-after: always;
+    box-shadow: 0 1px 3px rgba(0,0,0,.05), 0 8px 32px rgba(30,39,64,.10);
+  }
+  .page:last-child { page-break-after: auto; }
+
+  .cover { background: var(--gp-navy); color: var(--near-white); padding: 0; page: cover; }
+  .cover-inner {
+    padding: 34mm 24mm 26mm 24mm; min-height: 297mm;
+    display: flex; flex-direction: column; justify-content: space-between;
+    background:
+      radial-gradient(ellipse at 100% 0%, rgba(236,201,75,0.18) 0%, transparent 58%),
+      radial-gradient(ellipse at 0% 100%, rgba(200,16,46,0.12) 0%, transparent 58%),
+      var(--gp-navy);
+    position: relative;
+  }
+  .cover-inner::before {
+    content: ""; position: absolute; top: 22mm; left: 24mm;
+    width: 60mm; height: 1px; background: var(--gold); opacity: 0.7;
+  }
+  .cover-mark {
+    font-family: var(--sans); font-weight: 700; font-size: 10pt; letter-spacing: 3.5px;
+    color: var(--gold); text-transform: uppercase; line-height: 1.4;
+  }
+  .cover-mark span { display:block; font-weight:400; color:rgba(255,255,255,0.7); margin-top:6px; letter-spacing:0.8px; font-size:8.5pt; text-transform:none; }
+  .cover-eyebrow {
+    font-family: var(--sans); font-size: 9.5pt; font-weight: 700; letter-spacing: 4.5px;
+    color: var(--gold); text-transform: uppercase; margin-top: 13mm;
+  }
+  .cover-title {
+    font-family: var(--serif); font-weight: 800; font-size: 40pt; line-height: 1.05;
+    letter-spacing: -1.4px; margin-top: 8mm; color: var(--near-white);
+  }
+  .cover-title em { font-style: italic; font-weight: 500; color: var(--gold); }
+  .cover-title-after {
+    font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 12.5pt;
+    color: rgba(255,255,255,0.82); margin-top: 9mm; letter-spacing: -0.05px; line-height: 1.55;
+    max-width: 152mm;
+  }
+  .cover-control {
+    margin-top: 14mm; border-top: 1px solid rgba(255,255,255,0.18); padding-top: 8mm;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 7mm 12mm;
+  }
+  .cover-control-item { font-size: 9pt; color: rgba(255,255,255,0.78); line-height: 1.55; }
+  .cover-control-item strong { display:block; color: var(--gold); font-weight: 700; font-size: 8pt; letter-spacing: 1.6px; margin-bottom: 1.5mm; text-transform: uppercase; }
+
+  h1.section-title {
+    font-family: var(--serif); font-weight: 800; font-size: 26pt; line-height: 1.1;
+    letter-spacing: -0.8px; color: var(--gp-navy);
+    border-top: 3px solid var(--gp-red); padding-top: 8mm; margin-bottom: 7mm;
+    page-break-after: avoid;
+  }
+  h1.section-title .num {
+    display: block; font-family: var(--sans); font-weight: 700; font-size: 8.5pt;
+    letter-spacing: 4px; color: var(--gp-red); text-transform: uppercase; margin-bottom: 3.5mm;
+  }
+  h1.section-title em { font-family: var(--serif); font-style: italic; font-weight: 500; color: var(--gp-red); }
+  h2 {
+    font-family: var(--sans); font-weight: 700; font-size: 12.5pt; color: var(--gp-navy);
+    margin-top: 8mm; margin-bottom: 3mm; letter-spacing: -0.15px; line-height: 1.3;
+    page-break-after: avoid;
+  }
+  h2:first-of-type { margin-top: 3mm; }
+  h2 .h-num { color: var(--gp-red); font-weight: 800; margin-right: 3.5mm; font-variant-numeric: tabular-nums; font-size: 11pt; }
+  h3 {
+    font-family: var(--sans); font-weight: 700; font-size: 11pt; color: var(--gp-navy);
+    margin-top: 6mm; margin-bottom: 2.5mm; letter-spacing: -0.1px; line-height: 1.3;
+    page-break-after: avoid; break-after: avoid;
+  }
+
+  p { margin-bottom: 3mm; font-size: 10.5pt; color: var(--g700); line-height: 1.6; }
+  p.lead { font-size: 12pt; color: var(--g700); line-height: 1.55; margin-bottom: 5mm; }
+  p.lead em { font-style: italic; color: var(--gp-navy); }
+  strong { color: var(--gp-navy); font-weight: 700; }
+  em { font-style: italic; }
+  a { color: var(--gp-navy); text-decoration: none; border-bottom: 1px solid rgba(30,39,64,0.4); }
+  ul, ol { margin: 2mm 0 4mm 6mm; }
+  li { margin-bottom: 1.5mm; font-size: 10.5pt; color: var(--g700); line-height: 1.55; }
+  li::marker { color: var(--gp-red); font-weight: 700; }
+
+  table {
+    width: 100%; border-collapse: collapse; margin: 4mm 0 5mm 0; font-size: 9.5pt;
+    background: var(--paper);
+  }
+  thead { display: table-header-group; }
+  tr { page-break-inside: avoid; }
+  th {
+    background: var(--gp-navy); color: var(--near-white);
+    font-family: var(--sans); font-weight: 700; font-size: 7.8pt; letter-spacing: 1.3px;
+    text-transform: uppercase; padding: 3.2mm 3.8mm; text-align: left; vertical-align: middle;
+    border-right: 1px solid rgba(255,255,255,0.12); line-height: 1.35;
+  }
+  th:last-child { border-right: none; }
+  th.num { text-align: right; }
+  td {
+    padding: 3.2mm 3.8mm; border-bottom: 1px solid var(--g200);
+    vertical-align: top; line-height: 1.55; color: var(--g700); font-size: 9.5pt;
+  }
+  tr:nth-child(even) td { background: var(--g100); }
+  td strong { color: var(--gp-navy); }
+  td.num { text-align: right; font-variant-numeric: tabular-nums; font-weight: 600; color: var(--gp-navy); }
+  tr.highlight td { background: rgba(200,16,46,0.06); }
+  tr.highlight td strong { color: var(--gp-red); }
+  tr.total td { background: var(--gp-navy); color: var(--near-white); font-weight: 700; border-bottom: none; }
+  tr.total td strong { color: var(--gold); }
+  tr.total td.num { color: var(--gold); font-weight: 800; }
+
+  .nota { font-size: 9.5pt; color: var(--g600); line-height: 1.55; font-style: italic; margin: 4mm 0; padding: 3mm 4mm; background: var(--g100); border-left: 3px solid var(--g500); }
+  .nota strong { font-style: normal; color: var(--gp-navy); }
+
+  .callout {
+    background: linear-gradient(to right, rgba(30,39,64,0.05), rgba(30,39,64,0.01));
+    border-left: 4px solid var(--gp-navy); padding: 4.5mm 5.5mm; margin: 5mm 0;
+    border-radius: 0 2px 2px 0; page-break-inside: avoid;
+  }
+  .callout-t { font-family: var(--serif); font-weight: 700; font-style: italic; color: var(--gp-navy); margin-bottom: 2.5mm; font-size: 12.5pt; letter-spacing: -0.3px; line-height: 1.25; }
+  .callout p:last-child { margin-bottom: 0; }
+
+  .conv-note {
+    background: linear-gradient(to right, rgba(200,16,46,0.06), rgba(200,16,46,0.01));
+    border-left: 4px solid var(--gp-red); padding: 4.5mm 5.5mm; margin: 5mm 0;
+    border-radius: 0 2px 2px 0; page-break-inside: avoid;
+  }
+  .conv-note strong { color: var(--gp-red); }
+
+  .warn-note {
+    background: linear-gradient(to right, rgba(214,158,46,0.08), rgba(214,158,46,0.01));
+    border-left: 4px solid var(--amber); padding: 4.5mm 5.5mm; margin: 5mm 0;
+    border-radius: 0 2px 2px 0; page-break-inside: avoid;
+  }
+  .warn-note strong { color: #B7791F; }
+
+  .gold-note {
+    background: linear-gradient(to right, rgba(236,201,75,0.12), rgba(236,201,75,0.02));
+    border-left: 4px solid var(--gold); padding: 4.5mm 5.5mm; margin: 5mm 0;
+    border-radius: 0 2px 2px 0; page-break-inside: avoid;
+  }
+  .gold-note strong { color: #B7791F; }
+
+  .badge {
+    display: inline-block; font-family: var(--sans); font-size: 7.5pt; font-weight: 700;
+    letter-spacing: 0.7px; text-transform: uppercase; padding: 1.2mm 2.8mm;
+    border-radius: 2px; vertical-align: middle; line-height: 1.4; margin-left: 2.5mm;
+  }
+  .badge-ok { background: rgba(72,187,120,0.14); color: #276749; }
+  .badge-pending { background: rgba(200,16,46,0.10); color: var(--gp-red); }
+  .badge-partial { background: rgba(214,158,46,0.14); color: #B7791F; }
+  .badge-data { background: rgba(30,39,64,0.09); color: var(--gp-navy); }
+
+  /* HERO STATS — Killer metric ROI */
+  .hero-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4.5mm; margin: 5mm 0 4mm; }
+  .hero-card {
+    background: var(--paper); border: 1px solid var(--g200);
+    border-top: 4px solid var(--gp-red); padding: 5.5mm 5.5mm 5mm 5.5mm;
+    position: relative; page-break-inside: avoid;
+    box-shadow: 0 1px 2px rgba(30,39,64,.04);
+  }
+  .hero-card.navy { border-top-color: var(--gp-navy); }
+  .hero-card.gold { border-top-color: var(--gold); }
+  .hero-card .hero-num {
+    font-family: var(--serif); font-size: 26pt; font-weight: 800;
+    color: var(--gp-navy); line-height: 1; letter-spacing: -1.2px;
+  }
+  .hero-card .hero-num-sub {
+    font-family: var(--sans); font-size: 7.8pt; color: var(--g500);
+    font-weight: 500; margin-top: 1.2mm; line-height: 1.4;
+  }
+  .hero-card .hero-label {
+    font-family: var(--sans); font-size: 8pt; font-weight: 800;
+    letter-spacing: 1.8px; text-transform: uppercase;
+    color: var(--gp-red); margin-top: 3.5mm;
+  }
+  .hero-card.navy .hero-label { color: var(--gp-navy); }
+  .hero-card.gold .hero-label { color: #B7791F; }
+  .hero-card .hero-tagline {
+    font-family: var(--sans); font-size: 8.5pt; color: var(--g700);
+    margin-top: 2mm; line-height: 1.5;
+  }
+
+  /* TOC */
+  .toc { margin: 6mm 0; }
+  .toc-item {
+    display: flex; align-items: baseline; padding: 3.5mm 0;
+    border-bottom: 1px solid var(--g200); gap: 5mm;
+  }
+  .toc-num {
+    font-family: var(--sans); font-size: 8pt; font-weight: 700;
+    color: var(--gp-red); min-width: 16mm; letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+  .toc-title {
+    font-family: var(--serif); font-weight: 800; color: var(--gp-navy);
+    font-size: 12pt; min-width: 70mm; letter-spacing: -0.3px;
+  }
+  .toc-sub {
+    font-family: var(--sans); color: var(--g500);
+    font-size: 9pt; flex: 1; font-weight: 400; font-style: italic;
+  }
+  .toc-p {
+    font-family: var(--sans); font-variant-numeric: tabular-nums;
+    color: var(--gp-red); font-weight: 700; font-size: 9pt;
+    min-width: 10mm; text-align: right;
+  }
+
+  /* PILARES */
+  .pilar {
+    border: 1px solid var(--g200); border-left: 4px solid var(--gp-navy);
+    padding: 5mm 6mm; background: var(--paper); margin: 4mm 0;
+    page-break-inside: avoid;
+  }
+  .pilar.gold { border-left-color: var(--gold); }
+  .pilar.red { border-left-color: var(--gp-red); }
+  .pilar-header { font-family: var(--sans); font-size: 8pt; color: var(--gp-red); font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; }
+  .pilar.gold .pilar-header { color: #B7791F; }
+  .pilar.red .pilar-header { color: var(--gp-red); }
+  .pilar-title { font-family: var(--serif); font-weight: 700; font-size: 14pt; color: var(--gp-navy); margin-top: 1.5mm; margin-bottom: 3mm; line-height: 1.2; letter-spacing: -0.3px; }
+  .pilar-body { font-family: var(--sans); font-size: 10pt; color: var(--g700); line-height: 1.55; }
+
+  /* ASK TABLE special */
+  .ask-row td { padding: 4mm 3.8mm; }
+  .ask-num { background: var(--gp-red) !important; color: var(--near-white) !important; font-family: var(--serif); font-weight: 800; font-size: 14pt; text-align: center; width: 12mm; }
+
+  /* TQL */
+  .tql {
+    border: 1px solid var(--g200); border-left: 4px solid var(--gp-red);
+    padding: 4mm 5mm; background: var(--paper); margin: 3mm 0;
+    page-break-inside: avoid;
+  }
+  .tql-q { font-family: var(--serif); font-weight: 700; font-size: 11.5pt; color: var(--gp-navy); margin-bottom: 2mm; font-style: italic; line-height: 1.3; }
+  .tql-a { font-family: var(--sans); font-size: 9.5pt; color: var(--g700); line-height: 1.55; }
+  .tql-a strong { color: var(--gp-red); }
+
+  pre.scenario {
+    font-family: 'SF Mono', Consolas, Monaco, monospace; font-size: 9pt;
+    background: var(--gp-navy); color: var(--near-white);
+    padding: 5mm 6mm; margin: 3mm 0; line-height: 1.6;
+    white-space: pre-wrap; border-left: 4px solid var(--gold);
+  }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<section class="page cover">
+  <div class="cover-inner">
+    <div>
+      <div class="cover-mark">Strategy Definition · Mandato al Consejo
+        <span>Documento estratégico · Uso interno · Confidencial</span>
+      </div>
+      <div class="cover-eyebrow">Dirección de Marketing Corporativo</div>
+      <div class="cover-title">Gobierno Corporativo de <em>Marketing</em> del Grupo Plasencia Automotriz.</div>
+      <div class="cover-title-after">Mandato formal del Consejo a la Dirección de Marketing Corporativo bajo modelo Hub &amp; Spoke + Centro de Excelencia + Motor de Atribución MVP ya en producción · captura <em>$50-70M anuales</em> en eficiencia operativa + palanca dominante de revenue incremental +$330-661M por cada punto porcentual de conversión digital recuperado.</div>
+    </div>
+
+    <div class="cover-control">
+      <div class="cover-control-item">
+        <strong>Versión</strong>
+        1.0
+      </div>
+      <div class="cover-control-item">
+        <strong>Fecha</strong>
+        18 de junio de 2026
+      </div>
+      <div class="cover-control-item">
+        <strong>Para</strong>
+        Consejo Directivo Grupo Plasencia Automotriz
+      </div>
+      <div class="cover-control-item">
+        <strong>De</strong>
+        Jesús Pérez Porras · Director MKT Corporativo
+      </div>
+      <div class="cover-control-item">
+        <strong>Framework</strong>
+        Investment Thesis + Bain Results Delivery + adaptación board familiar MX
+      </div>
+      <div class="cover-control-item">
+        <strong>Anexo técnico</strong>
+        Deep Dive Marketing v3.7.3 · sustento detallado con cifras DCA
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOC -->
+<section class="page">
+  <h1 class="section-title"><span class="num">Índice ejecutivo</span>Lo que el Consejo decide hoy.</h1>
+
+  <p class="lead">Este documento es un Strategy Definition: el guion estratégico del cual se deriva cualquier presentación al Consejo. Diseñado para leerse en quince minutos. El Deep Dive Marketing v3.7.3 (publicado en el directorio de decks del Grupo) acompaña como anexo técnico con el sustento detallado.</p>
+
+  <div class="toc">
+    <div class="toc-item"><span class="toc-num">§0</span><span class="toc-title">Honrando el legado</span><span class="toc-sub">Reconocimiento de cuatro décadas que construyeron el Grupo · "extender el modelo, no reemplazarlo"</span><span class="toc-p">3</span></div>
+    <div class="toc-item"><span class="toc-num">§1</span><span class="toc-title">Situación</span><span class="toc-sub">DCA verificado · $39,021M revenue · $212.6M MKT 0.54% del revenue · benchmark sector 0.8-1.5%</span><span class="toc-p">4</span></div>
+    <div class="toc-item"><span class="toc-num">§2</span><span class="toc-title">Complicación</span><span class="toc-sub">No es problema de monto. Es problema de gobierno. Costo de no actuar $50-70M anuales</span><span class="toc-p">5</span></div>
+    <div class="toc-item"><span class="toc-num">§3</span><span class="toc-title">Resolución · La tesis estratégica</span><span class="toc-sub">Hub &amp; Spoke + Motor de Atribución + Captura por marca · tres pilares + cinco "lo que esto NO es"</span><span class="toc-p">6</span></div>
+    <div class="toc-item"><span class="toc-num">§4</span><span class="toc-title">El modelo</span><span class="toc-sub">Tres flujos en sistema único: peso invertido en pauta · negociación OEM · gestión del lead digital</span><span class="toc-p">8</span></div>
+    <div class="toc-item"><span class="toc-num">§5</span><span class="toc-title">El roadmap</span><span class="toc-sub">Tres olas con phase gates · hacemos / cambia / board ve / cuesta · inversión total $5M en 24 meses</span><span class="toc-p">10</span></div>
+    <div class="toc-item"><span class="toc-num">§6</span><span class="toc-title">El caso financiero</span><span class="toc-sub">ROI 9.3× conservador antes de tocar conversión digital · killer metric · costo de no actuar</span><span class="toc-p">11</span></div>
+    <div class="toc-item"><span class="toc-num">§7</span><span class="toc-title">El ask</span><span class="toc-sub">Cinco decisiones binarias con kill criteria · qué pasa semana 1-4 si Consejo aprueba hoy</span><span class="toc-p">12</span></div>
+    <div class="toc-item"><span class="toc-num">Anexo A</span><span class="toc-title">Investment Thesis One-Pager</span><span class="toc-sub">Value Creation Bridge + escenarios con probabilidad + riesgos clave + kill criteria</span><span class="toc-p">13</span></div>
+    <div class="toc-item"><span class="toc-num">Anexo B</span><span class="toc-title">Tough Questions Library</span><span class="toc-sub">Diez preguntas críticas con respuesta preparada de treinta segundos cada una</span><span class="toc-p">14</span></div>
+  </div>
+
+  <div class="nota" style="margin-top:8mm;"><strong>Sobre esta versión 1.0.</strong> Strategy Definition destilado desde el Deep Dive Marketing v3.7.3 publicado en el directorio de decks del Grupo. Construido con framework Investment Thesis (PE/VC para apuestas estratégicas $5M+) + Bain Results Delivery (milestones binarios y phase gates) + adaptación board familiar mexicano (PDI 81, evolución sobre revolución, §0 Honrando el legado antes de la answer-first). Quality gates corridos: Pyramid Test, CFO Test, Cab Driver Test, "So What" Test, Fear Test, Action Test, Hambrick-Fredrickson Diamond, Reference Class Forecasting, Kill criteria SMT. Acompaña al Deep Dive como guion ejecutivo de quince minutos · el Deep Dive carga el detalle técnico para quien quiera bajar al dato. Sobre versiones anteriores: documento nuevo en el directorio público.</div>
+</section>
+
+<!-- §0 HONRANDO EL LEGADO -->
+<section class="page">
+  <h1 class="section-title"><span class="num">§0 · Antes de cualquier argumento</span>Honrando el legado.</h1>
+
+  <p class="lead">El Grupo Plasencia Automotriz construyó en más de cuatro décadas lo que ningún consorcio dealer en el occidente del país logró replicar: ocho marcas operando bajo el mismo techo, <strong>$39,021 millones de revenue 2025</strong>, <strong>7.8% de margen operativo consolidado</strong>, y la confianza de ocho fabricantes globales que le otorgan PMAs anuales.</p>
+
+  <p>La pauta histórica del Grupo siempre fue clara: cada marca con su Director, su agencia, su relación OEM, su autonomía de ejecución. <strong>Ese modelo dejó al Grupo en la posición que hoy ocupa.</strong></p>
+
+  <div class="callout">
+    <div class="callout-t">Lo que este documento propone</div>
+    <p>Este documento no propone reemplazar ese modelo. Propone <strong>complementarlo con la capa corporativa que el Grupo nunca construyó porque hasta hace tres años no era necesaria</strong> — la capa que permite negociar cross-OEM con el volumen agregado del Grupo, medir la conversión digital con rigor contable, y consolidar la inversión en marketing como un activo del Grupo en lugar de ocho gastos paralelos.</p>
+    <p style="margin-top:3mm;"><em>El siguiente capítulo del Grupo se escribe sobre los cimientos que la familia ya puso, no contra ellos.</em></p>
+  </div>
+</section>
+
+<!-- §1 SITUACIÓN -->
+<section class="page">
+  <h1 class="section-title"><span class="num">§1 · Situación</span>El punto de partida <em>contable.</em></h1>
+
+  <p class="lead">El Grupo Plasencia Automotriz cerró 2025 con <strong>$39,021M de revenue</strong> cargado al Estado de Resultados consolidado, <strong>7.8% de utilidad operativa</strong> y <strong>$197.5M de pauta MKT contable verificada</strong> en el cubo 30065 del DCA — equivalente al <strong>0.51% del revenue</strong> del Grupo.</p>
+
+  <p>Sumando la nómina del área de Marketing corporativa y los supervisores digitales en sucursales con cargas patronales, el gasto MKT total cargado al P&amp;L del Grupo asciende a <strong>$212.6M = 0.54% del revenue</strong>. El cubo 30051 de Cuentas por Pagar suma una vista nominal complementaria de aproximadamente <strong>$80M anualizados</strong> distribuidos en <strong>285 razones sociales de proveedores externos MKT</strong>, identificados por inferencia operativa.</p>
+
+  <h2><span class="h-num">1.1</span>El modelo dealer multi-marca clásico</h2>
+
+  <p>El Grupo opera bajo un modelo dealer multi-marca clásico de la industria automotriz mexicana. Ocho marcas — <strong>Mazda, Ford, Hyundai, Stellantis, Isuzu, GWM, GAC y Changan</strong> — con sus respectivos Directores de Marca, sus PMAs anuales firmados directamente con el OEM correspondiente, sus agencias externas seleccionadas por marca, y su autonomía operativa sobre el presupuesto MKT. El Director de Marketing Corporativo del Grupo coordina horizontalmente a las áreas de soporte centralizado (digital, supervisión, sistemas) pero <strong>no tiene mandato formal sobre el gasto de cada marca ni sobre la negociación cross-OEM</strong>.</p>
+
+  <h2><span class="h-num">1.2</span>Contexto del sector</h2>
+
+  <p>El benchmark del sector automotriz mexicano para gasto en pauta MKT está en el rango <strong>0.8-1.5% del revenue</strong>. El Grupo invierte 0.51% en pauta y 0.54% en gasto MKT total cargado al P&amp;L — <strong>por debajo del piso de la industria</strong>.</p>
+
+  <h2><span class="h-num">1.3</span>El piloto Motor de Atribución MVP ya está en producción</h2>
+
+  <p>El piloto del Motor de Atribución MVP arrancó el <strong>17 de abril de 2026</strong> con cuatro marcas — Seminuevos, Hyundai, Stellantis y GAC — y entregó al <strong>15 de junio de 2026</strong> el primer corpus de data atribuible cross-source contra DCA: <strong>1,445 oportunidades digitales</strong> del trío Seminuevos-Hyundai-Stellantis, <strong>43 cierres reportables auditados</strong>, <strong>ROAS de 39.5× y CAC de $1,571 en Seminuevos</strong> como única cifra del Grupo verificable hoy con matching v8.2 contra los libros del DCA.</p>
+
+  <div class="conv-note">
+    <strong>El Consejo no está aprobando una hipótesis · está aprobando la extensión de un piloto en producción.</strong> El Motor de Atribución ya entregó la primera cifra cross-source contra DCA. La pregunta del Consejo es si esa infraestructura opera para el Grupo o para cuatro marcas piloto.
+  </div>
+</section>
+
+<!-- §2 COMPLICACIÓN -->
+<section class="page">
+  <h1 class="section-title"><span class="num">§2 · Complicación</span>No es problema de monto. <em>Es problema de gobierno.</em></h1>
+
+  <p class="lead"><strong>El Grupo no carga un problema de monto en marketing. Carga un problema de gobierno.</strong> Los $212.6M anuales que el Grupo Plasencia destina hoy a Marketing se ejercen sin coordinación cross-marca, sin estándar de medición unificado, sin negociación cross-OEM sobre el volumen agregado del Grupo, sin auditoría folio sobre los 285 proveedores externos del cubo 30051 y sin atribución contable de qué peso invertido en pauta produjo qué venta atribuible. <em>Cada Director de Marca opera su PMA como si su marca fuera una empresa independiente que comparte dueño con otras siete.</em></p>
+
+  <h2><span class="h-num">2.1</span>Tres datos cierran el diagnóstico</h2>
+
+  <ol>
+    <li><strong>La conversión digital del Grupo es 4.35% blended.</strong> Mazda opera a 22% (gold standard del sector). Hyundai a 6.9%. GAC a 5.6%. Ford y Stellantis no tienen data propia en el levantamiento del autorreporte interno Q3-Q4 2025. La dispersión cross-marca no es atribuible al OEM ni al modelo de auto — es atribuible a la gestión humana del lead digital posterior al registro. El piloto del Motor de Atribución lo confirmó en sus primeras nueve semanas: <em>mismo embudo digital, distinta gestión humana</em>.</li>
+    <li><strong>El universo de proveedores MKT externos del cubo 30051 — ~$80M anualizados, 285 razones sociales — opera sin consolidación cross-marca.</strong> El top 30 concentra 81% del universo y dos razones sociales (Coeficiente Comunicaciones y Automotive Online Publishing) facturan ya a cinco o seis marcas del Grupo, lo cual demuestra que la consolidación cross-marca es viable sin disrupción operativa. El catálogo DCA actual no clasifica el gasto MKT en CxP por línea estratégica.</li>
+    <li><strong>La co-inversión OEM se negocia hoy marca por marca.</strong> El benchmark del sector está en 20-30% del gasto MKT eligible. Sobre los $197.5M de pauta MKT del Grupo, ese rango representa entre <strong>$32M y $48M anuales</strong> de palanca contable que se deja sobre la mesa por no negociar con el volumen agregado del Grupo. La negociación 2026-2027 abre la ventana.</li>
+  </ol>
+
+  <div class="callout">
+    <div class="callout-t">Costo de no actuar · expresado año por año</div>
+    <p>Cada año que el Grupo opera el Marketing sin gobernanza corporativa formalmente mandatada, deja sobre la mesa entre <strong>$50 y $70 millones de pesos</strong> en eficiencia operativa, consolidación cross-marca del universo de proveedores externos y co-inversión OEM no negociada al benchmark del sector — y posterga la captura de la palanca dominante de conversión digital atribuida que el Motor de Atribución ya está midiendo.</p>
+    <p style="margin-top:3mm;">Sobre el revenue del Grupo, cada punto porcentual de conversión digital recuperado bajo gobernanza corporativa representa entre <strong>$330 y $661 millones anuales</strong> de revenue incremental. Desagregado por marca, llevar Hyundai y GAC a la mediana del sector (10%) concentra <strong>+$1,220M anuales adicionales</strong> sin tocar la pauta total.</p>
+  </div>
+</section>
+
+<!-- §3 RESOLUCIÓN -->
+<section class="page">
+  <h1 class="section-title"><span class="num">§3 · Resolución · La tesis estratégica</span>Tres pilares en sistema único.</h1>
+
+  <p class="lead"><strong>El Consejo otorga mandato formal a la Dirección de Marketing Corporativo</strong> para operar el gasto MKT del Grupo bajo modelo Hub &amp; Spoke con dos agencias únicas cross-marca y Centro de Excelencia con autoridad cross-OEM, anclado en el Motor de Atribución MVP ya en producción como única fuente de verdad sobre la palanca de revenue incremental atribuible. <em>Sin presupuesto incremental al Consejo. Inversión Fase 1 acotada a $5M. Retorno conservador 9.3× medible al cierre del año uno.</em></p>
+
+  <h2><span class="h-num">3.1</span>Los tres pilares como sistema</h2>
+
+  <div class="pilar">
+    <div class="pilar-header">Pilar 1 · El gobierno corporativo del gasto</div>
+    <div class="pilar-title">Hub &amp; Spoke con dos agencias únicas cross-marca + Centro de Excelencia</div>
+    <div class="pilar-body">El Hub corporativo del Grupo concentra a <strong>seis SMEs senior cross-marca</strong> (Performance, Data, Brand Standards, Creative Operations, Customer Success, Procurement). El Spoke se compone de <strong>ocho Brand Managers — uno por marca</strong> — con doble reporting al Director de Marca y al Director MKT Corporativo, ocho Coordinadores de Marca y aproximadamente veintidós Onsite Coordinators desplegados como nómina interna del Grupo en las sucursales. Las <strong>dos agencias únicas cross-marca</strong> — una para digital y una para análogo — trabajan para los Brand Managers bajo el estándar único del Centro de Excelencia, reemplazando la cola larga de proveedores externos del cubo 30051 con un patrón de consolidación medible.</div>
+  </div>
+
+  <div class="pilar gold">
+    <div class="pilar-header">Pilar 2 · La única fuente de verdad</div>
+    <div class="pilar-title">Motor de Atribución MVP como cierre operativo octubre 2026</div>
+    <div class="pilar-body">El piloto MVP del Motor de Atribución arrancó el 17 de abril de 2026 y al 15 de junio de 2026 ya tiene <strong>cuatro marcas en producción</strong> (Seminuevos, Hyundai, Stellantis, GAC), 1,445 oportunidades digitales auditadas, 43 cierres reportables y la primera cifra atribuible cross-source contra DCA (Seminuevos ROAS 39.5× · CAC $1,571). El cierre operativo del Motor MVP — la primera cifra contablemente auditable de revenue digital atribuido por marca y por agencia — está calendarizado para <strong>octubre de 2026</strong>. Desde ese momento, el Centro de Excelencia opera con un dato común sobre el cual negociar cross-OEM, distribuir presupuesto cross-marca y medir el rendimiento del peso invertido.</div>
+  </div>
+
+  <div class="pilar red">
+    <div class="pilar-header">Pilar 3 · La palanca dominante</div>
+    <div class="pilar-title">Captura por marca de la palanca de conversión digital</div>
+    <div class="pilar-body">La conversión digital es la palanca <strong>dominante por orden de magnitud</strong> sobre la eficiencia operativa. El Hub &amp; Spoke + Motor de Atribución habilitan que cada Brand Manager opere bajo el estándar del Centro de Excelencia y replique en su marca el patrón gestor del lead digital que Mazda ya ejecuta (22% de conversión gold) y que Seminuevos validó en nueve semanas del piloto. La captura se concentra en las dos marcas con mayor headroom: <strong>Hyundai (6.9% → 10% mediana del sector = +$874M anuales)</strong> y <strong>GAC (5.6% → 10% = +$346M anuales)</strong> suman <strong>+$1,220M anuales de revenue incremental</strong>, sin tocar la pauta total del Grupo.</div>
+  </div>
+
+  <h2><span class="h-num">3.2</span>Lo que esta estrategia NO es</h2>
+
+  <ul>
+    <li><strong>NO es centralización de los PMA OEM</strong> · Cada Director de Marca mantiene la titularidad de su PMA anual y la relación directa con el OEM correspondiente. El Centro de Excelencia entra a la negociación cross-OEM 2026-2027 acompañando, no reemplazando.</li>
+    <li><strong>NO es reducción de gasto MKT</strong> · Es la misma pauta del Grupo rindiendo más. El presupuesto agregado de $197.5M no baja — los $50-70M de beneficio anual son captura, no recorte.</li>
+    <li><strong>NO es nuevo presupuesto al Consejo</strong> · La inversión Fase 1 del Centro de Excelencia se acota a $5M para los primeros doce meses operativos, financiables con la captura de las palancas 1-4.</li>
+    <li><strong>NO es reemplazo de los Directores de Marca</strong> · El doble reporting de Brand Managers preserva la cadena de mando con el Director de Marca. El Centro de Excelencia entrega estándar técnico, no autoridad jerárquica sobre la operación comercial de cada marca.</li>
+    <li><strong>NO es proyecto a 18 meses con resultado al final</strong> · El Motor de Atribución MVP ya está en producción con cuatro marcas piloto. La captura empieza el día siguiente al mandato del Consejo.</li>
+  </ul>
+</section>
+
+<!-- §4 EL MODELO -->
+<section class="page">
+  <h1 class="section-title"><span class="num">§4 · El modelo · Cómo opera</span>Tres flujos en sistema único.</h1>
+
+  <p class="lead">El modelo Hub &amp; Spoke + Centro de Excelencia + Motor de Atribución convierte tres flujos de marketing que hoy operan en paralelo en un sistema único de marketing del Grupo:</p>
+
+  <h2><span class="h-num">4.1</span>Flujo 1 · El peso invertido en pauta</h2>
+
+  <p><strong>Hoy:</strong> cada Director de Marca firma un PMA anual con el OEM correspondiente, contrata su agencia, autoriza la pauta y reporta resultado al cierre del trimestre con la metodología de cada agencia. <em>El peso invertido en pauta del Grupo se mide ocho veces, en ocho lenguajes distintos, contra ocho líneas base no comparables.</em></p>
+  <p><strong>En el modelo To-Be:</strong> el Centro de Excelencia opera la pauta digital del Grupo a través de dos agencias únicas cross-marca, con estándar único de creativos Andromeda 2026, atribución server-side unificada vía el Motor de Atribución y reporte cross-marca al Director MKT Corporativo. <em>El peso invertido se mide una vez, en un lenguaje común, contra una línea base compartida.</em></p>
+
+  <h2><span class="h-num">4.2</span>Flujo 2 · La negociación con el OEM</h2>
+
+  <p><strong>Hoy:</strong> ocho conversaciones paralelas con ocho OEMs, cada una con la posición individual de la marca correspondiente. El benchmark de co-inversión 20-30% se aplica de manera fragmentada.</p>
+  <p><strong>En el modelo To-Be:</strong> el Centro de Excelencia entra a la negociación cross-OEM 2026-2027 con el volumen agregado del Grupo y el rigor de medición del Motor de Atribución MVP como respaldo. La palanca cuantificada está en <strong>$32-48M anuales</strong> sobre los ~$160M de pauta eligible.</p>
+
+  <h2><span class="h-num">4.3</span>Flujo 3 · La gestión del lead digital</h2>
+
+  <p><strong>Hoy:</strong> el lead digital entra a cada marca con una mecánica distinta, se distribuye al vendedor de sucursal sin gobernanza corporativa sobre el SLA de respuesta, y se cierra (o no) con la metodología individual de cada agencia y de cada vendedor. El Motor de Atribución MVP ya cuantificó la dispersión: <strong>Seminuevos cierra a 8.5%</strong> por contactar → cita con IA Vambe en producción, <strong>Hyundai cierra al 0.2%</strong> y <strong>Stellantis al 0.4%</strong> por pipeline atorado.</p>
+  <p><strong>En el modelo To-Be:</strong> el Brand Manager opera bajo estándar único del Centro de Excelencia con doble reporting al Director MKT Corporativo. El SLA de respuesta al lead digital, el script de calificación, la mecánica de cita en piso y el matching con el cierre contable del DCA son cross-marca. La conversión por marca converge sobre la frontera Mazda 22% con el tiempo que el Motor de Atribución mide auditablemente.</p>
+
+  <h2><span class="h-num">4.4</span>Cómo se acumula el valor a través del tiempo</h2>
+
+  <table>
+    <thead>
+      <tr><th>Ola · Plazo</th><th>Qué pasa</th><th class="num">Captura acumulada anual</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Ola 1 · Fundación</strong><br/>12 meses</td>
+        <td>Motor de Atribución cierra operativo octubre 2026 con cuatro marcas piloto · Centro de Excelencia se instala con seis SMEs senior · dos agencias únicas cross-marca arrancan operación</td>
+        <td class="num"><strong>$30-40M</strong><br/>palancas 1-3 parciales</td>
+      </tr>
+      <tr>
+        <td><strong>Ola 2 · Escala</strong><br/>12 meses</td>
+        <td>Hub &amp; Spoke completo con ocho Brand Managers y ~22 onsite · negociación cross-OEM 2026-2027 cerrada · Motor expandido a ocho marcas · Hyundai y GAC corren playbook Mazda</td>
+        <td class="num"><strong>+$20-30M adicionales</strong><br/>palanca 4 + captura inicial +1pp</td>
+      </tr>
+      <tr class="highlight">
+        <td><strong>Ola 3 · Sostenimiento</strong><br/>12 meses+</td>
+        <td>Centro de Excelencia opera como infraestructura permanente del Grupo · palanca dominante de conversión digital + Motor MVP como única fuente de verdad</td>
+        <td class="num"><strong>+$661M a +$1,220M</strong><br/>revenue incremental anual</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- §5 ROADMAP -->
+<section class="page">
+  <h1 class="section-title"><span class="num">§5 · El roadmap · Qué construimos</span>Tres fases con phase gates.</h1>
+
+  <h2><span class="h-num">5.1</span>Fase 1 · Mandato y arranque · meses 0-3</h2>
+
+  <table>
+    <tbody>
+      <tr><td><strong>Hacemos</strong></td><td>Mandato formal del Consejo a la Dirección de Marketing Corporativo · contratación de los seis SMEs senior del Hub · pre-selección de las dos agencias únicas cross-marca · activación del doble reporting de los Brand Managers actuales · expansión del Motor de Atribución a las cuatro marcas restantes del Grupo</td></tr>
+      <tr><td><strong>Cambia</strong></td><td>Existe por primera vez una mesa cross-marca formalmente mandatada por el Consejo · los reportes mensuales de marketing dejan de ser ocho silos paralelos y empiezan a consolidarse en una sola vista corporativa</td></tr>
+      <tr><td><strong>Board ve</strong></td><td>Acta del Consejo con mandato formal · plan de contratación del Hub con perfiles definidos · primera vista consolidada del gasto MKT del Grupo al cierre del primer trimestre operativo</td></tr>
+      <tr class="highlight"><td><strong>Cuesta</strong></td><td><strong>$1.5M de inversión Fase 1</strong> (perfiles Hub + activación agencias + extensión Motor a las 8 marcas)</td></tr>
+    </tbody>
+  </table>
+
+  <h2><span class="h-num">5.2</span>Fase 2 · Centro de Excelencia operativo · meses 4-12</h2>
+
+  <table>
+    <tbody>
+      <tr><td><strong>Hacemos</strong></td><td>Centro de Excelencia opera la pauta digital del Grupo bajo estándar único · Motor de Atribución cierra operativo en octubre 2026 con dato auditable cross-source contra DCA · negociación cross-OEM 2026-2027 con Mazda, Ford y Hyundai · auditoría folio cubo 30051 × 30067 con Contraloría · onboarding de las ocho Brand Managers definitivas</td></tr>
+      <tr><td><strong>Cambia</strong></td><td>El Grupo negocia con tres OEMs sobre volumen agregado por primera vez · la consolidación cross-marca de proveedores externos arranca medible · la conversión digital empieza a moverse en Hyundai y GAC con el playbook Mazda aplicado</td></tr>
+      <tr><td><strong>Board ve</strong></td><td>Resultados cuantitativos del primer ciclo Motor de Atribución octubre 2026 · cifra contable auditada de co-inversión OEM negociada · reporte mensual estandarizado cross-marca con KPIs comunes</td></tr>
+      <tr class="highlight"><td><strong>Cuesta</strong></td><td><strong>$2M adicionales</strong> (auditoría folio Contraloría + adopción agencias únicas cross-marca + onboarding Brand Managers)</td></tr>
+    </tbody>
+  </table>
+
+  <h2><span class="h-num">5.3</span>Fase 3 · Captura completa · meses 13-24</h2>
+
+  <table>
+    <tbody>
+      <tr><td><strong>Hacemos</strong></td><td>Hub &amp; Spoke completo · Motor de Atribución como única fuente de verdad de revenue incremental atribuible por marca y por agencia · negociación cross-OEM 2026-2027 cerrada con las ocho marcas · Hyundai y GAC en convergencia hacia 10% conversión digital · estandarización del SLA de respuesta al lead digital cross-marca</td></tr>
+      <tr><td><strong>Cambia</strong></td><td>El gasto MKT del Grupo se gobierna como un activo corporativo, no como ocho gastos paralelos · la palanca de conversión digital empieza a entregar revenue incremental medible · el Centro de Excelencia se vuelve infraestructura permanente del Grupo</td></tr>
+      <tr><td><strong>Board ve</strong></td><td>Captura agregada palancas 1-4 entre $46.5M y $74.2M anuales · primera medición auditable de +1pp conversión digital · revenue incremental atribuible por marca contra línea base 2025</td></tr>
+      <tr class="highlight"><td><strong>Cuesta</strong></td><td><strong>$1.5M adicionales</strong> (consolidación operativa + escalamiento del Motor) · <strong>Inversión total Fase 1-3: $5M acumulados</strong></td></tr>
+    </tbody>
+  </table>
+
+  <div class="conv-note">
+    <strong>Phase gates · qué dispara cada ola.</strong> Mandato Consejo aprobado → arranca Fase 1 · Motor de Atribución cierra octubre 2026 con dato auditado → autoriza pasar a Fase 2 · Captura palancas 1-4 verificable contra DCA al cierre del año uno → autoriza expansión a Fase 3.
+  </div>
+</section>
+
+<!-- §6 CASO FINANCIERO -->
+<section class="page">
+  <h1 class="section-title"><span class="num">§6 · El caso financiero</span>ROI 9.3× <em>antes</em> de tocar conversión digital.</h1>
+
+  <h2><span class="h-num">6.1</span>Captura del beneficio · tres escenarios</h2>
+
+  <table>
+    <thead>
+      <tr><th>Palanca</th><th class="num">Conservador</th><th class="num">Realista</th><th class="num">Optimista</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>1. Consolidación cross-marca proveedores ($80M cubo 30051)</td><td class="num">$8M</td><td class="num">$10M</td><td class="num">$12M</td></tr>
+      <tr><td>2. Co-inversión OEM al benchmark del sector</td><td class="num">$32M</td><td class="num">$40M</td><td class="num">$48M</td></tr>
+      <tr><td>3. Reducción plantilla 60 → 30 vía Hub &amp; Spoke</td><td class="num">$5M</td><td class="num">$8.75M</td><td class="num">$11M</td></tr>
+      <tr><td>4. Central de Medios + recuperación IVA acreditable</td><td class="num">$1.5M</td><td class="num">$2.5M</td><td class="num">$3.2M</td></tr>
+      <tr><td><strong>Subtotal palancas 1-4 · eficiencia + recuperación</strong></td><td class="num"><strong>$46.5M</strong></td><td class="num"><strong>$61.25M</strong></td><td class="num"><strong>$74.2M</strong></td></tr>
+      <tr class="highlight"><td><strong>5. Conversión digital atribuida (+1pp) · palanca dominante</strong></td><td class="num"><strong>+$330M</strong></td><td class="num"><strong>+$661M</strong></td><td class="num"><strong>+$1,983M</strong></td></tr>
+      <tr class="total"><td><strong>TOTAL impacto anualizado</strong></td><td class="num"><strong>$376.5M</strong></td><td class="num"><strong>$722.25M</strong></td><td class="num"><strong>$2,057.2M</strong></td></tr>
+    </tbody>
+  </table>
+
+  <h2><span class="h-num">6.2</span>ROI del Centro de Excelencia · $5M inversión Fase 1</h2>
+
+  <table>
+    <thead>
+      <tr><th>Métrica</th><th class="num">Conservador</th><th class="num">Realista</th><th class="num">Optimista</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Retorno neto · eficiencia + recuperación (palancas 1-4)</td><td class="num">$41.5M · ROI 9.3×</td><td class="num">$56.25M · ROI 12.25×</td><td class="num">$69.2M · ROI 14.84×</td></tr>
+      <tr class="total"><td><strong>ROI total · eficiencia + conversión</strong></td><td class="num"><strong>75×</strong></td><td class="num"><strong>144×</strong></td><td class="num"><strong>411×</strong></td></tr>
+    </tbody>
+  </table>
+
+  <h2><span class="h-num">6.3</span>El killer metric</h2>
+
+  <div class="hero-grid">
+    <div class="hero-card gold">
+      <div class="hero-num">9.3×</div>
+      <div class="hero-num-sub">ROI conservador palancas 1-4</div>
+      <div class="hero-label">El bono · no la apuesta</div>
+      <div class="hero-tagline">Sobre $5M invertidos · retorna $9.3 por cada $1 sin que un solo punto porcentual de conversión digital se mueva. La conversión es el bono. La eficiencia sola ya hace el caso.</div>
+    </div>
+    <div class="hero-card navy">
+      <div class="hero-num">$50-70M</div>
+      <div class="hero-num-sub">captura anual sostenible</div>
+      <div class="hero-label">Costo de no actuar</div>
+      <div class="hero-tagline">Cada año que el Grupo opera el marketing sin gobernanza corporativa, esta cifra se queda sobre la mesa · sin tocar la pauta total · sin presupuesto incremental al Consejo.</div>
+    </div>
+    <div class="hero-card">
+      <div class="hero-num">+$1,220M</div>
+      <div class="hero-num-sub">Hyundai + GAC a mediana sector 10%</div>
+      <div class="hero-label">Concentración del prize</div>
+      <div class="hero-tagline">Solo dos marcas concentran el revenue incremental anual capturable bajo gobernanza corporativa cuando convergen al benchmark del sector. Sin tocar Mazda. Sin tocar pauta total.</div>
+    </div>
+  </div>
+
+  <h2><span class="h-num">6.4</span>Benchmark sectorial</h2>
+
+  <p>El gasto MKT del Grupo en <strong>0.54% del revenue</strong> está <strong>por debajo del piso del sector automotriz mexicano (0.8-1.5%)</strong>. Esta estrategia <em>no propone incrementar el gasto</em>. Propone gobernar el gasto actual con la disciplina que el benchmark sectorial ya aplica desde hace una década en los grupos del top 5 nacional.</p>
+</section>
+
+<!-- §7 ASK -->
+<section class="page">
+  <h1 class="section-title"><span class="num">§7 · El ask</span>Cinco decisiones binarias.</h1>
+
+  <p class="lead">El Consejo decide cinco asks binarios, idealmente en la misma sesión. Cada uno con kill criteria explícitos y autoridad de activación independiente.</p>
+
+  <table>
+    <thead>
+      <tr><th style="width:6%">#</th><th style="width:36%">Decisión binaria</th><th style="width:14%">Costo</th><th style="width:16%">Plazo</th><th>Kill criteria</th></tr>
+    </thead>
+    <tbody>
+      <tr class="ask-row"><td class="ask-num">1</td><td><strong>Mandato formal a la Dirección de Marketing Corporativo</strong> para gobernar el gasto MKT del Grupo bajo Hub &amp; Spoke + Centro de Excelencia</td><td class="num">$0 directos</td><td>Sesión actual</td><td>Si captura palancas 1-2 al cierre del año uno cae bajo $25M anuales auditados, el Consejo revisa el mandato</td></tr>
+      <tr class="ask-row"><td class="ask-num">2</td><td><strong>Aprobación inversión Fase 1</strong> de $1.5M para los primeros tres meses (Hub corporativo + agencias cross-marca + extensión Motor de Atribución)</td><td class="num">$1.5M</td><td>Sesión actual</td><td>Si los seis SMEs no están contratados al mes tres o el Motor no completa expansión a las ocho marcas, el Consejo activa kill</td></tr>
+      <tr class="ask-row"><td class="ask-num">3</td><td><strong>Autorización negociación cross-OEM 2026-2027</strong> liderada por la Dirección de MKT Corporativo, manteniendo titularidad del PMA en cada Director de Marca</td><td class="num">$0 directos</td><td>Sesión actual · ventana 90 días</td><td>Si tres OEMs no cierran negociación al benchmark sector al final del primer año, el Consejo revisa la palanca</td></tr>
+      <tr class="ask-row"><td class="ask-num">4</td><td><strong>Aprobación cadencia de reporte trimestral</strong> del Centro de Excelencia al Consejo con métricas comunes cross-marca y cierre auditable contra DCA</td><td class="num">$0 directos</td><td>Cadencia desde el siguiente Consejo</td><td>Si reportes no entregan consistencia cross-marca prometida en dos ciclos consecutivos, el Consejo revisa la estructura</td></tr>
+      <tr class="ask-row"><td class="ask-num">5</td><td><strong>Aprobación condicional de Fase 2 y Fase 3</strong> pendiente de los phase gates del §5 (Motor cierra octubre 2026 + captura palancas 1-4 verificable contra DCA al año uno)</td><td class="num">$3.5M condicionados</td><td>A los gates · 12-24 meses</td><td>Phase gate explícito ya definido en §5</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    <div class="callout-t">Qué pasa en los próximos 30 días si el Consejo aprueba hoy</div>
+    <ul style="margin-top:2mm;">
+      <li><strong>Semana 1</strong> · Comunicación formal del mandato a los ocho Directores de Marca · activación del doble reporting de los actuales Coordinadores de cada marca al Director MKT Corporativo</li>
+      <li><strong>Semana 2</strong> · Apertura de los seis procesos de contratación del Hub corporativo · primera reunión cross-marca formalmente mandatada por el Consejo</li>
+      <li><strong>Semana 3</strong> · Pre-selección de las dos agencias únicas cross-marca (digital + análogo) sobre el universo de proveedores del cubo 30051 ya identificados</li>
+      <li><strong>Semana 4</strong> · Reunión con Contraloría para arrancar la auditoría folio cubo 30051 × 30067 y la extensión del catálogo DCA con la línea estratégica de gasto al nivel póliza</li>
+    </ul>
+  </div>
+
+  <div class="conv-note">
+    <strong>Qué pasa si el Consejo NO aprueba hoy.</strong> Los $50-70M anuales de palancas 1-4 + la palanca dominante de conversión digital quedan en la mesa por un año fiscal adicional. El Motor de Atribución MVP entrega su dato auditable en octubre 2026 con o sin mandato corporativo — la diferencia es si el Grupo opera ese dato como única fuente de verdad cross-marca o como insumo aislado de cuatro marcas piloto. <em>El piloto demuestra; el mandato captura.</em>
+  </div>
+</section>
+
+<!-- ANEXO A: INVESTMENT THESIS -->
+<section class="page">
+  <h1 class="section-title"><span class="num">Anexo A</span>Investment Thesis · <em>One-Pager.</em></h1>
+
+  <p class="lead">Frame PE/VC para apuestas estratégicas. Value Creation Bridge + escenarios con probabilidad asignada + riesgos clave con mitigación + kill criteria explícitos con autoridad de activación independiente.</p>
+
+  <pre class="scenario">EL BET (1 párrafo):
+
+Creemos que otorgar mandato formal a la Dirección de Marketing
+Corporativo para operar el gasto MKT del Grupo bajo Hub &amp; Spoke +
+Centro de Excelencia + Motor de Atribución MVP ya en producción
+permitirá al Grupo capturar $50-70M anuales en eficiencia operativa
++ co-inversión OEM al benchmark + consolidación cross-marca, y
+habilitará la palanca dominante de conversión digital (+$330-661M
+revenue anuales). Inversión total $5M en 24 meses · ROI conservador
+9.3× en palancas 1-4 · ROI total con palanca de conversión 75×.</pre>
+
+  <h2><span class="h-num">A.1</span>Value Creation Bridge</h2>
+
+  <pre class="scenario">  Estado actual:                $39,021M revenue · $3,053M utilidad op.
+  + Palanca 1 (proveedores):    +$8-12M anuales
+  + Palanca 2 (co-inversión):   +$32-48M anuales
+  + Palanca 3 (plantilla):      +$5-11M anuales
+  + Palanca 4 (medios + IVA):   +$1.5-3.2M anuales
+  = Estado futuro · año 1-2:    +$46.5-74.2M captura
+  + Palanca 5 (conversión):     +$330-661M revenue (Mile 3+)
+
+  Inversión total Fase 1-3:     $5M
+  ROI eficiencia (palancas 1-4): 9.3× conservador / 14.84× optimista
+  ROI total con conversión:     75× / 411×</pre>
+
+  <h2><span class="h-num">A.2</span>Escenarios con probabilidad asignada</h2>
+
+  <table>
+    <thead>
+      <tr><th>Escenario</th><th class="num">Probabilidad</th><th>Captura palancas 1-4</th><th>Palanca 5 año 2</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Conservador</strong></td><td class="num">50%</td><td>$46.5M anuales</td><td>Sin captura año 1</td></tr>
+      <tr><td><strong>Realista</strong></td><td class="num">40%</td><td>$61.25M anuales</td><td>+0.5pp año 2 = +$330M</td></tr>
+      <tr><td><strong>Optimista</strong></td><td class="num">10%</td><td>$74.2M anuales</td><td>+1pp año 2 = +$661M</td></tr>
+    </tbody>
+  </table>
+
+  <h2><span class="h-num">A.3</span>Riesgos clave y mitigaciones</h2>
+
+  <table>
+    <thead>
+      <tr><th>Riesgo</th><th>Mitigación</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Resistencia interna de Directores de Marca</td><td>Doble reporting · titularidad del PMA preservada · Brand Manager con perfil familiar al rol clásico de gerente comercial</td></tr>
+      <tr><td>Demora cierre Motor de Atribución octubre 2026</td><td>MVP ya en producción desde abril · cuatro marcas piloto reportando · matching v8.2 contra DCA validado en Seminuevos</td></tr>
+      <tr><td>Negociación cross-OEM fricciona con OEMs</td><td>Cada PMA mantiene titularidad de marca · el Centro acompaña, no reemplaza · piloto GAC ya documenta 61.3% rebate efectivo como precedente</td></tr>
+    </tbody>
+  </table>
+
+  <h2><span class="h-num">A.4</span>Kill criteria · autoridad de activación: Consejo Directivo</h2>
+
+  <ul>
+    <li>Captura palancas 1-2 al cierre año uno menor a $25M anuales auditados contra DCA</li>
+    <li>Motor de Atribución no cierra octubre 2026 con dato cross-source</li>
+    <li>Tres de ocho Directores de Marca no firman el doble reporting al mes seis</li>
+  </ul>
+</section>
+
+<!-- ANEXO B: TOUGH QUESTIONS LIBRARY -->
+<section class="page">
+  <h1 class="section-title"><span class="num">Anexo B</span>Tough Questions Library · <em>diez preguntas críticas.</em></h1>
+
+  <p class="lead">Anexo interno preparado para Q&amp;A del Consejo. Cada pregunta con respuesta de treinta segundos lista (≈ 75 palabras). Probadas contra el framework BRIDGE (Breathe · Rephrase · Index · Deliver · Gain agreement · Exit).</p>
+
+  <div class="tql">
+    <div class="tql-q">Q1 · "¿Esto no es centralizar lo que cada Director de Marca ya gestiona?"</div>
+    <div class="tql-a"><strong>A1:</strong> Respeto a esa duda. El Centro de Excelencia no centraliza el PMA — el PMA sigue siendo del Director de Marca con el OEM correspondiente. El Centro entrega tres cosas que hoy ningún Director de Marca tiene sola: estándar técnico cross-marca, volumen agregado para negociar con el OEM, y atribución contable de qué pauta produjo qué venta. Es complemento, no reemplazo.</div>
+  </div>
+
+  <div class="tql">
+    <div class="tql-q">Q2 · "¿De dónde sale el 9.3× ROI conservador? Suena alto."</div>
+    <div class="tql-a"><strong>A2:</strong> Sobre $5M de inversión Fase 1, retornar $46.5M en palancas operativas auditables. Tres componentes: $32M de co-inversión OEM al benchmark sector (20% sobre $160M eligible — el sector ya opera ese rango), $8M de consolidación cross-marca del universo de proveedores ($80M cubo 30051 con 10% descuento de volumen), y $6.5M de Central de Medios + IVA + plantilla. Cada componente con base contable verificable, no estimación.</div>
+  </div>
+
+  <div class="tql">
+    <div class="tql-q">Q3 · "Lo hemos intentado antes y no funcionó."</div>
+    <div class="tql-a"><strong>A3:</strong> Reconozco el intento previo. Tres diferencias hoy: el Motor de Atribución MVP ya está en producción desde abril 2026 con cuatro marcas — tenemos dato auditable cross-source contra DCA que antes no teníamos. Las dos agencias únicas cross-marca operan bajo estándar Andromeda 2026 — los creativos no se inventan, se aplican. Y los Brand Managers operan con doble reporting — el Director MKT Corporativo no le pide permiso a nadie para activar el playbook.</div>
+  </div>
+
+  <div class="tql">
+    <div class="tql-q">Q4 · "¿Y Ford? Es la segunda marca por revenue y no tiene data Galindo."</div>
+    <div class="tql-a"><strong>A4:</strong> Cierto · el proxy Galindo Q3-Q4 2025 no cubre Ford ni Stellantis. Por eso el cierre auditable del dato por marca es entregable del Motor de Atribución MVP en octubre 2026 — no del autorreporte. Ford recibe el playbook completo de Hub &amp; Spoke desde el día uno; el dato proxy es para dimensionar la palanca, no para condicionar la operación.</div>
+  </div>
+
+  <div class="tql">
+    <div class="tql-q">Q5 · "¿Qué pasa si el Motor no cierra octubre 2026?"</div>
+    <div class="tql-a"><strong>A5:</strong> Es el kill criterion explícito del ask. Si el Motor no entrega dato auditado al cierre del sexto mes operativo, el Consejo revisa la Fase 2 antes de autorizar la inversión incremental. La Fase 1 de $1.5M ya está activa con captura medible en palancas 1-2 — no hay sunk cost catastrófico.</div>
+  </div>
+
+  <div class="tql">
+    <div class="tql-q">Q6 · "Sueldos del Hub corporativo · seis senior cross-marca son caros."</div>
+    <div class="tql-a"><strong>A6:</strong> La estimación cubo 30046 ya está en el cálculo del beneficio · palanca 3 (Reducción plantilla 60→30) considera el costo del Hub Senior. El Centro de Excelencia profesionaliza el cargo, no incrementa el costo agregado. El gasto en nómina de los seis Senior sustituye horas dispersas en las ocho marcas + coordinación de proveedores externos hoy en cada Director de Marca.</div>
+  </div>
+
+  <div class="tql">
+    <div class="tql-q">Q7 · "Estamos bien como estamos — el Grupo creció sin esto."</div>
+    <div class="tql-a"><strong>A7:</strong> El Grupo creció hasta acá precisamente con la disciplina de cada Director de Marca operando su PMA con autonomía. Ese modelo no se cambia — se complementa con la capa corporativa que hoy no existe y que cuesta $50-70M anuales de captura no realizada. La pregunta no es "¿estamos bien?" — es "¿podemos estar $50-70M anuales mejor sin tocar la pauta?"</div>
+  </div>
+
+  <div class="tql">
+    <div class="tql-q">Q8 · "¿Y si los OEMs no negocian al benchmark?"</div>
+    <div class="tql-a"><strong>A8:</strong> Tres protecciones · Una, GAC ya reporta 61.3% rebate efectivo línea por línea — el precedente interno existe. Dos, la negociación cross-OEM la lidera el Centro acompañando al Director de Marca, no reemplazándolo — los OEMs no pierden interlocutor. Tres, el Motor de Atribución entrega el dato auditable que hoy los Directores no tienen para negociar con rigor.</div>
+  </div>
+
+  <div class="tql">
+    <div class="tql-q">Q9 · "¿Por qué dos agencias únicas y no diez?"</div>
+    <div class="tql-a"><strong>A9:</strong> Hoy el Grupo opera con 285 razones sociales de proveedores externos en el cubo 30051. Dos agencias únicas cross-marca (digital + análogo) consolidan el 81% del universo concentrado en el top 30 · el descuento por volumen agregado sobre $80M anualizados captura $8-12M anuales sin perder calidad operativa. Las cinco promotoras Mazda y los proveedores OEM-específicos mantienen su categoría — el patrón de consolidación es sobre el universo cross-marca.</div>
+  </div>
+
+  <div class="tql">
+    <div class="tql-q">Q10 · "¿Pero esto es realmente lo que el Grupo Plasencia es?"</div>
+    <div class="tql-a"><strong>A10:</strong> Es exactamente lo que el Grupo Plasencia es · una operación dealer multi-marca con la disciplina contable, la relación OEM y la base de clientes que ningún competidor del occidente puede replicar. Esta propuesta no nos reinventa — extiende a Marketing la misma disciplina corporativa que la familia ya aplica a Finanzas, a Operaciones y a Recursos Humanos desde hace una década. Es el siguiente capítulo del modelo que ya funciona, no la sustitución del que tenemos.</div>
+  </div>
+
+  <div class="nota" style="margin-top:6mm;"><strong>Cross-references.</strong> Deep Dive Marketing v3.7.3 · sustento detallado con cifras DCA verificadas → <a href="Marketing-Estructura-Economia-Concentracion.html">decks.grupoplasenciaautomotriz.com.mx · Deep Dive Marketing</a>. Strategy Definition canónica en md → grupo-plasencia-docs/01-strategy/Strategy-Definition-Gobierno-MKT-Consejo-2026-06.md. Motor de Atribución · estado completo → grupo-plasencia-docs/00-context/Piloto-Motor-Atribucion-Estado-Completo.md.</div>
+</section>
+
+</body>
+</html>
