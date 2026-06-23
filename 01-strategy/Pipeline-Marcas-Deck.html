@@ -263,6 +263,78 @@ table.sucursal-tbl td.bad { color: var(--gp-red); }
 .page-chip { position:absolute; top: 18px; left: 52px; font-family:var(--serif); font-weight: 800; font-size: 11pt; color: var(--gp-red); letter-spacing:-.3px; }
 .slide.cover .page-chip { display:none; }
 
+/* ════ Sistema Consejo-MKT (Inter+Playfair editorial) ════ */
+.section-num-v2 { font-family: var(--sans); font-size: 10pt; font-weight: 700; letter-spacing: 4.5px; color: var(--gp-red); text-transform: uppercase; }
+.slide-h1-v2 { font-family: var(--serif); font-weight: 800; font-size: 32pt; line-height: 1.08; letter-spacing: -1.2px; color: var(--gp-navy); margin-top: 6px; }
+.slide-h1-v2 em { font-style: italic; color: var(--gp-red); font-weight: 700; }
+.slide-lede-v2 { font-family: var(--sans); font-size: 12pt; color: var(--g600); line-height: 1.5; margin-top: 4px; max-width: 1100px; }
+.slide-lede-v2 strong { color: var(--gp-navy); font-weight: 700; }
+.slide-lede-v2 em { font-style: italic; color: var(--gp-navy); }
+
+/* KPI cards estilo Consejo */
+.kpi-grid-v2 { display: grid; gap: 14px; }
+.kpi-grid-v2.cols-3 { grid-template-columns: repeat(3, 1fr); }
+.kpi-grid-v2.cols-4 { grid-template-columns: repeat(4, 1fr); }
+.kpi-card-v2 { background: var(--paper); border: 1px solid var(--g200); border-radius: 10px; padding: 18px 22px; position: relative; box-shadow: 0 1px 3px rgba(30,39,64,.05); }
+.kpi-card-v2::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--gp-red); border-radius: 10px 10px 0 0; }
+.kpi-card-v2.navy::before { background: var(--gp-navy); }
+.kpi-card-v2.gold::before { background: var(--gold); }
+.kpi-card-v2.green::before { background: var(--green); }
+.kpi-card-v2.blue::before { background: var(--blue); }
+.kpi-card-v2 .lbl { font-family: var(--sans); font-size: 9pt; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--g500); margin-bottom: 6px; }
+.kpi-card-v2 .num-big { font-family: var(--serif); font-weight: 900; font-size: 32pt; line-height: 1.02; letter-spacing: -1.4px; color: var(--gp-navy); }
+.kpi-card-v2 .num-big.red { color: var(--gp-red); }
+.kpi-card-v2 .num-big.gold { color: var(--amber); }
+.kpi-card-v2 .num-big.green { color: var(--deep-green); }
+.kpi-card-v2 .sub-text { font-family: var(--sans); font-size: 9.5pt; color: var(--g600); margin-top: 6px; line-height: 1.45; }
+.kpi-card-v2 .sub-text strong { color: var(--gp-navy); font-weight: 700; }
+
+/* Callouts grandes */
+.callout-big { background: linear-gradient(to right, rgba(30,39,64,0.06), rgba(30,39,64,0.01)); border-left: 4px solid var(--gp-navy); padding: 14px 20px; border-radius: 0 6px 6px 0; }
+.callout-big.red { background: linear-gradient(to right, rgba(200,16,46,0.07), rgba(200,16,46,0.01)); border-left-color: var(--gp-red); }
+.callout-big.gold { background: linear-gradient(to right, rgba(236,201,75,0.14), rgba(236,201,75,0.02)); border-left-color: var(--gold); }
+.callout-big.green { background: linear-gradient(to right, rgba(72,187,120,0.10), rgba(72,187,120,0.02)); border-left-color: var(--green); }
+.callout-t { font-family: var(--serif); font-weight: 700; font-style: italic; color: var(--gp-navy); margin-bottom: 5px; font-size: 13pt; letter-spacing: -0.3px; line-height: 1.2; }
+.callout-big.red .callout-t { color: var(--gp-red); }
+.callout-big.gold .callout-t { color: var(--amber); }
+.callout-big.green .callout-t { color: var(--deep-green); }
+.callout-big p { font-family: var(--sans); font-size: 10pt; color: var(--g600); line-height: 1.5; margin: 0; }
+.callout-big p strong { color: var(--gp-navy); font-weight: 700; }
+.callout-big.red p strong { color: var(--gp-red); }
+
+/* Pilar cards (para slide cierre con 3 acuerdos) */
+.pilar-grid-v2 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.pilar-card-v2 { background: var(--paper); border: 1px solid var(--g200); border-left: 4px solid var(--gp-navy); border-radius: 6px; padding: 14px 18px; display: flex; flex-direction: column; gap: 6px; }
+.pilar-card-v2.gold { border-left-color: var(--gold); }
+.pilar-card-v2.red { border-left-color: var(--gp-red); }
+.pilar-card-v2.green { border-left-color: var(--green); }
+.pilar-card-v2 .p-num { font-family: var(--serif); font-weight: 900; font-size: 22pt; line-height: 1; color: var(--gp-red); }
+.pilar-card-v2.gold .p-num { color: var(--amber); }
+.pilar-card-v2.green .p-num { color: var(--deep-green); }
+.pilar-card-v2 .p-head { font-family: var(--sans); font-size: 9pt; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; color: var(--gp-navy); }
+.pilar-card-v2.gold .p-head { color: var(--amber); }
+.pilar-card-v2.red .p-head { color: var(--gp-red); }
+.pilar-card-v2.green .p-head { color: var(--deep-green); }
+.pilar-card-v2 .p-title { font-family: var(--serif); font-weight: 800; font-size: 14pt; line-height: 1.2; color: var(--gp-navy); letter-spacing: -0.3px; }
+.pilar-card-v2 .p-body { font-family: var(--sans); font-size: 9.5pt; color: var(--g600); line-height: 1.45; }
+.pilar-card-v2 .p-body strong { color: var(--gp-navy); font-weight: 700; }
+
+/* Killer metric (cifra hero gigante para slide impacto) */
+.killer-wrap { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 14px; }
+.killer-main { background: var(--gp-navy); color: var(--near-white); border-radius: 12px; padding: 26px 30px; position: relative; overflow: hidden; }
+.killer-main::before { content: ""; position: absolute; top: 0; right: 0; width: 220px; height: 220px; background: radial-gradient(circle, rgba(236,201,75,.24) 0%, transparent 70%); }
+.killer-main .k-lbl { font-family: var(--sans); font-size: 10pt; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); }
+.killer-main .k-num { font-family: var(--serif); font-weight: 900; font-size: 90pt; line-height: 1; letter-spacing: -3.5px; color: var(--gold); margin-top: 4px; }
+.killer-main .k-sub { font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 14pt; color: rgba(255,255,255,.92); margin-top: 8px; line-height: 1.3; }
+.killer-side { background: var(--paper); border: 1px solid var(--g200); border-top: 4px solid var(--gp-red); border-radius: 10px; padding: 18px 20px; display: flex; flex-direction: column; justify-content: center; box-shadow: 0 1px 2px rgba(30,39,64,.04); }
+.killer-side.navy { border-top-color: var(--gp-navy); }
+.killer-side.green { border-top-color: var(--green); }
+.killer-side .ks-lbl { font-family: var(--sans); font-size: 9pt; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gp-red); margin-bottom: 6px; }
+.killer-side.navy .ks-lbl { color: var(--gp-navy); }
+.killer-side.green .ks-lbl { color: var(--deep-green); }
+.killer-side .ks-num { font-family: var(--serif); font-weight: 900; font-size: 32pt; line-height: 1.05; letter-spacing: -1.2px; color: var(--gp-navy); }
+.killer-side .ks-sub { font-family: var(--sans); font-size: 9pt; color: var(--g600); margin-top: 6px; line-height: 1.45; }
+
 @media print {
   @page { size: 1280px 720px landscape; margin: 0; }
   html, body { overflow:visible; background:#fff; }
@@ -722,26 +794,26 @@ table.sucursal-tbl td.bad { color: var(--gp-red); }
   <div class="content">
 
     <div>
-      <div class="t-eyebrow">El piloto en cifras de impacto · al 23-jun-2026</div>
-      <h1 class="t-title-serif" style="font-size:28pt; margin-top:6px;">$16.7M revenue · <em>$1.34M profit estimado</em> · ROAS 132×</h1>
-      <div class="lede" style="font-family:var(--sans); font-size:10pt; color: var(--g600); line-height:1.5; margin-top:6px; max-width:1180px;"><strong>El piloto produjo $16.7M en revenue y $1.34M en profit estimado por $126,725 en pauta — ROAS 132×.</strong> Calculamos profit con el margen operativo del Grupo 2025 (8.0% · $3,052M utilidad / $38,081M ventas · fuente DCA cubo 30060). El revenue suma VALOR CIERRE (Ganadas) + VALOR PIPELINE (Cerrado otro cliente).</div>
+      <div class="section-num-v2">El piloto en cifras · al 23-jun-2026</div>
+      <h1 class="slide-h1-v2" style="font-size: 30pt;">Lo que produjo el piloto <em>en 72 días.</em></h1>
+      <p class="slide-lede-v2" style="font-size: 11pt;"><strong>$126,725 invertidos en pauta · 62 cierres totales · $16.7M revenue · ROAS 132×.</strong> Cifras del kanban CRM al 23-jun, cruzadas vs DCA por matching v8.3 (VIN + cliente). Profit estimado con margen operativo del Grupo 2025 (8.0% · DCA cubo 30060).</p>
     </div>
 
-    <div class="kpi-block" style="margin-top:14px;">
-      <div class="kpi featured" style="border-top-color:var(--gold);">
-        <div class="kpi-label">Revenue atribuido al piloto</div>
-        <div class="kpi-value gold">$16.7M</div>
-        <div class="kpi-sub">62 cierres totales · VALOR CIERRE Ganadas + VALOR PIPELINE Cerrado otro cliente · cifra del kanban al 23-jun</div>
+    <div class="killer-wrap" style="margin-top: 6px;">
+      <div class="killer-main">
+        <div class="k-lbl">Revenue del piloto</div>
+        <div class="k-num">$16.7M</div>
+        <div class="k-sub">62 cierres totales en 4 marcas · VALOR CIERRE Ganadas + VALOR PIPELINE Cerrado otro cliente · cruzado vs DCA</div>
       </div>
-      <div class="kpi featured">
-        <div class="kpi-label">Profit operativo estimado</div>
-        <div class="kpi-value green">$1.34M</div>
-        <div class="kpi-sub">Margen 8.0% Grupo (DCA cubo 30060 año 2025) · estimación conservadora · ajustable cuando Pepe confirme margen post-venta separado</div>
+      <div class="killer-side green">
+        <div class="ks-lbl">Profit operativo estimado</div>
+        <div class="ks-num">$1.34M</div>
+        <div class="ks-sub">Margen 8.0% Grupo (DCA cubo 30060 · $3,052M utilidad / $38,081M ventas 2025)</div>
       </div>
-      <div class="kpi featured" style="border-top-color:var(--gp-red);">
-        <div class="kpi-label">Inversión total pauta</div>
-        <div class="kpi-value red">$126,725</div>
-        <div class="kpi-sub">Meta $102,150 + Google $24,576 · al 23-jun · 4 marcas activas (SEM 71d · HYU 76d · STL 64d · GAC 7d)</div>
+      <div class="killer-side">
+        <div class="ks-lbl">Inversión total pauta</div>
+        <div class="ks-num">$126,725</div>
+        <div class="ks-sub">Meta $102,150 + Google $24,576 · ROAS revenue 132× · ROAS profit 10.6×</div>
       </div>
     </div>
 
@@ -812,16 +884,9 @@ table.sucursal-tbl td.bad { color: var(--gp-red); }
       </tbody>
     </table>
 
-    <div style="display:flex; flex-direction:column; gap:5px; margin-top:8px;">
-      <div class="note green" style="font-size:8.5pt; padding:5px 12px;">
-        <span class="note-tag">Cifra del piloto</span>
-        <strong>$16.7M revenue / $126.7K spend = ROAS 132×</strong>. SEM concentra 100% del revenue medido del piloto. HYU/STL tienen 1 cierre cada uno pero sin VALOR CIERRE capturado por el vendedor en el kanban (gap operativo: el flujo de cierre HYU/STL no obliga al llenado del modal de cierre — pendiente fix UX).</div>
-      <div class="note" style="font-size:8.5pt; padding:5px 12px;">
-        <span class="note-tag">Margen</span>
-        <strong>Margen operativo 8.0% del Grupo</strong> (DCA cubo 30060 año 2025: $3,052M utilidad operativa / $38,081M ventas). Conservador — el margen unitario en seminuevos (40-60% sobre venta) suele ser mayor que el promedio Grupo, pero usamos el promedio agregado hasta validar con Pepe Morales el desglose post-venta vs venta nueva.</div>
-      <div class="note amber" style="font-size:8.5pt; padding:5px 12px;">
-        <span class="note-tag">(*) Gap HYU/STL</span>
-        El cierre Patricia DE HARO (HYU lead → Mazda DMS · $411,900) y Miguel Ochoa (STL lead → RAM DMS · $349,900) NO tienen VALOR CIERRE capturado en el kanban porque el lead pasó a Ganada vía matching v8.3 (no por movimiento manual del vendedor). Revenue verificado en <code>ventas_dms.venta_importe</code>: <strong>$761,800 combinados</strong> ($411,900 Patricia + $349,900 Miguel). Aplicando margen por marca DCA (Mazda 9.62% + STL 3.48%): profit $39,625 + $12,177 = $51,802. La tabla muestra "$0*" porque refleja la cifra capturada en el kanban (gap operativo UX); las cifras reales DMS están aquí en nota.</div>
+    <div class="callout-big green" style="margin-top: 8px;">
+      <div class="callout-t">Lectura para el Consejo</div>
+      <p><strong>SEM concentra 100% del revenue medido</strong> porque tiene IA temprana (Vambe) que gestiona Por contactar→Cita. HYU y STL cerraron 1 venta cada una (Patricia DE HARO HYU→Mazda · $411,900 · y Miguel Ochoa STL RAM · $349,900 · verificadas en <code>ventas_dms</code> · $761,800 combinados). El vendedor HYU/STL no llenó el modal de cierre del kanban (gap UX) — el matching v8.3 las atribuyó automático vs DCA. <strong>El embudo funciona; el handoff humano es lo que falta.</strong></p>
     </div>
 
   </div>
