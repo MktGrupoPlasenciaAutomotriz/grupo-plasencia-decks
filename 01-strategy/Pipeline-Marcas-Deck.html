@@ -135,6 +135,33 @@ table.deck-table { width:100%; border-collapse: collapse; font-family: var(--san
 .pregunta-lbl { font-family: var(--sans); font-size: 9pt; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gp-red); margin-bottom: 4px; }
 .pregunta-q { font-family: var(--serif); font-style: italic; font-weight: 600; font-size: 13pt; color: var(--gp-navy); line-height: 1.35; }
 
+/* Stats strip — KPIs compactos en una sola línea */
+.stats-strip { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; background: var(--paper); border: 1px solid var(--g200); border-radius: 8px; overflow: hidden; box-shadow: 0 1px 2px rgba(30,39,64,.04); }
+.stats-strip > div { padding: 12px 16px; border-right: 1px solid var(--g200); }
+.stats-strip > div:last-child { border-right: none; }
+.stat-lbl { font-family: var(--sans); font-size: 7.5pt; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: var(--g500); margin-bottom: 3px; }
+.stat-num { font-family: var(--serif); font-weight: 900; font-size: 18pt; line-height: 1; letter-spacing: -.8px; color: var(--gp-navy); }
+.stat-num.red { color: var(--gp-red); }
+.stat-num.green { color: var(--deep-green); }
+.stat-num.blue { color: var(--deep-blue); }
+.stat-sub { font-family: var(--sans); font-size: 7.5pt; color: var(--g500); margin-top: 4px; line-height: 1.3; }
+
+/* Killer metric · cifra hero del impacto económico */
+.killer-wrap { display:grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 16px; }
+.killer-main { background: var(--gp-navy); color: var(--near-white); border-radius: 12px; padding: 24px 28px; position:relative; overflow:hidden; }
+.killer-main::before { content:""; position:absolute; top:0; right:0; width:220px; height:220px; background: radial-gradient(circle, rgba(236,201,75,.24) 0%, transparent 70%); }
+.killer-main .label { font-family: var(--sans); font-size: 9pt; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); }
+.killer-main .num { font-family: var(--serif); font-weight: 900; font-size: 80pt; line-height: 1; letter-spacing: -3.2px; color: var(--gold); margin-top: 6px; }
+.killer-main .sub { font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 13pt; color: rgba(255,255,255,.92); margin-top: 10px; line-height: 1.3; }
+.killer-side { background: var(--paper); border: 1px solid var(--g200); border-top: 4px solid var(--gp-red); border-radius: 10px; padding: 18px 22px; display:flex; flex-direction:column; justify-content:center; box-shadow: 0 1px 2px rgba(30,39,64,.04); }
+.killer-side.navy { border-top-color: var(--gp-navy); }
+.killer-side.green { border-top-color: var(--green); }
+.killer-side .label { font-family: var(--sans); font-size: 9pt; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gp-red); margin-bottom: 6px; }
+.killer-side.navy .label { color: var(--gp-navy); }
+.killer-side.green .label { color: var(--deep-green); }
+.killer-side .num { font-family: var(--serif); font-weight: 900; font-size: 30pt; line-height: 1.05; letter-spacing: -1.2px; color: var(--gp-navy); }
+.killer-side .sub { font-family: var(--sans); font-size: 9pt; color: var(--g600); margin-top: 6px; line-height: 1.5; }
+
 .closing-inner { padding: 70px 80px; flex:1; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; background: radial-gradient(ellipse at center, rgba(236,201,75,.10) 0%, transparent 60%), var(--gp-navy); }
 .closing-eyebrow { font-family: var(--sans); font-size: 10pt; font-weight: 700; letter-spacing: 5px; color: var(--gold); text-transform: uppercase; }
 .closing-rule { width: 80px; height: 1px; background: var(--gold); margin: 16px auto; opacity: .7; }
@@ -150,7 +177,7 @@ table.deck-table { width:100%; border-collapse: collapse; font-family: var(--san
 </head>
 <body>
 <div id="progress"></div>
-<div id="counter">1 / 11</div>
+<div id="counter">1 / 13</div>
 <button id="nav-prev" class="nav-btn">‹</button>
 <button id="nav-next" class="nav-btn">›</button>
 <button id="review-toggle">Ver todo ↕</button>
@@ -264,9 +291,18 @@ table.deck-table { width:100%; border-collapse: collapse; font-family: var(--san
     <div>
       <div class="section-num">El gap operativo · Hyundai · 76 días</div>
       <h1 class="slide-h1" style="font-size: 32pt;">84% del cohort cerró <em>sin que el vendedor lo tocara.</em></h1>
-      <p class="slide-lede">Hyundai recibió <strong>457 leads cualificados</strong> con catálogo evergreen y landing propia desde el Pivote 2 (7-jun). Hoy <strong>247 están en Perdida y 137 en No-contactable</strong> — 84% del cohort fuera. El embudo entregó volumen y calidad; lo que se rompió fue la primera llamada. Plasencia GDL cerró 376 leads negativos sobre 386 totales · Santa Anita procesa 63 leads activos pero solo agendó 1 cita.</p>
+      <p class="slide-lede" style="font-size: 11pt;">Hyundai recibió <strong>457 leads cualificados</strong> con catálogo evergreen y landing propia desde el Pivote 2 (7-jun). Hoy <strong>247 en Perdida y 137 en No-contactable</strong> — 84% del cohort fuera. El embudo entregó volumen y calidad; lo que se rompió fue la primera llamada.</p>
     </div>
-    <table class="deck-table" style="font-size: 10pt;">
+
+    <div class="stats-strip">
+      <div><div class="stat-lbl">Spend Meta+Google</div><div class="stat-num red">$33,304</div><div class="stat-sub">76 días pauta</div></div>
+      <div><div class="stat-lbl">CPA por lead</div><div class="stat-num">$73</div><div class="stat-sub">el más bajo del piloto</div></div>
+      <div><div class="stat-lbl">CAC por cierre</div><div class="stat-num red">$33,304</div><div class="stat-sub">1 cierre · costo absorbido</div></div>
+      <div><div class="stat-lbl">Conversión actual</div><div class="stat-num red">0.22%</div><div class="stat-sub">1 sobre 457 leads</div></div>
+      <div><div class="stat-lbl">Si fuera 7.2%</div><div class="stat-num green">33</div><div class="stat-sub">cierres adicionales · benchmark Seminuevos</div></div>
+    </div>
+
+    <table class="deck-table" style="font-size: 9.5pt;">
       <thead><tr><th>Agencia</th><th class="center">Leads recibidos</th><th class="center">Por contactar</th><th class="center">Seguimiento</th><th class="center">Cita</th><th class="center">Cierres totales</th><th class="center">Perdida + N/C</th></tr></thead>
       <tbody>
         <tr><td><strong>Hyundai Plasencia GDL</strong></td><td class="center">386</td><td class="center">7</td><td class="center">1</td><td class="center zero">0</td><td class="center win">1</td><td class="center bad">376</td></tr>
@@ -291,9 +327,18 @@ table.deck-table { width:100%; border-collapse: collapse; font-family: var(--san
     <div>
       <div class="section-num">El gap operativo · Stellantis · 64 días</div>
       <h1 class="slide-h1" style="font-size: 32pt;">77% del pipeline acumula <em>sin definirse.</em></h1>
-      <p class="slide-lede">Stellantis recibió <strong>269 leads</strong> distribuidos en 5 submarcas (RAM, Jeep, Peugeot, Dodge, Fiat). Hoy <strong>109 siguen "Por contactar" y 97 en "Recontactar"</strong> — 206 leads sin primera definición en 64 días. Stellantis no descalifica como Hyundai; acumula. El pipeline más pesado del piloto · donde el lead caliente se enfría sin cerrar ni descartar.</p>
+      <p class="slide-lede" style="font-size: 11pt;">Stellantis recibió <strong>269 leads</strong> distribuidos en 5 submarcas (RAM, Jeep, Peugeot, Dodge, Fiat). Hoy <strong>109 siguen "Por contactar" y 97 en "Recontactar"</strong> — 206 leads sin primera definición. Stellantis no descalifica como Hyundai; acumula. El pipeline más pesado del piloto · donde el lead caliente se enfría sin cerrar ni descartar.</p>
     </div>
-    <table class="deck-table" style="font-size: 10pt;">
+
+    <div class="stats-strip">
+      <div><div class="stat-lbl">Spend Meta+Google</div><div class="stat-num red">$33,270</div><div class="stat-sub">64 días pauta</div></div>
+      <div><div class="stat-lbl">CPA por lead</div><div class="stat-num">$124</div><div class="stat-sub">2× más caro que Hyundai</div></div>
+      <div><div class="stat-lbl">CAC por cierre</div><div class="stat-num red">$33,270</div><div class="stat-sub">1 cierre · costo absorbido</div></div>
+      <div><div class="stat-lbl">Conversión actual</div><div class="stat-num red">0.37%</div><div class="stat-sub">1 sobre 269 leads</div></div>
+      <div><div class="stat-lbl">Si fuera 7.2%</div><div class="stat-num green">19</div><div class="stat-sub">cierres adicionales · benchmark Seminuevos</div></div>
+    </div>
+
+    <table class="deck-table" style="font-size: 9.5pt;">
       <thead><tr><th>Agencia</th><th class="center">Leads recibidos</th><th class="center">Por contactar</th><th class="center">Recontactar</th><th class="center">Cita / Neg</th><th class="center">Cierres totales</th><th class="center">Perdida</th></tr></thead>
       <tbody>
         <tr><td><strong>Stellantis Plasencia (M. Otero)</strong></td><td class="center">213</td><td class="center">82</td><td class="center">81</td><td class="center">10</td><td class="center win">1</td><td class="center bad">32</td></tr>
@@ -345,6 +390,113 @@ table.deck-table { width:100%; border-collapse: collapse; font-family: var(--san
   <div class="slide-footer"><span>Slide 6 · El patrón · IA en el primer toque produce conversión · 7.2% (Seminuevos) vs 0.22-0.37% (Hyundai/Stellantis) · misma cancha técnica</span><span style="display:flex; align-items:center; gap:8px;"><img class="gp-logo" src="../assets/logos/Logo-GP-Negro.png" alt="GP"/>Grupo Plasencia Automotriz · Dirección MKT Corporativo</span></div>
 </section>
 
+<!-- 7 · IMPACTO ECONÓMICO DEL PILOTO -->
+<section class="slide" data-slide="impacto-economico">
+  <div class="content">
+    <div>
+      <div class="section-num">Impacto económico del piloto · 72 días</div>
+      <h1 class="slide-h1" style="font-size: 32pt;">$1.34M de profit por <em>$126,725 de pauta.</em></h1>
+      <p class="slide-lede">Los 62 cierres totales del piloto cruzados contra DCA produjeron <strong>$16.7M de revenue verificable</strong>. Aplicando el margen operativo del Grupo (8.0% blended DCA 2025), eso son <strong>$1.34M de profit estimado</strong>. Por cada peso invertido en Meta + Google, el piloto regresó $132 en revenue y $10.6 en utilidad operativa. Toda la cifra concentrada en Seminuevos · Hyundai y Stellantis con 1 cierre cada uno consumen su propio CAC.</p>
+    </div>
+
+    <div class="killer-wrap">
+      <div class="killer-main">
+        <div class="label">Profit estimado · 72 días</div>
+        <div class="num">$1.34M</div>
+        <div class="sub">$16.7M revenue × 8.0% margen Grupo · 62 cierres cruzados vs DCA</div>
+      </div>
+      <div class="killer-side green">
+        <div class="label">ROAS revenue</div>
+        <div class="num">132×</div>
+        <div class="sub">$16.7M / $126,725 · <strong>ROAS profit 10.6×</strong></div>
+      </div>
+      <div class="killer-side navy">
+        <div class="label">CAC blended del piloto</div>
+        <div class="num">$2,044</div>
+        <div class="sub">$126,725 / 62 cierres · Seminuevos $1,003 jala el promedio</div>
+      </div>
+    </div>
+
+    <table class="deck-table" style="font-size: 9.5pt;">
+      <thead><tr><th>Marca</th><th class="center">Cierres</th><th class="center">Revenue</th><th class="center">Profit @ margen</th><th class="center">Spend</th><th class="center">CAC</th><th class="center">ROAS revenue</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Seminuevos</strong></td><td class="center">60</td><td class="center">$16.7M</td><td class="center">$1.34M @ 8.0%</td><td class="center">$60,151</td><td class="center">$1,003</td><td class="center" style="color: var(--deep-green); font-weight: 800;">278×</td></tr>
+        <tr><td><strong>Hyundai</strong></td><td class="center">1</td><td class="center">$0.41M</td><td class="center">$0.03M @ 7.9%</td><td class="center">$33,304</td><td class="center">$33,304</td><td class="center" style="color: var(--gp-red);">12×</td></tr>
+        <tr><td><strong>Stellantis</strong></td><td class="center">1</td><td class="center">$0.35M</td><td class="center">$0.01M @ 3.5%</td><td class="center">$33,270</td><td class="center">$33,270</td><td class="center" style="color: var(--gp-red);">11×</td></tr>
+        <tr><td><strong>GAC</strong></td><td class="center">0</td><td class="center">—</td><td class="center">—</td><td class="center">$0</td><td class="center">—</td><td class="center" style="color: var(--g500);">7d en producción</td></tr>
+        <tr class="total"><td><strong>TOTAL piloto · 72 días</strong></td><td class="center">62</td><td class="center"><strong>$17.5M</strong></td><td class="center"><strong>$1.38M</strong></td><td class="center">$126,725</td><td class="center">$2,044</td><td class="center"><strong>138×</strong></td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout-big gold">
+      <div class="callout-t">Lo que esta cifra significa</div>
+      <p><strong>El piloto ya pagó su propia operación 10.6× en profit.</strong> Hyundai y Stellantis consumen su CAC con un solo cierre cada una (12× y 11× ROAS revenue) — operan en negativo de aprendizaje, no de inversión. <em>El siguiente slide muestra qué cambia si las cuatro marcas operan al benchmark del Grupo.</em></p>
+    </div>
+  </div>
+  <div class="slide-footer"><span>Slide 7 · Impacto económico · $16.7M revenue · $1.34M profit · margen 8% blended DCA 2025 · 62 cierres v8.3</span><span style="display:flex; align-items:center; gap:8px;"><img class="gp-logo" src="../assets/logos/Logo-GP-Negro.png" alt="GP"/>Grupo Plasencia Automotriz · Dirección MKT Corporativo</span></div>
+</section>
+
+<!-- 8 · COSTO DE NO ACTUAR -->
+<section class="slide" data-slide="costo-no-actuar">
+  <div class="content">
+    <div>
+      <div class="section-num">El costo de no actuar · si todas operan como Seminuevos</div>
+      <h1 class="slide-h1" style="font-size: 30pt;">+25 autos/mes. <em>+$10.5M en revenue mensual.</em></h1>
+      <p class="slide-lede">Si Hyundai, Stellantis y GAC operan al <strong>7.2% de conversión que Seminuevos ya tiene corriendo</strong>, el ritmo mensual de cierres atribuibles crece de ~1 a 26. Anualizado son <strong>+302 autos / +$126M revenue / +$10.1M profit</strong> que el Grupo deja en la mesa cada año por no destrabar el handoff humano. La cifra no asume más pauta, más leads, ni una sola marca nueva — solo replica lo que el Grupo ya probó.</p>
+    </div>
+
+    <table class="deck-table" style="font-size: 9.5pt;">
+      <thead>
+        <tr>
+          <th rowspan="2" style="vertical-align:bottom;">Marca</th>
+          <th rowspan="2" class="center" style="vertical-align:bottom;">Días LIVE</th>
+          <th colspan="3" style="text-align:center; border-right: 1px solid rgba(255,255,255,.2);">Ritmo mensual</th>
+          <th colspan="3" style="text-align:center;">Anualizado</th>
+        </tr>
+        <tr>
+          <th class="center" style="font-size:8pt;">Cierres reales/mes</th>
+          <th class="center" style="font-size:8pt;">Si fuera 7.2%/mes</th>
+          <th class="center" style="font-size:8pt; border-right: 1px solid var(--g300);">Δ/mes</th>
+          <th class="center" style="font-size:8pt;">Cierres reales/año</th>
+          <th class="center" style="font-size:8pt;">Si fuera 7.2%/año</th>
+          <th class="center" style="font-size:8pt;">Δ/año</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="highlight" style="background: rgba(72,187,120,.10);"><td><strong>Seminuevos</strong> <span style="font-size:7.5pt;color:var(--g500);">benchmark · ya opera así</span></td><td class="center">71</td><td class="center">25</td><td class="center">25</td><td class="center" style="border-right: 1px solid var(--g300);">—</td><td class="center">308</td><td class="center">308</td><td class="center">—</td></tr>
+        <tr><td><strong>Hyundai</strong></td><td class="center">76</td><td class="center">0.4</td><td class="center"><strong>13</strong></td><td class="center" style="border-right: 1px solid var(--g300); color: var(--deep-green);"><strong>+13</strong></td><td class="center">5</td><td class="center"><strong>158</strong></td><td class="center" style="color: var(--deep-green);"><strong>+153</strong></td></tr>
+        <tr><td><strong>Stellantis</strong></td><td class="center">64</td><td class="center">0.5</td><td class="center"><strong>9</strong></td><td class="center" style="border-right: 1px solid var(--g300); color: var(--deep-green);"><strong>+9</strong></td><td class="center">6</td><td class="center"><strong>110</strong></td><td class="center" style="color: var(--deep-green);"><strong>+104</strong></td></tr>
+        <tr><td><strong>GAC</strong> <span style="font-size:7.5pt;color:var(--g500);">7d · alta varianza</span></td><td class="center">7</td><td class="center">0</td><td class="center"><strong>4</strong></td><td class="center" style="border-right: 1px solid var(--g300); color: var(--deep-green);"><strong>+4</strong></td><td class="center">0</td><td class="center"><strong>45</strong></td><td class="center" style="color: var(--deep-green);"><strong>+45</strong></td></tr>
+        <tr class="total"><td><strong>Δ Hyundai + Stellantis + GAC</strong></td><td class="center">—</td><td class="center">1</td><td class="center">26</td><td class="center" style="border-right: 1px solid rgba(255,255,255,.3);"><strong>+25</strong></td><td class="center">11</td><td class="center">313</td><td class="center"><strong>+302</strong></td></tr>
+      </tbody>
+    </table>
+
+    <div class="kpi-grid cols-3" style="gap: 12px;">
+      <div class="kpi-card green" style="padding: 12px 16px;">
+        <div class="kpi-label" style="font-size: 8pt;">Autos extra · por mes</div>
+        <div class="kpi-num green" style="font-size: 26pt;">+25</div>
+        <div class="kpi-sub" style="font-size: 8.5pt;"><strong>+302 / año</strong> · si Hyundai + Stellantis + GAC operan como Seminuevos</div>
+      </div>
+      <div class="kpi-card" style="padding: 12px 16px;">
+        <div class="kpi-label" style="font-size: 8pt;">Revenue incremental</div>
+        <div class="kpi-num red" style="font-size: 26pt;">+$10.5M / mes</div>
+        <div class="kpi-sub" style="font-size: 8.5pt;"><strong>+$126M / año</strong> · @ AOV $420K blended (autos nuevos)</div>
+      </div>
+      <div class="kpi-card gold" style="padding: 12px 16px;">
+        <div class="kpi-label" style="font-size: 8pt;">Profit incremental</div>
+        <div class="kpi-num gold" style="font-size: 26pt;">+$0.84M / mes</div>
+        <div class="kpi-sub" style="font-size: 8.5pt;"><strong>+$10.1M / año</strong> · @ margen 8% blended Grupo</div>
+      </div>
+    </div>
+
+    <div class="callout-big red">
+      <div class="callout-t">Costo de no actuar</div>
+      <p><strong>+25 autos por mes y +$126M de revenue al año es lo que el embudo ya está produciendo y la operación está perdiendo.</strong> Cada semana que se posponen las 3 acciones operativas equivale a ~6 autos no cerrados — leads cualificados que el embudo entregó y la primera llamada no procesó. <em>El siguiente slide define los tres movimientos para destrabar el flujo.</em></p>
+    </div>
+  </div>
+  <div class="slide-footer"><span>Slide 8 · Costo de no actuar · benchmark Seminuevos 7.2% · AOV $420K autos nuevos · margen 8% blended · proyección 12 meses</span><span style="display:flex; align-items:center; gap:8px;"><img class="gp-logo" src="../assets/logos/Logo-GP-Negro.png" alt="GP"/>Grupo Plasencia Automotriz · Dirección MKT Corporativo</span></div>
+</section>
+
 <section class="slide" data-slide="acciones">
   <div class="content">
     <div>
@@ -365,7 +517,7 @@ table.deck-table { width:100%; border-collapse: collapse; font-family: var(--san
       <p>Ni un peso adicional de pauta · ni reemplazar al Director de Marca · ni centralizar PMA OEM · ni cambiar la titularidad del cliente final. <em>Tu marca sigue siendo tu marca. El embudo digital sigue siendo del Grupo. Lo que destrabamos es el puente entre los dos.</em></p>
     </div>
   </div>
-  <div class="slide-footer"><span>Slide 7 · 3 acciones operativas · costo $0 incremental · kill criterion en cada una</span><span style="display:flex; align-items:center; gap:8px;"><img class="gp-logo" src="../assets/logos/Logo-GP-Negro.png" alt="GP"/>Grupo Plasencia Automotriz · Dirección MKT Corporativo</span></div>
+  <div class="slide-footer"><span>Slide 9 · 3 acciones operativas · costo $0 incremental · kill criterion en cada una</span><span style="display:flex; align-items:center; gap:8px;"><img class="gp-logo" src="../assets/logos/Logo-GP-Negro.png" alt="GP"/>Grupo Plasencia Automotriz · Dirección MKT Corporativo</span></div>
 </section>
 
 <section class="slide" data-slide="anexo-sem">
