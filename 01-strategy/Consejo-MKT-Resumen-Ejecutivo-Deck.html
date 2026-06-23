@@ -399,10 +399,10 @@ table.deck-table { width:100%; border-collapse: collapse; font-family: var(--san
         <tr>
           <th class="num" style="font-size:7.5pt;">Cierres reales/mes</th>
           <th class="num" style="font-size:7.5pt;">Si SEM 7.2%/mes</th>
-          <th class="num" style="font-size:7.5pt; border-right: 1px solid var(--g300);">Δ/mes</th>
+          <th class="num" style="font-size:7.5pt; border-right: 1px solid var(--g300);">Δ incremental/mes</th>
           <th class="num" style="font-size:7.5pt;">Cierres reales/año</th>
           <th class="num" style="font-size:7.5pt;">Si SEM 7.2%/año</th>
-          <th class="num" style="font-size:7.5pt;">Δ/año</th>
+          <th class="num" style="font-size:7.5pt;">Δ incremental/año</th>
         </tr>
       </thead>
       <tbody>
@@ -410,15 +410,15 @@ table.deck-table { width:100%; border-collapse: collapse; font-family: var(--san
         <tr><td><strong>Hyundai</strong></td><td class="num">76</td><td class="num">0.4</td><td class="num"><strong>13</strong></td><td class="num" style="border-right: 1px solid var(--g300);"><strong>+13</strong></td><td class="num">5</td><td class="num"><strong>158</strong></td><td class="num"><strong>+153</strong></td></tr>
         <tr><td><strong>Stellantis</strong></td><td class="num">64</td><td class="num">0.5</td><td class="num"><strong>9</strong></td><td class="num" style="border-right: 1px solid var(--g300);"><strong>+9</strong></td><td class="num">6</td><td class="num"><strong>110</strong></td><td class="num"><strong>+104</strong></td></tr>
         <tr><td><strong>GAC</strong> <span style="font-size:7pt;color:var(--g500);">alta varianza · 7d data</span></td><td class="num">7</td><td class="num">0</td><td class="num"><strong>4</strong></td><td class="num" style="border-right: 1px solid var(--g300);"><strong>+4</strong></td><td class="num">0</td><td class="num"><strong>45</strong></td><td class="num"><strong>+45</strong></td></tr>
-        <tr class="total"><td><strong>Δ total HYU+STL+GAC</strong></td><td class="num">—</td><td class="num">1</td><td class="num"><strong>26</strong></td><td class="num" style="border-right: 1px solid rgba(255,255,255,.3);"><strong>+25</strong></td><td class="num">11</td><td class="num"><strong>313</strong></td><td class="num"><strong>+302</strong></td></tr>
+        <tr class="total"><td><strong>Δ incremental HYU+STL+GAC</strong></td><td class="num">—</td><td class="num">1</td><td class="num"><strong>26</strong></td><td class="num" style="border-right: 1px solid rgba(255,255,255,.3);"><strong>+25 / mes</strong></td><td class="num">11</td><td class="num"><strong>313</strong></td><td class="num"><strong>+302 / año</strong></td></tr>
       </tbody>
     </table>
 
     <div style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-top: 4px;">
       <div class="kpi-card green" style="padding: 10px 13px;">
-        <div class="kpi-label" style="font-size: 7.5pt;">Autos extra atribuibles</div>
+        <div class="kpi-label" style="font-size: 7.5pt;">Autos incrementales</div>
         <div class="kpi-num green" style="font-size: 22pt; line-height:1.05;">+25 / mes</div>
-        <div class="kpi-sub" style="font-size: 8pt;"><strong>+302 / año</strong> · si HYU+STL+GAC operan como SEM</div>
+        <div class="kpi-sub" style="font-size: 8pt;"><strong>+302 / año</strong> · ventas que HOY no se cierran · Δ es incremental por construcción</div>
       </div>
       <div class="kpi-card" style="padding: 10px 13px;">
         <div class="kpi-label" style="font-size: 7.5pt;">Revenue incremental</div>
@@ -433,7 +433,7 @@ table.deck-table { width:100%; border-collapse: collapse; font-family: var(--san
     </div>
 
     <div class="callout-big red" style="margin-top: 4px; padding: 7px 14px;">
-      <p style="font-size: 9pt; line-height: 1.4;"><strong>Esto YA es el costo hundido del BAU · no es proyección futura.</strong> Cada mes que pasa sin RevOps el Grupo pierde <strong>~25 autos + $10.3M revenue + $0.83M profit</strong> solo en HYU+STL+GAC. <em>El piloto lo hizo visible. Llevarlo a las 8 marcas del Grupo es el slide siguiente.</em></p>
+      <p style="font-size: 9pt; line-height: 1.4;"><strong>Esto YA es el costo hundido del BAU · cada mes que pasa sin RevOps el Grupo pierde +25 autos · $10.3M revenue · $0.83M profit incrementales</strong> (solo HYU+STL+GAC). <em>El delta entre conversión actual y benchmark SEM es incremental por construcción — son ventas que HOY no se cierran con el modelo roto. El piloto lo hizo visible. Llevarlo a las 8 marcas es el slide siguiente.</em></p>
     </div>
   </div>
   <div class="slide-footer"><span>Slide 7 · Costo hundido del BAU · evidenciado por el piloto · v8.3 al 23-jun · benchmark SEM 7.2% · AOV $412K · margen 8%</span><span style="display:flex; align-items:center; gap:8px;"><img class="gp-logo" src="../assets/logos/Logo-GP-Negro.png" alt="GP"/>Grupo Plasencia Automotriz · Dirección MKT Corporativo</span></div>
