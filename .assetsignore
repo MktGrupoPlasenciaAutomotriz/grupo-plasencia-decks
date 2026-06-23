@@ -1,0 +1,14 @@
+.git
+.git/**
+.gitignore
+.claude
+.claude/**
+.assetsignore
+wrangler.toml
+_worker.js
+sync.sh
+README.md
+CLAUDE-docs-workflow.md
+.wrangler
+.wrangler/**
+*.bak
