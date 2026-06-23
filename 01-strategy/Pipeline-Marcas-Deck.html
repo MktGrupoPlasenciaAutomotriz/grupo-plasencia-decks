@@ -209,40 +209,69 @@ table.deck-table { width:100%; border-collapse: collapse; font-family: var(--san
 </section>
 
 <section class="slide" data-slide="cancha-comun">
-  <div class="content">
+  <div class="content" style="gap: 12px; padding: 36px 80px 56px 80px;">
     <div>
-      <div class="section-num">La cancha común · 4 marcas, una sola mecánica</div>
-      <h1 class="slide-h1" style="font-size: 30pt;">Las cuatro marcas operan sobre <em>el mismo stack técnico.</em></h1>
-      <p class="slide-lede">Seminuevos, Hyundai, Stellantis y GAC corren con el mismo sitio, el mismo datalayer, el mismo CAPI server-side y el mismo matching v8.3 contra DCA. <strong>La única variable que cambia entre marcas es el handoff humano</strong> — cómo se procesa el lead una vez que el embudo lo entrega. Esta sesión arranca aquí porque la conversación deja de ser "qué hace marketing por mi marca" y pasa a "qué hacemos con lo que el embudo ya está entregando".</p>
+      <div class="section-num">La cancha común · 4 marcas LIVE + 3 en cola</div>
+      <h1 class="slide-h1" style="font-size: 26pt;">Mismo stack técnico, distinto handoff. <em>Una marca a la vez.</em></h1>
+      <p class="slide-lede" style="font-size: 10.5pt;">Las 4 marcas activas corren con el mismo sitio, datalayer, CAPI server-side y matching v8.3 contra DCA. <strong>La única variable que cambia es el handoff humano.</strong> Detrás hay 3 marcas más en cola: Flotillas a días del lanzamiento, Changan en backlog inmediato y GWM siguiente. La cascada es por capacidad instalada, no por prioridad — levantar cada marca exige el mismo trabajo que ya consumieron las 4 LIVE.</p>
     </div>
-    <div class="pilar-grid" style="grid-template-columns: repeat(4, 1fr);">
-      <div class="pilar-card gold">
-        <div class="pilar-num" style="font-size: 28pt;">01</div>
-        <div class="pilar-header">Seminuevos · 71 días</div>
-        <div class="pilar-body" style="font-size: 9.5pt;">8 sucursales GDL · IA temprana <strong>Vambe</strong> gestiona Por contactar → Cita · vendedor humano cierra en piso.</div>
-      </div>
-      <div class="pilar-card blue">
-        <div class="pilar-num" style="font-size: 28pt;">02</div>
-        <div class="pilar-header">Hyundai · 76 días</div>
-        <div class="pilar-body" style="font-size: 9.5pt;">2 agencias OEM en GDL · Plasencia + Santa Anita · <strong>Pivote 2 activo desde 7-jun</strong> (landing propia + catálogo evergreen).</div>
-      </div>
-      <div class="pilar-card red">
-        <div class="pilar-num" style="font-size: 28pt;">03</div>
-        <div class="pilar-header">Stellantis · 64 días</div>
-        <div class="pilar-body" style="font-size: 9.5pt;">2 agencias · 5 submarcas (RAM Jeep Peugeot Dodge Fiat) · <strong>Pivote 2 desde 5-jun</strong> + Always-On Meta liberado.</div>
-      </div>
-      <div class="pilar-card green">
-        <div class="pilar-num" style="font-size: 28pt;">04</div>
-        <div class="pilar-header">GAC · 7 días</div>
-        <div class="pilar-body" style="font-size: 9.5pt;">2 sucursales · Bugámbilias + Américas · arranque reciente · spend $0 hasta validar el SLA de primera llamada.</div>
+
+    <div>
+      <div style="font-family: var(--sans); font-size: 8.5pt; font-weight: 700; letter-spacing: 1.8px; text-transform: uppercase; color: var(--deep-green); margin-bottom: 8px;"><span style="display:inline-block; width:8px; height:8px; background: var(--deep-green); border-radius:50%; vertical-align:middle; margin-right:8px;"></span>LIVE · operando hoy</div>
+      <div class="pilar-grid" style="grid-template-columns: repeat(4, 1fr); gap: 12px;">
+        <div class="pilar-card gold" style="padding: 12px 14px;">
+          <div class="pilar-num" style="font-size: 22pt;">01</div>
+          <div class="pilar-header" style="font-size: 8.5pt;">Seminuevos · 71 días</div>
+          <div class="pilar-body" style="font-size: 9pt;">8 sucursales GDL · IA temprana <strong>Vambe</strong> gestiona Por contactar → Cita · vendedor cierra en piso.</div>
+        </div>
+        <div class="pilar-card blue" style="padding: 12px 14px;">
+          <div class="pilar-num" style="font-size: 22pt;">02</div>
+          <div class="pilar-header" style="font-size: 8.5pt;">Hyundai · 76 días</div>
+          <div class="pilar-body" style="font-size: 9pt;">2 agencias OEM en GDL · <strong>Pivote 2 desde 7-jun</strong> · landing propia + catálogo evergreen.</div>
+        </div>
+        <div class="pilar-card red" style="padding: 12px 14px;">
+          <div class="pilar-num" style="font-size: 22pt;">03</div>
+          <div class="pilar-header" style="font-size: 8.5pt;">Stellantis · 64 días</div>
+          <div class="pilar-body" style="font-size: 9pt;">2 agencias · 5 submarcas (RAM Jeep Peugeot Dodge Fiat) · <strong>Pivote 2 desde 5-jun</strong> + Always-On.</div>
+        </div>
+        <div class="pilar-card green" style="padding: 12px 14px;">
+          <div class="pilar-num" style="font-size: 22pt;">04</div>
+          <div class="pilar-header" style="font-size: 8.5pt;">GAC · 7 días</div>
+          <div class="pilar-body" style="font-size: 9pt;">2 sucursales · Bugámbilias + Américas · arranque reciente · validando SLA primera llamada.</div>
+        </div>
       </div>
     </div>
-    <div class="callout-big">
-      <div class="callout-t">Por qué empezamos aquí</div>
-      <p>Si las cuatro marcas comparten sitio, atribución y captura, lo que diferencia los resultados <strong>no puede ser el embudo · tiene que ser el handoff</strong>. Esta lectura cambia la conversación: ya no es marketing vs. ventas — es <em>el mismo equipo viendo dónde se rompe el flujo y qué nos comprometemos a destrabar.</em></p>
+
+    <div>
+      <div style="font-family: var(--sans); font-size: 8.5pt; font-weight: 700; letter-spacing: 1.8px; text-transform: uppercase; color: var(--amber); margin-bottom: 8px;"><span style="display:inline-block; width:8px; height:8px; background: var(--amber); border-radius:50%; vertical-align:middle; margin-right:8px;"></span>Roadmap · cascada por capacidad instalada</div>
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;">
+        <div style="background: var(--paper); border: 1px solid var(--g200); border-left: 4px solid var(--amber); border-radius: 6px; padding: 12px 14px; position: relative;">
+          <div style="position: absolute; top: 10px; right: 12px; font-family: var(--sans); font-size: 7pt; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase; color: #FFFFFF; background: var(--amber); padding: 2px 7px; border-radius: 3px;">WIP · días al go-live</div>
+          <div style="font-family: var(--serif); font-weight: 900; font-size: 22pt; color: var(--amber); line-height: 1;">05</div>
+          <div style="font-family: var(--sans); font-size: 8.5pt; font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase; color: var(--amber); margin-top: 4px;">Flotillas · primer lanzamiento B2B</div>
+          <div style="font-family: var(--sans); font-size: 9pt; color: var(--g600); line-height: 1.5; margin-top: 6px;">Cross-marca horizontal del Grupo · primer esfuerzo de mkt dirigido a flotillas · ICP en cierre con Aurora del Pozo · arranque inminente.</div>
+        </div>
+        <div style="background: var(--paper); border: 1px solid var(--g200); border-left: 4px solid var(--g400); border-radius: 6px; padding: 12px 14px; position: relative;">
+          <div style="position: absolute; top: 10px; right: 12px; font-family: var(--sans); font-size: 7pt; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase; color: var(--g600); background: var(--g200); padding: 2px 7px; border-radius: 3px;">Backlog · siguiente</div>
+          <div style="font-family: var(--serif); font-weight: 900; font-size: 22pt; color: var(--g500); line-height: 1;">06</div>
+          <div style="font-family: var(--sans); font-size: 8.5pt; font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase; color: var(--g600); margin-top: 4px;">Changan · marca china en crecimiento</div>
+          <div style="font-family: var(--sans); font-size: 9pt; color: var(--g600); line-height: 1.5; margin-top: 6px;">Arranca cuando Flotillas estabilice · mismo stack técnico · landing + datalayer + CAPI + matching · pendiente arranque ejecutivo.</div>
+        </div>
+        <div style="background: var(--paper); border: 1px solid var(--g200); border-left: 4px solid var(--g400); border-radius: 6px; padding: 12px 14px; position: relative;">
+          <div style="position: absolute; top: 10px; right: 12px; font-family: var(--sans); font-size: 7pt; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase; color: var(--g600); background: var(--g200); padding: 2px 7px; border-radius: 3px;">Backlog · después</div>
+          <div style="font-family: var(--serif); font-weight: 900; font-size: 22pt; color: var(--g500); line-height: 1;">07</div>
+          <div style="font-family: var(--sans); font-size: 8.5pt; font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase; color: var(--g600); margin-top: 4px;">GWM · marca china en crecimiento</div>
+          <div style="font-family: var(--sans); font-size: 9pt; color: var(--g600); line-height: 1.5; margin-top: 6px;">Arranca cuando Changan estabilice · cierra el roadmap de marcas activas · mismo stack · sin solapamiento por capacidad limitada.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout-big" style="padding: 10px 18px;">
+      <div class="callout-t" style="font-size: 12pt;">Por qué cascada y no paralelo</div>
+      <p style="font-size: 9.5pt;">Levantar una marca exige: definir handoff con Dirección de Marca + construir sitio/landing + integrar datalayer + activar CAPI + sincronizar matching + pilotar 2-3 semanas. Las 4 LIVE consumieron 72 días y la capacidad operativa actual no aguanta dos en paralelo. <strong>Flotillas se prioriza ahora porque es cross-marca y arrastra valor para todas;</strong> Changan y GWM esperan al cierre del piloto Flotillas.</p>
     </div>
   </div>
-  <div class="slide-footer"><span>Slide 2 · Cancha común · sitio + datalayer + CAPI + matching v8.3 · 4 marcas LIVE al 23-jun-2026</span><span style="display:flex; align-items:center; gap:8px;"><img class="gp-logo" src="../assets/logos/Logo-GP-Negro.png" alt="GP"/>Grupo Plasencia Automotriz · Dirección MKT Corporativo</span></div>
+  <div class="slide-footer"><span>Slide 2 · 4 marcas LIVE + Flotillas WIP + Changan/GWM backlog · cascada por capacidad · al 23-jun-2026</span><span style="display:flex; align-items:center; gap:8px;"><img class="gp-logo" src="../assets/logos/Logo-GP-Negro.png" alt="GP"/>Grupo Plasencia Automotriz · Dirección MKT Corporativo</span></div>
 </section>
 
 <section class="slide" data-slide="benchmark-sem">
