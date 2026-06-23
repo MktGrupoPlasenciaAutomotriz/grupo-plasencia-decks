@@ -3,37 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pipeline Snapshot · 4 marcas del piloto · 2026-06-23 · Grupo Plasencia Automotriz</title>
+<title>Reporte del Piloto · Primeros 72 días de la Dirección MKT Corporativo · ruta a Revenue & Profit Center · Grupo Plasencia Automotriz</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@500;700;800;900&display=swap" rel="stylesheet">
 <style>
 :root {
-  --gp-red: #C8102E;
-  --gp-navy: #1E2740;
-  --gp-slate: #2D3748;
-  --green: #48BB78;
-  --deep-green: #276749;
-  --blue: #4299E1;
-  --deep-blue: #2B6CB0;
-  --amber: #D69E2E;
-  --gold: #ECC94B;
-  --bg: #F0F4F8;
-  --paper: #FFFFFF;
-  --near-white: #F7FAFC;
-  --g100: #EDF2F7;
-  --g200: #E2E8F0;
-  --g300: #CBD5E0;
-  --g400: #A0AEC0;
-  --g500: #718096;
-  --g600: #4A5568;
+  --gp-red: #C8102E; --gp-navy: #1E2740; --gp-slate: #2D3748;
+  --green: #48BB78; --deep-green: #276749;
+  --blue: #4299E1; --deep-blue: #2B6CB0;
+  --amber: #D69E2E; --gold: #ECC94B;
+  --bg: #F0F4F8; --paper: #FFFFFF; --near-white: #F7FAFC;
+  --g100: #EDF2F7; --g200: #E2E8F0; --g300: #CBD5E0; --g400: #A0AEC0; --g500: #718096; --g600: #4A5568;
   --text: #2D3748;
   --serif: 'Playfair Display', Georgia, serif;
   --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 * { margin:0; padding:0; box-sizing:border-box; }
 html, body { width:100%; height:100%; overflow:hidden; background:#0d1117; font-family:var(--sans); -webkit-font-smoothing:antialiased; }
-
 .deck { width:100vw; height:100vh; position:relative; }
 .slide {
   overflow:hidden; position:absolute; top:0; left:0;
@@ -45,1444 +32,688 @@ html, body { width:100%; height:100%; overflow:hidden; background:#0d1117; font-
   box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 12px 40px rgba(30,39,64,.12);
 }
 .slide.active { opacity:1; visibility:visible; }
-.slide.cover { background: var(--gp-navy); color: var(--near-white); }
+.slide.cover, .slide.closing { background: var(--gp-navy); color: var(--near-white); }
 
 #progress { opacity:.6; position:fixed; top:0; left:0; height:2px; background: var(--gold); z-index:9999; transition: width .4s cubic-bezier(.4,0,.2,1); }
 #counter { position:fixed; bottom:14px; right:22px; font-size:12px; font-weight:500; color: rgba(255,255,255,.85); z-index:9999; letter-spacing:.5px; font-family: var(--sans); background:rgba(0,0,0,.5); padding:6px 12px; border-radius:14px; backdrop-filter:blur(8px); }
-.nav-btn { position:fixed; top:50%; transform:translateY(-50%); z-index:9999; width:48px; height:64px; background:rgba(0,0,0,.55); backdrop-filter:blur(8px); color:#FFF; border:none; cursor:pointer; font-size:24px; display:flex; align-items:center; justify-content:center; transition:background .2s; border-radius:8px; font-family:var(--sans); }
+.nav-btn { position:fixed; top:50%; transform:translateY(-50%); z-index:9999; width:48px; height:64px; background:rgba(0,0,0,.55); backdrop-filter:blur(8px); color:#FFF; border:none; cursor:pointer; font-size:24px; display:flex; align-items:center; justify-content:center; transition:background .2s; border-radius:8px; }
 .nav-btn:hover { background:rgba(200,16,46,.85); }
-#nav-prev { left:18px; }
-#nav-next { right:18px; }
+#nav-prev { left:18px; } #nav-next { right:18px; }
 #review-toggle { position:fixed; top:14px; right:22px; z-index:9999; background:rgba(0,0,0,.55); backdrop-filter:blur(8px); color:#FFF; border:none; cursor:pointer; font-size:11px; font-weight:600; font-family:var(--sans); padding:7px 14px; border-radius:14px; letter-spacing:.5px; text-transform:uppercase; transition:background .2s; }
 #review-toggle:hover { background:rgba(200,16,46,.85); }
-body.review-mode { overflow-y:auto; }
+body.review-mode { overflow-y:auto; background:#0A0F1F; padding:32px 0; }
 body.review-mode .slide { position:relative !important; opacity:1 !important; visibility:visible !important; transform:none !important; left:auto !important; top:auto !important; margin:0 auto 32px auto; box-shadow:0 8px 32px rgba(0,0,0,.4); }
 body.review-mode #nav-prev, body.review-mode #nav-next, body.review-mode #counter, body.review-mode #progress { display:none; }
-body.review-mode { background:#0A0F1F; padding:32px 0; }
 
-.t-eyebrow { font-family:var(--sans); font-size:10pt; font-weight:700; letter-spacing:4px; text-transform:uppercase; color: var(--gp-red); }
-.t-eyebrow.gold { color: var(--amber); }
-.t-title-serif { font-family:var(--serif); font-weight:800; line-height:1.18; letter-spacing:-.8px; color: var(--gp-navy); }
-.t-title-serif em { font-style:italic; color: var(--gp-red); font-weight:700; }
-
-.divider-line { height:1px; background: var(--gold); }
-
-/* ==== COVER ==== */
-.cover-inner {
-  padding: 20px 64px 18px 64px;
-  flex:1; display:flex; flex-direction:column; justify-content:space-between;
-  background:
-    radial-gradient(ellipse at 100% 0%, rgba(236,201,75,.14) 0%, transparent 55%),
-    radial-gradient(ellipse at 0% 100%, rgba(200,16,46,.12) 0%, transparent 55%),
-    var(--gp-navy);
-  position:relative;
-}
+/* COVER */
+.cover-inner { padding: 60px 80px 50px 80px; flex:1; display:flex; flex-direction:column; justify-content:space-between;
+  background: radial-gradient(ellipse at 100% 0%, rgba(236,201,75,.20) 0%, transparent 55%), radial-gradient(ellipse at 0% 100%, rgba(200,16,46,.16) 0%, transparent 55%), var(--gp-navy); }
 .cover-top { display:flex; justify-content:space-between; align-items:flex-start; }
-.cover-logo { height: 48px; width: auto; mix-blend-mode: screen; opacity:.95; }
-.cover-mark { font-family:var(--sans); font-weight:700; font-size:9.5pt; letter-spacing:3.5px; color: var(--gold); text-transform:uppercase; text-align:right; }
-.cover-mark span { display:block; font-weight:400; color: rgba(255,255,255,.55); margin-top:3px; letter-spacing:1px; font-size:8.5pt; }
-.cover-rule { width:120px; height:1px; background: var(--gold); margin: 10px 0 0 0; }
-.cover-eyebrow { font-family:var(--sans); font-size:9pt; font-weight:700; letter-spacing:4px; color: var(--gp-red); text-transform:uppercase; margin-top:8px; }
-.cover-title { font-family:var(--serif); font-weight:800; font-size:34pt; line-height:1.15; letter-spacing:-1.2px; margin-top:3px; color: var(--near-white); max-width:980px; padding-bottom: 2px; }
+.cover-mark { font-family:var(--sans); font-weight:700; font-size:11pt; letter-spacing:4px; color: var(--gold); text-transform:uppercase; }
+.cover-mark span { display:block; font-weight:400; color: rgba(255,255,255,.6); margin-top:4px; letter-spacing:1px; font-size:9pt; }
+.cover-confidencial { font-family:var(--sans); font-weight:700; font-size:9.5pt; letter-spacing:3.5px; color: var(--gp-red); text-transform:uppercase; }
+.cover-rule { width:140px; height:1px; background: var(--gold); margin: 14px 0 0 0; }
+.cover-eyebrow { font-family:var(--sans); font-size:11pt; font-weight:700; letter-spacing:5px; color: var(--gp-red); text-transform:uppercase; margin-top:22px; }
+.cover-title { font-family:var(--serif); font-weight:800; font-size:54pt; line-height:1.04; letter-spacing:-1.8px; margin-top:16px; color: var(--near-white); max-width:1100px; }
 .cover-title em { font-style:italic; color: var(--gold); font-weight:700; }
-.cover-subtitle { font-family:var(--serif); font-weight:500; font-style:italic; font-size:13.5pt; color: var(--gold); margin-top:8px; letter-spacing:-.2px; line-height:1.3; max-width:920px; }
-.cover-pull { font-family:var(--serif); font-weight:500; font-style:italic; font-size:10pt; color: rgba(255,255,255,.88); line-height:1.45; border-left: 3px solid var(--gp-red); padding-left: 14px; margin-top: 10px; max-width: 970px; }
-.cover-tags { display:flex; gap:10px; margin-top:12px; flex-wrap:wrap; }
-.cover-tag { font-family:var(--sans); font-size:8.5pt; font-weight:600; letter-spacing:1px; color: rgba(255,255,255,.85); border: 1px solid rgba(255,255,255,.25); padding: 3px 11px; border-radius: 999px; text-transform:uppercase; }
-.cover-tag.accent { color: var(--gold); border-color: rgba(236,201,75,.4); }
-.cover-tag.urgent { color: var(--gp-red); border-color: rgba(200,16,46,.4); }
-.cover-meta { display:flex; justify-content:space-between; align-items:flex-end; border-top: 1px solid rgba(255,255,255,.15); padding-top:12px; }
-.cover-meta-block { font-size:8.5pt; color: rgba(255,255,255,.65); line-height:1.6; font-family: var(--sans); }
-.cover-meta-block strong { display:block; color: var(--near-white); font-weight:700; font-size:9.5pt; letter-spacing:.5px; }
+.cover-subtitle { font-family:var(--serif); font-weight:500; font-style:italic; font-size:16pt; color: rgba(255,255,255,.86); margin-top:18px; letter-spacing:-.2px; line-height:1.4; max-width:980px; }
+.cover-meta { display:grid; grid-template-columns: repeat(4, 1fr); gap: 16px; border-top: 1px solid rgba(255,255,255,.18); padding-top:18px; margin-top: 28px; }
+.cover-meta-block { font-size:9pt; color: rgba(255,255,255,.7); line-height:1.6; font-family: var(--sans); }
+.cover-meta-block strong { display:block; color: var(--gold); font-weight:700; font-size:8.5pt; letter-spacing:1.5px; margin-bottom:3px; text-transform:uppercase; }
+.cover-meta-block span { color: rgba(255,255,255,.92); font-weight:500; font-size:10pt; }
 
-.cover-kpis { display:flex; gap:12px; margin-top:14px; }
-.cov-kpi { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.18); border-radius:8px; padding: 9px 16px; flex:1; }
-.cov-kpi-label { font-family:var(--sans); font-size:8.5pt; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color: rgba(255,255,255,.6); margin-bottom: 3px; }
-.cov-kpi-value { font-family:var(--serif); font-weight:800; font-size:28pt; line-height:1.15; letter-spacing:-.8px; color: var(--gold); }
-.cov-kpi.semin .cov-kpi-value { color: var(--gold); }
-.cov-kpi.hyu .cov-kpi-value { color: var(--blue); }
-.cov-kpi.stl .cov-kpi-value { color: var(--gp-red); }
-.cov-kpi-sub { font-family:var(--sans); font-size:9pt; color: rgba(255,255,255,.72); margin-top: 4px; }
-.cov-kpi-tag { display:inline-block; font-size:8pt; font-weight:700; letter-spacing:1px; text-transform:uppercase; padding: 2px 8px; border-radius: 4px; margin-top:6px; }
-.cov-kpi.semin .cov-kpi-tag { background: rgba(236,201,75,.15); color: var(--gold); }
-.cov-kpi.hyu .cov-kpi-tag { background: rgba(66,153,225,.15); color: var(--blue); }
-.cov-kpi.stl .cov-kpi-tag { background: rgba(200,16,46,.15); color: var(--gp-red); }
+/* SLIDE STRUCTURE */
+.content { padding: 50px 80px 60px 80px; flex:1; display:flex; flex-direction:column; gap: 16px; position:relative; }
+.section-num { font-family:var(--sans); font-size:10pt; font-weight:700; letter-spacing:4.5px; color: var(--gp-red); text-transform:uppercase; }
+.slide-h1 { font-family:var(--serif); font-weight:800; font-size:36pt; line-height:1.08; letter-spacing:-1.2px; color: var(--gp-navy); margin-top:6px; }
+.slide-h1 em { font-style:italic; color: var(--gp-red); font-weight:700; }
+.slide-lede { font-family:var(--sans); font-size:12pt; color: var(--g600); line-height:1.5; margin-top: 4px; max-width: 1100px; }
+.slide-lede strong { color: var(--gp-navy); font-weight:700; }
+.slide-lede em { font-style: italic; color: var(--gp-navy); }
+.slide-footer { position:absolute; bottom:22px; left:80px; right:80px; display:flex; justify-content:space-between; align-items:center; font-family: var(--sans); font-size: 8.5pt; color: var(--g500); border-top: 1px solid var(--g200); padding-top: 10px; gap: 16px; }
+.slide-footer .dot { display:inline-block; width:8px; height:8px; background: var(--gp-red); border-radius:50%; margin-right:6px; vertical-align:middle; }
+.slide-footer .gp-logo { height: 22px; width: auto; opacity: 0.75; }
 
-/* ==== CONTENT SLIDES (paper-style) ==== */
-.content { padding: 26px 52px 30px 52px; flex:1; display:flex; flex-direction:column; gap: 9px; position:relative; overflow:hidden; }
-.content::before { content:""; position:absolute; top:34px; left:52px; width:42px; height:3px; background: var(--gp-red); border-radius:2px; }
-.slide.semin .content::before { background: var(--amber); }
-.slide.hyu .content::before { background: var(--blue); }
-.slide.stl .content::before { background: var(--gp-red); }
-.slide.comp .content::before { background: var(--gp-navy); }
-.slide.cierre .content::before { background: var(--green); }
+/* KPI cards */
+.kpi-grid { display:grid; gap:16px; }
+.kpi-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+.kpi-grid.cols-4 { grid-template-columns: repeat(4, 1fr); }
+.kpi-card { background: var(--paper); border: 1px solid var(--g200); border-radius: 10px; padding: 20px 24px; position:relative; box-shadow: 0 1px 3px rgba(30,39,64,.05); }
+.kpi-card::before { content:""; position:absolute; top:0; left:0; right:0; height:4px; background: var(--gp-red); border-radius: 10px 10px 0 0; }
+.kpi-card.navy::before { background: var(--gp-navy); }
+.kpi-card.gold::before { background: var(--gold); }
+.kpi-card.amber::before { background: var(--amber); }
+.kpi-card.green::before { background: var(--green); }
+.kpi-card.blue::before { background: var(--blue); }
+.kpi-label { font-family:var(--sans); font-size:9pt; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color: var(--g500); margin-bottom: 8px; }
+.kpi-num { font-family:var(--serif); font-weight:900; font-size:40pt; line-height:1.02; letter-spacing:-1.8px; color: var(--gp-navy); }
+.kpi-num.red { color: var(--gp-red); }
+.kpi-num.gold { color: var(--amber); }
+.kpi-num.green { color: var(--deep-green); }
+.kpi-num.blue { color: var(--deep-blue); }
+.kpi-sub { font-family: var(--sans); font-size: 10pt; color: var(--g600); margin-top: 8px; line-height: 1.5; }
+.kpi-sub strong { color: var(--gp-navy); font-weight:700; }
 
-.header-row { display:flex; align-items:flex-end; justify-content:space-between; margin-top: 14px; }
-.header-row .left { flex:1; }
-.header-row h1 { font-family:var(--serif); font-weight:800; font-size:26pt; line-height:1.22; letter-spacing:-.6px; color: var(--gp-navy); padding-bottom: 3px; }
-.header-row h1 em { font-style:italic; color: var(--gp-red); font-weight:700; }
-.slide.semin .header-row h1 em { color: var(--amber); }
-.slide.hyu .header-row h1 em { color: var(--blue); }
-.slide.stl .header-row h1 em { color: var(--gp-red); }
-.header-row .lede { font-family:var(--sans); font-size:10pt; color: var(--g600); line-height:1.5; margin-top: 6px; max-width: 720px; }
-.header-row .lede strong { color: var(--gp-slate); }
-.header-row .right { text-align:right; padding-left: 24px; }
-.hero-num { font-family:var(--serif); font-weight:900; font-size:48pt; line-height:1.25; letter-spacing:-1.6px; padding-bottom: 4px; }
-.slide.semin .hero-num { color: var(--amber); }
-.slide.hyu .hero-num { color: var(--blue); }
-.slide.stl .hero-num { color: var(--gp-red); }
-.hero-sublabel { font-family:var(--sans); font-size:9pt; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color: var(--g500); margin-top: 4px; }
-.hero-focus { display:inline-block; font-family:var(--sans); font-size:8.5pt; font-weight:700; letter-spacing:1px; text-transform:uppercase; padding: 3px 10px; border-radius: 4px; margin-top: 6px; }
-.slide.semin .hero-focus { background: rgba(214,158,46,.12); color: var(--amber); }
-.slide.hyu .hero-focus { background: rgba(66,153,225,.12); color: var(--blue); }
-.slide.stl .hero-focus { background: rgba(200,16,46,.12); color: var(--gp-red); }
+/* Pilar cards */
+.pilar-grid { display:grid; grid-template-columns: repeat(3, 1fr); gap:16px; }
+.pilar-card { background: var(--paper); border: 1px solid var(--g200); border-left: 4px solid var(--gp-navy); border-radius: 6px; padding: 18px 20px; box-shadow: 0 1px 2px rgba(30,39,64,.04); display:flex; flex-direction:column; gap:8px; }
+.pilar-card.gold { border-left-color: var(--gold); }
+.pilar-card.red { border-left-color: var(--gp-red); }
+.pilar-card.green { border-left-color: var(--green); }
+.pilar-card.blue { border-left-color: var(--blue); }
+.pilar-header { font-family:var(--sans); font-size:9pt; font-weight:700; letter-spacing:1.6px; text-transform:uppercase; color: var(--gp-navy); }
+.pilar-card.gold .pilar-header { color: var(--amber); }
+.pilar-card.red .pilar-header { color: var(--gp-red); }
+.pilar-card.green .pilar-header { color: var(--deep-green); }
+.pilar-card.blue .pilar-header { color: var(--deep-blue); }
+.pilar-title { font-family:var(--serif); font-weight:800; font-size:16pt; line-height:1.2; letter-spacing:-.4px; color: var(--gp-navy); }
+.pilar-body { font-family:var(--sans); font-size:10pt; color: var(--g600); line-height:1.5; }
+.pilar-body strong { color: var(--gp-navy); font-weight:700; }
+.pilar-num { display:inline-block; font-family:var(--serif); font-weight:900; font-size:22pt; line-height:1; color: var(--gp-red); margin-bottom: 2px; }
+.pilar-card.gold .pilar-num { color: var(--amber); }
+.pilar-card.green .pilar-num { color: var(--deep-green); }
+.pilar-card.blue .pilar-num { color: var(--deep-blue); }
 
-/* ==== Funnel ==== */
-.funnel { display:grid; grid-template-columns: repeat(4, 1fr) auto; gap:8px; }
-.funnel-step { background: var(--paper); border: 1px solid var(--g200); border-radius: 8px; padding: 10px 12px; position:relative; box-shadow: 0 1px 2px rgba(30,39,64,.04); min-width: 0; }
-.funnel-step::after { content:'→'; position:absolute; right:-10px; top:50%; transform:translateY(-50%); color: var(--g400); font-size:13px; z-index:2; }
-.funnel-step:nth-child(4)::after { display:none; }
-.funnel-step.perdida { background: rgba(200,16,46,.04); border-color: rgba(200,16,46,.25); }
-.funnel-step.perdida::after { display:none; }
-.funnel-stage { font-family:var(--sans); font-size:8.5pt; font-weight:700; letter-spacing:1.2px; text-transform:uppercase; color: var(--g500); }
-.funnel-n { font-family:var(--serif); font-weight:800; font-size:22pt; line-height:1.15; color: var(--gp-navy); margin-top: 2px; }
-.funnel-n.perd { color: var(--gp-red); }
-.funnel-conv { font-family:var(--sans); font-size:8pt; color: var(--g500); margin-top: 4px; line-height:1.3; }
-.funnel-conv strong { color: var(--gp-navy); font-weight:700; }
-.funnel-step .accent-bar { position:absolute; top:0; left:0; right:0; height:2px; background: var(--gold); border-radius: 8px 8px 0 0; }
-.slide.semin .funnel-step .accent-bar { background: var(--amber); }
-.slide.hyu .funnel-step .accent-bar { background: var(--blue); }
-.slide.stl .funnel-step .accent-bar { background: var(--gp-red); }
-.funnel-step.perdida .accent-bar { background: var(--gp-red); }
+/* Tables */
+table.deck-table { width:100%; border-collapse: collapse; font-family: var(--sans); font-size: 10pt; background: var(--paper); border-radius: 8px; overflow:hidden; box-shadow: 0 1px 2px rgba(30,39,64,.04); }
+.deck-table th { background: var(--gp-navy); color: var(--near-white); font-weight:700; font-size:9pt; letter-spacing:1.4px; text-transform:uppercase; padding: 11px 14px; text-align:left; }
+.deck-table th.num, .deck-table th.center { text-align:right; }
+.deck-table th.center { text-align:center; }
+.deck-table td { padding: 10px 14px; border-bottom: 1px solid var(--g200); color: var(--g600); vertical-align: middle; line-height:1.4; }
+.deck-table tr:nth-child(even) td { background: var(--g100); }
+.deck-table td strong { color: var(--gp-navy); font-weight:700; }
+.deck-table td.num { text-align:right; font-variant-numeric: tabular-nums; font-weight: 700; color: var(--gp-navy); }
+.deck-table td.center { text-align:center; font-variant-numeric: tabular-nums; font-weight:700; color: var(--gp-navy); }
+.deck-table td.zero { color: var(--g400); font-weight:500; }
+.deck-table td.win { color: var(--deep-green); font-weight: 800; }
+.deck-table td.bad { color: var(--gp-red); }
+.deck-table tr.highlight td { background: rgba(72,187,120,.10); }
+.deck-table tr.highlight td strong { color: var(--deep-green); }
+.deck-table tr.total td { background: var(--gp-navy); color: var(--near-white); font-weight: 700; }
+.deck-table tr.total td strong { color: var(--gold); }
+.deck-table tr.total td.num, .deck-table tr.total td.center { color: var(--gold); font-weight: 800; }
+.deck-table tr.total-blue td { background: rgba(66,153,225,.12); color: var(--gp-navy); font-weight:700; border-top: 2px solid var(--blue); }
+.deck-table tr.total-blue td.num { color: var(--deep-blue); }
+.deck-table tr.total-red td { background: rgba(200,16,46,.07); color: var(--gp-navy); font-weight:700; border-top: 2px solid var(--gp-red); }
+.deck-table tr.total-red td.num { color: var(--gp-red); }
 
-/* ==== KPI cards ==== */
-.kpi-block { display:grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
-.kpi { background: var(--paper); border: 1px solid var(--g200); border-radius: 6px; padding: 12px 14px; min-height: 76px; box-shadow: 0 1px 2px rgba(30,39,64,.03); position:relative; }
-.kpi.featured { background: rgba(236,201,75,.06); border-color: rgba(236,201,75,.45); }
-.kpi.featured::before { content:""; position:absolute; left:0; top:0; bottom:0; width:3px; background: var(--gold); border-radius: 6px 0 0 6px; }
-.kpi.win { background: rgba(72,187,120,.06); border-color: rgba(72,187,120,.4); }
-.kpi.win::before { content:""; position:absolute; left:0; top:0; bottom:0; width:3px; background: var(--green); border-radius: 6px 0 0 6px; }
-.kpi-label { font-family:var(--sans); font-size:8.5pt; font-weight:700; letter-spacing:1.2px; text-transform:uppercase; color: var(--g500); }
-.kpi-value { font-family:var(--serif); font-weight:800; font-size:20pt; color: var(--gp-navy); line-height:1.15; margin-top: 3px; letter-spacing:-.4px; }
-.kpi-value.gold { color: var(--amber); }
-.kpi-value.blue { color: var(--blue); }
-.kpi-value.red  { color: var(--gp-red); }
-.kpi-value.green{ color: var(--deep-green); }
-.kpi-value.muted{ color: var(--g400); }
-.kpi-sub { font-family:var(--sans); font-size:9pt; color: var(--g500); margin-top: 5px; line-height:1.45; }
-
-/* ==== Section card / bars ==== */
-.section-card { background: var(--paper); border: 1px solid var(--g200); border-radius: 6px; padding: 12px 14px; box-shadow: 0 1px 2px rgba(30,39,64,.03); }
-.section-title { font-family:var(--sans); font-size:8.5pt; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color: var(--g500); margin-bottom: 9px; }
-.bar-row { display:flex; align-items:center; gap:10px; margin-bottom: 6px; font-family: var(--sans); }
-.bar-row:last-child { margin-bottom: 0; }
-.bar-row .lbl { flex:0 0 130px; color: var(--gp-slate); font-size: 9.5pt; white-space: nowrap; overflow:hidden; text-overflow: ellipsis; }
-.bar-row .bar { flex:1; height:7px; background: var(--g100); border-radius: 4px; overflow:hidden; }
-.bar-row .bar-fill { height:100%; border-radius: 4px; }
-.bar-row .n { flex:0 0 32px; text-align:right; font-family:var(--serif); font-weight:700; font-size:11pt; color: var(--gp-navy); }
-.fill-gold { background: var(--gold); }
-.fill-amber{ background: var(--amber); }
-.fill-blue { background: var(--blue); }
-.fill-red  { background: var(--gp-red); }
-.fill-green{ background: var(--green); }
-.fill-muted{ background: var(--g400); }
-
-/* ==== Note cards ==== */
-.note { background: var(--paper); border-left: 3px solid var(--gold); border-radius: 4px; padding: 8px 14px; font-family: var(--sans); font-size: 9.5pt; color: var(--gp-slate); line-height: 1.5; box-shadow: 0 1px 1px rgba(30,39,64,.03); }
-.note.blue { border-left-color: var(--blue); }
-.note.amber { border-left-color: var(--amber); }
-.note.green { border-left-color: var(--green); }
-.note.red { border-left-color: var(--gp-red); }
-.note-tag { font-family:var(--sans); font-size:8pt; font-weight:700; letter-spacing:1px; text-transform:uppercase; color: var(--gold); margin-right:6px; }
-.note.blue .note-tag { color: var(--blue); }
-.note.amber .note-tag { color: var(--amber); }
-.note.green .note-tag { color: var(--deep-green); }
-.note.red .note-tag { color: var(--gp-red); }
-
-/* ==== Table ==== */
-table.comp { width:100%; border-collapse:collapse; font-family:var(--sans); font-size:9pt; background: var(--paper); border: 1px solid var(--g200); border-radius: 6px; overflow: hidden; box-shadow: 0 1px 2px rgba(30,39,64,.03); }
-table.comp th { text-align:left; padding: 6px 10px; font-weight:700; font-size:8pt; letter-spacing:1px; text-transform:uppercase; color: var(--g500); border-bottom: 1px solid var(--g200); background: var(--g100); }
-table.comp th.num, table.comp td.num { text-align:right; }
-table.comp td { padding: 5px 10px; border-bottom: 1px solid var(--g200); color: var(--gp-slate); vertical-align:middle; line-height:1.3; font-size:8.5pt; }
-table.comp td.brand { font-family:var(--serif); font-weight:800; font-size:11pt; letter-spacing:-.2px; }
-table.comp .brand.semin { color: var(--amber); }
-table.comp .brand.hyu { color: var(--blue); }
-table.comp .brand.stl { color: var(--gp-red); }
-table.comp tr:last-child td { border-bottom: none; }
-table.comp .good { color: var(--deep-green); font-weight: 700; }
-table.comp .bad  { color: var(--gp-red); font-weight: 600; }
-
-/* ==== Anexo Ventas slide ==== */
-.anexo-hero { display:grid; grid-template-columns: auto 1fr; gap: 18px; align-items:center; background: var(--paper); border: 1px solid var(--g200); border-radius: 8px; padding: 6px 18px; box-shadow: 0 1px 2px rgba(30,39,64,.04); }
-.anexo-hero-num { font-family:var(--serif); font-weight:900; font-size:36pt; line-height:1.22; letter-spacing:-1.2px; color: var(--amber); padding-bottom: 3px; }
-.anexo-hero-label { font-family:var(--sans); font-size:8pt; font-weight:700; letter-spacing:1.3px; text-transform:uppercase; color: var(--g500); }
-.anexo-hero h2 { font-family:var(--serif); font-weight:800; font-size:16pt; color: var(--gp-navy); line-height:1.1; margin-top: 2px; letter-spacing:-.4px; }
-.anexo-hero h2 em { font-style:italic; color: var(--amber); font-weight:700; }
-.anexo-hero .ctx { font-family:var(--sans); font-size:9.5pt; color: var(--g600); margin-top: 4px; line-height:1.45; max-width: 820px; }
-table.sucursal-tbl { width:100%; border-collapse:collapse; font-family:var(--sans); font-size:9.5pt; background: var(--paper); border: 1px solid var(--g200); border-radius: 6px; overflow: hidden; box-shadow: 0 1px 2px rgba(30,39,64,.03); }
-table.sucursal-tbl th { text-align:left; padding: 6px 10px; font-weight:700; font-size:8pt; letter-spacing:1.1px; text-transform:uppercase; color: var(--g500); border-bottom: 1px solid var(--g200); background: var(--g100); }
-table.sucursal-tbl th.num, table.sucursal-tbl td.num { text-align:right; }
-table.sucursal-tbl th.center, table.sucursal-tbl td.center { text-align:center; }
-table.sucursal-tbl td { padding: 5.5px 10px; border-bottom: 1px solid var(--g200); color: var(--gp-slate); vertical-align:middle; line-height:1.35; }
-table.sucursal-tbl td.sucursal { font-family:var(--serif); font-weight:700; font-size:10pt; color: var(--gp-navy); }
-table.sucursal-tbl td.active { font-family:var(--serif); font-weight:800; font-size:11pt; color: var(--amber); }
-table.sucursal-tbl tr.total td { background: rgba(214,158,46,.07); border-top: 2px solid var(--amber); border-bottom: none; font-weight:700; color: var(--gp-navy); padding: 7px 10px; }
-table.sucursal-tbl tr.total td.active { font-size:12pt; }
-table.sucursal-tbl td.zero { color: var(--g400); }
-table.sucursal-tbl td.win { color: var(--deep-green); font-weight: 700; }
-table.sucursal-tbl td.bad { color: var(--gp-red); }
-
-.equipo-row { display:grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
-.equipo-card { background: var(--paper); border: 1px solid var(--g200); border-radius: 6px; padding: 8px 12px; box-shadow: 0 1px 2px rgba(30,39,64,.03); }
-.equipo-card .lab { font-family:var(--sans); font-size:7.5pt; font-weight:700; letter-spacing:1.2px; text-transform:uppercase; color: var(--g500); }
-.equipo-card .v { font-family:var(--serif); font-weight:800; font-size:14pt; color: var(--gp-navy); line-height:1; margin-top: 2px; letter-spacing:-.3px; }
-.equipo-card .desc { font-family:var(--sans); font-size:8pt; color: var(--g500); margin-top: 2px; line-height:1.3; }
-
-/* ==== Closing slide ==== */
-.cierre-grid { display:grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
-.cierre-col { background: var(--paper); border: 1px solid var(--g200); border-radius: 8px; padding: 14px 16px; box-shadow: 0 1px 2px rgba(30,39,64,.03); }
-.cierre-col h3 { font-family:var(--serif); font-weight:800; font-size:14pt; color: var(--gp-navy); margin-bottom: 4px; }
-.cierre-col h3 em { color: var(--green); font-style:italic; }
-.cierre-col .sub { font-family:var(--sans); font-size:8.5pt; font-weight:700; letter-spacing:1px; text-transform:uppercase; color: var(--g500); margin-bottom: 10px; }
-.cierre-item { display:flex; gap:8px; padding: 6px 0; border-bottom: 1px dashed var(--g200); font-family: var(--sans); font-size: 9.5pt; color: var(--gp-slate); line-height: 1.45; }
-.cierre-item:last-child { border-bottom: none; }
-.cierre-item .b { font-family: var(--serif); font-weight:800; font-size:11pt; flex:0 0 auto; min-width: 22px; color: var(--gp-red); line-height: 1; padding-top: 2px; }
-.cierre-item .b.amber { color: var(--amber); }
-.cierre-item .b.blue { color: var(--blue); }
-.cierre-item .b.green { color: var(--deep-green); }
-.cierre-conclusion { background: var(--gp-navy); color: var(--near-white); border-radius:8px; padding: 14px 18px; font-family: var(--serif); font-weight:500; font-style:italic; font-size:11.5pt; line-height: 1.5; border-left: 3px solid var(--gold); }
-.cierre-conclusion strong { font-style: normal; font-family: var(--sans); font-weight:700; color: var(--gold); }
-
-/* ==== Footers ==== */
-.slide-footer { position:absolute; bottom: 12px; left: 52px; right: 52px; display:flex; justify-content:space-between; align-items:center; font-family: var(--sans); font-size: 7.5pt; letter-spacing:.8px; color: var(--g400); text-transform: uppercase; border-top: 1px solid var(--g200); padding-top: 8px; }
-.slide-footer .gp-mini { display:flex; align-items:center; gap:6px; font-weight:700; color: var(--gp-navy); letter-spacing: 2px; }
-.slide-footer .gp-mini .dot { width:5px; height:5px; border-radius:50%; background: var(--gp-red); }
-.slide.cover .slide-footer { display:none; }
-.slide-label { position:absolute; top: 18px; right: 52px; font-family:var(--sans); font-size: 8pt; letter-spacing: 1.8px; text-transform: uppercase; color: var(--g400); }
-.slide.cover .slide-label { display:none; }
-.page-chip { position:absolute; top: 18px; left: 52px; font-family:var(--serif); font-weight: 800; font-size: 11pt; color: var(--gp-red); letter-spacing:-.3px; }
-.slide.cover .page-chip { display:none; }
-
-/* ════ Sistema Consejo-MKT (Inter+Playfair editorial) ════ */
-.section-num-v2 { font-family: var(--sans); font-size: 10pt; font-weight: 700; letter-spacing: 4.5px; color: var(--gp-red); text-transform: uppercase; }
-.slide-h1-v2 { font-family: var(--serif); font-weight: 800; font-size: 32pt; line-height: 1.08; letter-spacing: -1.2px; color: var(--gp-navy); margin-top: 6px; }
-.slide-h1-v2 em { font-style: italic; color: var(--gp-red); font-weight: 700; }
-.slide-lede-v2 { font-family: var(--sans); font-size: 12pt; color: var(--g600); line-height: 1.5; margin-top: 4px; max-width: 1100px; }
-.slide-lede-v2 strong { color: var(--gp-navy); font-weight: 700; }
-.slide-lede-v2 em { font-style: italic; color: var(--gp-navy); }
-
-/* KPI cards estilo Consejo */
-.kpi-grid-v2 { display: grid; gap: 14px; }
-.kpi-grid-v2.cols-3 { grid-template-columns: repeat(3, 1fr); }
-.kpi-grid-v2.cols-4 { grid-template-columns: repeat(4, 1fr); }
-.kpi-card-v2 { background: var(--paper); border: 1px solid var(--g200); border-radius: 10px; padding: 18px 22px; position: relative; box-shadow: 0 1px 3px rgba(30,39,64,.05); }
-.kpi-card-v2::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--gp-red); border-radius: 10px 10px 0 0; }
-.kpi-card-v2.navy::before { background: var(--gp-navy); }
-.kpi-card-v2.gold::before { background: var(--gold); }
-.kpi-card-v2.green::before { background: var(--green); }
-.kpi-card-v2.blue::before { background: var(--blue); }
-.kpi-card-v2 .lbl { font-family: var(--sans); font-size: 9pt; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--g500); margin-bottom: 6px; }
-.kpi-card-v2 .num-big { font-family: var(--serif); font-weight: 900; font-size: 32pt; line-height: 1.02; letter-spacing: -1.4px; color: var(--gp-navy); }
-.kpi-card-v2 .num-big.red { color: var(--gp-red); }
-.kpi-card-v2 .num-big.gold { color: var(--amber); }
-.kpi-card-v2 .num-big.green { color: var(--deep-green); }
-.kpi-card-v2 .sub-text { font-family: var(--sans); font-size: 9.5pt; color: var(--g600); margin-top: 6px; line-height: 1.45; }
-.kpi-card-v2 .sub-text strong { color: var(--gp-navy); font-weight: 700; }
-
-/* Callouts grandes */
-.callout-big { background: linear-gradient(to right, rgba(30,39,64,0.06), rgba(30,39,64,0.01)); border-left: 4px solid var(--gp-navy); padding: 14px 20px; border-radius: 0 6px 6px 0; }
+/* Callouts */
+.callout-big { background: linear-gradient(to right, rgba(30,39,64,0.06), rgba(30,39,64,0.01)); border-left: 4px solid var(--gp-navy); padding: 14px 22px; border-radius: 0 6px 6px 0; }
 .callout-big.red { background: linear-gradient(to right, rgba(200,16,46,0.07), rgba(200,16,46,0.01)); border-left-color: var(--gp-red); }
 .callout-big.gold { background: linear-gradient(to right, rgba(236,201,75,0.14), rgba(236,201,75,0.02)); border-left-color: var(--gold); }
 .callout-big.green { background: linear-gradient(to right, rgba(72,187,120,0.10), rgba(72,187,120,0.02)); border-left-color: var(--green); }
-.callout-t { font-family: var(--serif); font-weight: 700; font-style: italic; color: var(--gp-navy); margin-bottom: 5px; font-size: 13pt; letter-spacing: -0.3px; line-height: 1.2; }
+.callout-big.blue { background: linear-gradient(to right, rgba(66,153,225,0.10), rgba(66,153,225,0.02)); border-left-color: var(--blue); }
+.callout-t { font-family: var(--serif); font-weight: 700; font-style: italic; color: var(--gp-navy); margin-bottom: 4px; font-size: 14pt; letter-spacing: -0.3px; line-height: 1.2; }
 .callout-big.red .callout-t { color: var(--gp-red); }
 .callout-big.gold .callout-t { color: var(--amber); }
 .callout-big.green .callout-t { color: var(--deep-green); }
-.callout-big p { font-family: var(--sans); font-size: 10pt; color: var(--g600); line-height: 1.5; margin: 0; }
-.callout-big p strong { color: var(--gp-navy); font-weight: 700; }
+.callout-big.blue .callout-t { color: var(--deep-blue); }
+.callout-big p { font-family: var(--sans); font-size: 10.5pt; color: var(--g600); line-height: 1.5; margin: 0; }
+.callout-big p strong { color: var(--gp-navy); font-weight:700; }
 .callout-big.red p strong { color: var(--gp-red); }
 
-/* Pilar cards (para slide cierre con 3 acuerdos) */
-.pilar-grid-v2 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
-.pilar-card-v2 { background: var(--paper); border: 1px solid var(--g200); border-left: 4px solid var(--gp-navy); border-radius: 6px; padding: 14px 18px; display: flex; flex-direction: column; gap: 6px; }
-.pilar-card-v2.gold { border-left-color: var(--gold); }
-.pilar-card-v2.red { border-left-color: var(--gp-red); }
-.pilar-card-v2.green { border-left-color: var(--green); }
-.pilar-card-v2 .p-num { font-family: var(--serif); font-weight: 900; font-size: 22pt; line-height: 1; color: var(--gp-red); }
-.pilar-card-v2.gold .p-num { color: var(--amber); }
-.pilar-card-v2.green .p-num { color: var(--deep-green); }
-.pilar-card-v2 .p-head { font-family: var(--sans); font-size: 9pt; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; color: var(--gp-navy); }
-.pilar-card-v2.gold .p-head { color: var(--amber); }
-.pilar-card-v2.red .p-head { color: var(--gp-red); }
-.pilar-card-v2.green .p-head { color: var(--deep-green); }
-.pilar-card-v2 .p-title { font-family: var(--serif); font-weight: 800; font-size: 14pt; line-height: 1.2; color: var(--gp-navy); letter-spacing: -0.3px; }
-.pilar-card-v2 .p-body { font-family: var(--sans); font-size: 9.5pt; color: var(--g600); line-height: 1.45; }
-.pilar-card-v2 .p-body strong { color: var(--gp-navy); font-weight: 700; }
-
-/* Killer metric (cifra hero gigante para slide impacto) */
-.killer-wrap { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 14px; }
-.killer-main { background: var(--gp-navy); color: var(--near-white); border-radius: 12px; padding: 26px 30px; position: relative; overflow: hidden; }
-.killer-main::before { content: ""; position: absolute; top: 0; right: 0; width: 220px; height: 220px; background: radial-gradient(circle, rgba(236,201,75,.24) 0%, transparent 70%); }
-.killer-main .k-lbl { font-family: var(--sans); font-size: 10pt; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); }
-.killer-main .k-num { font-family: var(--serif); font-weight: 900; font-size: 90pt; line-height: 1; letter-spacing: -3.5px; color: var(--gold); margin-top: 4px; }
-.killer-main .k-sub { font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 14pt; color: rgba(255,255,255,.92); margin-top: 8px; line-height: 1.3; }
-.killer-side { background: var(--paper); border: 1px solid var(--g200); border-top: 4px solid var(--gp-red); border-radius: 10px; padding: 18px 20px; display: flex; flex-direction: column; justify-content: center; box-shadow: 0 1px 2px rgba(30,39,64,.04); }
+/* Killer metric */
+.killer-wrap { display:grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 16px; }
+.killer-main { background: var(--gp-navy); color: var(--near-white); border-radius: 12px; padding: 28px 32px; position:relative; overflow:hidden; }
+.killer-main::before { content:""; position:absolute; top:0; right:0; width:220px; height:220px; background: radial-gradient(circle, rgba(236,201,75,.24) 0%, transparent 70%); }
+.killer-main .label { font-family: var(--sans); font-size: 10pt; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); }
+.killer-main .num { font-family: var(--serif); font-weight: 900; font-size: 92pt; line-height: 1; letter-spacing: -3.6px; color: var(--gold); margin-top: 6px; }
+.killer-main .sub { font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 14pt; color: rgba(255,255,255,.92); margin-top: 10px; line-height: 1.3; }
+.killer-side { background: var(--paper); border: 1px solid var(--g200); border-top: 4px solid var(--gp-red); border-radius: 10px; padding: 20px 22px; display:flex; flex-direction:column; justify-content:center; box-shadow: 0 1px 2px rgba(30,39,64,.04); }
 .killer-side.navy { border-top-color: var(--gp-navy); }
 .killer-side.green { border-top-color: var(--green); }
-.killer-side .ks-lbl { font-family: var(--sans); font-size: 9pt; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gp-red); margin-bottom: 6px; }
-.killer-side.navy .ks-lbl { color: var(--gp-navy); }
-.killer-side.green .ks-lbl { color: var(--deep-green); }
-.killer-side .ks-num { font-family: var(--serif); font-weight: 900; font-size: 32pt; line-height: 1.05; letter-spacing: -1.2px; color: var(--gp-navy); }
-.killer-side .ks-sub { font-family: var(--sans); font-size: 9pt; color: var(--g600); margin-top: 6px; line-height: 1.45; }
+.killer-side .label { font-family: var(--sans); font-size: 9pt; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gp-red); margin-bottom: 8px; }
+.killer-side.navy .label { color: var(--gp-navy); }
+.killer-side.green .label { color: var(--deep-green); }
+.killer-side .num { font-family: var(--serif); font-weight: 900; font-size: 34pt; line-height: 1.05; letter-spacing: -1.4px; color: var(--gp-navy); }
+.killer-side .sub { font-family: var(--sans); font-size: 9.5pt; color: var(--g600); margin-top: 8px; line-height: 1.5; }
+
+/* Closing */
+.closing-inner { padding: 80px 80px; flex:1; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; background: radial-gradient(ellipse at center, rgba(236,201,75,.10) 0%, transparent 60%), var(--gp-navy); }
+.closing-eyebrow { font-family: var(--sans); font-size: 10pt; font-weight: 700; letter-spacing: 5px; color: var(--gold); text-transform: uppercase; }
+.closing-rule { width: 80px; height: 1px; background: var(--gold); margin: 16px auto; opacity: .7; }
+.closing-h { font-family: var(--serif); font-weight: 800; font-size: 58pt; line-height: 1.05; letter-spacing: -2px; color: var(--near-white); margin-top: 12px; max-width: 1020px; }
+.closing-h em { font-style: italic; color: var(--gold); font-weight: 700; }
+.closing-sub { font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 16pt; color: rgba(255,255,255,.78); margin-top: 28px; line-height: 1.4; max-width: 900px; }
+.closing-meta { font-family: var(--sans); font-size: 9.5pt; color: rgba(255,255,255,.65); margin-top: 36px; letter-spacing: 1.5px; }
 
 @media print {
   @page { size: 1280px 720px landscape; margin: 0; }
-  html, body { overflow:visible; background:#fff; }
-  .slide { position:relative !important; opacity:1 !important; visibility:visible !important; transform:none !important; left:auto !important; top:auto !important; page-break-after: always; box-shadow:none; }
-  .slide:last-child { page-break-after: avoid; }
-  #progress, #counter, .nav-btn, #review-toggle { display:none; }
+  html, body { background: white; overflow: visible; }
+  .slide { position: relative !important; opacity: 1 !important; visibility: visible !important; transform: none !important; left: auto !important; top: auto !important; page-break-after: always; box-shadow: none; }
+  #progress, #counter, .nav-btn, #review-toggle { display: none !important; }
 }
 </style>
 </head>
 <body>
 
 <div id="progress"></div>
-<div id="counter">1 / 10</div>
-<button id="nav-prev" class="nav-btn" title="Anterior (←)">‹</button>
-<button id="nav-next" class="nav-btn" title="Siguiente (→ o Espacio)">›</button>
-<button id="review-toggle" title="Alterna entre modo presentación y vista scroll de todo el deck">Ver todo ↕</button>
+<div id="counter">1 / 13</div>
+<button id="nav-prev" class="nav-btn">‹</button>
+<button id="nav-next" class="nav-btn">›</button>
+<button id="review-toggle">Ver todo ↕</button>
 
 <div class="deck" id="deck">
 
-<!-- SLIDE 1 — COVER -->
+<!-- 1 · COVER -->
 <section class="slide cover active" data-slide="cover">
   <div class="cover-inner">
-    <div>
-      <div class="cover-top">
-        <img class="cover-logo" src="../assets/logos/LOGO-GP-Blanco.png" alt="Grupo Plasencia Automotriz">
-        <div class="cover-mark">Dirección de Marketing Corporativo<span>Motor de Atribución MVP · Piloto LIVE</span></div>
+    <div class="cover-top">
+      <div class="cover-mark">Reporte del Piloto · Primeros 72 días
+        <span>Dirección de Marketing Corporativo · Grupo Plasencia Automotriz</span>
       </div>
+      <div style="display:flex; align-items:center; gap:18px;">
+        <img src="../assets/logos/LOGO-GP-Blanco.png" alt="Grupo Plasencia Automotriz" style="height:52px; width:auto; mix-blend-mode:screen; opacity:.95;"/>
+        <div class="cover-confidencial">Confidencial</div>
+      </div>
+    </div>
+    <div>
       <div class="cover-rule"></div>
-      <div class="cover-eyebrow">Piloto Motor de Atribución · 10 semanas · al 23-jun-2026</div>
-      <h1 class="cover-title">El piloto del Motor<br>de Atribución <em>en una sola vista</em>.</h1>
-      <div class="cover-subtitle">$16.7M revenue · 62 cierres totales · ROAS 132× sobre $126.7K invertidos.</div>
-
-      <div class="cover-pull">
-        <strong>4 marcas comparten el mismo embudo digital; lo que cambia es la gestión humana del handoff Marketing→Ventas.</strong> SEM corre con calidad desde abril y produce 60 cierres. HYU y STL pivotaron de volumen OEM a calidad (STL 5-jun · HYU 7-jun) y entregan 1 cierre cada una. GAC arrancó el 15-jun. <strong>El gap es operativo, no del embudo:</strong> Plasi en HYU/STL + Customer Success por marca con doble reporting + vendedores piloto con reporte punteado al Dir. MKT.
-      </div>
-
-      <div class="cover-kpis">
-        <div class="cov-kpi semin">
-          <div class="cov-kpi-label">Seminuevos</div>
-          <div class="cov-kpi-value">831</div>
-          <div class="cov-kpi-sub">opp · 71d pauta · $60.2K Meta+Google · 60 cierres totales · CAC $1,003</div>
-          <span class="cov-kpi-tag">Calidad</span>
-        </div>
-        <div class="cov-kpi hyu">
-          <div class="cov-kpi-label">Hyundai</div>
-          <div class="cov-kpi-value">457</div>
-          <div class="cov-kpi-sub">opp · 77d pauta · $33.3K Meta · 1 cierre · Pivote 2 (Vol→Calidad) 7-jun</div>
-          <span class="cov-kpi-tag">Vol → Calidad</span>
-        </div>
-        <div class="cov-kpi stl">
-          <div class="cov-kpi-label">Stellantis</div>
-          <div class="cov-kpi-value">267</div>
-          <div class="cov-kpi-sub">opp · 65d pauta · $33.3K Meta · 1 cierre · Pivote 2 (Vol→Calidad) 5-jun</div>
-          <span class="cov-kpi-tag">Vol → Calidad</span>
-        </div>
-      </div>
-
-      <div style="display:flex; align-items:center; gap:14px; margin-top:10px; padding:8px 14px; background:rgba(255,255,255,.05); border-left:3px solid var(--gold); border-radius:4px; max-width:980px;">
-        <div style="font-family:var(--sans); font-size:9pt; font-weight:700; letter-spacing:1.5px; color:var(--gold); text-transform:uppercase;">+ GAC (nuevo)</div>
-        <div style="font-family:var(--sans); font-size:9pt; color:rgba(255,255,255,.78); line-height:1.4;">12 oportunidades · 8 días en piloto (desde 15-jun) · 0 cierres aún · etapa de carga inicial</div>
-      </div>
-
-      <div class="cover-tags">
-        <span class="cover-tag accent">Estado vivo del pipeline</span>
-        <span class="cover-tag">D1 · Meta Ads · Google Ads</span>
-        <span class="cover-tag urgent">Confidencial</span>
-      </div>
+      <div class="cover-eyebrow">Reporte ejecutivo · 23 junio 2026</div>
+      <div class="cover-title">De cost center <em>a Revenue & Profit Center.</em></div>
+      <div class="cover-subtitle">Lo que el piloto demostró en 72 días: el embudo digital del Grupo puede atribuir cada venta al peso invertido. $16.7M de revenue y $1.34M de profit estimado son la evidencia. Lo que falta para escalar es el handoff humano.</div>
     </div>
-
     <div class="cover-meta">
-      <div class="cover-meta-block">
-        <strong>Jesús Pérez Porras</strong>
-        Director de Marketing Corporativo
-      </div>
-      <div class="cover-meta-block" style="text-align:center;">
-        <strong>Periodo cubierto</strong>
-        13-abr-2026 → 23-jun-2026<br>
-        <span style="font-size:8pt; opacity:.7;">Pipeline al 23-jun · DCA al 20-jun · Spend Meta+Google al 23-jun</span>
-      </div>
-      <div class="cover-meta-block" style="text-align:right;">
-        <strong>Última actualización</strong>
-        2026-06-23 · 19:30 GDL<br>
-        <span style="font-size:8pt; opacity:.7;">Sync diario 08:30 GDL · matching v8.3</span>
-      </div>
+      <div class="cover-meta-block"><strong>Para</strong><span>Pepe Morales<br/>+ Consejo Directivo</span></div>
+      <div class="cover-meta-block"><strong>De</strong><span>Jesús Pérez Porras<br/>Director MKT Corporativo</span></div>
+      <div class="cover-meta-block"><strong>Ya construido</strong><span>Piloto en producción desde 17-abr-2026 · 4 marcas · matching v8.3 LIVE</span></div>
+      <div class="cover-meta-block"><strong>Tesis</strong><span>Marketing puede contribuir directo a la utilidad operativa del Grupo</span></div>
     </div>
   </div>
 </section>
 
-<!-- SLIDE 2 — SEMINUEVOS · Calidad -->
-<section class="slide semin" data-slide="seminuevos">
-  <div class="slide-label">Marca 1 / 4 · Enfoque calidad</div>
-  <div class="page-chip">01</div>
+<!-- 2 · PUNTO DE PARTIDA -->
+<section class="slide" data-slide="punto-partida">
   <div class="content">
-
-    <div class="header-row">
-      <div class="left">
-        <div class="t-eyebrow gold">Seminuevos Plasencia · 8 sucursales en Guadalajara</div>
-        <h1><em>Calidad</em> de la prospección</h1>
-        <div class="lede"><strong>SEM convierte 7.2% de las oportunidades en cierres (60 sobre 831), CAC $1,003.</strong> Vambe gestiona Por contactar→Cita sin intervención humana. El cuello sigue siendo Cita→Visita: necesitamos Customer Success que garantice el pase y vendedor en piso esperando.</div>
-      </div>
-      <div class="right">
-        <div class="hero-num">831</div>
-        <div class="hero-sublabel">oportunidades · 71d pauta</div>
-        <span class="hero-focus">Enfoque calidad</span>
-      </div>
-    </div>
-
-    <div class="funnel">
-      <div class="funnel-step"><div class="accent-bar"></div><div class="funnel-stage">Interesado</div><div class="funnel-n">831</div><div class="funnel-conv">universo · 100%</div></div>
-      <div class="funnel-step"><div class="accent-bar"></div><div class="funnel-stage">Cita Agendada</div><div class="funnel-n">8</div><div class="funnel-conv"><strong>1.0%</strong> activo<br>(citas vivas hoy)</div></div>
-      <div class="funnel-step"><div class="accent-bar"></div><div class="funnel-stage">Visita Realizada</div><div class="funnel-n">1</div><div class="funnel-conv"><strong>0.1%</strong> activo<br>(visita viva hoy)</div></div>
-      <div class="funnel-step"><div class="accent-bar"></div><div class="funnel-stage">Cerrados</div><div class="funnel-n">60</div><div class="funnel-conv"><strong>60 cierres</strong><br>7.2% conv total / opp</div></div>
-      <div class="funnel-step perdida"><div class="accent-bar"></div><div class="funnel-stage">Perdida</div><div class="funnel-n perd">583</div><div class="funnel-conv"><strong>70.2%</strong> del universo</div></div>
-    </div>
-
-    <div class="kpi-block">
-      <div class="kpi">
-        <div class="kpi-label">Inversión Meta · 71d</div>
-        <div class="kpi-value gold">$35,576</div>
-        <div class="kpi-sub">SeminuevosPlasencia_Core · CTR 3.45% · CPC $1.10 · 32,328 clicks</div>
-      </div>
-      <div class="kpi">
-        <div class="kpi-label">Inversión Google · 71d</div>
-        <div class="kpi-value gold">$24,576</div>
-        <div class="kpi-sub">Seminuevos-Leads-Search-Aon · CTR 18.5% · CPC $2.57 · 267 conversiones GA4</div>
-      </div>
-      <div class="kpi featured">
-        <div class="kpi-label">Inversión total piloto · 71d</div>
-        <div class="kpi-value gold">$60,151</div>
-        <div class="kpi-sub">Meta + Google al 23-jun · 831 oportunidades captadas</div>
-      </div>
-    </div>
-
-    <div class="kpi-block">
-      <div class="kpi featured">
-        <div class="kpi-label">CPA · costo por oportunidad</div>
-        <div class="kpi-value gold">$72</div>
-        <div class="kpi-sub">$60,151 entre las 831 oportunidades del pipeline</div>
-      </div>
-      <div class="kpi">
-        <div class="kpi-label">Cierres totales</div>
-        <div class="kpi-value">60</div>
-        <div class="kpi-sub">831 opp · 71d pauta · matching v8.3 verificado vs DCA</div>
-      </div>
-      <div class="kpi">
-        <div class="kpi-label">Desglose</div>
-        <div class="kpi-value" style="font-size:18pt;">$16.7M</div>
-        <div class="kpi-sub">Revenue del kanban (VALOR CIERRE Ganada + VALOR PIPELINE Cerrado otro cliente). CAC $1,003 sobre 60 cierres.</div>
-      </div>
-    </div>
-
-    <div style="display:flex; gap:10px;">
-      <div class="kpi win" style="flex:1.15;">
-        <div class="kpi-label">CAC · 60 cierres totales</div>
-        <div class="kpi-value green">$1,003</div>
-        <div class="kpi-sub" style="font-size:8.5pt;">$60,151 invertido entre 60 cierres totales. Convención del piloto: el inventario tocado por el embudo que termina vendido cuenta como cierre.</div>
-      </div>
-      <div class="section-card" style="flex:1;">
-        <div class="section-title">Conversión e2e</div>
-        <div class="bar-row"><div class="lbl">Cierres / Opp</div><div class="bar"><div class="bar-fill fill-gold" style="width:100%"></div></div><div class="n">7.2%</div></div>
-        <div class="bar-row"><div class="lbl">Atrib / Opp</div><div class="bar"><div class="bar-fill fill-gold" style="width:42%"></div></div><div class="n">3.0%</div></div>
-      </div>
-    </div>
-
-  </div>
-  <div class="slide-footer">
-    <span>D1 al 23-jun · DCA al 20-jun · Meta Ads (13-abr→23-jun) · Google Ads (mismo periodo)</span>
-    <span class="gp-mini"><span class="dot"></span>Grupo Plasencia · Dirección MKT Corporativo</span>
-  </div>
-</section>
-
-<!-- SLIDE 3 — HYUNDAI · Volumen -->
-<section class="slide hyu" data-slide="hyundai">
-  <div class="slide-label">Marca 2 / 4 · Volumen → Calidad (Pivote 2 · 7-jun-2026)</div>
-  <div class="page-chip">02</div>
-  <div class="content">
-
-    <div class="header-row">
-      <div class="left">
-        <div class="t-eyebrow" style="color: var(--blue);">Hyundai · 2 agencias OEM en GDL · Plasencia + Santa Anita</div>
-        <h1><em>Volumen</em> de leads · marca OEM</h1>
-        <div class="lede"><strong>Hyundai entregó 457 leads y cerró 1 (Patricia DE HARO, cross-brand a Mazda).</strong> 84% del cohort murió sin primera llamada (247 Perdida + 137 No-contactable). Hyundai arrancó con volumen OEM en Meta Lead Form Ads — 0 matches DCA. <strong>Pivote 2 (7-jun):</strong> landing propia + catálogo evergreen Vero + intent tabs. Falta Plasi y el lado operativo de ventas: Customer Success por marca + vendedores piloto con reporte punteado al Dir. MKT.</div>
-      </div>
-      <div class="right">
-        <div class="hero-num">457</div>
-        <div class="hero-sublabel">oportunidades · 77d pauta</div>
-        <span class="hero-focus">Enfoque volumen</span>
-      </div>
-    </div>
-
-    <div class="funnel">
-      <div class="funnel-step"><div class="accent-bar"></div><div class="funnel-stage">Interesado</div><div class="funnel-n">457</div><div class="funnel-conv">universo · 7.1/día activo</div></div>
-      <div class="funnel-step"><div class="accent-bar"></div><div class="funnel-stage">Cita Agendada</div><div class="funnel-n">1</div><div class="funnel-conv"><strong>0.2%</strong> activo<br>(citas vivas hoy)</div></div>
-      <div class="funnel-step"><div class="accent-bar"></div><div class="funnel-stage">En seguimiento</div><div class="funnel-n">13</div><div class="funnel-conv"><strong>2.8%</strong> activo<br>vendedor con la oportunidad</div></div>
-      <div class="funnel-step"><div class="accent-bar"></div><div class="funnel-stage">Cerrados</div><div class="funnel-n">1</div><div class="funnel-conv"><strong>1 cierre total</strong> (cross-brand Patricia)<br>1 caso en Cerrado por auditar (director)</div></div>
-      <div class="funnel-step perdida"><div class="accent-bar"></div><div class="funnel-stage">Perdida</div><div class="funnel-n perd">247</div><div class="funnel-conv"><strong>54.1%</strong> del universo</div></div>
-    </div>
-
-    <div class="kpi-block">
-      <div class="kpi">
-        <div class="kpi-label">Inversión Meta · 76d</div>
-        <div class="kpi-value blue">$33,304</div>
-        <div class="kpi-sub">CTR 3.46% · CPC $2.70 · única pauta activa de la marca</div>
-      </div>
-      <div class="kpi">
-        <div class="kpi-label">CPL · plataforma Meta</div>
-        <div class="kpi-value blue">$73</div>
-        <div class="kpi-sub">$33,304 entre 457 oportunidades del pipeline</div>
-      </div>
-      <div class="kpi featured">
-        <div class="kpi-label">CPA · costo por oportunidad</div>
-        <div class="kpi-value blue">$73</div>
-        <div class="kpi-sub">$33,304 / 457 leads · 12,328 clicks acumulados al 23-jun</div>
-      </div>
-    </div>
-
-    <div class="kpi-block">
-      <div class="kpi">
-        <div class="kpi-label">Cierres totales</div>
-        <div class="kpi-value">1</div>
-        <div class="kpi-sub">Patricia DE HARO cross-brand (lead HYU compró Mazda · datos del prospecto coinciden con cliente DCA)</div>
-      </div>
-      <div class="kpi">
-        <div class="kpi-label">Cerrado por auditar</div>
-        <div class="kpi-value">1</div>
-        <div class="kpi-sub">Caso del director · sin match DCA, movimiento manual</div>
-      </div>
-      <div class="kpi">
-        <div class="kpi-label">CAC · Conv e2e</div>
-        <div class="kpi-value blue">$33,304</div>
-        <div class="kpi-sub">CAC sobre 1 cierre · <span style="color: var(--gp-red);">0.2%</span> conv total · embudo entrega leads, ventas no los procesa</div>
-      </div>
-    </div>
-
-    <div style="display:flex; gap:10px;">
-      <div class="section-card" style="flex:1.3;">
-        <div class="section-title">Etapa actual · 457 oportunidades</div>
-        <div class="bar-row"><div class="lbl">Perdida</div><div class="bar"><div class="bar-fill fill-red" style="width:100%"></div></div><div class="n">247</div></div>
-        <div class="bar-row"><div class="lbl">No contactable</div><div class="bar"><div class="bar-fill fill-red" style="width:55%"></div></div><div class="n">137</div></div>
-        <div class="bar-row"><div class="lbl">Por contactar</div><div class="bar"><div class="bar-fill fill-blue" style="width:23%"></div></div><div class="n">56</div></div>
-      </div>
-      <div class="section-card" style="flex:1;">
-        <div class="section-title">Sucursal · activas</div>
-        <div class="bar-row"><div class="lbl">Santa Anita</div><div class="bar"><div class="bar-fill fill-blue" style="width:100%"></div></div><div class="n">61</div></div>
-        <div class="bar-row"><div class="lbl">Plasencia GDL (LM)</div><div class="bar"><div class="bar-fill fill-blue" style="width:72%"></div></div><div class="n">44</div></div>
-      </div>
-    </div>
-
-  </div>
-  <div class="slide-footer">
-    <span>D1 al 23-jun · Meta Ads cuenta 882830331470969 · 76 días con impresiones (8-abr→23-jun)</span>
-    <span class="gp-mini"><span class="dot"></span>Grupo Plasencia · Dirección MKT Corporativo</span>
-  </div>
-</section>
-
-<!-- SLIDE 4 — STELLANTIS · Volumen -->
-<section class="slide stl" data-slide="stellantis">
-  <div class="slide-label">Marca 3 / 4 · Volumen → Calidad (Pivote 2 · 5-jun-2026)</div>
-  <div class="page-chip">03</div>
-  <div class="content">
-
-    <div class="header-row">
-      <div class="left">
-        <div class="t-eyebrow">Stellantis · 2 agencias OEM en GDL · 5 sub-marcas</div>
-        <h1><em>Volumen</em> de leads · OEM con primera venta</h1>
-        <div class="lede"><strong>Stellantis entregó 269 leads (RAM · Jeep · Peugeot · Dodge · Fiat) y cerró 1 (Miguel Ochoa, RAM).</strong> 77% del pipeline acumula sin definir: 109 "Por contactar" + 97 "Recontactar". Stellantis cronología: M0 catálogo rico (16-abr) → Pivote 1 a Meta Lead Form Ads (13-may, transitorio · 0 matches DCA) → <strong>Pivote 2 (5-jun)</strong>: catálogo evergreen + oferta estándar + Always-On Meta. Falta Plasi en HYU/STL + Customer Success + reporte punteado al Dir. MKT.</div>
-      </div>
-      <div class="right">
-        <div class="hero-num">267</div>
-        <div class="hero-sublabel">oportunidades · 65d pauta</div>
-        <span class="hero-focus">Enfoque volumen</span>
-      </div>
-    </div>
-
-    <div class="funnel">
-      <div class="funnel-step"><div class="accent-bar"></div><div class="funnel-stage">Interesado</div><div class="funnel-n">267</div><div class="funnel-conv">universo · 5.9/día activo</div></div>
-      <div class="funnel-step"><div class="accent-bar"></div><div class="funnel-stage">Cita Agendada</div><div class="funnel-n">12</div><div class="funnel-conv"><strong>4.5%</strong> activo<br>(citas vivas hoy)</div></div>
-      <div class="funnel-step"><div class="accent-bar"></div><div class="funnel-stage">En seguimiento</div><div class="funnel-n">12</div><div class="funnel-conv"><strong>4.5%</strong> activo<br>vendedor con la oportunidad</div></div>
-      <div class="funnel-step"><div class="accent-bar"></div><div class="funnel-stage">Cerrados</div><div class="funnel-n">1</div><div class="funnel-conv"><strong>1 cierre total</strong><br>0.4% conv total</div></div>
-      <div class="funnel-step perdida"><div class="accent-bar"></div><div class="funnel-stage">Perdida</div><div class="funnel-n perd">37</div><div class="funnel-conv"><strong>13.9%</strong> del universo</div></div>
-    </div>
-
-    <div class="kpi-block">
-      <div class="kpi">
-        <div class="kpi-label">Inversión Meta · 64d</div>
-        <div class="kpi-value red">$33,270</div>
-        <div class="kpi-sub">CTR 2.41% · CPC $1.74 · única pauta activa de la marca</div>
-      </div>
-      <div class="kpi">
-        <div class="kpi-label">CPL · plataforma Meta</div>
-        <div class="kpi-value red">$125</div>
-        <div class="kpi-sub">$33,270 entre 269 oportunidades del pipeline</div>
-      </div>
-      <div class="kpi featured">
-        <div class="kpi-label">CPA · costo por oportunidad</div>
-        <div class="kpi-value red">$125</div>
-        <div class="kpi-sub">$33,270 / 269 leads · 19,067 clicks acumulados al 23-jun</div>
-      </div>
-    </div>
-
-    <div class="kpi-block">
-      <div class="kpi">
-        <div class="kpi-label">Cierres totales</div>
-        <div class="kpi-value">1</div>
-        <div class="kpi-sub">Miguel Ochoa (RAM) · datos del prospecto coinciden con cliente DCA · matching v8.3</div>
-      </div>
-      <div class="kpi">
-        <div class="kpi-label">Pipeline atorado</div>
-        <div class="kpi-value">205</div>
-        <div class="kpi-sub">111 Por contactar + 94 Recontactar = 77% sin gestión sistemática</div>
-      </div>
-      <div class="kpi">
-        <div class="kpi-label">CAC · Conv e2e</div>
-        <div class="kpi-value red">$33,270 · <span style="color: var(--gp-red);">0.4%</span></div>
-        <div class="kpi-sub">1 de 269 oportunidades · embudo entrega leads cualificados, ventas no los procesa</div>
-      </div>
-    </div>
-
-    <div style="display:flex; gap:10px;">
-      <div class="section-card" style="flex:1.3;">
-        <div class="section-title">Etapa actual · 269 oportunidades</div>
-        <div class="bar-row"><div class="lbl">Por contactar</div><div class="bar"><div class="bar-fill fill-red" style="width:100%"></div></div><div class="n">111</div></div>
-        <div class="bar-row"><div class="lbl">Recontactar (pipeline atorado)</div><div class="bar"><div class="bar-fill fill-amber" style="width:85%"></div></div><div class="n">94</div></div>
-        <div class="bar-row"><div class="lbl">Cita + En seguimiento</div><div class="bar"><div class="bar-fill fill-green" style="width:22%"></div></div><div class="n">24</div></div>
-      </div>
-      <div class="section-card" style="flex:1;">
-        <div class="section-title">Sucursal · 2 ubicaciones (activas)</div>
-        <div class="bar-row"><div class="lbl">Plasencia (Mariano Otero)</div><div class="bar"><div class="bar-fill fill-red" style="width:100%"></div></div><div class="n">179</div></div>
-        <div class="bar-row"><div class="lbl">Santa Anita</div><div class="bar"><div class="bar-fill fill-red" style="width:27%"></div></div><div class="n">49</div></div>
-      </div>
-    </div>
-
-  </div>
-  <div class="slide-footer">
-    <span>D1 al 23-jun · Meta Ads cuenta 1434165342081795 · 64 días con impresiones (20-abr→23-jun)</span>
-    <span class="gp-mini"><span class="dot"></span>Grupo Plasencia · Dirección MKT Corporativo</span>
-  </div>
-</section>
-
-<!-- SLIDE 5 — COMPARATIVO -->
-<section class="slide comp" data-slide="comparativo">
-  <div class="slide-label">Resumen comparativo</div>
-  <div class="page-chip">04</div>
-  <div class="content">
-
     <div>
-      <div class="t-eyebrow">Las 4 marcas del piloto en una sola vista</div>
-      <h1 class="t-title-serif" style="font-size:28pt; margin-top:6px;">Dos modelos operativos · <em>una sola vista</em></h1>
-      <div class="lede" style="font-family:var(--sans); font-size:10pt; color: var(--g600); line-height:1.5; margin-top:6px; max-width:1180px;"><strong>El piloto cerró 62 ventas sobre 1,569 oportunidades en 4 marcas.</strong> SEM hace el 97% del volumen porque tiene IA temprana (Vambe). HYU y STL entregaron leads cualificados pero ventas no los procesa: el embudo es el mismo, lo que falla es la gestión humana del handoff. Matching v8.3 cruza cada cierre con DCA + Vambe + Maxipublica.</div>
+      <div class="section-num">Lo que encontró la Dirección MKT al llegar</div>
+      <h1 class="slide-h1" style="font-size: 32pt;">Marketing operaba <em>sin saber qué peso producía qué venta.</em></h1>
+      <p class="slide-lede">Cada marca reportaba CPL y CTR a su OEM. Nadie podía decir cuántas ventas reales produjo el spend del mes pasado · ni cuánto de la utilidad operativa del Grupo lo trajo Marketing. El piloto se montó para responder esa pregunta con cifras auditables, no con estimaciones.</p>
     </div>
 
-    <table class="comp">
-      <thead>
-        <tr>
-          <th>Marca</th>
-          <th class="num">Enfoque</th>
-          <th class="num">Días</th>
-          <th class="num">Spend</th>
-          <th class="num">CPL pauta</th>
-          <th class="num">Oportunidades</th>
-          <th class="num">CPA</th>
-          <th class="num">Cita</th>
-          <th class="num">Visita</th>
-          <th class="num">Cierres totales</th>
-          <th class="num">Perdida</th>
-          <th class="num">Conv total / opp</th>
-          <th class="num">CAC · ROAS</th>
-        </tr>
-      </thead>
+    <div class="kpi-grid cols-3">
+      <div class="kpi-card navy">
+        <div class="kpi-label">Pauta Grupo 2025</div>
+        <div class="kpi-num">$197.5M</div>
+        <div class="kpi-sub"><strong>0.54% del revenue</strong> · piso sector 0.8-1.5% · fuente DCA cubo 30060</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Atribución institucional al llegar</div>
+        <div class="kpi-num red">0</div>
+        <div class="kpi-sub"><strong>Cero ventas auditables</strong> al peso invertido · reportes OEM como proxy · sin loop con DCA</div>
+      </div>
+      <div class="kpi-card gold">
+        <div class="kpi-label">Marketing en el P&amp;L</div>
+        <div class="kpi-num gold">Gasto</div>
+        <div class="kpi-sub">Línea de costo · sin métrica de contribución a utilidad operativa</div>
+      </div>
+    </div>
+
+    <div class="callout-big red">
+      <div class="callout-t">El problema en una frase</div>
+      <p><strong>El Grupo gasta $197.5M anuales en marketing y no puede decir cuántas ventas produjo ese gasto.</strong> Sin atribución, las decisiones de presupuesto y mix son a ciegas — y Marketing queda atrapado como línea de gasto en lugar de motor de utilidad. <em>Cambiar esa ecuación fue la primera tarea de la dirección.</em></p>
+    </div>
+  </div>
+  <div class="slide-footer"><span>Slide 2 · Punto de partida · DCA cubo 30060 cerrado 2025 · benchmark sector AMDA + Reforge</span><span style="display:flex; align-items:center; gap:8px;"><img class="gp-logo" src="../assets/logos/Logo-GP-Negro.png" alt="GP"/>Grupo Plasencia Automotriz · Dirección MKT Corporativo</span></div>
+</section>
+
+<!-- 3 · LO QUE CONSTRUIMOS EN 72 DÍAS -->
+<section class="slide" data-slide="construimos">
+  <div class="content">
+    <div>
+      <div class="section-num">Lo que se construyó · 72 días en producción</div>
+      <h1 class="slide-h1" style="font-size: 30pt;">El primer modelo de atribución <em>vs DCA del Grupo.</em></h1>
+      <p class="slide-lede">Por primera vez cada venta del piloto se cruza peso por peso contra el DMS (DCA). La dirección entregó cuatro piezas en operación: sitio + datalayer + CAPI server-side + matching v8.3 corriendo en cron diario. <strong>$126,725 invertidos · 1,569 oportunidades · 62 cierres totales auditados.</strong></p>
+    </div>
+
+    <div class="pilar-grid" style="grid-template-columns: 1fr 1fr 1fr 1fr;">
+      <div class="pilar-card gold">
+        <div class="pilar-num" style="font-size: 24pt;">1</div>
+        <div class="pilar-header">Captura digital</div>
+        <div class="pilar-title" style="font-size: 14pt;">Sitio + datalayer enriquecido</div>
+        <div class="pilar-body" style="font-size: 9.5pt;">El lead entra al sitio del Grupo (no a un form del OEM). Datalayer envía señales de calidad a Meta y Google vía <strong>CAPI server-side</strong>. El algoritmo aprende de la venta, no del volumen de leads.</div>
+      </div>
+      <div class="pilar-card red">
+        <div class="pilar-num" style="font-size: 24pt;">2</div>
+        <div class="pilar-header">Atribución vs DCA</div>
+        <div class="pilar-title" style="font-size: 14pt;">Matching v8.3 boolean</div>
+        <div class="pilar-body" style="font-size: 9.5pt;">Cada lead se cruza vs ventas facturadas en DCA por <strong>VIN + cliente</strong>. Cierres atribuibles (mismo cliente) y cierre otro cliente (mismo VIN) suman cierres totales. Sin invenciones — todo verificable.</div>
+      </div>
+      <div class="pilar-card green">
+        <div class="pilar-num" style="font-size: 24pt;">3</div>
+        <div class="pilar-header">CRM kanban LIVE</div>
+        <div class="pilar-title" style="font-size: 14pt;">D1 + sync diario 08:30 GDL</div>
+        <div class="pilar-body" style="font-size: 9.5pt;">Pipeline en Cloudflare D1 con routing dinámico por sucursal · cron diario mueve cards a Ganada cuando el matching detecta el cierre · sin intervención manual del vendedor.</div>
+      </div>
+      <div class="pilar-card blue">
+        <div class="pilar-num" style="font-size: 24pt;">4</div>
+        <div class="pilar-header">4 marcas en producción</div>
+        <div class="pilar-title" style="font-size: 14pt;">SEM · HYU · STL · GAC</div>
+        <div class="pilar-body" style="font-size: 9.5pt;"><strong>SEM</strong> 71d · <strong>HYU</strong> 76d (Pivote 2 7-jun) · <strong>STL</strong> 64d (Pivote 2 5-jun) · <strong>GAC</strong> 7d. Mismo stack técnico en las 4 — única variable: el handoff humano del lead a ventas.</div>
+      </div>
+    </div>
+
+    <div class="callout-big green">
+      <div class="callout-t">Lo que esto significa</div>
+      <p>Hoy el Grupo tiene <strong>un sistema institucional de atribución</strong> — no un dashboard prestado por un proveedor. Esto convierte cada peso de pauta en una hipótesis auditable y cada cierre en evidencia. <em>Es la condición previa para que Marketing pueda discutirse en términos de utilidad operativa, no de CPL.</em></p>
+    </div>
+  </div>
+  <div class="slide-footer"><span>Slide 3 · Stack construido · matching v8.3 + cron diario 08:30 GDL + 4 marcas LIVE · al 23-jun-2026</span><span style="display:flex; align-items:center; gap:8px;"><img class="gp-logo" src="../assets/logos/Logo-GP-Negro.png" alt="GP"/>Grupo Plasencia Automotriz · Dirección MKT Corporativo</span></div>
+</section>
+
+<!-- 4 · EL PILOTO DEMOSTRÓ · SEM FUNCIONA -->
+<section class="slide" data-slide="sem-funciona">
+  <div class="content">
+    <div>
+      <div class="section-num">Lo que el piloto demostró · Seminuevos</div>
+      <h1 class="slide-h1" style="font-size: 32pt;">Cuando hay handoff humano, <em>el embudo cierra ventas.</em></h1>
+      <p class="slide-lede"><strong>Seminuevos: 60 cierres totales · CAC $1,003 · $16.7M revenue · ROAS 278×.</strong> El único bloque del piloto con handoff completo (Vambe gestiona Por contactar→Cita; vendedor en piso recibe). La cifra prueba que el embudo digital del Grupo funciona — el cuello no está en Marketing.</p>
+    </div>
+
+    <div class="kpi-grid cols-4">
+      <div class="kpi-card gold">
+        <div class="kpi-label">Cierres totales · SEM</div>
+        <div class="kpi-num gold">60</div>
+        <div class="kpi-sub">sobre 831 oportunidades · <strong>7.2% conv</strong> · 71 días</div>
+      </div>
+      <div class="kpi-card green">
+        <div class="kpi-label">Revenue cruzado vs DMS</div>
+        <div class="kpi-num green">$16.7M</div>
+        <div class="kpi-sub">ticket promedio <strong>$278K</strong> · valor cierre + valor pipeline</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">CAC por cierre</div>
+        <div class="kpi-num red">$1,003</div>
+        <div class="kpi-sub">spend Meta+Google <strong>$60,151</strong> · 71 días pauta</div>
+      </div>
+      <div class="kpi-card navy">
+        <div class="kpi-label">ROAS revenue</div>
+        <div class="kpi-num">278×</div>
+        <div class="kpi-sub">profit estimado <strong>$1.34M @ margen 8%</strong> · ROAS profit 22.2×</div>
+      </div>
+    </div>
+
+    <table class="deck-table" style="font-size: 9pt;">
+      <thead><tr><th>Sucursal</th><th class="center">Oportunidades</th><th class="center">Por contactar</th><th class="center">Seguimiento</th><th class="center">Cita</th><th class="center">Cierres totales</th><th class="center">Pérdidas</th></tr></thead>
       <tbody>
-        <tr>
-          <td class="brand semin">Seminuevos</td>
-          <td class="num"><span style="color: var(--amber); font-weight:700;">Calidad</span></td>
-          <td class="num">71</td>
-          <td class="num">$60,151</td>
-          <td class="num">Meta $35,576<br>Google $24,576</td>
-          <td class="num">831</td>
-          <td class="num">$72</td>
-          <td class="num">8 vivas</td>
-          <td class="num">1 viva</td>
-          <td class="num good"><strong>60</strong><br><span style="font-size:8.5pt; color: var(--g500);">CAC $1,003<br>71d pauta<br>1ra marca con escala</span></td>
-          <td class="num bad">583</td>
-          <td class="num good"><strong style="font-size:14pt;">7.2%</strong><br><span style="font-size:8.5pt; color: var(--g500);">60 cierres de 831</span></td>
-          <td class="num good">$1,003<br>(CAC 60 cierres)</td>
-        </tr>
-        <tr>
-          <td class="brand hyu">Hyundai</td>
-          <td class="num"><span style="color: var(--blue); font-weight:700;">Vol→Calidad<br><span style="font-size:7pt; color:var(--g500); font-weight:500;">Pivote 2 · 7-jun</span></span></td>
-          <td class="num">76</td>
-          <td class="num">$33,304</td>
-          <td class="num good">Meta $73</td>
-          <td class="num">457</td>
-          <td class="num">$73</td>
-          <td class="num">1 viva</td>
-          <td class="num">13 segto</td>
-          <td class="num good"><strong>1</strong><br><span style="font-size:8.5pt; color: var(--g500);">cross-brand · Patricia<br>+ 1 caso en auditoría</span></td>
-          <td class="num bad">247 + 137 N/C</td>
-          <td class="num bad"><strong style="font-size:14pt;">0.2%</strong><br><span style="font-size:8.5pt; color: var(--g500);">1 cierre de 457</span></td>
-          <td class="num">$33,304<br>(CAC 1 atrib)</td>
-        </tr>
-        <tr>
-          <td class="brand stl">Stellantis</td>
-          <td class="num"><span style="color: var(--gp-red); font-weight:700;">Vol→Calidad<br><span style="font-size:7pt; color:var(--g500); font-weight:500;">Pivote 2 · 5-jun</span></span></td>
-          <td class="num">64</td>
-          <td class="num">$33,270</td>
-          <td class="num bad">Meta $125</td>
-          <td class="num">267</td>
-          <td class="num">$125</td>
-          <td class="num">12 vivas</td>
-          <td class="num">12 segto</td>
-          <td class="num good"><strong>1</strong><br><span style="font-size:8.5pt; color: var(--g500);">Miguel Ochoa · RAM</span></td>
-          <td class="num bad">37 + 94 R/C</td>
-          <td class="num"><strong style="font-size:14pt;">0.4%</strong><br><span style="font-size:8.5pt; color: var(--g500);">1 cierre de 269</span></td>
-          <td class="num">$33,270<br>(CAC 1 atrib)</td>
-        </tr>
-        <tr style="background:#FFF8E1;">
-          <td class="brand" style="color:#997706; font-weight:700;">GAC (nuevo)</td>
-          <td class="num"><span style="color: var(--gold); font-weight:700;">Carga inicial</span></td>
-          <td class="num">7</td>
-          <td class="num">—</td>
-          <td class="num">—</td>
-          <td class="num">12</td>
-          <td class="num">—</td>
-          <td class="num">2 vivas</td>
-          <td class="num">8 segto</td>
-          <td class="num"><strong>0</strong><br><span style="font-size:8.5pt; color: var(--g500);">primera semana en piloto</span></td>
-          <td class="num">0</td>
-          <td class="num">—</td>
-          <td class="num">—</td>
-        </tr>
+        <tr><td><strong>Mazda Plasencia</strong></td><td class="center">37</td><td class="center zero">0</td><td class="center">10</td><td class="center zero">0</td><td class="center win">14</td><td class="center bad">13</td></tr>
+        <tr><td><strong>Mazda Santa Anita</strong></td><td class="center">52</td><td class="center">19</td><td class="center">5</td><td class="center zero">0</td><td class="center win">11</td><td class="center bad">16</td></tr>
+        <tr><td><strong>López Mateos</strong></td><td class="center">427</td><td class="center">2</td><td class="center">7</td><td class="center">6</td><td class="center win">11</td><td class="center bad">401</td></tr>
+        <tr><td><strong>Bugámbilias</strong></td><td class="center">87</td><td class="center zero">0</td><td class="center">9</td><td class="center zero">0</td><td class="center win">9</td><td class="center bad">68</td></tr>
+        <tr><td>Mazda Acueducto · Galerías · Américas · Glez Gallo</td><td class="center">228</td><td class="center">49</td><td class="center">56</td><td class="center">2</td><td class="center win">15</td><td class="center bad">85</td></tr>
+        <tr class="total"><td><strong>TOTAL · 8 sucursales</strong></td><td class="center">831</td><td class="center">70</td><td class="center">87</td><td class="center">8</td><td class="center"><strong>60</strong></td><td class="center">583</td></tr>
       </tbody>
     </table>
 
-    <div style="display:flex; flex-direction:column; gap:5px;">
-      <div class="note green" style="font-size:8.5pt; padding:5px 12px;">
-        <span class="note-tag">Cierres</span>
-        <strong>62 cierres totales al 23-jun</strong> (SEM 60 · HYU 1 · STL 1). SEM concentra 97% del volumen del piloto. <strong>Matching v8.3 LIVE · sync automático diario 08:30 GDL</strong>.</div>
-      <div class="note" style="font-size:8.5pt; padding:5px 12px;">
-        <span class="note-tag">Spend total</span>
-        <strong>$126,725 invertidos en 71 días promedio · CPL agregado $80.87 sobre 1,569 oportunidades</strong> · SEM combina Meta+Google (mejor mix), HYU/STL solo Meta. Google Ads SEM duplicó CPL eficiente (CTR 18.5%) sobre Meta SEM (CTR 3.45%).</div>
-      <div class="note amber" style="font-size:8.5pt; padding:5px 12px;">
-        <span class="note-tag">Solución</span>
-        <strong>SEM:</strong> Customer Success para asegurar Cita → Visita. <strong>HYU/STL:</strong> Plasi (IA propia) con OK Dir. Marca + Customer Success con doble reporting + vendedores piloto con reporte punteado al Dir. MKT.</div>
+    <div class="callout-big green">
+      <div class="callout-t">Por qué SEM funciona</div>
+      <p><strong>Vambe (IA conversacional) gestiona Por contactar → Cita sin intervención humana.</strong> Mazda Plasencia + Santa Anita + López Mateos hacen 60% de los cierres del piloto. <em>Este modelo es replicable: misma mecánica técnica, distinto handoff.</em> En las otras 3 marcas el lead entra al mismo embudo pero el vendedor humano no llama.</p>
     </div>
-
   </div>
-  <div class="slide-footer">
-    <span>D1 al 23-jun · Meta Ads (3 cuentas) al 23-jun · Google Ads 5268940609 GAQL al 23-jun</span>
-    <span class="gp-mini"><span class="dot"></span>Grupo Plasencia · Dirección MKT Corporativo</span>
-  </div>
+  <div class="slide-footer"><span>Slide 4 · Seminuevos al 23-jun-2026 · matching v8.3 · 8 sucursales GDL · cifras auditadas vs DCA</span><span style="display:flex; align-items:center; gap:8px;"><img class="gp-logo" src="../assets/logos/Logo-GP-Negro.png" alt="GP"/>Grupo Plasencia Automotriz · Dirección MKT Corporativo</span></div>
 </section>
 
-<!-- SLIDE 6 — IMPACTO TOTAL DEL PILOTO -->
-<section class="slide comp" data-slide="impacto">
-  <div class="slide-label">Impacto cuantificado · 23-jun-2026</div>
-  <div class="page-chip">05</div>
+<!-- 5 · EL PILOTO REVELÓ · HYU + STL -->
+<section class="slide" data-slide="hyu-stl-revelan">
   <div class="content">
-
     <div>
-      <div class="section-num-v2">El piloto en cifras · al 23-jun-2026</div>
-      <h1 class="slide-h1-v2" style="font-size: 30pt;">Lo que produjo el piloto <em>en 72 días.</em></h1>
-      <p class="slide-lede-v2" style="font-size: 11pt;"><strong>$126,725 invertidos en pauta · 62 cierres totales · $16.7M revenue · ROAS 132×.</strong> Cifras del kanban CRM al 23-jun, cruzadas vs DCA por matching v8.3 (VIN + cliente). Profit estimado con margen operativo del Grupo 2025 (8.0% · DCA cubo 30060).</p>
+      <div class="section-num">Lo que el piloto reveló · Hyundai + Stellantis</div>
+      <h1 class="slide-h1" style="font-size: 30pt;">El embudo entrega leads cualificados. <em>Ventas no los procesa.</em></h1>
+      <p class="slide-lede">Mismo stack técnico que SEM en HYU y STL — sitio, datalayer, CAPI, matching v8.3. La única variable que cambia: <strong>la gestión humana del handoff prospecto → vendedor.</strong> El resultado expone el modelo operativo, no la calidad del lead.</p>
     </div>
 
-    <div class="killer-wrap" style="margin-top: 6px;">
+    <table class="deck-table" style="font-size: 10pt;">
+      <thead><tr><th>Marca</th><th class="num">Leads</th><th class="num">Cierres totales</th><th class="num">CAC</th><th>Qué pasó · estado del pipeline al 23-jun</th></tr></thead>
+      <tbody>
+        <tr class="highlight"><td><strong>Seminuevos</strong> <span style="font-size:8.5pt;color:var(--g500);">benchmark con IA</span></td><td class="num">831</td><td class="num"><strong>60</strong></td><td class="num"><strong>$1,003</strong></td><td>Vambe gestiona Por contactar→Cita · vendedor humano cierra · <strong>7.2% conv</strong></td></tr>
+        <tr><td><strong>Hyundai</strong> <span style="font-size:8.5pt;color:var(--g500);">sin gestión IA · Pivote 2 7-jun</span></td><td class="num">457</td><td class="num">1</td><td class="num"><strong>$33,304</strong></td><td><strong>84% del cohort fuera</strong>: 247 Perdida + 137 No-contactable · Santa Anita procesa, Plasencia GDL deja morir</td></tr>
+        <tr><td><strong>Stellantis</strong> <span style="font-size:8.5pt;color:var(--g500);">sin gestión IA · Pivote 2 5-jun</span></td><td class="num">269</td><td class="num">1</td><td class="num"><strong>$33,270</strong></td><td><strong>77% atorado</strong>: 109 Por contactar + 97 Recontactar · pipeline acumula, no convierte ni descarta</td></tr>
+        <tr><td><strong>GAC</strong> <span style="font-size:8.5pt;color:var(--g500);">7 días en producción</span></td><td class="num">12</td><td class="num">0</td><td class="num">—</td><td>Arranque reciente · gerencia ajustando · spend $0 hasta validar el SLA de primera llamada</td></tr>
+        <tr class="total"><td><strong>TOTAL piloto</strong></td><td class="num">1,569</td><td class="num"><strong>62</strong></td><td class="num">$2,043 blended</td><td><strong>SEM hace 97% del volumen porque tiene IA temprana.</strong> El resto entrega leads y no los gestiona.</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout-big red">
+      <div class="callout-t">La lectura honesta</div>
+      <p><strong>HYU pagó el CPL más bajo del piloto ($73) y solo cerró 1 venta — porque el vendedor no llamó.</strong> El embudo digital cumplió: entregó 457 leads cualificados con catálogo evergreen y landing propia. Lo que falló es el modelo operativo Marketing → Ventas. <em>Esto no es un problema del piloto · es el BAU del Grupo · solo que ahora es visible y atribuible.</em></p>
+    </div>
+  </div>
+  <div class="slide-footer"><span>Slide 5 · HYU + STL + GAC al 23-jun · pivotes Vol→Calidad documentados · matching v8.3 vs DCA</span><span style="display:flex; align-items:center; gap:8px;"><img class="gp-logo" src="../assets/logos/Logo-GP-Negro.png" alt="GP"/>Grupo Plasencia Automotriz · Dirección MKT Corporativo</span></div>
+</section>
+
+<!-- 6 · LA CIFRA HERO · REVENUE & PROFIT -->
+<section class="slide" data-slide="cifra-hero">
+  <div class="content">
+    <div>
+      <div class="section-num">La cifra del piloto · al 23-jun-2026</div>
+      <h1 class="slide-h1" style="font-size: 32pt;">$16.7M en revenue. <em>$1.34M directo a la utilidad.</em></h1>
+      <p class="slide-lede">El piloto produjo revenue verificable contra DCA y profit estimado al margen operativo del Grupo (8.0% · DCA 2025). <strong>Por cada peso invertido, el Grupo recuperó $132 en revenue y $10.6 en utilidad operativa.</strong> Este es el orden de magnitud al que Marketing puede contribuir al P&amp;L cuando opera bajo gobernanza institucional.</p>
+    </div>
+
+    <div class="killer-wrap">
       <div class="killer-main">
-        <div class="k-lbl">Revenue del piloto</div>
-        <div class="k-num">$16.7M</div>
-        <div class="k-sub">62 cierres totales en 4 marcas · VALOR CIERRE Ganadas + VALOR PIPELINE Cerrado otro cliente · cruzado vs DCA</div>
+        <div class="label">Revenue del piloto</div>
+        <div class="num">$16.7M</div>
+        <div class="sub">62 cierres totales en 4 marcas · valor cierre + valor pipeline · cruzado vs DCA con matching v8.3</div>
       </div>
       <div class="killer-side green">
-        <div class="ks-lbl">Profit operativo estimado</div>
-        <div class="ks-num">$1.34M</div>
-        <div class="ks-sub">Margen 8.0% Grupo (DCA cubo 30060 · $3,052M utilidad / $38,081M ventas 2025)</div>
+        <div class="label">Profit operativo estimado</div>
+        <div class="num">$1.34M</div>
+        <div class="sub">Margen 8.0% Grupo (DCA cubo 30060 · $3,052M UO / $38,081M ventas 2025)</div>
       </div>
       <div class="killer-side">
-        <div class="ks-lbl">Inversión total pauta</div>
-        <div class="ks-num">$126,725</div>
-        <div class="ks-sub">Meta $102,150 + Google $24,576 · ROAS revenue 132× · ROAS profit 10.6×</div>
+        <div class="label">Inversión total · 72 días</div>
+        <div class="num">$126,725</div>
+        <div class="sub">Meta $102,150 + Google $24,576 · ROAS revenue <strong>132×</strong> · ROAS profit <strong>10.6×</strong></div>
       </div>
     </div>
 
-    <table class="comp" style="margin-top:10px; font-size:8.5pt;">
-      <thead>
-        <tr>
-          <th>Marca</th>
-          <th class="num">Cierres totales</th>
-          <th class="num">Revenue DMS</th>
-          <th class="num">Ticket promedio</th>
-          <th class="num">Profit estimado @ 8%</th>
-          <th class="num">Spend</th>
-          <th class="num">ROAS rev</th>
-          <th class="num">ROAS profit</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="brand semin">Seminuevos</td>
-          <td class="num"><strong>60</strong></td>
-          <td class="num">$16,718,000</td>
-          <td class="num">$278,633</td>
-          <td class="num good">$1,337,440</td>
-          <td class="num">$60,151</td>
-          <td class="num good"><strong>278×</strong></td>
-          <td class="num good"><strong>22.2×</strong></td>
-        </tr>
-        <tr>
-          <td class="brand hyu">Hyundai</td>
-          <td class="num"><strong>1</strong></td>
-          <td class="num">$0*</td>
-          <td class="num">—</td>
-          <td class="num">—</td>
-          <td class="num">$33,304</td>
-          <td class="num">—</td>
-          <td class="num">—</td>
-        </tr>
-        <tr>
-          <td class="brand stl">Stellantis</td>
-          <td class="num"><strong>1</strong></td>
-          <td class="num">$0*</td>
-          <td class="num">—</td>
-          <td class="num">—</td>
-          <td class="num">$33,270</td>
-          <td class="num">—</td>
-          <td class="num">—</td>
-        </tr>
-        <tr style="background:#FFF8E1;">
-          <td class="brand" style="color:#997706; font-weight:700;">GAC (nuevo)</td>
-          <td class="num">0</td>
-          <td class="num">—</td>
-          <td class="num">—</td>
-          <td class="num">—</td>
-          <td class="num">—</td>
-          <td class="num">—</td>
-          <td class="num">—</td>
-        </tr>
-        <tr class="total" style="background:var(--gp-navy); color:white;">
-          <td><strong style="color:white;">TOTAL PILOTO</strong></td>
-          <td class="num"><strong style="color:var(--gold);">62</strong></td>
-          <td class="num"><strong style="color:var(--gold);">$16,718,000</strong></td>
-          <td class="num"><strong style="color:white;">$269,645</strong></td>
-          <td class="num"><strong style="color:var(--gold);">$1,337,440</strong></td>
-          <td class="num"><strong style="color:white;">$126,725</strong></td>
-          <td class="num"><strong style="color:var(--gold);">132×</strong></td>
-          <td class="num"><strong style="color:var(--gold);">10.6×</strong></td>
-        </tr>
-      </tbody>
-    </table>
-
-    <div class="callout-big green" style="margin-top: 8px;">
-      <div class="callout-t">Lectura para el Consejo</div>
-      <p><strong>SEM concentra 100% del revenue medido</strong> porque tiene IA temprana (Vambe) que gestiona Por contactar→Cita. HYU y STL cerraron 1 venta cada una (Patricia DE HARO HYU→Mazda · $411,900 · y Miguel Ochoa STL RAM · $349,900 · verificadas en <code>ventas_dms</code> · $761,800 combinados). El vendedor HYU/STL no llenó el modal de cierre del kanban (gap UX) — el matching v8.3 las atribuyó automático vs DCA. <strong>El embudo funciona; el handoff humano es lo que falta.</strong></p>
+    <div class="callout-big gold">
+      <div class="callout-t">Lo que el Consejo necesita oír</div>
+      <p><strong>$16.7M de revenue auditable y $1.34M de profit estimado por $126,725 en pauta.</strong> SEM concentra 100% del revenue medido porque tiene IA temprana. HYU y STL ya cerraron sus primeras ventas (Patricia DE HARO HYU→Mazda $411,900 · Miguel Ochoa STL RAM $349,900 · $761,800 combinados vs DCA) — pendiente capturar el VALOR CIERRE en el kanban (gap UX del cierre manual). <em>Si HYU y STL adoptan el modelo operativo de SEM, el revenue del próximo trimestre se multiplica.</em></p>
     </div>
-
   </div>
-  <div class="slide-footer">
-    <span>Revenue al 23-jun · DCA al 20-jun · Margin Grupo 2025 (cubo 30060) · Spend al 23-jun · matching v8.3</span>
-    <span class="gp-mini"><span class="dot"></span>Grupo Plasencia · Dirección MKT Corporativo</span>
-  </div>
+  <div class="slide-footer"><span>Slide 6 · Cifra hero al 23-jun · $16.7M revenue + $1.34M profit · margen 8% DCA cubo 30060 · ROAS profit 10.6×</span><span style="display:flex; align-items:center; gap:8px;"><img class="gp-logo" src="../assets/logos/Logo-GP-Negro.png" alt="GP"/>Grupo Plasencia Automotriz · Dirección MKT Corporativo</span></div>
 </section>
 
-<!-- SLIDE 7 — CIERRE -->
-<section class="slide cierre" data-slide="cierre">
-  <div class="slide-label">Resolución · Alineación con Directores de Marca</div>
-  <div class="page-chip">06</div>
-  <div class="content" style="padding: 36px 52px 56px 52px; display:flex; flex-direction:column; gap: 12px;">
-
-    <div>
-      <div class="section-num-v2" style="color: var(--deep-green);">Resolución · 10 semanas piloto · 23-jun-2026</div>
-      <h1 class="slide-h1-v2" style="font-size: 24pt;">El embudo digital funciona. <em>Lo que falta es el handoff humano.</em></h1>
-      <p class="slide-lede-v2" style="font-size: 10.5pt;"><strong>62 cierres · $16.7M revenue · ROAS 132× en SEM</strong>; HYU y STL entregaron 1 cierre cada una porque el vendedor no procesó los leads cualificados. Pedimos OK para tres movimientos operativos y la activación del Centro de Excelencia MKT.</p>
-    </div>
-
-    <div class="callout-big red" style="padding: 12px 18px;">
-      <div class="callout-t" style="font-size: 12pt;">Mensaje a Directores de Marca</div>
-      <p style="font-size: 10pt; line-height: 1.5;"><strong>SEM</strong> cerró 60 ventas sobre 831 oportunidades (CAC $1,003) porque Vambe gestiona Por contactar→Cita. <strong>HYU y STL</strong> arrancaron en volumen OEM (oferta y creativa controladas por planta) y MKT ya pivoteó a calidad — Pivote 2 STL el 5-jun · HYU el 7-jun — landing propia + catálogo evergreen + Plasi pendiente. <em>El cuello restante es operativo: los leads se mueren en "Por contactar".</em></p>
-    </div>
-
-    <div class="pilar-grid-v2">
-      <div class="pilar-card-v2 gold" style="padding: 12px 16px;">
-        <div class="p-num" style="font-size: 20pt;">1</div>
-        <div class="p-head" style="font-size: 8.5pt;">Validamos</div>
-        <div class="p-title" style="font-size: 13pt;">Medición institucional <em style="color: var(--amber);">funciona</em></div>
-        <div class="p-body" style="font-size: 9pt;"><strong>62 cierres totales al 23-jun</strong> auditados vs DCA con matching v8.3 y sync diario automático. Cifra verificable cross-source D1 ↔ DCA ↔ Vambe ↔ Maxipublica.</div>
-      </div>
-      <div class="pilar-card-v2 red" style="padding: 12px 16px;">
-        <div class="p-num" style="font-size: 20pt;">2</div>
-        <div class="p-head" style="font-size: 8.5pt;">Reveló</div>
-        <div class="p-title" style="font-size: 13pt;">Gestión humana del handoff <em style="color: var(--gp-red);">no existe en HYU/STL</em></div>
-        <div class="p-body" style="font-size: 9pt;"><strong>HYU:</strong> 84% del cohort fuera (247 Perdida + 137 No-contactable de 457). <strong>STL:</strong> 77% atorado en "Por contactar" + "Recontactar" (205 de 269). El embudo entregó leads cualificados; ventas no los llamó.</div>
-      </div>
-      <div class="pilar-card-v2 green" style="padding: 12px 16px;">
-        <div class="p-num" style="font-size: 20pt;">3</div>
-        <div class="p-head" style="font-size: 8.5pt;">Sigue</div>
-        <div class="p-title" style="font-size: 13pt;">Centro de Excelencia <em style="color: var(--deep-green);">MKT punta a punta</em></div>
-        <div class="p-body" style="font-size: 9pt;">Autoridad sobre el flujo con <strong>3 figuras alineadas</strong>: Plasi IA (Por contactar→Cita), Customer Success por marca (Cita→Visita, doble reporting), vendedores piloto (reporte punteado al Dir. MKT). <strong>Sin esto, cualquier rollout replica el problema 3-5×.</strong></div>
-      </div>
-    </div>
-
-    <div style="background: var(--gp-navy); color: var(--near-white); border-radius: 10px; padding: 12px 18px;">
-      <div style="font-family: var(--sans); font-size: 8pt; font-weight: 800; letter-spacing: 1.6px; text-transform: uppercase; color: var(--gold); margin-bottom: 8px;">Alineación · 4 acuerdos con Directores de Marca</div>
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px 18px; font-size: 9pt; line-height: 1.4;">
-        <div style="display: flex; gap: 10px; align-items: flex-start;">
-          <div style="font-family: var(--serif); font-style: italic; font-size: 16pt; font-weight: 900; color: var(--gold); line-height: 1; flex: 0 0 18px;">1</div>
-          <div style="color: rgba(255,255,255,.85);"><strong style="color: #FFFFFF;">Activar Plasi en HYU/STL</strong> · OK Dir. Marca HYU + STL · garantiza Por contactar → Cita.</div>
-        </div>
-        <div style="display: flex; gap: 10px; align-items: flex-start;">
-          <div style="font-family: var(--serif); font-style: italic; font-size: 16pt; font-weight: 900; color: var(--gold); line-height: 1; flex: 0 0 18px;">2</div>
-          <div style="color: rgba(255,255,255,.85);"><strong style="color: #FFFFFF;">Customer Success por marca</strong> · puesta por Dir. Marca · doble reporting (Dir. Marca + Dir. MKT) · garantiza Cita → Visita.</div>
-        </div>
-        <div style="display: flex; gap: 10px; align-items: flex-start;">
-          <div style="font-family: var(--serif); font-style: italic; font-size: 16pt; font-weight: 900; color: var(--gold); line-height: 1; flex: 0 0 18px;">3</div>
-          <div style="color: rgba(255,255,255,.85);"><strong style="color: #FFFFFF;">Vendedores piloto · reporte punteado al Dir. MKT</strong> · status kanban + SLA semanal.</div>
-        </div>
-        <div style="display: flex; gap: 10px; align-items: flex-start;">
-          <div style="font-family: var(--serif); font-style: italic; font-size: 16pt; font-weight: 900; color: #9AE6B4; line-height: 1; flex: 0 0 18px;">4</div>
-          <div style="color: rgba(255,255,255,.85);"><strong style="color: #9AE6B4;">Centro de Excelencia MKT</strong> · autoridad sobre flujo punta a punta Mkt→Vtas: Plasi + Customer Success + SLA + integración canales con DCA.</div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-  <div class="slide-footer">
-    <span>Resolución estratégica al 23-jun-2026 · Cifras verificables contra D1 + DCA + Maxipublica + Vambe · matching v8.3 · sync diario LIVE</span>
-    <span class="gp-mini"><span class="dot"></span>Grupo Plasencia · Dirección MKT Corporativo</span>
-  </div>
-</section>
-
-<!-- SLIDE 7 — ANEXO · EQUIPOS DE VENTA SEMINUEVOS -->
-<section class="slide semin" data-slide="anexo-ventas">
-  <div class="slide-label">Anexo · Equipos de venta Seminuevos</div>
-  <div class="page-chip">A1</div>
+<!-- 7 · DE COST CENTER A REVENUE & PROFIT CENTER -->
+<section class="slide" data-slide="tesis-profit-center">
   <div class="content">
-
     <div>
-      <div class="t-eyebrow gold">Anexo para equipos de venta · Seminuevos</div>
-      <h1 class="t-title-serif" style="font-size:22pt; margin-top:4px;">Cómo están <em>parados hoy</em> en cada sucursal</h1>
+      <div class="section-num">La tesis del piloto · por qué importa al Consejo</div>
+      <h1 class="slide-h1" style="font-size: 30pt;">Marketing puede dejar de ser <em>línea de gasto.</em></h1>
+      <p class="slide-lede">Hoy Marketing aparece en el P&amp;L como $197.5M de gasto anual. Bajo gobernanza institucional y con el modelo del piloto extendido al Grupo, esta dirección puede contribuir directo a la utilidad operativa — sin pedir un peso adicional de presupuesto, gobernando lo que ya se gasta y activando el incremental que el piloto demostró factible.</p>
     </div>
 
-    <div class="anexo-hero">
-      <div>
-        <div class="anexo-hero-num">124</div>
-        <div class="anexo-hero-label">Oportunidades vivas en GDL</div>
+    <div class="pilar-grid">
+      <div class="pilar-card red">
+        <div class="pilar-header">Hoy · Cost center</div>
+        <div class="pilar-title" style="font-size: 17pt;">Línea de gasto en el P&amp;L</div>
+        <div class="pilar-body"><strong>$197.5M anuales de pauta + $15.1M nómina = $212.6M.</strong> Reporting OEM como proxy · sin atribución institucional · sin métrica de contribución a UO Grupo. Cada Director de Marca decide su pauta por separado.</div>
       </div>
-      <div>
-        <h2><em><em style="color: var(--amber);">8 sucursales</em></em> · 124 clientes esperando movimiento</h2>
-        <div class="ctx">De <strong>831 oportunidades</strong> totales al 23-jun, <strong>124 activas</strong> (suma de la tabla por sucursal): etapas tempranas + seguimiento + cita + visita + ayuda humana + negociación. Meta semanal: mover cada una o cerrar como pérdida.</div>
+      <div class="pilar-card gold">
+        <div class="pilar-header">Lo que el piloto probó</div>
+        <div class="pilar-title" style="font-size: 17pt;">$10.6 de profit por cada $1</div>
+        <div class="pilar-body"><strong>ROAS profit 10.6× en 72 días.</strong> Cada peso invertido en Meta+Google generó $10.6 de utilidad operativa auditable cuando el handoff humano funciona (SEM). La mecánica técnica + atribución están en producción para replicarlo.</div>
       </div>
-    </div>
-
-    <table class="sucursal-tbl">
-      <thead>
-        <tr>
-          <th>Sucursal</th>
-          <th class="center">Por contactar</th>
-          <th class="center">Recontactar</th>
-          <th class="center">Cita</th>
-          <th class="center">Seguimiento</th>
-          <th class="center">Cierres totales</th>
-          <th class="center">Perdidas</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="sucursal">Mazda Plasencia</td>
-          <td class="num zero">0</td>
-          <td class="num zero">0</td>
-          <td class="num zero">0</td>
-          <td class="num">10</td>
-          <td class="num win" style="font-weight:800;">14</td>
-          <td class="num bad">13</td>
-        </tr>
-        <tr>
-          <td class="sucursal">Mazda Santa Anita</td>
-          <td class="num">19</td>
-          <td class="num">1</td>
-          <td class="num zero">0</td>
-          <td class="num">5</td>
-          <td class="num win" style="font-weight:800;">11</td>
-          <td class="num bad">16</td>
-        </tr>
-        <tr>
-          <td class="sucursal">López Mateos</td>
-          <td class="num">2</td>
-          <td class="num zero">0</td>
-          <td class="num">6</td>
-          <td class="num">7</td>
-          <td class="num win" style="font-weight:800;">11</td>
-          <td class="num bad">401</td>
-        </tr>
-        <tr>
-          <td class="sucursal">Bugámbilias</td>
-          <td class="num zero">0</td>
-          <td class="num">1</td>
-          <td class="num zero">0</td>
-          <td class="num">9</td>
-          <td class="num win" style="font-weight:800;">9</td>
-          <td class="num bad">68</td>
-        </tr>
-        <tr>
-          <td class="sucursal">Mazda Acueducto</td>
-          <td class="num">3</td>
-          <td class="num">5</td>
-          <td class="num">2</td>
-          <td class="num">5</td>
-          <td class="num win" style="font-weight:800;">8</td>
-          <td class="num bad">17</td>
-        </tr>
-        <tr>
-          <td class="sucursal">Mazda Galerías</td>
-          <td class="num">19</td>
-          <td class="num zero">0</td>
-          <td class="num zero">0</td>
-          <td class="num">1</td>
-          <td class="num win" style="font-weight:800;">4</td>
-          <td class="num bad">15</td>
-        </tr>
-        <tr>
-          <td class="sucursal">Mazda Américas</td>
-          <td class="num zero">0</td>
-          <td class="num zero">0</td>
-          <td class="num zero">0</td>
-          <td class="num">48</td>
-          <td class="num win" style="font-weight:800;">3</td>
-          <td class="num bad">28</td>
-        </tr>
-        <tr>
-          <td class="sucursal">Mazda Glez Gallo</td>
-          <td class="num">27</td>
-          <td class="num zero">0</td>
-          <td class="num zero">0</td>
-          <td class="num">2</td>
-          <td class="num zero">0</td>
-          <td class="num bad">16</td>
-        </tr>
-        <tr class="total">
-          <td class="sucursal">TOTAL · 8 sucursales</td>
-          <td class="num">70</td>
-          <td class="num">7</td>
-          <td class="num">8</td>
-          <td class="num">87</td>
-          <td class="num win" style="font-weight:800;">60</td>
-          <td class="num bad">583</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <div class="equipo-row">
-      <div class="equipo-card">
-        <div class="lab">Top cierres totales</div>
-        <div class="v">M. Plasencia: 14</div>
-        <div class="desc">Mazda Plasencia 14 · Santa Anita 11 · López Mateos 11. Las 3 hacen 60% de los cierres del piloto SEM.</div>
-      </div>
-      <div class="equipo-card">
-        <div class="lab">Por contactar (SLA mismo día)</div>
-        <div class="v">70 clientes hoy</div>
-        <div class="desc">Mazda Glez Gallo 27 · Galerías 19 · Santa Anita 19 · Acueducto 3 · LM 2. SLA: contactar el mismo día.</div>
-      </div>
-      <div class="equipo-card">
-        <div class="lab">Pipeline residual LM</div>
-        <div class="v">López Mateos: 401</div>
-        <div class="desc">401 perdidas (69% del total piloto) · concentra el volumen muerto. Auditar motivos de descarte y feedback al embudo.</div>
+      <div class="pilar-card green">
+        <div class="pilar-header">Hacia · Revenue & Profit Center</div>
+        <div class="pilar-title" style="font-size: 17pt;">Motor de utilidad operativa</div>
+        <div class="pilar-body"><strong>Si HYU + STL + GAC operan como SEM</strong> (benchmark 7.2% conv), incrementan ~25 autos/mes · +302/año · +$124M revenue · <strong>+$9.95M profit anuales</strong> al margen 8% blended. Nivel 2 cross-marca: hasta $101M profit incremental.</div>
       </div>
     </div>
 
-    <div class="note green" style="font-size:8.5pt; padding:5px 12px;">
-      <span class="note-tag">Cierre del periodo · al 23-jun</span>
-      <strong>60 cierres totales</strong> sobre 831 oportunidades · CAC $1,003. <strong>Mazda Plasencia lidera</strong> con 14 cierres totales seguida de Santa Anita y López Mateos (11 c/u).
+    <div class="callout-big green">
+      <div class="callout-t">El acople de la tesis</div>
+      <p><strong>El piloto no es un experimento aislado · es la prueba de concepto de un modelo replicable.</strong> El stack técnico ya existe (atribución + CRM + sync diario). El benchmark de conversión ya existe (SEM 7.2%). La gobernanza para escalarlo es la pieza que falta — y no requiere más presupuesto, requiere mandato. <em>Eso es lo que esta dirección puede entregar al Consejo: marketing como motor de utilidad, no como línea de gasto.</em></p>
     </div>
-
   </div>
-  <div class="slide-footer">
-    <span>Pipeline Seminuevos al 23-jun-2026 · Estado vivo · Cambia con cada movimiento del vendedor</span>
-    <span class="gp-mini"><span class="dot"></span>Grupo Plasencia · Dirección MKT Corporativo</span>
-  </div>
+  <div class="slide-footer"><span>Slide 7 · Tesis · cost center → revenue & profit center · benchmark SEM 7.2% · margen 8% blended Grupo</span><span style="display:flex; align-items:center; gap:8px;"><img class="gp-logo" src="../assets/logos/Logo-GP-Negro.png" alt="GP"/>Grupo Plasencia Automotriz · Dirección MKT Corporativo</span></div>
 </section>
 
-<!-- SLIDE 8 — ANEXO · EQUIPOS DE VENTA HYUNDAI -->
-<section class="slide hyu" data-slide="anexo-hyundai">
-  <div class="slide-label">Anexo · Equipos de venta Hyundai</div>
-  <div class="page-chip">A2</div>
+<!-- 8 · RESOLUCIÓN · 4 ACUERDOS -->
+<section class="slide" data-slide="resolucion">
   <div class="content">
-
     <div>
-      <div class="t-eyebrow" style="color: var(--blue);">Anexo para equipos de venta · Hyundai</div>
-      <h1 class="t-title-serif" style="font-size:22pt; margin-top:4px;">Cómo están <em>parados hoy</em> en cada agencia</h1>
+      <div class="section-num">Lo que pedimos para sostener y escalar</div>
+      <h1 class="slide-h1" style="font-size: 32pt;">Cuatro acuerdos. <em>Cero presupuesto incremental.</em></h1>
+      <p class="slide-lede">Sostener el piloto y replicar el modelo SEM a las 3 marcas restantes no requiere más pauta · requiere alinear el handoff humano. Cada acuerdo viene con kill criterion para que el Consejo pueda auditar el progreso en hitos visibles.</p>
     </div>
 
-    <div class="anexo-hero">
-      <div>
-        <div class="anexo-hero-num" style="color: var(--blue);">108</div>
-        <div class="anexo-hero-label">Oportunidades vivas en GDL</div>
-      </div>
-      <div>
-        <h2 style="color: var(--gp-navy);"><em style="color: var(--blue);"><em style="color: var(--blue);">2 agencias</em></em> · 108 clientes esperando movimiento</h2>
-        <div class="ctx">De <strong>457 opp</strong> al 23-jun, solo <strong>21 vivos</strong> (5%) — Plasencia GDL 8 + Santa Anita 13. <strong>1 cierre total</strong> (Patricia DE HARO cross-brand). <strong>247 Perdida + 137 No-contactable = 84%</strong> descartado. Pregunta operativa: ¿descartaron recuperables por SLA débil de primera llamada?</div>
-      </div>
-    </div>
-
-    <table class="sucursal-tbl">
-      <thead>
-        <tr>
-          <th>Agencia</th>
-          <th class="center">Por contactar</th>
-          <th class="center">Recontactar</th>
-          <th class="center">En seguimiento</th>
-          <th class="center">Cita / Visita</th>
-          <th class="center">Activas total</th>
-          <th class="center">Cierres totales</th>
-          <th class="center">Perdidas + N/C</th>
-        </tr>
-      </thead>
+    <table class="deck-table" style="font-size: 10pt;">
+      <thead><tr><th class="num" style="width:5%">#</th><th>Lo que pedimos</th><th class="num" style="width:13%">Costo</th><th>Kill criterion · al mes 3</th></tr></thead>
       <tbody>
-        <tr>
-          <td class="sucursal">Hyundai Plasencia GDL</td>
-          <td class="num">7</td>
-          <td class="num zero">0</td>
-          <td class="num">1</td>
-          <td class="num zero">0</td>
-          <td class="num active" style="color: var(--blue);">8</td>
-          <td class="num win">1</td>
-          <td class="num bad">376</td>
-        </tr>
-        <tr>
-          <td class="sucursal">Hyundai Santa Anita</td>
-          <td class="num">49</td>
-          <td class="num">1</td>
-          <td class="num">12</td>
-          <td class="num">1</td>
-          <td class="num active" style="color: var(--blue);">63</td>
-          <td class="num zero">0</td>
-          <td class="num bad">4</td>
-        </tr>
-        <tr class="total" style="background: rgba(66,153,225,.07); border-top: 2px solid var(--blue);">
-          <td class="sucursal">TOTAL HYUNDAI · 2 agencias</td>
-          <td class="num">56</td>
-          <td class="num">1</td>
-          <td class="num">13</td>
-          <td class="num">1</td>
-          <td class="num active" style="color: var(--blue);">71</td>
-          <td class="num win" style="font-weight:800;">1</td>
-          <td class="num bad">380</td>
-        </tr>
+        <tr><td class="center" style="background: var(--gp-red); color: #FFF; font-family: var(--serif); font-weight: 900; font-size: 16pt;">1</td><td><strong>Plasi (IA) en HYU + STL.</strong> Replicar el modelo SEM-Vambe con la IA propia del Grupo. Requiere OK formal del Director de Marca HYU + Director de Marca STL para gestionar el lead en el primer toque.</td><td class="num">$0</td><td>Conv HYU+STL &lt; 2% al cierre del Q3</td></tr>
+        <tr><td class="center" style="background: var(--gp-red); color: #FFF; font-family: var(--serif); font-weight: 900; font-size: 16pt;">2</td><td><strong>Customer Success por marca.</strong> Puesto por Director de Marca · doble reporting (Dir. Marca + Dir. MKT) · garantiza el paso Cita → Visita en piso. Es la figura que SEM tuvo desde el día uno.</td><td class="num">$0 incremental</td><td>3 marcas sin Customer Success al mes 3</td></tr>
+        <tr><td class="center" style="background: var(--gp-red); color: #FFF; font-family: var(--serif); font-weight: 900; font-size: 16pt;">3</td><td><strong>Vendedores piloto · reporte punteado al Dir. MKT.</strong> Status del kanban + SLA semanal visibles a la dirección. No reemplaza al gerente comercial — agrega trazabilidad e2e del lead a la facturación.</td><td class="num">$0</td><td>3 Directores de Marca no firman doble reporting</td></tr>
+        <tr><td class="center" style="background: var(--gp-navy); color: var(--gold); font-family: var(--serif); font-weight: 900; font-size: 16pt;">4</td><td><strong>Centro de Excelencia MKT punta a punta.</strong> Autoridad sobre el flujo Mkt→Vtas en las 4 marcas piloto: atribución + creative ops + integración canales con DCA + SLA del handoff.</td><td class="num">$0 incremental</td><td>Captura año 1 &lt; $25M auditados vs DCA</td></tr>
       </tbody>
     </table>
 
-    <div class="equipo-row">
-      <div class="equipo-card">
-        <div class="lab">Lo más urgente</div>
-        <div class="v" style="color: var(--blue);">56 por contactar</div>
-        <div class="desc">SLA mismo día. Santa Anita concentra 49 (87%) · Plasencia GDL solo 7. El embudo está alimentando Santa Anita, no Plasencia.</div>
-      </div>
-      <div class="equipo-card">
-        <div class="lab">Hallazgo crítico</div>
-        <div class="v" style="color: var(--gp-red);">137 N/C + 247 Perdida</div>
-        <div class="desc">84% del cohort (384/457) descartado. Plasencia GDL muestra el patrón: 376 cierres negativos sobre 386 leads. Auditar primera llamada.</div>
-      </div>
-      <div class="equipo-card">
-        <div class="lab">Avanzados al cierre</div>
-        <div class="v" style="color: var(--blue);">1 cita + 13 segto</div>
-        <div class="desc">1 Cita Agendada (Santa Anita) + 13 En seguimiento (12 SA · 1 Plasencia). 1 cierre total (Patricia cross-brand) + 1 caso en auditoría.</div>
-      </div>
+    <div class="callout-big gold">
+      <div class="callout-t">Lo que NO estamos pidiendo</div>
+      <p>Ni un peso adicional de pauta · ni reemplazar al Director de Marca · ni cambiar la titularidad del cliente final · ni centralizar PMA OEM. <em>El Director de Marca sigue siendo dueño del KPI de volumen. Esta dirección acompaña con la atribución institucional y el playbook que el piloto demostró.</em></p>
     </div>
-
-    <div class="note blue" style="font-size:8.5pt; padding:5px 12px;">
-      <span class="note-tag">Cierre del periodo · al 23-jun</span>
-      <strong>1 cierre total (Patricia DE HARO HYU→Mazda cross-brand) · 247 perdidas · 137 N/C · 1 caso en auditoría director</strong>. Patrón claro: Santa Anita procesa el embudo, Plasencia GDL deja morir. Pivote 2 (7-jun) activó landing propia + evergreen; falta el lado operativo de ventas.
-    </div>
-
   </div>
-  <div class="slide-footer">
-    <span>Pipeline Hyundai al 23-jun-2026 · Estado vivo · Cambia con cada movimiento del vendedor</span>
-    <span class="gp-mini"><span class="dot"></span>Grupo Plasencia · Dirección MKT Corporativo</span>
-  </div>
+  <div class="slide-footer"><span>Slide 8 · Resolución · 4 acuerdos · kill criterion en cada uno · costo incremental $0</span><span style="display:flex; align-items:center; gap:8px;"><img class="gp-logo" src="../assets/logos/Logo-GP-Negro.png" alt="GP"/>Grupo Plasencia Automotriz · Dirección MKT Corporativo</span></div>
 </section>
 
-<!-- SLIDE 9 — ANEXO · EQUIPOS DE VENTA STELLANTIS -->
-<section class="slide stl" data-slide="anexo-stellantis">
-  <div class="slide-label">Anexo · Equipos de venta Stellantis</div>
-  <div class="page-chip">A3</div>
+<!-- 9 · ANEXO · SEM POR SUCURSAL -->
+<section class="slide" data-slide="anexo-sem">
   <div class="content">
-
     <div>
-      <div class="t-eyebrow">Anexo para equipos de venta · Stellantis</div>
-      <h1 class="t-title-serif" style="font-size:22pt; margin-top:4px;">Cómo están <em>parados hoy</em> en cada agencia</h1>
+      <div class="section-num">Anexo · Seminuevos por sucursal · al 23-jun</div>
+      <h1 class="slide-h1" style="font-size: 28pt;">Cómo están parados hoy <em>los 8 equipos de Seminuevos.</em></h1>
+      <p class="slide-lede">De 831 oportunidades totales, <strong>124 siguen activas</strong> (etapas tempranas + seguimiento + cita). Meta semanal: mover cada una hacia adelante o cerrarla como pérdida. La concentración de cierres en Plasencia + Santa Anita + López Mateos (60% del total) marca dónde el handoff funciona.</p>
     </div>
 
-    <div class="anexo-hero">
-      <div>
-        <div class="anexo-hero-num" style="color: var(--gp-red);">228</div>
-        <div class="anexo-hero-label">Oportunidades vivas en GDL</div>
-      </div>
-      <div>
-        <h2 style="color: var(--gp-navy);"><em style="color: var(--gp-red);">2 agencias · 5 marcas</em> · 228 clientes esperando movimiento</h2>
-        <div class="ctx">De <strong>269 opp</strong> al 23-jun, <strong>232 vivos (86%)</strong>. <strong>35% en "Recontactar"</strong> (94 clientes) — el pipeline más pesado del piloto. 1 cierre total (Miguel Ochoa RAM · Stellantis Plasencia). Aquí no se descalifica, se acumula — patrón opuesto a HYU.</div>
-      </div>
-    </div>
-
-    <table class="sucursal-tbl">
-      <thead>
-        <tr>
-          <th>Agencia</th>
-          <th class="center">Por contactar</th>
-          <th class="center">Recontactar</th>
-          <th class="center">En seguimiento</th>
-          <th class="center">Cita / Neg</th>
-          <th class="center">Activas total</th>
-          <th class="center">Cierres totales</th>
-          <th class="center">Perdidas</th>
-        </tr>
-      </thead>
+    <table class="deck-table" style="font-size: 9.5pt;">
+      <thead><tr><th>Sucursal</th><th class="center">Por contactar</th><th class="center">Recontactar</th><th class="center">Cita</th><th class="center">Seguimiento</th><th class="center">Cierres totales</th><th class="center">Pérdidas</th></tr></thead>
       <tbody>
-        <tr>
-          <td class="sucursal">Stellantis Plasencia (M. Otero)</td>
-          <td class="num">82</td>
-          <td class="num">81</td>
-          <td class="num">7</td>
-          <td class="num">10</td>
-          <td class="num active" style="color: var(--gp-red);">180</td>
-          <td class="num win" style="font-weight:800;">1</td>
-          <td class="num bad">32</td>
-        </tr>
-        <tr>
-          <td class="sucursal">Stellantis Santa Anita</td>
-          <td class="num">27</td>
-          <td class="num">16</td>
-          <td class="num">6</td>
-          <td class="num">2</td>
-          <td class="num active" style="color: var(--gp-red);">51</td>
-          <td class="num zero">0</td>
-          <td class="num bad">5</td>
-        </tr>
-        <tr class="total" style="background: rgba(200,16,46,.06); border-top: 2px solid var(--gp-red);">
-          <td class="sucursal">TOTAL STELLANTIS · 2 agencias</td>
-          <td class="num">109</td>
-          <td class="num">97</td>
-          <td class="num">13</td>
-          <td class="num">12</td>
-          <td class="num active" style="color: var(--gp-red);">231</td>
-          <td class="num win" style="font-weight:800;">1</td>
-          <td class="num bad">37</td>
-        </tr>
+        <tr><td><strong>Mazda Plasencia</strong></td><td class="center zero">0</td><td class="center zero">0</td><td class="center zero">0</td><td class="center">10</td><td class="center win">14</td><td class="center bad">13</td></tr>
+        <tr><td><strong>Mazda Santa Anita</strong></td><td class="center">19</td><td class="center">1</td><td class="center zero">0</td><td class="center">5</td><td class="center win">11</td><td class="center bad">16</td></tr>
+        <tr><td><strong>López Mateos</strong></td><td class="center">2</td><td class="center zero">0</td><td class="center">6</td><td class="center">7</td><td class="center win">11</td><td class="center bad">401</td></tr>
+        <tr><td><strong>Bugámbilias</strong></td><td class="center zero">0</td><td class="center">1</td><td class="center zero">0</td><td class="center">9</td><td class="center win">9</td><td class="center bad">68</td></tr>
+        <tr><td><strong>Mazda Acueducto</strong></td><td class="center">3</td><td class="center">5</td><td class="center">2</td><td class="center">5</td><td class="center win">8</td><td class="center bad">17</td></tr>
+        <tr><td><strong>Mazda Galerías</strong></td><td class="center">19</td><td class="center zero">0</td><td class="center zero">0</td><td class="center">1</td><td class="center win">4</td><td class="center bad">15</td></tr>
+        <tr><td><strong>Mazda Américas</strong></td><td class="center zero">0</td><td class="center zero">0</td><td class="center zero">0</td><td class="center">48</td><td class="center win">3</td><td class="center bad">28</td></tr>
+        <tr><td><strong>Mazda Glez Gallo</strong></td><td class="center">27</td><td class="center zero">0</td><td class="center zero">0</td><td class="center">2</td><td class="center zero">0</td><td class="center bad">16</td></tr>
+        <tr class="total"><td><strong>TOTAL · 8 sucursales</strong></td><td class="center">70</td><td class="center">7</td><td class="center">8</td><td class="center">87</td><td class="center"><strong>60</strong></td><td class="center">583</td></tr>
       </tbody>
     </table>
 
-    <div class="equipo-row">
-      <div class="equipo-card">
-        <div class="lab">Por primera llamada</div>
-        <div class="v" style="color: var(--gp-red);">109 clientes</div>
-        <div class="desc">"Por contactar" SLA mismo día. Plasencia 82 (75%) · Santa Anita 27. Cifra más alta del piloto STL.</div>
+    <div class="pilar-grid">
+      <div class="pilar-card green">
+        <div class="pilar-header">Top cierres del periodo</div>
+        <div class="pilar-title" style="font-size: 14pt;">Plasencia · Santa Anita · López Mateos</div>
+        <div class="pilar-body" style="font-size: 9.5pt;">14 + 11 + 11 = <strong>36 cierres totales · 60% del piloto SEM</strong>. Plasencia opera sin Por contactar (vendedor mueve el lead el mismo día).</div>
       </div>
-      <div class="equipo-card">
-        <div class="lab">Pipeline atorado</div>
-        <div class="v" style="color: var(--gp-red);">97 clientes</div>
-        <div class="desc">"Recontactar" — 36% del pipeline. Definir esta semana: cita o cierre por pérdida. Plasencia 81 · SA 16.</div>
+      <div class="pilar-card red">
+        <div class="pilar-header">Por contactar · SLA mismo día</div>
+        <div class="pilar-title" style="font-size: 14pt;">70 clientes hoy</div>
+        <div class="pilar-body" style="font-size: 9.5pt;">Glez Gallo 27 · Galerías 19 · Santa Anita 19 · Acueducto 3 · López Mateos 2. <strong>Glez Gallo concentra el riesgo</strong>: 27 sin tocar y 0 cierres en el periodo.</div>
       </div>
-      <div class="equipo-card">
-        <div class="lab">Avanzados al cierre</div>
-        <div class="v" style="color: var(--gp-red);">12 cita + 13 segto</div>
-        <div class="desc">12 Cita Agendada (10 Plasencia · 2 SA) + 13 En seguimiento. Próxima cosecha tras el primer cierre.</div>
+      <div class="pilar-card">
+        <div class="pilar-header">Pipeline residual · López Mateos</div>
+        <div class="pilar-title" style="font-size: 14pt;">401 pérdidas</div>
+        <div class="pilar-body" style="font-size: 9.5pt;">69% del total piloto · concentra el volumen muerto. Auditar motivos de descarte y feedback al embudo digital para no volver a pagar leads que el equipo no procesa.</div>
       </div>
     </div>
-
-    <div class="note red" style="font-size:8.5pt; padding:5px 12px;">
-      <span class="note-tag">Cierre del periodo · al 23-jun</span>
-      <strong>1 cierre total (Miguel Ochoa RAM · Stellantis Plasencia) · 37 perdidas.</strong> A diferencia de HYU (descalifica), STL acumula: 97 Recontactar + 109 Por contactar sin definir. Primera llamada no convierte ni descarta — solo difiere. Pivote 2 (5-jun) liberó Always-On Meta; el handoff a ventas sigue siendo el cuello.
-    </div>
-
   </div>
-  <div class="slide-footer">
-    <span>Pipeline Stellantis al 23-jun-2026 · Estado vivo · Cambia con cada movimiento del vendedor</span>
-    <span class="gp-mini"><span class="dot"></span>Grupo Plasencia · Dirección MKT Corporativo</span>
-  </div>
+  <div class="slide-footer"><span>Anexo A1 · Pipeline Seminuevos al 23-jun-2026 · estado vivo · cambia con cada movimiento del vendedor</span><span style="display:flex; align-items:center; gap:8px;"><img class="gp-logo" src="../assets/logos/Logo-GP-Negro.png" alt="GP"/>Grupo Plasencia Automotriz · Dirección MKT Corporativo</span></div>
 </section>
 
-<section class="slide cierre" data-slide="anexo-gap-operativo">
-  <div class="slide-label">Anexo · Hallazgo crítico operativo</div>
-  <div class="page-chip">A4</div>
-  <div class="content" style="padding:44px 52px 60px 52px; display:flex; flex-direction:column; gap:12px; height:100%;">
-
-    <!-- HEADER · 100px -->
-    <div style="flex:0 0 auto;">
-      <div class="t-eyebrow" style="color:#C53030; font-size:8.5pt; letter-spacing:3.5px;">Hallazgo estratégico · Piloto vs BAU vs otro piloto · abr+may+jun 2026 · 10 semanas</div>
-      <h1 class="t-title-serif" style="font-size:18pt; margin-top:4px; line-height:1.15;">No estamos midiendo un funnel · estamos midiendo <em style="color:#C53030;">tres iniciativas paralelas</em> sobre un modelo operativo roto</h1>
-      <div style="font-size:8.5pt; line-height:1.5; margin-top:6px; color:#4A5568; max-width:1140px;">
-        Piloto MA al 15-jun: <strong>SEM 60 cierres totales (60 cierres SEMente), CAC $1,003, spend $60.2K Meta+Google</strong>. IA (Vambe) gestiona seguimiento temprano SEM. <strong>Maxipublica</strong> es BAU comercial paralelo sin loop con CRM/DMS. La pieza faltante: gestión humana del pase Cita → Visita en SEM y el handoff entero en HYU/STL.
-      </div>
+<!-- 10 · ANEXO · HYU POR AGENCIA -->
+<section class="slide" data-slide="anexo-hyu">
+  <div class="content">
+    <div>
+      <div class="section-num">Anexo · Hyundai por agencia · al 23-jun</div>
+      <h1 class="slide-h1" style="font-size: 28pt;">El embudo entregó 457 leads. <em>71 siguen vivos.</em></h1>
+      <p class="slide-lede"><strong>84% del cohort fuera</strong> (247 Perdida + 137 No-contactable). El patrón es claro: Santa Anita procesa el embudo (63 leads activos · concentra 87% del Por contactar), Plasencia GDL deja morir el cohort (376 cierres negativos sobre 386 leads). Pivote 2 (7-jun) activó landing propia + catálogo evergreen — falta Plasi y el handoff humano.</p>
     </div>
 
-    <!-- 3 COLUMNAS · 340px -->
-    <div style="flex:0 0 auto; display:grid; grid-template-columns: 1fr 1fr 1fr; gap:12px;">
+    <table class="deck-table" style="font-size: 10pt;">
+      <thead><tr><th>Agencia</th><th class="center">Por contactar</th><th class="center">Recontactar</th><th class="center">Seguimiento</th><th class="center">Cita / Visita</th><th class="center">Activas total</th><th class="center">Cierres totales</th><th class="center">Perdidas + N/C</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Hyundai Plasencia GDL</strong></td><td class="center">7</td><td class="center zero">0</td><td class="center">1</td><td class="center zero">0</td><td class="center" style="color: var(--deep-blue); font-weight:800;">8</td><td class="center win">1</td><td class="center bad">376</td></tr>
+        <tr><td><strong>Hyundai Santa Anita</strong></td><td class="center">49</td><td class="center">1</td><td class="center">12</td><td class="center">1</td><td class="center" style="color: var(--deep-blue); font-weight:800;">63</td><td class="center zero">0</td><td class="center bad">4</td></tr>
+        <tr class="total-blue"><td><strong>TOTAL HYU · 2 agencias</strong></td><td class="center">56</td><td class="center">1</td><td class="center">13</td><td class="center">1</td><td class="center"><strong>71</strong></td><td class="center"><strong>1</strong></td><td class="center">380</td></tr>
+      </tbody>
+    </table>
 
-      <!-- CRM = PILOTO MA -->
-      <div style="background:#FFFEF7; border:1px solid #E2E8F0; border-top:3px solid #D69E2E; border-radius:6px; padding:12px 14px; position:relative;">
-        <div style="position:absolute; top:-9px; right:10px; background:#D69E2E; color:#FFFFFF; font-family:var(--sans); font-size:6.5pt; font-weight:800; letter-spacing:1.2px; padding:2px 8px; border-radius:3px; text-transform:uppercase;">Dirección MKT</div>
-        <div style="font-family:var(--sans); font-size:8pt; font-weight:800; letter-spacing:1.6px; text-transform:uppercase; color:#7B341E;">📋 CRM Kanban</div>
-        <div style="font-size:7pt; color:#718096; margin-top:2px; margin-bottom:10px;">Form de la landing del piloto</div>
-        <table style="width:100%; font-family:var(--sans); font-size:8pt; line-height:1.7;">
-          <tr><td style="color:#4A5568;">Oportunidades</td><td style="text-align:right; font-weight:600; color:#1A202C;">831</td></tr>
-          
-          <tr><td style="color:#4A5568;">Cierres otro cliente</td><td style="text-align:right; font-weight:600; color:#22543D;">35</td></tr>
-          <tr style="background:#E0F2FE;"><td style="font-weight:700; color:#0C4A6E; padding-top:3px;">Cierres totales</td><td style="text-align:right; font-weight:800; color:#0C4A6E; padding-top:3px;">60</td></tr>
-          <tr><td style="color:#4A5568;">Spend Meta+Google</td><td style="text-align:right; font-weight:600; color:#22543D;">$60.2K</td></tr>
-          <tr><td style="color:#4A5568;">CAC sobre cierres totales</td><td style="text-align:right; font-weight:600; color:#22543D;">$1,003</td></tr>
-          <tr style="background:#FEF3C7;"><td style="font-weight:700; color:#7B341E; padding-top:3px;">Conv total / opp</td><td style="text-align:right; font-weight:800; color:#7B341E; padding-top:3px;">7.2%</td></tr>
-        </table>
-        <div style="margin-top:10px; font-size:7pt; color:#4A5568; line-height:1.55;">
-          <div style="font-weight:600; color:#1A202C; margin-bottom:3px;">Top 3 cierres SEM (matching v8.3):</div>
-          <div>· $399K · Mazda CX5 ISP 2AM 2023</div>
-          <div>· $305K · Mitsubishi Xpander Cross</div>
-          <div>· $289K · VW Virtus Comfortline 2023</div>
-        </div>
-        <div style="margin-top:8px; padding:7px 8px; background:rgba(56,178,172,.08); border-left:2px solid #2C7A7B; font-size:7.5pt; line-height:1.4; color:#4A5568;">
-          <strong style="color:#1A202C;">Lectura:</strong> <strong>7.2% conv total / opp</strong> sobre 831 oportunidades (60 cierres totales). <strong>CAC $1,003</strong> sobre $60.2K spend Meta+Google. Los 35 cierres "otro cliente" son inventario que el embudo calentó pero terminó vendiéndose a otra persona (señal de tracción del catálogo). Cada cierre cruzado por matching v8.3 (VIN/cel/nombre/email; mismo cliente otro VIN cuenta como cierre). Verificable cross-source CRM + DCA + Maxipublica + Vambe.</div>
+    <div class="pilar-grid">
+      <div class="pilar-card blue">
+        <div class="pilar-header">Lo más urgente</div>
+        <div class="pilar-title" style="font-size: 14pt;">56 por contactar</div>
+        <div class="pilar-body" style="font-size: 10pt;">SLA mismo día. Santa Anita concentra <strong>49 (87%)</strong>, Plasencia GDL solo 7. <em>El embudo está alimentando Santa Anita; Plasencia GDL no captura.</em></div>
       </div>
-
-      <!-- MAXIPUBLICA = BAU -->
-      <div style="background:#FDFAFF; border:1px solid #E2E8F0; border-top:3px solid #6B46C1; border-radius:6px; padding:12px 14px; position:relative;">
-        <div style="position:absolute; top:-9px; right:10px; background:#6B46C1; color:#FFFFFF; font-family:var(--sans); font-size:6.5pt; font-weight:800; letter-spacing:1.2px; padding:2px 8px; border-radius:3px; text-transform:uppercase;">Dir. Comercial SEM</div>
-        <div style="font-family:var(--sans); font-size:8pt; font-weight:800; letter-spacing:1.6px; text-transform:uppercase; color:#44337A;">🛍️ Maxipublica</div>
-        <div style="font-size:7pt; color:#718096; margin-top:2px; margin-bottom:10px;">Canal operativo · NO es del piloto MA</div>
-        <table style="width:100%; font-family:var(--sans); font-size:8pt; line-height:1.7;">
-          <tr><td style="color:#4A5568;">Oportunidades (mensajes)</td><td style="text-align:right; font-weight:600; color:#1A202C;">2,193</td></tr>
-          <tr><td style="color:#4A5568;">Ventas digitales (vs DCA)</td><td style="text-align:right; font-weight:600; color:#22543D;">23</td></tr>
-          <tr style="background:#EDE9FE;"><td style="font-weight:700; color:#44337A; padding-top:3px;">Conversión BAU</td><td style="text-align:right; font-weight:800; color:#44337A; padding-top:3px;">1.05%</td></tr>
-        </table>
-        <div style="margin-top:10px; font-size:7pt; color:#4A5568; line-height:1.6;">
-          <div style="font-weight:600; color:#1A202C; margin-bottom:3px;">Origen de las 23 ventas:</div>
-          <table style="width:100%; font-size:7pt;">
-            <tr><td>FB Marketplace</td><td style="text-align:right;">9</td></tr>
-            <tr><td>Mi sitio concesionario</td><td style="text-align:right;">7</td></tr>
-            <tr><td>MercadoLibre</td><td style="text-align:right;">5</td></tr>
-            <tr><td>Web + Fanpage</td><td style="text-align:right;">2</td></tr>
-            <tr style="color:#C53030; font-weight:700;"><td>Facebook campaña</td><td style="text-align:right;">0</td></tr>
-            <tr style="color:#C53030; font-weight:700;"><td>Google Ads</td><td style="text-align:right;">0</td></tr>
-          </table>
-        </div>
-        <div style="margin-top:10px; padding:7px 8px; background:rgba(229,62,62,.06); border-left:2px solid #C53030; font-size:7.5pt; line-height:1.4; color:#4A5568;">
-          <strong style="color:#1A202C;">Lectura:</strong> 100% orgánico. Es la herramienta donde opera el vendedor por su cuenta — sin relación con el piloto MA.
-        </div>
+      <div class="pilar-card red">
+        <div class="pilar-header">Hallazgo crítico</div>
+        <div class="pilar-title" style="font-size: 14pt;">137 N/C + 247 Pérdida</div>
+        <div class="pilar-body" style="font-size: 10pt;"><strong>84% del cohort (384/457) descartado.</strong> Plasencia GDL muestra el patrón: 376 cierres negativos sobre 386 leads. Auditar SLA de la primera llamada.</div>
       </div>
-
-      <!-- IA + PLASI = GESTIÓN TEMPRANA -->
-      <div style="background:#F7FFFE; border:1px solid #E2E8F0; border-top:3px solid #319795; border-radius:6px; padding:12px 14px; position:relative;">
-        <div style="position:absolute; top:-9px; right:10px; background:#319795; color:#FFFFFF; font-family:var(--sans); font-size:6.5pt; font-weight:800; letter-spacing:1.2px; padding:2px 8px; border-radius:3px; text-transform:uppercase;">Piloto MA · Dir. MKT</div>
-        <div style="font-family:var(--sans); font-size:8pt; font-weight:800; letter-spacing:1.6px; text-transform:uppercase; color:#234E52;">🤖 IA gestión temprana · Plasi propuesto</div>
-        <div style="font-size:7pt; color:#718096; margin-top:2px; margin-bottom:10px;">Garantiza Por contactar → Cita Agendada</div>
-        <table style="width:100%; font-family:var(--sans); font-size:8pt; line-height:1.7;">
-          <tr><td style="color:#4A5568;">SEM con IA (Vambe) · vivos al 23-jun</td><td style="text-align:right; font-weight:600; color:#22543D;">8 citas / 831 opp</td></tr>
-          <tr><td style="color:#4A5568;">SEM cierres totales / opp</td><td style="text-align:right; font-weight:700; color:#22543D;">60 / 831 = 7.2%</td></tr>
-          <tr><td style="color:#4A5568;">HYU sin IA · cierres / opp</td><td style="text-align:right; font-weight:600; color:#C53030;">1 / 457 = 0.22%</td></tr>
-          <tr><td style="color:#4A5568;">STL sin IA · cierres / opp</td><td style="text-align:right; font-weight:600; color:#C53030;">1 / 269 = 0.37%</td></tr>
-          <tr style="background:#CCFBF1;"><td style="font-weight:700; color:#234E52; padding-top:3px;">Plasi en HYU/STL</td><td style="text-align:right; font-weight:800; color:#C53030; padding-top:3px;">Pendiente OK Dir. Marca</td></tr>
-        </table>
-        <div style="margin-top:10px; padding:7px 8px; background:rgba(56,178,172,.08); border-left:2px solid #2C7A7B; font-size:7.5pt; line-height:1.4; color:#4A5568;">
-          <strong style="color:#1A202C;">Lectura:</strong> SEM agenda 8.5% gracias a la IA. Activar <strong>Plasi (nuestra IA propia)</strong> en HYU/STL replica el mismo efecto — requiere consentimiento de los Directores de Marca. Falta también la figura humana en el pase Cita → Visita: Customer Success por marca con doble reporting.
-        </div>
-      </div>
-
-    </div>
-
-    <!-- SÍNTESIS · 130px -->
-    <div style="flex:0 0 auto; padding:14px 18px; background:#1A202C; color:#F7FAFC; border-radius:6px; display:grid; grid-template-columns: 240px 1fr; gap:20px; align-items:center;">
-      <div style="text-align:center; border-right:1px solid rgba(251,211,141,.22); padding-right:18px;">
-        <div style="font-family:var(--sans); font-size:6.5pt; letter-spacing:1.4px; text-transform:uppercase; color:#FBD38D; font-weight:700;">Tesis central</div>
-        <div style="font-family:var(--serif); font-style:italic; font-size:14pt; font-weight:600; color:#FBD38D; line-height:1.25; margin-top:6px;">"You can't build on top of a lie."</div>
-        <div style="font-size:7pt; color:#CBD5E0; margin-top:6px; line-height:1.4;">Cada piloto y cada solución se está montando encima de un modelo operativo de venta digital que <strong style="color:#FBD38D;">no existe institucionalmente</strong>.</div>
-      </div>
-      <div style="display:grid; grid-template-columns: 1fr 1fr; gap:12px 18px; font-size:7.5pt; line-height:1.45;">
-        <div>
-          <div style="font-weight:700; color:#9AE6B4; margin-bottom:2px;">SEM: 60 cierres totales · CAC $1,003 · spend $60.2K</div>
-          <div style="color:#CBD5E0;">60 cierres totales sobre 831 oportunidades. Verificable cross-source (CRM + DCA + matching v8.3). Modelo funciona donde la gobernanza institucional aplica.</div>
-        </div>
-        <div>
-          <div style="font-weight:700; color:#FBD38D; margin-bottom:2px;">Maxipublica = BAU comercial</div>
-          <div style="color:#CBD5E0;">Operado por Dir. Comercial SEM sin gobernanza institucional. 23 ventas orgánicas sin loop con CRM ni reporting cruzado.</div>
-        </div>
-        <div>
-          <div style="font-weight:700; color:#9AE6B4; margin-bottom:2px;">Activar Plasi en HYU/STL</div>
-          <div style="color:#CBD5E0;">IA temprana es la razón por la que SEM agenda 8.5%. <strong>Plasi (IA propia)</strong> en HYU/STL con OK Dir. Marca replica el efecto. Reemplaza la falta de primera llamada sistemática.</div>
-        </div>
-        <div>
-          <div style="font-weight:700; color:#9AE6B4; margin-bottom:2px;">Customer Success + reporte punteado</div>
-          <div style="color:#CBD5E0;">Cada Dir. Marca pone Customer Success de su lado · doble reporting (Dir. Marca + Dir. MKT) · vendedores piloto con reporte punteado al Dir. MKT.</div>
-        </div>
+      <div class="pilar-card green">
+        <div class="pilar-header">Avanzados al cierre</div>
+        <div class="pilar-title" style="font-size: 14pt;">1 cita + 13 segto</div>
+        <div class="pilar-body" style="font-size: 10pt;">1 Cita Agendada (Santa Anita) + 13 En seguimiento (12 SA · 1 Plasencia). <strong>1 cierre total</strong> (Patricia DE HARO HYU→Mazda · cross-brand) + 1 caso en auditoría director.</div>
       </div>
     </div>
-
   </div>
-  <div class="slide-footer">
-    <span>Funnel cross-canal SEM al 23-jun-2026 · D1 + DCA + Maxipublica + Vambe + matching v8.3</span>
-    <span class="gp-mini"><span class="dot"></span>Grupo Plasencia · Dirección MKT Corporativo</span>
+  <div class="slide-footer"><span>Anexo A2 · Pipeline Hyundai al 23-jun-2026 · 2 agencias OEM en GDL · Pivote 2 activado 7-jun-2026</span><span style="display:flex; align-items:center; gap:8px;"><img class="gp-logo" src="../assets/logos/Logo-GP-Negro.png" alt="GP"/>Grupo Plasencia Automotriz · Dirección MKT Corporativo</span></div>
+</section>
+
+<!-- 11 · ANEXO · STL POR AGENCIA -->
+<section class="slide" data-slide="anexo-stl">
+  <div class="content">
+    <div>
+      <div class="section-num">Anexo · Stellantis por agencia · al 23-jun</div>
+      <h1 class="slide-h1" style="font-size: 28pt;">269 leads. <em>231 vivos sin definir.</em></h1>
+      <p class="slide-lede"><strong>STL acumula donde HYU descalifica.</strong> 109 Por contactar + 97 Recontactar = 206 leads sin primera definición (77% del piloto). El pipeline más pesado del piloto · 1 cierre total (Miguel Ochoa RAM · Stellantis Plasencia). Pivote 2 (5-jun) liberó Always-On Meta — el handoff a ventas sigue siendo el cuello.</p>
+    </div>
+
+    <table class="deck-table" style="font-size: 10pt;">
+      <thead><tr><th>Agencia</th><th class="center">Por contactar</th><th class="center">Recontactar</th><th class="center">Seguimiento</th><th class="center">Cita / Neg</th><th class="center">Activas total</th><th class="center">Cierres totales</th><th class="center">Perdidas</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Stellantis Plasencia (M. Otero)</strong></td><td class="center">82</td><td class="center">81</td><td class="center">7</td><td class="center">10</td><td class="center" style="color: var(--gp-red); font-weight:800;">180</td><td class="center win">1</td><td class="center bad">32</td></tr>
+        <tr><td><strong>Stellantis Santa Anita</strong></td><td class="center">27</td><td class="center">16</td><td class="center">6</td><td class="center">2</td><td class="center" style="color: var(--gp-red); font-weight:800;">51</td><td class="center zero">0</td><td class="center bad">5</td></tr>
+        <tr class="total-red"><td><strong>TOTAL STL · 2 agencias · 5 marcas</strong></td><td class="center">109</td><td class="center">97</td><td class="center">13</td><td class="center">12</td><td class="center"><strong>231</strong></td><td class="center"><strong>1</strong></td><td class="center">37</td></tr>
+      </tbody>
+    </table>
+
+    <div class="pilar-grid">
+      <div class="pilar-card red">
+        <div class="pilar-header">Primera llamada · SLA hoy</div>
+        <div class="pilar-title" style="font-size: 14pt;">109 clientes</div>
+        <div class="pilar-body" style="font-size: 10pt;">Plasencia 82 (75%) · Santa Anita 27. <strong>Cifra más alta del piloto STL.</strong> SLA: contactar el mismo día o el lead muere caliente.</div>
+      </div>
+      <div class="pilar-card">
+        <div class="pilar-header">Pipeline atorado</div>
+        <div class="pilar-title" style="font-size: 14pt;">97 en "Recontactar"</div>
+        <div class="pilar-body" style="font-size: 10pt;">36% del pipeline. Plasencia 81 · Santa Anita 16. <strong>Definir esta semana</strong>: cita o cierre por pérdida. No puede seguir difiriéndose.</div>
+      </div>
+      <div class="pilar-card green">
+        <div class="pilar-header">Próxima cosecha</div>
+        <div class="pilar-title" style="font-size: 14pt;">12 citas + 13 segto</div>
+        <div class="pilar-body" style="font-size: 10pt;">12 Cita Agendada (10 Plasencia · 2 SA) + 13 En seguimiento. <strong>1 cierre total</strong> (Miguel Ochoa RAM). El embudo está cargado · falta procesar.</div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer"><span>Anexo A3 · Pipeline Stellantis al 23-jun-2026 · 2 agencias · 5 submarcas (RAM Jeep Peugeot Dodge Fiat) · Pivote 2 5-jun</span><span style="display:flex; align-items:center; gap:8px;"><img class="gp-logo" src="../assets/logos/Logo-GP-Negro.png" alt="GP"/>Grupo Plasencia Automotriz · Dirección MKT Corporativo</span></div>
+</section>
+
+<!-- 12 · ANEXO · GAP OPERATIVO -->
+<section class="slide" data-slide="anexo-gap">
+  <div class="content">
+    <div>
+      <div class="section-num">Anexo · Hallazgo estructural · piloto vs BAU</div>
+      <h1 class="slide-h1" style="font-size: 28pt;">El piloto convive con un BAU <em>sin loop institucional.</em></h1>
+      <p class="slide-lede">Al lado del piloto MA opera Maxipublica — canal del Director Comercial SEM, sin integración con CRM ni DCA. La comparación expone que la conversión institucional medible (7.2% del piloto con IA) supera al canal orgánico BAU (1.05%) en 7×. La pieza faltante: gestión humana del pase Cita → Visita en SEM y handoff completo en HYU/STL.</p>
+    </div>
+
+    <div style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px;">
+      <div class="pilar-card gold">
+        <div class="pilar-header">📋 CRM Kanban · Dirección MKT</div>
+        <div class="pilar-title" style="font-size: 13pt;">Piloto institucional</div>
+        <table style="width:100%; font-family: var(--sans); font-size: 9pt; line-height: 1.6; margin-top: 4px;">
+          <tr><td style="color: var(--g600);">Oportunidades</td><td style="text-align:right; font-weight:700; color: var(--gp-navy);">831</td></tr>
+          <tr><td style="color: var(--g600);">Cierres totales</td><td style="text-align:right; font-weight:800; color: var(--deep-green);">60</td></tr>
+          <tr><td style="color: var(--g600);">Spend Meta+Google</td><td style="text-align:right; font-weight:700; color: var(--gp-navy);">$60.2K</td></tr>
+          <tr><td style="color: var(--g600);">CAC sobre cierres</td><td style="text-align:right; font-weight:700; color: var(--gp-navy);">$1,003</td></tr>
+          <tr style="background: rgba(236,201,75,.18);"><td style="font-weight:700; color: var(--amber); padding-top: 6px;">Conv total / opp</td><td style="text-align:right; font-weight:800; color: var(--amber); padding-top: 6px;">7.2%</td></tr>
+        </table>
+        <div class="pilar-body" style="font-size: 9pt; margin-top: 8px;"><strong>Verificable cross-source</strong> CRM + DCA + matching v8.3 + Maxipublica + Vambe.</div>
+      </div>
+
+      <div class="pilar-card">
+        <div class="pilar-header" style="color: #6B46C1;">🛍️ Maxipublica · Dir. Comercial SEM</div>
+        <div class="pilar-title" style="font-size: 13pt;">BAU sin loop institucional</div>
+        <table style="width:100%; font-family: var(--sans); font-size: 9pt; line-height: 1.6; margin-top: 4px;">
+          <tr><td style="color: var(--g600);">Mensajes (opp)</td><td style="text-align:right; font-weight:700; color: var(--gp-navy);">2,193</td></tr>
+          <tr><td style="color: var(--g600);">Ventas digitales (vs DCA)</td><td style="text-align:right; font-weight:700; color: var(--gp-navy);">23</td></tr>
+          <tr><td style="color: var(--g600);">FB Marketplace</td><td style="text-align:right; color: var(--g600);">9</td></tr>
+          <tr><td style="color: var(--g600);">Mi sitio concesionario</td><td style="text-align:right; color: var(--g600);">7</td></tr>
+          <tr style="background: rgba(107,70,193,.14);"><td style="font-weight:700; color: #6B46C1; padding-top: 6px;">Conv BAU</td><td style="text-align:right; font-weight:800; color: #6B46C1; padding-top: 6px;">1.05%</td></tr>
+        </table>
+        <div class="pilar-body" style="font-size: 9pt; margin-top: 8px;"><strong>100% orgánico</strong> — sin pauta Meta/Google. Sin relación con piloto MA. <em>7× menor conversión que el institucional.</em></div>
+      </div>
+
+      <div class="pilar-card green">
+        <div class="pilar-header">🤖 IA Plasi · gestión temprana</div>
+        <div class="pilar-title" style="font-size: 13pt;">Lo que faltaría en HYU/STL</div>
+        <table style="width:100%; font-family: var(--sans); font-size: 9pt; line-height: 1.6; margin-top: 4px;">
+          <tr><td style="color: var(--g600);">SEM con IA Vambe</td><td style="text-align:right; font-weight:800; color: var(--deep-green);">7.2%</td></tr>
+          <tr><td style="color: var(--g600);">HYU sin IA</td><td style="text-align:right; font-weight:700; color: var(--gp-red);">0.22%</td></tr>
+          <tr><td style="color: var(--g600);">STL sin IA</td><td style="text-align:right; font-weight:700; color: var(--gp-red);">0.37%</td></tr>
+          <tr style="background: rgba(72,187,120,.14);"><td style="font-weight:700; color: var(--deep-green); padding-top: 6px;">Gap conv</td><td style="text-align:right; font-weight:800; color: var(--deep-green); padding-top: 6px;">~33×</td></tr>
+        </table>
+        <div class="pilar-body" style="font-size: 9pt; margin-top: 8px;"><strong>Plasi en HYU/STL replica el efecto SEM</strong> — pendiente OK Director de Marca. Es el acuerdo #1 del slide de resolución.</div>
+      </div>
+    </div>
+
+    <div class="callout-big">
+      <div class="callout-t">Tesis del hallazgo</div>
+      <p><strong>El piloto institucional con IA convierte 7× mejor que el BAU orgánico.</strong> No se trata de matar Maxipublica · se trata de que el modelo institucional con atribución vs DCA + IA prefiltro entrega evidencia que el BAU no puede entregar. <em>Cada marca que adopte el modelo replica esa diferencia · cada marca que no lo adopte sigue dejando ventas en la mesa que el embudo ya está produciendo.</em></p>
+    </div>
+  </div>
+  <div class="slide-footer"><span>Anexo A4 · Hallazgo estructural · piloto institucional vs BAU comercial vs gap de IA en HYU/STL</span><span style="display:flex; align-items:center; gap:8px;"><img class="gp-logo" src="../assets/logos/Logo-GP-Negro.png" alt="GP"/>Grupo Plasencia Automotriz · Dirección MKT Corporativo</span></div>
+</section>
+
+<!-- 13 · CLOSING -->
+<section class="slide closing" data-slide="closing">
+  <div class="closing-inner">
+    <div class="closing-eyebrow">Cierre · Reporte del Piloto</div>
+    <div class="closing-rule"></div>
+    <h1 class="closing-h">Marketing puede ser <em>motor de utilidad.</em></h1>
+    <div class="closing-sub">$16.7M de revenue auditable. $1.34M de profit estimado. ROAS profit 10.6× en 72 días. El piloto entregó la prueba de concepto. Lo que decida el Consejo decide si Marketing del Grupo Plasencia opera como cost center o como Revenue & Profit Center los próximos 24 meses.</div>
+    <div class="closing-meta">Jesús Pérez Porras · Director MKT Corporativo · 23 junio 2026</div>
   </div>
 </section>
 
 </div>
 
 <script>
-const slides = Array.from(document.querySelectorAll('.slide'));
-let idx = 0;
-const progress = document.getElementById('progress');
+const deck = document.getElementById('deck');
+const slides = Array.from(deck.querySelectorAll('.slide'));
+const total = slides.length;
 const counter = document.getElementById('counter');
-
-function show(i) {
-  if (i < 0 || i >= slides.length) return;
-  slides[idx].classList.remove('active');
-  idx = i;
-  slides[idx].classList.add('active');
-  progress.style.width = ((idx + 1) / slides.length * 100) + '%';
-  counter.textContent = (idx + 1) + ' / ' + slides.length;
-}
-
-document.addEventListener('keydown', (e) => {
-  if (document.body.classList.contains('review-mode')) return;
-  if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') { e.preventDefault(); show(idx + 1); }
-  else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); show(idx - 1); }
-  else if (e.key === 'Home') { e.preventDefault(); show(0); }
-  else if (e.key === 'End') { e.preventDefault(); show(slides.length - 1); }
-});
-
-document.getElementById('nav-prev').addEventListener('click', () => show(idx - 1));
-document.getElementById('nav-next').addEventListener('click', () => show(idx + 1));
-
-const reviewToggle = document.getElementById('review-toggle');
-reviewToggle.addEventListener('click', () => {
-  const isReview = document.body.classList.toggle('review-mode');
-  reviewToggle.textContent = isReview ? 'Modo presentación ▶' : 'Ver todo ↕';
-  if (isReview) {
-    slides.forEach(s => { s.style.transform = 'none'; });
-    window.scrollTo(0, 0);
-  } else {
-    scaleSlides();
+const progress = document.getElementById('progress');
+const reviewBtn = document.getElementById('review-toggle');
+let current = 0;
+function fit(){
+  if (document.body.classList.contains('review-mode')) {
+    slides.forEach(s => { s.style.transform=''; });
+    return;
   }
-});
-
-function scaleSlides() {
-  if (document.body.classList.contains('review-mode')) return;
-  const baseW = 1280, baseH = 720;
-  const scale = Math.min(window.innerWidth / baseW, window.innerHeight / baseH);
-  const tx = (window.innerWidth - baseW * scale) / 2;
-  const ty = (window.innerHeight - baseH * scale) / 2;
-  slides.forEach(s => { s.style.transform = `translate(${tx}px, ${ty}px) scale(${scale})`; });
+  const sx = window.innerWidth/1280, sy = window.innerHeight/720, s = Math.min(sx,sy);
+  const ox = (window.innerWidth-1280*s)/2, oy = (window.innerHeight-720*s)/2;
+  slides.forEach(sl => sl.style.transform = `translate(${ox}px, ${oy}px) scale(${s})`);
 }
-window.addEventListener('resize', scaleSlides);
-scaleSlides();
-show(0);
+function go(i){
+  current = (i+total)%total;
+  slides.forEach((s,k)=>s.classList.toggle('active', k===current));
+  counter.textContent = `${current+1} / ${total}`;
+  progress.style.width = `${((current+1)/total)*100}%`;
+}
+window.addEventListener('resize', fit);
+document.getElementById('nav-prev').addEventListener('click', ()=>go(current-1));
+document.getElementById('nav-next').addEventListener('click', ()=>go(current+1));
+document.addEventListener('keydown', e => {
+  if (e.key==='ArrowRight'||e.key==='PageDown'||e.key===' ') go(current+1);
+  if (e.key==='ArrowLeft'||e.key==='PageUp') go(current-1);
+  if (e.key==='Home') go(0);
+  if (e.key==='End') go(total-1);
+});
+reviewBtn.addEventListener('click', ()=>{
+  document.body.classList.toggle('review-mode');
+  reviewBtn.textContent = document.body.classList.contains('review-mode') ? 'Modo Presentación ▶' : 'Ver todo ↕';
+  fit();
+});
+if (location.hash === '#review') {
+  document.body.classList.add('review-mode');
+  reviewBtn.textContent = 'Modo Presentación ▶';
+}
+fit();
+go(0);
 </script>
-
 </body>
 </html>
-<!-- snapshot-fingerprint: 2026-06-23T23:30:00.179891+00:00 -->
