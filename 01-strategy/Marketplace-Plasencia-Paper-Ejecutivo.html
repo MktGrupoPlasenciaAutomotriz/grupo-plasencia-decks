@@ -39,11 +39,21 @@
   body {
     font-family: var(--sans);
     color: var(--text);
-    line-height: 1.55;
-    font-size: 10pt;
+    line-height: 1.45;
+    font-size: 9.5pt;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+  /* Pixel-perfect A4 fit · tighten globals */
+  .page p { font-size: 9.5pt; line-height: 1.45; margin-bottom: 5px; }
+  .page table { font-size: 9pt; margin: 6px 0; }
+  .page thead th { padding: 6px 9px; font-size: 8pt; }
+  .page tbody td { padding: 5px 9px; }
+  .page ul, .page ol { margin: 4px 0 6px; }
+  .page li { font-size: 9.5pt; line-height: 1.45; margin-bottom: 2px; }
+  .page .callout { padding: 9px 14px; margin: 7px 0; }
+  .page .lead { font-size: 10pt; line-height: 1.45; margin-bottom: 6px; }
+  .page svg, .page img { max-height: 110mm; width: auto; height: auto; }
 
   /* ==================== A4 PAGE SIZING ==================== */
   @page {
@@ -75,12 +85,19 @@
     background: var(--paper);
     width: 210mm;
     min-height: 297mm;
+    max-height: 297mm;
+    overflow: hidden;
     margin: 0 auto 8mm auto;
-    padding: 18mm 18mm 22mm 18mm;
+    padding: 12mm 18mm 12mm 18mm;
     position: relative;
     page-break-after: always;
     box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 4px 24px rgba(30,39,64,.08);
   }
+  .page.cover { max-height: none; overflow: visible; }
+  /* additional tightening for any case/finding-style cards */
+  .page .case, .page .finding { padding: 8px 12px !important; margin-bottom: 8px !important; }
+  .page .case .desc, .page .finding p { margin-bottom: 4px; }
+  .page .callout { padding: 8px 12px; }
   .page:last-child { page-break-after: auto; }
 
   /* Cover full bleed */
@@ -670,7 +687,7 @@
   <h1 class="section-title"><span class="num">01 · Propósito y TL;DR</span>El patrón ya ganó globalmente. Es replicarlo, no inventarlo.</h1>
 
   <div class="intro">
-    Este documento destila los hallazgos clave de una investigación profunda sobre cómo los grupos automotrices más sofisticados del mundo construyen <strong>identidad de retailer-marketplace por encima de las marcas OEM</strong>, orquestan el customer journey end-to-end y monetizan el customer lifetime value. Período: 2024–2026. Geografías: USA, UK/Europa, China y LATAM. Sirve como base empírica para el documento Marco Operativo de <strong>Experiencia Plasencia Automotriz</strong>.
+    Destila hallazgos sobre cómo los grupos automotrices más sofisticados del mundo construyen <strong>identidad de retailer-marketplace por encima de las marcas OEM</strong>, orquestan el customer journey end-to-end y monetizan el CLTV. Período: 2024–2026 · USA, UK/Europa, China, LATAM. Base empírica para el Marco Operativo <strong>Experiencia Plasencia Automotriz</strong>.
   </div>
 
   <h2 class="section-h2">Tres ideas para llevarse</h2>
@@ -686,13 +703,13 @@
     </li>
     <li>
       <span class="label">Hallazgo 3 · IA es la palanca real</span>
-      <strong>La capacidad operativa apalancada por IA es la palanca real 2025–2026, no el headcount.</strong> Carvana triplicó la proporción de clientes que sólo interactúan con su agente conversacional, redujo llamadas/venta ~20% y NPS llegó a máximos de dos años. Voice AI cierra 86% de citas vs 90% humano. 56% de los leads automotrices llegan fuera de horario hábil pero sólo 37% de los dealers responden en menos de una hora. El piloto Motor de Atribución de Plasencia (team-of-one + IA generativa, 4 semanas, US$90K MXN matched) está alineado con la frontera tecnológica y debe <em>evolucionarse</em>, no reiniciarse.
+      <strong>La capacidad operativa apalancada por IA es la palanca real 2025–2026, no el headcount.</strong> Carvana triplicó interacciones con agente conversacional · NPS en máximos de dos años. Voice AI cierra 86% de citas vs 90% humano. 56% de los leads llegan fuera de horario · solo 37% de los dealers responden en menos de una hora. El piloto Motor de Atribución (team-of-one + IA generativa, 4 semanas, US$90K MXN matched) está alineado con la frontera tecnológica · debe <em>evolucionarse</em>, no reiniciarse.
     </li>
   </ol>
 
-  <div class="callout">
+  <div class="callout" style="margin-bottom:0;">
     <span class="label">Insight central</span>
-    <p>El modelo que el Director de Marketing Corporativo planteó en abril 2026 como "Experiencia Plasencia Automotriz" — Endorsed Brands con master endorser Plasencia + sub-marcas funcionales + plataforma digital propia — <strong>no es una hipótesis local</strong>. Es exactamente el patrón que ganó globalmente entre 2020 y 2025.</p>
+    <p style="margin-bottom:0;">El modelo "Experiencia Plasencia Automotriz" — Endorsed Brands con master endorser Plasencia + sub-marcas funcionales + plataforma digital propia — <strong>no es hipótesis local</strong>. Es exactamente el patrón que ganó globalmente entre 2020 y 2025.</p>
   </div>
 </section>
 
@@ -1040,7 +1057,11 @@
     </div>
   </div>
 
-  <h2 class="section-h2">Cambio organizacional — cómo lo lograron</h2>
+</section>
+
+<!-- ==================== PAGE 10b: CAMBIO ORG (split de P10) ==================== -->
+<section class="page">
+  <h1 class="section-title"><span class="num">08 · Stack tecnológico · continuación</span>Cambio organizacional · cómo lo lograron.</h1>
 
   <ul class="antipatterns">
     <li>
@@ -1110,7 +1131,11 @@
     </div>
   </div>
 
-  <h2 class="section-h2">Cinco movimientos concretos priorizados</h2>
+</section>
+
+<!-- ==================== PAGE 11b: 5 MOVIMIENTOS (split de P11) ==================== -->
+<section class="page">
+  <h1 class="section-title"><span class="num">09 · Roadmap · continuación</span>Cinco movimientos concretos priorizados.</h1>
 
   <ol class="priority-list">
     <li>
@@ -1174,6 +1199,14 @@
       <strong>4 · Suscripción de auto como producto principal</strong>
       <p>Care by Volvo cerrada Ago-2024. Audi, BMW, Mercedes, Cadillac, Genesis ya habían salido. <strong>Mitigación:</strong> NO replicar suscripciones; SÍ membership/loyalty (NIO Points pattern).</p>
     </li>
+  </ul>
+</section>
+
+<!-- ==================== PAGE 10/12b: ANTI-PATRONES 5-8 + CAVEATS ==================== -->
+<section class="page">
+  <h1 class="section-title"><span class="num">10 · Anti-patrones · continuación</span>Anti-patrones 5–8 + caveats sobre la investigación.</h1>
+
+  <ul class="antipatterns">
     <li>
       <strong>5 · Convencer-sin-ejecutar</strong>
       <p>Stellantis agency Europa 2022–2025. <strong>Mitigación:</strong> mover valor primero (Mes 0–3), luego homologar. Brand Book sale al Consejo después de que la plataforma esté en aire.</p>
