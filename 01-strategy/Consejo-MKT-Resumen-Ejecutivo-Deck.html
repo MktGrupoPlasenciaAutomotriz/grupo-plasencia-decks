@@ -439,64 +439,53 @@ table.deck-table { width:100%; border-collapse: collapse; font-family: var(--san
   <div class="slide-footer"><span>Slide 7 · Costo hundido del BAU · evidenciado por el piloto · v8.3 al 23-jun · benchmark SEM 7.2% · AOV $412K · margen 8%</span><span style="display:flex; align-items:center; gap:8px;"><img class="gp-logo" src="../assets/logos/Logo-GP-Negro.png" alt="GP"/>Grupo Plasencia Automotriz · Dirección MKT Corporativo</span></div>
 </section>
 
-<!-- 8 · BASELINE + INCREMENTAL POR MARCA + LÍNEA DE NEGOCIO -->
+<!-- 8 · 3 ESCENARIOS · CONSERVADOR/OPTIMISTA/IDEAL · CAC SEM × INVERSIÓN -->
 <section class="slide">
-  <div class="content" style="gap: 2px; padding: 12px 80px 12px 80px;">
-    <div class="section-num">Baseline 2025 + incremental con RevOps · por marca y línea</div>
-    <h1 class="slide-h1" style="font-size: 16pt;">Vendo lo mismo que un Director de Marca. <em>O más.</em></h1>
-    <p class="slide-lede" style="font-size: 7pt;"><strong>Baseline DCA REAL · cubo 30060 Autos Nuevos+Usados + flotillas_agregado D1.</strong> Unidades reales D1 (5 marcas concesionarias del Grupo) · *estimadas con AOV por marca (Ford/HYU/Isuzu sin D1 propio). Premisa RevOps: marcas debajo del sector saltan a 10% (HYU/GAC/Ford); ya al benchmark +1pp marginal (Mazda/GWM/Changan · método DD §B.1); STL extrapolación piloto v8.3. Δ profit = Δ revenue × margen UO real por marca (Mazda 9.3% · Ford 5.8% · HYU 7.7% · STL 3.4% · GAC 3.8% · GWM 4.6% · Changan 2.6% · Flotillas 4% Aurora · Seminuevos 8% blended).</p>
+  <div class="content" style="gap: 6px; padding: 22px 80px 22px 80px;">
+    <div class="section-num">Lo que el Grupo captura bajo RevOps · 3 escenarios de inversión</div>
+    <h1 class="slide-h1" style="font-size: 22pt;">Conservador. Optimista. <em>Ideal.</em></h1>
+    <p class="slide-lede" style="font-size: 9pt;"><strong>Premisa simple:</strong> bajo RevOps todas las marcas operan al <strong>CAC SEM = $1,003/cliente cerrado</strong> (lo que SEM ya logra en el piloto v8.3 con IA + handoff). <strong>Baseline actual digital del Grupo:</strong> ~340 cierres/año atribuibles (piloto v8.3 extrapolado a 8 marcas). Δ INCREMENTAL = Total escenario − Baseline.</p>
 
-    <table class="deck-table" style="margin-top: 1px; font-size: 6.5pt;">
+    <table class="deck-table" style="margin-top: 4px; font-size: 9pt;">
       <thead>
         <tr>
-          <th rowspan="2" style="vertical-align:bottom; padding: 5px 8px;">Marca / Línea</th>
-          <th colspan="2" style="text-align:center; padding: 5px 8px; border-right: 1px solid rgba(255,255,255,.2);">Baseline 2025</th>
-          <th colspan="3" style="text-align:center; padding: 5px 8px;">Incremental anual con RevOps</th>
-        </tr>
-        <tr>
-          <th class="num" style="font-size:6pt; padding: 4px 8px;">Revenue</th>
-          <th class="num" style="font-size:6pt; padding: 4px 8px; border-right: 1px solid var(--g300);">Unidades</th>
-          <th class="num" style="font-size:6pt; padding: 4px 8px;">Δ unidades</th>
-          <th class="num" style="font-size:6pt; padding: 4px 8px;">Δ revenue</th>
-          <th class="num" style="font-size:6pt; padding: 4px 8px;">Δ profit</th>
+          <th>Escenario · 7 marcas operables*</th>
+          <th class="num">Inversión<br/>$/marca/mes</th>
+          <th class="num">Cierres<br/>totales/año</th>
+          <th class="num">Δ incremental<br/>vs baseline 340</th>
+          <th class="num">Revenue<br/>incremental/año</th>
+          <th class="num">Profit<br/>incremental @ 8%</th>
+          <th class="num">ROI</th>
         </tr>
       </thead>
-      <tbody style="line-height: 1.2;">
-        <tr><td style="padding: 3px 8px;"><strong>Mazda</strong></td><td class="num" style="padding: 3px 8px;">$17,938M</td><td class="num" style="padding: 3px 8px; border-right: 1px solid var(--g300);">21,826</td><td class="num" style="padding: 3px 8px;"><strong>+667</strong></td><td class="num" style="padding: 3px 8px;"><strong>+$275M</strong></td><td class="num" style="padding: 3px 8px;"><strong>+$25.6M</strong></td></tr>
-        <tr class="highlight"><td style="padding: 3px 8px;"><strong>Ford</strong></td><td class="num" style="padding: 3px 8px;">$6,037M</td><td class="num" style="padding: 3px 8px; border-right: 1px solid var(--g300);">~13,395*</td><td class="num" style="padding: 3px 8px;"><strong>+2,544</strong></td><td class="num" style="padding: 3px 8px;"><strong>+$1,048M</strong></td><td class="num" style="padding: 3px 8px;"><strong>+$60.8M</strong></td></tr>
-        <tr class="highlight"><td style="padding: 3px 8px;"><strong>Hyundai</strong></td><td class="num" style="padding: 3px 8px;">$5,262M</td><td class="num" style="padding: 3px 8px; border-right: 1px solid var(--g300);">~14,820*</td><td class="num" style="padding: 3px 8px;"><strong>+2,122</strong></td><td class="num" style="padding: 3px 8px;"><strong>+$874M</strong></td><td class="num" style="padding: 3px 8px;"><strong>+$67.3M</strong></td></tr>
-        <tr class="highlight"><td style="padding: 3px 8px;"><strong>Stellantis</strong></td><td class="num" style="padding: 3px 8px;">$1,462M</td><td class="num" style="padding: 3px 8px; border-right: 1px solid var(--g300);">1,568</td><td class="num" style="padding: 3px 8px;"><strong>+1,272</strong></td><td class="num" style="padding: 3px 8px;"><strong>+$524M</strong></td><td class="num" style="padding: 3px 8px;"><strong>+$17.8M</strong></td></tr>
-        <tr><td style="padding: 3px 8px;">Isuzu</td><td class="num" style="padding: 3px 8px;">$1,198M</td><td class="num" style="padding: 3px 8px; border-right: 1px solid var(--g300);">~1,700*</td><td class="num" style="padding: 3px 8px;">B2B aislado</td><td class="num" style="padding: 3px 8px;">—</td><td class="num" style="padding: 3px 8px;">—</td></tr>
-        <tr><td style="padding: 3px 8px;"><strong>GWM</strong></td><td class="num" style="padding: 3px 8px;">$1,022M</td><td class="num" style="padding: 3px 8px; border-right: 1px solid var(--g300);">1,550</td><td class="num" style="padding: 3px 8px;"><strong>+63</strong></td><td class="num" style="padding: 3px 8px;"><strong>+$26M</strong></td><td class="num" style="padding: 3px 8px;"><strong>+$1.2M</strong></td></tr>
-        <tr class="highlight"><td style="padding: 3px 8px;"><strong>GAC</strong></td><td class="num" style="padding: 3px 8px;">$648M</td><td class="num" style="padding: 3px 8px; border-right: 1px solid var(--g300);">1,114</td><td class="num" style="padding: 3px 8px;"><strong>+840</strong></td><td class="num" style="padding: 3px 8px;"><strong>+$346M</strong></td><td class="num" style="padding: 3px 8px;"><strong>+$13.1M</strong></td></tr>
-        <tr><td style="padding: 3px 8px;"><strong>Changan</strong></td><td class="num" style="padding: 3px 8px;">$647M</td><td class="num" style="padding: 3px 8px; border-right: 1px solid var(--g300);">1,832</td><td class="num" style="padding: 3px 8px;"><strong>+97</strong></td><td class="num" style="padding: 3px 8px;"><strong>+$40M</strong></td><td class="num" style="padding: 3px 8px;"><strong>+$1.0M</strong></td></tr>
-        <tr class="highlight"><td style="padding: 3px 8px;"><strong>Seminuevos</strong> <span style="font-size:6pt;color:var(--g500);">(línea cross-marca)</span></td><td class="num" style="padding: 3px 8px;">$3,271M</td><td class="num" style="padding: 3px 8px; border-right: 1px solid var(--g300);">~10,300</td><td class="num" style="padding: 3px 8px;"><strong>+500</strong></td><td class="num" style="padding: 3px 8px;"><strong>+$158M</strong></td><td class="num" style="padding: 3px 8px;"><strong>+$12.6M</strong></td></tr>
-        <tr class="highlight"><td style="padding: 3px 8px;"><strong>Flotillas</strong> <span style="font-size:6pt;color:var(--g500);">(línea · Aurora)</span></td><td class="num" style="padding: 3px 8px;">$864M</td><td class="num" style="padding: 3px 8px; border-right: 1px solid var(--g300);">1,364</td><td class="num" style="padding: 3px 8px;"><strong>+400</strong></td><td class="num" style="padding: 3px 8px;"><strong>+$254M</strong></td><td class="num" style="padding: 3px 8px;"><strong>+$10.2M</strong></td></tr>
-        <tr><td style="padding: 3px 8px;"><em>Eficiencias operativas cross-marca</em> <span style="font-size:6pt;color:var(--g500);">palancas 1-4 slide 9</span></td><td class="num" style="padding: 3px 8px;">—</td><td class="num" style="padding: 3px 8px; border-right: 1px solid var(--g300);">—</td><td class="num" style="padding: 3px 8px;"><strong>+1,856*</strong></td><td class="num" style="padding: 3px 8px;">—</td><td class="num" style="padding: 3px 8px;"><strong>+$61.25M</strong></td></tr>
-        <tr class="total"><td style="padding: 4px 8px;"><strong>TOTAL Grupo</strong></td><td class="num" style="padding: 4px 8px;">$39,349M</td><td class="num" style="padding: 4px 8px; border-right: 1px solid rgba(255,255,255,.3);">~69,470</td><td class="num" style="padding: 4px 8px;"><strong>+10,361</strong></td><td class="num" style="padding: 4px 8px;"><strong>+$3,545M</strong></td><td class="num" style="padding: 4px 8px;"><strong>+$270.9M</strong></td></tr>
+      <tbody>
+        <tr><td>Baseline actual (sin RevOps escalado)</td><td class="num">~variable</td><td class="num">340</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">—</td></tr>
+        <tr class="highlight"><td><strong>Conservador</strong> · mismo $$ que piloto SEM</td><td class="num"><strong>$30K</strong></td><td class="num">2,520</td><td class="num"><strong>+2,180</strong></td><td class="num"><strong>+$898M</strong></td><td class="num"><strong>+$72M</strong></td><td class="num"><strong>$28.6×</strong></td></tr>
+        <tr class="highlight"><td><strong>Optimista</strong> · doble inversión</td><td class="num"><strong>$60K</strong></td><td class="num">5,040</td><td class="num"><strong>+4,700</strong></td><td class="num"><strong>+$1,936M</strong></td><td class="num"><strong>+$155M</strong></td><td class="num"><strong>$30.7×</strong></td></tr>
+        <tr class="highlight"><td><strong>Ideal</strong> · triple inversión</td><td class="num"><strong>$90K</strong></td><td class="num">7,560</td><td class="num"><strong>+7,220</strong></td><td class="num"><strong>+$2,975M</strong></td><td class="num"><strong>+$238M</strong></td><td class="num"><strong>$31.5×</strong></td></tr>
       </tbody>
     </table>
 
-    <div style="display:grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 5px; margin-top: 2px;">
-      <div class="kpi-card gold" style="padding: 5px 9px;">
-        <div class="kpi-label" style="font-size: 6pt;">Autos incrementales · mensual / anual</div>
-        <div class="kpi-num gold" style="font-size: 12pt; line-height:1;">+863 / mes</div>
-        <div class="kpi-sub" style="font-size: 6.5pt;"><strong>+10,361 / año</strong> · 8,505 conversión + 1,856 eficiencia equiv · mayor que Stellantis + Seminuevos + Flotillas juntos · ≈ 2.6× Stellantis · marca nueva.</div>
+    <div style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-top: 6px;">
+      <div class="kpi-card" style="padding: 9px 13px;">
+        <div class="kpi-label" style="font-size: 7.5pt; color: var(--g500);">Conservador · $30K/marca/mes</div>
+        <div class="kpi-num" style="font-size: 18pt; line-height:1.05; color: var(--gp-navy);">+182 / mes</div>
+        <div class="kpi-sub" style="font-size: 8pt;"><strong>+2,180 autos / año</strong> · +$75M revenue/mes · <strong>+$6M profit/mes</strong></div>
       </div>
-      <div class="kpi-card" style="padding: 5px 9px;">
-        <div class="kpi-label" style="font-size: 6pt;">Revenue incremental · mensual / anual</div>
-        <div class="kpi-num red" style="font-size: 14pt; line-height:1;">+$295M / mes</div>
-        <div class="kpi-sub" style="font-size: 6.5pt;"><strong>+$3,545M / año</strong> · márgenes UO reales por marca DCA</div>
+      <div class="kpi-card gold" style="padding: 9px 13px;">
+        <div class="kpi-label" style="font-size: 7.5pt;">Optimista · $60K/marca/mes</div>
+        <div class="kpi-num gold" style="font-size: 18pt; line-height:1.05;">+392 / mes</div>
+        <div class="kpi-sub" style="font-size: 8pt;"><strong>+4,700 autos / año</strong> · +$161M revenue/mes · <strong>+$13M profit/mes</strong></div>
       </div>
-      <div class="kpi-card green" style="padding: 5px 9px;">
-        <div class="kpi-label" style="font-size: 6pt;">Profit incremental · mensual / anual</div>
-        <div class="kpi-num green" style="font-size: 14pt; line-height:1;">+$22.6M / mes</div>
-        <div class="kpi-sub" style="font-size: 6.5pt;"><strong>+$271M / año</strong> · 8 marcas + Seminuevos + Flotillas + eficiencia compartida</div>
+      <div class="kpi-card green" style="padding: 9px 13px;">
+        <div class="kpi-label" style="font-size: 7.5pt;">Ideal · $90K/marca/mes</div>
+        <div class="kpi-num green" style="font-size: 18pt; line-height:1.05;">+602 / mes</div>
+        <div class="kpi-sub" style="font-size: 8pt;"><strong>+7,220 autos / año</strong> · +$248M revenue/mes · <strong>+$20M profit/mes</strong></div>
       </div>
     </div>
 
-    <div class="callout-big" style="margin-top: 3px; padding: 5px 10px;">
-      <p style="font-size: 7.5pt; line-height: 1.3;"><strong>Tesis de valor de esta Dirección:</strong> +10,361 unidades incrementales/año bajo RevOps (8,505 conversión + 1,856 eficiencia · cifras DCA reales) cubriendo 8 marcas + Seminuevos + Flotillas = mayor que Stellantis + Seminuevos + Flotillas juntos · ≈ 2.6× Stellantis. <strong>Beneficio de actuar:</strong> +$271M profit/año (incremental por construcción · márgenes UO reales). <strong>Costo de actuar:</strong> $5M Fase 1. <em>Ratio $54.2× · Marketing como motor de growth cross-marca · no como línea de gasto.</em></p>
+    <div class="callout-big" style="margin-top: 5px; padding: 7px 12px;">
+      <p style="font-size: 8.5pt; line-height: 1.35;"><strong>Tesis de valor:</strong> CAC SEM × inversión por marca = cierres incrementales/año atribuibles. Lineal y defendible. <strong>*7 marcas operables:</strong> Mazda · Ford · Hyundai · Stellantis · GWM · GAC · Changan (sin Isuzu B2B · sin Seminuevos que ya opera al CAC SEM). <strong>Inversión total Conservador $2.52M/año = MENOS que la pauta digital actual del Grupo</strong> ($20-25M anuales). La pauta hoy está mal asignada.</p>
     </div>
   </div>
   <div class="slide-footer"><span>Slide 8 · Nivel 2 cross-marca · DD §B.1 + §6.6 · AOV $412K · margen 8% · v8.3 al 23-jun-2026</span><span style="display:flex; align-items:center; gap:8px;"><img class="gp-logo" src="../assets/logos/Logo-GP-Negro.png" alt="GP"/>Grupo Plasencia Automotriz · Dirección MKT Corporativo</span></div>
@@ -506,8 +495,8 @@ table.deck-table { width:100%; border-collapse: collapse; font-family: var(--san
 <section class="slide">
   <div class="content" style="gap: 10px;">
     <div class="section-num">El bono total a la utilidad operativa · eficiencia + incremental</div>
-    <h1 class="slide-h1" style="font-size: 28pt;">$271M directo a la utilidad. <em>Dos palancas que se suman.</em></h1>
-    <p class="slide-lede" style="font-size: 9.5pt;">Cifras DCA REAL · márgenes UO específicos por marca/línea. Dos palancas: <strong>eficiencia operativa</strong> $46-74M (gobernar gasto actual) <strong>+ revenue incremental</strong> $34-280M (gap conversión cross-marca + captación digital Seminuevos + Flotillas digital · <em>delta incremental por construcción · ventas que HOY no se cierran</em>). Cada peso cae directo a la utilidad.</p>
+    <h1 class="slide-h1" style="font-size: 28pt;">$216M directo a la utilidad. <em>Dos palancas que se suman.</em></h1>
+    <p class="slide-lede" style="font-size: 9.5pt;">Dos palancas: <strong>eficiencia operativa</strong> $46-74M (gobernar gasto actual) <strong>+ revenue incremental</strong> $72-238M (3 escenarios de inversión por marca · CAC SEM $1,003 × $30K/$60K/$90K mensual por marca). Cada peso cae directo a la utilidad.</p>
 
     <table class="deck-table" style="margin-top: 2px; font-size: 10pt;">
       <thead><tr><th>Palanca · contribución a utilidad operativa</th><th class="num">Conservador</th><th class="num">Realista</th><th class="num">Optimista</th></tr></thead>
@@ -517,24 +506,24 @@ table.deck-table { width:100%; border-collapse: collapse; font-family: var(--san
         <tr><td>Eficiencia · equipo más senior con menos personas (70+ → ~44)</td><td class="num">$5M</td><td class="num">$8.75M</td><td class="num">$11M</td></tr>
         <tr><td>Eficiencia · Central de Medios + IVA acreditable</td><td class="num">$1.5M</td><td class="num">$2.5M</td><td class="num">$3.2M</td></tr>
         <tr><td><strong>Subtotal eficiencia · sin vender un auto más</strong></td><td class="num"><strong>$46.5M</strong></td><td class="num"><strong>$61.25M</strong></td><td class="num"><strong>$74.2M</strong></td></tr>
-        <tr class="highlight"><td><strong>Incremental · revenue × margen UO real por marca/línea</strong> · slide 8</td><td class="num"><strong>+$34M</strong><br/><span style="font-size:8pt;color:var(--g500);">solo HYU+GAC mínimo</span></td><td class="num"><strong>+$210M</strong><br/><span style="font-size:8pt;color:var(--g500);">8 marcas + SEM + Flotillas</span></td><td class="num"><strong>+$280M</strong><br/><span style="font-size:8pt;color:var(--g500);">marcas debajo a sector · arriba +2pp</span></td></tr>
-        <tr class="total"><td><strong>Bono TOTAL a utilidad operativa del Grupo</strong></td><td class="num"><strong>$80.5M</strong></td><td class="num"><strong>$271M</strong></td><td class="num"><strong>$354M</strong></td></tr>
+        <tr class="highlight"><td><strong>Incremental · CAC SEM × inversión por marca/mes</strong> · slide 8</td><td class="num"><strong>+$72M</strong><br/><span style="font-size:8pt;color:var(--g500);">$30K/marca/mes</span></td><td class="num"><strong>+$155M</strong><br/><span style="font-size:8pt;color:var(--g500);">$60K/marca/mes</span></td><td class="num"><strong>+$238M</strong><br/><span style="font-size:8pt;color:var(--g500);">$90K/marca/mes</span></td></tr>
+        <tr class="total"><td><strong>Bono TOTAL a utilidad operativa del Grupo</strong></td><td class="num"><strong>$118M</strong></td><td class="num"><strong>$216M</strong></td><td class="num"><strong>$312M</strong></td></tr>
       </tbody>
     </table>
 
     <div class="callout-big" style="margin-top: 4px; padding: 9px 18px;">
-      <p style="font-size: 9.5pt; line-height: 1.4;"><strong>De cost center a revenue &amp; profit center:</strong> hoy Marketing aparece como gasto ($212.6M) en el P&amp;L. Bajo gobernanza corporativa esta Dirección contribuye <strong>$80-354M anuales</strong> a UO — eficiencia $46-74M + incremental $34-280M (8 marcas + Seminuevos + Flotillas · márgenes UO reales DCA). <em>El ahorro paga el Centro de Excelencia. El incremental lo convierte en motor de utilidad.</em></p>
+      <p style="font-size: 9.5pt; line-height: 1.4;"><strong>De cost center a revenue &amp; profit center:</strong> hoy Marketing aparece como gasto ($212.6M) en el P&amp;L. Bajo gobernanza corporativa esta Dirección contribuye <strong>$118-312M anuales</strong> a UO — eficiencia $46-74M + incremental $72-238M (3 escenarios CAC SEM × inversión). <em>El ahorro paga el Centro de Excelencia. El incremental lo convierte en motor de utilidad.</em></p>
     </div>
   </div>
-  <div class="slide-footer"><span>Slide 9 · Bono total · eficiencia $46-74M + incremental $34-280M · márgenes UO reales DCA 2025</span><span style="display:flex; align-items:center; gap:8px;"><img class="gp-logo" src="../assets/logos/Logo-GP-Negro.png" alt="GP"/>Grupo Plasencia Automotriz · Dirección MKT Corporativo</span></div>
+  <div class="slide-footer"><span>Slide 9 · Bono total · eficiencia $46-74M + incremental $72-238M · 3 escenarios CAC SEM</span><span style="display:flex; align-items:center; gap:8px;"><img class="gp-logo" src="../assets/logos/Logo-GP-Negro.png" alt="GP"/>Grupo Plasencia Automotriz · Dirección MKT Corporativo</span></div>
 </section>
 
 <!-- 10 · KILLER METRIC · ROI EN DOS PISOS -->
 <section class="slide">
   <div class="content" style="gap: 10px;">
     <div class="section-num">Lo más simple que el Consejo necesita oír</div>
-    <h1 class="slide-h1" style="font-size: 30pt;">$9.30 de eficiencia. <em>$54.20 de impacto total.</em></h1>
-    <p class="slide-lede" style="font-size: 11pt;">Por cada peso invertido en Fase 1 ($5M), recuperamos $9.30 solo de eficiencia operativa (palancas 1-4). Sumando el revenue incremental por gobernanza corporativa (realista $210M profit · 8 marcas + Seminuevos + Flotillas con márgenes UO reales DCA), el ROI total escala a <strong>$54.20 por cada $1 invertido</strong>.</p>
+    <h1 class="slide-h1" style="font-size: 30pt;">$9.30 de eficiencia. <em>$43.20 de impacto total.</em></h1>
+    <p class="slide-lede" style="font-size: 11pt;">Por cada peso invertido en Fase 1 ($5M), recuperamos $9.30 solo de eficiencia operativa. Sumando el revenue incremental escenario optimista ($60K/marca/mes · $155M profit · 4,700 ventas incrementales), el ROI total escala a <strong>$43.20 por cada $1 invertido</strong>.</p>
 
     <div class="killer-wrap" style="margin-top: 4px;">
       <div class="killer-main" style="padding: 22px 26px;">
@@ -543,22 +532,22 @@ table.deck-table { width:100%; border-collapse: collapse; font-family: var(--san
         <div class="sub" style="font-size: 13pt;">Eficiencia operativa · $46.5M / $5M inversión · sin tocar conversión digital · sin vender un auto más.</div>
       </div>
       <div class="killer-side navy">
-        <div class="label">ROI total realista</div>
-        <div class="num">$54.20</div>
-        <div class="sub">Eficiencia + incremental (8 marcas + SEM + Flotillas · márgenes UO reales DCA) · $271M / $5M · <strong>+8.9% sobre la utilidad operativa actual del Grupo</strong> ($3,053M).</div>
+        <div class="label">ROI total · escenario optimista</div>
+        <div class="num">$43.20</div>
+        <div class="sub">Eficiencia + incremental ($60K/marca/mes) · $216M / $5M · <strong>+7.1% sobre la utilidad operativa actual del Grupo</strong> ($3,053M).</div>
       </div>
       <div class="killer-side">
-        <div class="label">Equivalente en venta de autos</div>
-        <div class="num">+10,361</div>
-        <div class="sub">Unidades incrementales atribuibles a Marketing e2e · 8,505 conversión + 1,856 eficiencia · <em>volumen ≈ 2.6× Stellantis · equivalente a una marca nueva.</em></div>
+        <div class="label">Ventas incrementales / año</div>
+        <div class="num">+4,700</div>
+        <div class="sub">Optimista $60K/marca/mes · 5,040 cierres totales − 340 baseline · <em>≈ 1.2× Stellantis · equivalente a una marca completa.</em></div>
       </div>
     </div>
 
     <div class="callout-big gold" style="margin-top: 6px; padding: 10px 20px;">
-      <p style="font-size: 10pt; line-height: 1.45;"><strong>Por qué Marketing deja de ser cost center.</strong> El Grupo invierte $197.5M en pauta MKT (0.58% del revenue Autos · debajo del piso sector). No pedimos gastar más. <em>Pedimos gobernar lo que ya gastamos + activar el incremental que el piloto ya demostró factible. Esa disciplina vale $54.20 por cada $1 invertido · directo a la utilidad. Marketing pasa de línea de gasto a motor de utilidad.</em></p>
+      <p style="font-size: 10pt; line-height: 1.45;"><strong>Por qué Marketing deja de ser cost center.</strong> El Grupo invierte $197.5M en pauta MKT (0.58% del revenue Autos · debajo del piso sector). No pedimos gastar más. <em>Pedimos gobernar lo que ya gastamos + activar el incremental que el piloto ya demostró factible. Esa disciplina vale $43.20 por cada $1 invertido (escenario optimista · $60K/marca/mes) · directo a la utilidad. Marketing pasa de línea de gasto a motor de utilidad.</em></p>
     </div>
   </div>
-  <div class="slide-footer"><span>Slide 10 · Killer metric · ROI $9.30 eficiencia + $54.20 total · márgenes UO reales DCA</span><span style="display:flex; align-items:center; gap:8px;"><img class="gp-logo" src="../assets/logos/Logo-GP-Negro.png" alt="GP"/>Grupo Plasencia Automotriz · Dirección MKT Corporativo</span></div>
+  <div class="slide-footer"><span>Slide 10 · Killer metric · ROI $9.30 eficiencia + $43.20 total · 3 escenarios CAC SEM</span><span style="display:flex; align-items:center; gap:8px;"><img class="gp-logo" src="../assets/logos/Logo-GP-Negro.png" alt="GP"/>Grupo Plasencia Automotriz · Dirección MKT Corporativo</span></div>
 </section>
 
 <!-- 10 · LA PREGUNTA AL CONSEJO -->
@@ -691,7 +680,7 @@ table.deck-table { width:100%; border-collapse: collapse; font-family: var(--san
     <div class="closing-eyebrow">Resumen Ejecutivo del Deep Dive · Marketing de Grupo Plasencia Automotriz</div>
     <div class="closing-rule"></div>
     <div class="closing-h">De cost center<br/><em>a revenue &amp; profit center.</em></div>
-    <div class="closing-sub">El piloto demostró que Marketing puede contribuir directamente a la utilidad operativa del Grupo · $271M anuales realista (eficiencia $61M + revenue incremental $210M con márgenes UO reales DCA) · +10,361 unidades incrementales/año atribuibles a esta Dirección cubriendo 8 marcas + Seminuevos + Flotillas · $3,545M revenue cross-marca. <em>Lo que el Consejo decide hoy es si el modelo se escala bajo gobernanza corporativa MKT, o si esos $271M y esas 10,361 unidades se quedan en la mesa cada año.</em></div>
+    <div class="closing-sub">El piloto demostró que Marketing puede contribuir directamente a la utilidad operativa del Grupo · 3 escenarios bajo RevOps con CAC SEM $1,003: <strong>Conservador $118M / +2,180 ventas</strong> · <strong>Optimista $216M / +4,700 ventas</strong> · <strong>Ideal $312M / +7,220 ventas</strong>. <em>Lo que el Consejo decide hoy es bajo qué escenario opera el Grupo, o si esos $118-312M anuales se quedan en la mesa cada año.</em></div>
   </div>
 </section>
 
