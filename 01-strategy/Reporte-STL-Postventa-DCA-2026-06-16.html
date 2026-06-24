@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Marcas STL · Post-Venta DCA · 2025 + 2026 YTD</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@500;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gp-red: #C8102E; --gp-navy: #1E2740; --gp-slate: #2D3748;
+    --green: #48BB78; --deep-green: #276749;
+    --blue: #4299E1; --deep-blue: #2B6CB0;
+    --amber: #D69E2E; --gold: #ECC94B;
+    --purple: #805AD5;
+    --teal: #319795;
+    --bg: #F0F4F8; --paper: #FFFFFF; --near-white: #F7FAFC;
+    --g100: #EDF2F7; --g300: #CBD5E0; --g400: #A0AEC0;
+    --g500: #718096; --g600: #4A5568;
+    --text: #2D3748;
+    --serif: 'Playfair Display', Georgia, serif;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html, body { background:var(--bg); }
+  body { font-family: var(--sans); color: var(--text); line-height: 1.55; font-size: 9.5pt; -webkit-font-smoothing: antialiased; }
+  @page {
+    size: A4; margin: 16mm 16mm 20mm 16mm;
+    @bottom-right { content: counter(page); font-family: 'Inter'; font-size: 9pt; color: #718096; }
+    @bottom-left { content: "Grupo Plasencia · Dirección de Marketing Corporativo"; font-family: 'Inter'; font-size: 8pt; color: #A0AEC0; }
+    @top-right { content: "Marcas STL · Post-Venta DCA · 2025 + 2026 YTD"; font-family: 'Inter'; font-size: 8pt; color: #A0AEC0; }
+  }
+  .page { background: var(--paper); width: 210mm; min-height: 297mm; margin: 0 auto 8mm auto; padding: 16mm 16mm 20mm 16mm; position: relative; page-break-after: always; box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 4px 24px rgba(30,39,64,.08); }
+  .page:last-child { page-break-after: auto; }
+  .doc-header { border-top: 3px solid var(--gp-red); padding-top: 5mm; margin-bottom: 8mm; }
+  .doc-header .eyebrow { font-weight: 700; font-size: 9pt; letter-spacing: 4px; color: var(--gp-red); text-transform: uppercase; margin-bottom: 3mm; }
+  .doc-header h1 { font-family: var(--serif); font-weight: 800; font-size: 28pt; line-height: 1.05; letter-spacing: -0.8px; color: var(--gp-navy); margin-bottom: 3mm; }
+  .doc-header .subtitle { font-family: var(--serif); font-weight: 500; font-style: italic; font-size: 13pt; color: var(--g600); line-height: 1.3; }
+  .doc-header .meta { display: flex; gap: 8mm; margin-top: 5mm; padding-top: 4mm; border-top: 1px solid var(--g100); font-size: 8.5pt; color: var(--g500); }
+  .doc-header .meta strong { color: var(--gp-slate); font-weight: 700; }
+  h2.section-h2 { font-family: var(--serif); font-weight: 800; font-size: 18pt; color: var(--gp-navy); margin-top: 9mm; margin-bottom: 3mm; line-height: 1.2; }
+  h2.section-h2 .num { font-family: var(--sans); font-weight: 700; font-size: 9pt; letter-spacing: 3px; color: var(--gp-red); text-transform: uppercase; display: block; margin-bottom: 2mm; }
+  h3.section-h3 { font-size: 10pt; font-weight: 800; color: var(--gp-slate); text-transform: uppercase; letter-spacing: 1.5px; margin-top: 5mm; margin-bottom: 2mm; padding-bottom: 1mm; border-bottom: 1px solid var(--g100); }
+  p { margin: 0 0 3mm 0; }
+  strong { font-weight: 700; color: var(--gp-navy); }
+  .small { font-size: 8pt; color: var(--g500); line-height: 1.45; margin-top: 2mm; }
+  .small strong { color: var(--gp-slate); }
+  table.data { width: 100%; border-collapse: collapse; margin: 3mm 0; font-size: 8pt; page-break-inside: avoid; font-variant-numeric: tabular-nums; }
+  table.data th { background: var(--gp-navy); color: var(--near-white); font-weight: 700; font-size: 7.5pt; letter-spacing: 0.3px; padding: 2mm 2.5mm; text-align: left; text-transform: uppercase; }
+  table.data th.num, table.data td.num { text-align: right; }
+  table.data td { padding: 1.6mm 2.5mm; border-bottom: 1px solid var(--g100); color: var(--g600); }
+  table.data tr:nth-child(even) td { background: var(--g100); }
+  table.data tr:last-child td { border-bottom: none; }
+  table.data tr.total td { background: var(--gp-navy) !important; color: var(--near-white); font-weight: 700; border-bottom: none; }
+  table.data tr.total td strong { color: var(--gold); }
+  table.data tr.subtotal td { background: var(--g300) !important; color: var(--gp-navy); font-weight: 700; }
+  table.data td strong { color: var(--gp-navy); }
+  table.data tr:nth-child(even) td strong { color: var(--gp-navy); }
+  table.data tr.partial td { color: var(--g500); font-style: italic; }
+  .distrib { margin: 4mm 0; }
+  .distrib-row { display: grid; grid-template-columns: 60mm 1fr 35mm; gap: 4mm; align-items: center; padding: 2mm 0; border-bottom: 1px solid var(--g100); }
+  .distrib-row:last-child { border-bottom: none; }
+  .distrib-row .label-d { font-size: 9pt; color: var(--gp-slate); font-weight: 600; }
+  .distrib-row .label-d strong { color: var(--gp-navy); }
+  .distrib-row .bar-wrap { background: var(--g100); height: 6mm; position: relative; border-radius: 2px; overflow: hidden; }
+  .distrib-row .bar { height: 100%; border-radius: 2px; }
+  .distrib-row .bar.ram { background: var(--gp-red); }
+  .distrib-row .bar.peugeot { background: var(--deep-blue); }
+  .distrib-row .bar.jeep { background: var(--green); }
+  .distrib-row .bar.dodge { background: var(--amber); }
+  .distrib-row .bar.fiat { background: var(--purple); }
+  .distrib-row .value-d { font-family: var(--serif); font-weight: 800; font-size: 12pt; color: var(--gp-navy); text-align: right; letter-spacing: -0.3px; }
+  .distrib-row .value-d span { display: block; font-family: var(--sans); font-weight: 600; font-size: 7.5pt; color: var(--g500); letter-spacing: 0.4px; text-transform: uppercase; }
+  .buckets { margin-top: 3mm; }
+  .bucket-row { display: grid; grid-template-columns: 22mm repeat(5, 1fr); gap: 3mm; align-items: center; padding: 2mm 0; border-bottom: 1px solid var(--g100); }
+  .bucket-row.header { font-size: 7pt; color: var(--g500); font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; padding-bottom: 2mm; border-bottom: 1px solid var(--g300); text-align: center; }
+  .bucket-row.header div:first-child { text-align: left; }
+  .bucket-row .b-label { font-family: var(--serif); font-weight: 700; font-size: 10pt; color: var(--gp-navy); letter-spacing: -0.2px; }
+  .bucket-row .b-bar { display: flex; align-items: center; gap: 1.5mm; }
+  .bucket-row .b-bar .barv { height: 4mm; border-radius: 2px; min-width: 1mm; }
+  .bucket-row .b-bar .barv.ram { background: var(--gp-red); }
+  .bucket-row .b-bar .barv.peugeot { background: var(--deep-blue); }
+  .bucket-row .b-bar .barv.jeep { background: var(--green); }
+  .bucket-row .b-bar .barv.dodge { background: var(--amber); }
+  .bucket-row .b-bar .barv.fiat { background: var(--purple); }
+  .bucket-row .b-bar .barv-num { font-family: var(--serif); font-weight: 700; font-size: 10pt; color: var(--gp-navy); }
+</style>
+</head>
+<body>
+
+<!-- ============ PAGE 1: ENCABEZADO + §1 VENTAS UDS ============ -->
+<section class="page">
+  <div class="doc-header">
+    <p class="eyebrow">Reporte · DCA · Junio 2026</p>
+    <h1>Marcas Stellantis · Post-Venta.</h1>
+    <p class="subtitle">Ventas de autos nuevos, órdenes de servicio, valor de refacciones y tiempo compra → primer servicio. RAM · Peugeot · Jeep · Dodge · Fiat. 2025 + 2026 YTD.</p>
+    <div class="meta">
+      <div><strong>Fecha de corte</strong> · 15 jun 2026</div>
+      <div><strong>Fuente</strong> · DCA · cubos 30003 + 30008 (BITAM Artus)</div>
+      <div><strong>Periodo</strong> · 2025-01-01 a 2026-06-15</div>
+    </div>
+  </div>
+
+  <h2 class="section-h2"><span class="num">§1</span>Ventas de autos nuevos por mes (unidades)</h2>
+
+  <table class="data">
+    <thead>
+      <tr><th>Mes</th><th class="num">RAM</th><th class="num">PEUGEOT</th><th class="num">JEEP</th><th class="num">DODGE</th><th class="num">FIAT</th><th class="num">Total uds</th></tr>
+    </thead>
+    <tbody>
+<tr><td>2025/01</td><td class="num">19</td><td class="num">60</td><td class="num">11</td><td class="num">7</td><td class="num">6</td><td class="num"><strong>103</strong></td></tr>
+<tr><td>2025/02</td><td class="num">19</td><td class="num">29</td><td class="num">6</td><td class="num">13</td><td class="num">6</td><td class="num"><strong>73</strong></td></tr>
+<tr><td>2025/03</td><td class="num">16</td><td class="num">26</td><td class="num">9</td><td class="num">4</td><td class="num">3</td><td class="num"><strong>58</strong></td></tr>
+<tr><td>2025/04</td><td class="num">21</td><td class="num">35</td><td class="num">8</td><td class="num">5</td><td class="num">9</td><td class="num"><strong>78</strong></td></tr>
+<tr><td>2025/05</td><td class="num">24</td><td class="num">65</td><td class="num">18</td><td class="num">5</td><td class="num">14</td><td class="num"><strong>126</strong></td></tr>
+<tr><td>2025/06</td><td class="num">20</td><td class="num">52</td><td class="num">13</td><td class="num">7</td><td class="num">5</td><td class="num"><strong>97</strong></td></tr>
+<tr><td>2025/07</td><td class="num">28</td><td class="num">40</td><td class="num">18</td><td class="num">7</td><td class="num">8</td><td class="num"><strong>101</strong></td></tr>
+<tr><td>2025/08</td><td class="num">50</td><td class="num">40</td><td class="num">9</td><td class="num">24</td><td class="num">0</td><td class="num"><strong>123</strong></td></tr>
+<tr><td>2025/09</td><td class="num">84</td><td class="num">35</td><td class="num">20</td><td class="num">38</td><td class="num">4</td><td class="num"><strong>181</strong></td></tr>
+<tr><td>2025/10</td><td class="num">17</td><td class="num">41</td><td class="num">16</td><td class="num">130</td><td class="num">5</td><td class="num"><strong>209</strong></td></tr>
+<tr><td>2025/11</td><td class="num">80</td><td class="num">27</td><td class="num">31</td><td class="num">31</td><td class="num">4</td><td class="num"><strong>173</strong></td></tr>
+<tr><td>2025/12</td><td class="num">86</td><td class="num">42</td><td class="num">16</td><td class="num">12</td><td class="num">1</td><td class="num"><strong>157</strong></td></tr>
+<tr class="subtotal"><td><strong>Total 2025</strong></td><td class="num"><strong>464</strong></td><td class="num"><strong>492</strong></td><td class="num"><strong>175</strong></td><td class="num"><strong>283</strong></td><td class="num"><strong>65</strong></td><td class="num"><strong>1,479</strong></td></tr>
+<tr><td>2026/01</td><td class="num">52</td><td class="num">25</td><td class="num">11</td><td class="num">19</td><td class="num">1</td><td class="num"><strong>108</strong></td></tr>
+<tr><td>2026/02</td><td class="num">34</td><td class="num">52</td><td class="num">20</td><td class="num">8</td><td class="num">6</td><td class="num"><strong>120</strong></td></tr>
+<tr><td>2026/03</td><td class="num">63</td><td class="num">52</td><td class="num">16</td><td class="num">7</td><td class="num">3</td><td class="num"><strong>141</strong></td></tr>
+<tr><td>2026/04</td><td class="num">65</td><td class="num">24</td><td class="num">13</td><td class="num">5</td><td class="num">1</td><td class="num"><strong>108</strong></td></tr>
+<tr><td>2026/05</td><td class="num">78</td><td class="num">41</td><td class="num">13</td><td class="num">8</td><td class="num">2</td><td class="num"><strong>142</strong></td></tr>
+<tr class="partial"><td>2026/06 *</td><td class="num">16</td><td class="num">12</td><td class="num">2</td><td class="num">4</td><td class="num">0</td><td class="num"><strong>34</strong></td></tr>
+<tr class="subtotal"><td><strong>Total 2026 YTD</strong></td><td class="num"><strong>308</strong></td><td class="num"><strong>206</strong></td><td class="num"><strong>75</strong></td><td class="num"><strong>51</strong></td><td class="num"><strong>13</strong></td><td class="num"><strong>653</strong></td></tr>
+<tr class="total"><td><strong>Acumulado 2025+26 YTD</strong></td><td class="num"><strong>772</strong></td><td class="num"><strong>698</strong></td><td class="num"><strong>250</strong></td><td class="num"><strong>334</strong></td><td class="num"><strong>78</strong></td><td class="num"><strong>2,132</strong></td></tr>
+    </tbody>
+  </table>
+
+  <p class="small"><strong>(*) Junio 2026 parcial al 15-jun.</strong> Importes y unidades podrían ser incompletos en DMS. Validar con Inés antes de citar el mes aislado.</p>
+</section>
+
+<!-- ============ PAGE 2: §1 cont. IMPORTE ============ -->
+<section class="page">
+  <h2 class="section-h2"><span class="num">§1·</span>Ventas de autos nuevos por mes (importe)</h2>
+
+  <table class="data">
+    <thead>
+      <tr><th>Mes</th><th class="num">RAM $</th><th class="num">PEUGEOT $</th><th class="num">JEEP $</th><th class="num">DODGE $</th><th class="num">FIAT $</th><th class="num">Total $</th></tr>
+    </thead>
+    <tbody>
+<tr><td>2025/01</td><td class="num">$8.5M</td><td class="num">$23.4M</td><td class="num">$9.9M</td><td class="num">$3.2M</td><td class="num">$2.6M</td><td class="num"><strong>$47.6M</strong></td></tr>
+<tr><td>2025/02</td><td class="num">$11.7M</td><td class="num">$11.0M</td><td class="num">$4.8M</td><td class="num">$5.1M</td><td class="num">$2.6M</td><td class="num"><strong>$35.3M</strong></td></tr>
+<tr><td>2025/03</td><td class="num">$8.2M</td><td class="num">$10.4M</td><td class="num">$9.6M</td><td class="num">$1.7M</td><td class="num">$316K</td><td class="num"><strong>$30.2M</strong></td></tr>
+<tr><td>2025/04</td><td class="num">$14.2M</td><td class="num">$15.0M</td><td class="num">$7.8M</td><td class="num">$2.2M</td><td class="num">$1.7M</td><td class="num"><strong>$41.0M</strong></td></tr>
+<tr><td>2025/05</td><td class="num">$17.0M</td><td class="num">$26.5M</td><td class="num">$13.3M</td><td class="num">$1.7M</td><td class="num">$2.6M</td><td class="num"><strong>$61.0M</strong></td></tr>
+<tr><td>2025/06</td><td class="num">$10.7M</td><td class="num">$19.5M</td><td class="num">$15.5M</td><td class="num">$3.0M</td><td class="num">$1.8M</td><td class="num"><strong>$50.4M</strong></td></tr>
+<tr><td>2025/07</td><td class="num">$9.4M</td><td class="num">$15.8M</td><td class="num">$7.0M</td><td class="num">$532K</td><td class="num">$1.7M</td><td class="num"><strong>$34.5M</strong></td></tr>
+<tr><td>2025/08</td><td class="num">$26.3M</td><td class="num">$16.4M</td><td class="num">$8.2M</td><td class="num">$10.3M</td><td class="num">$0</td><td class="num"><strong>$61.2M</strong></td></tr>
+<tr><td>2025/09</td><td class="num">$17.2M</td><td class="num">$17.0M</td><td class="num">$20.1M</td><td class="num">$6.1M</td><td class="num">$1.8M</td><td class="num"><strong>$62.1M</strong></td></tr>
+<tr><td>2025/10</td><td class="num">$7.2M</td><td class="num">$13.0M</td><td class="num">$12.1M</td><td class="num">$53.3M</td><td class="num">$293K</td><td class="num"><strong>$85.9M</strong></td></tr>
+<tr><td>2025/11</td><td class="num">$41.4M</td><td class="num">$12.2M</td><td class="num">$27.2M</td><td class="num">$11.9M</td><td class="num">$1.5M</td><td class="num"><strong>$94.2M</strong></td></tr>
+<tr><td>2025/12</td><td class="num">$56.2M</td><td class="num">$17.1M</td><td class="num">$11.1M</td><td class="num">$4.1M</td><td class="num">$341K</td><td class="num"><strong>$88.9M</strong></td></tr>
+<tr class="subtotal"><td><strong>Total 2025</strong></td><td class="num"><strong>$227.9M</strong></td><td class="num"><strong>$197.4M</strong></td><td class="num"><strong>$146.7M</strong></td><td class="num"><strong>$103.1M</strong></td><td class="num"><strong>$17.3M</strong></td><td class="num"><strong>$692.4M</strong></td></tr>
+<tr><td>2026/01</td><td class="num">$14.7M</td><td class="num">$11.9M</td><td class="num">$7.9M</td><td class="num">$7.6M</td><td class="num">$376K</td><td class="num"><strong>$42.5M</strong></td></tr>
+<tr><td>2026/02</td><td class="num">$12.6M</td><td class="num">$18.2M</td><td class="num">$10.1M</td><td class="num">$1.8M</td><td class="num">$2.3M</td><td class="num"><strong>$45.1M</strong></td></tr>
+<tr><td>2026/03</td><td class="num">$29.5M</td><td class="num">$17.2M</td><td class="num">$12.1M</td><td class="num">$2.5M</td><td class="num">$376K</td><td class="num"><strong>$61.7M</strong></td></tr>
+<tr><td>2026/04</td><td class="num">$28.3M</td><td class="num">$11.0M</td><td class="num">$8.7M</td><td class="num">$1.6M</td><td class="num">$423K</td><td class="num"><strong>$49.9M</strong></td></tr>
+<tr><td>2026/05</td><td class="num">$31.8M</td><td class="num">$17.2M</td><td class="num">$10.5M</td><td class="num">$3.7M</td><td class="num">$738K</td><td class="num"><strong>$64.0M</strong></td></tr>
+<tr class="partial"><td>2026/06 *</td><td class="num">$6.5M</td><td class="num">$5.4M</td><td class="num">$1.5M</td><td class="num">$1.6M</td><td class="num">$0</td><td class="num"><strong>$15.0M</strong></td></tr>
+<tr class="subtotal"><td><strong>Total 2026 YTD</strong></td><td class="num"><strong>$123.5M</strong></td><td class="num"><strong>$80.9M</strong></td><td class="num"><strong>$50.8M</strong></td><td class="num"><strong>$18.8M</strong></td><td class="num"><strong>$4.2M</strong></td><td class="num"><strong>$278.2M</strong></td></tr>
+<tr class="total"><td><strong>Acumulado 2025+26 YTD</strong></td><td class="num"><strong>$351.4M</strong></td><td class="num"><strong>$278.4M</strong></td><td class="num"><strong>$197.5M</strong></td><td class="num"><strong>$121.9M</strong></td><td class="num"><strong>$21.5M</strong></td><td class="num"><strong>$970.6M</strong></td></tr>
+    </tbody>
+  </table>
+
+  <p class="small"><strong>Lectura central:</strong> RAM es la #1 en revenue ($351.4M) gracias a ticket promedio alto. PEUGEOT es la #2 en uds (698) con ticket más bajo (~$399K). JEEP tiene <strong>ticket promedio mayor del Grupo Stellantis</strong> (~$790K). FIAT minoritaria, en proceso de fade-out.</p>
+</section>
+
+<!-- ============ PAGE 3: §2 OR SERVICIO + §3 RATIO ============ -->
+<section class="page">
+  <h2 class="section-h2"><span class="num">§2</span>Órdenes de servicio post-venta por mes</h2>
+
+  <p class="small" style="margin-bottom:4mm;"><strong>Filtro:</strong> categoría Servicio (Público, Previa Entrega, Aseguradoras, Garantías, HYP, Filiales, Reclamaciones). Excluye Internas, Internas HYP, Internas Taller, Internas Seminuevos, Internas Administración, Devoluciones. OR distinta calculada por Folio Orden Reparación.</p>
+
+  <table class="data">
+    <thead><tr><th>Mes</th><th class="num">RAM</th><th class="num">PEUGEOT</th><th class="num">JEEP</th><th class="num">DODGE</th><th class="num">FIAT</th><th class="num">Total OR</th></tr></thead>
+    <tbody>
+<tr><td>2025/01</td><td class="num">21</td><td class="num">576</td><td class="num">34</td><td class="num">17</td><td class="num">16</td><td class="num"><strong>664</strong></td></tr>
+<tr><td>2025/02</td><td class="num">17</td><td class="num">356</td><td class="num">22</td><td class="num">9</td><td class="num">3</td><td class="num"><strong>407</strong></td></tr>
+<tr><td>2025/03</td><td class="num">24</td><td class="num">393</td><td class="num">38</td><td class="num">13</td><td class="num">10</td><td class="num"><strong>478</strong></td></tr>
+<tr><td>2025/04</td><td class="num">25</td><td class="num">301</td><td class="num">38</td><td class="num">16</td><td class="num">6</td><td class="num"><strong>386</strong></td></tr>
+<tr><td>2025/05</td><td class="num">9</td><td class="num">414</td><td class="num">46</td><td class="num">16</td><td class="num">7</td><td class="num"><strong>492</strong></td></tr>
+<tr><td>2025/06</td><td class="num">27</td><td class="num">359</td><td class="num">28</td><td class="num">15</td><td class="num">11</td><td class="num"><strong>440</strong></td></tr>
+<tr><td>2025/07</td><td class="num">40</td><td class="num">393</td><td class="num">44</td><td class="num">17</td><td class="num">11</td><td class="num"><strong>505</strong></td></tr>
+<tr><td>2025/08</td><td class="num">40</td><td class="num">435</td><td class="num">42</td><td class="num">12</td><td class="num">11</td><td class="num"><strong>540</strong></td></tr>
+<tr><td>2025/09</td><td class="num">32</td><td class="num">365</td><td class="num">38</td><td class="num">10</td><td class="num">6</td><td class="num"><strong>451</strong></td></tr>
+<tr><td>2025/10</td><td class="num">54</td><td class="num">406</td><td class="num">53</td><td class="num">19</td><td class="num">8</td><td class="num"><strong>540</strong></td></tr>
+<tr><td>2025/11</td><td class="num">27</td><td class="num">365</td><td class="num">53</td><td class="num">13</td><td class="num">2</td><td class="num"><strong>460</strong></td></tr>
+<tr><td>2025/12</td><td class="num">49</td><td class="num">294</td><td class="num">51</td><td class="num">24</td><td class="num">10</td><td class="num"><strong>428</strong></td></tr>
+<tr class="subtotal"><td><strong>Total 2025</strong></td><td class="num"><strong>365</strong></td><td class="num"><strong>4,657</strong></td><td class="num"><strong>487</strong></td><td class="num"><strong>181</strong></td><td class="num"><strong>101</strong></td><td class="num"><strong>5,791</strong></td></tr>
+<tr><td>2026/01</td><td class="num">47</td><td class="num">412</td><td class="num">44</td><td class="num">18</td><td class="num">6</td><td class="num"><strong>527</strong></td></tr>
+<tr><td>2026/02</td><td class="num">41</td><td class="num">315</td><td class="num">57</td><td class="num">19</td><td class="num">6</td><td class="num"><strong>438</strong></td></tr>
+<tr><td>2026/03</td><td class="num">65</td><td class="num">407</td><td class="num">62</td><td class="num">18</td><td class="num">15</td><td class="num"><strong>567</strong></td></tr>
+<tr><td>2026/04</td><td class="num">34</td><td class="num">363</td><td class="num">54</td><td class="num">27</td><td class="num">15</td><td class="num"><strong>493</strong></td></tr>
+<tr><td>2026/05</td><td class="num">73</td><td class="num">390</td><td class="num">65</td><td class="num">24</td><td class="num">8</td><td class="num"><strong>560</strong></td></tr>
+<tr class="partial"><td>2026/06 *</td><td class="num">34</td><td class="num">134</td><td class="num">24</td><td class="num">19</td><td class="num">10</td><td class="num"><strong>221</strong></td></tr>
+<tr class="subtotal"><td><strong>Total 2026 YTD</strong></td><td class="num"><strong>294</strong></td><td class="num"><strong>2,021</strong></td><td class="num"><strong>306</strong></td><td class="num"><strong>125</strong></td><td class="num"><strong>60</strong></td><td class="num"><strong>2,806</strong></td></tr>
+<tr class="total"><td><strong>Acumulado 2025+26 YTD</strong></td><td class="num"><strong>650</strong></td><td class="num"><strong>6,580</strong></td><td class="num"><strong>783</strong></td><td class="num"><strong>298</strong></td><td class="num"><strong>159</strong></td><td class="num"><strong>8,470</strong></td></tr>
+    </tbody>
+  </table>
+
+  <h2 class="section-h2"><span class="num">§3</span>Ratio órdenes de servicio / autos vendidos</h2>
+
+  <p class="small" style="margin-bottom:4mm;">Ratio acumulado 2025 + 2026 YTD. <strong>Lectura:</strong> velocidad de visita en el periodo (OR del periodo / autos vendidos del periodo). PEUGEOT muestra ratio anormal por <strong>parque acumulado pre-2025</strong> — la marca tiene 10+ años en GP y captura clientes legacy. Para RAM/DODGE/JEEP/FIAT el ratio &lt;1 indica que <strong>la mayoría de los autos vendidos NO regresan al taller propio</strong>.</p>
+
+  <div class="distrib">
+<div class="distrib-row"><div class="label-d"><strong>RAM</strong> · 650 OR / 772 uds</div><div class="bar-wrap"><div class="bar ram" style="width:8.9%"></div></div><div class="value-d">0.84<span>OR / VENTA</span></div></div>
+<div class="distrib-row"><div class="label-d"><strong>PEUGEOT</strong> · 6,580 OR / 698 uds</div><div class="bar-wrap"><div class="bar peugeot" style="width:100.0%"></div></div><div class="value-d">9.43<span>OR / VENTA</span></div></div>
+<div class="distrib-row"><div class="label-d"><strong>JEEP</strong> · 783 OR / 250 uds</div><div class="bar-wrap"><div class="bar jeep" style="width:33.2%"></div></div><div class="value-d">3.13<span>OR / VENTA</span></div></div>
+<div class="distrib-row"><div class="label-d"><strong>DODGE</strong> · 298 OR / 334 uds</div><div class="bar-wrap"><div class="bar dodge" style="width:9.5%"></div></div><div class="value-d">0.89<span>OR / VENTA</span></div></div>
+<div class="distrib-row"><div class="label-d"><strong>FIAT</strong> · 159 OR / 78 uds</div><div class="bar-wrap"><div class="bar fiat" style="width:21.6%"></div></div><div class="value-d">2.04<span>OR / VENTA</span></div></div>
+  </div>
+</section>
+
+<!-- ============ PAGE 4: §4 VALOR REFACCIONES ============ -->
+<section class="page">
+  <h2 class="section-h2"><span class="num">§4</span>Valor de refacciones vendidas</h2>
+
+  <p class="small" style="margin-bottom:4mm;">Desglose por categoría monetaria del cubo 30008 (indicadores I_30498 Servicio, I_30500 Refacciones, I_30499 Hojalatería). Acumulado 2025 + 2026 YTD.</p>
+
+  <table class="data">
+    <thead><tr><th>Marca</th><th class="num">Servicio $</th><th class="num">Refacciones $</th><th class="num">Hojalatería $</th><th class="num">Total post-venta $</th><th class="num">% vs Revenue</th></tr></thead>
+    <tbody>
+<tr><td><strong>RAM</strong></td><td class="num">$1,228,227</td><td class="num">$1,888,998</td><td class="num">$400,526</td><td class="num"><strong>$3,517,751</strong></td><td class="num">1.00%</td></tr>
+<tr><td><strong>PEUGEOT</strong></td><td class="num">$15,459,177</td><td class="num">$27,692,732</td><td class="num">$8,413,937</td><td class="num"><strong>$51,565,846</strong></td><td class="num">18.53%</td></tr>
+<tr><td><strong>JEEP</strong></td><td class="num">$1,696,383</td><td class="num">$3,984,464</td><td class="num">$745,430</td><td class="num"><strong>$6,426,277</strong></td><td class="num">3.25%</td></tr>
+<tr><td><strong>DODGE</strong></td><td class="num">$556,906</td><td class="num">$787,302</td><td class="num">$766,679</td><td class="num"><strong>$2,110,887</strong></td><td class="num">1.73%</td></tr>
+<tr><td><strong>FIAT</strong></td><td class="num">$287,485</td><td class="num">$439,124</td><td class="num">$364,086</td><td class="num"><strong>$1,090,695</strong></td><td class="num">5.07%</td></tr>
+<tr class="total"><td><strong>TOTAL STL</strong></td><td class="num"><strong>$19,228,178</strong></td><td class="num"><strong>$34,792,620</strong></td><td class="num"><strong>$10,690,658</strong></td><td class="num"><strong>$64,711,456</strong></td><td class="num"><strong>6.67%</strong></td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="section-h3">Refacciones $ por marca · vista comparativa</h3>
+
+  <div class="distrib">
+<div class="distrib-row"><div class="label-d"><strong>RAM</strong> · post-venta</div><div class="bar-wrap"><div class="bar ram" style="width:6.8%"></div></div><div class="value-d">$3.5M<span>5.4% del total</span></div></div>
+<div class="distrib-row"><div class="label-d"><strong>PEUGEOT</strong> · post-venta</div><div class="bar-wrap"><div class="bar peugeot" style="width:100.0%"></div></div><div class="value-d">$51.6M<span>79.7% del total</span></div></div>
+<div class="distrib-row"><div class="label-d"><strong>JEEP</strong> · post-venta</div><div class="bar-wrap"><div class="bar jeep" style="width:12.5%"></div></div><div class="value-d">$6.4M<span>9.9% del total</span></div></div>
+<div class="distrib-row"><div class="label-d"><strong>DODGE</strong> · post-venta</div><div class="bar-wrap"><div class="bar dodge" style="width:4.1%"></div></div><div class="value-d">$2.1M<span>3.3% del total</span></div></div>
+<div class="distrib-row"><div class="label-d"><strong>FIAT</strong> · post-venta</div><div class="bar-wrap"><div class="bar fiat" style="width:2.1%"></div></div><div class="value-d">$1.1M<span>1.7% del total</span></div></div>
+  </div>
+
+  <p class="small"><strong>Hallazgo:</strong> PEUGEOT concentra <strong>79.7%</strong> del valor post-venta total del Grupo Stellantis ($51.6M). Esto refleja el parque grande acumulado y un programa de retención más maduro que el resto del Grupo Stellantis. Las marcas FCA (RAM, JEEP, DODGE, FIAT) en agregado representan apenas 20.3% — desproporción frente al revenue de venta donde RAM lidera.</p>
+</section>
+
+<!-- ============ PAGE 5: §5 TIEMPO ============ -->
+<section class="page">
+  <h2 class="section-h2"><span class="num">§5</span>Tiempo entre compra y primer servicio</h2>
+
+  <p class="small" style="margin-bottom:4mm;"><strong>Método:</strong> join VIN limpio entre cubo 30003 (ventas) y cubo 30008 (servicio). Solo categoría Servicio. Filtro <code style="background:var(--g100);padding:1px 4px;">fecha_servicio ≥ fecha_venta</code>. La <strong>mediana</strong> es el indicador robusto; el promedio se infla con casos tardíos al cierre del periodo.</p>
+
+  <table class="data">
+    <thead><tr><th>Marca</th><th class="num">Vendidos en periodo</th><th class="num">Con ≥1 servicio</th><th class="num">% Cobertura</th><th class="num">Promedio días</th><th class="num">Mediana días</th><th class="num">Min</th><th class="num">Max</th></tr></thead>
+    <tbody>
+<tr><td><strong>RAM</strong></td><td class="num">633</td><td class="num">94</td><td class="num">14.8%</td><td class="num">143</td><td class="num">120</td><td class="num">0</td><td class="num">434</td></tr>
+<tr><td><strong>PEUGEOT</strong></td><td class="num">600</td><td class="num">281</td><td class="num">46.8%</td><td class="num">145</td><td class="num">124</td><td class="num">0</td><td class="num">486</td></tr>
+<tr><td><strong>JEEP</strong></td><td class="num">207</td><td class="num">44</td><td class="num">21.3%</td><td class="num">143</td><td class="num">108</td><td class="num">0</td><td class="num">415</td></tr>
+<tr><td><strong>DODGE</strong></td><td class="num">272</td><td class="num">40</td><td class="num">14.7%</td><td class="num">185</td><td class="num">180</td><td class="num">6</td><td class="num">470</td></tr>
+<tr><td><strong>FIAT</strong></td><td class="num">56</td><td class="num">8</td><td class="num">14.3%</td><td class="num">152</td><td class="num">64</td><td class="num">0</td><td class="num">416</td></tr>
+<tr class="total"><td><strong>TOTAL STL</strong></td><td class="num"><strong>1,768</strong></td><td class="num"><strong>467</strong></td><td class="num"><strong>26.4%</strong></td><td class="num"><strong>148</strong></td><td class="num"><strong>127</strong></td><td class="num">0</td><td class="num">486</td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="section-h3">Distribución por bucket de días hasta primer servicio</h3>
+
+  <div class="buckets">
+<div class="bucket-row header"><div>Bucket</div><div>RAM</div><div>PEUGEOT</div><div>JEEP</div><div>DODGE</div><div>FIAT</div></div>
+<div class="bucket-row"><div class="b-label">0–30 d</div><div class="b-bar"><div class="barv ram" style="width:24%"></div><div class="barv-num">21</div></div><div class="b-bar"><div class="barv peugeot" style="width:77%"></div><div class="barv-num">68</div></div><div class="b-bar"><div class="barv jeep" style="width:12%"></div><div class="barv-num">11</div></div><div class="b-bar"><div class="barv dodge" style="width:3%"></div><div class="barv-num">3</div></div><div class="b-bar"><div class="barv fiat" style="width:1%"></div><div class="barv-num">1</div></div></div>
+<div class="bucket-row"><div class="b-label">31–90 d</div><div class="b-bar"><div class="barv ram" style="width:25%"></div><div class="barv-num">22</div></div><div class="b-bar"><div class="barv peugeot" style="width:52%"></div><div class="barv-num">46</div></div><div class="b-bar"><div class="barv jeep" style="width:10%"></div><div class="barv-num">9</div></div><div class="b-bar"><div class="barv dodge" style="width:9%"></div><div class="barv-num">8</div></div><div class="b-bar"><div class="barv fiat" style="width:5%"></div><div class="barv-num">4</div></div></div>
+<div class="bucket-row"><div class="b-label">91–180 d</div><div class="b-bar"><div class="barv ram" style="width:18%"></div><div class="barv-num">16</div></div><div class="b-bar"><div class="barv peugeot" style="width:72%"></div><div class="barv-num">63</div></div><div class="b-bar"><div class="barv jeep" style="width:7%"></div><div class="barv-num">6</div></div><div class="b-bar"><div class="barv dodge" style="width:10%"></div><div class="barv-num">9</div></div><div class="b-bar"><div class="barv fiat" style="width:0%"></div><div class="barv-num">0</div></div></div>
+<div class="bucket-row"><div class="b-label">181–365 d</div><div class="b-bar"><div class="barv ram" style="width:36%"></div><div class="barv-num">32</div></div><div class="b-bar"><div class="barv peugeot" style="width:100%"></div><div class="barv-num">88</div></div><div class="b-bar"><div class="barv jeep" style="width:17%"></div><div class="barv-num">15</div></div><div class="b-bar"><div class="barv dodge" style="width:17%"></div><div class="barv-num">15</div></div><div class="b-bar"><div class="barv fiat" style="width:2%"></div><div class="barv-num">2</div></div></div>
+<div class="bucket-row"><div class="b-label">366+ d</div><div class="b-bar"><div class="barv ram" style="width:3%"></div><div class="barv-num">3</div></div><div class="b-bar"><div class="barv peugeot" style="width:18%"></div><div class="barv-num">16</div></div><div class="b-bar"><div class="barv jeep" style="width:3%"></div><div class="barv-num">3</div></div><div class="b-bar"><div class="barv dodge" style="width:6%"></div><div class="barv-num">5</div></div><div class="b-bar"><div class="barv fiat" style="width:1%"></div><div class="barv-num">1</div></div></div>
+  </div>
+
+  <p class="small" style="margin-top:5mm;"><strong>Cobertura post-venta crítica:</strong> el Grupo Stellantis (sin PEUGEOT) retiene apenas <strong>14–21%</strong> de los autos que vende en su taller propio (RAM 14.8% / JEEP 21.3% / DODGE 14.7% / FIAT 14.3%). PEUGEOT 46.8% es el único caso saludable. Esto contrasta con el Grupo Chinas (66–79%). Implicación: hay una <strong>brecha estructural de retención FCA</strong> que probablemente alimenta talleres independientes. Comparado vs benchmark NADA US (8-12% de revenue de venta en post-venta), el Grupo Stellantis está en 6.67% — gap de captura del mismo orden que las Chinas.</p>
+</section>
+
+</body>
+</html>
