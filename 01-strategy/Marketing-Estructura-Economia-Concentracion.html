@@ -32,8 +32,8 @@
   body {
     font-family: var(--sans);
     color: var(--text);
-    line-height: 1.6;
-    font-size: 10.5pt;
+    line-height: 1.45;
+    font-size: 9.5pt;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     widows: 3; orphans: 3;
@@ -55,7 +55,7 @@
     width: 210mm;
     min-height: 297mm;
     margin: 0 auto 10mm auto;
-    padding: 22mm 20mm 24mm 20mm;
+    padding: 18px 46px 50px 46px;
     position: relative;
     page-break-after: always;
     box-shadow: 0 1px 3px rgba(0,0,0,.05), 0 8px 32px rgba(30,39,64,.10);
@@ -108,9 +108,9 @@
 
   /* SECTION TITLES */
   h1.section-title {
-    font-family: var(--serif); font-weight: 800; font-size: 26pt; line-height: 1.1;
+    font-family: var(--serif); font-weight: 800; font-size: 20pt; line-height: 1.1;
     letter-spacing: -0.8px; color: var(--gp-navy);
-    border-top: 3px solid var(--gp-red); padding-top: 8mm; margin-bottom: 7mm;
+    border-top: 3px solid var(--gp-red); padding-top: 4px; margin-bottom: 4px;
     page-break-after: avoid;
   }
   h1.section-title .num {
@@ -121,8 +121,8 @@
     font-family: var(--serif); font-style: italic; font-weight: 500; color: var(--gp-red);
   }
   h2 {
-    font-family: var(--sans); font-weight: 700; font-size: 12.5pt; color: var(--gp-navy);
-    margin-top: 8mm; margin-bottom: 3mm; letter-spacing: -0.15px; line-height: 1.3;
+    font-family: var(--sans); font-weight: 700; font-size: 12pt; color: var(--gp-navy);
+    margin-top: 14px; margin-bottom: 6px; letter-spacing: -0.15px; line-height: 1.3;
     page-break-after: avoid;
   }
   h2:first-of-type { margin-top: 3mm; }
@@ -131,8 +131,8 @@
     font-variant-numeric: tabular-nums; font-size: 11pt;
   }
   h3 {
-    font-family: var(--sans); font-weight: 700; font-size: 11pt; color: var(--gp-navy);
-    margin-top: 6mm; margin-bottom: 2.5mm; letter-spacing: -0.1px; line-height: 1.3;
+    font-family: var(--sans); font-weight: 700; font-size: 10.5pt; color: var(--gp-navy);
+    margin-top: 10px; margin-bottom: 2.5mm; letter-spacing: -0.1px; line-height: 1.3;
     page-break-after: avoid; break-after: avoid;
   }
   h3 .h-num {
@@ -140,32 +140,32 @@
     font-variant-numeric: tabular-nums; font-size: 10pt;
   }
 
-  p { margin-bottom: 3mm; font-size: 10.5pt; color: var(--g700); line-height: 1.6; }
-  p.lead { font-size: 12pt; color: var(--g700); line-height: 1.55; margin-bottom: 5mm; }
+  p { margin-bottom: 6px; font-size: 9.5pt; color: var(--g700); line-height: 1.45; }
+  p.lead { font-size: 10.5pt; color: var(--g700); line-height: 1.55; margin-bottom: 5px; }
   p.lead em { font-style: italic; color: var(--gp-navy); }
   strong { color: var(--gp-navy); font-weight: 700; }
   em { font-style: italic; }
   a { color: var(--gp-navy); text-decoration: none; border-bottom: 1px solid rgba(30,39,64,0.4); }
   ul, ol { margin: 2mm 0 4mm 6mm; }
-  li { margin-bottom: 1.5mm; font-size: 10.5pt; color: var(--g700); line-height: 1.55; }
+  li { margin-bottom: 1.5mm; font-size: 9.5pt; color: var(--g700); line-height: 1.55; }
   li::marker { color: var(--gp-red); font-weight: 700; }
 
   table {
-    width: 100%; border-collapse: collapse; margin: 4mm 0 5mm 0; font-size: 9.5pt;
+    width: 100%; border-collapse: collapse; margin: 4mm 0 5mm 0; font-size: 9pt;
     background: var(--paper);
   }
   thead { display: table-header-group; }
   tr { page-break-inside: avoid; }
   th {
     background: var(--gp-navy); color: var(--near-white);
-    font-family: var(--sans); font-weight: 700; font-size: 7.8pt; letter-spacing: 1.3px;
-    text-transform: uppercase; padding: 3.2mm 3.8mm; text-align: left; vertical-align: middle;
+    font-family: var(--sans); font-weight: 700; font-size: 8pt; letter-spacing: 1.3px;
+    text-transform: uppercase; padding: 7px 10px; text-align: left; vertical-align: middle;
     border-right: 1px solid rgba(255,255,255,0.12); line-height: 1.35;
   }
   th:last-child { border-right: none; }
   th.num { text-align: right; }
   td {
-    padding: 3.2mm 3.8mm; border-bottom: 1px solid var(--g200);
+    padding: 6px 10px; border-bottom: 1px solid var(--g200);
     vertical-align: top; line-height: 1.55; color: var(--g700); font-size: 9.5pt;
   }
   tr:nth-child(even) td { background: var(--g100); }
@@ -185,7 +185,7 @@
 
   .callout {
     background: linear-gradient(to right, rgba(30,39,64,0.05), rgba(30,39,64,0.01));
-    border-left: 4px solid var(--gp-navy); padding: 4.5mm 5.5mm; margin: 5mm 0;
+    border-left: 4px solid var(--gp-navy); padding: 11px 16px; margin: 9px 0;
     border-radius: 0 2px 2px 0; page-break-inside: avoid;
   }
   .callout-t { font-family: var(--serif); font-weight: 700; font-style: italic; color: var(--gp-navy); margin-bottom: 2.5mm; font-size: 12.5pt; letter-spacing: -0.3px; line-height: 1.25; }
@@ -193,21 +193,21 @@
 
   .conv-note {
     background: linear-gradient(to right, rgba(200,16,46,0.06), rgba(200,16,46,0.01));
-    border-left: 4px solid var(--gp-red); padding: 4.5mm 5.5mm; margin: 5mm 0;
+    border-left: 4px solid var(--gp-red); padding: 11px 16px; margin: 9px 0;
     border-radius: 0 2px 2px 0; page-break-inside: avoid;
   }
   .conv-note strong { color: var(--gp-red); }
 
   .warn-note {
     background: linear-gradient(to right, rgba(214,158,46,0.08), rgba(214,158,46,0.01));
-    border-left: 4px solid var(--amber); padding: 4.5mm 5.5mm; margin: 5mm 0;
+    border-left: 4px solid var(--amber); padding: 11px 16px; margin: 9px 0;
     border-radius: 0 2px 2px 0; page-break-inside: avoid;
   }
   .warn-note strong { color: #B7791F; }
 
   .gold-note {
     background: linear-gradient(to right, rgba(236,201,75,0.12), rgba(236,201,75,0.02));
-    border-left: 4px solid var(--gold); padding: 4.5mm 5.5mm; margin: 5mm 0;
+    border-left: 4px solid var(--gold); padding: 11px 16px; margin: 9px 0;
     border-radius: 0 2px 2px 0; page-break-inside: avoid;
   }
   .gold-note strong { color: #B7791F; }
@@ -419,6 +419,11 @@
   .silo li.warn .val strong { color: var(--gp-red); }
   .silo li.warn .val em { color: var(--gp-red); font-style: italic; }
 
+
+  /* SVG/IMAGE SIZE CONSTRAINT */
+  .page svg, .page img { max-height: 120mm; width: auto; }
+  .svg-figure svg { max-height: 115mm; }
+
   @media screen { body { padding: 12mm 0; } }
   @media print {
     body { background: white; }
@@ -474,19 +479,19 @@
   <h1 class="section-title"><span class="num">Tabla de contenidos</span>Lo que <em>vamos a ver</em></h1>
 
   <div class="toc">
-    <div class="toc-item"><span class="toc-num">Cap 0</span><span class="toc-title">En 60 segundos</span><span class="toc-sub">Tesis ejecutiva · $212.6M cargado al P&amp;L · 0.54% del revenue · ausencia de gobierno corporativo</span><span class="toc-p">3</span></div>
-    <div class="toc-item"><span class="toc-num">§B</span><span class="toc-title">El beneficio de oportunidad</span><span class="toc-sub">As-Is vs To-Be · ROAS proxy por marca · $50-70M anuales liberados + palanca dominante +$330-661M revenue · Hyundai+GAC concentran +$1,220M al sector 10%</span><span class="toc-p">4</span></div>
-    <div class="toc-item"><span class="toc-num">Cap 1</span><span class="toc-title">Estado de Resultados por marca</span><span class="toc-sub">P&amp;L cerrado 8 marcas · OEM rebate 15.9% vs benchmark 20-30% · dispersión CPA 21.6×</span><span class="toc-p">4</span></div>
-    <div class="toc-item"><span class="toc-num">Cap 2</span><span class="toc-title">Estructura organizacional As-Is</span><span class="toc-sub">70+ personas operativas (63 centralizadas + supervisores digital sucursales) · 5 marcas sin gerencia</span><span class="toc-p">5-6</span></div>
-    <div class="toc-item"><span class="toc-num">Cap 3</span><span class="toc-title">Concentración del gasto MKT</span><span class="toc-sub">180 cuentas contables · top 15 con PROMO MMDM PLANTA al frente · §3.5 lista nominal de 285 proveedores MKT externos inferidos por razón social</span><span class="toc-p">8-10</span></div>
-    <div class="toc-item"><span class="toc-num">Cap 4</span><span class="toc-title">Problemas estructurales</span><span class="toc-sub">5 ejes · cuentas · pixels · presupuesto · leads · plantilla</span><span class="toc-p">9-11</span></div>
-    <div class="toc-item"><span class="toc-num">Cap 5</span><span class="toc-title">Magnitud económica</span><span class="toc-sub">Central de Medios + 5 palancas · Escenarios A·B·C · OEM rebate · ROI 9.3× conservador · Google sub-explotado</span><span class="toc-p">12-14</span></div>
-    <div class="toc-item"><span class="toc-num">Cap 6</span><span class="toc-title">Lo construido · 90 días en piloto</span><span class="toc-sub">Motor de Atribución MVP · 4 marcas en producción + 3 tracks WIP (Changan · GWM · Flotillas) · resultados cuantitativos · 3 recomendaciones del piloto</span><span class="toc-p">15-17</span></div>
-    <div class="toc-item"><span class="toc-num">Cap 7</span><span class="toc-title">Gobierno de Marketing</span><span class="toc-sub">Hub &amp; Spoke + roadmap estratégico · 4 escenarios · 6 SMEs Hub + 8 Brand Managers + ~22 onsite + 2 agencias · 3 olas con 6 PE · 4 preguntas binarias al Consejo</span><span class="toc-p">17-20</span></div>
-    <div class="toc-item"><span class="toc-num">Anexos</span><span class="toc-title">Cobertura, documentos y reproducibilidad</span><span class="toc-sub">Estado de gaps de data al cierre del documento</span><span class="toc-p">19</span></div>
+    <div class="toc-item" style="padding:2.8mm 0;"><span class="toc-num">Cap 0</span><span class="toc-title">En 60 segundos</span><span class="toc-sub">Tesis ejecutiva · $212.6M cargado al P&amp;L · 0.54% del revenue · ausencia de gobierno corporativo</span><span class="toc-p">3</span></div>
+    <div class="toc-item" style="padding:2.8mm 0;"><span class="toc-num">§B</span><span class="toc-title">El beneficio de oportunidad</span><span class="toc-sub">As-Is vs To-Be · ROAS proxy por marca · $50-70M anuales liberados + palanca dominante +$330-661M revenue · Hyundai+GAC concentran +$1,220M al sector 10%</span><span class="toc-p">4</span></div>
+    <div class="toc-item" style="padding:2.8mm 0;"><span class="toc-num">Cap 1</span><span class="toc-title">Estado de Resultados por marca</span><span class="toc-sub">P&amp;L cerrado 8 marcas · OEM rebate 15.9% vs benchmark 20-30% · dispersión CPA 21.6×</span><span class="toc-p">4</span></div>
+    <div class="toc-item" style="padding:2.8mm 0;"><span class="toc-num">Cap 2</span><span class="toc-title">Estructura organizacional As-Is</span><span class="toc-sub">70+ personas operativas (63 centralizadas + supervisores digital sucursales) · 5 marcas sin gerencia</span><span class="toc-p">5-6</span></div>
+    <div class="toc-item" style="padding:2.8mm 0;"><span class="toc-num">Cap 3</span><span class="toc-title">Concentración del gasto MKT</span><span class="toc-sub">180 cuentas contables · top 15 con PROMO MMDM PLANTA al frente · §3.5 lista nominal de 285 proveedores MKT externos inferidos por razón social</span><span class="toc-p">8-10</span></div>
+    <div class="toc-item" style="padding:2.8mm 0;"><span class="toc-num">Cap 4</span><span class="toc-title">Problemas estructurales</span><span class="toc-sub">5 ejes · cuentas · pixels · presupuesto · leads · plantilla</span><span class="toc-p">9-11</span></div>
+    <div class="toc-item" style="padding:2.8mm 0;"><span class="toc-num">Cap 5</span><span class="toc-title">Magnitud económica</span><span class="toc-sub">Central de Medios + 5 palancas · Escenarios A·B·C · OEM rebate · ROI 9.3× conservador · Google sub-explotado</span><span class="toc-p">12-14</span></div>
+    <div class="toc-item" style="padding:2.8mm 0;"><span class="toc-num">Cap 6</span><span class="toc-title">Lo construido · 90 días en piloto</span><span class="toc-sub">Motor de Atribución MVP · 4 marcas en producción + 3 tracks WIP (Changan · GWM · Flotillas) · resultados cuantitativos · 3 recomendaciones del piloto</span><span class="toc-p">15-17</span></div>
+    <div class="toc-item" style="padding:2.8mm 0;"><span class="toc-num">Cap 7</span><span class="toc-title">Gobierno de Marketing</span><span class="toc-sub">Hub &amp; Spoke + roadmap estratégico · 4 escenarios · 6 SMEs Hub + 8 Brand Managers + ~22 onsite + 2 agencias · 3 olas con 6 PE · 4 preguntas binarias al Consejo</span><span class="toc-p">17-20</span></div>
+    <div class="toc-item" style="padding:2.8mm 0;"><span class="toc-num">Anexos</span><span class="toc-title">Cobertura, documentos y reproducibilidad</span><span class="toc-sub">Estado de gaps de data al cierre del documento</span><span class="toc-p">19</span></div>
   </div>
 
-  <div class="nota" style="margin-top:8mm;"><strong>Sobre esta versión 3.7.4.</strong> Contraloría publicó el 15-oct-2025 la guía formal del catálogo MKT con tres sub-buckets oficiales: <strong>MKT Tradicional · MKT Digital · RP/AC</strong>. El cubo 30067 LxL del DCA ya refleja esta clasificación · esta versión actualiza el Cap 3 (§3.5.0 nuevo con la taxonomía formal · §3.5.1 con columna Bucket inferido por razón social) y refuerza Cap 5 §5.5 y §5.7 con los confirmadores contables del catálogo. <strong>Cifras del caso financiero inalteradas:</strong> $50-70M captura · ROI 9.3× · +$330-661M revenue por +1pp · +$1,220M Hyundai+GAC al 10%. <em>Historial completo de versiones en el repositorio · changelog desde v3.0 cubre snapshot oficial del piloto 15-jun-2026, hero stats As-Is vs To-Be, SVG To-Be Hub &amp; Spoke, P&amp;L por marca DCA verificado, lectura honesta del top 15 con columna Naturaleza, universo nominal de 285 proveedores externos y §B.1 ROAS proxy por marca.</em></div>
+  <div class="nota" style="margin-top:4mm;font-size:7.5pt;line-height:1.3;"><strong>Sobre esta versión 3.7.4.</strong> Contraloría publicó el 15-oct-2025 la guía formal del catálogo MKT con tres sub-buckets oficiales: <strong>MKT Tradicional · MKT Digital · RP/AC</strong>. El cubo 30067 LxL del DCA ya refleja esta clasificación · esta versión actualiza el Cap 3 (§3.5.0 nuevo con la taxonomía formal · §3.5.1 con columna Bucket inferido por razón social) y refuerza Cap 5 §5.5 y §5.7 con los confirmadores contables del catálogo. <strong>Cifras del caso financiero inalteradas:</strong> $50-70M captura · ROI 9.3× · +$330-661M revenue por +1pp · +$1,220M Hyundai+GAC al 10%. <em>Historial completo de versiones en el repositorio · changelog desde v3.0 cubre snapshot oficial del piloto 15-jun-2026, hero stats As-Is vs To-Be, SVG To-Be Hub &amp; Spoke, P&amp;L por marca DCA verificado, lectura honesta del top 15 con columna Naturaleza, universo nominal de 285 proveedores externos y §B.1 ROAS proxy por marca.</em></div>
 </section>
 
 <!-- CAP 0: EN 60 SEGUNDOS -->
@@ -495,7 +500,10 @@
 
   <p class="lead">El gasto MKT del Grupo cargado al P&amp;L en 2025 suma <strong>$212.6 millones de pesos</strong>: $197.5M de pauta contable (cubo 30065) más $15.1M de nómina cargada con cargas patronales (cubo 30046 área MKT centralizada + cubo 30067 supervisores digitales en sucursales). Equivalente al <strong>0.54% del revenue del Grupo</strong>, por debajo del benchmark del sector automotriz mexicano (0.8-1.5%). El cubo 30051 de Cuentas por Pagar adiciona una vista nominal complementaria con <strong>285 razones sociales de proveedores MKT externos inferidos por ~$80M anualizados</strong> (Cap 3 §3.5) · vista útil para identificar consolidación cross-marca, no aditiva al total contable. <strong>El problema no es el monto. Es la ausencia de gobierno corporativo:</strong> cada Director de Marca opera bajo su propio Plan de Marketing Anual con el OEM, sin coordinación cross-marca, sin sistema de medición unificado, y sin negociación cross-OEM. Ocho empresas paralelas que comparten dueño.</p>
 
-  <div class="hero-grid">
+</section>
+<section class="page">
+  <h1 class="section-title"><span class="num">Cap 0 · §60s · Datos</span>El Grupo no necesita gastar menos. <em>Necesita gobernar lo que ya gasta.</em></h1>
+  <div class="hero-grid" style="font-size:8.5pt;font-size:8pt;">
 
     <div class="hero-card">
       <div class="hero-num">$197.5M</div>
@@ -541,6 +549,11 @@
       </div>
     </div>
 
+  </div>
+</section>
+<section class="page">
+  <h1 class="section-title"><span class="num">Cap 0 · §60s continuación</span>El Grupo no necesita gastar menos. <em>Necesita gobernar lo que ya gasta.</em></h1>
+  <div class="hero-grid" style="grid-template-columns:1fr;">
     <div class="hero-card gold">
       <div class="hero-num">~$80M</div>
       <div class="hero-num-sub">Proveedores MKT externos · estimado anualizado · cubo 30051 CxP</div>
@@ -566,16 +579,31 @@
 
   </div>
 
+</section>
+<section class="page">
+  <h1 class="section-title" style="margin-bottom:2mm;"><span class="num">Cap 0 · continuación</span>El Grupo no necesita gastar menos. <em>Seis proyectos que liberan $50-70M al año.</em></h1>
   <div class="conv-note">
     <strong>Tesis ejecutiva.</strong> El Grupo carga al P&amp;L $212.6M anuales en Marketing — 0.54% del revenue, por debajo del benchmark del sector. El gasto no es el problema. El problema es que se ejerce sin gobierno corporativo: ocho empresas paralelas que comparten dueño.<br/><br/>
     La Dirección de Marketing Corporativo, con mandato formal del Consejo, opera como <strong>Central de Medios</strong> bajo modelo Hub &amp; Spoke (célula especializada cross-marca + Brand Managers PoC con OEM + dos agencias únicas) y ejecuta <strong>seis proyectos estratégicos</strong> distribuidos en <strong>tres olas de 24 meses</strong>:
-    <ol style="margin:2mm 0 2mm 5mm;padding:0;font-size:9.5pt;">
+    <ol style="margin:1mm 0 1mm 4mm;padding:0;font-size:7.5pt;line-height:1.25;">
       <li><strong>Centralización de assets digitales</strong> · cuentas publicitarias, redes sociales, pixels, datos · Ola 1</li>
       <li><strong>Marca laboratorio · experiencia de compra phygital cliente-céntrica</strong> · una marca del Grupo opera con foco en customer journey y UX cliente (no en proceso de negocio) · candidatas Plasencia Seminuevos + GP Autolease · Ola 1</li>
       <li><strong>Definición de Experiencia Plasencia · Ola 2</strong> · proyecto madre · experiencia ideal del cliente bajo <em>diseño estratégico</em> como metodología de definición, priorización y ejecución. Engloba: redefinición de Grupo Plasencia como marca madre con OEMs paraguas y sub-marcas funcionales (Crédito, Flotillas, Posventa), Marketplace Plasencia (plataforma digital propia con inventario unificado cross-marca + MyPlasencia post-compra), User Research + Customer Journey E2E + NPS auditable cross-marca, marca laboratorio cross-marca.</li>
+    </ol>
+  </div>
+</section>
+<section class="page">
+  <h1 class="section-title"><span class="num">Cap 0 · continuación c</span>El Grupo no necesita gastar menos. <em>Seis proyectos que liberan $50-70M al año.</em></h1>
+  <div class="conv-note" style="font-size:7.5pt;line-height:1.25;padding:2.5mm;">
+    <ol start="4" style="margin:1mm 0 1mm 4mm;padding:0;font-size:8pt;line-height:1.3;">
       <li><strong>Plasencia Touch en piso</strong> · escalamiento del modelo al portfolio core · Ola 3</li>
       <li><strong>Laboratorio de innovación en marca china · Ola 3</strong> · una marca de menor volumen del bloque chino (GAC · Changan · GWM) opera como laboratorio de innovación · valida la Experiencia Plasencia ideal definida en Ola 2 en condiciones reales antes de escalar al portafolio core de mayor volumen.</li>
     </ol>
+  </div>
+</section>
+<section class="page">
+  <h1 class="section-title"><span class="num">Cap 0 · continuación b</span>El Grupo no necesita gastar menos. <em>Seis proyectos que liberan $50-70M al año.</em></h1>
+  <div class="conv-note" style="font-size:8.5pt;line-height:1.35;">
     El modelo libera <strong>$50-70M anuales</strong> entre eficiencia operativa, consolidación cross-marca del universo de proveedores externos (~$80M en CxP) y co-inversión OEM al benchmark del sector, sin un peso de presupuesto incremental al Consejo, y habilita la palanca de conversión digital — un orden de magnitud mayor — vía el Motor de Atribución como única fuente de verdad.
   </div>
 </section>
@@ -584,9 +612,9 @@
 <section class="page">
   <h1 class="section-title"><span class="num">El beneficio de oportunidad</span>Lo contrario del costo. <em>Cuánto deja sobre la mesa el modelo actual.</em></h1>
 
-  <p class="lead">El <strong>costo de oportunidad</strong> mide lo que el Grupo deja de ganar por <em>no actuar</em> — ventas que no ocurren. El <strong>costo hundido</strong> mide pauta gastada que no regresó en ventas. El <em>beneficio de oportunidad</em> mide lo que el Grupo capturaría al cerrar el gap entre As-Is y To-Be. Bajo el modelo Hub &amp; Spoke con dos agencias únicas cross-marca operando bajo estándar único del Centro de Excelencia, el Grupo libera entre <strong>$50 y $70 millones de pesos anuales</strong> que hoy se quedan sobre la mesa, sin un peso de presupuesto incremental al Consejo. La palanca dominante de conversión digital atribuida opera en otro orden de magnitud: cada punto porcentual de conversión recuperado bajo gobernanza corporativa representa entre $330 y $661 millones de revenue incremental al año.</p>
+  <p class="lead" style="font-size:8pt;line-height:1.35;">El <strong>costo de oportunidad</strong> mide lo que el Grupo deja de ganar por <em>no actuar</em> — ventas que no ocurren. El <strong>costo hundido</strong> mide pauta gastada que no regresó en ventas. El <em>beneficio de oportunidad</em> mide lo que el Grupo capturaría al cerrar el gap entre As-Is y To-Be. Bajo el modelo Hub &amp; Spoke con dos agencias únicas cross-marca operando bajo estándar único del Centro de Excelencia, el Grupo libera entre <strong>$50 y $70 millones de pesos anuales</strong> que hoy se quedan sobre la mesa, sin un peso de presupuesto incremental al Consejo. La palanca dominante de conversión digital atribuida opera en otro orden de magnitud: cada punto porcentual de conversión recuperado bajo gobernanza corporativa representa entre $330 y $661 millones de revenue incremental al año.</p>
 
-  <p style="font-size:9.5pt;color:var(--g600);margin-top:1mm;margin-bottom:5mm;">El gap entre As-Is y To-Be no se justifica como ahorro absoluto de plantilla. Se justifica por cómo se gobierna el peso invertido: la misma pauta rinde más, la co-inversión OEM se negocia cross-marca al benchmark del sector, la consolidación cross-marca opera sobre el universo de ~$80M anualizados en proveedores externos del cubo 30051 (Cap 3 §3.5), y la conversión digital atribuida sale del Motor de Atribución como única fuente de verdad.</p>
+  <p style="font-size:8.5pt;color:var(--g600);margin-top:1mm;margin-bottom:4mm;">El gap entre As-Is y To-Be no se justifica como ahorro absoluto de plantilla. Se justifica por cómo se gobierna el peso invertido: la misma pauta rinde más, la co-inversión OEM se negocia cross-marca al benchmark del sector, la consolidación cross-marca opera sobre el universo de ~$80M anualizados en proveedores externos del cubo 30051 (Cap 3 §3.5), y la conversión digital atribuida sale del Motor de Atribución como única fuente de verdad.</p>
 
   <div class="hero-grid">
 
@@ -636,7 +664,10 @@
 
   </div>
 
-  <h2 style="margin-top:8mm;"><span class="h-num">B.1</span>Por marca · ROAS proxy y revenue incremental por +1pp de conversión digital</h2>
+</section>
+<section class="page">
+  <h1 class="section-title"><span class="num">Cap 0 · §B.1</span>Lo contrario del costo. <em>Cuánto deja sobre la mesa el modelo actual.</em></h1>
+  <h2><span class="h-num">B.1</span>Por marca · ROAS proxy y revenue incremental por +1pp de conversión digital</h2>
 
   <p>El beneficio de oportunidad se traduce a lenguaje del Consejo cuando se expresa por marca. Sobre la pauta MKT contable verificada del cubo 30065 (Cap 1 §1.2), el Grupo factura <strong>197× su pauta</strong> en revenue total — un múltiplo que mezcla canales y no equivale a ROAS digital. La conversión digital por marca proviene del proxy autorreporte Galindo Q3-Q4 2025 sobre el funnel Ago-Nov 2025 (53,479 leads digitales → 2,326 facturas = 4.35% blended), pendiente de cierre auditable con el Motor de Atribución MVP (octubre 2026). Sobre esa base se calcula el revenue incremental que captura cada marca por cada punto porcentual recuperado de conversión digital.</p>
 
@@ -667,15 +698,18 @@
     </tbody>
   </table>
 
+</section>
+<section class="page">
+  <h1 class="section-title"><span class="num">Cap 0 · §B.1 continuación</span>Lo contrario del costo. <em>Cuánto deja sobre la mesa el modelo actual.</em></h1>
   <div class="warn-note">
     <strong>Bases del cuadro · todas declaradas proxy hasta cierre del Motor de Atribución (octubre 2026).</strong> <em>(1) Tasas de conversión por marca:</em> autorreporte Galindo Q3-Q4 2025 sobre funnel Ago-Nov 2025 (53,479 leads → 34,222 contactados [64%] → 5,787 SQL/visitas PDV [16.9%] → 2,326 facturas [40.2%] = 4.35% blended). Ford y Stellantis no tienen data propia en la base Galindo (Daniel copió datos de Hyundai como placeholder), Isuzu opera modelo B2B flotillero sin pauta digital. <em>(2) Leads anualizados:</em> proyección ×3 sobre el corte Ago-Nov (4 meses). <em>(3) Caveat metodológico GWM y Changan:</em> sus tasas reportadas 15-17% pueden no ser comparables al blended del Grupo — posible denominador distinto. <em>(4) AOV:</em> $405K (real DCA cubo 30003 · Autos Nuevos 2025 · 25,166 unidades / $10.19B revenue). <em>(5) Múltiplo rev/pauta Hyundai 533×:</em> es anomalía documentada en Cap 1 §1.2 · la pauta Hyundai opera vía agencias externas que no aparecen en el cubo 30065 contable del Grupo (subreporte real, no eficiencia milagrosa). <em>(6) Coherencia con cap macro Cap 5 §5.9:</em> el +$702M desagregado por marca y el +$661M agregado del Grupo direccionalmente coinciden — el delta ~$41M es atribuible al uso de tasas específicas por marca vs blended 4.35% sobre el funnel agregado. El número exacto cierra con el Motor de Atribución.
   </div>
 
-  <div class="conv-note">
+  <div class="conv-note" style="font-size:8.5pt;line-height:1.4;">
     <strong>La lectura por marca convierte el beneficio en accionable por Director de Marca.</strong> Mazda ya opera a la frontera del benchmark del sector (22% gold) — su palanca es escalar volumen, no conversión. <strong>Hyundai y GAC son las dos marcas con el mayor headroom de captura:</strong> llevar Hyundai de 6.9% a 10% (mediana del sector) captura +$874M anuales de revenue incremental · llevar GAC de 5.6% a 10% captura +$346M anuales. Solo esas dos marcas suman <strong>+$1,220M anuales de revenue incremental capturable bajo gobernanza corporativa</strong>, sin tocar la pauta total del Grupo. Ford y Stellantis quedan como cifras pendientes — no porque la palanca no exista, sino porque el proxy Galindo no las cubre y el Motor de Atribución cierra el dato auditable en octubre 2026.
   </div>
 
-  <div class="callout">
+  <div class="callout" style="font-size:8.5pt;line-height:1.4;">
     <div class="callout-t">El costo de no actuar · expresado año por año</div>
     <p>Cada año que el Grupo opera sin gobernanza corporativa del Marketing, deja sobre la mesa <strong>$50 a $70 millones de pesos</strong> en eficiencia operativa, consolidación cross-marca del universo de proveedores externos (~$80M anualizados, cubo 30051) y co-inversión OEM no negociada al benchmark del sector, y posterga la activación de la palanca dominante de conversión digital atribuida. Sobre el revenue del Grupo, esa palanca representa entre <strong>$330 y $661 millones anuales</strong> de revenue incremental por cada punto porcentual recuperado bajo el modelo Hub &amp; Spoke · desagregada por marca, la captura concentrada en Hyundai + GAC al llevarlas a la mediana del sector representa <strong>+$1,220 millones anuales adicionales</strong>. El beneficio de oportunidad no es proyección a 18 meses · empieza el día en que el Consejo emite el mandato formal.</p>
   </div>
@@ -700,6 +734,9 @@
     </tbody>
   </table>
 
+</section>
+<section class="page">
+  <h1 class="section-title"><span class="num">Cap 1 · §1.2</span>El P&L <em>cerrado.</em></h1>
   <h2><span class="h-num">1.2</span>P&amp;L de Marketing por marca · 2025 cerrado <span class="badge badge-data">DCA cubos 30060 + 30065 verificados</span></h2>
   <p>Estado de resultados completo de las <strong>ocho marcas</strong> del Grupo con data contable verificada del DCA. Revenue del cubo 30060 (Finanzas MB · Total Ventas) cruzado con pauta MKT del cubo 30065 (Real vs Ppto) y utilidad operativa contable.</p>
 
@@ -728,6 +765,9 @@
     </tbody>
   </table>
 
+</section>
+<section class="page">
+  <h1 class="section-title"><span class="num">Cap 1 · continuación · §1.2.0</span>El P&L <em>cerrado.</em></h1>
   <h3><span class="h-num">1.2.0</span>Quién paga realmente la pauta · GP vs co-inversión OEM</h3>
   <p>De los $197.5M de pauta no todo lo absorbe Grupo Plasencia. Los OEM contribuyen una porción vía <strong>rebate / co-inversión</strong> documentado por contrato concesionario. El benchmark de industria automotriz para co-inversión OEM-concesionario en mercado mexicano está en el rango 20-30% del gasto MKT eligible. La negociación cross-marca con cada OEM 2026-2027 es palanca abierta.</p>
   <table>
@@ -740,10 +780,16 @@
       <tr><td>Palanca anual sin tocar gasto · solo negociación OEM</td><td class="num"><strong>+$2.76M</strong></td><td colspan="2">capital político positivo · quick win</td></tr>
     </tbody>
   </table>
-  <div class="warn-note">
+</section>
+<section class="page">
+  <h1 class="section-title" style="margin-bottom:3mm;"><span class="num">Cap 1 · §1.2.0 continuación</span>El P&L <em>cerrado.</em></h1>
+  <div class="warn-note" style="font-size:8pt;line-height:1.3;">
     <strong>Sobre el origen de estas cifras de rebate.</strong> Las cifras de la tabla anterior provienen del levantamiento operativo Q3-Q4 2025 sobre la pauta de cuatro marcas (Mazda + Hyundai + GAC + GWM, $27.01M de los $197.5M totales). <strong>El cubo de Cuentas por Pagar del DCA no clasifica el rebate OEM como cuenta de ingreso identificable</strong> — la única marca que reporta el rebate línea por línea es GAC (digital bruto $4.36M − reembolso $2.67M = neto $1.69M, 61.3% rebate efectivo). Mazda, Hyundai y GWM reportan un solo número ya neto en su PMA. La cuantificación contable del rebate efectivo recibido en libros del Grupo durante 2025 — cash, notas de crédito, descuento mayorista — requiere cruce con Contraloría sobre cuentas de ingreso y movimientos bancarios. Pendiente Fase 2 del roadmap, no afirmación al Consejo.
   </div>
 
+</section>
+<section class="page">
+  <h1 class="section-title"><span class="num">Cap 1 · continuación · §1.2.1</span>El P&L <em>cerrado.</em></h1>
   <h3><span class="h-num">1.2.1</span>GP vs benchmark industria · pauta como % de ingresos</h3>
   <p>La industria automotriz nacional invierte entre <strong>0.8% y 1.5% de ingresos</strong> en pauta de marketing (benchmark IAB 2025 + sector retail automotriz). El Grupo invierte el <strong>0.51% en pauta sola</strong> (cubo 30065 DCA) — por debajo del piso de la industria. Sumando la nómina cargada con cargas patronales ($15.1M = $11.6M bruto × factor 1.30), el gasto MKT cargado al P&amp;L del Grupo es <strong>$212.6M = 0.54% del revenue</strong>. Sigue por debajo del benchmark del sector.</p>
   <div class="callout">
@@ -757,12 +803,18 @@
   <p>La plantilla operativa real de Marketing del Grupo en 2025 suma entonces <strong>70+ personas con $11.6M de nómina bruta consolidada</strong> (cubo 30046 + cubo 30067 cuentas Supervisores Digital). Aplicando un factor de cargas patronales de 30% sobre el bruto, el costo cargado al P&amp;L del Grupo ronda los <strong>$15.1M anuales</strong>.</p>
   <p>Una capa adicional queda fuera del cálculo contable: los <strong>vendedores digitales</strong> que reportan a cada Supervisor Digital en sucursal. Su nómina y comisiones se contabilizan bajo las cuentas genéricas COMISIONES VENTAS NUEVOS y SUELDOS NUEVOS junto con vendedores no digitales, sin distinción contable. La identificación nominal del headcount de vendedores digitales y su masa salarial requiere cruce con RRHH operativa por sucursal, no DCA.</p>
 
+</section>
+<section class="page">
+  <h1 class="section-title"><span class="num">Cap 1 · continuación · §1.2.3</span>El P&L <em>cerrado.</em></h1>
   <h3><span class="h-num">1.2.3</span>Atribución · qué sí mide hoy el Grupo y qué no</h3>
   <p>Hasta aquí el P&amp;L mide <strong>revenue total</strong> y <strong>pauta MKT total</strong> contables. El Grupo <strong>no tiene hoy un sistema de medición end-to-end del funnel</strong> que produzca ventas atribuibles a Marketing por marca / agencia / campaña con base contable auditable. La Dirección de Marketing Corporativo levantó este vacío como prioridad estratégica y lanzó el Motor de Atribución MVP en producción desde abril 2026 en cuatro marcas (Seminuevos, Hyundai, Stellantis, GAC) para cerrarlo.</p>
   <div class="conv-note">
     <strong>Esta es la premisa fundacional del Motor de Atribución MVP</strong> que la Dirección de Marketing Corporativo lanzó como primer entregable estratégico (en producción desde abril 2026 en Seminuevos · Hyundai · Stellantis · GAC). Construye la infraestructura que el Grupo nunca tuvo — funnel digital trazable extremo a extremo, eventos server-side a Meta y Google, atribución contable. Al cierre del sexto mes operativo (octubre 2026) entrega cifras de ventas atribuibles por agencia y por marca, y se extiende a Mazda · Ford · GWM · Changan · Isuzu.
   </div>
 
+</section>
+<section class="page">
+  <h1 class="section-title"><span class="num">Cap 1 · continuación · §1.2-1.3</span>El P&L <em>cerrado.</em></h1>
   <div class="callout">
     <div class="callout-t">Las cuatro lecturas que cierran el caso</div>
     <ol>
@@ -791,9 +843,15 @@
   </table>
   <div class="warn-note"><strong>Concentración 2026 acelera.</strong> Mazda crece al 81.1% del share. Hyundai cae al 0.5% (anomalía sistémica). Stellantis y GAC continúan tendencia decreciente histórica.</div>
 
+</section>
+<section class="page">
+  <h1 class="section-title"><span class="num">Cap 1 · continuación · §1.4-1.5</span>El P&L <em>cerrado.</em></h1>
   <h2><span class="h-num">1.4</span>Dispersión CPA cross-agencia · 21.6× spread</h2>
   <p>CPA acumulado Ago-Nov 2025 en las 21 agencias mapeadas. CPA = gasto MKT total ÷ unidades vendidas. La dispersión <strong>21.6× entre la agencia más cara y la más barata</strong> es la señal más fuerte de que el gasto MKT del Grupo no opera bajo estándar único de eficiencia.</p>
-  <div class="warn-note" style="margin-bottom:3mm;">
+</section>
+<section class="page">
+  <h1 class="section-title"><span class="num">Cap 4 · §Eje 5 continuación</span>Presupuesto. Leads. <em>Plantilla.</em></h1>
+  <div class="warn-note" style="font-size:8.5pt;line-height:1.4;">
     <strong>Sobre el origen de estas cifras.</strong> Los CPA por agencia provienen del levantamiento operativo Q3-Q4 2025 que construyó el cálculo cruzando reporte de gasto MKT del Director de Marca con unidades vendidas del concesionario. <strong>No hay sistema contable end-to-end en el Grupo que entregue CPA por agencia y por marca con base auditable</strong> — la dispersión 21.6× se mantiene como señal estructural válida pero los CPA individuales por agencia tienen el problema de origen del autorreporte de cada gerencia. La cifra contable auditable la entrega el Motor de Atribución MVP al cierre del sexto mes operativo en octubre 2026.
   </div>
   <table>
@@ -817,6 +875,9 @@
     </tbody>
   </table>
 
+</section>
+<section class="page">
+  <h1 class="section-title"><span class="num">Cap 1 · continuación · §1.5</span>El P&L <em>cerrado.</em></h1>
   <h2><span class="h-num">1.5</span>Implicación estratégica para el Consejo</h2>
   <div class="conv-note">
     <strong>El P&amp;L cerrado responde cinco preguntas que llevaban años abiertas:</strong>
@@ -859,6 +920,10 @@
     </tbody>
   </table>
   <div class="warn-note"><strong>Bandera roja.</strong> Cinco de las nueve marcas no aparecen con gerentes MKT identificados en el cubo 30049. Mazda sola concentra el <strong>56% del costo gerencial MKT</strong>.</div>
+
+</section>
+<section class="page">
+  <h1 class="section-title"><span class="num">Cap 2 · §2.3 Organigrama As-Is</span>Sesenta y tres personas. <em>Ocho silos paralelos.</em></h1>
 
   <h2><span class="h-num">2.3</span>Organigrama formal As-Is · vista conceptual del golpe completo <span class="badge badge-ok">DCA verificado</span></h2>
   <p>La estructura del Marketing del Grupo opera como ocho silos paralelos por marca, sin línea funcional formalizada con la Dirección de Marketing Corporativo. La capa de supervisores digitales en sucursales opera en paralelo a los silos, y la base operativa de vendedores digitales en las 45 sucursales no se contabiliza bajo el área. La fragmentación es estructural, no anecdótica.</p>
@@ -1037,9 +1102,15 @@
   </svg>
   </div>
 
+</section>
+<section class="page">
+  <h1 class="section-title"><span class="num">Cap 2 · continuación · §2.4-2.6</span>Sesenta y tres personas. <em>¿Para qué?</em></h1>
   <h2><span class="h-num">2.4</span>Ocho silos por marca · detalle as-is</h2>
-  <p>Cada Director de Marca tiene 4 elementos bajo su silo BaU: <strong>(a)</strong> gerencia de marca · <strong>(b)</strong> equipo interno cross-agencia · <strong>(c)</strong> personas en concesionarios · <strong>(d)</strong> agencias y partners externos. Solo Mazda y Hyundai operan con stack completo; el resto opera con stack incompleto.</p>
+  <p style="font-size:8.5pt;line-height:1.4;">Cada Director de Marca tiene 4 elementos bajo su silo BaU: <strong>(a)</strong> gerencia de marca · <strong>(b)</strong> equipo interno cross-agencia · <strong>(c)</strong> personas en concesionarios · <strong>(d)</strong> agencias y partners externos. Solo Mazda y Hyundai operan con stack completo; el resto opera con stack incompleto.</p>
 
+</section>
+<section class="page">
+  <h1 class="section-title"><span class="num">Cap 2 · §2.4 continuación</span>Sesenta y tres personas. <em>¿Para qué?</em></h1>
   <div class="silos-grid">
     <div class="silo maduro">
       <div class="director">Mazda <span class="tag">Marca madura · IN-HOUSE</span></div>
@@ -1052,6 +1123,11 @@
       </ul>
     </div>
 
+  </div>
+</section>
+<section class="page">
+  <h1 class="section-title"><span class="num">Cap 2 · §2.4 continuación</span>Sesenta y tres personas. <em>¿Para qué?</em></h1>
+  <div class="silos-grid">
     <div class="silo maduro">
       <div class="director">Hyundai <span class="tag">Marca madura</span></div>
       <ul>
@@ -1063,6 +1139,11 @@
       </ul>
     </div>
 
+  </div>
+</section>
+<section class="page">
+  <h1 class="section-title"><span class="num">Cap 2 · §2.4 continuación</span>Sesenta y tres personas. <em>¿Para qué?</em></h1>
+  <div class="silos-grid">
     <div class="silo parcial">
       <div class="director">Changan <span class="tag">Marca parcial · MKT no mapeado</span></div>
       <ul>
@@ -1074,6 +1155,11 @@
       </ul>
     </div>
 
+  </div>
+</section>
+<section class="page">
+  <h1 class="section-title"><span class="num">Cap 2 · §2.4 continuación a</span>Sesenta y tres personas. <em>¿Para qué?</em></h1>
+  <div class="silos-grid">
     <div class="silo parcial">
       <div class="director">Ford <span class="tag">Marca parcial · MKT no mapeado</span></div>
       <ul>
@@ -1096,6 +1182,11 @@
       </ul>
     </div>
 
+  </div>
+</section>
+<section class="page">
+  <h1 class="section-title"><span class="num">Cap 2 · §2.4 continuación</span>Sesenta y tres personas. <em>¿Para qué?</em></h1>
+  <div class="silos-grid">
     <div class="silo minimo">
       <div class="director">GAC <span class="tag">Marca mínima · rebate transparente</span></div>
       <ul>
@@ -1118,6 +1209,11 @@
       </ul>
     </div>
 
+  </div>
+</section>
+<section class="page">
+  <h1 class="section-title"><span class="num">Cap 2 · §2.4 continuación</span>Sesenta y tres personas. <em>¿Para qué?</em></h1>
+  <div class="silos-grid">
     <div class="silo cuello">
       <div class="director">Seminuevos <span class="tag">Solo gerente · cuello operativo</span></div>
       <ul>
@@ -1130,6 +1226,9 @@
     </div>
   </div>
 
+</section>
+<section class="page">
+  <h1 class="section-title"><span class="num">Cap 2 · §2.5-2.6</span>Sesenta y tres personas. <em>¿Para qué?</em></h1>
   <h2><span class="h-num">2.5</span>Reportes directos e indirectos por silo</h2>
   <p>En el As-Is todos en el silo reportan al Director de Marca, no al Gerente de Marca. <strong>Directos</strong> = empleados GP (gerente + equipo cross-agencia + personas en concesionarios). <strong>Indirectos</strong> = agencias y partners externos contratados.</p>
   <table>
@@ -1147,8 +1246,11 @@
     </tbody>
   </table>
 
+</section>
+<section class="page">
+  <h1 class="section-title"><span class="num">Cap 2 · §2.6</span>Sesenta y tres personas. <em>¿Para qué?</em></h1>
   <h2><span class="h-num">2.6</span>Banderas críticas del As-Is</h2>
-  <table>
+  <table style="font-size:9pt;">
     <thead><tr><th style="width:30%">Bandera</th><th>Implicación</th></tr></thead>
     <tbody>
       <tr><td><strong>Fernando Mora</strong> dirigía Changan + GWM simultáneamente (legacy)</td><td>Dualidad estructural resuelta junio 2026 con la incorporación de <strong>Luis Hernández como Director GWM</strong>. Fernando Mora se enfoca exclusivamente en Changan.</td></tr>
@@ -1161,10 +1263,16 @@
     </tbody>
   </table>
 
+</section>
+<section class="page">
+  <h1 class="section-title"><span class="num">Cap 2 · continuación · §2.7-2.9</span>Sesenta y tres personas. <em>¿Para qué?</em></h1>
   <h2><span class="h-num">2.7</span>La hipótesis estructural sobre el área</h2>
   <p>El área de Marketing del Grupo opera hoy sobredimensionada en plantilla, personas y proveedores frente a la palanca estratégica que entrega. Los perfiles actuales operan con bajo nivel de especialización y tecnificación. Una plantilla con menor headcount pero mayor seniority por persona, equipada con stack de IA aplicada a creative ops y data, entrega más output estratégico que el modelo actual basado en proliferación de perfiles operativos junior.</p>
   <p>El §2.9 de este capítulo confirma con DCA que el 62% de la plantilla del área centralizada está en Tier 4 operativo (&lt;$15K bruto/mes) — perfiles de community, post-producción, diseño junior y apoyos. Sumando los supervisores digitales en sucursales (§2.9.4) la plantilla operativa real del Grupo supera las 70 personas. El caso financiero del rediseño hacia plantilla especializada Tier 1-2 + IA se cuantifica en Cap 4 Eje 5 y se materializa en el modelo Hub &amp; Spoke del Cap 7.</p>
 
+</section>
+<section class="page">
+  <h1 class="section-title"><span class="num">Cap 2 · §2.8</span>Sesenta y tres personas. <em>¿Para qué?</em></h1>
   <h2><span class="h-num">2.8</span>Lo que sigue pendiente para cierre 100%</h2>
   <table>
     <thead><tr><th style="width:42%">Item</th><th>Plan de cierre</th></tr></thead>
@@ -1184,7 +1292,7 @@
   <p class="lead">El cubo 30046 RH lista las 63 personas del área MKT centralizada con su costo bruto promedio mensual 2025. La distribución por tier salarial valida cuantitativamente el sobre-dimensionamiento en perfiles operativos: <strong>62% de la plantilla cobra menos de $15K brutos al mes</strong> · community, post-producción, diseño junior y apoyos administrativos. Un rediseño con plantilla menor pero más senior, equipada con stack de IA aplicada, entrega más output estratégico bajo el modelo Hub &amp; Spoke del Cap 7.</p>
 
   <h2><span class="h-num">2.9.1</span>Distribución por tier salarial <span class="badge badge-ok">cubo 30046 verificado</span></h2>
-  <table>
+  <table style="font-size:8.5pt;">
     <thead><tr><th>Tier</th><th>Rango bruto/mes</th><th class="num">Personas</th><th class="num">% plantilla</th><th class="num">% costo</th><th>Perfil dominante</th></tr></thead>
     <tbody>
       <tr class="highlight"><td><strong>Tier 1 · Liderazgo</strong></td><td class="num">≥ $50K</td><td class="num">3</td><td class="num">5%</td><td class="num">~21%</td><td>Director Marca / Gerente Senior Cross-agencia</td></tr>
@@ -1195,7 +1303,11 @@
     </tbody>
   </table>
 
-  <h2><span class="h-num">2.9.2</span>Nominal completo · MERCADOTECNIA (60 personas) <span class="badge badge-ok">cubo 30046 verificado 2025</span></h2>
+</section>
+<section class="page">
+  <h1 class="section-title"><span class="num">Cap 2 · §2.9.2 Nominal completo</span>Sesenta y tres nombres. <em>Treinta y nueve operativos.</em></h1>
+
+  <h2 style="margin-top:0;margin-bottom:1mm;"><span class="h-num">2.9.2</span>Nominal completo · MERCADOTECNIA (60 personas) <span class="badge badge-ok">cubo 30046 verificado 2025</span></h2>
   <p>Promedio bruto mensual 2025 + meses activos en el año. Ordenado por tier salarial descendente.</p>
   <table style="font-size:8.5pt;">
     <thead><tr><th style="width:5%">#</th><th>Nombre</th><th class="num">Bruto/mes</th><th class="num">Meses</th><th>Tier</th></tr></thead>
@@ -1215,14 +1327,49 @@
       <tr><td class="num">13</td><td>FELIX ROBLES CAROLINA</td><td class="num">$22,950</td><td class="num">4</td><td>3 · Mid</td></tr>
       <tr><td class="num">14</td><td>PEREZ VIVAS LOURDES BERENICE</td><td class="num">$21,000</td><td class="num">3</td><td>3 · Mid</td></tr>
       <tr><td class="num">15</td><td>ESCUTIA RIOS GRECIA CAROLINA</td><td class="num">$20,633</td><td class="num">12</td><td>3 · Mid</td></tr>
+</tbody>
+  </table>
+</section>
+<section class="page">
+  <h1 class="section-title" style="margin-bottom:2mm;"><span class="num">Cap 2 · §2.9.2 continuación b</span>Sesenta y tres nombres. <em>Treinta y nueve operativos.</em></h1>
+  <table style="font-size:8.5pt;">
+    <thead><tr><th style="width:5%">#</th><th>Nombre (continuación § MERCADOTECNIA)</th><th class="num">Bruto/mes</th><th class="num">Meses</th><th>Tier</th></tr></thead>
+    <tbody>
       <tr><td class="num">16</td><td>DOMINGUEZ MARTINEZ ROSA MARIA</td><td class="num">$19,778</td><td class="num">3</td><td>3 · Mid</td></tr>
       <tr><td class="num">17</td><td>DIEGUEZ RAMOS VERONICA</td><td class="num">$19,396</td><td class="num">12</td><td>3 · Mid</td></tr>
       <tr><td class="num">18</td><td>TRINIDAD AGUILAR KAREN ARIDAY</td><td class="num">$18,253</td><td class="num">5</td><td>3 · Mid</td></tr>
+</tbody>
+  </table>
+</section>
+<section class="page">
+  <h1 class="section-title"><span class="num">Cap 2 · §2.9.2 continuación b3</span>Sesenta y tres nombres. <em>Treinta y nueve operativos.</em></h1>
+  <h2><span class="h-num">2.9.2 cont.</span>Nominal completo · MERCADOTECNIA (cont.) <span class="badge badge-ok">cubo 30046 verificado 2025</span></h2>
+  <table style="font-size:8.5pt;">
+    <thead><tr><th style="width:5%">#</th><th>Nombre</th><th class="num">Bruto/mes</th><th class="num">Meses</th><th>Tier</th></tr></thead>
+    <tbody>
       <tr><td class="num">19</td><td>KOBAYASHI RIVAS CARLOS ANGEL</td><td class="num">$17,250</td><td class="num">2</td><td>3 · Mid</td></tr>
       <tr><td class="num">20</td><td>ROJAS HERNANDEZ JOSE CARLOS</td><td class="num">$17,050</td><td class="num">9</td><td>3 · Mid</td></tr>
+</tbody>
+  </table>
+</section>
+<section class="page">
+  <h1 class="section-title"><span class="num">Cap 2 · §2.9.2 continuación b2</span>Sesenta y tres nombres. <em>Treinta y nueve operativos.</em></h1>
+  <h2><span class="h-num">2.9.2 cont.</span>Nominal completo · MERCADOTECNIA (cont.) <span class="badge badge-ok">cubo 30046 verificado 2025</span></h2>
+  <table style="font-size:8.5pt;">
+    <thead><tr><th style="width:5%">#</th><th>Nombre</th><th class="num">Bruto/mes</th><th class="num">Meses</th><th>Tier</th></tr></thead>
+    <tbody>
       <tr><td class="num">21</td><td>LOPEZ CAMARENA MARIA JOSE</td><td class="num">$17,050</td><td class="num">2</td><td>3 · Mid</td></tr>
       <tr><td class="num">22</td><td>ISLAS RAMOS ANA GLORIA JAZMINE</td><td class="num">$16,748</td><td class="num">9</td><td>3 · Mid</td></tr>
       <tr><td class="num">23</td><td>MORALES GUDIÑO JOSE ANGEL</td><td class="num">$16,598</td><td class="num">6</td><td>3 · Mid</td></tr>
+</tbody>
+  </table>
+</section>
+<section class="page">
+  <h1 class="section-title"><span class="num">Cap 2 · §2.9.2 continuación c</span>Sesenta y tres nombres. <em>Treinta y nueve operativos.</em></h1>
+  <h2><span class="h-num">2.9.2 cont.</span>Nominal completo · MERCADOTECNIA (cont.) <span class="badge badge-ok">cubo 30046 verificado 2025</span></h2>
+  <table style="font-size:8.5pt;">
+    <thead><tr><th style="width:5%">#</th><th>Nombre</th><th class="num">Bruto/mes</th><th class="num">Meses</th><th>Tier</th></tr></thead>
+    <tbody>
       <tr><td class="num">24</td><td>MARTINEZ FABELA BRENDA JIMENA</td><td class="num">$16,492</td><td class="num">3</td><td>3 · Mid</td></tr>
       <tr><td class="num">25</td><td>SANCHEZ DIAZ JESSICA JACQUELINE</td><td class="num">$16,358</td><td class="num">12</td><td>3 · Mid</td></tr>
       <tr><td class="num">26</td><td>REYES DUARTE KAROL ALEJANDRA</td><td class="num">$16,355</td><td class="num">7</td><td>3 · Mid</td></tr>
@@ -1232,6 +1379,15 @@
       <tr><td class="num">30</td><td>RUBIO VAZQUEZ ANA CRISTINA</td><td class="num">$15,615</td><td class="num">9</td><td>3 · Mid</td></tr>
       <tr><td class="num">31</td><td>LEON HERNANDEZ MONICA</td><td class="num">$15,490</td><td class="num">9</td><td>3 · Mid</td></tr>
       <tr><td class="num">32</td><td>ALCALA MANZANO DANIELA</td><td class="num">$15,000</td><td class="num">12</td><td>3 · Mid</td></tr>
+</tbody>
+  </table>
+</section>
+<section class="page">
+  <h1 class="section-title"><span class="num">Cap 2 · §2.9.2 continuación</span>Sesenta y tres nombres. <em>Treinta y nueve operativos.</em></h1>
+  <h2><span class="h-num">2.9.2 cont.</span>Nominal completo · MERCADOTECNIA (cont.) <span class="badge badge-ok">cubo 30046 verificado 2025</span></h2>
+  <table style="font-size:8.5pt;">
+    <thead><tr><th style="width:5%">#</th><th>Nombre</th><th class="num">Bruto/mes</th><th class="num">Meses</th><th>Tier</th></tr></thead>
+    <tbody>
       <tr><td class="num">33</td><td>RAMOS MORALES MARIA FERNANDA</td><td class="num">$14,789</td><td class="num">3</td><td>4 · Operativo</td></tr>
       <tr><td class="num">34</td><td>TISCAREÑO AGUILAR MARCELA</td><td class="num">$14,749</td><td class="num">4</td><td>4 · Operativo</td></tr>
       <tr><td class="num">35</td><td>GALLEGOS SILVA CHRISTOPHER ISMAEL</td><td class="num">$14,217</td><td class="num">6</td><td>4 · Operativo</td></tr>
@@ -1247,6 +1403,15 @@
       <tr><td class="num">45</td><td>RUVALCABA GONZALEZ MARCO ZURIEL</td><td class="num">$11,250</td><td class="num">2</td><td>4 · Operativo</td></tr>
       <tr><td class="num">46</td><td>VALDIVIA GUARDADO ALANIS</td><td class="num">$11,170</td><td class="num">10</td><td>4 · Operativo</td></tr>
       <tr><td class="num">47</td><td>OLIVA RODRIGUEZ JESSICA</td><td class="num">$11,167</td><td class="num">6</td><td>4 · Operativo</td></tr>
+</tbody>
+  </table>
+</section>
+<section class="page">
+  <h1 class="section-title"><span class="num">Cap 2 · §2.9.2 continuación</span>Sesenta y tres nombres. <em>Treinta y nueve operativos.</em></h1>
+  <h2><span class="h-num">2.9.2 cont.</span>Nominal completo · MERCADOTECNIA (cont.) <span class="badge badge-ok">cubo 30046 verificado 2025</span></h2>
+  <table style="font-size:8.5pt;">
+    <thead><tr><th style="width:5%">#</th><th>Nombre</th><th class="num">Bruto/mes</th><th class="num">Meses</th><th>Tier</th></tr></thead>
+    <tbody>
       <tr><td class="num">48</td><td>RODRIGUEZ GONZALEZ NABILA FERNANDA</td><td class="num">$11,071</td><td class="num">7</td><td>4 · Operativo</td></tr>
       <tr><td class="num">49</td><td>SANCHEZ BARRAGAN IREL ELIZABETH</td><td class="num">$11,050</td><td class="num">4</td><td>4 · Operativo</td></tr>
       <tr><td class="num">50</td><td>BELMONTE VACA ALEJANDRA</td><td class="num">$10,809</td><td class="num">12</td><td>4 · Operativo</td></tr>
@@ -1263,6 +1428,9 @@
     </tbody>
   </table>
 
+</section>
+<section class="page">
+  <h1 class="section-title"><span class="num">Cap 2 · §2.9.3-2.9.5</span>Sesenta y tres nombres. <em>Treinta y nueve operativos.</em></h1>
   <h2><span class="h-num">2.9.3</span>Nominal completo · VENTAS DIGITALES (3 personas) <span class="badge badge-ok">cubo 30046 verificado 2025</span></h2>
   <table style="font-size:9pt;">
     <thead><tr><th style="width:5%">#</th><th>Nombre</th><th class="num">Bruto/mes</th><th class="num">Meses</th><th>Tier</th></tr></thead>
@@ -1288,6 +1456,11 @@
       <tr class="total"><td colspan="2"><strong>Total supervisores digitales en sucursales</strong></td><td class="num"><strong>$3.72M</strong></td></tr>
     </tbody>
   </table>
+
+</section>
+<section class="page">
+  <h1 class="section-title"><span class="num">Cap 2 · §2.9.4-2.9.5 continuación</span>Sesenta y tres nombres. <em>Treinta y nueve operativos.</em></h1>
+
   <div class="conv-note">
     <strong>La operación digital del Grupo es más amplia que las 63 personas del cubo 30046.</strong> Sumando los supervisores digitales en sucursales (mínimo 7 identificados en cubo 30067), la plantilla operativa real de Marketing del Grupo en 2025 es <strong>70+ personas</strong> con $11.6M de nómina bruta consolidada. Solo Mazda, Changan y GWM tienen supervisores digitales con cuenta contable propia identificable — Hyundai, Stellantis, GAC, Ford e Isuzu registran el gasto digital de sucursal bajo cuentas distintas (PROMOCION DIGITAL, MKT DIGITAL) que no separan nómina de pauta. El rediseño To-Be del Cap 7 absorbe estos perfiles bajo el modelo Hub &amp; Spoke con Brand Owner por marca.
   </div>
@@ -1317,10 +1490,16 @@
       <tr class="total"><td><strong>TOTAL MKT REAL 2026 parcial</strong></td><td class="num">$89,130,347</td><td>180 cuentas</td></tr>
     </tbody>
   </table>
-  <div class="nota"><strong>Cruce de consistencia.</strong> $89.1M cubo 30067 equivale aproximadamente a $85.4M cubo 30065. El delta de ~$3.7M corresponde a comisiones digitales más reembolsos AMDF más sucursales no agregadas en 30065.</div>
+  <div class="nota" style="font-size:7pt;line-height:1.2;margin-top:1mm;"><strong>Cruce de consistencia.</strong> $89.1M cubo 30067 equivale aproximadamente a $85.4M cubo 30065. El delta de ~$3.7M corresponde a comisiones digitales más reembolsos AMDF más sucursales no agregadas en 30065.</div>
 
+</section>
+<section class="page">
+  <h1 class="section-title"><span class="num">Cap 3 · §3.1.0</span>Una cuenta. <em>50% del gasto.</em></h1>
   <h3><span class="h-num">3.1.0</span>Catálogo formal de Contraloría vigente desde 15-oct-2025</h3>
   <p>Contraloría del Grupo Plasencia publicó el 15 de octubre de 2025 la <em>Guía de actualización al proceso de facturación de gastos de Mercadotecnia</em>. El centro de costo Promo1 se subdivide obligatoriamente en tres sub-buckets oficiales con definición institucional explícita. Las facturas registradas sin sub-clasificación no se procesan ni contabilizan. La taxonomía operativa que aparece en las cuentas del cubo 30067 LxL corresponde a este catálogo:</p>
+</section>
+<section class="page">
+  <h1 class="section-title"><span class="num">Cap 3 · §3.1.0 continuación</span>Una cuenta. <em>50% del gasto.</em></h1>
   <table>
     <thead><tr><th>Categoría DCA</th><th>Inferencia operativa</th><th>Evidencia</th></tr></thead>
     <tbody>
@@ -1332,7 +1511,13 @@
   </table>
   <div class="warn-note"><strong>Por qué importa cerrar la taxonomía.</strong> Si <em>Promo 2</em> es efectivamente bono comercial OEM cargado como promoción, entonces parte de ese gasto debería ser <strong>fondeado por el OEM</strong> (rebate / co-inversión) y no absorbido por el Grupo. La anomalía 2026 (Promo 2 al 170% del presupuesto anual mientras Publicidad apenas se ejecuta al 6.6%) sugiere además reclasificación entre categorías. <em>Pendiente: validar con Contraloría + Acuerdos OEM firmados + movimientos bancarios para cerrar tanto la taxonomía como el riesgo de control sobre el rebate efectivamente recibido (ver Cap 5 §5.7).</em></div>
 
+</section>
+<section class="page">
+  <h1 class="section-title"><span class="num">Cap 3 · §3.1.1</span>Una cuenta. <em>50% del gasto.</em></h1>
   <h2><span class="h-num">3.1.1</span>Top 15 cuentas MKT con gasto REAL ejercido 2026 parcial</h2>
+</section>
+<section class="page">
+  <h1 class="section-title"><span class="num">Cap 3 · §3.1.1 tabla</span>Una cuenta. <em>50% del gasto.</em></h1>
   <p>Cuentas contables del cubo 30067 LxL con <em>real ejercido</em> (no presupuesto). La lectura honesta de este top 15 separa tres naturalezas distintas: <strong>(a)</strong> programas OEM bi-direccionales que el dealer ejecuta y el fabricante contraparte vía rebate, nota de crédito o pago directo · <strong>(b)</strong> reembolsos OEM ya documentados en libros que representan ingreso del Grupo registrado como gasto negativo · <strong>(c)</strong> gasto MKT puro del Grupo en publicidad y promoción tradicional o digital. Solo la tercera naturaleza sale del bolsillo del Grupo sin contraparte.</p>
   <table>
     <thead><tr><th style="width:4%">#</th><th>Cuenta</th><th class="num" style="width:16%">Real MXN</th><th style="width:18%">Marca</th><th style="width:24%">Naturaleza</th></tr></thead>
@@ -1345,6 +1530,15 @@
       <tr><td>6</td><td>PUBLICIDAD NUEVOS GALERIAS</td><td class="num">$1,900,950</td><td>Mazda</td><td>Gasto puro · sucursal</td></tr>
       <tr><td>7</td><td>PROMOCION NUEVOS</td><td class="num">$1,664,661</td><td>Ford</td><td>Gasto puro · promoción genérica</td></tr>
       <tr><td>8</td><td>PROMOCION DIGITAL</td><td class="num">$1,607,443</td><td>Mazda</td><td>Gasto puro · pauta digital</td></tr>
+</tbody>
+  </table>
+</section>
+<section class="page">
+  <h1 class="section-title"><span class="num">Cap 3 · §3.1.1 cont.</span>Una cuenta. <em>50% del gasto.</em></h1>
+  <h2><span class="h-num">3.1.1 cont.</span>Top 15 cuentas MKT · gasto REAL 2026 parcial (cont.)</h2>
+  <table>
+    <thead><tr><th style="width:4%">#</th><th>Cuenta</th><th class="num" style="width:16%">Real MXN</th><th style="width:18%">Marca</th><th style="width:24%">Naturaleza</th></tr></thead>
+    <tbody>
       <tr><td>9</td><td>PUBLICIDAD NUEVOS - STA ANITA</td><td class="num">$1,501,950</td><td>Mazda</td><td>Gasto puro · sucursal</td></tr>
       <tr><td>10</td><td>PROMOCION</td><td class="num">$1,321,454</td><td>Ford</td><td>Gasto puro · promoción genérica</td></tr>
       <tr><td>11</td><td>PROMO 2 AGENCIA MATRIZ</td><td class="num">$1,235,646</td><td>GWM</td><td>Programa OEM bi-direccional · matriz GWM</td></tr>
@@ -1355,6 +1549,9 @@
     </tbody>
   </table>
 
+</section>
+<section class="page">
+  <h1 class="section-title"><span class="num">Cap 3 · §3.1.1 cont.</span>Una cuenta. <em>50% del gasto.</em></h1>
   <div class="callout">
     <div class="callout-t">Lectura honesta del top 15</div>
     <table style="margin-top:2mm;">
@@ -1371,6 +1568,12 @@
     <strong>Ford no está al 0% de co-inversión OEM.</strong> El levantamiento Q3-Q4 2025 que alimenta el Cap 5 §5.7 reporta que Ford no rebatea publicidad al dealer. El cubo 30067 contradice ese reporte: la cuenta REEMBOLSO DE PUBLICIDAD para Ford registra $1,096,035 ejercidos en 2026 parcial como ingreso del Grupo. La cuantificación del rebate efectivo recibido del Ford 2025 contra el monto bruto cargado a las cuentas de Publicidad y Promoción Ford es entregable de Contraloría.
   </div>
 
+</section>
+<section class="page">
+  <h1 class="section-title"><span class="num">Cap 3 · continuación · §3.1.1</span>Una cuenta. <em>50% del gasto.</em></h1>
+</section>
+<section class="page">
+  <h1 class="section-title"><span class="num">Cap 3 · §3.1.1 continuación</span>Una cuenta. <em>50% del gasto.</em></h1>
   <div class="conv-note">
     <strong>Recomendación a Contraloría · cierre del top 15.</strong> Cuantificar la contraparte efectiva del OEM 2025 contra el monto bruto cargado a las cuentas de Programa OEM bi-direccional (PROMO MMDM PLANTA, PROMO DOS INTERNA BOLETINES, PROMO 2 AGENCIA MATRIZ, PROMO 2 NUEVO MATRIZ) y contra el monto reembolsado en REEMBOLSO DE PUBLICIDAD Ford. El número neto que absorbe el Grupo en programa OEM 2025, una vez aplicada la contraparte, es la línea base contable que la Dirección de Marketing Corporativo lleva a la negociación PMA 2026-2027 con cada OEM (palanca del Cap 5 §5.7).
   </div>
@@ -1382,7 +1585,7 @@
 
   <h2><span class="h-num">3.2</span>Estado del catálogo DCA para proveedores MKT</h2>
   <p>El catálogo DCA del Grupo Plasencia contiene 29 cubos. <strong>Ninguno de los 29 liga proveedor con cuenta de gasto MKT en una sola tabla.</strong> El cubo 30051 CxP registra al proveedor contra cuentas de pasivo genéricas (CXP PROVEEDORES, CXP PROVEEDORES CONCESIÓN, ACREEDORES DIVERSOS) sin atar cada factura a su cuenta de gasto. Los cubos de gasto (30065 Real vs Ppto y 30067 LxL) clasifican el monto contable como Promo, Promo 2 o Publicidad pero no contienen razón social del proveedor.</p>
-  <table>
+  <table style="font-size:8.5pt;">
     <thead><tr><th>Cubo DCA</th><th>Tiene proveedor</th><th>Clasifica MKT</th><th>Para qué sirve</th></tr></thead>
     <tbody>
       <tr><td>30065 Real vs Ppto</td><td>No</td><td>Sí · Promo · Promo 2 · Publicidad</td><td>Monto total MKT por marca · 2025 = $197.5M verificado</td></tr>
@@ -1393,7 +1596,7 @@
     </tbody>
   </table>
 
-  <h2><span class="h-num">3.3</span>Identificación nominal de proveedores MKT · ruta para cerrarlo</h2>
+  <h2 style="margin-top:3mm;"><span class="h-num">3.3</span>Identificación nominal de proveedores MKT · ruta para cerrarlo</h2>
   <p>La taxonomía de gasto ya existe en el cubo 30067 LxL desde la guía Contraloría del 15-oct-2025. La identificación nominal por razón social requiere el cruce folio entre el cubo 30051 CxP (que tiene proveedor) y el cubo 30067 LxL (que tiene clasificación MKT vigente). Tres rutas tangibles, en orden de eficiencia:</p>
   <table>
     <thead><tr><th>Ruta</th><th>Quién ejecuta</th><th>Tiempo estimado</th></tr></thead>
@@ -1403,10 +1606,13 @@
       <tr><td>(c) Identificación operativa desde las plataformas digitales (Meta · Google · CRM · Klaviyo)</td><td>Dirección de Marketing Corporativo · inmediato</td><td>Cubre solo proveedores digitales</td></tr>
     </tbody>
   </table>
-  <div class="warn-note">
+  <div class="warn-note" style="font-size:8.5pt;line-height:1.4;">
     <strong>Lo que este documento NO afirma.</strong> Versiones anteriores incluían un listado de "proveedores MKT externos" construido por nombre comercial (agencias, promotoras, plataformas digitales). Ese listado no estaba filtrado por clasificación contable MKT — combinaba proveedores reales del área con proveedores de otras operaciones del Grupo cuya razón social sugería actividad de marketing. La verificación con DCA confirmó que el catálogo actual no permite producir ese listado contablemente; la ruta de cierre es extender el catálogo DCA o auditar CFDIs.
   </div>
 
+</section>
+<section class="page">
+  <h1 class="section-title"><span class="num">Cap 3 · §3.4</span>Lo que DCA sí entrega. <em>Lo que necesita extensión.</em></h1>
   <h2><span class="h-num">3.4</span>Lo que el DCA sí permite afirmar hoy</h2>
   <table>
     <thead><tr><th>Afirmación defensible</th><th>Fuente DCA</th></tr></thead>
@@ -1444,6 +1650,9 @@
   </table>
   <div class="nota"><strong>Cómo leer la columna "Bucket inferido" del §3.5.1.</strong> La asignación se construye por análisis de la razón social contra los conceptos contables incluidos en cada bucket. Las promotoras Mazda (PMML · ANYP · PLASICO · CARIBEÑA · PLABA) se marcan <em>Programa OEM</em> porque operan dentro del flujo bi-direccional MMDM PLANTA del Cap 3 §3.1.1 — no son gasto puro del Grupo. Telecomunicaciones (MEGACABLE · TOTAL PLAY · CS · IP AIR) se marcan <em>No-MKT</em> porque probablemente capturan internet operativo de sucursal, pendiente de validar con Contraloría. El cierre definitivo entrega el cruce folio 30051 × 30067 (Cap 3 §3.3).</div>
 
+</section>
+<section class="page">
+  <h1 class="section-title"><span class="num">Cap 3 · §3.5.1</span>Doscientos ochenta y cinco razones sociales. <em>Cola larga inferida.</em></h1>
   <h2><span class="h-num">3.5.1</span>Top 30 razones sociales por monto acumulado · bucket inferido <span class="badge badge-partial">inferencia</span></h2>
   <p>Listado nominal de los 30 proveedores MKT inferidos con mayor monto acumulado en el cubo 30051 CxP. Cada fila incluye la razón social, el monto acumulado de 25 meses, el número de movimientos, las marcas atendidas y el bucket Promo1 inferido del catálogo Contraloría.</p>
   <table style="font-size:8.5pt;">
@@ -1457,6 +1666,15 @@
       <tr><td>6</td><td>COMERCIALIZADORA INNOVACION QUIMICA SA DE CV</td><td class="num">$9,900,000</td><td class="num">11</td><td>Ford</td><td><span class="badge badge-trad">Tradicional</span></td></tr>
       <tr><td>7</td><td>PROMOTORA CARIBEÑA SA DE CV</td><td class="num">$8,898,800</td><td class="num">16</td><td>Hyundai · Mazda</td><td><span class="badge badge-oem">Prog. OEM</span></td></tr>
       <tr><td>8</td><td>PROMOTORA PLABA</td><td class="num">$7,907,835</td><td class="num">52</td><td>Mazda · GWM · Changan</td><td><span class="badge badge-oem">Prog. OEM</span></td></tr>
+</tbody>
+  </table>
+</section>
+<section class="page">
+  <h1 class="section-title"><span class="num">Cap 3 · §3.5.1 continuación a</span>Doscientos ochenta y cinco razones sociales. <em>Cola larga inferida.</em></h1>
+  <h2><span class="h-num">3.5.1 cont.</span>Top 30 razones sociales (cont.) <span class="badge badge-partial">inferencia</span></h2>
+  <table style="font-size:8.5pt;">
+    <thead><tr><th style="width:3%">#</th><th>Razón social DCA</th><th class="num" style="width:11%">Monto acum.</th><th class="num" style="width:5%">Movs</th><th style="width:24%">Marcas atendidas</th><th style="width:11%">Bucket inferido</th></tr></thead>
+    <tbody>
       <tr><td>9</td><td>MEGACABLE COMUNICACIONES DE MEXICO</td><td class="num">$5,295,401</td><td class="num">64</td><td>Mazda · GWM · GAC · Stellantis</td><td><span class="badge badge-nomkt">No-MKT</span></td></tr>
       <tr><td>10</td><td>DISTRIBUCION DIGITAL AUTOMOTRIZ</td><td class="num">$3,656,905</td><td class="num">97</td><td>Mazda · GAC · Stellantis · GWM · Changan</td><td><span class="badge badge-digital">Digital</span></td></tr>
       <tr><td>11</td><td>TOTAL PLAY TELECOMUNICACIONES</td><td class="num">$3,419,798</td><td class="num">76</td><td>Mazda · GWM · GAC</td><td><span class="badge badge-nomkt">No-MKT</span></td></tr>
@@ -1464,6 +1682,15 @@
       <tr><td>13</td><td>MAREDUTTI DESIGN S.A. DE C.V.</td><td class="num">$3,238,759</td><td class="num">35</td><td>Stellantis</td><td><span class="badge badge-digital">Digital</span></td></tr>
       <tr><td>14</td><td>CS EN TELECOMUNICACIONES</td><td class="num">$3,191,079</td><td class="num">19</td><td>Mazda · GAC</td><td><span class="badge badge-nomkt">No-MKT</span></td></tr>
       <tr><td>15</td><td>COEFICIENTE COMUNICACIONES</td><td class="num">$2,750,060</td><td class="num">70</td><td>Mazda · GWM · GAC · Stellantis · Changan</td><td><span class="badge badge-digital">Digital</span></td></tr>
+</tbody>
+  </table>
+</section>
+<section class="page">
+  <h1 class="section-title"><span class="num">Cap 3 · §3.5.1 continuación</span>Doscientos ochenta y cinco razones sociales. <em>Cola larga inferida.</em></h1>
+  <h2><span class="h-num">3.5.1 cont.</span>Top 30 razones sociales (cont.) <span class="badge badge-partial">inferencia</span></h2>
+  <table style="font-size:8.5pt;">
+    <thead><tr><th style="width:3%">#</th><th>Razón social DCA</th><th class="num" style="width:11%">Monto acum.</th><th class="num" style="width:5%">Movs</th><th style="width:24%">Marcas atendidas</th><th style="width:11%">Bucket inferido</th></tr></thead>
+    <tbody>
       <tr><td>16</td><td>TRANDEO PUBLICITARIA</td><td class="num">$2,633,360</td><td class="num">14</td><td>Mazda</td><td><span class="badge badge-trad">Tradicional</span></td></tr>
       <tr><td>17</td><td>MOVILIDAD DIGITAL TC</td><td class="num">$2,488,820</td><td class="num">15</td><td>Mazda</td><td><span class="badge badge-digital">Digital</span></td></tr>
       <tr><td>18</td><td>AUTOMOTIVE ONLINE PUBLISHING SOLUTIONS SA DE CV</td><td class="num">$2,426,227</td><td class="num">26</td><td>Mazda · Hyundai</td><td><span class="badge badge-digital">Digital</span></td></tr>
@@ -1483,6 +1710,9 @@
     </tbody>
   </table>
 
+</section>
+<section class="page">
+  <h1 class="section-title"><span class="num">Cap 3 · §3.5 continuación</span>Doscientos ochenta y cinco razones sociales. <em>Cola larga inferida.</em></h1>
   <h2><span class="h-num">3.5.2</span>Patrones operativos que salen del nominal</h2>
   <table>
     <thead><tr><th style="width:40%">Hallazgo</th><th>Implicación operativa</th></tr></thead>
@@ -1500,11 +1730,14 @@
   </div>
 
   <h2><span class="h-num">3.5.4</span>El cierre contable nominal requiere cruzar el catálogo ya vigente con el lado de CxP</h2>
-  <div class="conv-note">
+  <div class="conv-note" style="font-size:8.5pt;line-height:1.4;">
     <strong>El catálogo formal del gasto MKT existe y está operativo en el cubo 30067 LxL desde el 15 de octubre de 2025</strong> bajo la guía de Contraloría (MKT Tradicional · MKT Digital · RP/AC). Lo que falta para identificar nominalmente a los proveedores MKT externos por razón social y monto contable es el cruce folio entre el cubo 30051 CxP (que registra al proveedor contra cuentas de pasivo genéricas: CXP PROVEEDORES · CXP PROVEEDORES CONCESIÓN · ACREEDORES DIVERSOS) y la clasificación vigente del cubo 30067 LxL. El sistema sabe a quién le paga el Grupo y sabe en qué concepto MKT se ejerce cada peso · lo que aún no está atado en una sola tabla es el folio que liga ambos lados.<br/><br/>
     <strong>La Dirección de Marketing Corporativo identifica como entregable necesario el cruce folio cubo 30051 CxP × clasificación 30067 LxL</strong> apoyándose en el catálogo Contraloría ya operativo. No se trata de extender un catálogo desde cero · se trata de construir la liga contable entre dos cubos que ya tienen las dimensiones correctas. Mientras el cruce contable se cierra, la decisión de consolidación de proveedores cross-marca del Cap 7 §7.5 se ejecuta con la lista inferida del §3.5.1 sobre el lado de CxP y con el gasto clasificado del cubo 30067 sobre el lado de cuenta · auditoría operativa trimestral de Contraloría cierra el dato definitivo.
   </div>
 
+</section>
+<section class="page">
+  <h1 class="section-title"><span class="num">Cap 3 · §3.5 continuación</span>Doscientos ochenta y cinco razones sociales. <em>Cola larga inferida.</em></h1>
   <h2><span class="h-num">3.5.5</span>Solapamiento potencial con la pauta del cubo 30065</h2>
   <div class="warn-note">
     <strong>$80M anualizados de proveedores no equivalen a $80M adicionales al gasto MKT del Grupo.</strong> Una parte de estos pagos a proveedores externos puede estar contabilizada también como Promoción, Promo 2 o Publicidad en el cubo 30065 (los $197.5M de pauta verificada). En ese caso, la cifra del cubo 30051 y la del cubo 30065 cubren la misma transacción desde el lado del pasivo y desde el lado del gasto. El gasto MKT cargado al P&amp;L del Grupo en 2025 sigue siendo <strong>$212.6M = $197.5M pauta + $15.1M nómina cargada</strong>. Los $80M inferidos de proveedores externos son una vista nominal complementaria · útil para identificar consolidación cross-marca, no aditiva al total contable.
@@ -1544,19 +1777,35 @@
     </tbody>
   </table>
 
+</section>
+<section class="page">
+  <h1 class="section-title"><span class="num">Cap 4 · §Eje 1 continuación</span>Cuentas. Pixels. <em>Dueñidad.</em></h1>
   <h3><span class="h-num">1.c</span>Hallazgos del sweep web que materializan el problema</h3>
-  <div class="conv-note">
+</section>
+<section class="page">
+  <h1 class="section-title"><span class="num">Cap 4 · §1.c hallazgos a</span>Cuentas. Pixels. <em>Dueñidad.</em></h1>
+  <div class="conv-note" style="font-size:8.5pt;line-height:1.4;">
     <strong>Cuenta zombie con marca ajena al portafolio.</strong> Existe page Facebook <code>seminuevoschevrolettepic</code> — Chevrolet <em>no está en el portafolio del Grupo</em>. O es legacy, secuestrada, o existe operación de seminuevos vendiendo multi-marca bajo nombre Plasencia que el corporativo no controla.
   </div>
-  <div class="conv-note">
+</section>
+<section class="page">
+  <h1 class="section-title"><span class="num">Cap 4 · §1.c continuación</span>Cuentas. Pixels. <em>Dueñidad.</em></h1>
+  <h3><span class="h-num">1.c cont.</span>Hallazgos del sweep web (cont.)</h3>
+  <div class="conv-note" style="font-size:8.5pt;line-height:1.4;">
     <strong>Grupo de Facebook de vendedores detectado.</strong> Existe el grupo público <em>SEMINUEVOS PLASENCIA ALASKA TEPIC</em> donde vendedores publican unidades sin gobierno corporativo de marca, contenido ni atención al lead — patrón que confirma la dispersión operativa fuera del control del área MKT del Grupo.
   </div>
-  <div class="conv-note">
+  <div class="conv-note" style="font-size:8.5pt;line-height:1.4;">
     <strong>Changan invisible bajo nombre Plasencia.</strong> $5.7M de pauta 2025 y cero propiedades públicas. El consumidor que busca "Changan Plasencia" en Google no encuentra al Grupo. Los activos digitales viven 100% en BMs de agencias.
   </div>
-  <div class="warn-note"><strong>Impacto agregado.</strong> Dispersión de followers (95.7% concentrado en una page Seminuevos vs 4.3% en cuatro satélites), confusión del consumidor (¿a cuál cuenta pregunto?), debilita marca, hace impractical la auditoría del esfuerzo publicitario y la atribución cross-channel. <strong>Estimado: solo ~32% bajo control corporativo directo · ~68% fuera de control.</strong></div>
-  <p><strong>El sweep web es deliberadamente parcial.</strong> Las 28 propiedades identificadas son las que afloraron con búsquedas directas en Google + Facebook + Instagram por marca y por sucursal en una hora de trabajo. <strong>El universo real es significativamente mayor</strong> y solo se cierra con un sweep exhaustivo que combine: (a) Instagram y TikTok por marca × sucursal × ciudad · (b) YouTube por marca · (c) Google Business listings por cada sucursal individual · (d) cuentas personales de vendedores publicando en Facebook Marketplace, Instagram Reels, grupos de venta de autos y stories propias · (e) cuentas Mercado Libre · Autocosmos · Kavak · Seminuevos.com con etiqueta "Plasencia" · (f) cuentas activas en Tepic · Vallarta · Colima · San Luis Potosí · Manzanillo · Mazatlán (operación nacional del Grupo, no solo Guadalajara). Una auditoría exhaustiva levantaría probablemente entre 60 y 150 cuentas activas asociadas al nombre Plasencia, una porción significativa fuera del control corporativo. Estimación 4-6 horas adicionales de sweep web + entrevistas con gerentes de marca para identificar las cuentas personales que se usan en la operación de venta.</p>
+  <div class="warn-note" style="font-size:8.5pt;line-height:1.4;"><strong>Impacto agregado.</strong> Dispersión de followers (95.7% concentrado en una page Seminuevos vs 4.3% en cuatro satélites), confusión del consumidor (¿a cuál cuenta pregunto?), debilita marca, hace impractical la auditoría del esfuerzo publicitario y la atribución cross-channel. <strong>Estimado: solo ~32% bajo control corporativo directo · ~68% fuera de control.</strong></div>
+</section>
+<section class="page">
+  <h1 class="section-title"><span class="num">Cap 4 · §Eje 1 continuación</span>Cuentas. Pixels. <em>Dueñidad.</em></h1>
+  <p style="font-size:8.5pt;line-height:1.4;"><strong>El sweep web es deliberadamente parcial.</strong> Las 28 propiedades identificadas son las que afloraron con búsquedas directas en Google + Facebook + Instagram por marca y por sucursal en una hora de trabajo. <strong>El universo real es significativamente mayor</strong> y solo se cierra con un sweep exhaustivo que combine: (a) Instagram y TikTok por marca × sucursal × ciudad · (b) YouTube por marca · (c) Google Business listings por cada sucursal individual · (d) cuentas personales de vendedores publicando en Facebook Marketplace, Instagram Reels, grupos de venta de autos y stories propias · (e) cuentas Mercado Libre · Autocosmos · Kavak · Seminuevos.com con etiqueta "Plasencia" · (f) cuentas activas en Tepic · Vallarta · Colima · San Luis Potosí · Manzanillo · Mazatlán (operación nacional del Grupo, no solo Guadalajara). Una auditoría exhaustiva levantaría probablemente entre 60 y 150 cuentas activas asociadas al nombre Plasencia, una porción significativa fuera del control corporativo. Estimación 4-6 horas adicionales de sweep web + entrevistas con gerentes de marca para identificar las cuentas personales que se usan en la operación de venta.</p>
 
+</section>
+<section class="page">
+  <h1 class="section-title"><span class="num">Cap 4 · continuación · Eje 2</span>Cuentas. Pixels. <em>Dueñidad.</em></h1>
   <h2><span class="h-num">Eje 2</span>Fragmentación del ecosistema publicitario <span class="badge badge-ok">A5+A6+A7 + auditoría UI BM 2026-06-16</span></h2>
 
   <h3><span class="h-num">2.a</span>Existen DOS Business Managers corporativos del Grupo en paralelo</h3>
@@ -1569,11 +1818,17 @@
       <tr class="total"><td><strong>Suma BMs corporativos GP</strong></td><td class="num"><strong>15</strong></td><td class="num"><strong>43</strong></td><td class="num"><strong>29</strong></td><td>Dualidad estructural sin migración resuelta</td></tr>
     </tbody>
   </table>
+</section>
+<section class="page">
+  <h1 class="section-title"><span class="num">Cap 4 · §Eje 2 continuación</span>Cuentas. Pixels. <em>Dueñidad.</em></h1>
   <div class="conv-note">
     <strong>Riesgo de seguridad detectado.</strong> El BM legacy <em>Grupo Plasencia</em> tiene <strong>27 personas con acceso</strong> — prácticamente toda la plantilla MKT histórica. Si hay ex-empleados sin baja, tienen acceso vigente a 5 ad accounts y 22 pages corporativas. Auditoría de accesos pendiente.
   </div>
   <div class="warn-note"><strong>Implicación cuantitativa.</strong> El hero stat anterior decía "4 de 18 ad accounts (22%) bajo control corporativo". La realidad es <strong>15 ad accounts entre 2 BMs corporativos + N ad accounts en BMs de agencias</strong>. La fragmentación es <em>peor</em> de lo que el MCP veía. Falta auditar a fondo los activos de cada BM (pixels, datasets, catalogs, custom audiences) — requiere autenticación 2FA con el Director MKT.</div>
 
+</section>
+<section class="page">
+  <h1 class="section-title"><span class="num">Cap 4 · §Eje 2 continuación</span>Cuentas. Pixels. <em>Dueñidad.</em></h1>
   <h3><span class="h-num">2.b</span>Activos en BMs de terceros (Read-Only para el Grupo)</h3>
   <table>
     <thead><tr><th>Métrica</th><th class="num">Valor</th><th>Lectura</th></tr></thead>
@@ -1609,6 +1864,9 @@
   <p><strong>Pose-One Campaigns</strong> es el patrón canónico Meta para operaciones multi-sucursal: una sola campaña por marca con presupuesto consolidado, audiencias amplias (Advantage+), ubicación segmentada a nivel de creativo (no de campaña), y atribución multi-touch hacia la sucursal real que cierra. <em>Es la premisa fundacional del piloto Motor de Atribución</em> — el Grupo no puede operar digital eficiente mientras siga reportando presupuesto por sucursal en cada plataforma.</p>
   <div class="conv-note"><strong>El estándar Pose-One está en producción.</strong> Las 4 marcas piloto (Seminuevos · Hyundai · Stellantis · GAC) operan con esta estructura consolidada desde abril 2026, sustituyendo el patrón legacy de 8-12 campañas paralelas por marca/sucursal. La cuantificación del ahorro por consolidación algorítmica vs estructura legacy se reporta en Cap 5 §5.8 palanca de Central de Medios.</div>
 
+</section>
+<section class="page">
+  <h1 class="section-title"><span class="num">Cap 4 · §Eje 4</span>Presupuesto. Leads. <em>Plantilla.</em></h1>
   <h2><span class="h-num">Eje 4</span>Fragmentación de la gestión operativa de leads y conversaciones</h2>
   <p>La operación de venta digital del Grupo no tiene un estándar único de gestión de leads ni de conversaciones. Cada marca implementó su propia respuesta operativa: distintas apps de WhatsApp Business, sheets paralelos, CRMs externos contratados por silo, transferencia de contactos de cliente entre vendedores por mensajes personales. <strong>El resultado es un ecosistema donde no se puede auditar la conversación, ni medir el SLA de primer contacto, ni reproducir el handoff lead → cita → venta de manera comparable cross-marca.</strong></p>
   <h3><span class="h-num">4.1</span>Qué debería ser el estándar correcto</h3>
@@ -1621,6 +1879,9 @@
   <p>Sin estándar único: leads que llegan por la noche o el fin de semana mueren porque nadie los toma a tiempo · vendedores se llevan los contactos cuando se cambian de marca o concesionaria · imposible medir CPA real porque la mitad de los pipelines viven en sistemas que no exportan · el cliente VIP de Mazda no es reconocido cuando entra a una conversación de Hyundai del mismo Grupo · y cuando llega una queja a Profeco o redes sociales no hay historial de conversación auditable.</p>
   <div class="conv-note"><strong>El estándar de gestión de leads está en producción.</strong> Las 4 marcas piloto operan WhatsApp Business + Kanban dinámico con routing por sucursal desde abril 2026. El inventario completo de apps WA Business / CRMs / sheets paralelas en las 4 marcas restantes lo cierra el plan de Cap 7 §7.5 paso 6 de activación cross-marca del Motor de Atribución.</div>
 
+</section>
+<section class="page">
+  <h1 class="section-title"><span class="num">Cap 4 · continuación · Eje 5</span>Presupuesto. Leads. <em>Plantilla.</em></h1>
   <h2><span class="h-num">Eje 5</span>Plantilla y proveedores sobredimensionados · caso cuantificado</h2>
   <p>El planteamiento estructural es: con plantilla actual de perfiles operacionales (community, post-production, copy bajo plantilla, ejecutivos de cuenta) el Grupo gasta nómina sin obtener la palanca estratégica que necesita Marketing Corporativo (performance, data, brand standards cross-marca, creative ops). Una plantilla rediseñada con perfiles senior especializados <em>multiplicados por IA</em> puede entregar más output estratégico con menor headcount.</p>
 
@@ -1638,7 +1899,10 @@
   <div class="warn-note" style="margin-bottom:3mm;">
     <strong>Sobre el origen de estas cifras.</strong> Línea 1 (plantilla 70+ → 30) sale de cubos 30046 + 30067 verificados. Línea 2 (nómina $7.88M → ~$5.5M sobre el área centralizada) usa el bruto contable y proyecta la nómina rediseñada con mix de tiers salariales del Hub &amp; Spoke. Línea 3 (consolidación de proveedores 10-15%) es estimación sobre la porción cross-marca del gasto MKT externo — <strong>la base monetaria nominal del cálculo se entrega al extender el catálogo DCA con un cubo que cruce CxP × cuenta de gasto a nivel póliza, ruta detallada en Cap 3 §3.3</strong>. El rango $6.9-9.4M anuales mantiene validez direccional sobre el universo MKT contable verificado.
   </div>
-  <div class="callout">
+</section>
+<section class="page">
+  <h1 class="section-title"><span class="num">Cap 4 · §Eje 5 continuación</span>Presupuesto. Leads. <em>Plantilla.</em></h1>
+  <div class="callout" style="font-size:8pt;line-height:1.35;">
     <div class="callout-t">Lo importante de este caso · ahorro + rendimiento</div>
     <p>El ahorro neto de $6.9-9.4M anuales <em>no es la palanca principal</em>. La palanca real es <strong>rendimiento del peso invertido en pauta</strong> — con un Hub corporativo senior + Spokes por marca operando Andromeda 2026 + Pose-One Campaigns + Motor de Atribución, el mismo presupuesto de pauta ($197.5M) rinde más unidades vendidas porque la operación se profesionaliza. Ver Cap 5 §5.8 palanca 5 (atribución unificada · revenue incremental por +1pp conversión digital · dos órdenes de magnitud mayor que el ahorro de plantilla).</p>
   </div>
@@ -1721,6 +1985,9 @@
     <strong>El caso completo.</strong> La centralización vía MKT Corporativo no es una decisión fiscal aislada — es la <em>palanca que habilita simultáneamente</em> deducibilidad ($20-55M/año), eficiencia de procurement (10-15% cross-marca), capacidad operativa (plantilla especializada + IA) y medición auditable (Motor de Atribución con única fuente de verdad). Es la decisión estructural que define los próximos tres años de Marketing en el Grupo.
   </div>
 
+</section>
+<section class="page">
+  <h1 class="section-title"><span class="num">Cap 5 · continuación · §5.6</span>El caso del <em>Centro de Excelencia.</em></h1>
   <h2><span class="h-num">5.6</span>Google Ads · oportunidad sub-explotada (problema NO es fiscal)</h2>
   <p>A diferencia de Meta Ireland, <strong>Google Operations México emite CFDI mexicano</strong> — el gasto en Google Ads <em>sí es deducible de IVA</em> sin necesidad de intermediario. El problema con Google en el Grupo no es fiscal; es de decisión de inversión.</p>
   <table>
@@ -1771,6 +2038,9 @@
     <p>Avalar que la Dirección de Marketing Corporativo lidere la negociación cross-marca de co-inversión OEM 2026-2027 con base en el volumen agregado del Grupo, con objetivo de cerrar al benchmark del sector. La estructura específica de cada acuerdo OEM se reporta al Consejo conforme se firma.</p>
   </div>
 
+</section>
+<section class="page">
+  <h1 class="section-title"><span class="num">Cap 5 · §5.8-5.9</span>De cada $100, <em>$93 salen del Grupo.</em></h1>
   <h2><span class="h-num">5.8</span>Las 5 palancas · cinco fuentes de ineficiencia cuantificadas</h2>
   <p>Las palancas 1-4 son <strong>eficiencia operativa</strong> (ahorro). La palanca 5 es <strong>performance del peso invertido</strong> (revenue incremental) y opera en otro orden de magnitud — dos órdenes por encima.</p>
 
@@ -1793,6 +2063,11 @@
       <div class="palanca-monto">$32-48M</div>
     </div>
 
+  </div>
+</section>
+<section class="page">
+  <h1 class="section-title"><span class="num">Cap 5 · §5.8 continuación</span>De cada $100, <em>$93 salen del Grupo.</em></h1>
+  <div class="palancas-grid">
     <div class="palanca">
       <div>
         <div class="palanca-header">Palanca 3 · Plantilla fragmentada</div>
@@ -1821,6 +2096,9 @@
     </div>
   </div>
 
+</section>
+<section class="page">
+  <h1 class="section-title"><span class="num">Cap 5 · continuación · §5.9</span>De cada $100, <em>$93 salen del Grupo.</em></h1>
   <h2><span class="h-num">5.9</span>Magnitud agregada · tres escenarios y ROI del Centro de Excelencia</h2>
   <table>
     <thead><tr><th>Palanca</th><th class="num">Conservador</th><th class="num">Realista</th><th class="num">Optimista</th></tr></thead>
@@ -1870,6 +2148,10 @@
     </tbody>
   </table>
 
+</section>
+<section class="page">
+  <h1 class="section-title"><span class="num">Cap 6 · §6.2 Infraestructura</span>Noventa días. <em>Cuatro marcas en producción.</em></h1>
+
   <h2><span class="h-num">6.2</span>Infraestructura instalada · qué queda como activo del Grupo</h2>
   <p>El piloto deja instalada infraestructura reutilizable cross-marca — no equipos consumibles. Si el piloto se replicara mañana sería 80% más rápido porque el stack ya existe.</p>
   <table>
@@ -1886,6 +2168,9 @@
     </tbody>
   </table>
 
+</section>
+<section class="page">
+  <h1 class="section-title"><span class="num">Cap 6 · continuación · §6.3</span>Noventa días. <em>Cuatro marcas en producción.</em></h1>
   <h2><span class="h-num">6.3</span>Documentación canónica generada · el piloto se autodescribe</h2>
   <p>El piloto deja documentación reproducible. No depende de la memoria del Director: cualquier sucesor entra y opera.</p>
   <ul style="font-size:9.5pt;">
@@ -1920,6 +2205,9 @@
     </tbody>
   </table>
 
+</section>
+<section class="page">
+  <h1 class="section-title"><span class="num">Cap 6 · continuación · §6.5-6.6</span>Resultados medidos. <em>Problemas revelados.</em></h1>
   <h2><span class="h-num">6.5</span>El punch del piloto · mismo embudo digital, distinta gestión humana</h2>
   <div class="conv-note">
     <strong>El piloto cuantificó la raíz del problema cross-marca.</strong> El embudo digital es el mismo para las tres marcas medidas. Lo que cambia es la gestión humana del handoff Marketing → Ventas. Seminuevos tiene IA temprana (Vambe) que agenda 8.5% y cierra · su cuello operativo está en Cita → Visita (Customer Success resolvería). Hyundai y Stellantis no tienen gestión sistemática desde el registro · los leads se mueren antes de agendar. OEM no es la raíz.
@@ -1990,8 +2278,11 @@
     </tbody>
   </table>
 
-  <h2><span class="h-num">7.2</span>Las cuatro preguntas estructurales al Consejo</h2>
-  <div class="callout">
+  <h2 style="margin-top:4mm;margin-bottom:1mm;"><span class="h-num">7.2</span>Las cuatro preguntas estructurales al Consejo</h2>
+</section>
+<section class="page">
+  <h1 class="section-title"><span class="num">Cap 7 · §7.2 continuación</span>Cuatro preguntas. <em>Una decisión.</em></h1>
+  <div class="callout" style="font-size:8pt;line-height:1.35;">
     <div class="callout-t">Las cuatro preguntas en una página</div>
     <ol>
       <li><strong>Pregunta de rol.</strong> ¿Cuál es el rol y mandato formal de la Dirección de Marketing Corporativo del Grupo a partir de Q3 2026? <em>Centro de Excelencia consultivo, Central de Medios operativa, o ambos?</em></li>
@@ -2001,9 +2292,12 @@
     </ol>
   </div>
 
+</section>
+<section class="page">
+  <h1 class="section-title" style="margin-bottom:1mm;font-size:12pt;"><span class="num">Cap 7 · continuación · §7.2.1</span>Cuatro preguntas. <em>Una decisión.</em></h1>
   <h2><span class="h-num">7.2.1</span>Lo que esta estrategia NO es</h2>
-  <p>El manejo de expectativas frente al Consejo, los Directores de Marca y la plantilla MKT requiere afirmaciones explícitas de lo que esta estrategia <strong>no propone</strong>:</p>
-  <table>
+  <p style="font-size:8pt;line-height:1.35;margin-bottom:2mm;">El manejo de expectativas frente al Consejo, los Directores de Marca y la plantilla MKT requiere afirmaciones explícitas de lo que esta estrategia <strong>no propone</strong>:</p>
+  <table style="font-size:8pt;">
     <thead><tr><th style="width:42%">No es</th><th>Es</th></tr></thead>
     <tbody>
       <tr><td><strong>No es un recorte de presupuesto MKT.</strong></td><td>El gasto total del Grupo en Marketing no baja. Se gobierna mejor. La Dirección de Marketing Corporativo no pide un peso incremental al Consejo: la transición se autofinancia con las palancas 1-2 de Fase 2.</td></tr>
@@ -2023,7 +2317,7 @@
   <h2><span class="h-num">7.3</span>Cuatro escenarios de gobierno A · B · C · D <span class="badge badge-data">marco de decisión Consejo</span></h2>
   <p>Cada escenario es internamente consistente — combina rol, presupuesto, accountability y plantilla de manera coherente. El Consejo elige <strong>uno</strong>. Combinaciones cruzadas (ej. plantilla del C pero presupuesto del A) son inestables porque las dimensiones se refuerzan.</p>
 
-  <table>
+  <table style="font-size:8.5pt;">
     <thead><tr><th>Dimensión</th><th>A · Status Quo</th><th>B · CdE Consultivo</th><th>C · Central de Medios</th><th>D · Hub Pleno</th></tr></thead>
     <tbody>
       <tr>
@@ -2040,6 +2334,14 @@
         <td>Pauta digital 100% corporativa · resto Director de Marca</td>
         <td>100% corporativo con asignación variable por marca según KPI</td>
       </tr>
+</tbody>
+  </table>
+</section>
+<section class="page">
+  <h1 class="section-title"><span class="num">Cap 7 · §7.3 continuación</span>Cuatro escenarios. <em>Una decisión.</em></h1>
+  <table style="font-size:8.5pt;">
+    <thead><tr><th>Dimensión</th><th>A · Status Quo</th><th>B · CdE Consultivo</th><th>C · Central de Medios</th><th>D · Hub Pleno</th></tr></thead>
+    <tbody>
       <tr>
         <td><strong>KPI dominante</strong></td>
         <td>Volumen OEM por marca</td>
@@ -2119,7 +2421,11 @@
     </tbody>
   </table>
 
-  <p style="margin-top:4mm;">Los proveedores externos se consolidan en <strong>dos agencias únicas cross-marca</strong>, ambas operando bajo el estándar único del Hub:</p>
+</section>
+<section class="page">
+  <h1 class="section-title"><span class="num">Cap 7 · §7.4 continuación · Agencias</span>El Hub. <em>El orden. La decisión.</em></h1>
+
+  <p style="margin-top:0;">Los proveedores externos se consolidan en <strong>dos agencias únicas cross-marca</strong>, ambas operando bajo el estándar único del Hub:</p>
   <table>
     <thead><tr><th>Agencia externa</th><th>Scope cross-marca</th><th class="num">Fee mensual conceptual</th></tr></thead>
     <tbody>
@@ -2128,6 +2434,9 @@
     </tbody>
   </table>
 
+</section>
+<section class="page">
+  <h1 class="section-title"><span class="num">Cap 7 · §7.4.1</span>El Hub. <em>El organigrama To-Be.</em></h1>
   <h2><span class="h-num">7.4.1</span>Organigrama To-Be · vista conceptual</h2>
   <div style="background:#F7FAFC;padding:6mm;border-radius:3px;margin:4mm 0;">
   <svg viewBox="0 0 1000 830" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;font-family:'Inter',sans-serif;display:block;">
@@ -2365,6 +2674,9 @@
   </svg>
   </div>
 
+</section>
+<section class="page">
+  <h1 class="section-title"><span class="num">Cap 7 · §7.5</span>El Hub. <em>El orden. La decisión.</em></h1>
   <h2><span class="h-num">7.5</span>Roadmap estratégico · seis proyectos en tres olas de 24 meses</h2>
   <p>La estructura del §7.4 entra en operación y ejecuta seis proyectos estratégicos en tres olas temporales. Cada ola tiene foco propio: la Fundación arregla la cancha, la Construcción define la marca y construye el Marketplace, el Escalamiento lleva el modelo al portafolio core.</p>
 
@@ -2379,6 +2691,9 @@
     </tbody>
   </table>
 
+</section>
+<section class="page">
+  <h1 class="section-title"><span class="num">Cap 7 · §7.5.1</span>El Hub. <em>Los seis proyectos estratégicos.</em></h1>
   <h2><span class="h-num">7.5.1</span>Los seis proyectos estratégicos · síntesis conceptual</h2>
   <p>De cada proyecto estratégico se desprenden planes puntuales con specs, deliverables, KPIs y owners operativos que se definen en la fase de implementación. La síntesis siguiente es direccional, no exhaustiva.</p>
 
@@ -2398,6 +2713,9 @@
     <strong>Recomendación operativa de la marca laboratorio.</strong> Arrancar PE-5 con <strong>Plasencia Seminuevos</strong> como marca laboratorio principal — opera con foco en customer journey y experiencia del cliente bajo modelo phygital (no centrada en el proceso de negocio): sub-marca propia sin guidelines OEM externos, Motor de Atribución MVP ya en producción ahí, escala natural a Plasencia Crédito y Plasencia Posventa después. <strong>GP Autolease en paralelo</strong> como laboratorio B2B antes del go-to-market formal · ventana de oportunidad para validar el modelo Hub &amp; Spoke en una línea nueva sin legacy de operación, con la propiedad alineada al Director General del Grupo.
   </div>
 
+</section>
+<section class="page">
+  <h1 class="section-title"><span class="num">Cap 7 · §7.5.2</span>El Hub. <em>Siete pasos. Dieciocho meses.</em></h1>
   <h2><span class="h-num">7.5.2</span>Transición operativa · siete pasos en ~18 meses direccionales</h2>
   <p>El roadmap estratégico de las tres olas se ejecuta sobre una secuencia operativa de siete pasos que materializa el modelo Hub &amp; Spoke. El orden importa más que el contenido: saltarse pasos destruye el capital político para los siguientes.</p>
   <table>
@@ -2416,6 +2734,9 @@
     <strong>El orden importa más que el contenido.</strong> La transición de plantilla va al final no porque sea menos importante, sino porque sin las palancas 2-6 demostradas, el Consejo no tiene cómo defender los movimientos políticamente costosos con los Directores de Marca.
   </div>
 
+</section>
+<section class="page">
+  <h1 class="section-title"><span class="num">Cap 7 · §7.6</span>El Hub. <em>La decisión.</em></h1>
   <h2><span class="h-num">7.6</span>Las cuatro preguntas · formuladas para decisión binaria</h2>
   <div class="callout">
     <div class="callout-t">Formato de decisión al Consejo</div>
@@ -2467,6 +2788,9 @@
   <h2><span class="h-num">C</span>Reproducibilidad</h2>
   <p>Toda cifra de gasto y plantilla en este documento es reproducible vía queries SQL contra <strong>Cloudflare D1 <code>bitam-mkt</code></strong> (cubos 30060 Finanzas MB, 30065 Real vs Ppto, 30067 Real LxL, 30021 Finanzas, 30046 RH, 30049 Nómina, 30051 CxP). Toda cifra operacional Meta es reproducible vía MCPs <code>meta-ads</code> y <code>pipeboard-meta</code>. Sweep web de propiedades digitales vía búsqueda pública. Auditoría de Business Managers corporativos vía UI business.facebook.com. Métodos documentados en <code>03-tech/DCA-D1-Sistema-Finanzas-MKT.md</code> y <code>03-tech/BITAM-Runbook-Extraccion-Datos.md</code>.</p>
 
+</section>
+<section class="page">
+  <h1 class="section-title"><span class="num">Anexos · continuación</span>Reproducibilidad y <em>cobertura.</em></h1>
   <h2><span class="h-num">D</span>Marcas en orden de prioridad por palanca</h2>
   <p style="font-size:8.5pt;color:#666;margin-bottom:2mm;">Síntesis del levantamiento operativo Q3-Q4 2025. Los conceptos de CAC, conversión y tasa lead→cita provienen del autorreporte por marca y se confirman/corrigen al cierre del sexto mes operativo del Motor de Atribución MVP (octubre 2026). La cuantificación nominal del gasto MKT por proveedor con razón social y monto contable se entrega al extender el catálogo DCA (ruta detallada en Cap 3 §3.3).</p>
   <table>
@@ -2483,6 +2807,9 @@
     </tbody>
   </table>
 
+</section>
+<section class="page">
+  <h1 class="section-title"><span class="num">Anexos · continuación</span>Reproducibilidad y <em>cobertura.</em></h1>
   <h2><span class="h-num">E</span>Estructura final del documento v2.4</h2>
   <table>
     <thead><tr><th style="width:10%">Capítulo</th><th>Foco</th><th>Estado</th></tr></thead>
