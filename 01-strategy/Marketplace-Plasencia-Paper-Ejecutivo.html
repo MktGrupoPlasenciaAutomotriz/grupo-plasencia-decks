@@ -1198,6 +1198,57 @@
   </p>
 </section>
 
+<!-- ==================== PAGE 12.5: PROTOTIPO EN PRODUCCIÓN ==================== -->
+<section class="page">
+  <h1 class="section-title"><span class="num">13 · Prototipo en producción</span>Prueba de concepto a validar con el Consejo.</h1>
+
+  <p class="lead">El Marketplace no es propuesta abstracta. Existe un prototipo funcional desplegado bajo Cloudflare Access · acceso restringido a <code>@grupoplasencia.com</code>. La Dirección MKT Corporativo lo construyó como prueba de concepto antes de presentarlo al Consejo · para que la conversación sea sobre qué refinar, no sobre qué imaginar.</p>
+
+  <div class="callout" style="margin: 4mm 0;">
+    <div class="callout-title">URL del prototipo</div>
+    <p style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 10pt;">https://decks-plasencia.grupo-plasencia-automotriz.workers.dev/prototype/</p>
+    <p style="margin: 2mm 0 0; font-size: 9pt; color: rgba(30,39,64,0.65);">Login con SSO Google <code>@grupoplasencia.com</code> · misma política que el CRM Motor de Atribución · sesión 24 horas.</p>
+  </div>
+
+  <h2 class="section-h2">Qué se construyó</h2>
+
+  <table>
+    <thead><tr><th style="width:30%">Módulo</th><th>Estado en el prototipo</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Catálogo cross-marca</strong></td><td>Inventario unificado de las 8 marcas · filtros por marca, gama, precio, ubicación · 100+ unidades reales del Grupo</td></tr>
+      <tr><td><strong>Página de marca</strong></td><td>Landing por marca dentro del paraguas Plasencia · preserva identidad OEM sin perder navegación cross-marca</td></tr>
+      <tr><td><strong>Ficha de auto</strong></td><td>Detalle de unidad · galería, especificaciones, financiamiento simulado, CTA de cita</td></tr>
+      <tr><td><strong>MyPlasencia (account)</strong></td><td>Sección de cuenta del cliente · post-compra, servicios, historial</td></tr>
+      <tr><td><strong>Flujos transaccionales</strong></td><td>Wizards de cita, financiamiento, comparación, contacto · diseñados como service blueprint</td></tr>
+      <tr><td><strong>Identidad visual</strong></td><td>Design system Grupo Plasencia aplicado · tokens, tipografía, componentes consistentes con el resto del paquete</td></tr>
+    </tbody>
+  </table>
+
+  <h2 class="section-h2" style="margin-top: 4mm;">Qué valida el prototipo</h2>
+
+  <table>
+    <thead><tr><th style="width:30%">Hipótesis</th><th>Cómo la prueba el prototipo</th></tr></thead>
+    <tbody>
+      <tr><td><strong>El inventario unificado es navegable</strong></td><td>El cliente filtra entre las 8 marcas en una sola UX · sin saltar entre 8 sitios OEM separados</td></tr>
+      <tr><td><strong>La marca paraguas funciona</strong></td><td>Plasencia como marca madre + cada OEM como sub-marca coexisten visualmente sin conflicto · ver §05 Arquitectura de marca</td></tr>
+      <tr><td><strong>El stack técnico es viable</strong></td><td>Vanilla JS + Cloudflare Workers + Access · sin dependencias pesadas · base que escala a producción real cuando el Consejo apruebe</td></tr>
+    </tbody>
+  </table>
+
+  <h2 class="section-h2" style="margin-top: 4mm;">Qué falta validar con el Consejo</h2>
+
+  <ul>
+    <li><strong>Alcance comercial del MVP.</strong> Qué marcas entran primero al Marketplace (recomendación: Plasencia Seminuevos + 2 marcas chinas como laboratorio de Ola 3 · ver Resumen Ejecutivo slide 12).</li>
+    <li><strong>Modelo de inventario.</strong> Tiempo real desde el DMS de cada marca vs feed batch diario · trade-off de velocidad técnica vs precisión.</li>
+    <li><strong>Captura del cliente.</strong> Qué datos pide el Marketplace antes de un test drive vs después · alineado con LGPDP y captura mínima viable.</li>
+    <li><strong>Inversión Fase 1.</strong> Convertir el prototipo en producción real requiere stack productivo + integración DMS + equipo dedicado · estimado en el Resumen Ejecutivo slide 11 (parte de los $1.5M de Ola 1 + escalamiento Ola 2).</li>
+  </ul>
+
+  <p style="margin-top: 4mm; font-size: 10pt; color: rgba(30,39,64,0.75); border-left: 3px solid var(--gold); padding-left: 4mm;">
+    <strong>Por qué presentar prototipo y no slides.</strong> El benchmark mundial (§03) demostró que los retailers que ganaron — Lithia/Asbury/Group 1 — entregaron MVP funcional en meses, no años. El prototipo existente reduce el riesgo de ejecución del Consejo: la pregunta no es "¿se puede construir?" · es "¿qué refinamos antes de escalar?".
+  </p>
+</section>
+
 <!-- ==================== PAGE 13 (CLOSING) ==================== -->
 <section class="page" style="padding: 0;">
   <div class="closing">
@@ -1213,7 +1264,7 @@
 
     <div class="signature">
       <strong>Experiencia Plasencia Automotriz</strong>
-      Documento ejecutivo · Dirección de Marketing Corporativo · Mayo 2026
+      Anexo del paquete del Consejo · Dirección de Marketing Corporativo · Junio 2026
     </div>
   </div>
 </section>
