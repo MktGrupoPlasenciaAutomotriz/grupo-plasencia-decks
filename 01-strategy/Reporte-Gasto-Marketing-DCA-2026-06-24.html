@@ -490,19 +490,59 @@
     </tbody>
   </table>
 
-  <h3 class="section-h3">Proporción · Reembolso vs Publicidad bruto</h3>
+  <h3 class="section-h3">Proporción · Reembolso OEM vs Publicidad bruto · CIFRAS REALES (v19)</h3>
+
+  <p class="small" style="margin-bottom:2mm;"><strong>Actualización v19 (25-jun-2026):</strong> extracción completa de <code>dca_pl_corporativo</code> (203K rows · cubo 30021) reveló que <strong>el rebate OEM SÍ es trazable en DCA</strong> · vive en el campo <code>creditos_mensual</code> (abonos contra el cargo). Cifras a continuación son REALES, no inferidas.</p>
 
   <table class="data" style="font-size:8.5pt;">
-    <thead><tr><th>Fuente</th><th class="num">Reembolso</th><th class="num">Publicidad base</th><th class="num">% Reembolso/Publicidad</th></tr></thead>
+    <thead><tr><th>Concepto</th><th class="num">Cargos brutos 2025-26</th><th class="num">Créditos OEM</th><th class="num">Neto Grupo</th><th class="num">% rebate OEM</th></tr></thead>
     <tbody>
-      <tr><td>DCA 2025 (cuentas estándar)</td><td class="num">$0</td><td class="num">$49.50M</td><td class="num"><strong>0%</strong></td></tr>
-      <tr><td>Levantamiento Q3-Q4 2025 (Galindo)</td><td class="num">$4.30M</td><td class="num">$24.75M (H2)</td><td class="num"><strong>17.4%</strong></td></tr>
-      <tr><td>Sobre MKT bruto Pub+Promo anualizado</td><td class="num">$8.6M proxy</td><td class="num">$99.65M</td><td class="num"><strong>8.6%</strong></td></tr>
-      <tr><td>Benchmark sector</td><td class="num">—</td><td class="num">—</td><td class="num"><strong>20-30%</strong></td></tr>
+      <tr><td><strong>Publicidad</strong></td><td class="num">$187.78M</td><td class="num">$22.43M</td><td class="num">$165.34M</td><td class="num"><strong>12%</strong></td></tr>
+      <tr><td><strong>Promoción</strong></td><td class="num">$343.38M</td><td class="num">$145.18M</td><td class="num">$198.21M</td><td class="num"><strong>42%</strong></td></tr>
+      <tr><td><strong>Promo 2</strong> <span style="background:var(--amber, #ff9800);color:#fff;font-size:7pt;font-weight:600;padding:0.3mm 1mm;border-radius:2px;letter-spacing:0.3px;">OEM REBATE</span></td><td class="num">$904.94M</td><td class="num">$557.02M</td><td class="num">$347.92M</td><td class="num"><strong>62%</strong></td></tr>
+      <tr class="total"><td><strong>TOTAL Grupo</strong></td><td class="num"><strong>$1,436M</strong></td><td class="num"><strong>$724.63M</strong></td><td class="num"><strong>$711.47M</strong></td><td class="num"><strong>50%</strong></td></tr>
     </tbody>
   </table>
 
-  <p class="small" style="margin-top:2mm;margin-bottom:0;"><strong>Diagnóstico:</strong> rebate OEM existe (Galindo lo confirma) pero NO es trazable en DCA estándar · solo Ford 2026 con $0.36M. El resto está en Promo 2 <span style="background:var(--amber, #ff9800);color:#fff;font-size:7pt;font-weight:600;padding:0.3mm 1mm;border-radius:2px;letter-spacing:0.3px;">OEM REBATE</span> (pass-through OEM) o cooperación al precio. <strong>Recomendación Contraloría:</strong> crear cuenta visible "Reembolso OEM por marca" · hoy NO se ve en P&L MKT.</p>
+  <p class="small" style="margin-top:2mm;margin-bottom:0;"><strong>Respuesta directa:</strong> el dinero OEM está distribuido en los 3 conceptos · principalmente en Promo 2 ($557M · 62% de su cargo) pero también en Publicidad ($22M · 12%) y Promoción ($145M · 42%). <strong>Promo 2 NO es 100% pass-through</strong> · el Grupo neto absorbe $348M de los $905M brutos. <strong>Nota metodológica:</strong> cifras de <code>dca_pl_corporativo</code> son póliza-por-póliza, mayores que cubo 30065 (que da $197.6M Pub+Promo+Promo2 agregado) porque incluye registros intercompañía no eliminados · validar con Contraloría qué cifra es el "P&L oficial" antes de citar al Consejo.</p>
+</section>
+
+<!-- ============ PAGE: §6d REEMBOLSO OEM POR MARCA · CIFRAS REALES ============ -->
+<section class="page">
+  <h2 class="section-h2"><span class="num">§6d</span>Reembolso OEM por marca · cifras REALES con créditos contables</h2>
+
+  <p class="small" style="margin-bottom:3mm;"><strong>Fuente:</strong> <code>dca_pl_corporativo</code> (cubo 30021 BITAM extraído 25-jun-2026) · cruce <code>cargos_mensual</code> menos <code>creditos_mensual</code> por marca y grupo_gasto. <strong>Esta tabla resuelve las 7 iteraciones previas:</strong> el rebate OEM SÍ existe contablemente · sólo necesitaba el cubo 30021 correcto.</p>
+
+  <table class="data" style="font-size:7.5pt;">
+    <thead><tr><th>Marca</th><th>Concepto</th><th class="num">Cargos</th><th class="num">Créditos OEM</th><th class="num">Neto Grupo</th><th class="num">% rebate</th></tr></thead>
+    <tbody>
+      <tr style="background:rgba(200,16,46,0.06);"><td rowspan="3"><strong>MAZDA</strong></td><td>Publicidad</td><td class="num">$118.16M</td><td class="num">$3.64M</td><td class="num">$114.51M</td><td class="num">3%</td></tr>
+      <tr style="background:rgba(200,16,46,0.06);"><td>Promoción</td><td class="num">$171.04M</td><td class="num">$53.14M</td><td class="num">$117.90M</td><td class="num">31%</td></tr>
+      <tr style="background:rgba(200,16,46,0.06);"><td>Promo 2</td><td class="num">$484.47M</td><td class="num"><strong>$167.19M</strong></td><td class="num">$317.28M</td><td class="num">35%</td></tr>
+      <tr><td rowspan="3"><strong>GAC</strong> ⭐</td><td>Publicidad</td><td class="num">$1.56M</td><td class="num">$1.56M</td><td class="num">$0</td><td class="num">100%</td></tr>
+      <tr><td>Promoción</td><td class="num">$56.97M</td><td class="num">$52.36M</td><td class="num">$4.61M</td><td class="num">92%</td></tr>
+      <tr><td><strong>Promo 2</strong></td><td class="num">$178.87M</td><td class="num">$172.24M</td><td class="num">$6.63M</td><td class="num"><strong>96%</strong></td></tr>
+      <tr><td rowspan="3"><strong>HYUNDAI</strong></td><td>Publicidad</td><td class="num">$41.16M</td><td class="num"><strong>$11.50M</strong></td><td class="num">$29.66M</td><td class="num"><strong>28%</strong></td></tr>
+      <tr><td>Promoción</td><td class="num">$5.37M</td><td class="num">$2.01M</td><td class="num">$3.36M</td><td class="num">38%</td></tr>
+      <tr><td>Promo 2</td><td class="num">$0</td><td class="num">$0</td><td class="num">$0</td><td class="num">—</td></tr>
+      <tr><td rowspan="3"><strong>FORD</strong></td><td>Publicidad</td><td class="num">$19.91M</td><td class="num">$5.27M</td><td class="num">$14.64M</td><td class="num">26%</td></tr>
+      <tr><td>Promoción</td><td class="num">$38.37M</td><td class="num">$8.67M</td><td class="num">$29.70M</td><td class="num">23%</td></tr>
+      <tr><td>Promo 2</td><td class="num">$3.81M</td><td class="num">$0.32M</td><td class="num">$3.48M</td><td class="num">8%</td></tr>
+      <tr><td><strong>GWM</strong></td><td>Promo 2</td><td class="num">$81.85M</td><td class="num">$72.36M</td><td class="num">$9.48M</td><td class="num"><strong>88%</strong></td></tr>
+      <tr><td><strong>STELLANTIS</strong></td><td>Publicidad</td><td class="num">$4.46M</td><td class="num"><strong>$0</strong></td><td class="num">$4.46M</td><td class="num"><strong>0%</strong></td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="section-h3">Lectura por marca</h3>
+
+  <ul style="font-size:8.5pt;padding-left:5mm;line-height:1.5;margin:0;">
+    <li><strong>GAC es el OEM más generoso:</strong> 96% rebate en Promo 2 · 92% en Promoción · 100% en Publicidad. Patrón "línea por línea" confirmado en levantamiento Galindo.</li>
+    <li><strong>GWM 88% rebate</strong> en Promo 2 · alta cooperación contractual.</li>
+    <li><strong>Hyundai 28% rebate en Publicidad</strong> ($11.5M de $41M) · OEM cubre casi 1/3 de pauta. Promo 2 sin operación (consistente con DD §B.1).</li>
+    <li><strong>Mazda 35% rebate en Promo 2</strong> $167M de $484M · OEM cubre 1/3 · el Grupo absorbe $317M neto (el más grande del Grupo).</li>
+    <li><strong>Stellantis NO recibe rebate OEM en Publicidad</strong> ($4.5M cargo · $0 créditos) · alerta de validación con OEM.</li>
+    <li><strong>Ford 26% rebate Publicidad</strong> · OEM SÍ paga publicidad aunque modesto.</li>
+  </ul>
 </section>
 
 <!-- ============ PAGE: §6c DESGLOSE PROMO 2 POR MARCA · REAL EJERCIDO ============ -->
@@ -581,6 +621,42 @@
   </ol>
 
   <p class="small" style="margin-top:4mm;margin-bottom:0;"><strong>Validación recomendada antes de citar al Consejo:</strong> Pepe Morales (Dir Finanzas · validación numérica de pauta y nómina) · Inés (Contraloría · validación de catálogo proveedores) · Vero Orozco (Coordinación MKT · validación de composición de roles).</p>
+</section>
+
+<!-- ============ PAGE: §8 GAPS DCA · QUÉ FALTA PEDIR A CONTRALORÍA ============ -->
+<section class="page">
+  <h2 class="section-h2"><span class="num">§8</span>Gaps DCA · qué falta pedir a Contraloría · INFERENCIAS abiertas</h2>
+
+  <p class="small" style="margin-bottom:3mm;"><strong>Nota crítica para el Consejo:</strong> aunque la extracción 25-jun-2026 logró el 100% de los cubos accesibles en BITAM (31 cubos consultados · 16 con data · 1.47M rows en D1), <strong>quedan 6 zonas donde el reporte hace INFERENCIAS porque DCA no contiene el dato directo.</strong> Esta sección lista qué falta y a quién pedírselo.</p>
+
+  <h3 class="section-h3">A · INFERENCIAS que hace el reporte hoy (porque DCA no lo tiene)</h3>
+
+  <table class="data" style="font-size:7.5pt;">
+    <thead><tr><th>Tema</th><th>Cifra reportada</th><th>Origen</th><th>Pedir a</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Naturaleza Publicidad/Promoción</strong></td><td>"Medios pagados, OOH, radio, digital"</td><td>INFERENCIA por nombre de proveedor</td><td>Contraloría · catálogo gastos por cuenta</td></tr>
+      <tr><td><strong>Función de cada proveedor</strong> (digital, agencia, OOH, etc.)</td><td>Tabla §5 buckets por función</td><td>INFERENCIA por nombre · cubo 30051 NO tiene tag</td><td>Contraloría · agregar tag función</td></tr>
+      <tr><td><strong>Marca atendida por proveedor</strong></td><td>Tabla §5 columna "Marcas atendidas"</td><td>INFERENCIA por <code>marca_sucursal</code> que aparece junto al proveedor</td><td>Contraloría · validar contratos</td></tr>
+      <tr><td><strong>Servicio MKT extra de Javier ago-nov 2025</strong></td><td>$1.6M/mes proyecto puntual</td><td>INFERENCIA por patrón de monto</td><td>Contraloría · descripción factura</td></tr>
+      <tr><td><strong>"Viceversa" en Hyundai $2.51M</strong></td><td>= Mendoza Escareño Jessica</td><td>INFERENCIA por match nombre Galindo DD</td><td>Vero Orozco · confirmar</td></tr>
+      <tr><td><strong>Equivalencia cifras 30021 vs 30065</strong></td><td>30021 = 3-5x mayor que 30065</td><td>INFERENCIA · probable intercompañía no eliminada</td><td>Pepe Morales · cuál es P&L oficial</td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="section-h3">B · 6 peticiones consolidadas para Contraloría / RH</h3>
+
+  <div style="background:rgba(200,16,46,0.06);padding:3mm;margin:0;border-left:3px solid var(--gp-red);font-size:8pt;line-height:1.45;">
+    <ol style="margin:0;padding-left:5mm;">
+      <li><strong>Catálogo SAP/SAE de cuentas 5031-XXXX-YYYY-ZZZZ → descripción</strong> (Publicidad espectaculares · Promoción regalos · etc.) · 11,613 cuentas hoy son códigos opacos</li>
+      <li><strong>Tag de categoría MKT en cubo 30051 CxP</strong> que indique Publicidad/Promoción/Promo 2 por factura</li>
+      <li><strong>Habilitar cubos 30062, 30063, 30066</strong> a users jperezp@gpsi.mx + jmorales@grupoplasencia.com o entregar Excel manual</li>
+      <li><strong>Re-extraer cubo 30067 LxL con real_acum</strong> (no solo ppto_acum) para 2025 + 2026 · granularidad real PROMO MMDM/PROMO DIGITAL/EDENRED por sucursal</li>
+      <li><strong>Confirmar fecha + razón social</strong> bajo la cual cobraba Daniel Álvarez del Castillo Dávila Galindo (Dir MKT previo · no aparece en nómina)</li>
+      <li><strong>Confirmar razón social real</strong> de 9 proveedores que Galindo lista (Viceversa, Nextilo, Karbot, Kamote, Maxipublica, Infinito Lab, Paola Like, Elia García, Idea Agencia)</li>
+    </ol>
+  </div>
+
+  <p class="small" style="margin-top:3mm;margin-bottom:0;"><strong>Estado actual D1 al 25-jun-2026:</strong> 33 tablas · 1.47M rows · cubos accesibles 100% extraídos. <strong>Lo que falta NO es extracción</strong> · es metadata adicional al ETL DCA o entregable Excel. Hasta resolverse, las inferencias del §A quedan etiquetadas como tal.</p>
 </section>
 
 </body>
