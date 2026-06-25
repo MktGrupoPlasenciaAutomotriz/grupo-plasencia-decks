@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Gasto de Marketing · DCA · 2025 + 2026 YTD</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@500;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gp-red: #C8102E; --gp-navy: #1E2740; --gp-slate: #2D3748;
+    --green: #48BB78; --deep-green: #276749;
+    --blue: #4299E1; --deep-blue: #2B6CB0;
+    --amber: #D69E2E; --gold: #ECC94B;
+    --bg: #F0F4F8; --paper: #FFFFFF; --near-white: #F7FAFC;
+    --g100: #EDF2F7; --g300: #CBD5E0; --g400: #A0AEC0;
+    --g500: #718096; --g600: #4A5568;
+    --text: #2D3748;
+    --serif: 'Playfair Display', Georgia, serif;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html, body { background:var(--bg); }
+  body { font-family: var(--sans); color: var(--text); line-height: 1.55; font-size: 9.5pt; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+  @page {
+    size: A4; margin: 16mm 16mm 20mm 16mm;
+    @bottom-right { content: counter(page); font-family: 'Inter'; font-size: 9pt; color: #718096; }
+    @bottom-left { content: "Grupo Plasencia · Dirección de Marketing Corporativo"; font-family: 'Inter'; font-size: 8pt; color: #A0AEC0; }
+    @top-right { content: "Gasto de Marketing · DCA · 2025 + 2026 YTD"; font-family: 'Inter'; font-size: 8pt; color: #A0AEC0; }
+  }
+
+  .page { background: var(--paper); width: 210mm; min-height: 297mm; max-height: 297mm; overflow: hidden; margin: 0 auto 8mm auto; padding: 16mm 16mm 20mm 16mm; position: relative; page-break-after: always; box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 4px 24px rgba(30,39,64,.08); }
+  .page:last-child { page-break-after: auto; }
+
+  .doc-header { border-top: 3px solid var(--gp-red); padding-top: 5mm; margin-bottom: 8mm; }
+  .doc-header .eyebrow { font-family: var(--sans); font-weight: 700; font-size: 9pt; letter-spacing: 4px; color: var(--gp-red); text-transform: uppercase; margin-bottom: 3mm; }
+  .doc-header h1 { font-family: var(--serif); font-weight: 800; font-size: 28pt; line-height: 1.05; letter-spacing: -0.8px; color: var(--gp-navy); margin-bottom: 3mm; }
+  .doc-header .subtitle { font-family: var(--serif); font-weight: 500; font-style: italic; font-size: 13pt; color: var(--g600); line-height: 1.3; }
+  .doc-header .meta { display: flex; gap: 8mm; margin-top: 5mm; padding-top: 4mm; border-top: 1px solid var(--g100); font-size: 8.5pt; color: var(--g500); }
+  .doc-header .meta strong { color: var(--gp-slate); font-weight: 700; }
+
+  h2.section-h2 { font-family: var(--serif); font-weight: 800; font-size: 18pt; color: var(--gp-navy); margin-top: 6mm; margin-bottom: 3mm; line-height: 1.2; letter-spacing: -0.4px; }
+  h2.section-h2 .num { font-family: var(--sans); font-weight: 700; font-size: 9pt; letter-spacing: 3px; color: var(--gp-red); text-transform: uppercase; display: block; margin-bottom: 2mm; }
+  h3.section-h3 { font-size: 10pt; font-weight: 800; color: var(--gp-slate); text-transform: uppercase; letter-spacing: 1.5px; margin-top: 5mm; margin-bottom: 2mm; padding-bottom: 1mm; border-bottom: 1px solid var(--g100); }
+  p { margin: 0 0 3mm 0; }
+  strong { font-weight: 700; color: var(--gp-navy); }
+  .small { font-size: 8pt; color: var(--g500); line-height: 1.45; margin-top: 2mm; }
+  .small strong { color: var(--gp-slate); }
+
+  table.data { width: 100%; border-collapse: collapse; margin: 3mm 0; font-size: 8.5pt; page-break-inside: avoid; font-variant-numeric: tabular-nums; }
+  table.data th { background: var(--gp-navy); color: var(--near-white); font-family: var(--sans); font-weight: 700; font-size: 8pt; letter-spacing: 0.4px; padding: 2.5mm 3mm; text-align: left; text-transform: uppercase; }
+  table.data th.num, table.data td.num { text-align: right; }
+  table.data td { padding: 2mm 3mm; border-bottom: 1px solid var(--g100); color: var(--g600); }
+  table.data tr:nth-child(even) td { background: var(--g100); }
+  table.data tr:last-child td { border-bottom: none; }
+  table.data tr.total td { background: var(--gp-navy) !important; color: var(--near-white); font-weight: 700; border-bottom: none; }
+  table.data tr.total td strong { color: var(--gold); }
+  table.data tr.subtotal td { background: var(--g300) !important; color: var(--gp-navy); font-weight: 700; }
+  table.data td strong { color: var(--gp-navy); }
+  table.data tr:nth-child(even) td strong { color: var(--gp-navy); }
+
+  .kpi-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4mm; margin: 5mm 0; }
+  .kpi { padding: 4mm 5mm; background: var(--g100); border-left: 3px solid var(--gp-red); }
+  .kpi .kpi-label { font-size: 7.5pt; font-weight: 700; letter-spacing: 1.5px; color: var(--g500); text-transform: uppercase; margin-bottom: 1.5mm; }
+  .kpi .kpi-num { font-family: var(--serif); font-weight: 800; font-size: 22pt; line-height: 1; color: var(--gp-navy); letter-spacing: -0.6px; }
+  .kpi .kpi-sub { font-size: 8pt; color: var(--g500); margin-top: 1.5mm; line-height: 1.35; }
+
+  .distrib { margin: 3mm 0; }
+  .distrib-row { display: grid; grid-template-columns: 55mm 1fr 32mm; gap: 4mm; align-items: center; padding: 1mm 0; border-bottom: 1px solid var(--g100); }
+  .distrib-row:last-child { border-bottom: none; }
+  .distrib-row .label-d { font-size: 9pt; color: var(--gp-slate); font-weight: 600; }
+  .distrib-row .label-d strong { color: var(--gp-navy); }
+  .distrib-row .bar-wrap { background: var(--g100); height: 6mm; position: relative; border-radius: 2px; overflow: hidden; }
+  .distrib-row .bar { height: 100%; border-radius: 2px; }
+  .distrib-row .bar.mazda { background: var(--gp-red); }
+  .distrib-row .bar.ford { background: var(--deep-blue); }
+  .distrib-row .bar.hyundai { background: var(--blue); }
+  .distrib-row .bar.stellantis { background: var(--amber); }
+  .distrib-row .bar.isuzu { background: var(--g400); }
+  .distrib-row .bar.chinas { background: var(--green); }
+  .distrib-row .value-d { font-family: var(--serif); font-weight: 800; font-size: 12pt; color: var(--gp-navy); text-align: right; letter-spacing: -0.3px; }
+  .distrib-row .value-d span { display: block; font-family: var(--sans); font-weight: 600; font-size: 7.5pt; color: var(--g500); letter-spacing: 0.4px; text-transform: uppercase; }
+
+  .callout { background: rgba(214,158,46,0.08); border-left: 3px solid var(--amber); padding: 3.5mm 5mm; margin: 4mm 0; }
+  .callout p { margin: 0; font-size: 9pt; color: var(--gp-slate); }
+  .callout strong { color: var(--gp-navy); }
+</style>
+</head>
+<body>
+
+<!-- ============ PAGE 1: ENCABEZADO + §1 RESUMEN ============ -->
+<section class="page">
+  <div class="doc-header">
+    <p class="eyebrow">Reporte · DCA · Junio 2026</p>
+    <h1>Gasto de Marketing.</h1>
+    <p class="subtitle">Pauta publicitaria, nómina cargada al P&amp;L y desglose por marca. 8 marcas del Grupo. 2025 + 2026 YTD.</p>
+    <div class="meta">
+      <div><strong>Fecha de corte</strong> · 24 jun 2026</div>
+      <div><strong>Fuente</strong> · DCA · cubos 30065 (Real vs Ppto) + 30046 (RH)</div>
+      <div><strong>Periodo</strong> · 2025-01-01 a 2026-06-24</div>
+    </div>
+  </div>
+
+  <h2 class="section-h2"><span class="num">§1</span>Resumen ejecutivo · gasto MKT contable</h2>
+
+  <p class="small" style="margin-bottom:4mm;">Gasto Marketing puro · solo conceptos <strong>Publicidad + Promoción + Promo 2</strong> del cubo 30065 (pauta contable cargada al P&amp;L del Grupo) más nómina del depto Mercadotecnia + Ventas Digitales corporativas del cubo 30046 con factor cargas patronales 1.30. <strong>No incluye:</strong> comisiones digital de vendedores · costos de mensajería WhatsApp · CxP banco/OEM · costos administrativos no atribuibles a MKT.</p>
+
+  <div class="kpi-grid">
+    <div class="kpi">
+      <div class="kpi-label">Gasto MKT 2025</div>
+      <div class="kpi-num">$212.6M</div>
+      <div class="kpi-sub">$197.5M pauta · $15.1M nómina cargada · 63 personas</div>
+    </div>
+    <div class="kpi" style="border-left-color:var(--amber);">
+      <div class="kpi-label">Gasto MKT 2026 YTD</div>
+      <div class="kpi-num">$89.1M</div>
+      <div class="kpi-sub">Pauta ejecutada ene-jun · 46 personas · ritmo ~45% del anual 2025 a mitad de año</div>
+    </div>
+    <div class="kpi" style="border-left-color:var(--green);">
+      <div class="kpi-label">% del revenue autos</div>
+      <div class="kpi-num">0.62%</div>
+      <div class="kpi-sub">$212.6M / $34,212M revenue autos 2025 · debajo del piso sector retail automotriz</div>
+    </div>
+  </div>
+
+  <h3 class="section-h3">Composición del gasto 2025</h3>
+
+  <table class="data">
+    <thead><tr><th>Componente</th><th>Fuente DCA</th><th class="num">Monto 2025</th><th class="num">% del total</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Pauta · Publicidad</strong></td><td>Cubo 30065 · concepto Publicidad</td><td class="num">$53.5M</td><td class="num">25.2%</td></tr>
+      <tr><td><strong>Pauta · Promoción</strong></td><td>Cubo 30065 · concepto Promoción</td><td class="num">$46.2M</td><td class="num">21.7%</td></tr>
+      <tr><td><strong>Pauta · Promo 2</strong></td><td>Cubo 30065 · concepto Promo 2</td><td class="num">$97.9M</td><td class="num">46.0%</td></tr>
+      <tr class="subtotal"><td><strong>Subtotal pauta</strong></td><td><strong>Cubo 30065</strong></td><td class="num"><strong>$197.5M</strong></td><td class="num"><strong>92.9%</strong></td></tr>
+      <tr><td><strong>Nómina cargada al P&amp;L</strong></td><td>Cubo 30046 · MERCADOTECNIA + VENTAS DIGITAL · factor 1.30</td><td class="num">$15.1M</td><td class="num">7.1%</td></tr>
+      <tr class="total"><td><strong>Total Gasto MKT 2025</strong></td><td><strong>Pauta + Nómina cargada</strong></td><td class="num"><strong>$212.6M</strong></td><td class="num"><strong>100%</strong></td></tr>
+    </tbody>
+  </table>
+
+  <p class="small"><strong>Lectura:</strong> Promo 2 (46%) es la categoría dominante · típicamente cooperación OEM con la pauta del distribuidor. Publicidad (25%) corresponde a pauta digital y medios directos. La nómina representa el 7% del total · 90% concentrada en Ventas Digitales corporativas (no MKT estratégico).</p>
+</section>
+
+<!-- ============ PAGE 2: §2 DESGLOSE POR MARCA ============ -->
+<section class="page">
+  <h2 class="section-h2"><span class="num">§2</span>Pauta MKT por marca · 2025 + 2026 YTD</h2>
+
+  <p class="small" style="margin-bottom:4mm;">Pauta del cubo 30065 (Publicidad + Promoción + Promo 2). 8 marcas del Grupo. La granularidad del cubo no permite desglose mensual confiable para 2025 · todos los registros aparecen agregados al cierre anual contable.</p>
+
+  <table class="data">
+    <thead><tr><th>Marca</th><th class="num">Pauta 2025</th><th class="num">Pauta 2026 YTD</th><th class="num">Acumulado</th><th class="num">% del Grupo</th></tr></thead>
+    <tbody>
+      <tr><td><strong>MAZDA</strong></td><td class="num">$126.4M</td><td class="num">$69.2M</td><td class="num"><strong>$195.6M</strong></td><td class="num"><strong>68%</strong></td></tr>
+      <tr><td><strong>FORD</strong></td><td class="num">$27.8M</td><td class="num">$4.6M</td><td class="num"><strong>$32.4M</strong></td><td class="num"><strong>11%</strong></td></tr>
+      <tr><td><strong>GWM</strong></td><td class="num">$12.7M</td><td class="num">$3.3M</td><td class="num"><strong>$16.0M</strong></td><td class="num"><strong>6%</strong></td></tr>
+      <tr><td><strong>HYUNDAI</strong></td><td class="num">$11.5M</td><td class="num">$0.5M</td><td class="num"><strong>$12.0M</strong></td><td class="num"><strong>4%</strong></td></tr>
+      <tr><td><strong>GAC</strong></td><td class="num">$8.6M</td><td class="num">$4.0M</td><td class="num"><strong>$12.6M</strong></td><td class="num"><strong>4%</strong></td></tr>
+      <tr><td><strong>CHANGAN</strong></td><td class="num">$5.7M</td><td class="num">$2.4M</td><td class="num"><strong>$8.1M</strong></td><td class="num"><strong>3%</strong></td></tr>
+      <tr><td><strong>STELLANTIS</strong></td><td class="num">$5.0M</td><td class="num">$1.1M</td><td class="num"><strong>$6.1M</strong></td><td class="num"><strong>2%</strong></td></tr>
+      <tr><td><strong>ISUZU</strong></td><td class="num">$0.0M</td><td class="num">$0.5M</td><td class="num"><strong>$0.5M</strong></td><td class="num"><strong>0.2%</strong></td></tr>
+      <tr class="total"><td><strong>Total Grupo</strong></td><td class="num"><strong>$197.7M</strong></td><td class="num"><strong>$85.6M</strong></td><td class="num"><strong>$283.3M</strong></td><td class="num"><strong>100%</strong></td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="section-h3">Concentración visual · acumulado 2025+2026 YTD</h3>
+
+  <div class="distrib">
+    <div class="distrib-row"><div class="label-d"><strong>MAZDA</strong> · $195.6M acumulado</div><div class="bar-wrap"><div class="bar mazda" style="width:100%"></div></div><div class="value-d">68%<span>del Grupo</span></div></div>
+    <div class="distrib-row"><div class="label-d"><strong>FORD</strong> · $32.4M acumulado</div><div class="bar-wrap"><div class="bar ford" style="width:16.6%"></div></div><div class="value-d">11%<span>del Grupo</span></div></div>
+    <div class="distrib-row"><div class="label-d"><strong>GWM</strong> · $16.0M acumulado</div><div class="bar-wrap"><div class="bar chinas" style="width:8.2%"></div></div><div class="value-d">6%<span>del Grupo</span></div></div>
+    <div class="distrib-row"><div class="label-d"><strong>HYUNDAI</strong> · $12.0M acumulado</div><div class="bar-wrap"><div class="bar hyundai" style="width:6.1%"></div></div><div class="value-d">4%<span>del Grupo</span></div></div>
+    <div class="distrib-row"><div class="label-d"><strong>GAC</strong> · $12.6M acumulado</div><div class="bar-wrap"><div class="bar chinas" style="width:6.4%"></div></div><div class="value-d">4%<span>del Grupo</span></div></div>
+    <div class="distrib-row"><div class="label-d"><strong>CHANGAN</strong> · $8.1M acumulado</div><div class="bar-wrap"><div class="bar chinas" style="width:4.1%"></div></div><div class="value-d">3%<span>del Grupo</span></div></div>
+    <div class="distrib-row"><div class="label-d"><strong>STELLANTIS</strong> · $6.1M acumulado</div><div class="bar-wrap"><div class="bar stellantis" style="width:3.1%"></div></div><div class="value-d">2%<span>del Grupo</span></div></div>
+    <div class="distrib-row"><div class="label-d"><strong>ISUZU</strong> · $0.5M acumulado</div><div class="bar-wrap"><div class="bar isuzu" style="width:0.3%"></div></div><div class="value-d">0.2%<span>del Grupo</span></div></div>
+  </div>
+
+  <p class="small" style="margin-top:3mm;"><strong>Mazda concentra 68% del gasto MKT del Grupo</strong> (acumulado). Marcas chinas (GAC+GWM+Changan) suman 13%. STL recibe 2% del gasto MKT pero aporta ~5% del revenue · Isuzu opera B2B flotillero sin pauta digital.</p>
+</section>
+
+<!-- ============ PAGE 3: §3 DESGLOSE POR CATEGORÍA ============ -->
+<section class="page">
+  <h2 class="section-h2"><span class="num">§3</span>Pauta MKT por categoría y marca · 2025</h2>
+
+  <p class="small" style="margin-bottom:4mm;">Desglose por los 3 conceptos contables del cubo 30065: <strong>Publicidad</strong> (medios directos), <strong>Promoción</strong> (cooperación OEM aplicada al cliente) y <strong>Promo 2</strong> (cooperación OEM adicional · típicamente bonos al distribuidor o incentivos por unidad). Año 2025 cerrado.</p>
+
+  <table class="data">
+    <thead><tr><th>Marca</th><th class="num">Publicidad</th><th class="num">Promoción</th><th class="num">Promo 2</th><th class="num">Total 2025</th><th>Composición</th></tr></thead>
+    <tbody>
+      <tr><td><strong>MAZDA</strong></td><td class="num">$39.5M</td><td class="num">$28.3M</td><td class="num">$58.7M</td><td class="num"><strong>$126.4M</strong></td><td>Mix balanceado</td></tr>
+      <tr><td><strong>FORD</strong></td><td class="num">$5.9M</td><td class="num">$7.6M</td><td class="num">$14.3M</td><td class="num"><strong>$27.8M</strong></td><td>Heavy Promo 2 OEM</td></tr>
+      <tr><td><strong>GWM</strong></td><td class="num">$0.0M</td><td class="num">$3.7M</td><td class="num">$9.0M</td><td class="num"><strong>$12.7M</strong></td><td>Solo cooperación OEM</td></tr>
+      <tr><td><strong>HYUNDAI</strong></td><td class="num">$3.1M</td><td class="num">$3.6M</td><td class="num">$4.7M</td><td class="num"><strong>$11.4M</strong></td><td>Mix balanceado</td></tr>
+      <tr><td><strong>GAC</strong></td><td class="num">$0.0M</td><td class="num">$2.1M</td><td class="num">$6.5M</td><td class="num"><strong>$8.6M</strong></td><td>Solo cooperación OEM</td></tr>
+      <tr><td><strong>CHANGAN</strong></td><td class="num">$0.0M</td><td class="num">$3.0M</td><td class="num">$2.6M</td><td class="num"><strong>$5.7M</strong></td><td>Solo cooperación OEM</td></tr>
+      <tr><td><strong>STELLANTIS</strong></td><td class="num">$1.1M</td><td class="num">$1.8M</td><td class="num">$2.1M</td><td class="num"><strong>$5.0M</strong></td><td>Mix bajo en todos</td></tr>
+      <tr><td><strong>ISUZU</strong></td><td class="num">$0.0M</td><td class="num">$0.0M</td><td class="num">$0.0M</td><td class="num"><strong>$0.0M</strong></td><td>Sin pauta · B2B flotillero</td></tr>
+      <tr class="total"><td><strong>Total Grupo 2025</strong></td><td class="num"><strong>$49.6M</strong></td><td class="num"><strong>$50.1M</strong></td><td class="num"><strong>$97.9M</strong></td><td class="num"><strong>$197.6M</strong></td><td><strong>25% / 25% / 50%</strong></td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="section-h3">Hallazgo · 4 de 8 marcas operan sin Publicidad propia en 2025</h3>
+
+  <p>GWM, GAC, Changan e Isuzu reportan <strong>$0 en Publicidad directa</strong> en el cubo 30065 · todo su gasto MKT es cooperación OEM (Promoción + Promo 2). Esto significa que la marca no compra pauta de medios propios · solo aplica subsidios OEM al cliente y bonos por unidad. <strong>Implicación operativa:</strong> sin Publicidad propia no hay ejercicio de captación de demanda · solo gestión de demanda existente vía descuento.</p>
+
+  <div class="callout">
+    <p><strong>Mazda mix Publicidad/Promo balanceado</strong> ($39.5M / $28.3M / $58.7M = 31% / 22% / 46%) es el único patrón con pauta propia significativa. <strong>Ford</strong> tiene la mayor concentración en Promo 2 (51% del gasto) · indica dependencia OEM más alta que pauta propia. <strong>STL e HYU mantienen mix balanceado pero a escala 4-5× menor que Mazda</strong> · sub-gasto vs benchmark de marca.</p>
+  </div>
+</section>
+
+<!-- ============ PAGE 4: §4 NÓMINA + §5 NOTAS ============ -->
+<section class="page">
+  <h2 class="section-h2"><span class="num">§4</span>Nómina Marketing cargada al P&amp;L</h2>
+
+  <p class="small" style="margin-bottom:4mm;">Nómina del depto Mercadotecnia + Ventas Digital corporativo (cubo 30046 RH) con factor cargas patronales 1.30 (IMSS, INFONAVIT, prestaciones · cifra contable cargada al P&amp;L, no estimación).</p>
+
+  <table class="data">
+    <thead><tr><th>Año</th><th class="num">Personas</th><th class="num">Bruto</th><th class="num">Cargado P&amp;L (× 1.30)</th><th class="num">Promedio anual / persona</th></tr></thead>
+    <tbody>
+      <tr><td><strong>2025</strong></td><td class="num">63</td><td class="num">$7.88M</td><td class="num"><strong>$10.24M</strong></td><td class="num">$162.5K</td></tr>
+      <tr><td><strong>2026 YTD (6m)</strong></td><td class="num">46</td><td class="num">$3.38M</td><td class="num"><strong>$4.40M</strong></td><td class="num">$95.6K acum · ritmo $191K anual</td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="section-h3">Composición de la nómina MKT</h3>
+
+  <p>De las 63 personas que aparecen en el cubo 30046 cargadas al P&amp;L bajo MERCADOTECNIA + VENTAS DIGITAL corporativo en 2025, la mayoría son: vendedores digitales que atienden los leads de las marcas (supervisores + agentes), 1 Director MKT Corporativo (a partir de marzo 2026) y staff operativo. <strong>El centro de excelencia MKT estratégico (SMEs Growth/Data/CRO/Brand/Diseño)</strong> está cubierto hoy por 1 persona + AI · ver tabla detallada en el Resumen Ejecutivo slide 10.</p>
+
+  <h2 class="section-h2"><span class="num">§5</span>Notas metodológicas y caveats</h2>
+
+  <h3 class="section-h3">Qué SÍ se incluye en este reporte</h3>
+
+  <ul style="font-size:9pt; padding-left:5mm; line-height:1.55;">
+    <li><strong>Pauta contable verificable</strong> del cubo 30065 Real vs Ppto · conceptos Publicidad, Promoción, Promo 2 · agregado año 2025 + 2026 YTD por marca</li>
+    <li><strong>Nómina del depto Mercadotecnia + Ventas Digital corporativo</strong> del cubo 30046 RH con factor cargas patronales 1.30 (cifra contable cargada al P&amp;L, no estimación)</li>
+    <li><strong>Revenue autos por marca</strong> del cubo 30060 Finanzas MB · para calcular % MKT/Revenue</li>
+  </ul>
+
+  <h3 class="section-h3">Qué NO se incluye (con justificación)</h3>
+
+  <ul style="font-size:9pt; padding-left:5mm; line-height:1.55;">
+    <li><strong>Comisiones digital de vendedores y supervisores</strong> · están en cubo 30067 LxL · son comisión variable atada a venta, no gasto MKT estratégico</li>
+    <li><strong>CxP a bancos, OEMs e inmuebles del cubo 30051</strong> · no son MKT puro · principalmente financiamiento de pisos, cooperación OEM contable y rentas</li>
+    <li><strong>Costos de WhatsApp Business API</strong> · operativo / atención, no MKT estratégico</li>
+    <li><strong>Costos administrativos cross-marca</strong> · agencias de planeación, suscripciones SaaS · no identificables como MKT puro en el cubo 30065</li>
+    <li><strong>Proveedores externos específicos de MKT</strong> (agencias publicitarias, productoras, plataformas) · el cubo 30051_cxp_focal del Grupo NO desglosa por concepto MKT en cuenta contable · requiere extensión del catálogo DCA para auditar</li>
+  </ul>
+
+  <h3 class="section-h3">Caveats sobre granularidad</h3>
+
+  <p style="margin-bottom:0;">La granularidad mensual 2025 NO está disponible en el cubo 30065 · todos los registros aparecen agregados al cierre anual. Reporte presenta cifras anuales 2025 + 6m 2026 YTD. Mensualización real requiere extender extracción al cubo 30021 Finanzas. <strong>Próxima iteración:</strong> mensualizar 2026 con corte 31-may.</p>
+</section>
+
+</body>
+</html>
