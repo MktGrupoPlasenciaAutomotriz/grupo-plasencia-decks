@@ -528,6 +528,44 @@
   <p class="small" style="margin-top:2mm;margin-bottom:0;"><strong>Diagnóstico:</strong> rebate OEM existe (Galindo lo confirma) pero NO es trazable en DCA estándar · solo Ford 2026 con $0.36M. El resto está en Promo 2 <span style="background:var(--amber, #ff9800);color:#fff;font-size:7pt;font-weight:600;padding:0.3mm 1mm;border-radius:2px;letter-spacing:0.3px;">OEM REBATE</span> (pass-through OEM) o cooperación al precio. <strong>Recomendación Contraloría:</strong> crear cuenta visible "Reembolso OEM por marca" · hoy NO se ve en P&L MKT.</p>
 </section>
 
+<!-- ============ PAGE: §6c DESGLOSE PROMO 2 POR MARCA · REAL EJERCIDO ============ -->
+<section class="page">
+  <h2 class="section-h2"><span class="num">§6c</span>Desglose Promo 2 <span style="background:var(--amber, #ff9800);color:#fff;font-size:8pt;font-weight:600;padding:0.5mm 1.5mm;border-radius:2px;letter-spacing:0.3px;">OEM REBATE</span> · real ejercido 2025 + 2026 por marca</h2>
+
+  <p class="small" style="margin-bottom:3mm;"><strong>Fuente:</strong> cubo 30065 Real vs Ppto · campo <code>real_numerico</code> · concepto = "Promo 2" + "Promo 2 por Unidad". Es la <strong>única vista granular real ejercido</strong> que existe en DCA para Promo 2 OEM rebate. Cuadra con el agregado $97.9M del reporte v1.</p>
+
+  <h3 class="section-h3">Promo 2 por marca · cifras REAL ejercido</h3>
+
+  <table class="data" style="font-size:8pt;">
+    <thead><tr><th>Marca</th><th class="num">Anual 2025</th><th class="num">Mensual 2025</th><th class="num">YTD 2026 (6m)</th><th class="num">Mensual 2026</th><th>Trayectoria</th></tr></thead>
+    <tbody>
+      <tr style="background:rgba(200,16,46,0.06);"><td><strong>MAZDA</strong></td><td class="num">$58.66M</td><td class="num">$4.89M</td><td class="num"><strong>$69.10M</strong></td><td class="num"><strong>$11.52M</strong></td><td><span style="color:var(--gp-red);">↑↑ +136% mensual</span></td></tr>
+      <tr><td><strong>FORD</strong></td><td class="num">$14.26M</td><td class="num">$1.19M</td><td class="num">$0.48M</td><td class="num">$0.08M</td><td><span style="color:var(--gp-red);">↓ −93% (corte OEM)</span></td></tr>
+      <tr><td><strong>GWM</strong></td><td class="num">$9.00M</td><td class="num">$0.75M</td><td class="num">$1.58M</td><td class="num">$0.26M</td><td>↓ −65%</td></tr>
+      <tr><td><strong>GAC</strong></td><td class="num">$6.49M</td><td class="num">$0.54M</td><td class="num">$3.56M</td><td class="num">$0.59M</td><td>→ estable</td></tr>
+      <tr><td><strong>HYUNDAI</strong></td><td class="num">$4.74M</td><td class="num">$0.39M</td><td class="num"><strong>$0</strong></td><td class="num"><strong>$0</strong></td><td><span style="color:var(--gp-red);">↓ CERO en 2026</span></td></tr>
+      <tr><td><strong>CHANGAN</strong></td><td class="num">$2.62M</td><td class="num">$0.22M</td><td class="num">$0.99M</td><td class="num">$0.17M</td><td>→</td></tr>
+      <tr><td><strong>STELLANTIS</strong></td><td class="num">$2.13M</td><td class="num">$0.18M</td><td class="num">$0.99M</td><td class="num">$0.17M</td><td>→</td></tr>
+      <tr><td>ISUZU</td><td class="num">$0</td><td class="num">$0</td><td class="num">$0.20M</td><td class="num">$0.03M</td><td>nuevo</td></tr>
+      <tr class="subtotal"><td><strong>Subtotal Promo 2</strong></td><td class="num"><strong>$97.90M</strong></td><td class="num"><strong>$8.16M</strong></td><td class="num"><strong>$76.90M</strong></td><td class="num"><strong>$12.82M</strong></td><td>↑ +57% por Mazda</td></tr>
+      <tr><td><em>+ Promo 2 por Unidad</em></td><td class="num">$0.10M</td><td class="num">$0.01M</td><td class="num">$1.07M</td><td class="num">$0.18M</td><td>nuevo bucket</td></tr>
+      <tr class="total"><td><strong>TOTAL Promo 2 + por Unidad</strong></td><td class="num"><strong>$98.00M</strong></td><td class="num"><strong>$8.17M</strong></td><td class="num"><strong>$77.97M</strong></td><td class="num"><strong>$13.00M</strong></td><td>↑ ~+59%</td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="section-h3">Hallazgos críticos · cooperación OEM en transición</h3>
+
+  <ul style="font-size:9pt;padding-left:5mm;line-height:1.5;margin:0;">
+    <li><strong>Mazda triplica Promo 2 en 2026:</strong> $4.89M/mes → $11.52M/mes. Si mantiene ritmo, anualizado 2026 ≈ $138M vs $58.66M en 2025 · MMDM Planta + bonos por unidad escalando fuerte.</li>
+    <li><strong>Ford casi muere:</strong> −93% mes a mes ($1.19M → $0.08M). Consistente con narrativa de corte de cooperación Ford México · validar con OEM.</li>
+    <li><strong>Hyundai = $0 en 2026:</strong> proceso PMA Hyundai interrumpido (DD documenta "pendiente HMM"). 100% del Promo 2 cesó · Grupo NO está recibiendo cooperación OEM Hyundai.</li>
+    <li><strong>GWM cae 65%:</strong> $0.75M → $0.26M · co-inversión todavía en setup contractual.</li>
+    <li><strong>GAC y Stellantis estables</strong> · GAC con rebate único línea por línea, Stellantis con mecánica establecida.</li>
+  </ul>
+
+  <p class="small" style="margin-top:2mm;margin-bottom:0;"><strong>Estructura granular existe en presupuesto 2026 (cubo 30067 LxL):</strong> PROMO MMDM PLANTA · PROMO DOS INTERNA BOLETINES · PROMO 2 NUEVO por sucursal (Acueducto, Colima, Tepic, Vallarta, Santa Anita, Plasencia, Galerías, Manzanillo). DCA real 2025 NO desglosa por tipo · solo por marca. Para auditoría completa de la mecánica de cada OEM, requerir a Contraloría el real ejercido 2025 con cuenta_contable_descrip granular.</p>
+</section>
+
 <!-- ============ PAGE 8: §7 NOTAS METODOLÓGICAS ============ -->
 <section class="page">
   <h2 class="section-h2"><span class="num">§7</span>Notas metodológicas y caveats</h2>
