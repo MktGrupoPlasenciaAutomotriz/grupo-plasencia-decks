@@ -212,44 +212,47 @@ table.deck-table { width:100%; border-collapse: collapse; font-family: var(--san
   <div class="content" style="gap: 8px; padding: 36px 80px 36px 80px;">
     <div class="section-num">El Marketing de Grupo Plasencia Automotriz hoy</div>
     <h1 class="slide-h1" style="font-size: 30pt;">El punto de partida <em>financiero.</em></h1>
-    <p class="slide-lede" style="font-size: 10.5pt;">Cifras DCA cerradas 2025 + ritmo 2026 al cierre del semestre. <strong>$212.6M es la cifra Finanzas (cubo 30065 Real vs Ppto)</strong> · el universo contable completo del cubo 30021 P&amp;L Corporativo es <strong>$1,017M netos</strong> incluyendo $1,025M de reembolsos OEM. La diferencia es co-op OEM que Finanzas no clasifica como MKT pero contablemente sí está. Ambas son reales — la primera la decide la Dirección MKT, la segunda revela la palanca cross-OEM.</p>
+    <p class="slide-lede" style="font-size: 10.5pt;">Cifras DCA cubo 30021 P&amp;L Corporativo (tabla D1 <code>dca_pl_corporativo</code>). <strong>El gasto MKT 2025 es $2,042M bruto · $1,025M reembolsado por OEMs (50%) · $1,017M neto al P&amp;L.</strong> Cada cifra reproducible con query a D1 bitam-mkt. Mazda concentra 72% del neto · marcas chinas reembolsan 70-90% (co-op OEM de penetración).</p>
 
     <div class="kpi-grid cols-4" style="margin-top: 4px; gap: 10px;">
       <div class="kpi-card navy" style="padding: 14px 16px;">
-        <div class="kpi-label" style="font-size: 8pt;">Revenue anual Grupo</div>
+        <div class="kpi-label" style="font-size: 8pt;">Revenue Grupo · 2025</div>
         <div class="kpi-num" style="font-size: 26pt;">$34,212M</div>
         <div class="kpi-sub" style="font-size: 8.5pt;">Autos Nuevos $30,944M + Usados $3,271M · UO $3,053M · <strong>margen 8% blended</strong></div>
       </div>
       <div class="kpi-card" style="padding: 14px 16px;">
-        <div class="kpi-label" style="font-size: 8pt;">MKT · definición Finanzas</div>
-        <div class="kpi-num red" style="font-size: 26pt;">$212.6M</div>
-        <div class="kpi-sub" style="font-size: 8.5pt;">$197.5M pauta + $15.1M nómina · <strong>0.62% del revenue autos</strong> · cubo 30065 Real vs Ppto</div>
+        <div class="kpi-label" style="font-size: 8pt;">MKT bruto 2025</div>
+        <div class="kpi-num red" style="font-size: 26pt;">$2,042M</div>
+        <div class="kpi-sub" style="font-size: 8.5pt;">Cargos contabilizados en cuentas Publicidad + Promoción + Promoción 2 · cubo 30021</div>
       </div>
       <div class="kpi-card gold" style="padding: 14px 16px;">
-        <div class="kpi-label" style="font-size: 8pt;">MKT · universo contable</div>
-        <div class="kpi-num gold" style="font-size: 26pt;">$1,017M</div>
-        <div class="kpi-sub" style="font-size: 8.5pt;">NETO 2025 cubo 30021 P&amp;L · $2,042M bruto − $1,025M reembolsos OEM (50%)</div>
+        <div class="kpi-label" style="font-size: 8pt;">Reembolsos OEM</div>
+        <div class="kpi-num gold" style="font-size: 26pt;">−$1,025M</div>
+        <div class="kpi-sub" style="font-size: 8.5pt;"><strong>50.2% del bruto</strong> · Mazda planta + chinas (GAC 89% · Changan 87% · GWM 72%)</div>
       </div>
-      <div class="kpi-card" style="padding: 14px 16px; border-top: 4px solid var(--amber);">
-        <div class="kpi-label" style="font-size: 8pt; color: var(--amber);">MKT 2026 · semestre</div>
-        <div class="kpi-num" style="font-size: 26pt; color: var(--amber);">$89.1M</div>
-        <div class="kpi-sub" style="font-size: 8.5pt;">definición Finanzas · ritmo consistente con 2025 anual</div>
+      <div class="kpi-card green" style="padding: 14px 16px;">
+        <div class="kpi-label" style="font-size: 8pt; color: var(--deep-green);">MKT NETO 2025</div>
+        <div class="kpi-num green" style="font-size: 26pt;">$1,017M</div>
+        <div class="kpi-sub" style="font-size: 8.5pt;">Lo que realmente cuesta al P&amp;L · <strong>2.97% del revenue Grupo</strong> · benchmark sector 5-10%</div>
       </div>
     </div>
 
-    <table class="deck-table" style="margin-top: 4px; font-size: 10pt;">
-      <thead><tr><th>Marca</th><th class="num">Revenue 2025 Autos</th><th class="num">Gasto MKT 2025</th><th class="num">% del gasto MKT del Grupo</th><th class="num">Gasto MKT vs Revenue</th></tr></thead>
+    <table class="deck-table" style="margin-top: 4px; font-size: 9pt;">
+      <thead><tr><th>Marca</th><th class="num">Revenue 2025</th><th class="num">MKT Bruto</th><th class="num">Reembolso OEM</th><th class="num">MKT NETO</th><th class="num">% NETO Grupo</th><th class="num">% Reemb.</th><th class="num">NETO/Revenue</th></tr></thead>
       <tbody>
-        <tr class="highlight"><td><strong>Mazda</strong></td><td class="num">$17,938M</td><td class="num"><strong>$126.4M</strong></td><td class="num">64%</td><td class="num">0.70%</td></tr>
-        <tr><td><strong>Ford</strong></td><td class="num">$6,037M</td><td class="num">$27.7M</td><td class="num">14%</td><td class="num">0.46%</td></tr>
-        <tr><td><strong>Hyundai</strong></td><td class="num">$5,262M</td><td class="num">$11.4M</td><td class="num">6%</td><td class="num">0.22%</td></tr>
-        <tr><td><strong>Stellantis</strong></td><td class="num">$1,462M</td><td class="num">$5.0M</td><td class="num">2%</td><td class="num">0.34%</td></tr>
-        <tr><td><strong>Isuzu</strong></td><td class="num">$1,198M</td><td class="num">$0</td><td class="num">0%</td><td class="num">0%</td></tr>
-        <tr><td><strong>GWM · GAC · Changan</strong></td><td class="num">$2,317M</td><td class="num">$27.0M</td><td class="num">14%</td><td class="num">1.17%</td></tr>
+        <tr class="highlight"><td><strong>Mazda</strong></td><td class="num">$17,938M</td><td class="num">$1,013.7M</td><td class="num">$277.2M</td><td class="num"><strong>$736.5M</strong></td><td class="num">72.4%</td><td class="num">27.3%</td><td class="num">4.10%</td></tr>
+        <tr><td><strong>Ford</strong></td><td class="num">$6,037M</td><td class="num">$108.3M</td><td class="num">$30.0M</td><td class="num"><strong>$78.4M</strong></td><td class="num">7.7%</td><td class="num">27.7%</td><td class="num">1.30%</td></tr>
+        <tr><td><strong>Hyundai</strong></td><td class="num">$5,262M</td><td class="num">$76.6M</td><td class="num">$22.1M</td><td class="num"><strong>$54.5M</strong></td><td class="num">5.4%</td><td class="num">28.8%</td><td class="num">1.04%</td></tr>
+        <tr><td><strong>GWM</strong></td><td class="num">$675M</td><td class="num">$166.5M</td><td class="num">$119.3M</td><td class="num"><strong>$47.2M</strong></td><td class="num">4.6%</td><td class="num">71.7%</td><td class="num">6.98%</td></tr>
+        <tr><td><strong>GAC</strong></td><td class="num">$549M</td><td class="num">$405.3M</td><td class="num">$359.5M</td><td class="num"><strong>$45.8M</strong></td><td class="num">4.5%</td><td class="num">88.7%</td><td class="num">8.35%</td></tr>
+        <tr><td><strong>Changan</strong></td><td class="num">$688M</td><td class="num">$246.5M</td><td class="num">$214.9M</td><td class="num"><strong>$31.6M</strong></td><td class="num">3.1%</td><td class="num">87.2%</td><td class="num">4.60%</td></tr>
+        <tr><td><strong>Stellantis</strong></td><td class="num">$1,462M</td><td class="num">$18.5M</td><td class="num">$1.7M</td><td class="num"><strong>$16.8M</strong></td><td class="num">1.7%</td><td class="num">9.3%</td><td class="num">1.15%</td></tr>
+        <tr><td><strong>Isuzu</strong></td><td class="num">$1,198M</td><td class="num">$7.0M</td><td class="num">$0.6M</td><td class="num"><strong>$6.4M</strong></td><td class="num">0.6%</td><td class="num">8.5%</td><td class="num">0.53%</td></tr>
+        <tr class="total"><td><strong>TOTAL Grupo</strong></td><td class="num"><strong>$34,212M</strong></td><td class="num"><strong>$2,042M</strong></td><td class="num"><strong>$1,025M</strong></td><td class="num"><strong>$1,017M</strong></td><td class="num">100%</td><td class="num">50.2%</td><td class="num">2.97%</td></tr>
       </tbody>
     </table>
   </div>
-  <div class="slide-footer"><span>Slide 2 · Punto de partida financiero · DCA cubos 30060 + 30065 verificados · neto de incentivos planta marketing</span><span style="display:flex; align-items:center; gap:8px;"><img class="gp-logo" src="../assets/logos/Logo-GP-Negro.png" alt="GP"/>Grupo Plasencia Automotriz · Dirección MKT Corporativo</span></div>
+  <div class="slide-footer"><span>Slide 2 · DCA cubo 30021 P&amp;L · D1 bitam-mkt.dca_pl_corporativo · 205,277 rows · grupo_gasto IN (Publicidad, Promoción, Promoción 2) · al 24-jun-2026</span><span style="display:flex; align-items:center; gap:8px;"><img class="gp-logo" src="../assets/logos/Logo-GP-Negro.png" alt="GP"/>Grupo Plasencia Automotriz · Dirección MKT Corporativo</span></div>
 </section>
 
 <!-- 3 · EL PILOTO · CAMBIO DE MECÁNICA + QUÉ ES ATRIBUCIÓN -->
@@ -344,7 +347,7 @@ table.deck-table { width:100%; border-collapse: collapse; font-family: var(--san
   <div class="content" style="gap: 4px; padding: 30px 80px 30px 80px;">
     <div class="section-num">As-Is vs To-Be · la fotografía completa</div>
     <h1 class="slide-h1" style="font-size: 24pt;">Estructura sobregirada hoy. <em>Más ligera y especializada mañana.</em></h1>
-    <p class="slide-lede" style="font-size: 9.5pt;">El Grupo gasta <strong>$212.6M anuales según Finanzas</strong> ($197.5M pauta + $15.1M nómina · cubo 30065). El <strong>universo contable cubo 30021 es de $1,017M netos</strong> después de $1,025M reembolsados por OEMs (50%). La estructura cambia bajo gobierno corporativo · y la negociación cross-OEM se vuelve palanca real.</p>
+    <p class="slide-lede" style="font-size: 9.5pt;">El Grupo gasta <strong>$2,042M brutos al año en MKT · $1,025M reembolsados por OEMs (50%) · $1,017M NETO al P&amp;L</strong> (DCA cubo 30021 al 24-jun). La estructura cambia bajo gobierno corporativo · cross-OEM se vuelve palanca real porque hoy cada marca negocia el reembolso por separado.</p>
 
     <table class="deck-table" style="margin-top: 2px; font-size: 9pt;">
       <thead><tr><th style="width:16%">Dimensión</th><th style="width:38%">As-Is · cómo opera hoy</th><th>To-Be · cómo opera bajo gobierno corporativo</th></tr></thead>
@@ -378,8 +381,8 @@ table.deck-table { width:100%; border-collapse: collapse; font-family: var(--san
       </div>
     </div>
     <div style="margin-top: 6px; padding: 6px 12px; background: var(--gp-navy); color: var(--near-white); border-radius: 4px; font-family: var(--sans); font-size: 8.5pt; display: flex; justify-content: space-between; align-items: center;">
-      <span><strong style="color: var(--gold);">SUMA · Universo contable MKT 2025 NETO:</strong> $1,017M = $250M Publicidad + $292M Promoción + $475M Promo 2 · vs $212.6M Finanzas. Reconciliación cuenta-por-cuenta en Deep Dive §1.5.</span>
-      <span style="color: var(--gold); font-weight: 800;">+ $15.1M nómina P&amp;L</span>
+      <span><strong style="color: var(--gold);">SUMA NETO 2025:</strong> $1,017M = $250M Publicidad + $292M Promoción + $475M Promo 2 · 50.2% reembolsado por OEMs · query D1 verificable en Deep Dive §1.</span>
+      <span style="color: var(--gold); font-weight: 800;">Nómina MKT aparte · cubo 30049</span>
     </div>
   </div>
   <div class="slide-footer"><span>Slide 6 · As-Is vs To-Be + catálogo DCA · plantilla 70+ → ~44 (6 Hub + 16 BM/Coord + ~22 onsite) + 2 agencias únicas</span><span style="display:flex; align-items:center; gap:8px;"><img class="gp-logo" src="../assets/logos/Logo-GP-Negro.png" alt="GP"/>Grupo Plasencia Automotriz · Dirección MKT Corporativo</span></div>
@@ -516,7 +519,7 @@ table.deck-table { width:100%; border-collapse: collapse; font-family: var(--san
     </table>
 
     <div class="callout-big" style="margin-top: 4px; padding: 9px 18px;">
-      <p style="font-size: 9.5pt; line-height: 1.4;"><strong>De cost center a revenue &amp; profit center:</strong> hoy Marketing aparece como gasto en el P&amp;L · $212.6M (Finanzas cubo 30065) · $1,017M neto en el universo contable cubo 30021 después de $1,025M reembolsados por OEMs. Bajo gobernanza corporativa esta Dirección contribuye <strong>$118-312M anuales</strong> a UO — eficiencia $46-74M + incremental $72-238M (3 escenarios · AOV real DCA · 7 retail Meta + Flotillas Google Search). <em>El ahorro paga el Centro de Excelencia. El incremental lo convierte en motor de utilidad. Además: la palanca cross-OEM sobre los $1,025M reembolsados está abierta — Central de Medios.</em></p>
+      <p style="font-size: 9.5pt; line-height: 1.4;"><strong>De cost center a revenue &amp; profit center:</strong> Marketing aparece como <strong>$1,017M neto en el P&amp;L 2025</strong> (DCA cubo 30021) con $1,025M reembolsados por OEMs sobre $2,042M brutos. Bajo gobernanza corporativa esta Dirección contribuye <strong>$118-312M anuales</strong> a UO — eficiencia $46-74M + incremental $72-238M (3 escenarios · AOV real DCA · 7 retail Meta + Flotillas Google Search). <em>El ahorro paga el Centro de Excelencia. El incremental lo convierte en motor de utilidad. La palanca cross-OEM sobre los $1,025M reembolsados — Central de Medios — está abierta porque hoy cada marca negocia su reembolso por separado.</em></p>
     </div>
   </div>
   <div class="slide-footer"><span>Slide 9 · Bono total · eficiencia $46-74M + incremental $72-238M · 3 escenarios CAC SEM</span><span style="display:flex; align-items:center; gap:8px;"><img class="gp-logo" src="../assets/logos/Logo-GP-Negro.png" alt="GP"/>Grupo Plasencia Automotriz · Dirección MKT Corporativo</span></div>
@@ -548,7 +551,7 @@ table.deck-table { width:100%; border-collapse: collapse; font-family: var(--san
     </div>
 
     <div class="callout-big gold" style="margin-top: 6px; padding: 10px 20px;">
-      <p style="font-size: 10pt; line-height: 1.45;"><strong>Por qué Marketing deja de ser cost center.</strong> El Grupo invierte $197.5M en pauta MKT según Finanzas · $1,017M en el universo contable cubo 30021 después de $1,025M reembolsados por OEMs (50% del bruto). No pedimos gastar más, ni un peso recurrente. <em>Pedimos $1.5-2M de setup one-time + gobernar lo que ya gastamos + activar el incremental que el piloto ya demostró factible. Esa disciplina vale $81 por cada $1 invertido en setup (escenario realista) · directo a la utilidad. Marketing pasa de línea de gasto a motor de utilidad — y el cross-OEM sobre $1,025M reembolsados se vuelve palanca real.</em></p>
+      <p style="font-size: 10pt; line-height: 1.45;"><strong>Por qué Marketing deja de ser cost center.</strong> El Grupo gasta <strong>$2,042M bruto / $1,017M neto</strong> en MKT 2025 (DCA cubo 30021) · 50% reembolsado por OEMs. No pedimos gastar más, ni un peso recurrente. <em>Pedimos $1.5-2M de setup one-time + gobernar lo que ya gastamos + activar el incremental que el piloto ya demostró factible. Esa disciplina vale $81 por cada $1 invertido en setup (escenario realista) · directo a la utilidad. Marketing pasa de línea de gasto a motor de utilidad — y el cross-OEM sobre $1,025M reembolsados se vuelve palanca real porque hoy cada marca negocia su reembolso por separado.</em></p>
     </div>
   </div>
   <div class="slide-footer"><span>Slide 10 · Killer metric · ROI $23 eficiencia + $81 total · setup $2M CAPEX (no recurrente) · payback &lt; 1 mes</span><span style="display:flex; align-items:center; gap:8px;"><img class="gp-logo" src="../assets/logos/Logo-GP-Negro.png" alt="GP"/>Grupo Plasencia Automotriz · Dirección MKT Corporativo</span></div>
