@@ -135,8 +135,8 @@
   <table class="data">
     <thead><tr><th>Componente</th><th>Naturaleza</th><th class="num">Monto 2025</th><th class="num">% del MKT puro</th></tr></thead>
     <tbody>
-      <tr><td><strong>Publicidad</strong></td><td>Concepto agregado DCA · cubo 30065 · NO hay desglose gasto-por-gasto en real ejercido 2025</td><td class="num">$49.6M</td><td class="num">43%</td></tr>
-      <tr><td><strong>Promoción</strong></td><td>Concepto agregado DCA · cubo 30065 · NO hay desglose gasto-por-gasto en real ejercido 2025</td><td class="num">$50.1M</td><td class="num">44%</td></tr>
+      <tr><td><strong>Publicidad</strong></td><td>Cubo 30065 agregado · <strong>SÍ tiene rebate OEM</strong> en cubo 30021 (12% efectivo · ver §6) · HYU 27.9% · Ford 26.5% · GWM 35% · GAC 100% · Changan 21.4% · Mazda 3.1% (canaliza co-op vía Promo 2)</td><td class="num">$49.6M bruto<br/><span style="font-size:8pt;color:var(--gp-red);">~$43.7M neto Grupo*</span></td><td class="num">43%</td></tr>
+      <tr><td><strong>Promoción</strong></td><td>Cubo 30065 agregado · <strong>SÍ tiene rebate OEM</strong> en cubo 30021 (42% efectivo · ver §6) · GAC 85.7% · Changan 45.1% · GWM 41.4% · Mazda 29% · Ford 31.4%</td><td class="num">$50.1M bruto<br/><span style="font-size:8pt;color:var(--gp-red);">~$29.1M neto Grupo*</span></td><td class="num">44%</td></tr>
       <tr><td><strong>Nómina cargada al P&amp;L</strong></td><td>MERCADOTECNIA + VENTAS DIGITAL · factor patronal 1.30 · 63 personas</td><td class="num">$15.1M</td><td class="num">13%</td></tr>
       <tr class="total"><td><strong>Gasto MKT puro del Grupo 2025</strong></td><td><strong>Publicidad + Promoción + Nómina</strong></td><td class="num"><strong>$114.8M</strong></td><td class="num"><strong>100%</strong></td></tr>
       <tr class="subtotal"><td><strong>+ Promo 2 <span style="background:var(--amber, #ff9800);color:#fff;font-size:7pt;font-weight:600;padding:0.3mm 1mm;border-radius:2px;letter-spacing:0.3px;">OEM REBATE</span> (cooperación OEM bi-direccional)</strong></td><td>Cargado bruto al P&amp;L · debe rebatear OEM</td><td class="num"><strong>$97.9M</strong></td><td class="num">—</td></tr>
@@ -144,7 +144,7 @@
     </tbody>
   </table>
 
-  <p class="small" style="margin-bottom:0;"><strong>Cambio metodológico:</strong> Promo 2 <span style="background:var(--amber, #ff9800);color:#fff;font-size:7pt;font-weight:600;padding:0.3mm 1mm;border-radius:2px;letter-spacing:0.3px;">OEM REBATE</span> es pass-through OEM (dealer aplica al cliente · OEM contraparte vía rebate). Mide ejecución de programa OEM, no esfuerzo MKT del Grupo. Rebate efectivo cuantificado en §6 (15.9% sobre 4 marcas).</p>
+  <p class="small" style="margin-bottom:0;"><strong>Cambio metodológico v20:</strong> Publicidad y Promoción <strong>también tienen rebate OEM</strong> trazable en cubo 30021 P&amp;L Corporativo (campo <code>creditos_mensual</code> · póliza-por-póliza). Versiones previas que reportaban "$0 rebate" eran resultado de usar solo cubo 30065 agregado que no desglosa créditos. <strong>Detalle por marca + cuentas específicas (RECUPERACION PUBLICIDAD PEUGEOT · INGRESO PUBLICIDAD CONAUTO · GTO. PUBLICIDAD AMDF) en §6.</strong> *<em>Neto Grupo estimado aplicando % rebate efectivo del cubo 30021 al subset del cubo 30065 · vista direccional pendiente reconciliación final con Contraloría.</em></p>
 </section>
 
 <!-- ============ PAGE 2: §2 DESGLOSE POR MARCA ============ -->
@@ -446,30 +446,35 @@
 <section class="page">
   <h2 class="section-h2"><span class="num">§6</span>¿Hay reembolso OEM? · cuánto + proporción vs Publicidad bruto</h2>
 
-  <div style="background:rgba(200,16,46,0.06);padding:3mm;margin-bottom:3mm;border-left:3px solid var(--gp-red);">
-    <p style="margin:0;font-size:9.5pt;"><strong>Respuesta dura · 3 niveles de evidencia:</strong></p>
+  <div style="background:rgba(72,187,120,0.08);padding:3mm;margin-bottom:3mm;border-left:3px solid var(--deep-green, #38a169);">
+    <p style="margin:0;font-size:9.5pt;"><strong style="color:#276749;">Respuesta directa · SÍ hay rebate OEM en Publicidad (corregido v20 · 25-jun-2026):</strong></p>
     <ol style="margin:2mm 0 0 0;padding-left:5mm;font-size:9pt;line-height:1.5;">
-      <li><strong>Identificable contablemente en DCA 2025: $0</strong> · ninguna cuenta registra reembolso OEM como ingreso negativo en cubo 30065 ni 30067</li>
-      <li><strong>Identificable en DCA 2026 ene-may: $0.36M solo Ford</strong> · cuenta "REEMBOLSO DE PUBLICIDAD" en cubo 30067 · ÚNICA cuenta poblada con cifras</li>
-      <li><strong>Levantamiento operativo Q3-Q4 2025 (Galindo): $4.30M</strong> · cifra reportada por gerentes de marca · NO trazable en DCA con cuentas estándar</li>
+      <li><strong>Cubo 30021 P&amp;L Corporativo 2025 · campo <code>creditos_mensual</code></strong>: Publicidad registra <strong>$22.43M de rebate OEM sobre $187.78M cargos brutos = 11.9% efectivo</strong> · <strong>NETO al Grupo $165.34M</strong>. Identificable contablemente y trazable póliza-por-póliza.</li>
+      <li><strong>Cuentas específicas con rebate OEM Publicidad identificadas en cubo 30067 LxL:</strong> "RECUPERACION PUBLICIDAD PEUGEOT" (Stellantis/Galindo) · "INGRESO PUBLICIDAD CONAUTO" (Mazda) · "GTO. PUBLICIDAD AMDF" (Ford · Asoc Mexicana Distribuidores Ford) · "CUOTAS PUBLICIDAD" · "ACTUALIZACION INVERSIONES CONAUTO".</li>
+      <li><strong>Por marca (cubo 30021):</strong> Hyundai 27.9% rebate · Ford 26.5% · GWM 35% · GAC 100% · Changan 21.4% · Mazda 3.1% (canaliza co-op vía Promo 2) · Stellantis 0% · Isuzu 0%.</li>
+      <li><strong>Levantamiento Galindo Q3-Q4 2025 ($4.30M sobre $27.01M pauta · 15.9% efectivo):</strong> consistente direccionalmente · cifra reportada por gerentes de marca · ahora confirmada en DCA con cuentas estándar.</li>
+      <li><strong>Caveat metodológico:</strong> cifras del cubo 30021 son póliza-por-póliza · incluyen registros intercompañía no eliminados · son 3-5× mayores que las del cubo 30065 (Real vs Ppto subset agregado). Para citar al Consejo: validar reconciliación final con Contraloría.</li>
     </ol>
   </div>
 
-  <h3 class="section-h3">Tabla A · Publicidad + Promoción bruto vs reembolso por marca (2025)</h3>
+  <h3 class="section-h3">Tabla A · Publicidad por marca 2025 · cubo 30021 P&amp;L Corporativo (real con créditos OEM)</h3>
 
   <table class="data" style="font-size:8pt;">
-    <thead><tr><th>Marca</th><th class="num">Publicidad</th><th class="num">Promoción</th><th class="num">Total bruto</th><th class="num">Reembolso DCA</th><th class="num">% DCA</th></tr></thead>
+    <thead><tr><th>Marca</th><th class="num">Bruto Publicidad</th><th class="num">Reembolso OEM</th><th class="num">NETO al Grupo</th><th class="num">% rebate</th><th>Mecánica del rebate</th></tr></thead>
     <tbody>
-      <tr><td><strong>MAZDA</strong></td><td class="num">$39.46M</td><td class="num">$28.31M</td><td class="num"><strong>$67.77M</strong></td><td class="num">$0</td><td class="num">0%</td></tr>
-      <tr><td><strong>FORD</strong></td><td class="num">$5.85M</td><td class="num">$7.64M</td><td class="num">$13.49M</td><td class="num">$0 en 2025 (Ford 2026: $0.36M)</td><td class="num">0% / ~20% (2026)</td></tr>
-      <tr><td><strong>HYUNDAI</strong></td><td class="num">$3.10M</td><td class="num">$3.61M</td><td class="num">$6.71M</td><td class="num">$0</td><td class="num">0%</td></tr>
-      <tr><td><strong>GWM</strong></td><td class="num">$0</td><td class="num">$3.66M</td><td class="num">$3.66M</td><td class="num">$0</td><td class="num">0%</td></tr>
-      <tr><td><strong>CHANGAN</strong></td><td class="num">$0</td><td class="num">$3.04M</td><td class="num">$3.04M</td><td class="num">$0</td><td class="num">0%</td></tr>
-      <tr><td><strong>STELLANTIS</strong></td><td class="num">$1.09M</td><td class="num">$1.80M</td><td class="num">$2.89M</td><td class="num">$0</td><td class="num">0%</td></tr>
-      <tr><td><strong>GAC</strong></td><td class="num">$0</td><td class="num">$2.09M</td><td class="num">$2.09M</td><td class="num">$0</td><td class="num">0%</td></tr>
-      <tr class="total"><td><strong>TOTAL 2025</strong></td><td class="num"><strong>$49.50M</strong></td><td class="num"><strong>$50.15M</strong></td><td class="num"><strong>$99.65M</strong></td><td class="num"><strong>$0 en DCA</strong></td><td class="num"><strong>0%</strong></td></tr>
+      <tr><td><strong>MAZDA</strong></td><td class="num">$118.16M</td><td class="num">$3.64M</td><td class="num"><strong>$114.51M</strong></td><td class="num">3.1%</td><td>Mazda canaliza co-op vía Promo 2 (no Publicidad) · cuenta "INGRESO PUBLICIDAD CONAUTO"</td></tr>
+      <tr><td><strong>HYUNDAI</strong></td><td class="num">$41.16M</td><td class="num"><strong>$11.50M</strong></td><td class="num">$29.66M</td><td class="num"><strong>27.9%</strong></td><td>Co-op HMM sobre cuenta 6100-0012-0001 + accesoria</td></tr>
+      <tr><td><strong>FORD</strong></td><td class="num">$19.91M</td><td class="num">$5.27M</td><td class="num">$14.64M</td><td class="num"><strong>26.5%</strong></td><td>AMDF (Asoc Mexicana Distribuidores Ford) cuotas con co-op</td></tr>
+      <tr><td><strong>STELLANTIS</strong></td><td class="num">$4.46M</td><td class="num">$0</td><td class="num">$4.46M</td><td class="num">0%</td><td>"RECUPERACION PUBLICIDAD PEUGEOT" identificada pero sin movimiento 2025</td></tr>
+      <tr><td><strong>GAC</strong></td><td class="num">$1.56M</td><td class="num">$1.56M</td><td class="num">$0</td><td class="num"><strong>100%</strong></td><td>Co-op OEM completo · planta absorbe toda la pauta de Publicidad</td></tr>
+      <tr><td><strong>CHANGAN</strong></td><td class="num">$1.49M</td><td class="num">$0.32M</td><td class="num">$1.17M</td><td class="num">21.4%</td><td>Co-op parcial sobre cuentas 6100</td></tr>
+      <tr><td><strong>ISUZU</strong></td><td class="num">$0.63M</td><td class="num">$0</td><td class="num">$0.63M</td><td class="num">0%</td><td>Sin co-op (modelo B2B flotillero)</td></tr>
+      <tr><td><strong>GWM</strong></td><td class="num">$0.41M</td><td class="num">$0.14M</td><td class="num">$0.27M</td><td class="num">35%</td><td>Co-op contractual mínimo</td></tr>
+      <tr class="total"><td><strong>TOTAL Publicidad 2025</strong></td><td class="num"><strong>$187.78M</strong></td><td class="num"><strong>$22.43M</strong></td><td class="num"><strong>$165.34M</strong></td><td class="num"><strong>11.9%</strong></td><td>cubo 30021 con créditos contables</td></tr>
     </tbody>
   </table>
+
+  <p class="small" style="margin-top:2mm;"><strong>Lectura crítica corrigiendo el reporte previo:</strong> el rebate OEM en Publicidad <strong>existe y es trazable</strong> en DCA · vive en <code>creditos_mensual</code> del cubo 30021. Las versiones previas del reporte que reportaban "$0 en DCA" eran resultado de NO haber extraído el cubo 30021 póliza-por-póliza · solo cubo 30065 agregado (que NO desglosa créditos). <strong>Hyundai + Ford + GAC + GWM + Changan</strong> tienen co-op OEM activo en Publicidad por <strong>$18.79M agregado</strong>. Mazda canaliza el grueso de su co-op vía Promo 2 (no Publicidad).</p>
 
 </section>
 
