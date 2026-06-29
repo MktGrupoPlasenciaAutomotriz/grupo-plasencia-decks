@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Resumen Ejecutivo · Iteración 3 · Corporatizar Marketing · Consejo Junio 2026 · Grupo Plasencia Automotriz</title>
+<title>Resumen Ejecutivo · Iteración 3 · De cost center a revenue & profit center · Consejo Junio 2026 · Grupo Plasencia Automotriz</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@500;700;800;900&display=swap" rel="stylesheet">
@@ -64,39 +64,42 @@ body.review-mode #nav-prev, body.review-mode #nav-next, body.review-mode #counte
 .cover-meta-block strong { display:block; color: var(--gold); font-weight:700; font-size:8.5pt; letter-spacing:1.5px; margin-bottom:3px; text-transform:uppercase; }
 .cover-meta-block span { color: rgba(255,255,255,.92); font-weight:500; font-size:10pt; }
 
-.content { padding: 36px 80px 50px 80px; flex:1; display:flex; flex-direction:column; gap: 18px; position:relative; }
+.content { padding: 36px 80px 50px 80px; flex:1; display:flex; flex-direction:column; gap: 16px; position:relative; }
 .section-num { font-family:var(--sans); font-size:10pt; font-weight:700; letter-spacing:4.5px; color: var(--gp-red); text-transform:uppercase; }
-.slide-h1 { font-family:var(--serif); font-weight:800; font-size:32pt; line-height:1.08; letter-spacing:-1.2px; color: var(--gp-navy); margin-top:6px; }
+.slide-h1 { font-family:var(--serif); font-weight:800; font-size:30pt; line-height:1.08; letter-spacing:-1.2px; color: var(--gp-navy); margin-top:6px; }
 .slide-h1 em { font-style:italic; color: var(--gp-red); font-weight:700; }
+.slide-h1 .gold { color: var(--amber); font-style:italic; font-weight:700; }
 .slide-lede { font-family:var(--sans); font-size:11.5pt; color: var(--g600); line-height:1.5; margin-top: 2px; max-width: 1100px; }
 .slide-lede strong { color: var(--gp-navy); font-weight:700; }
 .slide-lede em { font-style: italic; color: var(--gp-navy); }
 .slide-footer { position:absolute; bottom:20px; left:80px; right:80px; display:flex; justify-content:space-between; align-items:center; font-family: var(--sans); font-size: 8.5pt; color: var(--g500); border-top: 1px solid var(--g200); padding-top: 10px; gap: 16px; }
 .slide-footer .dot { display:inline-block; width:8px; height:8px; background: var(--gp-red); border-radius:50%; margin-right:6px; vertical-align:middle; }
-.slide-footer .gp-logo { height: 20px; width: 64px; opacity: 0.78; }
+.slide-footer .gp-logo { display:inline-block; height:20px; width:64px; background-image: var(--logo-negro); background-repeat:no-repeat; background-size:contain; background-position:left center; opacity:0.78; vertical-align:middle; }
+.cover-logo { display:block; height:54px; width:160px; background-image: var(--logo-blanco); background-repeat:no-repeat; background-size:contain; background-position:right center; mix-blend-mode:screen; opacity:.95; }
 
 /* KPI cards */
-.kpi-grid { display:grid; gap:18px; }
+.kpi-grid { display:grid; gap:16px; }
+.kpi-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
 .kpi-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
 .kpi-grid.cols-4 { grid-template-columns: repeat(4, 1fr); }
-.kpi-card { background: var(--paper); border: 1px solid var(--g200); border-radius: 10px; padding: 22px 24px; position:relative; box-shadow: 0 1px 3px rgba(30,39,64,.05); }
+.kpi-card { background: var(--paper); border: 1px solid var(--g200); border-radius: 10px; padding: 18px 22px; position:relative; box-shadow: 0 1px 3px rgba(30,39,64,.05); }
 .kpi-card::before { content:""; position:absolute; top:0; left:0; right:0; height:4px; background: var(--gp-red); border-radius: 10px 10px 0 0; }
 .kpi-card.navy::before { background: var(--gp-navy); }
 .kpi-card.gold::before { background: var(--gold); }
 .kpi-card.amber::before { background: var(--amber); }
 .kpi-card.green::before { background: var(--green); }
-.kpi-label { font-family:var(--sans); font-size:9pt; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color: var(--g500); margin-bottom: 8px; }
-.kpi-num { font-family:var(--serif); font-weight:900; font-size:38pt; line-height:1.02; letter-spacing:-1.8px; color: var(--gp-navy); }
+.kpi-label { font-family:var(--sans); font-size:8.5pt; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color: var(--g500); margin-bottom: 6px; }
+.kpi-num { font-family:var(--serif); font-weight:900; font-size:34pt; line-height:1.02; letter-spacing:-1.8px; color: var(--gp-navy); }
 .kpi-num.red { color: var(--gp-red); }
 .kpi-num.gold { color: var(--amber); }
 .kpi-num.green { color: var(--deep-green); }
-.kpi-sub { font-family: var(--sans); font-size: 10pt; color: var(--g600); margin-top: 8px; line-height: 1.5; }
+.kpi-sub { font-family: var(--sans); font-size: 9.5pt; color: var(--g600); margin-top: 6px; line-height: 1.4; }
 .kpi-sub strong { color: var(--gp-navy); font-weight:700; }
 
 /* Pilar cards */
-.pilar-grid { display:grid; grid-template-columns: repeat(3, 1fr); gap:16px; }
+.pilar-grid { display:grid; grid-template-columns: repeat(3, 1fr); gap:14px; }
 .pilar-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
-.pilar-card { background: var(--paper); border: 1px solid var(--g200); border-left: 4px solid var(--gp-navy); border-radius: 6px; padding: 18px 20px; box-shadow: 0 1px 2px rgba(30,39,64,.04); display:flex; flex-direction:column; gap:6px; }
+.pilar-card { background: var(--paper); border: 1px solid var(--g200); border-left: 4px solid var(--gp-navy); border-radius: 6px; padding: 16px 18px; box-shadow: 0 1px 2px rgba(30,39,64,.04); display:flex; flex-direction:column; gap:6px; }
 .pilar-card.gold { border-left-color: var(--gold); }
 .pilar-card.red { border-left-color: var(--gp-red); }
 .pilar-card.green { border-left-color: var(--green); }
@@ -104,25 +107,27 @@ body.review-mode #nav-prev, body.review-mode #nav-next, body.review-mode #counte
 .pilar-card.gold .pilar-header { color: var(--amber); }
 .pilar-card.red .pilar-header { color: var(--gp-red); }
 .pilar-card.green .pilar-header { color: var(--deep-green); }
-.pilar-title { font-family:var(--serif); font-weight:800; font-size:15pt; line-height:1.2; letter-spacing:-.4px; color: var(--gp-navy); }
-.pilar-body { font-family:var(--sans); font-size:10pt; color: var(--g600); line-height:1.45; }
+.pilar-title { font-family:var(--serif); font-weight:800; font-size:14pt; line-height:1.2; letter-spacing:-.4px; color: var(--gp-navy); }
+.pilar-body { font-family:var(--sans); font-size:9.5pt; color: var(--g600); line-height:1.45; }
 .pilar-body strong { color: var(--gp-navy); font-weight:700; }
 .pilar-num { display:inline-block; font-family:var(--serif); font-weight:900; font-size:20pt; line-height:1; color: var(--gp-red); margin-bottom: 2px; }
 .pilar-card.gold .pilar-num { color: var(--amber); }
 .pilar-card.green .pilar-num { color: var(--deep-green); }
 
 /* Tables */
-table.deck-table { width:100%; border-collapse: collapse; font-family: var(--sans); font-size: 10.5pt; background: var(--paper); border-radius: 8px; overflow:hidden; box-shadow: 0 1px 2px rgba(30,39,64,.04); }
+table.deck-table { width:100%; border-collapse: collapse; font-family: var(--sans); font-size: 10pt; background: var(--paper); border-radius: 8px; overflow:hidden; box-shadow: 0 1px 2px rgba(30,39,64,.04); }
 .deck-table th { background: var(--gp-navy); color: var(--near-white); font-weight:700; font-size:8.5pt; letter-spacing:1.4px; text-transform:uppercase; padding: 10px 14px; text-align:left; }
 .deck-table th.num { text-align:right; }
-.deck-table td { padding: 10px 14px; border-bottom: 1px solid var(--g200); color: var(--g600); vertical-align: middle; line-height:1.4; }
+.deck-table td { padding: 9px 14px; border-bottom: 1px solid var(--g200); color: var(--g600); vertical-align: middle; line-height:1.4; }
 .deck-table tr:nth-child(even) td { background: var(--g100); }
 .deck-table td strong { color: var(--gp-navy); font-weight:700; }
 .deck-table td.num { text-align:right; font-variant-numeric: tabular-nums; font-weight: 700; color: var(--gp-navy); }
-.deck-table tr.highlight td { background: rgba(72,187,120,.10); }
+.deck-table tr.highlight td { background: rgba(72,187,120,.12); }
 .deck-table tr.highlight td strong { color: var(--deep-green); }
 .deck-table tr.warn td { background: rgba(214,158,46,.10); }
 .deck-table tr.warn td strong { color: #97580B; }
+.deck-table tr.danger td { background: rgba(200,16,46,.07); }
+.deck-table tr.danger td strong { color: var(--gp-red); }
 .deck-table tr.total td { background: var(--gp-navy); color: var(--near-white); font-weight: 700; }
 .deck-table tr.total td strong { color: var(--gold); }
 .deck-table tr.total td.num { color: var(--gold); font-weight: 800; }
@@ -130,35 +135,47 @@ table.deck-table { width:100%; border-collapse: collapse; font-family: var(--san
 .deck-table tr:nth-child(even) td.ask-num { background: var(--gp-red); color: #FFFFFF !important; }
 
 /* Callouts */
-.callout-big { background: linear-gradient(to right, rgba(30,39,64,0.06), rgba(30,39,64,0.01)); border-left: 4px solid var(--gp-navy); padding: 16px 22px; border-radius: 0 6px 6px 0; }
+.callout-big { background: linear-gradient(to right, rgba(30,39,64,0.06), rgba(30,39,64,0.01)); border-left: 4px solid var(--gp-navy); padding: 14px 20px; border-radius: 0 6px 6px 0; }
 .callout-big.red { background: linear-gradient(to right, rgba(200,16,46,0.07), rgba(200,16,46,0.01)); border-left-color: var(--gp-red); }
 .callout-big.gold { background: linear-gradient(to right, rgba(236,201,75,0.14), rgba(236,201,75,0.02)); border-left-color: var(--gold); }
 .callout-big.green { background: linear-gradient(to right, rgba(72,187,120,0.10), rgba(72,187,120,0.02)); border-left-color: var(--green); }
 .callout-t { font-family: var(--serif); font-weight: 700; font-style: italic; color: var(--gp-navy); margin-bottom: 4px; font-size: 13pt; letter-spacing: -0.3px; line-height: 1.2; }
 .callout-big.red .callout-t { color: var(--gp-red); }
 .callout-big.green .callout-t { color: var(--deep-green); }
-.callout-big p { font-family: var(--sans); font-size: 10.5pt; color: var(--g600); line-height: 1.5; }
+.callout-big p { font-family: var(--sans); font-size: 10pt; color: var(--g600); line-height: 1.5; }
 .callout-big p strong { color: var(--gp-navy); font-weight:700; }
 .callout-big.red p strong { color: var(--gp-red); }
 
 /* Two columns layout */
-.two-col { display:grid; grid-template-columns: 1fr 1fr; gap: 22px; }
-.col-stack { display:flex; flex-direction:column; gap:12px; }
+.two-col { display:grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.two-col.split-60-40 { grid-template-columns: 1.5fr 1fr; }
+.col-stack { display:flex; flex-direction:column; gap:10px; }
 .col-h { font-family:var(--sans); font-size:9pt; font-weight:700; letter-spacing:2px; text-transform:uppercase; color: var(--gp-red); margin-bottom: 2px; }
 .col-h.navy { color: var(--gp-navy); }
 .col-h.gold { color: var(--amber); }
+
+/* Big arrow transformation block */
+.transform-block { display:grid; grid-template-columns: 1fr 60px 1fr; gap: 12px; align-items:stretch; }
+.transform-side { background: var(--paper); border: 1px solid var(--g200); border-radius: 10px; padding: 18px 20px; display:flex; flex-direction:column; gap:8px; }
+.transform-side.hoy { border-top: 4px solid var(--gp-red); }
+.transform-side.maniana { border-top: 4px solid var(--green); }
+.transform-side .label { font-family: var(--sans); font-size: 9pt; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }
+.transform-side.hoy .label { color: var(--gp-red); }
+.transform-side.maniana .label { color: var(--deep-green); }
+.transform-side .title { font-family: var(--serif); font-weight: 800; font-size: 18pt; line-height: 1.15; letter-spacing: -.5px; color: var(--gp-navy); }
+.transform-side ul { list-style:none; padding:0; margin:6px 0 0 0; }
+.transform-side li { font-family: var(--sans); font-size: 10pt; color: var(--g600); padding: 5px 0; border-bottom: 1px solid var(--g200); line-height: 1.4; }
+.transform-side li:last-child { border-bottom:none; }
+.transform-side li strong { color: var(--gp-navy); font-weight: 700; }
+.transform-arrow { display:flex; align-items:center; justify-content:center; font-family:var(--serif); font-weight: 900; font-size: 40pt; color: var(--gp-red); }
 
 /* Closing */
 .closing-inner { padding: 80px 80px; flex:1; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; background: radial-gradient(ellipse at center, rgba(236,201,75,.10) 0%, transparent 60%), var(--gp-navy); }
 .closing-eyebrow { font-family: var(--sans); font-size: 10pt; font-weight: 700; letter-spacing: 5px; color: var(--gold); text-transform: uppercase; }
 .closing-rule { width: 80px; height: 1px; background: var(--gold); margin: 16px auto; opacity: .7; }
-.closing-h { font-family: var(--serif); font-weight: 800; font-size: 52pt; line-height: 1.06; letter-spacing: -2px; color: var(--near-white); margin-top: 12px; max-width: 1020px; }
+.closing-h { font-family: var(--serif); font-weight: 800; font-size: 48pt; line-height: 1.08; letter-spacing: -1.8px; color: var(--near-white); margin-top: 12px; max-width: 1020px; }
 .closing-h em { font-style: italic; color: var(--gold); font-weight: 700; }
-.closing-sub { font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 16pt; color: rgba(255,255,255,.78); margin-top: 28px; line-height: 1.4; max-width: 900px; }
-
-
-.gp-logo { display:inline-block; height:20px; width:64px; background-image: var(--logo-negro); background-repeat:no-repeat; background-size:contain; background-position:left center; opacity:0.78; vertical-align:middle; }
-.cover-logo { display:block; height:54px; width:160px; background-image: var(--logo-blanco); background-repeat:no-repeat; background-size:contain; background-position:right center; mix-blend-mode:screen; opacity:.95; }
+.closing-sub { font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 15pt; color: rgba(255,255,255,.78); margin-top: 24px; line-height: 1.4; max-width: 900px; }
 
 @media print {
   @page { size: A4 landscape; margin: 0; }
@@ -171,15 +188,11 @@ table.deck-table { width:100%; border-collapse: collapse; font-family: var(--san
 <body>
 <div class="deck">
 
-<!-- ============================================================ -->
 <!-- SLIDE 1 · COVER -->
-<!-- ============================================================ -->
 <section class="slide cover active">
   <div class="cover-inner">
     <div class="cover-top">
-      <div class="cover-mark">DIRECCIÓN MKT CORPORATIVO
-        <span>Grupo Plasencia Automotriz</span>
-      </div>
+      <div class="cover-mark">DIRECCIÓN MKT CORPORATIVO<span>Grupo Plasencia Automotriz</span></div>
       <div style="display:flex; flex-direction:column; align-items:flex-end; gap:8px;">
         <div class="cover-logo" aria-label="Grupo Plasencia"></div>
         <div style="display:flex; flex-direction:column; align-items:flex-end; gap:3px;">
@@ -191,8 +204,8 @@ table.deck-table { width:100%; border-collapse: collapse; font-family: var(--san
     <div>
       <div class="cover-rule"></div>
       <div class="cover-eyebrow">RESUMEN EJECUTIVO · DOCUMENTO 3 DE 3</div>
-      <div class="cover-title">Corporatizar Marketing: <em>control, escala, auditabilidad.</em></div>
-      <div class="cover-subtitle">De N proveedores × N razones sociales × N gerencias — a <strong style="color:var(--gold); font-style:normal;">un</strong> presupuesto, <strong style="color:var(--gold); font-style:normal;">una</strong> dirección, <strong style="color:var(--gold); font-style:normal;">un</strong> proceso de Compras.</div>
+      <div class="cover-title">De cost center<br>a <em>revenue &amp; profit center.</em></div>
+      <div class="cover-subtitle">Marketing del Grupo cuesta <strong style="color:var(--near-white); font-style:normal;">$197.6M MXN/año</strong> sin ROI auditable. La propuesta: <strong style="color:var(--gold); font-style:normal;">corporatizar</strong> para convertirlo en función de revenue medible y profit cuantificable.</div>
     </div>
     <div class="cover-meta">
       <div class="cover-meta-block"><strong>Para</strong><span>Consejo Directivo</span></div>
@@ -203,309 +216,268 @@ table.deck-table { width:100%; border-collapse: collapse; font-family: var(--san
   </div>
 </section>
 
-<!-- ============================================================ -->
-<!-- SLIDE 2 · DIAGNÓSTICO -->
-<!-- ============================================================ -->
+<!-- SLIDE 2 · DIAGNÓSTICO ESTRUCTURAL -->
 <section class="slide">
   <div class="content">
     <div>
-      <div class="section-num">DIAGNÓSTICO · STATUS QUO 2025</div>
-      <h1 class="slide-h1">Marketing del Grupo <em>no es auditable</em> hoy.</h1>
-      <p class="slide-lede"><strong>El Grupo gasta $187.78M brutos en Publicidad sin trazabilidad consolidada.</strong> N proveedores × N razones sociales × N gerencias de marca. Sistemas sin contexto. Sin poder de negociación. Hasta junio 2026, nadie había trazado esta foto.</p>
+      <div class="section-num">DIAGNÓSTICO · POR QUÉ HOY</div>
+      <h1 class="slide-h1">Marketing del Grupo opera como <em>cost center descontrolado.</em></h1>
+      <p class="slide-lede">El problema no es presupuestario ni creativo. <strong>Es de arquitectura institucional.</strong> Cuatro ejes lo demuestran con cifras auditables — y los cuatro se resuelven con la misma palanca: corporatización.</p>
     </div>
-
-    <div class="kpi-grid cols-3">
+    <div class="kpi-grid cols-4">
       <div class="kpi-card">
-        <div class="kpi-label">Gasto Publicidad 2025</div>
-        <div class="kpi-num red">$187.78M</div>
-        <div class="kpi-sub">Bruto contable (cubo 30021 LxL). <strong>Primera vez trazado</strong> a nivel póliza.</div>
+        <div class="kpi-label">Auditabilidad · 1 de 4</div>
+        <div class="kpi-num red">$166M</div>
+        <div class="kpi-sub"><strong>Gasto MKT en proveedores inidentificables.</strong> 84% del total contable (cubo 30065) sin patrón "publicidad/agencia" en catálogo DCA.</div>
       </div>
       <div class="kpi-card navy">
-        <div class="kpi-label">Presupuesto Consejo 2026</div>
-        <div class="kpi-num">$14.0B</div>
-        <div class="kpi-sub">Cumplimiento real <strong>78%</strong> · gap <strong>$3.1B</strong> sin diagnóstico de causa.</div>
+        <div class="kpi-label">Gobernanza · 2 de 4</div>
+        <div class="kpi-num">7,899</div>
+        <div class="kpi-sub"><strong>Razones sociales únicas</strong> en cubo 30051 (2025). Sin contratos marco. Sin poder de negociación consolidado.</div>
       </div>
-      <div class="kpi-card gold">
-        <div class="kpi-label">Proveedores 2025</div>
-        <div class="kpi-num gold">7,899</div>
-        <div class="kpi-sub">Razones sociales únicas (cubo 30051). Auditarlas individualmente es <strong>inviable</strong>.</div>
+      <div class="kpi-card amber">
+        <div class="kpi-label">Modelo MKT-Ventas · 3 de 4</div>
+        <div class="kpi-num gold">0.22%</div>
+        <div class="kpi-sub">Conversión HYU bajo el modelo actual. <strong>SEM con handoff gestionado: 7.2%</strong> — variable = estructura, no tech.</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Estructura · 4 de 4</div>
+        <div class="kpi-num red">63%</div>
+        <div class="kpi-sub"><strong>40 de 63 personas en nómina MKT</strong> sin puesto formal registrado en RH. Función operada por personas asignadas a otras áreas.</div>
       </div>
     </div>
-
     <div class="callout-big red">
-      <div class="callout-t">El reporte DCA v20 es el primer reporte serio del gasto MKT del Grupo en años.</div>
-      <p>Y solo existe porque la <strong>Dirección MKT Corporativo</strong> escarbó cubos contables que históricamente nadie volteaba a ver. Sin corporatización, el siguiente reporte serio tarda otros tantos años — y en el ínter, el Grupo opera a ciegas.</p>
+      <div class="callout-t">El reporte DCA v20 — primer reporte serio del gasto MKT en años — solo existe porque la Dirección MKT Corporativo escarbó cubos contables que nadie volteaba a ver.</div>
+      <p>Durante 19 iteraciones previas, el reporte daba <strong>"$0 rebate OEM"</strong> sobre Publicidad — falso. El rebate real es <strong>$22.43M (12% efectivo)</strong>, visible solo cruzando 3 cubos. Sin función corporativa que opere esa medición, el siguiente reporte serio tarda otros tantos años.</p>
     </div>
-
     <div class="slide-footer">
-      <span><span class="dot"></span>Slide 2 · Fuente: DCA · cubos 30021 LxL · 30051 universo proveedores · 30065 agregado · al 29-jun-2026</span>
+      <span><span class="dot"></span>Slide 2 · Fuentes: Reporte DCA v20 (cubos 30021/30051/30065) · Reporte Piloto Consejo · al 29-jun-2026</span>
       <span style="display:flex; align-items:center; gap:8px;"><span class="gp-logo" aria-label="GP"></span>Grupo Plasencia Automotriz · Dirección MKT Corporativo</span>
     </div>
   </div>
 </section>
 
-<!-- ============================================================ -->
 <!-- SLIDE 3 · LO QUE EL GRUPO REALMENTE PAGA -->
-<!-- ============================================================ -->
 <section class="slide">
   <div class="content">
     <div>
-      <div class="section-num">RADIOGRAFÍA · PUBLICIDAD POR MARCA · NETO POST-REBATE OEM</div>
-      <h1 class="slide-h1">El Grupo paga <em>menos de lo que cree</em> — y <em>desigual</em> por marca.</h1>
-      <p class="slide-lede"><strong>Rebate OEM trazado por primera vez póliza-por-póliza (cubo 30021 · `creditos_mensual`).</strong> Neto al Grupo = $165.34M, no $187.78M. La distribución por marca esconde la verdadera lectura: <em>el Grupo expone capital propio de forma muy desigual</em>.</p>
+      <div class="section-num">EVIDENCIA · RADIOGRAFÍA POR MARCA</div>
+      <h1 class="slide-h1">El Grupo paga <em>$165.34M netos</em> en Publicidad. Y lo paga <em>desigual</em>.</h1>
+      <p class="slide-lede"><strong>Por primera vez se trazó el rebate OEM póliza-por-póliza (cubo 30021).</strong> Cuatro lecturas accionables que el Consejo no había visto cuantificadas.</p>
     </div>
-
     <table class="deck-table">
       <thead>
-        <tr>
-          <th>Marca</th>
-          <th class="num">Bruto Publicidad</th>
-          <th class="num">Rebate OEM</th>
-          <th class="num">Neto al Grupo</th>
-          <th class="num">% Rebate</th>
-          <th>Lectura</th>
-        </tr>
+        <tr><th>Marca</th><th class="num">Bruto Publicidad</th><th class="num">Rebate OEM</th><th class="num">Neto al Grupo</th><th class="num">% Rebate</th><th>Lectura</th></tr>
       </thead>
       <tbody>
-        <tr class="warn"><td><strong>MAZDA</strong></td><td class="num">$118.16M</td><td class="num">$3.64M</td><td class="num">$114.51M</td><td class="num">3.1%</td><td>Mayor exposición de capital del Grupo · co-op más bajo del portafolio</td></tr>
+        <tr class="warn"><td><strong>MAZDA</strong></td><td class="num">$118.16M</td><td class="num">$3.64M</td><td class="num">$114.51M</td><td class="num">3.1%</td><td>69% del neto Grupo · co-op más bajo del portafolio</td></tr>
         <tr><td><strong>HYUNDAI</strong></td><td class="num">$41.16M</td><td class="num">$11.50M</td><td class="num">$29.66M</td><td class="num">27.9%</td><td>HMM co-op funcionando · saludable</td></tr>
         <tr><td><strong>FORD</strong></td><td class="num">$19.91M</td><td class="num">$5.27M</td><td class="num">$14.64M</td><td class="num">26.5%</td><td>AMDF entregando</td></tr>
-        <tr class="warn"><td><strong>STELLANTIS</strong></td><td class="num">$4.46M</td><td class="num">$0</td><td class="num">$4.46M</td><td class="num">0%</td><td>Cuenta "RECUPERACIÓN PEUGEOT" sin movimiento 2025 · dinero no cobrado</td></tr>
+        <tr class="danger"><td><strong>STELLANTIS</strong></td><td class="num">$4.46M</td><td class="num">$0</td><td class="num">$4.46M</td><td class="num">0%</td><td>Cuenta "RECUPERACIÓN PEUGEOT" sin movimiento 2025</td></tr>
         <tr class="highlight"><td><strong>GAC</strong></td><td class="num">$1.56M</td><td class="num">$1.56M</td><td class="num">$0</td><td class="num">100%</td><td>Modelo de eficiencia · planta absorbe 100%</td></tr>
-        <tr><td>CHANGAN</td><td class="num">$1.49M</td><td class="num">$0.32M</td><td class="num">$1.17M</td><td class="num">21.4%</td><td>Co-op contractual mínimo</td></tr>
-        <tr><td>GWM</td><td class="num">$0.41M</td><td class="num">$0.14M</td><td class="num">$0.27M</td><td class="num">35%</td><td>Co-op contractual mínimo</td></tr>
-        <tr><td>ISUZU</td><td class="num">$0.63M</td><td class="num">$0</td><td class="num">$0.63M</td><td class="num">0%</td><td>B2B flotillero · sin co-op (esperado)</td></tr>
+        <tr><td>CHANGAN · GWM · ISUZU</td><td class="num">$2.53M</td><td class="num">$0.46M</td><td class="num">$2.07M</td><td class="num">18%</td><td>Co-op contractual mínimo · 3 marcas $0 pauta propia</td></tr>
         <tr class="total"><td><strong>TOTAL GRUPO</strong></td><td class="num">$187.78M</td><td class="num">$22.43M</td><td class="num">$165.34M</td><td class="num">11.9%</td><td>Primera vez trazado a este nivel</td></tr>
       </tbody>
     </table>
-
     <div class="callout-big">
-      <p><strong>Tres lecturas accionables:</strong> (1) <strong>MAZDA concentra 69% del neto al Grupo</strong> con el rebate más bajo — el Grupo expone capital propio aquí más que en cualquier otra marca. (2) <strong>STELLANTIS dinero no cobrado:</strong> existe cuenta "RECUPERACIÓN PUBLICIDAD PEUGEOT" sin movimiento 2025. (3) <strong>GAC es el modelo de eficiencia:</strong> 100% rebate · ¿por qué no se replica la mecánica?</p>
+      <p><strong>Cuatro lecturas:</strong> (1) <strong>MAZDA concentra 69% del neto al Grupo</strong> con 3% rebate — máxima exposición de capital propio. (2) <strong>STELLANTIS deja dinero en la mesa:</strong> existe cuenta "Recuperación Publicidad Peugeot" sin movimiento. (3) <strong>4 de 8 marcas con $0 pauta propia</strong> — operan como pass-through del OEM, no como función de marketing. (4) <strong>−86% colapso del gasto externo 2025→2026</strong> sin trazabilidad de causa documentada.</p>
     </div>
-
     <div class="slide-footer">
-      <span><span class="dot"></span>Slide 3 · Fuente: DCA cubo 30021 LxL (póliza-por-póliza) · pendiente validar P&amp;L oficial con Contraloría · v20 al 29-jun-2026</span>
+      <span><span class="dot"></span>Slide 3 · DCA cubo 30021 LxL · pendiente validar P&amp;L oficial con Contraloría · v20 al 29-jun-2026</span>
       <span style="display:flex; align-items:center; gap:8px;"><span class="gp-logo" aria-label="GP"></span>Grupo Plasencia Automotriz · Dirección MKT Corporativo</span>
     </div>
   </div>
 </section>
 
-<!-- ============================================================ -->
-<!-- SLIDE 4 · TESIS · CORPORATIZAR MARKETING -->
-<!-- ============================================================ -->
+<!-- SLIDE 4 · EL HANDOFF MKT → VTAS ESTÁ ROTO -->
 <section class="slide">
   <div class="content">
     <div>
-      <div class="section-num">TESIS · LA PROPUESTA AL CONSEJO</div>
-      <h1 class="slide-h1">Corporatizar Marketing: <em>1 presupuesto · 1 dirección · 1 proceso.</em></h1>
-      <p class="slide-lede">Hoy: N proveedores, N razones sociales, N gerencias, sin auditoría consolidada. <strong>Mañana:</strong> presupuesto BAU consolidado bajo Dirección MKT Corporativo, ejercido vía Compras Corporativo con RFP. <em>Control, escala y auditabilidad en estrategia, gasto, resultados y retorno.</em></p>
+      <div class="section-num">EVIDENCIA · EL CUELLO DE BOTELLA NO ES MARKETING</div>
+      <h1 class="slide-h1">El embudo entrega volumen y calidad. La <em>primera llamada</em> es donde se rompe.</h1>
+      <p class="slide-lede"><strong>El piloto del Motor de Atribución no es un proyecto digital.</strong> Es la primera vez que el Grupo puede ver el handoff Marketing → Ventas con cifras auditables. Y lo que muestra es contraintuitivo.</p>
     </div>
-
-    <div class="pilar-grid">
-      <div class="pilar-card red">
-        <div class="pilar-header">PIEZA 1</div>
-        <div class="pilar-title">Presupuesto BAU consolidado</div>
-        <div class="pilar-body">El Grupo entrega el presupuesto MKT a la <strong>Dirección Corporativa</strong>. Un solo dueño del peso. Fin del presupuesto atomizado por marca.</div>
+    <table class="deck-table">
+      <thead>
+        <tr><th>Marca</th><th class="num">Leads recibidos</th><th>Estado dominante</th><th class="num">% sin contactar / descartados</th><th class="num">Conversión</th><th>Diferencia operativa</th></tr>
+      </thead>
+      <tbody>
+        <tr class="danger"><td><strong>HYUNDAI</strong></td><td class="num">457</td><td>Perdida / No-contactable</td><td class="num">83%</td><td class="num">0.22%</td><td>Sin SLA de primera llamada · Plasencia GDL descartó 376 de 386 (97%)</td></tr>
+        <tr class="danger"><td><strong>STELLANTIS</strong></td><td class="num">269</td><td>Por contactar / Recontactar</td><td class="num">77%</td><td class="num">0.37%</td><td>206 leads en cola sin primera definición · sin SOP · sin persona asignada</td></tr>
+        <tr class="highlight"><td><strong>SEMINUEVOS</strong></td><td class="num">—</td><td><strong>Gestionado</strong></td><td class="num">—</td><td class="num"><strong>7.2%</strong></td><td><strong>Mismo stack técnico. La diferencia es estructura.</strong></td></tr>
+      </tbody>
+    </table>
+    <div class="two-col" style="margin-top:6px;">
+      <div class="callout-big red" style="margin-top:0;">
+        <div class="callout-t">El piloto reveló cuatro herramientas operando en silos.</div>
+        <p><strong>CRM kanban · Maxipublica WhatsApp · Vambe IA · sistemas DMS por sucursal.</strong> Cada vendedor usa la que prefiere. El CRM formal captura <strong>solo 12% del flujo</strong> de cierres digitales — el 88% se cierra fuera del sistema unificado. Sin captura, no hay atribución. Sin atribución, no hay ROI auditable.</p>
       </div>
-      <div class="pilar-card gold">
-        <div class="pilar-header">PIEZA 2</div>
-        <div class="pilar-title">Ejercicio centralizado</div>
-        <div class="pilar-body"><strong>MKT Corporativo ejerce</strong> el presupuesto. Las marcas reciben servicio MKT, no compran agencias por su cuenta.</div>
-      </div>
-      <div class="pilar-card">
-        <div class="pilar-header">PIEZA 3</div>
-        <div class="pilar-title">Compras Corporativo + RFP</div>
-        <div class="pilar-body">Toda contratación de proveedor MKT pasa por <strong>Compras vía RFP estandarizado</strong>. Gobernanza unificada. Fin de los contratos por relación.</div>
-      </div>
-      <div class="pilar-card green">
-        <div class="pilar-header">PIEZA 4</div>
-        <div class="pilar-title">Poder de negociación consolidado</div>
-        <div class="pilar-body"><strong>Un solo comprador</strong> → mejores precios, mejores términos, mejor servicio. Lo que hoy se reparte en muchas órdenes pequeñas, se negocia como una sola compra del Grupo.</div>
-      </div>
-      <div class="pilar-card">
-        <div class="pilar-header">PIEZA 5</div>
-        <div class="pilar-title">Recorte de proveedores</div>
-        <div class="pilar-body">Eliminar fragmentación. <strong>Menos proveedores, más capacidad técnica</strong> por proveedor. Especialización donde hoy hay redundancia.</div>
-      </div>
-      <div class="pilar-card red">
-        <div class="pilar-header">PIEZA 6</div>
-        <div class="pilar-title">Auditoría centralizada</div>
-        <div class="pilar-body">Auditas <strong>1 director / 1 área / 1 presupuesto</strong>. No N razones sociales con N proveedores. Trazabilidad consolidada de estrategia, gasto, resultados y retorno.</div>
+      <div class="callout-big" style="margin-top:0;">
+        <div class="callout-t">La IA de primer contacto no resuelve el problema operativo.</div>
+        <p><strong>Vambe atendió 56 contactos · 93% escaló a humano inmediatamente · 0 cierres dentro del flujo Vambe en 60 días.</strong> La tecnología puede ayudar a un proceso que ya existe — no reemplaza al proceso que no existe. El Grupo carece de SOP de respuesta, no de IA.</p>
       </div>
     </div>
-
+    <div class="callout-big green" style="margin-top:4px;">
+      <div class="callout-t">La variable que falta no es tecnología ni inversión. Es estructura corporativa.</div>
+      <p>Cuando existe función que gestiona el primer toque — como en Seminuevos —, la conversión pasa de <strong>0.22% a 7.2% con el mismo stack técnico</strong>. <strong>32× más cierres por el mismo lead.</strong> Eso es lo que la corporatización opera: la disciplina del handoff con SLA, SOP y rendición.</p>
+    </div>
     <div class="slide-footer">
-      <span><span class="dot"></span>Slide 4 · Tesis del deck · sustento en transcript Dir. General 26-jun-2026 + DCA v20</span>
+      <span><span class="dot"></span>Slide 4 · Reporte Piloto Consejo · cohortes HYU (74 días) · STL (62 días) · benchmark SEM gestionado · al 23-jun-2026</span>
       <span style="display:flex; align-items:center; gap:8px;"><span class="gp-logo" aria-label="GP"></span>Grupo Plasencia Automotriz · Dirección MKT Corporativo</span>
     </div>
   </div>
 </section>
 
-<!-- ============================================================ -->
-<!-- SLIDE 5 · METODOLOGÍA Y TECNOLOGÍA -->
-<!-- ============================================================ -->
+<!-- SLIDE 5 · TESIS + MECANISMO -->
 <section class="slide">
   <div class="content">
     <div>
-      <div class="section-num">EL CÓMO · INFRAESTRUCTURA DEL MOTOR</div>
-      <h1 class="slide-h1"><em>Metodología</em> trazable peso-a-peso. <em>Tecnología</em> propia del Grupo.</h1>
-      <p class="slide-lede">El <strong>Motor de Atribución</strong> es la infraestructura técnica que habilita la corporatización. Lead → coche facturado → peso invertido → retorno. <em>Stack propio: no es Excel, es data warehouse en producción operado por la Dirección MKT Corporativo.</em></p>
+      <div class="section-num">LA PROPUESTA · TESIS Y MECANISMO</div>
+      <h1 class="slide-h1">Convertir Marketing en <span class="gold">revenue &amp; profit center</span> auditable.</h1>
+      <p class="slide-lede"><strong>Hoy: cost center que el Consejo no puede auditar.</strong> Mañana: función corporativa con presupuesto consolidado, retorno medible por marca y eficiencia neta post-rebate cuantificada. <strong>El mecanismo es corporatizar.</strong></p>
     </div>
+    <div class="transform-block">
+      <div class="transform-side hoy">
+        <div class="label">HOY · COST CENTER</div>
+        <div class="title">Marketing fragmentado y opaco</div>
+        <ul>
+          <li>Presupuesto <strong>atomizado por marca</strong></li>
+          <li>$166M en proveedores no identificables</li>
+          <li>7,899 razones sociales sin contrato marco</li>
+          <li>0.22%–0.37% conversión por handoff roto</li>
+          <li>ROI <strong>no auditable</strong></li>
+        </ul>
+      </div>
+      <div class="transform-arrow">→</div>
+      <div class="transform-side maniana">
+        <div class="label">MAÑANA · REVENUE &amp; PROFIT CENTER</div>
+        <div class="title">Marketing corporativo auditable</div>
+        <ul>
+          <li><strong>1 presupuesto</strong> consolidado del Grupo</li>
+          <li><strong>14 proveedores</strong> externos con contrato marco vía Compras</li>
+          <li>Conversión gestionada con SLA y SOP</li>
+          <li>Revenue trazado lead → coche por marca</li>
+          <li><strong>Profit auditado</strong> peso-a-peso post-rebate</li>
+        </ul>
+      </div>
+    </div>
+    <div class="pilar-grid" style="margin-top:8px;">
+      <div class="pilar-card red"><div class="pilar-header">PIEZA 1 · PRESUPUESTO</div><div class="pilar-body">El Grupo entrega el BAU de MKT a la <strong>Dirección Corporativa</strong>. Un solo dueño del peso.</div></div>
+      <div class="pilar-card gold"><div class="pilar-header">PIEZA 2 · EJERCICIO</div><div class="pilar-body"><strong>MKT Corporativo ejerce</strong>. Las marcas reciben servicio, no compran agencias.</div></div>
+      <div class="pilar-card"><div class="pilar-header">PIEZA 3 · COMPRAS + RFP</div><div class="pilar-body">Toda contratación vía <strong>Compras Corporativo con RFP estandarizado</strong>.</div></div>
+      <div class="pilar-card green"><div class="pilar-header">PIEZA 4 · NEGOCIACIÓN</div><div class="pilar-body">Un solo comprador → <strong>mejores precios y términos</strong> consolidados.</div></div>
+      <div class="pilar-card"><div class="pilar-header">PIEZA 5 · RECORTE</div><div class="pilar-body"><strong>Menos proveedores, más capacidad técnica</strong>. Especialización donde hay redundancia.</div></div>
+      <div class="pilar-card red"><div class="pilar-header">PIEZA 6 · AUDITORÍA</div><div class="pilar-body">Auditas <strong>1 director / 1 área / 1 presupuesto</strong>, no N razones sociales.</div></div>
+    </div>
+    <div class="slide-footer">
+      <span><span class="dot"></span>Slide 5 · Tesis del deck · transformación cost→profit vía corporatización (6 piezas operativas)</span>
+      <span style="display:flex; align-items:center; gap:8px;"><span class="gp-logo" aria-label="GP"></span>Grupo Plasencia Automotriz · Dirección MKT Corporativo</span>
+    </div>
+  </div>
+</section>
 
+<!-- SLIDE 6 · METODOLOGÍA Y TECNOLOGÍA -->
+<section class="slide">
+  <div class="content">
+    <div>
+      <div class="section-num">EL CÓMO · CÓMO SE MIDE EL PROFIT CENTER</div>
+      <h1 class="slide-h1"><em>Metodología</em> peso-a-peso. <em>Tecnología</em> propia del Grupo.</h1>
+      <p class="slide-lede">El profit center necesita <strong>dos trazabilidades simultáneas</strong>: comercial (lead → coche facturado por marca y sucursal) y económica (peso bruto → rebate OEM → peso neto). El Motor de Atribución del Grupo ya las opera en cuatro marcas.</p>
+    </div>
     <div class="two-col">
       <div class="col-stack">
-        <div class="col-h">METODOLOGÍA · QUÉ SE MIDE</div>
-        <div class="pilar-card">
-          <div class="pilar-header">TRAZABILIDAD COMERCIAL</div>
-          <div class="pilar-body"><strong>Lead → coche facturado</strong> por marca, sucursal y vendedor. Atribución server-side, sin perder señal por consent ni ad-blockers.</div>
-        </div>
-        <div class="pilar-card">
-          <div class="pilar-header">TRAZABILIDAD ECONÓMICA</div>
-          <div class="pilar-body"><strong>Peso-a-peso bruto vs neto post-rebate OEM.</strong> CAC por marca, ROAS por marca, retorno por escenario de inversión.</div>
-        </div>
-        <div class="pilar-card">
-          <div class="pilar-header">REPLICABILIDAD</div>
-          <div class="pilar-body">Sistema diseñado para correr en <strong>todas las marcas del Grupo + Flotillas</strong> con el mismo SOP. Onboarding marca a marca cada 90 días.</div>
-        </div>
+        <div class="col-h navy">METODOLOGÍA · QUÉ SE MIDE</div>
+        <div class="pilar-card"><div class="pilar-header">TRAZABILIDAD COMERCIAL</div><div class="pilar-body">Lead → cita → visita → cotización → <strong>coche facturado</strong> por marca, sucursal y vendedor. Atribución server-side, sin perder señal por consent ni ad-blockers.</div></div>
+        <div class="pilar-card"><div class="pilar-header">TRAZABILIDAD ECONÓMICA</div><div class="pilar-body"><strong>Bruto vs neto post-rebate OEM</strong> por marca. CAC neto, ROAS neto, profit por escenario de inversión. Hace auditable la palanca cost→profit.</div></div>
+        <div class="pilar-card"><div class="pilar-header">REPLICABILIDAD CROSS-MARCA</div><div class="pilar-body">SOP único: <strong>onboarding de marca cada 90 días</strong>. Mismas métricas, mismos gates de desempeño, misma rendición.</div></div>
       </div>
       <div class="col-stack">
         <div class="col-h gold">TECNOLOGÍA · CÓMO SE OPERA</div>
-        <div class="pilar-card gold">
-          <div class="pilar-header">DATA WAREHOUSE</div>
-          <div class="pilar-body"><strong>D1 · 1.47 GB · 2.7M+ rows · 33 tablas.</strong> Source of truth del Grupo. Histórico cubos DCA + leads + ventas + atribución consolidados.</div>
-        </div>
-        <div class="pilar-card gold">
-          <div class="pilar-header">PIPELINE DIGITAL</div>
-          <div class="pilar-body">Server-side CAPI · GTM · WhatsApp routing dinámico por sucursal · SPAs por marca con kanban en tiempo real.</div>
-        </div>
-        <div class="pilar-card gold">
-          <div class="pilar-header">ACTIVO DEL GRUPO</div>
-          <div class="pilar-body"><strong>El stack pertenece al Grupo, no a un proveedor.</strong> No hay dependencia de agencia externa para la operación crítica del Motor.</div>
-        </div>
+        <div class="pilar-card gold"><div class="pilar-header">DATA WAREHOUSE PROPIO</div><div class="pilar-body"><strong>D1 · 1.47 GB · 2.7M+ rows · 33 tablas.</strong> Source of truth del Grupo: cubos DCA + leads + ventas + atribución consolidados.</div></div>
+        <div class="pilar-card gold"><div class="pilar-header">PIPELINE DIGITAL</div><div class="pilar-body">Server-side CAPI · GTM · WhatsApp routing dinámico por sucursal · SPAs por marca con kanban en tiempo real.</div></div>
+        <div class="pilar-card gold"><div class="pilar-header">ACTIVO DEL GRUPO</div><div class="pilar-body"><strong>El stack pertenece al Grupo, no a un proveedor.</strong> Sin dependencia de agencia externa para la operación crítica.</div></div>
       </div>
     </div>
-
     <div class="slide-footer">
-      <span><span class="dot"></span>Slide 5 · Stack en producción al 29-jun-2026 · Motor de Atribución corre en SEM + HYU + STL + GAC</span>
+      <span><span class="dot"></span>Slide 6 · Motor de Atribución en producción · 4 marcas · SEM + HYU + STL + GAC · al 29-jun-2026</span>
       <span style="display:flex; align-items:center; gap:8px;"><span class="gp-logo" aria-label="GP"></span>Grupo Plasencia Automotriz · Dirección MKT Corporativo</span>
     </div>
   </div>
 </section>
 
-<!-- ============================================================ -->
-<!-- SLIDE 6 · EVIDENCIA OPERATIVA -->
-<!-- ============================================================ -->
+<!-- SLIDE 7 · EVIDENCIA OPERATIVA -->
 <section class="slide">
   <div class="content">
     <div>
-      <div class="section-num">EVIDENCIA · METODOLOGÍA EN PRODUCCIÓN</div>
-      <h1 class="slide-h1">El piloto <em>ya entrega.</em> Cuatro marcas corriendo bajo gobernanza limitada.</h1>
-      <p class="slide-lede"><strong>Seminuevos (caso canónico) + Hyundai + Stellantis + GAC</strong> en producción bajo metodología corporativa. Cifras consolidadas al 23-jun-2026. <em>Estos números son con presupuesto y gobernanza limitados — corporatizar multiplica el incremental.</em></p>
+      <div class="section-num">EVIDENCIA · PROFIT CENTER YA EN MARCHA</div>
+      <h1 class="slide-h1">El piloto <em>ya es revenue measurable.</em></h1>
+      <p class="slide-lede">Cuatro marcas en producción bajo metodología corporativa, con <strong>presupuesto y gobernanza limitados</strong>. Cifras al 23-jun-2026. <em>Estos números prueban que la transformación cost→profit es operativamente viable hoy — corporatizar la multiplica.</em></p>
     </div>
-
     <div class="kpi-grid cols-4">
-      <div class="kpi-card navy">
-        <div class="kpi-label">Leads generados</div>
-        <div class="kpi-num">1,569</div>
-        <div class="kpi-sub">Atribuidos lead-a-coche con trazabilidad completa.</div>
-      </div>
-      <div class="kpi-card">
-        <div class="kpi-label">Cierres</div>
-        <div class="kpi-num red">62</div>
-        <div class="kpi-sub"><strong>3.95% conversión.</strong> Benchmark industria automotriz digital: 2-3%.</div>
-      </div>
-      <div class="kpi-card gold">
-        <div class="kpi-label">CAC Seminuevos</div>
-        <div class="kpi-num gold">$1,003</div>
-        <div class="kpi-sub">Costo por adquisición · marca canónica del piloto.</div>
-      </div>
-      <div class="kpi-card green">
-        <div class="kpi-label">Revenue atribuido</div>
-        <div class="kpi-num green">$17.5M</div>
-        <div class="kpi-sub">Coches facturados trazados al Motor.</div>
-      </div>
+      <div class="kpi-card navy"><div class="kpi-label">Leads trazados</div><div class="kpi-num">1,569</div><div class="kpi-sub">Con atribución completa lead-a-coche por marca y sucursal.</div></div>
+      <div class="kpi-card"><div class="kpi-label">Cierres</div><div class="kpi-num red">62</div><div class="kpi-sub"><strong>3.95% conversión global piloto.</strong> Por marca varía de 0.22% a 7.2% según handoff.</div></div>
+      <div class="kpi-card gold"><div class="kpi-label">CAC Seminuevos</div><div class="kpi-num gold">$1,003</div><div class="kpi-sub">Costo por adquisición · marca canónica con handoff gestionado.</div></div>
+      <div class="kpi-card green"><div class="kpi-label">Revenue atribuido</div><div class="kpi-num green">$17.5M</div><div class="kpi-sub">Coches facturados trazados al Motor.</div></div>
     </div>
-
     <div class="callout-big green">
-      <div class="callout-t">La metodología no es teórica. Está corriendo.</div>
-      <p>Estos números se entregaron con <strong>presupuesto y gobernanza limitados</strong> — sin presupuesto consolidado, sin Compras Corporativo, sin RFP. La corporatización <strong>desbloquea</strong> los escenarios $30K/$60K/$90K por marca/mes propuestos en el siguiente slide. <em>El incremental se multiplica.</em></p>
+      <div class="callout-t">Esto es lo que entrega un profit center con gobernanza limitada.</div>
+      <p>El piloto demostró tres cosas auditables: <strong>(1)</strong> el revenue es trazable por marca con la metodología actual; <strong>(2)</strong> el cuello de botella es el handoff Mkt→Vtas, no la adquisición; <strong>(3)</strong> donde hay gestión del primer toque, la conversión escala 32×. <em>Con corporatización completa, los tres puntos pasan de hallazgo del piloto a operación corriente del Grupo.</em></p>
     </div>
-
     <div class="slide-footer">
-      <span><span class="dot"></span>Slide 6 · Fuente: Piloto Motor de Atribución v8.3 · 4 marcas · al 23-jun-2026</span>
+      <span><span class="dot"></span>Slide 7 · Reporte Piloto Motor de Atribución v8.3 · 4 marcas · al 23-jun-2026</span>
       <span style="display:flex; align-items:center; gap:8px;"><span class="gp-logo" aria-label="GP"></span>Grupo Plasencia Automotriz · Dirección MKT Corporativo</span>
     </div>
   </div>
 </section>
 
-<!-- ============================================================ -->
-<!-- SLIDE 7 · MECÁNICA DE INVERSIÓN -->
-<!-- ============================================================ -->
+<!-- SLIDE 8 · MECÁNICA DE INVERSIÓN -->
 <section class="slide">
   <div class="content">
     <div>
-      <div class="section-num">MECÁNICA · ESCENARIOS DE INVERSIÓN</div>
+      <div class="section-num">MECÁNICA · INVERSIÓN PARA EL PROFIT CENTER</div>
       <h1 class="slide-h1">$30K · $60K · $90K <em>por marca / mes.</em> Sobre el baseline, no contra él.</h1>
-      <p class="slide-lede">Tres escenarios de pauta digital <strong>por marca</strong>, ejercidos por la <strong>Dirección MKT Corporativo</strong>. Venta incremental <em>sobre</em> el baseline existente — no compite contra él. <em>El director general lo planteó así: "si tú logras ventas incrementales, que tú tengas el incentivo. Ya en eso estamos de acuerdo, no nomás hay que ponerle la forma correcta."</em></p>
+      <p class="slide-lede">Tres escenarios de pauta digital <strong>por marca</strong>, ejercidos por la Dirección MKT Corporativo. Venta incremental <em>sobre</em> el baseline existente — no compite contra él. <strong>El profit del Grupo se mide en el incremental neto, después del rebate OEM.</strong></p>
     </div>
-
     <table class="deck-table">
       <thead>
-        <tr>
-          <th>Escenario</th>
-          <th class="num">Inv / marca / mes</th>
-          <th>Cobertura</th>
-          <th class="num">Inv total anual</th>
-          <th>Notas</th>
-        </tr>
+        <tr><th>Escenario</th><th class="num">Inv / marca / mes</th><th>Cobertura</th><th class="num">Inv total anual bruta</th><th>Mecánica operativa</th></tr>
       </thead>
       <tbody>
-        <tr><td><strong>Conservador</strong></td><td class="num">$30K</td><td>8 marcas + Flotillas</td><td class="num">$3.24M</td><td>Pauta digital pura · sin promo · always-on</td></tr>
+        <tr><td><strong>Conservador</strong></td><td class="num">$30K</td><td>8 marcas + Flotillas</td><td class="num">$3.24M</td><td>Pauta digital pura · always-on · sin producción nueva</td></tr>
         <tr class="highlight"><td><strong>Realista</strong></td><td class="num">$60K</td><td>8 marcas + Flotillas</td><td class="num">$6.48M</td><td>Pauta + producción · always-on + toggle promo mensual</td></tr>
         <tr><td><strong>Agresivo</strong></td><td class="num">$90K</td><td>8 marcas + Flotillas</td><td class="num">$9.72M</td><td>Pauta + producción + experiments · always-on + campañas tácticas</td></tr>
       </tbody>
     </table>
-
     <div class="two-col" style="margin-top:6px;">
       <div class="callout-big gold" style="margin-top:0;">
-        <div class="callout-t">Track A · Incentivo por incremental</div>
-        <p>Director General aprobado en principio: <strong>incentivo a la Dirección MKT cuando se generen ventas por encima del baseline</strong> de cada marca. Forma específica pendiente estructurar con Andrés (Dir. RRHH / Corporativo). <em>"Ya en eso estamos de acuerdo, no nomás hay que ponerle la forma correcta."</em></p>
+        <div class="callout-t">El incremental es lo que define al profit center.</div>
+        <p>El piloto entregó <strong>$17.5M revenue trazado</strong> con presupuesto fragmentado. Con $6.48M anuales (escenario realista) ejercidos por una sola dirección, sobre un baseline auditable, la métrica que importa al Consejo es el <strong>incremental neto por marca, post-rebate OEM</strong> — no el bruto de pauta.</p>
       </div>
       <div class="callout-big" style="margin-top:0;">
-        <div class="callout-t">Cobertura total propuesta</div>
-        <p>8 marcas activas (SEM · HYU · STL · GAC · FORD · MAZDA · ISUZU · CHANGAN+GWM) + <strong>Flotillas B2B horizontal</strong> cross-brand. Aurora del Pozo (Dir. Flotillas) confirmada como canal incremental por Dir. General.</p>
+        <div class="callout-t">Cobertura del profit center.</div>
+        <p><strong>8 marcas (SEM · HYU · STL · GAC · FORD · MAZDA · ISUZU · CHANGAN+GWM)</strong> + Flotillas B2B horizontal. La Dirección General confirmó Flotillas como canal incremental para la corporatización (Aurora del Pozo).</p>
       </div>
     </div>
-
     <div class="slide-footer">
-      <span><span class="dot"></span>Slide 7 · Mecánica conversada y aprobada en principio · Dir. General · 26-jun-2026</span>
+      <span><span class="dot"></span>Slide 8 · Mecánica de inversión · 3 escenarios · 8 marcas + Flotillas · ejercicio corporativo único</span>
       <span style="display:flex; align-items:center; gap:8px;"><span class="gp-logo" aria-label="GP"></span>Grupo Plasencia Automotriz · Dirección MKT Corporativo</span>
     </div>
   </div>
 </section>
 
-<!-- ============================================================ -->
-<!-- SLIDE 8 · GOBERNANZA RFP VIA COMPRAS -->
-<!-- ============================================================ -->
+<!-- SLIDE 9 · GOBERNANZA RFP VIA COMPRAS -->
 <section class="slide">
   <div class="content">
     <div>
-      <div class="section-num">GOBERNANZA · RFP VIA COMPRAS CORPORATIVO</div>
+      <div class="section-num">GOBERNANZA · AUDITABILIDAD DEL PROFIT CENTER</div>
       <h1 class="slide-h1">Toda contratación MKT pasa <em>vía Compras</em> con RFP.</h1>
-      <p class="slide-lede"><strong>Hoy: 14 proveedores externos cabezones por $41M agregado.</strong> Top 5 concentra 68%. Mañana: Compras Corporativo es dueño del proceso · MKT Corporativo es dueño del requerimiento · aval doble (Dir. de marca + Gte. MKT) por proof of concept para evitar sabotaje político.</p>
+      <p class="slide-lede"><strong>El universo externo identificable cabe en 14 nombres por $41M.</strong> El top 5 concentra 68%. Compras Corporativo dueño del proceso · MKT Corporativo dueño del requerimiento · aval doble (Dir. marca + Gte. MKT) por proof of concept.</p>
     </div>
-
     <div class="two-col">
       <div class="col-stack">
         <div class="col-h navy">UNIVERSO EXTERNO 2025 · TOP 5</div>
         <table class="deck-table">
-          <thead>
-            <tr>
-              <th>Proveedor</th>
-              <th class="num">Monto</th>
-              <th class="num">% del total</th>
-            </tr>
-          </thead>
+          <thead><tr><th>Proveedor</th><th class="num">Monto</th><th class="num">% del total</th></tr></thead>
           <tbody>
             <tr class="warn"><td><strong>GALLETA MARKETING DIGITAL</strong></td><td class="num">$12.22M</td><td class="num">30%</td></tr>
             <tr><td>PUBLICITY APXUS</td><td class="num">$4.50M</td><td class="num">11%</td></tr>
@@ -514,197 +486,109 @@ table.deck-table { width:100%; border-collapse: collapse; font-family: var(--san
             <tr><td>TRANDEO</td><td class="num">$2.63M</td><td class="num">6%</td></tr>
             <tr class="total"><td><strong>Top 5</strong></td><td class="num">$27.92M</td><td class="num">68%</td></tr>
             <tr><td>Resto (9 proveedores)</td><td class="num">$13.08M</td><td class="num">32%</td></tr>
-            <tr class="total"><td><strong>Universo externo total</strong></td><td class="num">$41M</td><td class="num">100%</td></tr>
+            <tr class="total"><td><strong>Universo externo identificable</strong></td><td class="num">$41M</td><td class="num">100%</td></tr>
           </tbody>
         </table>
       </div>
       <div class="col-stack">
         <div class="col-h gold">REGLAS DEL RFP CORPORATIVO</div>
-        <div class="pilar-card">
-          <div class="pilar-header">DUEÑO DEL PROCESO</div>
-          <div class="pilar-body"><strong>Compras Corporativo</strong> ejecuta el RFP. <strong>MKT Corporativo</strong> define requerimiento técnico. Sin atajos por relación.</div>
-        </div>
-        <div class="pilar-card">
-          <div class="pilar-header">AVAL DOBLE</div>
-          <div class="pilar-body">Cada proof of concept requiere <strong>aval simultáneo</strong> del Director de marca <strong>y</strong> del Gerente de MKT — para que ningún proveedor cargue muerto ajeno.</div>
-        </div>
-        <div class="pilar-card gold">
-          <div class="pilar-header">GALLETA · 3 ESCENARIOS</div>
-          <div class="pilar-body"><strong>(A)</strong> gana RFP solo · <strong>(B)</strong> queda como front + despacho técnico back, margen ≤1% · <strong>(C)</strong> degrada a rol secundario si no se moderniza.</div>
-        </div>
+        <div class="pilar-card"><div class="pilar-header">DUEÑO DEL PROCESO</div><div class="pilar-body"><strong>Compras Corporativo</strong> ejecuta el RFP. <strong>MKT Corporativo</strong> define el requerimiento técnico. Sin atajos por relación.</div></div>
+        <div class="pilar-card"><div class="pilar-header">AVAL DOBLE</div><div class="pilar-body">Cada proof of concept requiere <strong>aval simultáneo</strong> del Director de marca <strong>y</strong> del Gerente de MKT. Si algo falla, la responsabilidad es compartida — nadie carga muerto ajeno.</div></div>
+        <div class="pilar-card gold"><div class="pilar-header">CONTRATOS MARCO</div><div class="pilar-body">Cierre del descontrol contractual marca-por-marca. <strong>Un contrato corporativo por proveedor</strong> con SLA y métricas estandarizadas.</div></div>
       </div>
     </div>
-
     <div class="callout-big red">
-      <div class="callout-t">Guerra nuclear anticipada — el deck es el blindaje.</div>
-      <p>El Dir. General lo anunció textual: <em>"viene la guerra nuclear"</em>. Los directores de marca y sus agencias actuales van a resistir. <strong>El RFP corporativo es el mecanismo único de protección.</strong> "Cirugía pegada al Consejo" — cita textual.</p>
+      <div class="callout-t">El −86% colapso del gasto externo 2025→2026 muestra el problema de gobernanza actual.</div>
+      <p>El gasto externo identificable cayó de <strong>$4.58M/mes en 2025 a $0.66M/mes en 2026</strong> sin trazabilidad documentada de la causa. Sin proceso corporativo de contratación, los movimientos materiales de Marketing no dejan rastro auditable. El RFP vía Compras cierra ese hueco.</p>
     </div>
-
     <div class="slide-footer">
-      <span><span class="dot"></span>Slide 8 · Fuente: DCA v20 universo externo MKT 2025 · transcript Dir. General 26-jun-2026</span>
+      <span><span class="dot"></span>Slide 9 · DCA v20 universo externo MKT 2025 · top 14 proveedores · $41M agregado identificable</span>
       <span style="display:flex; align-items:center; gap:8px;"><span class="gp-logo" aria-label="GP"></span>Grupo Plasencia Automotriz · Dirección MKT Corporativo</span>
     </div>
   </div>
 </section>
 
-<!-- ============================================================ -->
-<!-- SLIDE 9 · TRACK B · RENDICIÓN DIRECTORES -->
-<!-- ============================================================ -->
+<!-- SLIDE 10 · TRACK B · RENDICIÓN DIRECTORES -->
 <section class="slide">
   <div class="content">
     <div>
-      <div class="section-num">GOBERNANZA · TRACK B · CONTRAPESO OPERATIVO</div>
-      <h1 class="slide-h1">Directores responden <em>por desempeño comercial</em> sobre la inversión MKT.</h1>
-      <p class="slide-lede">Director General lo planteó textual: <em>"que se sientan observados y calificados por el desempeño comercial."</em> Los directores de marca ya <strong>NO contratan</strong> agencias — pero <strong>SÍ responden</strong> por desempeño comercial sobre la inversión que la Dirección MKT Corporativo despliega en su marca.</p>
+      <div class="section-num">GOBERNANZA · CONTRAPESO COMERCIAL</div>
+      <h1 class="slide-h1">Sin rendición comercial, <em>no hay profit center.</em></h1>
+      <p class="slide-lede"><strong>El piloto demostró que el cuello de botella es comercial, no de marketing.</strong> Los directores de marca ya no contratan agencias — pero responden por desempeño comercial sobre la inversión MKT desplegada en su marca. Este es el contrapeso operativo de la corporatización.</p>
     </div>
-
     <div class="pilar-grid">
-      <div class="pilar-card">
-        <div class="pilar-header">ANTES · STATUS QUO</div>
-        <div class="pilar-title">Director compra agencia</div>
-        <div class="pilar-body">Cada director negocia con sus proveedores. Opacidad de gasto. <strong>Sin trazabilidad lead → coche.</strong> Lealtades cruzadas. Sin métricas comparables cross-marca.</div>
-      </div>
-      <div class="pilar-card gold">
-        <div class="pilar-header">AHORA · POST-CORPORATIZACIÓN</div>
-        <div class="pilar-title">Director rinde cuentas</div>
-        <div class="pilar-body"><strong>MKT Corporativo ejerce</strong>. Director responde por <strong>desempeño comercial</strong> sobre la inversión MKT desplegada en su marca. Métricas estandarizadas.</div>
-      </div>
-      <div class="pilar-card green">
-        <div class="pilar-header">KPIs DE RENDICIÓN</div>
-        <div class="pilar-title">Métricas estandarizadas</div>
-        <div class="pilar-body">Tasa de cierre lead → cita → coche · contribución comercial al baseline · adopción del SOP de venta digital · respuesta a leads en SLA · NPS interno con MKT Corporativo.</div>
-      </div>
+      <div class="pilar-card"><div class="pilar-header">ANTES · STATUS QUO</div><div class="pilar-title">Director compra agencia</div><div class="pilar-body">Cada director negocia sus proveedores. Opacidad de gasto. <strong>83% de leads HYU sin contactar.</strong> 206 leads STL acumulados sin definición. Sin trazabilidad lead→coche por sucursal.</div></div>
+      <div class="pilar-card gold"><div class="pilar-header">AHORA · POST-CORPORATIZACIÓN</div><div class="pilar-title">Director rinde cuentas comerciales</div><div class="pilar-body"><strong>MKT Corporativo ejerce</strong>. Director responde por desempeño comercial sobre la inversión desplegada. Métricas estandarizadas cross-marca. Comparabilidad operativa por primera vez.</div></div>
+      <div class="pilar-card green"><div class="pilar-header">KPIs DE RENDICIÓN</div><div class="pilar-title">Métricas comerciales cifradas</div><div class="pilar-body">Tasa de cierre lead → cita → coche · contribución al baseline · adopción del SOP de venta digital · respuesta a leads en SLA · NPS interno con MKT Corporativo.</div></div>
     </div>
-
     <div class="callout-big">
-      <div class="callout-t">El contrapeso operativo del Track A.</div>
-      <p><strong>Track A</strong> (incentivo por incremental para Dirección MKT) sin <strong>Track B</strong> (rendición comercial de directores) es desbalanceado. Los dos juntos forman el sistema completo. Si MKT entrega leads de calidad, los directores responden por convertirlos. <em>"Que se sientan observados y calificados por el desempeño comercial"</em> — cita Dir. General.</p>
+      <div class="callout-t">El contrapeso del incremental.</div>
+      <p>Si MKT Corporativo entrega leads de calidad medible y los directores no convierten, la rendición comercial expone el cuello real. Si MKT no entrega calidad, la rendición de MKT expone el cuello técnico. <strong>Las dos rendiciones simultáneas son lo que hace al profit center auditable.</strong> Sin contrapeso, la corporatización solo mueve el descontrol a un lugar nuevo.</p>
     </div>
-
     <div class="slide-footer">
-      <span><span class="dot"></span>Slide 9 · Track B · sustento en transcript Dir. General 26-jun-2026 (00:22:55 + 01:39:00)</span>
+      <span><span class="dot"></span>Slide 10 · Track B · contrapeso operativo · soportado en hallazgos Piloto Consejo HYU 0.22% / STL 0.37% / SEM 7.2%</span>
       <span style="display:flex; align-items:center; gap:8px;"><span class="gp-logo" aria-label="GP"></span>Grupo Plasencia Automotriz · Dirección MKT Corporativo</span>
     </div>
   </div>
 </section>
 
-<!-- ============================================================ -->
-<!-- SLIDE 10 · LO QUE SE PIDE AL CONSEJO -->
-<!-- ============================================================ -->
+<!-- SLIDE 11 · ASKS + 90 DÍAS -->
 <section class="slide">
   <div class="content">
     <div>
-      <div class="section-num">LA DECISIÓN · TRES APROBACIONES</div>
-      <h1 class="slide-h1">Tres aprobaciones para <em>corporatizar Marketing.</em></h1>
-      <p class="slide-lede">El Consejo aprueba <strong>tres binarios independientes</strong>. Cada uno habilita al siguiente. Sin las tres, la corporatización no se sostiene — son las piezas mínimas viables.</p>
+      <div class="section-num">LA DECISIÓN · TRES APROBACIONES · 90 DÍAS</div>
+      <h1 class="slide-h1">Tres aprobaciones para <em>materializar la transformación.</em></h1>
+      <p class="slide-lede">El Consejo aprueba <strong>tres binarios independientes</strong>. Cada uno habilita al siguiente. Las tres son las piezas mínimas viables de la transición cost→profit. Roadmap a 90 días con dueños y métricas.</p>
     </div>
-
     <table class="deck-table">
       <thead>
-        <tr>
-          <th>#</th>
-          <th>Aprobación</th>
-          <th>Qué habilita</th>
-          <th>Dueño post-aprobación</th>
-        </tr>
+        <tr><th>#</th><th>Aprobación</th><th>Qué habilita</th><th>Mes 1</th><th>Mes 2</th><th>Mes 3</th></tr>
       </thead>
       <tbody>
         <tr>
           <td class="ask-num">1</td>
-          <td><strong>CORPORATIZACIÓN DEL PRESUPUESTO MKT</strong><br><span style="color:var(--g500); font-size:9.5pt;">Aprobar la transferencia del presupuesto BAU de Marketing del Grupo a la Dirección MKT Corporativo. Ejercicio centralizado. Las marcas reciben servicio MKT, no compran agencias.</span></td>
+          <td><strong>CORPORATIZACIÓN DEL PRESUPUESTO MKT</strong><br><span style="color:var(--g500); font-size:8.5pt;">Transferencia del BAU de Marketing a la Dirección MKT Corporativo. Ejercicio centralizado.</span></td>
           <td>Visibilidad consolidada · poder de negociación · auditoría unificada</td>
-          <td>Dir. MKT Corporativo + Dir. General</td>
+          <td>Transferencia 100% BAU</td>
+          <td>Primer cierre mensual consolidado</td>
+          <td>Primer reporte trimestral al Consejo</td>
         </tr>
         <tr>
           <td class="ask-num">2</td>
-          <td><strong>GOBERNANZA RFP VÍA COMPRAS</strong><br><span style="color:var(--g500); font-size:9.5pt;">Aprobar Compras Corporativo como proceso único de contratación de proveedores MKT. Aval doble (Dir. de marca + Gte. MKT) por proof of concept. Galleta y resto entran al RFP sin excepción.</span></td>
-          <td>Recorte de proveedores · profesionalización · fin de contratos por relación</td>
-          <td>Compras Corporativo + Dir. MKT</td>
+          <td><strong>GOBERNANZA RFP VÍA COMPRAS</strong><br><span style="color:var(--g500); font-size:8.5pt;">Compras Corporativo como proceso único de contratación. Aval doble. Top 14 al RFP sin excepción.</span></td>
+          <td>Contratos marco · recorte proveedores · fin de contratación por relación</td>
+          <td>Setup plantilla RFP · comunicación top 14</td>
+          <td>Primer RFP corporativo (top 5)</td>
+          <td>Adjudicación RFP fase 1 con ahorros documentados</td>
         </tr>
         <tr>
           <td class="ask-num">3</td>
-          <td><strong>TRACKS A + B · INCENTIVO + RENDICIÓN</strong><br><span style="color:var(--g500); font-size:9.5pt;">Aprobar estructura de incentivo por incremental para Dir. MKT (Track A · forma final con Andrés) + rendición de cuentas comerciales por director de marca (Track B · operativo).</span></td>
+          <td><strong>TRACKS DE RENDICIÓN A + B</strong><br><span style="color:var(--g500); font-size:8.5pt;">Incentivo por incremental para Dir. MKT (Track A · forma con Andrés). Rendición comercial directores (Track B · operativo).</span></td>
           <td>Sistema completo de gobernanza · contrapesos alineados</td>
-          <td>Dir. General + Andrés + Dir. MKT</td>
+          <td>KPIs Track B firmados por directores</td>
+          <td>Primer ciclo de gates por marca</td>
+          <td>Track A estructurado con RRHH</td>
         </tr>
       </tbody>
     </table>
-
-    <div class="callout-big red">
-      <div class="callout-t">Sin las tres, la corporatización no se sostiene.</div>
-      <p>(1) sin presupuesto consolidado, no hay corporatización real · (2) sin RFP vía Compras, queda la puerta abierta a contratos por relación · (3) sin Tracks A+B, no hay sistema de contrapesos. <strong>Son las tres piezas mínimas viables.</strong></p>
-    </div>
-
-    <div class="slide-footer">
-      <span><span class="dot"></span>Slide 10 · Asks al Consejo · iteración 3</span>
-      <span style="display:flex; align-items:center; gap:8px;"><span class="gp-logo" aria-label="GP"></span>Grupo Plasencia Automotriz · Dirección MKT Corporativo</span>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================ -->
-<!-- SLIDE 11 · PRÓXIMOS 90 DÍAS -->
-<!-- ============================================================ -->
-<section class="slide">
-  <div class="content">
-    <div>
-      <div class="section-num">ROADMAP · 90 DÍAS POST-APROBACIÓN</div>
-      <h1 class="slide-h1">Transición ordenada. <em>Hitos cifrados.</em></h1>
-      <p class="slide-lede">Roadmap de transición 90 días post-aprobación del Consejo. Hitos por ola, dueños identificados, métricas de éxito por mes. <em>Sin caos. Sin sorpresas para los directores de marca. La Dirección General es el sponsor político de la transición.</em></p>
-    </div>
-
-    <table class="deck-table">
-      <thead>
-        <tr>
-          <th>Mes</th>
-          <th>Hitos clave</th>
-          <th>Dueño</th>
-          <th>Métrica de éxito</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>MES 1</strong><br><span style="color:var(--g500); font-size:9pt;">Transferencia</span></td>
-          <td>• Transferencia presupuestal MKT a Dirección Corporativa<br>• Setup plantilla RFP corporativa con Compras<br>• Comunicación a directores de marca y a top 14 proveedores actuales</td>
-          <td>Dir. MKT + Compras + Dir. General</td>
-          <td>100% presupuesto BAU bajo Dir. MKT</td>
-        </tr>
-        <tr class="highlight">
-          <td><strong>MES 2</strong><br><span style="color:var(--g500); font-size:9pt;">Primer RFP</span></td>
-          <td>• Primer RFP corporativo (top 5 proveedores actuales)<br>• Primer ciclo de gates de marca por desempeño<br>• Reunión Track B con directores de marca · alineación KPIs</td>
-          <td>Compras + Dir. MKT + Dir. General</td>
-          <td>RFP fase 1 cerrado · KPIs Track B firmados por directores</td>
-        </tr>
-        <tr>
-          <td><strong>MES 3</strong><br><span style="color:var(--g500); font-size:9pt;">Cierre y métricas</span></td>
-          <td>• Adjudicación RFP fase 1<br>• Estructura final incentivo Track A con Andrés<br>• Primer reporte trimestral consolidado del Motor de Atribución</td>
-          <td>Dir. MKT + Andrés + Consejo</td>
-          <td>Track A estructurado · primer reporte consolidado Q3</td>
-        </tr>
-      </tbody>
-    </table>
-
     <div class="callout-big gold">
       <div class="callout-t">Día 91 — primera revisión consolidada al Consejo.</div>
-      <p>Métricas del Motor de Atribución por marca · primer RFP cerrado con ahorros documentados · primera medición Track B con directores · proyección de inversión año 1 ajustada con baseline real. <strong>Auditabilidad cifrada desde el día 91.</strong></p>
+      <p>Métricas del Motor por marca · primer RFP cerrado con ahorros documentados · primera medición Track B con directores · proyección incremental ajustada con baseline real auditado. <strong>Auditabilidad cifrada del profit center desde el día 91.</strong></p>
     </div>
-
     <div class="slide-footer">
-      <span><span class="dot"></span>Slide 11 · Roadmap 90 días post-aprobación Consejo</span>
+      <span><span class="dot"></span>Slide 11 · Tres aprobaciones + roadmap 90 días post-aprobación Consejo · iteración 3</span>
       <span style="display:flex; align-items:center; gap:8px;"><span class="gp-logo" aria-label="GP"></span>Grupo Plasencia Automotriz · Dirección MKT Corporativo</span>
     </div>
   </div>
 </section>
 
-<!-- ============================================================ -->
 <!-- SLIDE 12 · CIERRE -->
-<!-- ============================================================ -->
 <section class="slide closing">
   <div class="closing-inner">
     <div class="closing-eyebrow">GRUPO PLASENCIA · DIRECCIÓN MKT CORPORATIVO</div>
     <div class="closing-rule"></div>
-    <div class="closing-h"><em>Corporatizar Marketing</em> es <em>control, escala y auditabilidad.</em></div>
-    <div class="closing-sub">Un presupuesto. Una dirección. Un proceso vía Compras. La diferencia entre N razones sociales auditadas a medias — y <strong style="color:var(--gold); font-style:normal;">un</strong> Marketing Corporativo del Grupo, auditado a fondo.</div>
+    <div class="closing-h">De <em>cost center descontrolado</em><br>a <em>revenue &amp; profit center</em> auditable.</div>
+    <div class="closing-sub">Corporatizar Marketing es <strong style="color:var(--gold); font-style:normal;">el mecanismo</strong>. La transformación es <strong style="color:var(--gold); font-style:normal;">el resultado</strong>. El Consejo aprueba las tres piezas mínimas viables — y el Grupo recupera control, escala y auditabilidad sobre $197.6M MXN anuales de inversión hoy fragmentada.</div>
   </div>
 </section>
 
