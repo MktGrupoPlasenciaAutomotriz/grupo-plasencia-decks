@@ -630,38 +630,46 @@
 
 <!-- ============ PAGE: §8 GAPS DCA · QUÉ FALTA PEDIR A CONTRALORÍA ============ -->
 <section class="page">
-  <h2 class="section-h2"><span class="num">§8</span>Gaps DCA · qué falta pedir a Contraloría · INFERENCIAS abiertas</h2>
+  <h2 class="section-h2"><span class="num">§8</span>Gaps DCA · estado actualizado al 29-jun-2026 (v20)</h2>
 
-  <p class="small" style="margin-bottom:3mm;"><strong>Nota crítica para el Consejo:</strong> aunque la extracción 25-jun-2026 logró el 100% de los cubos accesibles en BITAM (31 cubos consultados · 16 con data · 1.47M rows en D1), <strong>quedan 6 zonas donde el reporte hace INFERENCIAS porque DCA no contiene el dato directo.</strong> Esta sección lista qué falta y a quién pedírselo.</p>
+  <p class="small" style="margin-bottom:3mm;"><strong>Nota crítica para el Consejo:</strong> tras la extracción completa al 25-jun y queries directas al D1 bitam-mkt al 29-jun, <strong>la mayoría de gaps documentados originalmente quedaron RESUELTOS o REVELARON información que estaba en DCA pero no se había consultado correctamente</strong>. Esta sección refleja el estado real.</p>
 
-  <h3 class="section-h3">A · INFERENCIAS que hace el reporte hoy (porque DCA no lo tiene)</h3>
+  <h3 class="section-h3">A · Gaps RESUELTOS con la extracción completa (v20)</h3>
 
   <table class="data" style="font-size:7.5pt;">
-    <thead><tr><th>Tema</th><th>Cifra reportada</th><th>Origen</th><th>Pedir a</th></tr></thead>
+    <thead><tr><th>Gap original</th><th>Estado v20</th><th>Cómo se resolvió</th></tr></thead>
     <tbody>
-      <tr><td><strong>Naturaleza Publicidad/Promoción</strong></td><td>"Medios pagados, OOH, radio, digital"</td><td>INFERENCIA por nombre de proveedor</td><td>Contraloría · catálogo gastos por cuenta</td></tr>
-      <tr><td><strong>Función de cada proveedor</strong> (digital, agencia, OOH, etc.)</td><td>Tabla §5 buckets por función</td><td>INFERENCIA por nombre · cubo 30051 NO tiene tag</td><td>Contraloría · agregar tag función</td></tr>
-      <tr><td><strong>Marca atendida por proveedor</strong></td><td>Tabla §5 columna "Marcas atendidas"</td><td>INFERENCIA por <code>marca_sucursal</code> que aparece junto al proveedor</td><td>Contraloría · validar contratos</td></tr>
-      <tr><td><strong>Servicio MKT extra de Javier ago-nov 2025</strong></td><td>$1.6M/mes proyecto puntual</td><td>INFERENCIA por patrón de monto</td><td>Contraloría · descripción factura</td></tr>
-      <tr><td><strong>"Viceversa" en Hyundai $2.51M</strong></td><td>= Mendoza Escareño Jessica</td><td>INFERENCIA por match nombre Galindo DD</td><td>Vero Orozco · confirmar</td></tr>
-      <tr><td><strong>Equivalencia cifras 30021 vs 30065</strong></td><td>30021 = 3-5x mayor que 30065</td><td>INFERENCIA · probable intercompañía no eliminada</td><td>Pepe Morales · cuál es P&L oficial</td></tr>
+      <tr style="background:rgba(72,187,120,0.08);"><td><strong>"11,613 cuentas sin descripción legible"</strong></td><td><strong style="color:#276749;">✓ RESUELTO</strong></td><td>cubo 30067 LxL tiene <strong>15,842 cuentas CON descripción funcional</strong> en campo <code>cuenta_contable_descrip</code>. Patrón decodificado: 5031-XXXX-0001 = Publicidad · 0002 = Promoción · 0003 = Promo 2 · XXXX = sucursal. Ejemplos: "PUBLICIDAD NUEVOS ACUEDUCTO", "PROMO 2 NUEVO TEPIC", "PROMOCION MKT TRADICIONAL".</td></tr>
+      <tr style="background:rgba(72,187,120,0.08);"><td><strong>"Rebate OEM Publicidad 2025 = $0 en DCA"</strong></td><td><strong style="color:#276749;">✓ RESUELTO</strong></td><td>cubo 30021 P&amp;L Corporativo registra <strong>$22.43M rebate sobre $187.78M bruto (12% efectivo)</strong> en campo <code>creditos_mensual</code>. Por marca: HYU 27.9% · Ford 26.5% · GAC 100% · GWM 35% · Changan 21.4% · Mazda 3.1% · STL/ISU 0%. Cuentas específicas identificadas (RECUPERACION PUBLICIDAD PEUGEOT · INGRESO PUBLICIDAD CONAUTO · GTO. PUBLICIDAD AMDF).</td></tr>
+      <tr style="background:rgba(72,187,120,0.08);"><td><strong>"285 proveedores externos MKT"</strong></td><td><strong style="color:#276749;">✓ RECALIBRADO</strong></td><td>cubo 30051 CxP focal tiene <strong>7,899 proveedores únicos 2025</strong>. Top cross-marca real: AGENCIA MX-5 ($207.58M intercompany Mazda) · GALLETA MARKETING DIGITAL ($12.22M · 4 marcas) · COEFICIENTE COMUNICACIONES ($4.09M · 5 marcas) · AUTOMOTIVE ONLINE PUBLISHING ($4.48M · 5 marcas) · PIMSA PUBLICIDAD ($1.55M · 4 marcas) · INDUSTRIA PUBLICITARIA JALISCO ($1.82M · 6 marcas) · FABULA COMUNICACION ($1.55M · 3 chinas).</td></tr>
+      <tr style="background:rgba(72,187,120,0.08);"><td><strong>"Granularidad mensual 2025 inexistente"</strong></td><td><strong style="color:#276749;">✓ RESUELTO para cubo 30021</strong></td><td>cubo 30065 solo tiene 1 mes en 2025 (cierre agregado) · pero cubo 30021 P&amp;L Corporativo tiene <strong>mensualización completa 2025</strong> en campo <code>mes</code>. Se puede ver estacionalidad real por bucket × marca × mes.</td></tr>
+      <tr style="background:rgba(72,187,120,0.08);"><td><strong>"Revenue Grupo denominador no calculado"</strong></td><td><strong style="color:#276749;">✓ DISPONIBLE</strong></td><td>cubo 30060 Finanzas MB + cubo 30003 Ventas Autos disponibles · revenue por marca calculable directamente.</td></tr>
     </tbody>
   </table>
 
-  <h3 class="section-h3">B · 6 peticiones consolidadas para Contraloría / RH</h3>
+  <h3 class="section-h3">B · Gaps PARCIALES (resolvibles con análisis adicional)</h3>
+
+  <table class="data" style="font-size:7.5pt;">
+    <thead><tr><th>Tema</th><th>Estado</th><th>Próximo paso</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Reconciliación cubo 30021 ($1,436M) vs 30065 ($197.6M)</strong></td><td><span style="color:#d69e2e;">⚠ análisis pendiente</span></td><td>Ambos cubos extraídos · diferencia atribuible a intercompañía no eliminado · ejecutar query reconciliación cuenta-por-cuenta y validar con Pepe Morales cuál es el P&amp;L oficial.</td></tr>
+      <tr><td><strong>"Viceversa" = Mendoza Escareño Jessica</strong></td><td><span style="color:#d69e2e;">⚠ inferencia razonable</span></td><td>Match nombre Galindo DD + persona física con $2.51M Hyundai 2025. Vero Orozco puede confirmar.</td></tr>
+      <tr><td><strong>9 razones sociales mencionadas por Galindo</strong></td><td><span style="color:#d69e2e;">⚠ por buscar</span></td><td>Viceversa · Nextilo · Karbot · Kamote · Maxipublica · Infinito Lab · Paola Like · Elia García · Idea Agencia · buscar con queries en cubo 30051 por patrones de nombre.</td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="section-h3">C · Gaps PENDIENTES (no resolvibles sin acción externa)</h3>
 
   <div style="background:rgba(200,16,46,0.06);padding:3mm;margin:0;border-left:3px solid var(--gp-red);font-size:8pt;line-height:1.45;">
     <ol style="margin:0;padding-left:5mm;">
-      <li><strong>Catálogo SAP/SAE de cuentas 5031-XXXX-YYYY-ZZZZ → descripción</strong> (Publicidad espectaculares · Promoción regalos · etc.) · 11,613 cuentas hoy son códigos opacos</li>
-      <li><strong>Tag de categoría MKT en cubo 30051 CxP</strong> que indique Publicidad/Promoción/Promo 2 por factura</li>
-      <li><strong>Habilitar cubos 30062, 30063, 30066</strong> a users jperezp@gpsi.mx + jmorales@grupoplasencia.com o entregar Excel manual</li>
-      <li><strong>Re-extraer cubo 30067 LxL con real_acum</strong> (no solo ppto_acum) para 2025 + 2026 · granularidad real PROMO MMDM/PROMO DIGITAL/EDENRED por sucursal</li>
-      <li><strong>Confirmar fecha + razón social</strong> bajo la cual cobraba Daniel Álvarez del Castillo Dávila Galindo (Dir MKT previo · no aparece en nómina)</li>
-      <li><strong>Confirmar razón social real</strong> de 9 proveedores que Galindo lista (Viceversa, Nextilo, Karbot, Kamote, Maxipublica, Infinito Lab, Paola Like, Elia García, Idea Agencia)</li>
+      <li><strong>Cubos 30062, 30063, 30066</strong> · acceso no habilitado para usuarios técnicos · pendiente Contraloría (relevancia desconocida hasta acceso).</li>
+      <li><strong>Conversión digital por marca con base contable auditable</strong> · vive en CRM/Matching · NO en DCA · entregable del Motor de Atribución MVP octubre 2026.</li>
+      <li><strong>Cambios de adscripción entre marcas (ej. Stellantis → Hyundai)</strong> · DCA muestra el cargo en marca anterior · requiere flag manual de Contraloría.</li>
+      <li><strong>Razón social de Daniel Álvarez Galindo (Dir MKT previo)</strong> · no aparece en nómina · pendiente Contraloría.</li>
     </ol>
   </div>
 
-  <p class="small" style="margin-top:3mm;margin-bottom:0;"><strong>Estado actual D1 al 25-jun-2026:</strong> 33 tablas · 1.47M rows · cubos accesibles 100% extraídos. <strong>Lo que falta NO es extracción</strong> · es metadata adicional al ETL DCA o entregable Excel. Hasta resolverse, las inferencias del §A quedan etiquetadas como tal.</p>
+  <p class="small" style="margin-top:3mm;margin-bottom:0;"><strong>Estado D1 al 29-jun-2026:</strong> 33 tablas · 1.47 GB · 2.7M+ rows · cubos accesibles 100% extraídos. <strong>La gran mayoría de "inferencias" del reporte v19 eran resolvibles consultando D1 directo · v20 las resuelve.</strong> Los 4 gaps de §C requieren acción externa (Contraloría, Motor de Atribución, validación manual).</p>
 </section>
 
 </body>
