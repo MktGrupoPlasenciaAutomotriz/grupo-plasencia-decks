@@ -24,7 +24,7 @@ html, body { width:100%; height:100%; overflow:hidden; background:#0d1117; font-
 .deck { width:100vw; height:100vh; position:relative; }
 .slide {
   overflow:hidden; position:absolute; top:0; left:0;
-  width:1280px; height:720px; transform-origin:top left;
+  width:297mm; height:210mm; transform-origin:top left;
   opacity:0; visibility:hidden;
   transition: opacity .6s cubic-bezier(.4,0,.2,1);
   display:flex; flex-direction:column;
@@ -163,7 +163,7 @@ table.deck-table { width:100%; border-collapse: collapse; font-family: var(--san
 .closing-sub { font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 16pt; color: rgba(255,255,255,.78); margin-top: 28px; line-height: 1.4; max-width: 900px; }
 
 @media print {
-  @page { size: 1280px 720px landscape; margin: 0; }
+  @page { size: A4 landscape; margin: 0; }
   html, body { background: white; overflow: visible; }
   .slide { position: relative !important; opacity: 1 !important; visibility: visible !important; transform: none !important; left: auto !important; top: auto !important; page-break-after: always; box-shadow: none; }
   #progress, #counter, .nav-btn, #review-toggle { display: none !important; }
@@ -664,10 +664,10 @@ table.deck-table { width:100%; border-collapse: collapse; font-family: var(--san
 
 <!-- 12 · ROADMAP POR OLAS -->
 <section class="slide">
-  <div class="content" style="gap: 8px;">
+  <div class="content" style="gap: 6px; padding: 22px 80px 32px 80px;">
     <div class="section-num">Cómo lo vamos a ejecutar · visión a 36 meses</div>
-    <h1 class="slide-h1" style="font-size: 26pt;">Tres olas. <em>36 meses · una por año.</em></h1>
-    <p class="slide-lede" style="font-size: 10pt;">Cada ola dura 12 meses y construye sobre la anterior. <strong>Ola 1 estabiliza la cancha y escala REVOPS a todos los pilotos. Ola 2 destila el modelo en un Service Blueprint. Ola 3 lo valida en la marca con mejor tracción antes de generalizar al Grupo.</strong> El orden no es negociable — sin Ola 1 la dirección colapsa.</p>
+    <h1 class="slide-h1" style="font-size: 22pt;">Tres olas. <em>36 meses · una por año.</em></h1>
+    <p class="slide-lede" style="font-size: 9pt;">Cada ola dura 12 meses y construye sobre la anterior. <strong>Ola 1 estabiliza la cancha y escala REVOPS a todos los pilotos. Ola 2 destila el modelo en un Service Blueprint. Ola 3 lo valida en la marca con mejor tracción antes de generalizar al Grupo.</strong> El orden no es negociable — sin Ola 1 la dirección colapsa.</p>
 
     <div style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-top: 2px;">
       <div class="pilar-card" style="padding: 14px 16px; border-left-color: var(--gp-red);">
@@ -763,7 +763,7 @@ document.getElementById('nav-prev').addEventListener('click', () => show(idx - 1
 document.getElementById('nav-next').addEventListener('click', () => show(idx + 1));
 const reviewToggle = document.getElementById('review-toggle');
 reviewToggle.addEventListener('click', () => { const isReview = document.body.classList.toggle('review-mode'); reviewToggle.textContent = isReview ? 'Modo presentación ▶' : 'Ver todo ↕'; if (isReview) { slides.forEach(s => { s.style.transform = 'none'; }); window.scrollTo(0, 0); } else { scaleSlides(); } });
-function scaleSlides() { if (document.body.classList.contains('review-mode')) return; const baseW = 1280, baseH = 720; const scale = Math.min(window.innerWidth / baseW, window.innerHeight / baseH); const tx = (window.innerWidth - baseW * scale) / 2; const ty = (window.innerHeight - baseH * scale) / 2; slides.forEach(s => { s.style.transform = `translate(${tx}px, ${ty}px) scale(${scale})`; }); }
+function scaleSlides() { if (document.body.classList.contains('review-mode')) return; const baseW = 1123, baseH = 794; const scale = Math.min(window.innerWidth / baseW, window.innerHeight / baseH); const tx = (window.innerWidth - baseW * scale) / 2; const ty = (window.innerHeight - baseH * scale) / 2; slides.forEach(s => { s.style.transform = `translate(${tx}px, ${ty}px) scale(${scale})`; }); }
 window.addEventListener('resize', scaleSlides);
 scaleSlides();
 show(0);

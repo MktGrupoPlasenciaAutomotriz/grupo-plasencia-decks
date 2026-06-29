@@ -22,7 +22,7 @@
 * { margin:0; padding:0; box-sizing:border-box; }
 html, body { width:100%; height:100%; overflow:hidden; background:#0d1117; font-family:var(--sans); -webkit-font-smoothing:antialiased; }
 .deck { width:100vw; height:100vh; position:relative; }
-.slide { overflow:hidden; position:absolute; top:0; left:0; width:1280px; height:720px; transform-origin:top left; opacity:0; visibility:hidden; transition: opacity .6s cubic-bezier(.4,0,.2,1); display:flex; flex-direction:column; background: var(--bg); color: var(--text); box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 12px 40px rgba(30,39,64,.12); }
+.slide { overflow:hidden; position:absolute; top:0; left:0; width:297mm; height:210mm; transform-origin:top left; opacity:0; visibility:hidden; transition: opacity .6s cubic-bezier(.4,0,.2,1); display:flex; flex-direction:column; background: var(--bg); color: var(--text); box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 12px 40px rgba(30,39,64,.12); }
 .slide.active { opacity:1; visibility:visible; }
 .slide.cover, .slide.closing { background: var(--gp-navy); color: var(--near-white); }
 #progress { opacity:.6; position:fixed; top:0; left:0; height:2px; background: var(--gold); z-index:9999; transition: width .4s cubic-bezier(.4,0,.2,1); }
@@ -743,8 +743,8 @@ const reviewBtn = document.getElementById('review-toggle');
 let current = 0;
 function fit(){
   if (document.body.classList.contains('review-mode')) { slides.forEach(s => { s.style.transform=''; }); return; }
-  const sx = window.innerWidth/1280, sy = window.innerHeight/720, s = Math.min(sx,sy);
-  const ox = (window.innerWidth-1280*s)/2, oy = (window.innerHeight-720*s)/2;
+  const sx = window.innerWidth/1123, sy = window.innerHeight/794, s = Math.min(sx,sy);
+  const ox = (window.innerWidth-1123*s)/2, oy = (window.innerHeight-794*s)/2;
   slides.forEach(sl => sl.style.transform = `translate(${ox}px, ${oy}px) scale(${s})`);
 }
 function go(i){
