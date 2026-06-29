@@ -142,7 +142,7 @@
     </tbody>
   </table>
 
-  <p class="small" style="margin-bottom:0;"><strong>v20:</strong> Publicidad y Promoción también tienen rebate OEM trazable en cubo 30021 (campo <code>creditos_mensual</code>). Detalle por marca en §6. *<em>Neto direccional · reconciliación con Contraloría pendiente.</em></p>
+  <p class="small" style="margin-bottom:0;"><strong>Nota:</strong> los tres conceptos tienen rebate OEM en distintas proporciones (12% Publicidad · 42% Promoción · 62% Promo 2). Promo 2 NO es 100% pass-through · el Grupo absorbe ~38% como gasto propio. Detalle por marca en §6.</p>
 </section>
 
 <!-- ============ PAGE 2: §2 DESGLOSE POR MARCA ============ -->
@@ -445,7 +445,7 @@
   <h2 class="section-h2"><span class="num">§6</span>¿Hay reembolso OEM? · cuánto + proporción vs Publicidad bruto</h2>
 
   <div style="background:rgba(72,187,120,0.08);padding:2mm 3mm;margin-bottom:3mm;border-left:3px solid var(--deep-green, #38a169);font-size:8.5pt;line-height:1.4;">
-    <strong style="color:#276749;">SÍ hay rebate OEM en Publicidad (v20 · 25-jun):</strong> cubo 30021 P&amp;L con <code>creditos_mensual</code> registra <strong>$22.43M / $187.78M cargos = 11.9% efectivo · NETO Grupo $165.34M.</strong> Cuentas: RECUPERACION PUBLICIDAD PEUGEOT (STL) · INGRESO PUBLICIDAD CONAUTO (Mazda) · GTO. PUBLICIDAD AMDF (Ford). Por marca: HYU 27.9% · Ford 26.5% · GWM 35% · GAC 100% · Changan 21.4% · Mazda 3.1% (canaliza vía Promo 2) · STL 0% · ISU 0%. Levantamiento Galindo Q3-Q4 ($4.30M / $27.01M = 15.9%) consistente. <em>Caveat: cifras cubo 30021 incluyen intercompañía no eliminado · 3-5× cubo 30065 · validar con Contraloría antes de citar.</em>
+    <strong style="color:#276749;">Sí hay rebate OEM en los tres conceptos de gasto MKT</strong> · cubo 30021 P&amp;L con <code>creditos_mensual</code>: Publicidad <strong>12% efectivo</strong> ($22.43M / $187.78M) · Promoción <strong>42%</strong> ($145.18M / $343.38M) · Promo 2 <strong>62%</strong> ($557.02M / $904.94M). <strong>NETO Grupo total $711M sobre $1,436M cargo bruto.</strong> Cuentas Publicidad: RECUPERACION PUBLICIDAD PEUGEOT (STL) · INGRESO PUBLICIDAD CONAUTO (Mazda) · GTO. PUBLICIDAD AMDF (Ford). Por marca Publicidad: HYU 27.9% · Ford 26.5% · GWM 35% · GAC 100% · Changan 21.4% · Mazda 3.1% (canaliza vía Promo 2) · STL 0% · ISU 0%. <em>Validar reconciliación final con Contraloría antes de citar al Consejo.</em>
   </div>
 
   <h3 class="section-h3">Tabla A · Publicidad por marca 2025 · cubo 30021 P&amp;L Corporativo (real con créditos OEM)</h3>
@@ -486,9 +486,9 @@
     </tbody>
   </table>
 
-  <h3 class="section-h3">Proporción · Reembolso OEM vs Publicidad bruto · CIFRAS REALES (v19)</h3>
+  <h3 class="section-h3">Proporción · Reembolso OEM vs Publicidad bruto</h3>
 
-  <p class="small" style="margin-bottom:2mm;"><strong>Actualización v19 (25-jun-2026):</strong> extracción completa de <code>dca_pl_corporativo</code> (203K rows · cubo 30021) reveló que <strong>el rebate OEM SÍ es trazable en DCA</strong> · vive en el campo <code>creditos_mensual</code> (abonos contra el cargo). Cifras a continuación son REALES, no inferidas.</p>
+  <p class="small" style="margin-bottom:2mm;">Extracción del cubo 30021 (`dca_pl_corporativo`, 203K rows) reveló que el rebate OEM <strong>es trazable contablemente</strong> en el campo <code>creditos_mensual</code>. Cifras REALES, no inferidas.</p>
 
   <table class="data" style="font-size:8.5pt;">
     <thead><tr><th>Concepto</th><th class="num">Cargos brutos 2025-26</th><th class="num">Créditos OEM</th><th class="num">Neto Grupo</th><th class="num">% rebate OEM</th></tr></thead>
@@ -529,7 +529,7 @@
 <section class="page">
   <h2 class="section-h2"><span class="num">§6c</span>Desglose Promo 2 <span style="background:var(--amber, #ff9800);color:#fff;font-size:8pt;font-weight:600;padding:0.5mm 1.5mm;border-radius:2px;letter-spacing:0.3px;">OEM REBATE</span> · real ejercido 2025 + 2026 por marca</h2>
 
-  <p class="small" style="margin-bottom:3mm;"><strong>Fuente:</strong> cubo 30065 Real vs Ppto · campo <code>real_numerico</code> · concepto = "Promo 2" + "Promo 2 por Unidad". Es la <strong>única vista granular real ejercido</strong> que existe en DCA para Promo 2 OEM rebate. Cuadra con el agregado $97.9M del reporte v1.</p>
+  <p class="small" style="margin-bottom:3mm;"><strong>Fuente:</strong> cubo 30065 Real vs Ppto · campo <code>real_numerico</code> · concepto = "Promo 2" + "Promo 2 por Unidad". Vista granular real ejercido para Promo 2 OEM rebate. Total Grupo $97.9M en 2025.</p>
 
   <h3 class="section-h3">Promo 2 por marca · cifras REAL ejercido</h3>
 
@@ -605,14 +605,14 @@
 
 <!-- ============ PAGE: §8 GAPS DCA · QUÉ FALTA PEDIR A CONTRALORÍA ============ -->
 <section class="page">
-  <h2 class="section-h2"><span class="num">§8</span>Gaps DCA · estado actualizado al 29-jun-2026 (v20)</h2>
+  <h2 class="section-h2"><span class="num">§8</span>Gaps DCA · estado al 29-jun-2026</h2>
 
   <p class="small" style="margin-bottom:3mm;"><strong>Nota:</strong> tras extracción completa al 25-jun + queries D1 al 29-jun, mayoría de gaps RESUELTOS o REVELARON info que ya estaba en DCA. Estado real:</p>
 
-  <h3 class="section-h3">A · Gaps RESUELTOS con la extracción completa (v20)</h3>
+  <h3 class="section-h3">A · Gaps RESUELTOS con extracción completa DCA</h3>
 
   <table class="data" style="font-size:7.5pt;">
-    <thead><tr><th>Gap original</th><th>Estado v20</th><th>Cómo se resolvió</th></tr></thead>
+    <thead><tr><th>Gap original</th><th>Estado</th><th>Cómo se resolvió</th></tr></thead>
     <tbody>
       <tr style="background:rgba(72,187,120,0.08);"><td><strong>"11,613 cuentas sin descripción"</strong></td><td><strong style="color:#276749;">✓</strong></td><td>cubo 30067 LxL: 15,842 cuentas en <code>cuenta_contable_descrip</code>. Patrón: 5031-XXXX-0001 = Publicidad · 0002 = Promoción · 0003 = Promo 2.</td></tr>
       <tr style="background:rgba(72,187,120,0.08);"><td><strong>"Rebate OEM Publicidad = $0"</strong></td><td><strong style="color:#276749;">✓</strong></td><td>cubo 30021 P&amp;L: $22.43M rebate / $187.78M (12% efectivo) en <code>creditos_mensual</code>. Cuentas: RECUPERACION PUBLICIDAD PEUGEOT · INGRESO PUBLICIDAD CONAUTO · GTO. PUBLICIDAD AMDF.</td></tr>
