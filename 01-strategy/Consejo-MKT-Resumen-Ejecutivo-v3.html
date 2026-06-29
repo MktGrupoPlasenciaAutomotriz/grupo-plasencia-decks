@@ -82,18 +82,18 @@ body.review-mode #nav-prev, body.review-mode #nav-next, body.review-mode #counte
 .kpi-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
 .kpi-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
 .kpi-grid.cols-4 { grid-template-columns: repeat(4, 1fr); }
-.kpi-card { background: var(--paper); border: 1px solid var(--g200); border-radius: 10px; padding: 18px 22px; position:relative; box-shadow: 0 1px 3px rgba(30,39,64,.05); }
+.kpi-card { background: var(--paper); border: 1px solid var(--g200); border-radius: 10px; padding: 16px 18px; position:relative; box-shadow: 0 1px 3px rgba(30,39,64,.05); overflow:hidden; }
 .kpi-card::before { content:""; position:absolute; top:0; left:0; right:0; height:4px; background: var(--gp-red); border-radius: 10px 10px 0 0; }
 .kpi-card.navy::before { background: var(--gp-navy); }
 .kpi-card.gold::before { background: var(--gold); }
 .kpi-card.amber::before { background: var(--amber); }
 .kpi-card.green::before { background: var(--green); }
-.kpi-label { font-family:var(--sans); font-size:8.5pt; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color: var(--g500); margin-bottom: 6px; }
-.kpi-num { font-family:var(--serif); font-weight:900; font-size:34pt; line-height:1.02; letter-spacing:-1.8px; color: var(--gp-navy); }
+.kpi-label { font-family:var(--sans); font-size:7.5pt; font-weight:700; letter-spacing:1.2px; text-transform:uppercase; color: var(--g500); margin-bottom: 4px; }
+.kpi-num { font-family:var(--serif); font-weight:900; font-size:30pt; line-height:1.02; letter-spacing:-1.5px; color: var(--gp-navy); }
 .kpi-num.red { color: var(--gp-red); }
 .kpi-num.gold { color: var(--amber); }
 .kpi-num.green { color: var(--deep-green); }
-.kpi-sub { font-family: var(--sans); font-size: 9.5pt; color: var(--g600); margin-top: 6px; line-height: 1.4; }
+.kpi-sub { font-family: var(--sans); font-size: 8.5pt; color: var(--g600); margin-top: 6px; line-height: 1.42; word-wrap: break-word; overflow-wrap: break-word; }
 .kpi-sub strong { color: var(--gp-navy); font-weight:700; }
 
 /* Pilar cards */
@@ -228,12 +228,12 @@ table.deck-table { width:100%; border-collapse: collapse; font-family: var(--san
       <div class="kpi-card">
         <div class="kpi-label">Auditabilidad · 1 de 4</div>
         <div class="kpi-num red">$166M</div>
-        <div class="kpi-sub"><strong>Gasto MKT en proveedores inidentificables.</strong> 84% del total contable (cubo 30065) sin patrón "publicidad/agencia" en catálogo DCA.</div>
+        <div class="kpi-sub"><strong>Inferido como MKT</strong> · sin catálogo DCA. Conocemos nombres, no <em>concepto, actividad ni impacto</em>. Sin descripción, no hay auditoría.</div>
       </div>
       <div class="kpi-card navy">
-        <div class="kpi-label">Gobernanza · 2 de 4</div>
-        <div class="kpi-num">7,899</div>
-        <div class="kpi-sub"><strong>Razones sociales únicas</strong> en cubo 30051 (2025). Sin contratos marco. Sin poder de negociación consolidado.</div>
+        <div class="kpi-label">Tracking · 2 de 4</div>
+        <div class="kpi-num">12%</div>
+        <div class="kpi-sub"><strong>Captura del CRM sobre flujo real.</strong> Sin modelo de tracking verificable. El 88% del flujo se cierra fuera del sistema — atribución de ventas no fidedigna.</div>
       </div>
       <div class="kpi-card amber">
         <div class="kpi-label">Modelo MKT-Ventas · 3 de 4</div>
@@ -241,14 +241,14 @@ table.deck-table { width:100%; border-collapse: collapse; font-family: var(--san
         <div class="kpi-sub">Conversión HYU bajo el modelo actual. <strong>SEM con handoff gestionado: 7.2%</strong> — variable = estructura, no tech.</div>
       </div>
       <div class="kpi-card">
-        <div class="kpi-label">Estructura · 4 de 4</div>
+        <div class="kpi-label">Sobregiro estructural · 4 de 4</div>
         <div class="kpi-num red">63%</div>
-        <div class="kpi-sub"><strong>40 de 63 personas en nómina MKT</strong> sin puesto formal registrado en RH. Función operada por personas asignadas a otras áreas.</div>
+        <div class="kpi-sub"><strong>40 de 63 personas operan MKT</strong> sin puesto formal en RH. Estructura pagada desde otros centros de costo · sin costo real ni accountability.</div>
       </div>
     </div>
     <div class="callout-big red">
-      <div class="callout-t">El reporte DCA v20 — primer reporte serio del gasto MKT en años — solo existe porque la Dirección MKT Corporativo escarbó cubos contables que nadie volteaba a ver.</div>
-      <p>Durante 19 iteraciones previas, el reporte daba <strong>"$0 rebate OEM"</strong> sobre Publicidad — falso. El rebate real es <strong>$22.43M (12% efectivo)</strong>, visible solo cruzando 3 cubos. Sin función corporativa que opere esa medición, el siguiente reporte serio tarda otros tantos años.</p>
+      <div class="callout-t">Los cuatro ejes son síntomas del mismo vacío estructural.</div>
+      <p>No existe función corporativa de Marketing que opere con <strong>gasto auditable, tracking verificable, gestión MKT→Ventas disciplinada y estructura organizacional formal</strong>. Cada eje origina los demás: <em>sin tracking no hay auditoría · sin gestión no hay conversión · sin estructura formal no hay accountability · sin presupuesto consolidado no hay corporatización</em>. Como evidencia del vacío, durante 19 iteraciones el reporte DCA reportó "$0 rebate OEM" — cifra falsa. El rebate real es <strong>$22.43M (12% efectivo)</strong>, visible solo cuando una función corporativa cruza 3 cubos contables. <strong>La corporatización resuelve los cuatro ejes simultáneamente.</strong></p>
     </div>
     <div class="slide-footer">
       <span><span class="dot"></span>Slide 2 · Fuentes: Reporte DCA v20 (cubos 30021/30051/30065) · Reporte Piloto Consejo · al 29-jun-2026</span>
