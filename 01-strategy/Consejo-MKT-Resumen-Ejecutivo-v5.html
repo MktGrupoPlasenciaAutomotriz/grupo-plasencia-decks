@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resumen Ejecutivo · Documento 3 de 3 · De cost center a revenue & profit center · Grupo Plasencia Automotriz</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@500;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gp-red: #C8102E; --gp-navy: #1E2740; --gp-slate: #2D3748;
+  --green: #48BB78; --deep-green: #276749;
+  --blue: #4299E1; --deep-blue: #2B6CB0;
+  --amber: #D69E2E; --gold: #ECC94B;
+  --bg: #F0F4F8; --paper: #FFFFFF; --near-white: #F7FAFC;
+  --g100: #EDF2F7; --g200: #E2E8F0; --g300: #CBD5E0; --g400: #A0AEC0; --g500: #718096; --g600: #4A5568;
+  --text: #2D3748;
+  --serif: 'Playfair Display', Georgia, serif;
+  --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { width:100%; height:100%; overflow:hidden; background:#0d1117; font-family:var(--sans); -webkit-font-smoothing:antialiased; }
+.deck { width:100vw; height:100vh; position:relative; }
+.slide { overflow:hidden; position:absolute; top:0; left:0; width:1280px; height:720px; transform-origin:top left; opacity:0; visibility:hidden; transition: opacity .6s cubic-bezier(.4,0,.2,1); display:flex; flex-direction:column; background: var(--bg); color: var(--text); box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 12px 40px rgba(30,39,64,.12); }
+.slide.active { opacity:1; visibility:visible; }
+.slide.cover, .slide.closing { background: var(--gp-navy); color: var(--near-white); }
+#progress { opacity:.6; position:fixed; top:0; left:0; height:2px; background: var(--gold); z-index:9999; transition: width .4s cubic-bezier(.4,0,.2,1); }
+#counter { position:fixed; bottom:14px; right:22px; font-size:12px; font-weight:500; color: rgba(255,255,255,.85); z-index:9999; letter-spacing:.5px; font-family: var(--sans); background:rgba(0,0,0,.5); padding:6px 12px; border-radius:14px; backdrop-filter:blur(8px); }
+.nav-btn { position:fixed; top:50%; transform:translateY(-50%); z-index:9999; width:48px; height:64px; background:rgba(0,0,0,.55); backdrop-filter:blur(8px); color:#FFF; border:none; cursor:pointer; font-size:24px; display:flex; align-items:center; justify-content:center; transition:background .2s; border-radius:8px; }
+.nav-btn:hover { background:rgba(200,16,46,.85); }
+#nav-prev { left:18px; } #nav-next { right:18px; }
+#review-toggle { position:fixed; top:14px; right:22px; z-index:9999; background:rgba(0,0,0,.55); backdrop-filter:blur(8px); color:#FFF; border:none; cursor:pointer; font-size:11px; font-weight:600; font-family:var(--sans); padding:7px 14px; border-radius:14px; letter-spacing:.5px; text-transform:uppercase; transition:background .2s; }
+#review-toggle:hover { background:rgba(200,16,46,.85); }
+body.review-mode { overflow-y:auto; background:#0A0F1F; padding:32px 0; }
+body.review-mode .slide { position:relative !important; opacity:1 !important; visibility:visible !important; transform:none !important; left:auto !important; top:auto !important; margin:0 auto 32px auto; box-shadow:0 8px 32px rgba(0,0,0,.4); }
+body.review-mode #nav-prev, body.review-mode #nav-next, body.review-mode #counter, body.review-mode #progress { display:none; }
+
+.cover-inner { padding: 60px 80px 50px 80px; flex:1; display:flex; flex-direction:column; justify-content:space-between; background: radial-gradient(ellipse at 100% 0%, rgba(236,201,75,.18) 0%, transparent 55%), radial-gradient(ellipse at 0% 100%, rgba(200,16,46,.14) 0%, transparent 55%), var(--gp-navy); }
+.cover-top { display:flex; justify-content:space-between; align-items:flex-start; }
+.cover-mark { font-family:var(--sans); font-weight:700; font-size:11pt; letter-spacing:4px; color: var(--gold); text-transform:uppercase; }
+.cover-mark span { display:block; font-weight:400; color: rgba(255,255,255,.6); margin-top:4px; letter-spacing:1px; font-size:9pt; }
+.cover-confidencial { font-family:var(--sans); font-weight:700; font-size:9.5pt; letter-spacing:3.5px; color: var(--gp-red); text-transform:uppercase; }
+.cover-rule { width:140px; height:1px; background: var(--gold); margin: 14px 0 0 0; }
+.cover-eyebrow { font-family:var(--sans); font-size:11pt; font-weight:700; letter-spacing:5px; color: var(--gp-red); text-transform:uppercase; margin-top:22px; }
+.cover-title { font-family:var(--serif); font-weight:800; font-size:50pt; line-height:1.05; letter-spacing:-1.6px; margin-top:16px; color: var(--near-white); max-width:1100px; }
+.cover-title em { font-style:italic; color: var(--gold); font-weight:700; }
+.cover-subtitle { font-family:var(--serif); font-weight:500; font-style:italic; font-size:15pt; color: rgba(255,255,255,.86); margin-top:18px; letter-spacing:-.2px; line-height:1.45; max-width:1020px; }
+.cover-subtitle strong { color: var(--near-white); font-style: normal; font-weight: 700; }
+.cover-meta { display:grid; grid-template-columns: repeat(4, 1fr); gap: 16px; border-top: 1px solid rgba(255,255,255,.18); padding-top:18px; margin-top: 28px; }
+.cover-meta-block { font-size:9pt; color: rgba(255,255,255,.7); line-height:1.6; font-family: var(--sans); }
+.cover-meta-block strong { display:block; color: var(--gold); font-weight:700; font-size:8.5pt; letter-spacing:1.5px; margin-bottom:3px; text-transform:uppercase; }
+.cover-meta-block span { color: rgba(255,255,255,.92); font-weight:500; font-size:10pt; }
+
+.content { padding: 40px 80px 56px 80px; flex:1; display:flex; flex-direction:column; gap: 14px; position:relative; }
+.section-num { font-family:var(--sans); font-size:9.5pt; font-weight:700; letter-spacing:4px; color: var(--gp-red); text-transform:uppercase; }
+.slide-h1 { font-family:var(--serif); font-weight:800; font-size:30pt; line-height:1.08; letter-spacing:-1.2px; color: var(--gp-navy); margin-top:4px; }
+.slide-h1 em { font-style:italic; color: var(--gp-red); font-weight:700; }
+.slide-lede { font-family:var(--sans); font-size:11pt; color: var(--g600); line-height:1.5; margin-top: 2px; max-width: 1120px; }
+.slide-lede strong { color: var(--gp-navy); font-weight:700; }
+.slide-lede em { font-style: italic; color: var(--gp-navy); }
+.slide-footer { position:absolute; bottom:18px; left:80px; right:80px; display:flex; justify-content:space-between; align-items:center; font-family: var(--sans); font-size: 8.5pt; color: var(--g500); border-top: 1px solid var(--g200); padding-top: 10px; gap: 16px; }
+.slide-footer .dot { display:inline-block; width:8px; height:8px; background: var(--gp-red); border-radius:50%; margin-right:6px; vertical-align:middle; }
+.slide-footer .gp-logo { height: 22px; width: auto; opacity: 0.75; }
+
+/* Two-col problem→solution */
+.ps-grid { display:grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 4px; }
+.ps-card { background: var(--paper); border: 1px solid var(--g200); border-radius: 10px; padding: 18px 22px; box-shadow: 0 1px 3px rgba(30,39,64,.05); display:flex; flex-direction:column; gap: 10px; }
+.ps-card.problem { border-top: 4px solid var(--gp-red); }
+.ps-card.solution { border-top: 4px solid var(--deep-green); }
+.ps-header { font-family: var(--sans); font-size: 9pt; font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase; }
+.ps-card.problem .ps-header { color: var(--gp-red); }
+.ps-card.solution .ps-header { color: var(--deep-green); }
+.ps-title { font-family: var(--serif); font-weight: 800; font-size: 15pt; line-height: 1.15; letter-spacing: -.3px; color: var(--gp-navy); }
+.ps-num { display:block; font-family:var(--serif); font-weight:900; font-size: 26pt; line-height:1; letter-spacing:-1.2px; margin-top: 2px; }
+.ps-card.problem .ps-num { color: var(--gp-red); }
+.ps-card.solution .ps-num { color: var(--deep-green); }
+.ps-body { font-family: var(--sans); font-size: 10pt; color: var(--g600); line-height: 1.5; }
+.ps-body strong { color: var(--gp-navy); font-weight: 700; }
+.ps-body em { font-style: italic; color: var(--gp-navy); }
+.ps-src { font-family: var(--sans); font-size: 8pt; color: var(--g500); font-style: italic; margin-top: 4px; }
+
+.pilar-grid { display:grid; grid-template-columns: repeat(3, 1fr); gap:14px; }
+.pilar-card { background: var(--paper); border: 1px solid var(--g200); border-left: 4px solid var(--gp-navy); border-radius: 6px; padding: 16px 18px; box-shadow: 0 1px 2px rgba(30,39,64,.04); display:flex; flex-direction:column; gap:6px; }
+.pilar-card.gold { border-left-color: var(--gold); }
+.pilar-card.red { border-left-color: var(--gp-red); }
+.pilar-card.green { border-left-color: var(--green); }
+.pilar-card.blue { border-left-color: var(--blue); }
+.pilar-header { font-family:var(--sans); font-size:8.5pt; font-weight:700; letter-spacing:1.6px; text-transform:uppercase; color: var(--gp-navy); }
+.pilar-card.gold .pilar-header { color: var(--amber); }
+.pilar-card.red .pilar-header { color: var(--gp-red); }
+.pilar-card.green .pilar-header { color: var(--deep-green); }
+.pilar-card.blue .pilar-header { color: var(--deep-blue); }
+.pilar-title { font-family:var(--serif); font-weight:800; font-size:13pt; line-height:1.2; letter-spacing:-.4px; color: var(--gp-navy); }
+.pilar-body { font-family:var(--sans); font-size:9.5pt; color: var(--g600); line-height:1.5; }
+.pilar-body strong { color: var(--gp-navy); font-weight:700; }
+.pilar-num { display:inline-block; font-family:var(--serif); font-weight:900; font-size:20pt; line-height:1; color: var(--gp-red); margin-bottom: 2px; }
+.pilar-card.gold .pilar-num { color: var(--amber); }
+.pilar-card.green .pilar-num { color: var(--deep-green); }
+.pilar-card.blue .pilar-num { color: var(--deep-blue); }
+
+table.deck-table { width:100%; border-collapse: collapse; font-family: var(--sans); font-size: 10pt; background: var(--paper); border-radius: 8px; overflow:hidden; box-shadow: 0 1px 2px rgba(30,39,64,.04); }
+.deck-table th { background: var(--gp-navy); color: var(--near-white); font-weight:700; font-size:9pt; letter-spacing:1.4px; text-transform:uppercase; padding: 10px 14px; text-align:left; }
+.deck-table th.num, .deck-table th.center { text-align:right; }
+.deck-table th.center { text-align:center; }
+.deck-table td { padding: 9px 14px; border-bottom: 1px solid var(--g200); color: var(--g600); vertical-align: middle; line-height:1.4; }
+.deck-table tr:nth-child(even) td { background: var(--g100); }
+.deck-table td strong { color: var(--gp-navy); font-weight:700; }
+.deck-table td.num { text-align:right; font-variant-numeric: tabular-nums; font-weight: 700; color: var(--gp-navy); }
+.deck-table td.center { text-align:center; font-variant-numeric: tabular-nums; font-weight:700; color: var(--gp-navy); }
+.deck-table td.win { color: var(--deep-green); font-weight: 800; }
+.deck-table td.bad { color: var(--gp-red); }
+.deck-table tr.total td { background: var(--gp-navy); color: var(--near-white); font-weight: 700; }
+.deck-table tr.total td strong, .deck-table tr.total td.num, .deck-table tr.total td.center { color: var(--gold); font-weight: 800; }
+
+.callout-big { background: linear-gradient(to right, rgba(30,39,64,0.06), rgba(30,39,64,0.01)); border-left: 4px solid var(--gp-navy); padding: 12px 20px; border-radius: 0 6px 6px 0; }
+.callout-big.red { background: linear-gradient(to right, rgba(200,16,46,0.07), rgba(200,16,46,0.01)); border-left-color: var(--gp-red); }
+.callout-big.gold { background: linear-gradient(to right, rgba(236,201,75,0.14), rgba(236,201,75,0.02)); border-left-color: var(--gold); }
+.callout-big.blue { background: linear-gradient(to right, rgba(66,153,225,0.10), rgba(66,153,225,0.02)); border-left-color: var(--blue); }
+.callout-big.green { background: linear-gradient(to right, rgba(72,187,120,0.10), rgba(72,187,120,0.02)); border-left-color: var(--deep-green); }
+.callout-t { font-family: var(--serif); font-weight: 700; font-style: italic; color: var(--gp-navy); margin-bottom: 3px; font-size: 13pt; letter-spacing: -0.3px; line-height: 1.2; }
+.callout-big.red .callout-t { color: var(--gp-red); }
+.callout-big.gold .callout-t { color: var(--amber); }
+.callout-big.blue .callout-t { color: var(--deep-blue); }
+.callout-big.green .callout-t { color: var(--deep-green); }
+.callout-big p { font-family: var(--sans); font-size: 10pt; color: var(--g600); line-height: 1.5; margin: 0; }
+.callout-big p strong { color: var(--gp-navy); font-weight:700; }
+
+.pregunta { background: var(--paper); border: 1px dashed var(--g300); border-radius: 8px; padding: 12px 20px; }
+.pregunta-lbl { font-family: var(--sans); font-size: 8.5pt; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gp-red); margin-bottom: 3px; }
+.pregunta-q { font-family: var(--serif); font-style: italic; font-weight: 600; font-size: 12pt; color: var(--gp-navy); line-height: 1.35; }
+
+.stats-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; background: var(--paper); border: 1px solid var(--g200); border-radius: 8px; overflow: hidden; box-shadow: 0 1px 2px rgba(30,39,64,.04); }
+.stats-strip > div { padding: 12px 16px; border-right: 1px solid var(--g200); }
+.stats-strip > div:last-child { border-right: none; }
+.stat-lbl { font-family: var(--sans); font-size: 7.5pt; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: var(--g500); margin-bottom: 3px; }
+.stat-num { font-family: var(--serif); font-weight: 900; font-size: 20pt; line-height: 1; letter-spacing: -.8px; color: var(--gp-navy); }
+.stat-num.red { color: var(--gp-red); }
+.stat-num.green { color: var(--deep-green); }
+.stat-num.blue { color: var(--deep-blue); }
+.stat-sub { font-family: var(--sans); font-size: 7.5pt; color: var(--g500); margin-top: 4px; line-height: 1.3; }
+
+.killer-wrap { display:grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 14px; }
+.killer-main { background: var(--gp-navy); color: var(--near-white); border-radius: 12px; padding: 22px 26px; position:relative; overflow:hidden; }
+.killer-main::before { content:""; position:absolute; top:0; right:0; width:220px; height:220px; background: radial-gradient(circle, rgba(236,201,75,.24) 0%, transparent 70%); }
+.killer-main .label { font-family: var(--sans); font-size: 9pt; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); }
+.killer-main .num { font-family: var(--serif); font-weight: 900; font-size: 72pt; line-height: 1; letter-spacing: -3px; color: var(--gold); margin-top: 6px; }
+.killer-main .sub { font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 12pt; color: rgba(255,255,255,.92); margin-top: 8px; line-height: 1.3; }
+.killer-side { background: var(--paper); border: 1px solid var(--g200); border-top: 4px solid var(--gp-red); border-radius: 10px; padding: 16px 20px; display:flex; flex-direction:column; justify-content:center; box-shadow: 0 1px 2px rgba(30,39,64,.04); }
+.killer-side.navy { border-top-color: var(--gp-navy); }
+.killer-side.green { border-top-color: var(--deep-green); }
+.killer-side .label { font-family: var(--sans); font-size: 8.5pt; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gp-red); margin-bottom: 4px; }
+.killer-side.navy .label { color: var(--gp-navy); }
+.killer-side.green .label { color: var(--deep-green); }
+.killer-side .num { font-family: var(--serif); font-weight: 900; font-size: 26pt; line-height: 1.05; letter-spacing: -1.1px; color: var(--gp-navy); }
+.killer-side .sub { font-family: var(--sans); font-size: 8.5pt; color: var(--g600); margin-top: 4px; line-height: 1.4; }
+
+.closing-inner { padding: 70px 80px; flex:1; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; background: radial-gradient(ellipse at center, rgba(236,201,75,.10) 0%, transparent 60%), var(--gp-navy); }
+.closing-eyebrow { font-family: var(--sans); font-size: 10pt; font-weight: 700; letter-spacing: 5px; color: var(--gold); text-transform: uppercase; }
+.closing-rule { width: 80px; height: 1px; background: var(--gold); margin: 16px auto; opacity: .7; }
+.closing-h { font-family: var(--serif); font-weight: 800; font-size: 42pt; line-height: 1.1; letter-spacing: -1.4px; color: var(--near-white); margin-top: 12px; max-width: 1020px; }
+.closing-h em { font-style: italic; color: var(--gold); font-weight: 700; }
+.closing-sub { font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 14pt; color: rgba(255,255,255,.78); margin-top: 22px; line-height: 1.4; max-width: 940px; }
+.closing-sub strong { color: var(--gold); font-style: normal; font-weight: 700; }
+</style>
+</head>
+<body>
+<div id="progress"></div>
+<div id="counter">1 / 13</div>
+<button id="nav-prev" class="nav-btn">‹</button>
+<button id="nav-next" class="nav-btn">›</button>
+<button id="review-toggle">Ver todo ↕</button>
+
+<div class="deck" id="deck">
+
+<!-- 1 · COVER -->
+<section class="slide cover active">
+  <div class="cover-inner">
+    <div class="cover-top">
+      <div class="cover-mark">DIRECCIÓN MKT CORPORATIVO<span>Grupo Plasencia Automotriz</span></div>
+      <div style="display:flex; flex-direction:column; align-items:flex-end; gap:8px;">
+        <img src="../assets/logos/LOGO-GP-Blanco.png" style="height:52px; width:auto; mix-blend-mode:screen; opacity:.95;" alt="Grupo Plasencia"/>
+        <div class="cover-confidencial">Confidencial</div>
+      </div>
+    </div>
+    <div>
+      <div class="cover-rule"></div>
+      <div class="cover-eyebrow">RESUMEN EJECUTIVO · DOCUMENTO 3 DE 3</div>
+      <div class="cover-title">De cost center<br>a <em>revenue &amp; profit center.</em></div>
+      <div class="cover-subtitle">Marketing del Grupo cuesta <strong>$212.6M MXN/año</strong> cargados al P&amp;L 2025 sin retorno auditable. Este documento presenta <strong>un problema · una solución · por slide</strong> · para que el Consejo apruebe modularmente. El Deep Dive documenta el estado actual · el Reporte del Piloto entrega la evidencia operativa · este resumen aterriza la decisión.</div>
+    </div>
+    <div class="cover-meta">
+      <div class="cover-meta-block"><strong>Para</strong><span>Pepe Morales<br/>+ Consejo Directivo</span></div>
+      <div class="cover-meta-block"><strong>De</strong><span>Jesús Pérez Porras<br/>Director MKT Corporativo</span></div>
+      <div class="cover-meta-block"><strong>Trilogía</strong><span>1. Deep Dive · 2. Piloto · 3. Este documento</span></div>
+      <div class="cover-meta-block"><strong>Formato</strong><span>Un slide = un tema<br/>aprobación modular</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 2 · DIAGNÓSTICO DE ARRANQUE -->
+<section class="slide">
+  <div class="content">
+    <div>
+      <div class="section-num">Diagnóstico · dónde estamos hoy</div>
+      <h1 class="slide-h1">$212.6M al P&amp;L · <em>sin retorno auditable.</em></h1>
+      <p class="slide-lede">La auditoría a DCA descompuso por primera vez la estructura real del gasto MKT del Grupo. <strong>Publicidad $49.6M · Promoción $50.1M · Nómina $15.1M</strong> — MKT puro $114.8M. Adicionalmente $97.9M de Promo 2 (cooperación OEM bi-direccional) se carga bruta al P&amp;L. El total es lo que el Consejo ve. Este documento presenta 10 problemas materiales con la solución que los resuelve · uno por slide.</p>
+    </div>
+
+    <div class="killer-wrap">
+      <div class="killer-main">
+        <div class="label">Total al P&amp;L 2025</div>
+        <div class="num">$212.6M</div>
+        <div class="sub">$114.8M MKT puro + $97.9M Promo 2 · fuente DCA §1</div>
+      </div>
+      <div class="killer-side navy">
+        <div class="label">Concentración Mazda</div>
+        <div class="num">68%</div>
+        <div class="sub">del gasto MKT del Grupo · acumulado $195.6M</div>
+      </div>
+      <div class="killer-side">
+        <div class="label">Compresión margen</div>
+        <div class="num">6% → 4.5%</div>
+        <div class="sub">Mazda hace 3 años vs este año · contexto sector</div>
+      </div>
+    </div>
+
+    <div class="callout-big blue">
+      <div class="callout-t">Cómo leer este documento.</div>
+      <p>Los siguientes <strong>10 slides son one-pagers</strong> — cada uno presenta un problema material con su solución aparejada y su ask específico. <strong>Se pueden aprobar independientemente</strong>: si el Consejo da luz verde a 7 de 10, esos 7 arrancan. Los pendientes no bloquean los aprobados. El último slide consolida las 3 acciones operativas costo $0 que sustentan la propuesta.</p>
+    </div>
+
+    <div class="slide-footer">
+      <span><span class="dot"></span>Slide 2 · Diagnóstico · fuente DCA v20 al 29-jun-2026 + contexto Mazda del sector</span>
+      <span style="display:flex; align-items:center; gap:8px;"><img class="gp-logo" src="../assets/logos/Logo-GP-Negro.png" alt="GP"/>Grupo Plasencia Automotriz · Dirección MKT Corporativo</span>
+    </div>
+  </div>
+</section>
+
+<!-- 3 · PROBLEMA 1 · FUNCIÓN CORPORATIVA AUSENTE → 3 CAPAS -->
+<section class="slide">
+  <div class="content">
+    <div>
+      <div class="section-num">One-pager 1 de 10 · Función corporativa MKT</div>
+      <h1 class="slide-h1">Ocho marcas · ocho silos. <em>Ningún KPI cross-marca del Grupo.</em></h1>
+      <p class="slide-lede">Cada Director de Marca opera bajo su Plan Anual con el OEM · sin coordinación cross-marca, sin métrica corporativa, sin dueño único del peso digital. Marketing existe como ocho mini-departamentos al servicio del OEM · no como función del Grupo.</p>
+    </div>
+
+    <div class="ps-grid" style="flex:1;">
+      <div class="ps-card problem">
+        <div class="ps-header">Problema · estado actual</div>
+        <div class="ps-title">Cada marca contrata sus agencias · cada marca su plan OEM · ningún KPI corporativo</div>
+        <div class="ps-num">Cost center</div>
+        <div class="ps-body">La Dirección MKT Corporativo opera <em>de facto</em>, sin mandato formal, con una sola persona cubriendo estrategia, ejecución, dev de infraestructura y operación. Sin autoridad corporativa formal, no hay dueño único de la capa digital ni negociación cross-OEM.</div>
+        <div class="ps-src">Fuente · Deep Dive §1 + llamada Dirección General 26-jun (00:30)</div>
+      </div>
+      <div class="ps-card solution">
+        <div class="ps-header">Solución · consenso ya conversado</div>
+        <div class="ps-title">Tres capas del presupuesto MKT · dos responsables coexistentes</div>
+        <div class="ps-num">3 capas</div>
+        <div class="ps-body"><strong>Capa Digital</strong> · Dir. MKT Corporativo administra (presupuesto consolidado · medible peso a peso). <strong>Capa OEM-mandatory</strong> · Dir. MKT absorbe (cumple lo que el OEM exige sin distorsionar el bono del Director de marca). <strong>Capa Táctica</strong> · Director de marca conserva (activaciones locales · eventos · diferenciación local).</div>
+        <div class="ps-src">Fuente · consenso llamada 26-jun (00:31-00:32) · "tú te quedas con el digital"</div>
+      </div>
+    </div>
+
+    <div class="pregunta">
+      <div class="pregunta-lbl">Punto de conversación</div>
+      <div class="pregunta-q">"¿Con quién se cierra el mandato formal de la Dirección MKT Corporativo sobre la capa digital antes del cierre de julio?"</div>
+    </div>
+
+    <div class="slide-footer">
+      <span><span class="dot"></span>Slide 3 · Problema 1 · Función corporativa ausente → 3 capas del presupuesto MKT</span>
+      <span style="display:flex; align-items:center; gap:8px;"><img class="gp-logo" src="../assets/logos/Logo-GP-Negro.png" alt="GP"/>Grupo Plasencia Automotriz · Dirección MKT Corporativo</span>
+    </div>
+  </div>
+</section>
+
+<!-- 4 · PROBLEMA 2 · SOBREGIRO ESTRUCTURAL → REPORTING FUNCIONAL -->
+<section class="slide">
+  <div class="content">
+    <div>
+      <div class="section-num">One-pager 2 de 10 · Estructura de plantilla</div>
+      <h1 class="slide-h1">40 de 63 personas de MKT <em>sin puesto formal.</em></h1>
+      <p class="slide-lede">El Grupo paga función de Marketing desde otras nóminas. 23 personas con puesto MKT formal (8 gerentes + 15 coordinadores) · las 40 restantes operan la función desde su sucursal o marca de asignación. Sin claridad de costo real ni accountability formal.</p>
+    </div>
+
+    <div class="ps-grid" style="flex:1;">
+      <div class="ps-card problem">
+        <div class="ps-header">Problema · estado actual</div>
+        <div class="ps-title">Función MKT dispersa en nóminas de otras áreas</div>
+        <div class="ps-num">40/63</div>
+        <div class="ps-body">40 de 63 personas del depto MKT sin puesto formal MKT en cubo 30049. <strong>62% de la plantilla es perfil operativo</strong> (menos de $15K bruto/mes · sin seniority de growth, data o digital). <strong>5 marcas sin gerencia MKT formal</strong> · Hyundai, GWM, Changan, Isuzu, Seminuevos.</div>
+        <div class="ps-src">Fuente · DCA §4 · cubo 30049 RH · al 29-jun-2026</div>
+      </div>
+      <div class="ps-card solution">
+        <div class="ps-header">Solución · dos movimientos</div>
+        <div class="ps-title">Reporting funcional formalizado + reporte punteado de vendedores piloto</div>
+        <div class="ps-num">2 líneas</div>
+        <div class="ps-body"><strong>Gerentes de MKT por marca</strong> · reportan funcionalmente al Dir. MKT Corporativo. Su día a día ya es 80% catálogo/feed/oferta comercial y 20% OEM-required · formalizar la línea alinea operación con estructura. <strong>Vendedores del piloto</strong> · reporte punteado semanal al Dir. MKT (kanban + SLA) · no reemplaza reporte a la marca, agrega trazabilidad e2e del lead a facturación.</div>
+        <div class="ps-src">Fuente · llamada 26-jun (01:08-01:16) + Reporte Piloto slide 9 acción 3</div>
+      </div>
+    </div>
+
+    <div class="pregunta">
+      <div class="pregunta-lbl">Punto de conversación</div>
+      <div class="pregunta-q">"¿Cuándo se comunica formalmente a las Gerentes de MKT (Bere · Flor · Vero · Elia) la línea funcional al Corporativo? ¿Antes o después de este Consejo?"</div>
+    </div>
+
+    <div class="slide-footer">
+      <span><span class="dot"></span>Slide 4 · Problema 2 · Sobregiro estructural → reporting funcional + vendedores punteados</span>
+      <span style="display:flex; align-items:center; gap:8px;"><img class="gp-logo" src="../assets/logos/Logo-GP-Negro.png" alt="GP"/>Grupo Plasencia Automotriz · Dirección MKT Corporativo</span>
+    </div>
+  </div>
+</section>
+
+<!-- 5 · PROBLEMA 3 · COMPOSICIÓN DEL GASTO → RECLASIFICACIÓN + REBATE TRAZABLE -->
+<section class="slide">
+  <div class="content">
+    <div>
+      <div class="section-num">One-pager 3 de 10 · Composición del gasto MKT</div>
+      <h1 class="slide-h1">Mazda concentra <em>68% del peso</em>. Cuatro marcas gastan <em>$0 en Publicidad propia.</em></h1>
+      <p class="slide-lede">La radiografía DCA reveló concentración monomarca (Mazda 68% acumulado $195.6M) y cuatro marcas sin pauta propia (GWM · GAC · Changan · Isuzu operan como pass-through del OEM). Simultáneamente, la línea de rebate real trazable era invisible hasta que el motor cruzó cubos.</p>
+    </div>
+
+    <div class="stats-strip">
+      <div><div class="stat-lbl">MKT puro Grupo</div><div class="stat-num">$114.8M</div><div class="stat-sub">Publicidad + Promoción + Nómina</div></div>
+      <div><div class="stat-lbl">+ Promo 2 OEM</div><div class="stat-num">$97.9M</div><div class="stat-sub">cooperación bi-direccional</div></div>
+      <div><div class="stat-lbl">Rebate OEM total real</div><div class="stat-num green">$724.6M</div><div class="stat-sub">créditos trazados vs $1,436M cargos brutos</div></div>
+      <div><div class="stat-lbl">Rebate efectivo</div><div class="stat-num green">50%</div><div class="stat-sub">Publicidad 12% · Promoción 42% · Promo 2 62%</div></div>
+    </div>
+
+    <div class="ps-grid" style="flex:1;">
+      <div class="ps-card problem">
+        <div class="ps-header">Problema · estado actual</div>
+        <div class="ps-title">Gasto sin clasificación auditable · rebate real invisible</div>
+        <div class="ps-body">Antes del cruce DCA, la línea "rebate OEM" aparecía como $0 durante 19 iteraciones · falso. La composición Publicidad/Promoción/Promo 2 no se separaba por naturaleza. <strong>Mazda 68% del peso 2025</strong>. GWM · GAC · Changan · Isuzu con <strong>$0 en Publicidad propia</strong> · operan como pass-through.</div>
+        <div class="ps-src">Fuente · DCA §1-§3 · al 29-jun-2026</div>
+      </div>
+      <div class="ps-card solution">
+        <div class="ps-header">Solución · ya construida</div>
+        <div class="ps-title">Reclasificación DCA con cuentas trazadas al cubo 30021</div>
+        <div class="ps-body">La auditoría cruzó cubos 30021 (rebate LxL póliza-por-póliza) + 30065 (agregado) + 30046 (nómina). Rebate real es <strong>$724.63M créditos sobre $1,436M brutos = 50% efectivo</strong> · Publicidad 12% · Promoción 42% · Promo 2 62%. Esta es la línea que faltaba para ver la contribución real del OEM al peso del Grupo.</div>
+        <div class="ps-src">Fuente · DCA §6b · rebate trazable · al 29-jun-2026</div>
+      </div>
+    </div>
+
+    <div class="pregunta">
+      <div class="pregunta-lbl">Punto de conversación</div>
+      <div class="pregunta-q">"¿Aprovechamos la reclasificación para renegociar cross-OEM las 4 marcas sin pauta propia? ¿Cuál es la prioridad · GWM · GAC · Changan · Isuzu?"</div>
+    </div>
+
+    <div class="slide-footer">
+      <span><span class="dot"></span>Slide 5 · Problema 3 · Composición del gasto → reclasificación DCA + rebate real trazable</span>
+      <span style="display:flex; align-items:center; gap:8px;"><img class="gp-logo" src="../assets/logos/Logo-GP-Negro.png" alt="GP"/>Grupo Plasencia Automotriz · Dirección MKT Corporativo</span>
+    </div>
+  </div>
+</section>
+
+<!-- 6 · PROBLEMA 4 · FRAGMENTACIÓN PROVEEDORES → RFP VÍA COMPRAS -->
+<section class="slide">
+  <div class="content">
+    <div>
+      <div class="section-num">One-pager 4 de 10 · Gobernanza de proveedores</div>
+      <h1 class="slide-h1">Abanico de proveedores <em>sin poder de compra ni orden.</em></h1>
+      <p class="slide-lede">14 proveedores externos MKT identificables por nombre · $41M agregado 2025. El resto opera sin catalogación oficial · el gasto externo cayó −86% YoY sin trazar dónde migró. Contratos marca-por-marca · sin RFP formal · sin negociación consolidada.</p>
+    </div>
+
+    <div class="ps-grid" style="flex:1;">
+      <div class="ps-card problem">
+        <div class="ps-header">Problema · estado actual</div>
+        <div class="ps-title">Contratos por relación · caída −86% sin explicación documentada</div>
+        <div class="ps-num">14 / $41M</div>
+        <div class="ps-body"><strong>14 proveedores externos identificables · $41M agregado</strong>. Universo total 7,899 razones sociales del Grupo · el resto sin patrón "publicidad/agencia" en catálogo DCA. Gasto externo cayó de <strong>$4.58M/mes (2025) a $0.66M/mes (2026) — −86%</strong> sin trazabilidad de causa. Cada marca contrata sus proveedores por relación.</div>
+        <div class="ps-src">Fuente · DCA §5-§6 · al 29-jun-2026</div>
+      </div>
+      <div class="ps-card solution">
+        <div class="ps-header">Solución · consensuada con Dirección General</div>
+        <div class="ps-title">RFP formal vía Compras · Sergio ejecuta · Marketing define términos</div>
+        <div class="ps-body">Compras Corporativo (Sergio) administra el proceso de licitación y precio. Dir. MKT define el requerimiento técnico. <strong>Compiten los 14 actuales + los propuestos por Dirección MKT</strong>. Aval doble (Director de marca + Gerente de MKT) por proof of concept. Consenso decide · gana el mejor por categoría · no es operación contra los actuales.</div>
+        <div class="ps-src">Fuente · llamada 26-jun (01:33-01:36) · "Chucho es un RFP · ellos ponen a los suyos, yo pongo a los míos"</div>
+      </div>
+    </div>
+
+    <div class="pregunta">
+      <div class="pregunta-lbl">Punto de conversación</div>
+      <div class="pregunta-q">"¿Cuál es el primer RFP corporativo · qué categoría? ¿Digital · OOH · Producción? ¿Cuándo arranca la plantilla con Compras?"</div>
+    </div>
+
+    <div class="slide-footer">
+      <span><span class="dot"></span>Slide 6 · Problema 4 · Fragmentación proveedores → RFP formal vía Compras</span>
+      <span style="display:flex; align-items:center; gap:8px;"><img class="gp-logo" src="../assets/logos/Logo-GP-Negro.png" alt="GP"/>Grupo Plasencia Automotriz · Dirección MKT Corporativo</span>
+    </div>
+  </div>
+</section>
+
+<!-- 7 · PROBLEMA 5 · ATRIBUCIÓN → MOTOR YA CONSTRUIDO -->
+<section class="slide">
+  <div class="content">
+    <div>
+      <div class="section-num">One-pager 5 de 10 · Atribución del lead a la venta</div>
+      <h1 class="slide-h1">La trazabilidad punta a punta <em>ya opera hoy.</em></h1>
+      <p class="slide-lede">El Motor de Atribución del Grupo está construido, LIVE en 3 marcas y auditado contra DCA. El desperdicio de la trazabilidad digital dejó de ser hipótesis · es cifra medida. Este slide muestra la solución que ya opera · no un pedido de construcción.</p>
+    </div>
+
+    <div class="killer-wrap">
+      <div class="killer-main">
+        <div class="label">Profit real · 87 días</div>
+        <div class="num">$2.55M</div>
+        <div class="sub">$22.63M revenue · ROAS profit 11.3× · ROI 1,146% · Piloto slide 7</div>
+      </div>
+      <div class="killer-side green">
+        <div class="label">ROAS revenue</div>
+        <div class="num">156×</div>
+        <div class="sub">$22.63M / $145K spend digital · dedup 1-VIN-1-atribución</div>
+      </div>
+      <div class="killer-side navy">
+        <div class="label">CAC blended</div>
+        <div class="num">$2,039</div>
+        <div class="sub">$145K / 71 ventas verificadas vs cubo 30003</div>
+      </div>
+    </div>
+
+    <div class="ps-grid" style="flex:1;">
+      <div class="ps-card problem">
+        <div class="ps-header">Problema histórico · resuelto</div>
+        <div class="ps-title">Desperdicio de trazabilidad punta a punta invisible</div>
+        <div class="ps-body">Antes del Motor · no había forma de empatar 1 a 1 el anuncio con el coche facturado. Marketing reportaba lo que el OEM pedía, no lo que el Grupo necesitaba para decidir. Sin captura, no hay atribución · sin atribución, no hay ROI auditable.</div>
+        <div class="ps-src">Fuente · llamada 26-jun (00:31) + Reporte Piloto slide 6</div>
+      </div>
+      <div class="ps-card solution">
+        <div class="ps-header">Solución · construida sin presupuesto autorizado</div>
+        <div class="ps-title">Motor de Atribución LIVE · matching v8.3 vs DCA · dedup 1-VIN-1-atribución</div>
+        <div class="ps-body">Stack propio del Grupo · <strong>D1 con matching v8.3 contra cubo 30003</strong> · server-side CAPI · SPAs por marca · WhatsApp routing dinámico por sucursal. Operando en Seminuevos, Hyundai y Stellantis. <strong>71 ventas únicas verificadas · $22.63M revenue · $2.55M profit real DCA</strong>. Este es el activo del Grupo · no depende de agencia externa.</div>
+        <div class="ps-src">Fuente · Reporte Piloto slide 7 · al 30-jun-2026</div>
+      </div>
+    </div>
+
+    <div class="slide-footer">
+      <span><span class="dot"></span>Slide 7 · Problema 5 · Atribución digital → Motor de Atribución del Grupo ya construido</span>
+      <span style="display:flex; align-items:center; gap:8px;"><img class="gp-logo" src="../assets/logos/Logo-GP-Negro.png" alt="GP"/>Grupo Plasencia Automotriz · Dirección MKT Corporativo</span>
+    </div>
+  </div>
+</section>
+
+<!-- 8 · PROBLEMA 6 · HANDOFF MKT→VTAS → PLASI + CS -->
+<section class="slide">
+  <div class="content">
+    <div>
+      <div class="section-num">One-pager 6 de 10 · Handoff Marketing → Ventas</div>
+      <h1 class="slide-h1">El lead llega caliente. <em>Se enfría entre la entrega y la llamada.</em></h1>
+      <p class="slide-lede">Las 3 marcas LIVE corren con el mismo sitio, datalayer, CAPI y matching. La única variable que cambia es el handoff humano. Seminuevos con Vambe gestionando el primer toque · Hyundai y Stellantis con el vendedor decidiendo si llama.</p>
+    </div>
+
+    <table class="deck-table" style="font-size: 9.5pt;">
+      <thead><tr><th>Marca</th><th class="center">Días</th><th class="center">Leads</th><th>Estado dominante</th><th class="center">Conversión</th><th class="center">CPA</th><th>Diferencia operativa</th></tr></thead>
+      <tbody>
+        <tr><td><strong>SEMINUEVOS</strong></td><td class="center">87</td><td class="center">—</td><td>Gestionado por Vambe IA</td><td class="center win"><strong>69 ventas</strong></td><td class="center">$1,006</td><td><strong>Vambe agenda el primer toque · vendedor cierra en piso</strong></td></tr>
+        <tr><td><strong>HYUNDAI</strong></td><td class="center">83</td><td class="center">473</td><td>248 Perdida · 142 No-contactable</td><td class="center bad">0.21%</td><td class="center">$72</td><td>Plasencia GDL descalificó 386 de 403 · Santa Anita mantiene 66 vivos</td></tr>
+        <tr><td><strong>STELLANTIS</strong></td><td class="center">71</td><td class="center">269</td><td>104 Por contactar · 102 Recontactar</td><td class="center bad">0.37%</td><td class="center">$124</td><td>206 leads sin primera definición · 5 submarcas</td></tr>
+      </tbody>
+    </table>
+
+    <div class="ps-grid" style="flex:1;">
+      <div class="ps-card problem">
+        <div class="ps-header">Problema · estado actual</div>
+        <div class="ps-title">Sin figura garantizando el primer toque · el lead se enfría</div>
+        <div class="ps-body">En Hyundai y Stellantis no hay figura humana ni IA garantizando el primer toque dentro de SLA. El vendedor decide si llama, cuándo y a quién. En Seminuevos · Vambe agenda el primer toque · el vendedor cierra en piso. El delta viene del handoff · no del stack.</div>
+        <div class="ps-src">Fuente · Reporte Piloto slides 4-5-6 · al 30-jun-2026</div>
+      </div>
+      <div class="ps-card solution">
+        <div class="ps-header">Solución · dos acciones · costo $0 incremental</div>
+        <div class="ps-title">Plasi (IA del Grupo) replica Vambe + Customer Success por marca</div>
+        <div class="ps-body"><strong>Acción 1 · Plasi en el primer toque</strong> · califica al lead, propone horarios, agenda cita, entrega contacto al vendedor. El vendedor deja de ser filtro · pasa a ser cierre. <strong>Acción 2 · Customer Success por marca</strong> · confirma cita, asegura vendedor en piso, reporta status del handoff a Dir. de Marca + Dir. MKT. Doble reporting garantiza el paso Cita → Visita.</div>
+        <div class="ps-src">Fuente · Reporte Piloto slide 9 acciones 1 y 2</div>
+      </div>
+    </div>
+
+    <div class="slide-footer">
+      <span><span class="dot"></span>Slide 8 · Problema 6 · Handoff Mkt→Vtas roto → Plasi + Customer Success</span>
+      <span style="display:flex; align-items:center; gap:8px;"><img class="gp-logo" src="../assets/logos/Logo-GP-Negro.png" alt="GP"/>Grupo Plasencia Automotriz · Dirección MKT Corporativo</span>
+    </div>
+  </div>
+</section>
+
+<!-- 9 · PROBLEMA 7 · RECUPERACIÓN CROSS-BRAND -->
+<section class="slide">
+  <div class="content">
+    <div>
+      <div class="section-num">One-pager 7 de 10 · Recuperación cross-brand</div>
+      <h1 class="slide-h1">El costo hundido de una marca <em>se rescata en otra</em> del Grupo.</h1>
+      <p class="slide-lede">Sin el Motor · el lead que entra por Hyundai o Stellantis y no cierra en su marca queda perdido. Con el Motor y el rescate cross-brand del landing · el costo publicitario de una marca se recupera en otra del Grupo. Ya opera hoy · con dos recuperaciones cifradas.</p>
+    </div>
+
+    <div class="ps-grid" style="flex:1;">
+      <div class="ps-card problem">
+        <div class="ps-header">Problema · estado histórico</div>
+        <div class="ps-title">Costo hundido por marca sin mecanismo de rescate</div>
+        <div class="ps-body">El lead que Hyundai o Stellantis no cierra en su marca · antes se perdía. El costo publicitario ($37,179 spend HYU · $37,193 spend STL 71-83 días) se cargaba entero a la marca origen sin recuperar valor en el Grupo. Sin trazabilidad de origen y destino cross-marca, no había forma de contabilizar el rescate.</div>
+        <div class="ps-src">Fuente · Reporte Piloto slides 4-5 · al 30-jun-2026</div>
+      </div>
+      <div class="ps-card solution">
+        <div class="ps-header">Solución · ya opera hoy</div>
+        <div class="ps-title">Rescate cross-brand del landing · $905K en 2 recuperaciones documentadas</div>
+        <div class="ps-body"><strong>Patricia DE HARO</strong> · entró por Hyundai y cerró Mazda C30 (<strong>$411,900 en 4 días · $46K profit</strong>). <strong>Luis Rojo</strong> · entró por Stellantis y cerró GWM POER (<strong>$493,900 · $91K profit</strong>). El landing HYU y STL corre el rescate cross-brand hacia Seminuevos como mecánica de cobertura adicional. El costo hundido de una marca se convierte en revenue en otra del Grupo.</div>
+        <div class="ps-src">Fuente · Reporte Piloto slide 7 tabla impacto económico</div>
+      </div>
+    </div>
+
+    <div class="pregunta">
+      <div class="pregunta-lbl">Punto de conversación</div>
+      <div class="pregunta-q">"¿Ampliamos el rescate cross-brand a las 8 marcas del Grupo · incluyendo Ford, Mazda, Autolease en Sub-Ola C? ¿En qué orden?"</div>
+    </div>
+
+    <div class="slide-footer">
+      <span><span class="dot"></span>Slide 9 · Problema 7 · Cross-brand no capturado → rescate ya opera del landing HYU+STL a SEM</span>
+      <span style="display:flex; align-items:center; gap:8px;"><img class="gp-logo" src="../assets/logos/Logo-GP-Negro.png" alt="GP"/>Grupo Plasencia Automotriz · Dirección MKT Corporativo</span>
+    </div>
+  </div>
+</section>
+
+<!-- 10 · PROBLEMA 8 · BONO SIN OBJETIVO → BONO ESCALONADO -->
+<section class="slide">
+  <div class="content">
+    <div>
+      <div class="section-num">One-pager 8 de 10 · Incentivo con accountability dual</div>
+      <h1 class="slide-h1">Bono ligado al resultado <em>· no al presupuesto ejercido.</em></h1>
+      <p class="slide-lede">El bono actual de la Dirección MKT no está ligado al cumplimiento del presupuesto de ventas. Propuesta consensuada en principio con la Dirección General: bono escalonado bimestral o trimestral por % de cumplimiento · el Director de MKT optimiza CPL y CPA · más leads por peso, más a salvo el bono. Accountability dual con el Director de Marca por conversión.</p>
+    </div>
+
+    <div class="ps-grid" style="flex:1;">
+      <div class="ps-card problem">
+        <div class="ps-header">Problema · estado actual</div>
+        <div class="ps-title">Bono actual sin ligadura clara al resultado comercial del Grupo</div>
+        <div class="ps-body">Sin objetivo cifrado · sin accountability dual entre Marketing y el equipo de conversión. La conversación con Dirección General identifica esto como estructural: <em>"eso lo tenemos que matar junto con el consejo · matar en el sentido de quitar"</em> refiriéndose al bono actual sin resultado ligado.</div>
+        <div class="ps-src">Fuente · llamada 26-jun (00:13-00:14)</div>
+      </div>
+      <div class="ps-card solution">
+        <div class="ps-header">Solución · principio acordado · forma con RRHH</div>
+        <div class="ps-title">Bono escalonado bimestral/trimestral · accountability dual MKT + Ventas</div>
+        <div class="ps-body">Escalones por % de cumplimiento de cobertura del presupuesto de ventas: <strong>85% · 90% · 100% · sobre 100%</strong>. Bimestral o trimestral · candado por volumen suficiente de oportunidades. Dir. MKT responde por bajar CPL/CPA y garantizar volumen · el equipo comercial responde por convertir sobre lo entregado. Ambos al mismo presupuesto de ventas · cada uno desde su capa.</div>
+        <div class="ps-src">Fuente · principio consensuado llamada 26-jun (00:33-00:36) · forma con RRHH</div>
+      </div>
+    </div>
+
+    <div class="pregunta">
+      <div class="pregunta-lbl">Punto de conversación</div>
+      <div class="pregunta-q">"¿Cierre de forma con RRHH antes de fin de julio? ¿Andrés + Dir. MKT + Dir. General?"</div>
+    </div>
+
+    <div class="slide-footer">
+      <span><span class="dot"></span>Slide 10 · Problema 8 · Incentivo sin resultado → bono escalonado + accountability dual</span>
+      <span style="display:flex; align-items:center; gap:8px;"><img class="gp-logo" src="../assets/logos/Logo-GP-Negro.png" alt="GP"/>Grupo Plasencia Automotriz · Dirección MKT Corporativo</span>
+    </div>
+  </div>
+</section>
+
+<!-- 11 · PROBLEMA 9 · COSTO DE NO ACTUAR -->
+<section class="slide">
+  <div class="content">
+    <div>
+      <div class="section-num">One-pager 9 de 10 · Costo de no actuar</div>
+      <h1 class="slide-h1">Con Hyundai y Stellantis operando como Seminuevos · <em>$27.3M a $82.1M profit anual incremental.</em></h1>
+      <p class="slide-lede">El cálculo es lineal · cierres/mes = inversión/mes ÷ CAC Seminuevos ($1,006). Baseline actual HYU+STL <strong>0.13 cierres/mes por marca</strong>. Aplicando el CPL/CAC de Seminuevos a las 2 marcas no-SEM · el incremental es la diferencia entre ese baseline y lo que produciría cada escenario. AOV blended HYU+STL <strong>$492K</strong> · margen bruto ponderado real <strong>7.80%</strong> DCA 2026.</p>
+    </div>
+
+    <div class="pilar-grid" style="flex:1;">
+      <div class="pilar-card">
+        <div class="pilar-header">Conservador · piloto actual</div>
+        <div class="pilar-num">$30K / mes</div>
+        <div class="pilar-title">+14.9 cierres/mes por marca</div>
+        <div class="pilar-body">Δ Revenue $7.2M/mes · Δ Profit $0.56M/mes · <strong>Δ Profit anual cross-marca $13.6M</strong>. Supuesto: handoff humano replicado y CPL sostenido al escalar pauta.</div>
+      </div>
+      <div class="pilar-card gold">
+        <div class="pilar-header">Optimista · 2× inversión</div>
+        <div class="pilar-num">$60K / mes</div>
+        <div class="pilar-title">+28.9 cierres/mes por marca</div>
+        <div class="pilar-body">Δ Revenue $14.4M/mes · Δ Profit $1.12M/mes · <strong>Δ Profit anual cross-marca $27.3M</strong>. Mismo margen bruto ponderado real DCA 2026.</div>
+      </div>
+      <div class="pilar-card green">
+        <div class="pilar-header">Ideal · 3× inversión</div>
+        <div class="pilar-num">$90K / mes</div>
+        <div class="pilar-title">+43.9 cierres/mes por marca</div>
+        <div class="pilar-body">Δ Revenue $21.6M/mes · Δ Profit $1.69M/mes · <strong>Δ Profit anual cross-marca $41.1M</strong>. Rango completo HYU+STL: <strong>$27.3M–$82.1M profit anual incremental</strong>.</div>
+      </div>
+    </div>
+
+    <div class="callout-big gold">
+      <div class="callout-t">Cómo leer los escenarios</div>
+      <p>Cifras por marca individual · aplicadas a HYU + STL (2 marcas no-SEM) el rango consolidado anual es <strong>$27.3M–$82.1M profit incremental</strong>. Baseline actual = 0.13 cierres/mes por marca. AOV blended $492K real DCA 2026 (HYU $448K · STL $536K). Margen bruto ponderado 7.80% real (HYU 6.26% · STL 12.92%). Fuente · Reporte Piloto slide 8.</p>
+    </div>
+
+    <div class="slide-footer">
+      <span><span class="dot"></span>Slide 11 · Problema 9 · Costo de no actuar → 3 escenarios $30K/$60K/$90K por marca/mes · $27.3M–$82.1M profit anual HYU+STL</span>
+      <span style="display:flex; align-items:center; gap:8px;"><img class="gp-logo" src="../assets/logos/Logo-GP-Negro.png" alt="GP"/>Grupo Plasencia Automotriz · Dirección MKT Corporativo</span>
+    </div>
+  </div>
+</section>
+
+<!-- 12 · LO QUE SE PIDE AL CONSEJO · 3 ACCIONES COSTO $0 -->
+<section class="slide">
+  <div class="content">
+    <div>
+      <div class="section-num">One-pager 10 de 10 · El ask al Consejo</div>
+      <h1 class="slide-h1">Tres movimientos. <em>Cero presupuesto incremental.</em></h1>
+      <p class="slide-lede">No pedimos contratar gente nueva · ni cambiar la titularidad del cliente final · ni mover el KPI OEM · ni un peso adicional de pauta. Tres movimientos operativos que el Grupo puede activar sin presupuesto adicional · cada uno con kill criterion para auditar el resultado en hitos visibles.</p>
+    </div>
+
+    <table class="deck-table" style="font-size: 10pt;">
+      <thead><tr><th class="center" style="width:6%">#</th><th>Acción</th><th style="width:22%">Quién firma</th><th style="width:24%">Kill criterion al cierre Q3</th></tr></thead>
+      <tbody>
+        <tr><td class="center" style="background: var(--gp-red); color: #FFF; font-family: var(--serif); font-weight: 900; font-size: 15pt;">1</td><td><strong>Plasi (IA del Grupo) en el primer toque.</strong> Replica el modelo Vambe-Seminuevos. La IA califica al lead, propone horarios, agenda la cita y entrega el contacto listo al vendedor en piso. El vendedor deja de ser el filtro · pasa a ser el cierre.</td><td>Dir. de Marca</td><td>Conversión &lt; 2% al cierre del Q3</td></tr>
+        <tr><td class="center" style="background: var(--gp-red); color: #FFF; font-family: var(--serif); font-weight: 900; font-size: 15pt;">2</td><td><strong>Customer Success por marca · doble reporting.</strong> Una persona del equipo de marca confirma la cita, asegura que haya vendedor en piso esperando y reporta status del handoff a Dir. de Marca + Dir. MKT. Garantiza el paso Cita → Visita.</td><td>Dir. de Marca · doble reporting</td><td>Sin CS asignado al mes 1</td></tr>
+        <tr><td class="center" style="background: var(--gp-red); color: #FFF; font-family: var(--serif); font-weight: 900; font-size: 15pt;">3</td><td><strong>Vendedores piloto · reporte punteado al Dir. MKT.</strong> Los vendedores asignados al embudo digital reportan status del kanban + SLA semanal a Dir. MKT (además de su reporte normal a la marca). No los reemplaza · agrega trazabilidad e2e del lead a la facturación.</td><td>Dir. de Marca</td><td>3 Directores no firman al mes 3</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout-big gold">
+      <div class="callout-t">Lo que NO estamos proponiendo</div>
+      <p>Ni un peso adicional de pauta · ni reemplazar al Director de Marca · ni centralizar PMA OEM · ni cambiar la titularidad del cliente final. <em>Tu marca sigue siendo tu marca. El embudo digital sigue siendo del Grupo. Lo que destrabamos es el puente entre los dos.</em></p>
+    </div>
+
+    <div class="slide-footer">
+      <span><span class="dot"></span>Slide 12 · Ask al Consejo · 3 acciones costo $0 · kill criterion en cada una · aprobación modular</span>
+      <span style="display:flex; align-items:center; gap:8px;"><img class="gp-logo" src="../assets/logos/Logo-GP-Negro.png" alt="GP"/>Grupo Plasencia Automotriz · Dirección MKT Corporativo</span>
+    </div>
+  </div>
+</section>
+
+<!-- 13 · CIERRE -->
+<section class="slide closing">
+  <div class="closing-inner">
+    <div class="closing-eyebrow">Cierre · Resumen Ejecutivo · Documento 3 de 3</div>
+    <div class="closing-rule"></div>
+    <h1 class="closing-h">10 problemas · 10 soluciones aparejadas. <em>Aprobación modular por slide.</em></h1>
+    <div class="closing-sub">La trilogía cierra con este documento. <strong>El Deep Dive</strong> documenta el estado actual · <strong>el Reporte del Piloto</strong> entrega la evidencia con cifras auditadas contra DCA (<strong>$22.63M revenue · $2.55M profit real · 87 días</strong>) · <strong>este resumen</strong> aterriza los one-pagers de decisión. El Consejo puede aprobar cada slide independiente · las 3 acciones operativas cierran el ciclo con costo $0 incremental.</div>
+  </div>
+</section>
+
+</div>
+
+<script>
+const deck = document.getElementById('deck');
+const slides = Array.from(deck.querySelectorAll('.slide'));
+const total = slides.length;
+const counter = document.getElementById('counter');
+const progress = document.getElementById('progress');
+const reviewBtn = document.getElementById('review-toggle');
+let current = 0;
+function fit(){
+  if (document.body.classList.contains('review-mode')) { slides.forEach(s => { s.style.transform=''; }); return; }
+  const sx = window.innerWidth/1280, sy = window.innerHeight/720, s = Math.min(sx,sy);
+  const ox = (window.innerWidth-1280*s)/2, oy = (window.innerHeight-720*s)/2;
+  slides.forEach(sl => sl.style.transform = `translate(${ox}px, ${oy}px) scale(${s})`);
+}
+function go(i){
+  current = (i+total)%total;
+  slides.forEach((s,k)=>s.classList.toggle('active', k===current));
+  counter.textContent = `${current+1} / ${total}`;
+  progress.style.width = `${((current+1)/total)*100}%`;
+}
+window.addEventListener('resize', fit);
+document.getElementById('nav-prev').addEventListener('click', ()=>go(current-1));
+document.getElementById('nav-next').addEventListener('click', ()=>go(current+1));
+document.addEventListener('keydown', e => {
+  if (e.key==='ArrowRight'||e.key==='PageDown'||e.key===' ') go(current+1);
+  if (e.key==='ArrowLeft'||e.key==='PageUp') go(current-1);
+  if (e.key==='Home') go(0);
+  if (e.key==='End') go(total-1);
+});
+reviewBtn.addEventListener('click', ()=>{
+  document.body.classList.toggle('review-mode');
+  reviewBtn.textContent = document.body.classList.contains('review-mode') ? 'Modo Presentación ▶' : 'Ver todo ↕';
+  fit();
+});
+if (location.hash === '#review') { document.body.classList.add('review-mode'); reviewBtn.textContent = 'Modo Presentación ▶'; }
+fit();
+go(0);
+</script>
+</body>
+</html>
