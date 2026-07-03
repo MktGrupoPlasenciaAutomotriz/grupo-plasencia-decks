@@ -90,14 +90,17 @@ body.review-mode #nav-prev, body.review-mode #nav-next, body.review-mode #counte
 .kpi-sub { font-family: var(--sans); font-size: 9.5pt; color: var(--g600); margin-top: 8px; line-height: 1.5; }
 
 /* ========== MKT COMPOSITION (slide 3) ========== */
-.mkt-composition { margin-top: 14px; padding: 12px 16px; background: var(--paper); border: 1px solid var(--g200); border-radius: 8px; border-left: 4px solid var(--gp-navy); }
-.mkt-comp-label { font-family:var(--sans); font-size:8.5pt; font-weight:700; letter-spacing:1.5px; color: var(--gp-navy); text-transform:uppercase; margin-bottom:10px; }
-.mkt-comp-grid { display:grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
-.mkt-comp-block { padding: 8px 12px; border-left: 3px solid var(--gp-red); background: rgba(200,16,46,.03); border-radius: 4px; }
-.mkt-comp-block.navy { border-left-color: var(--gp-navy); background: rgba(30,39,64,.05); }
-.mkt-comp-sub { font-family:var(--sans); font-size:8.5pt; font-weight:700; letter-spacing:1px; color: var(--g500); text-transform:uppercase; margin-bottom:3px; }
-.mkt-comp-num { font-family:var(--serif); font-weight:900; font-size:20pt; color: var(--gp-navy); line-height:1.05; letter-spacing:-.8px; font-variant-numeric: tabular-nums; margin-bottom:4px; }
-.mkt-comp-detail { font-family:var(--sans); font-size:8.5pt; color: var(--g600); line-height:1.35; }
+.mkt-composition { margin-top: 10px; padding: 10px 14px; background: var(--paper); border: 1px solid var(--g200); border-radius: 8px; border-left: 4px solid var(--gp-navy); }
+.mkt-comp-label { font-family:var(--sans); font-size:8.5pt; font-weight:700; letter-spacing:1.2px; color: var(--gp-navy); text-transform:uppercase; margin-bottom:6px; }
+.mkt-comp-table { width:100%; border-collapse: collapse; font-family: var(--sans); }
+.mkt-comp-table th, .mkt-comp-table td { padding: 4px 8px; text-align: left; font-size: 9pt; border-bottom: 1px solid var(--g200); }
+.mkt-comp-table th { font-size: 7.5pt; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--g500); border-bottom: 2px solid var(--gp-navy); }
+.mkt-comp-table td.num, .mkt-comp-table th.num { text-align: right; font-variant-numeric: tabular-nums; font-weight: 600; color: var(--gp-navy); }
+.mkt-comp-table td.ok { color: var(--deep-green); }
+.mkt-comp-table tr.mkt-comp-total td { border-top: 2px solid var(--gp-navy); border-bottom: none; padding-top: 6px; font-size: 9.5pt; }
+.mkt-comp-note { font-family: var(--sans); font-size: 8.5pt; color: var(--g600); margin-top: 6px; padding-top: 6px; border-top: 1px solid var(--g300); line-height: 1.4; }
+.mkt-comp-note em { font-style: italic; color: var(--gp-navy); font-weight:600; }
+.mkt-comp-note strong { color: var(--gp-navy); font-weight:700; }
 
 /* ========== LEGACY SLIDE (§0) ========== */
 .legacy-inner { padding: 90px 120px 90px 120px; flex:1; display:flex; flex-direction:column; justify-content:center; gap: 26px; }
@@ -187,6 +190,25 @@ body.review-mode #nav-prev, body.review-mode #nav-next, body.review-mode #counte
 .capa-body { font-family:var(--sans); font-size:10pt; color: var(--g600); line-height:1.5; }
 .capa-body strong { color: var(--gp-navy); font-weight:600; }
 .capa-body em { font-style:italic; color: var(--gp-navy); }
+
+/* ========== CUÁNTO CUESTA · CUÁNTO REGRESA ========== */
+.ce-cr-grid { display:grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 12px; }
+.ce-cr-panel { background: var(--paper); border: 1px solid var(--g200); border-radius: 12px; padding: 18px 22px; display:flex; flex-direction:column; gap: 12px; box-shadow: 0 1px 3px rgba(30,39,64,.05); }
+.ce-cr-panel.cost { border-top: 4px solid var(--gp-red); }
+.ce-cr-panel.return { border-top: 4px solid var(--deep-green); background: rgba(72,187,120,.03); }
+.ce-cr-eyebrow { font-family:var(--sans); font-size:8.5pt; font-weight:700; letter-spacing:1.5px; color: var(--gp-red); text-transform:uppercase; margin-bottom: 4px; }
+.ce-cr-panel.return .ce-cr-eyebrow { color: var(--deep-green); }
+.ce-cr-block { padding: 10px 12px; background: rgba(30,39,64,.03); border-radius: 6px; border-left: 3px solid var(--gp-navy); }
+.ce-cr-block.big { background: rgba(200,16,46,.05); border-left-color: var(--gp-red); padding: 12px 14px; }
+.ce-cr-block.big.green { background: rgba(72,187,120,.08); border-left-color: var(--deep-green); }
+.ce-cr-num-label { font-family:var(--sans); font-size:8.5pt; font-weight:700; letter-spacing:1.2px; color: var(--g500); text-transform:uppercase; margin-bottom: 4px; }
+.ce-cr-num { font-family:var(--serif); font-weight:900; font-size:26pt; color: var(--gp-navy); line-height:1.02; letter-spacing:-1px; font-variant-numeric: tabular-nums; margin-bottom: 6px; }
+.ce-cr-num.green { color: var(--deep-green); }
+.ce-cr-desc { font-family:var(--sans); font-size:9pt; color: var(--g600); line-height:1.45; }
+.ce-cr-desc strong { color: var(--gp-navy); font-weight:600; }
+.ce-cr-plus { margin-top: 14px; padding: 12px 18px; background: var(--gp-navy); color: rgba(255,255,255,.92); border-radius: 8px; font-family: var(--sans); font-size: 9.5pt; line-height: 1.5; }
+.ce-cr-plus strong { color: var(--gold); font-weight:700; }
+.ce-cr-plus em { color: var(--gold); font-style: italic; }
 
 /* ========== KILLER + BENCHMARK ========== */
 .killer-split { display:grid; grid-template-columns: 1fr 1.2fr; gap: 32px; margin-top: 14px; align-items: stretch; }
@@ -404,9 +426,9 @@ body.review-mode #nav-prev, body.review-mode #nav-next, body.review-mode #counte
         <div class="kpi-sub">Anual del portafolio completo del Grupo</div>
       </div>
       <div class="kpi-card">
-        <div class="kpi-label">Cost Center MKT</div>
-        <div class="kpi-num red">$212.6M</div>
-        <div class="kpi-sub">0.54% del revenue · benchmark sector 0.8–1.5%</div>
+        <div class="kpi-label">Gasto MKT · Paga el Grupo</div>
+        <div class="kpi-num red">$87.9M</div>
+        <div class="kpi-sub">Neto tras rebate OEM ($114.8M bruto − $26.9M rebate)</div>
       </div>
       <div class="kpi-card green">
         <div class="kpi-label">Piloto 90 días</div>
@@ -420,24 +442,19 @@ body.review-mode #nav-prev, body.review-mode #nav-next, body.review-mode #counte
       </div>
     </div>
     <div class="mkt-composition">
-      <div class="mkt-comp-label">Composición del gasto MKT · Cargado al P&amp;L 2025</div>
-      <div class="mkt-comp-grid">
-        <div class="mkt-comp-block">
-          <div class="mkt-comp-sub">Marketing "puro"</div>
-          <div class="mkt-comp-num">$114.8M</div>
-          <div class="mkt-comp-detail">Publicidad $49.6M · Promoción $50.1M · Nómina cargada $15.1M</div>
-        </div>
-        <div class="mkt-comp-block">
-          <div class="mkt-comp-sub">Promo 2 · Bono OEM bi-direccional</div>
-          <div class="mkt-comp-num">$97.9M</div>
-          <div class="mkt-comp-detail">Devolución del fabricante al Grupo por volumen · varía por marca</div>
-        </div>
-        <div class="mkt-comp-block navy">
-          <div class="mkt-comp-sub">Total cargado al P&amp;L</div>
-          <div class="mkt-comp-num">$212.6M</div>
-          <div class="mkt-comp-detail">0.54% del revenue del Grupo · el desglose por marca aparece adelante</div>
-        </div>
-      </div>
+      <div class="mkt-comp-label">Composición del gasto MKT 2025 · Lo que ve el Consejo hoy</div>
+      <table class="mkt-comp-table">
+        <thead>
+          <tr><th>Línea</th><th>Qué incluye</th><th class="num">Bruto al P&amp;L</th><th class="num">Devuelve la marca (OEM)</th><th class="num">Paga el Grupo</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Publicidad</strong></td><td>Pauta, agencias, producción, medios</td><td class="num">$49.6M</td><td class="num ok">$5.9M</td><td class="num">$43.7M</td></tr>
+          <tr><td><strong>Promoción</strong></td><td>Rotulaciones, regalos, boletines, gasolina</td><td class="num">$50.1M</td><td class="num ok">$21.0M</td><td class="num">$29.1M</td></tr>
+          <tr><td><strong>Nómina MKT</strong></td><td>63 personas de MKT y Ventas Digital</td><td class="num">$15.1M</td><td class="num">—</td><td class="num">$15.1M</td></tr>
+          <tr class="mkt-comp-total"><td><strong>Total 2025</strong></td><td><strong>Lo que carga hoy al P&amp;L del Grupo</strong></td><td class="num"><strong>$114.8M</strong></td><td class="num ok"><strong>$26.9M</strong></td><td class="num"><strong>$87.9M</strong></td></tr>
+        </tbody>
+      </table>
+      <div class="mkt-comp-note">El rebate OEM aplica <strong>tanto en Publicidad como en Promoción</strong>. Hoy cada Dirección de Marca negocia su rebate por separado: <em>GAC recibe 100% de apoyo · Mazda 3% · Stellantis 0%</em> — sin que nadie consolide la conversación con los fabricantes.</div>
     </div>
   </div>
   <div class="slide-footer">
@@ -875,9 +892,54 @@ body.review-mode #nav-prev, body.review-mode #nav-next, body.review-mode #counte
 </section>
 
 <!-- =========================================================
-     SLIDE 16 · §6 KILLER METRIC + BENCHMARK
+     SLIDE 16 · §6 CUÁNTO CUESTA · CUÁNTO REGRESA
      ========================================================= -->
 <section class="slide" data-index="16">
+  <div class="content">
+    <div class="section-num">06 · Cuánto cuesta · Cuánto regresa</div>
+    <h1 class="slide-h1">La cuenta <em>en dos columnas</em>.</h1>
+    <p class="slide-lede">Los rangos vienen del Resumen Ejecutivo que el Consejo ya vio. Se sostienen en la evidencia auditada del piloto y en los márgenes reales de la contabilidad del Grupo. Los montos exactos se acuerdan en la mesa con base en las cotizaciones de los proveedores.</p>
+    <div class="ce-cr-grid">
+      <div class="ce-cr-panel cost">
+        <div class="ce-cr-eyebrow">Cuánto cuesta · Inversión año 1</div>
+        <div class="ce-cr-block">
+          <div class="ce-cr-num-label">Inversión inicial · una vez</div>
+          <div class="ce-cr-desc">Descubrimiento con TI y Finanzas, formalización de las Subdirecciones, cuota subsidiada para las marcas fundadoras, arranque de proveedores. Cargo único que se amortiza.</div>
+        </div>
+        <div class="ce-cr-block big">
+          <div class="ce-cr-num-label">Operación anual · recurrente</div>
+          <div class="ce-cr-num">$8M &ndash; $17M</div>
+          <div class="ce-cr-desc">Pago del Director de Crecimiento + cuatro proveedores externos con ramp-up. Punto medio ~$1M al mes. <strong>Después del año 1, la operación se paga con las cuotas y comisiones de las marcas participantes.</strong></div>
+        </div>
+      </div>
+      <div class="ce-cr-panel return">
+        <div class="ce-cr-eyebrow">Cuánto regresa · Solo Hyundai + Stellantis</div>
+        <div class="ce-cr-block big green">
+          <div class="ce-cr-num-label">Revenue incremental al año</div>
+          <div class="ce-cr-num green">$173M &ndash; $346M</div>
+          <div class="ce-cr-desc">Escenarios del Resumen v5 aplicados solo a HYU y STL. Dos marcas del portafolio.</div>
+        </div>
+        <div class="ce-cr-block big green">
+          <div class="ce-cr-num-label">Profit incremental al año</div>
+          <div class="ce-cr-num green">$13.6M &ndash; $27.3M</div>
+          <div class="ce-cr-desc">Retorno de <strong>14× a 29× la inversión en revenue</strong> y <strong>1.1× a 2.3× en profit</strong> desde el arranque. Escala a 40×+ y 3×+ cuando la disciplina operativa madura.</div>
+        </div>
+      </div>
+    </div>
+    <div class="ce-cr-plus">
+      Los rangos de la derecha <strong>no incluyen</strong>: cross-sell entre marcas del Grupo · revenue directo del Marketplace (cuotas + comisiones) · rescate de leads perdidos por broadcast · mejora del apoyo OEM negociado como Grupo. <em>Cada uno aporta profit adicional por encima de los escenarios.</em>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span><span class="dot"></span>06 · Cuánto cuesta · Cuánto regresa</span>
+    <span class="brand"><img src="../assets/logos/Logo-GP-Negro.png" alt="Grupo Plasencia">Grupo Plasencia Automotriz</span>
+  </div>
+</section>
+
+<!-- =========================================================
+     SLIDE 17 · §6 KILLER METRIC + BENCHMARK
+     ========================================================= -->
+<section class="slide" data-index="17">
   <div class="content">
     <div class="section-num">06 · Killer metric + Benchmark comparativo</div>
     <h1 class="slide-h1">La evidencia empírica más limpia posible.</h1>
@@ -910,9 +972,9 @@ body.review-mode #nav-prev, body.review-mode #nav-next, body.review-mode #counte
 </section>
 
 <!-- =========================================================
-     SLIDE 17 · §7 EL ASK · 5 DECISIONES BINARIAS
+     SLIDE 18 · §7 EL ASK · 5 DECISIONES BINARIAS
      ========================================================= -->
-<section class="slide" data-index="17">
+<section class="slide" data-index="18">
   <div class="content">
     <div class="section-num">07 · Lo que pedimos hoy</div>
     <h1 class="slide-h1">Cinco decisiones de <em>sí o no</em> en esta sesión.</h1>
@@ -961,9 +1023,9 @@ body.review-mode #nav-prev, body.review-mode #nav-next, body.review-mode #counte
 </section>
 
 <!-- =========================================================
-     SLIDE 18 · CIERRE · LO QUE NECESITAMOS DEL CONSEJO HOY
+     SLIDE 19 · CIERRE · LO QUE NECESITAMOS DEL CONSEJO HOY
      ========================================================= -->
-<section class="slide closing" data-index="18">
+<section class="slide closing" data-index="19">
   <div class="closing-inner">
     <div class="closing-top">
       <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:14px;">
@@ -1003,7 +1065,7 @@ body.review-mode #nav-prev, body.review-mode #nav-next, body.review-mode #counte
 
 <!-- ========== UI ========== -->
 <div id="progress"></div>
-<div id="counter">1 / 18</div>
+<div id="counter">1 / 19</div>
 <button class="nav-btn" id="nav-prev" aria-label="Anterior">‹</button>
 <button class="nav-btn" id="nav-next" aria-label="Siguiente">›</button>
 <button id="review-toggle" aria-label="Modo review">Review</button>
