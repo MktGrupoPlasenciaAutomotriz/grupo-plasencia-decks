@@ -261,6 +261,24 @@ body.review-mode #nav-prev, body.review-mode #nav-next, body.review-mode #counte
 .mp-note strong { font-weight:700; }
 .mp-note em { font-style:italic; }
 
+/* ========== BAU TABLE + LINEAS TRANSVERSALES ========== */
+.bau-table-wrap { background: var(--paper); border: 1px solid var(--g200); border-radius: 10px; padding: 6px 16px; box-shadow: 0 1px 3px rgba(30,39,64,.05); }
+.bau-table { width:100%; border-collapse: collapse; font-family: var(--sans); }
+.bau-table th, .bau-table td { padding: 8px 12px; text-align: left; font-size: 10.5pt; border-bottom: 1px solid var(--g200); }
+.bau-table th { font-size: 8.5pt; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: var(--g500); border-bottom: 2px solid var(--gp-navy); }
+.bau-table td.num, .bau-table th.num { text-align: right; font-variant-numeric: tabular-nums; font-weight: 600; color: var(--gp-navy); }
+.bau-table tr:last-child td { border-bottom: none; }
+.bau-table td.win { color: var(--deep-green); }
+.bau-table td.ok { color: var(--gp-navy); }
+.bau-table td.bad { color: var(--gp-red); }
+.bau-cross { margin-top: 12px; padding: 14px 20px; background: rgba(30,39,64,.04); border-left: 3px solid var(--gp-navy); border-radius: 4px; }
+.bau-cross-label { font-family: var(--sans); font-size: 9pt; font-weight: 700; letter-spacing: 1.5px; color: var(--gp-navy); text-transform: uppercase; margin-bottom: 8px; }
+.bau-cross-items { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 8px; }
+.bau-cross-item { font-family: var(--sans); font-size: 9.5pt; color: var(--gp-navy); font-weight: 600; }
+.bau-cross-item small { display: block; color: var(--g500); font-weight: 400; font-size: 8.5pt; margin-top: 2px; line-height: 1.3; }
+.bau-cross-note { font-family: var(--sans); font-size: 9pt; color: var(--g600); margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--g300); font-style: italic; }
+.bau-cross-note em { color: var(--gp-red); font-weight: 600; font-style: italic; }
+
 /* ========== CLOSING SLIDE ========== */
 .closing-inner { padding: 60px 80px; flex:1; display:flex; flex-direction:column; justify-content:space-between; background: radial-gradient(ellipse at 100% 100%, rgba(72,187,120,.16) 0%, transparent 55%), radial-gradient(ellipse at 0% 0%, rgba(236,201,75,.14) 0%, transparent 55%), var(--gp-navy); }
 .closing-top { }
@@ -349,8 +367,8 @@ body.review-mode #nav-prev, body.review-mode #nav-next, body.review-mode #counte
       </div>
       <div class="kpi-card green">
         <div class="kpi-label">Piloto 90 días</div>
-        <div class="kpi-num green">73 · $22.3M</div>
-        <div class="kpi-sub">Ventas atribuidas · ROI 371–1,000%</div>
+        <div class="kpi-num green">71 · $22.63M</div>
+        <div class="kpi-sub">Ventas atribuidas · $2.55M utilidad · dedup 1-VIN</div>
       </div>
       <div class="kpi-card gold">
         <div class="kpi-label">Prototipo Marketplace</div>
@@ -366,42 +384,94 @@ body.review-mode #nav-prev, body.review-mode #nav-next, body.review-mode #counte
 </section>
 
 <!-- =========================================================
-     SLIDE 4 · §1 SITUACIÓN · CX CROSS-GRUPO
+     SLIDE 4 · §1 SITUACIÓN · CX HABILITADOR CROSS-GRUPO
      ========================================================= -->
 <section class="slide" data-index="4">
   <div class="content">
-    <div class="section-num">01 · Situación · CX cross-Grupo</div>
-    <h1 class="slide-h1">Ya avanzamos una respuesta parcial: <em>CX cross-Grupo, aprobado por el Consejo.</em></h1>
-    <p class="slide-lede">La visión del proyecto fue cross-marca desde su concepción, y su implementación arrancó desde Mazda como primera marca con roadmap por olas ya definido. <strong>La Dirección propuesta se articula con CX como aceleración y complementación, no como iniciativa paralela.</strong></p>
-    <div class="olas-list">
-      <div class="ola-row done">
-        <div class="ola-num">Ola 0</div>
-        <div class="ola-body"><strong>Piloto en marcha en Mazda</strong><small>Orquestación de relación con cliente, puntos de contacto y campañas</small></div>
+    <div class="section-num">01 · Situación · CX como habilitador cross-Grupo</div>
+    <h1 class="slide-h1">CX valida la <em>visión cross-Grupo del Consejo</em>. El Marketplace la exponencializa.</h1>
+    <p class="slide-lede">CX fue conceptualizado desde el Consejo como iniciativa <strong>cross-Grupo desde su origen</strong> — es la evidencia de que la visión de operar como Grupo, no como suma de marcas separadas, ya está aprobada y en marcha. Su implementación arrancó en Mazda como primera marca del roadmap por olas, pero el mandato siempre fue transversal.</p>
+    <div class="mp-flow">
+      <div class="mp-panel">
+        <h3>CX · <em>habilitador clave</em></h3>
+        <ul>
+          <li>Orquesta relación con cliente, puntos de contacto y campañas</li>
+          <li><strong>Aprobado y arrancado</strong> por el Consejo desde una visión cross-Grupo</li>
+          <li>Roadmap por olas: Mazda → resto sucursales → Seminuevos → cross-marca completo</li>
+          <li>Infraestructura sobre la que la Dirección propuesta se monta y evoluciona</li>
+        </ul>
       </div>
-      <div class="ola-row active">
-        <div class="ola-num">Ola 1</div>
-        <div class="ola-body"><strong>Expansión a resto de sucursales Mazda</strong><small>Consolidación del modelo probado antes de la expansión cross-marca</small></div>
+      <div class="mp-panel">
+        <h3>Marketplace · <em>exponencializa a nivel marca</em></h3>
+        <ul>
+          <li>Toma la relación cliente-Grupo y la lleva a experiencia de marca</li>
+          <li>Habilita adquisición cross-marca del pool actual y de nuevos clientes</li>
+          <li>Convierte la infraestructura en revenue propio del Grupo</li>
+          <li>Alimenta el customer 360 que CX ya está construyendo</li>
+        </ul>
       </div>
-      <div class="ola-row next">
-        <div class="ola-num">Ola 2</div>
-        <div class="ola-body"><strong>Seminuevos Mazda + primeras marcas del Grupo</strong><small>La Dirección propuesta entra como co-piloto operativo aquí</small></div>
-      </div>
-      <div class="ola-row future">
-        <div class="ola-num">Ola 3</div>
-        <div class="ola-body"><strong>Cross-marca completo bajo gobierno conjunto</strong><small>Habilitador de todo el customer 360 del Grupo</small></div>
+      <div class="mp-note">
+        <strong>No es iniciativa paralela ni duplicada.</strong> La Dirección propuesta evalúa la infraestructura CX que ya existe y se monta sobre ella. Donde CX ya construyó capacidades, las aprovecha. Donde el Marketplace necesita más, extiende. <em>La visión cross-Grupo del Consejo se materializa en dos frentes que se refuerzan.</em>
       </div>
     </div>
   </div>
   <div class="slide-footer">
-    <span><span class="dot"></span>01 · Situación · CX cross-Grupo como habilitador</span>
+    <span><span class="dot"></span>01 · CX como habilitador · Marketplace como exponente</span>
     <span class="brand">Grupo Plasencia Automotriz</span>
   </div>
 </section>
 
 <!-- =========================================================
-     SLIDE 5 · §2 COMPLICACIÓN · TRES VACÍOS
+     SLIDE 5 · §1 EL BAU MARCA POR MARCA
      ========================================================= -->
 <section class="slide" data-index="5">
+  <div class="content">
+    <div class="section-num">01 · El BAU marca por marca</div>
+    <h1 class="slide-h1">Cada Director evalúa <em>cuánto suma al canal desde su BAU</em>.</h1>
+    <p class="slide-lede">El peso publicitario del Grupo se distribuye por marca con niveles de apoyo OEM que varían radicalmente. Cada Director opera su presupuesto con lógica propia y con relación específica con su fabricante. Sumar el Marketplace es decisión de cada uno — reasignando parte de su BAU, o negociando con la fábrica presupuesto dedicado al canal.</p>
+    <div class="bau-table-wrap" style="margin-top: 12px;">
+      <table class="bau-table">
+        <thead>
+          <tr>
+            <th>Marca</th>
+            <th class="num">Peso publicitario 2025</th>
+            <th class="num">Apoyo OEM</th>
+            <th class="num">Neto al Grupo</th>
+            <th class="num">% Apoyo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Mazda</strong></td><td class="num">$118.2M</td><td class="num">$3.6M</td><td class="num">$114.5M</td><td class="num bad">3%</td></tr>
+          <tr><td><strong>Hyundai</strong></td><td class="num">$41.2M</td><td class="num">$11.5M</td><td class="num">$29.7M</td><td class="num ok">28%</td></tr>
+          <tr><td><strong>Ford</strong></td><td class="num">$19.9M</td><td class="num">$5.3M</td><td class="num">$14.6M</td><td class="num ok">27%</td></tr>
+          <tr><td><strong>Stellantis</strong></td><td class="num">$4.5M</td><td class="num">$0</td><td class="num">$4.5M</td><td class="num bad">0%</td></tr>
+          <tr><td><strong>GAC</strong></td><td class="num">$1.6M</td><td class="num">$1.6M</td><td class="num">$0</td><td class="num win">100%</td></tr>
+          <tr><td><strong>Changan</strong></td><td class="num">$1.5M</td><td class="num">$0.3M</td><td class="num">$1.2M</td><td class="num ok">21%</td></tr>
+          <tr><td><strong>GWM</strong></td><td class="num">$0.5M</td><td class="num">$0.2M</td><td class="num">$0.3M</td><td class="num ok">35%</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="bau-cross">
+      <div class="bau-cross-label">Líneas transversales sin owner MKT dedicado hoy</div>
+      <div class="bau-cross-items">
+        <div class="bau-cross-item"><strong>Servicio y refacciones</strong><small>$1.57B revenue · 43% margen operativo</small></div>
+        <div class="bau-cross-item"><strong>Seguros</strong><small>$1.68B primas · 21.5% margen</small></div>
+        <div class="bau-cross-item"><strong>Seminuevos</strong><small>Piloto probado · CAC $1,006 · ROI positivo</small></div>
+        <div class="bau-cross-item"><strong>Flotillas</strong><small>Canal B2B cross-marca</small></div>
+      </div>
+      <div class="bau-cross-note">Autolease queda fuera de esta lectura BAU: es línea nueva del Grupo con su propio ecosistema digital — <em>es speedboat, no BAU</em>.</div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span><span class="dot"></span>01 · El BAU marca por marca · Cada Director decide</span>
+    <span class="brand">Grupo Plasencia Automotriz</span>
+  </div>
+</section>
+
+<!-- =========================================================
+     SLIDE 6 · §2 COMPLICACIÓN · TRES VACÍOS
+     ========================================================= -->
+<section class="slide" data-index="6">
   <div class="content">
     <div class="section-num">02 · Complicación</div>
     <h1 class="slide-h1">El modelo actual no captura al <em>cliente cross-marca</em>. Y el mercado no va a esperar.</h1>
@@ -428,9 +498,9 @@ body.review-mode #nav-prev, body.review-mode #nav-next, body.review-mode #counte
 </section>
 
 <!-- =========================================================
-     SLIDE 6 · §2 COSTO DE NO ACTUAR
+     SLIDE 7 · §2 COSTO DE NO ACTUAR
      ========================================================= -->
-<section class="slide" data-index="6">
+<section class="slide" data-index="7">
   <div class="cost-hero">
     <div class="cost-eyebrow">02 · Costo de no actuar</div>
     <div class="cost-quote-mark">“</div>
@@ -453,9 +523,9 @@ body.review-mode #nav-prev, body.review-mode #nav-next, body.review-mode #counte
 </section>
 
 <!-- =========================================================
-     SLIDE 7 · §3 TESIS
+     SLIDE 8 · §3 TESIS
      ========================================================= -->
-<section class="slide" data-index="7">
+<section class="slide" data-index="8">
   <div class="tesis-inner">
     <div class="tesis-eyebrow">03 · Resolución · La tesis</div>
     <p class="tesis-body">Proponemos crear la <strong>Dirección de Marketing Corporativo, Growth &amp; New Ventures</strong> — la función que hoy no existe — con dos proyectos ancla: el <em>Marketplace Plasencia</em> como plataforma de canal cross-marca y una <em>vertical del portafolio</em> operada como proof-of-concept end-to-end, en integración gradual con el proyecto CX cross-Grupo.</p>
@@ -473,9 +543,9 @@ body.review-mode #nav-prev, body.review-mode #nav-next, body.review-mode #counte
 </section>
 
 <!-- =========================================================
-     SLIDE 8 · §3 CUATRO PILARES
+     SLIDE 9 · §3 CUATRO PILARES
      ========================================================= -->
-<section class="slide" data-index="8">
+<section class="slide" data-index="9">
   <div class="content">
     <div class="section-num">03 · Los cuatro pilares</div>
     <h1 class="slide-h1">Los pilares no son iniciativas independientes. <em>Son un sistema.</em></h1>
@@ -510,9 +580,9 @@ body.review-mode #nav-prev, body.review-mode #nav-next, body.review-mode #counte
 </section>
 
 <!-- =========================================================
-     SLIDE 9 · §3 LO QUE NO ES
+     SLIDE 10 · §3 LO QUE NO ES
      ========================================================= -->
-<section class="slide" data-index="9">
+<section class="slide" data-index="10">
   <div class="content">
     <div class="section-num">03 · Lo que esta estrategia NO es</div>
     <h1 class="slide-h1"><em>Distinciones</em> que ordenan la conversación.</h1>
@@ -533,9 +603,9 @@ body.review-mode #nav-prev, body.review-mode #nav-next, body.review-mode #counte
 </section>
 
 <!-- =========================================================
-     SLIDE 10 · §4 ESTRUCTURA DE LA DIRECCIÓN
+     SLIDE 11 · §4 ESTRUCTURA DE LA DIRECCIÓN
      ========================================================= -->
-<section class="slide" data-index="10">
+<section class="slide" data-index="11">
   <div class="content">
     <div class="section-num">04 · El Modelo · Estructura</div>
     <h1 class="slide-h1">CGO externo + <em>dos Subdirecciones</em> + cuatro buckets de partners.</h1>
@@ -565,9 +635,9 @@ body.review-mode #nav-prev, body.review-mode #nav-next, body.review-mode #counte
 </section>
 
 <!-- =========================================================
-     SLIDE 11 · §4 RELACIÓN CON BAU
+     SLIDE 12 · §4 RELACIÓN CON BAU
      ========================================================= -->
-<section class="slide" data-index="11">
+<section class="slide" data-index="12">
   <div class="content">
     <div class="section-num">04 · El Modelo · Relación con el BAU</div>
     <h1 class="slide-h1">Advisory con <em>reporte formal de data</em>. Sin autoridad ejecutiva.</h1>
@@ -597,9 +667,9 @@ body.review-mode #nav-prev, body.review-mode #nav-next, body.review-mode #counte
 </section>
 
 <!-- =========================================================
-     SLIDE 12 · §4 MARKETPLACE TWO-SIDED + REVENUE
+     SLIDE 13 · §4 MARKETPLACE TWO-SIDED + REVENUE
      ========================================================= -->
-<section class="slide" data-index="12">
+<section class="slide" data-index="13">
   <div class="content">
     <div class="section-num">04 · El Modelo · Marketplace two-sided</div>
     <h1 class="slide-h1">Plataforma de dos lados con <em>revenue propio</em>.</h1>
@@ -635,9 +705,9 @@ body.review-mode #nav-prev, body.review-mode #nav-next, body.review-mode #counte
 </section>
 
 <!-- =========================================================
-     SLIDE 13 · §5 ROADMAP
+     SLIDE 14 · §5 ROADMAP
      ========================================================= -->
-<section class="slide" data-index="13">
+<section class="slide" data-index="14">
   <div class="content">
     <div class="section-num">05 · El Roadmap</div>
     <h1 class="slide-h1">Tres fases con <em>kill criteria por gate</em>.</h1>
@@ -700,9 +770,9 @@ body.review-mode #nav-prev, body.review-mode #nav-next, body.review-mode #counte
 </section>
 
 <!-- =========================================================
-     SLIDE 14 · §6 CASO FINANCIERO · TRES CAPAS
+     SLIDE 15 · §6 CASO FINANCIERO · TRES CAPAS
      ========================================================= -->
-<section class="slide" data-index="14">
+<section class="slide" data-index="15">
   <div class="content">
     <div class="section-num">06 · El Caso Financiero</div>
     <h1 class="slide-h1">Tres capas <em>independientes</em> de inversión.</h1>
@@ -732,9 +802,9 @@ body.review-mode #nav-prev, body.review-mode #nav-next, body.review-mode #counte
 </section>
 
 <!-- =========================================================
-     SLIDE 15 · §6 KILLER METRIC + BENCHMARK
+     SLIDE 16 · §6 KILLER METRIC + BENCHMARK
      ========================================================= -->
-<section class="slide" data-index="15">
+<section class="slide" data-index="16">
   <div class="content">
     <div class="section-num">06 · Killer metric + Benchmark comparativo</div>
     <h1 class="slide-h1">La evidencia empírica más limpia posible.</h1>
@@ -767,9 +837,9 @@ body.review-mode #nav-prev, body.review-mode #nav-next, body.review-mode #counte
 </section>
 
 <!-- =========================================================
-     SLIDE 16 · §7 EL ASK · 5 DECISIONES BINARIAS
+     SLIDE 17 · §7 EL ASK · 5 DECISIONES BINARIAS
      ========================================================= -->
-<section class="slide" data-index="16">
+<section class="slide" data-index="17">
   <div class="content">
     <div class="section-num">07 · El Ask</div>
     <h1 class="slide-h1"><em>Cinco decisiones binarias</em> en esta sesión.</h1>
@@ -818,9 +888,9 @@ body.review-mode #nav-prev, body.review-mode #nav-next, body.review-mode #counte
 </section>
 
 <!-- =========================================================
-     SLIDE 17 · CIERRE · 30 DÍAS
+     SLIDE 18 · CIERRE · 30 DÍAS
      ========================================================= -->
-<section class="slide closing" data-index="17">
+<section class="slide closing" data-index="18">
   <div class="closing-inner">
     <div class="closing-top">
       <div class="closing-eyebrow">Si aprueban hoy</div>
@@ -852,7 +922,7 @@ body.review-mode #nav-prev, body.review-mode #nav-next, body.review-mode #counte
 
 <!-- ========== UI ========== -->
 <div id="progress"></div>
-<div id="counter">1 / 17</div>
+<div id="counter">1 / 18</div>
 <button class="nav-btn" id="nav-prev" aria-label="Anterior">‹</button>
 <button class="nav-btn" id="nav-next" aria-label="Siguiente">›</button>
 <button id="review-toggle" aria-label="Modo review">Review</button>
