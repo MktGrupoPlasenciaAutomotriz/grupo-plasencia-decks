@@ -83,6 +83,16 @@ body.review-mode #nav-prev, body.review-mode #nav-next, body.review-mode #counte
 .kpi-num.blue { color: var(--deep-blue); }
 .kpi-sub { font-family: var(--sans); font-size: 9.5pt; color: var(--g600); margin-top: 8px; line-height: 1.5; }
 
+/* ========== MKT COMPOSITION (slide 3) ========== */
+.mkt-composition { margin-top: 14px; padding: 12px 16px; background: var(--paper); border: 1px solid var(--g200); border-radius: 8px; border-left: 4px solid var(--gp-navy); }
+.mkt-comp-label { font-family:var(--sans); font-size:8.5pt; font-weight:700; letter-spacing:1.5px; color: var(--gp-navy); text-transform:uppercase; margin-bottom:10px; }
+.mkt-comp-grid { display:grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+.mkt-comp-block { padding: 8px 12px; border-left: 3px solid var(--gp-red); background: rgba(200,16,46,.03); border-radius: 4px; }
+.mkt-comp-block.navy { border-left-color: var(--gp-navy); background: rgba(30,39,64,.05); }
+.mkt-comp-sub { font-family:var(--sans); font-size:8.5pt; font-weight:700; letter-spacing:1px; color: var(--g500); text-transform:uppercase; margin-bottom:3px; }
+.mkt-comp-num { font-family:var(--serif); font-weight:900; font-size:20pt; color: var(--gp-navy); line-height:1.05; letter-spacing:-.8px; font-variant-numeric: tabular-nums; margin-bottom:4px; }
+.mkt-comp-detail { font-family:var(--sans); font-size:8.5pt; color: var(--g600); line-height:1.35; }
+
 /* ========== LEGACY SLIDE (§0) ========== */
 .legacy-inner { padding: 90px 120px 90px 120px; flex:1; display:flex; flex-direction:column; justify-content:center; gap: 26px; }
 .legacy-eyebrow { font-family:var(--sans); font-size:10pt; font-weight:700; letter-spacing:5px; color: var(--gp-red); text-transform:uppercase; }
@@ -211,6 +221,15 @@ body.review-mode #nav-prev, body.review-mode #nav-next, body.review-mode #counte
 .week-card.w4 .week-label { color: var(--deep-green); }
 .week-body { font-family:var(--sans); font-size:10pt; color: var(--g600); line-height:1.5; }
 .week-body strong { color: var(--gp-navy); font-weight:600; }
+
+/* ========== ASK3 CIERRE ========== */
+.ask3-timeline { display:flex; flex-direction:column; gap: 12px; margin-top: 18px; }
+.ask3-card { display:grid; grid-template-columns: 64px 1fr; gap: 22px; align-items:center; padding: 18px 22px; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.14); border-radius: 10px; backdrop-filter: blur(4px); }
+.ask3-num { font-family:var(--serif); font-weight:900; font-size:36pt; color: var(--gold); line-height:1; text-align:center; font-style:italic; }
+.ask3-body { }
+.ask3-title { font-family:var(--serif); font-weight:700; font-size:15pt; color: var(--near-white); letter-spacing:-.3px; margin-bottom: 5px; }
+.ask3-title em { font-style:italic; color: var(--gold); font-weight:800; }
+.ask3-text { font-family:var(--sans); font-size:10.5pt; color: rgba(255,255,255,.82); line-height:1.5; }
 
 /* ========== NO ES LIST ========== */
 .no-list { display:grid; grid-template-columns: 1fr 1fr; gap: 12px 26px; margin-top: 14px; }
@@ -389,6 +408,26 @@ body.review-mode #nav-prev, body.review-mode #nav-next, body.review-mode #counte
         <div class="kpi-label">Prototipo Marketplace</div>
         <div class="kpi-num gold">LIVE</div>
         <div class="kpi-sub">16 pantallas + wizards + asistente IA</div>
+      </div>
+    </div>
+    <div class="mkt-composition">
+      <div class="mkt-comp-label">Composición del gasto MKT · Cargado al P&amp;L 2025</div>
+      <div class="mkt-comp-grid">
+        <div class="mkt-comp-block">
+          <div class="mkt-comp-sub">Marketing "puro"</div>
+          <div class="mkt-comp-num">$114.8M</div>
+          <div class="mkt-comp-detail">Publicidad $49.6M · Promoción $50.1M · Nómina cargada $15.1M</div>
+        </div>
+        <div class="mkt-comp-block">
+          <div class="mkt-comp-sub">Promo 2 · Bono OEM bi-direccional</div>
+          <div class="mkt-comp-num">$97.9M</div>
+          <div class="mkt-comp-detail">Devolución del fabricante al Grupo por volumen · varía por marca</div>
+        </div>
+        <div class="mkt-comp-block navy">
+          <div class="mkt-comp-sub">Total cargado al P&amp;L</div>
+          <div class="mkt-comp-num">$212.6M</div>
+          <div class="mkt-comp-detail">0.54% del revenue del Grupo · el desglose por marca aparece adelante</div>
+        </div>
       </div>
     </div>
   </div>
@@ -916,33 +955,38 @@ body.review-mode #nav-prev, body.review-mode #nav-next, body.review-mode #counte
 </section>
 
 <!-- =========================================================
-     SLIDE 18 · CIERRE · 30 DÍAS
+     SLIDE 18 · CIERRE · LO QUE NECESITAMOS DEL CONSEJO HOY
      ========================================================= -->
 <section class="slide closing" data-index="18">
   <div class="closing-inner">
     <div class="closing-top">
-      <div class="closing-eyebrow">Si aprueban hoy</div>
-      <h1 class="closing-title">Los <em>próximos 30 días</em> quedan así.</h1>
+      <div class="closing-eyebrow">El orden correcto</div>
+      <h1 class="closing-title">Primero <em>la decisión</em>. Después el plan.</h1>
     </div>
-    <div class="week-timeline">
-      <div class="week-card">
-        <div class="week-label">Semana 1</div>
-        <div class="week-body">Formalización de la Dirección y cierre de la contratación del <strong>CGO externo estratégico</strong>.</div>
+    <div class="ask3-timeline">
+      <div class="ask3-card">
+        <div class="ask3-num">1</div>
+        <div class="ask3-body">
+          <div class="ask3-title">Validación de la <em>visión y el modelo</em></div>
+          <div class="ask3-text">Autorización conceptual del reencuadre: que el Consejo confirme que la Dirección de Marketing Corporativo, Growth &amp; New Ventures es el rumbo correcto y que el modelo de operación planteado es el correcto.</div>
+        </div>
       </div>
-      <div class="week-card w2">
-        <div class="week-label">Semana 2</div>
-        <div class="week-body">Apertura del proceso de contratación de perfiles clave de cada <strong>bucket de partners</strong>. Formalización de las dos Subdirecciones internas con las candidatas propuestas.</div>
+      <div class="ask3-card">
+        <div class="ask3-num">2</div>
+        <div class="ask3-body">
+          <div class="ask3-title">Confirmación del <em>budget disponible</em></div>
+          <div class="ask3-text">No se piden montos comprometidos hoy — se pide claridad del rango con el que el Consejo autoriza operar la Fase 1 para poder cotizar contra él. Sin ese marco, cualquier RFP a proveedores queda a ciegas.</div>
+        </div>
       </div>
-      <div class="week-card w3">
-        <div class="week-label">Semana 3</div>
-        <div class="week-body">Convocatoria a la <strong>mesa de descubrimiento tech</strong> con TI, Finanzas y el equipo CX para el diseño formal de la integración por olas.</div>
-      </div>
-      <div class="week-card w4">
-        <div class="week-label">Semana 4</div>
-        <div class="week-body">Firma de los términos de participación con los primeros dos <strong>Founding Partners internos</strong> del Marketplace.</div>
+      <div class="ask3-card">
+        <div class="ask3-num">3</div>
+        <div class="ask3-body">
+          <div class="ask3-title">Luz verde para <em>presentar a los Directores de Marca</em></div>
+          <div class="ask3-text">Permiso para abrir la conversación con cada Dirección sobre participación voluntaria como vendor del Marketplace y sobre sumar el canal desde su BAU según cada quien decida.</div>
+        </div>
       </div>
     </div>
-    <div class="closing-close">El primer entregable de progreso al Consejo llega a la sesión siguiente. <strong>Empezamos a construir el canal que hoy no existe.</strong></div>
+    <div class="closing-close">Con esas tres cosas arranca el trabajo real: cotizaciones a proveedores, RFP con alcance específico, descubrimiento tech con TI y Finanzas, y conversaciones con cada Dirección. <strong>El plan de trabajo detallado se construye después de la autorización, no antes.</strong></div>
   </div>
 </section>
 
