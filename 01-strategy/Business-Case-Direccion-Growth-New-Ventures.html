@@ -62,7 +62,13 @@ body.review-mode #nav-prev, body.review-mode #nav-next, body.review-mode #counte
 .slide-lede em { font-style: italic; color: var(--gp-navy); }
 .slide-footer { position:absolute; bottom:22px; left:80px; right:80px; display:flex; justify-content:space-between; align-items:center; font-family: var(--sans); font-size: 8.5pt; color: var(--g500); border-top: 1px solid var(--g200); padding-top: 10px; gap: 16px; }
 .slide-footer .dot { display:inline-block; width:8px; height:8px; background: var(--gp-red); border-radius:50%; margin-right:6px; vertical-align:middle; }
-.slide-footer .brand { font-family: var(--sans); font-weight:700; letter-spacing:1.5px; text-transform:uppercase; font-size: 8pt; color: var(--gp-navy); }
+.slide-footer .brand { font-family: var(--sans); font-weight:700; letter-spacing:1.5px; text-transform:uppercase; font-size: 8pt; color: var(--gp-navy); display:flex; align-items:center; gap:10px; }
+.slide-footer .brand img { height: 20px; width: auto; opacity: .9; }
+
+/* ========== COVER LOGO ========== */
+.cover-logo { height: 44px; width: auto; opacity: .95; }
+.closing-logo { height: 40px; width: auto; opacity: .95; }
+.cover-top-right { display:flex; flex-direction:column; align-items:flex-end; gap:12px; }
 
 /* ========== KPI GRID ========== */
 .kpi-grid { display:grid; gap:16px; }
@@ -132,6 +138,10 @@ body.review-mode #nav-prev, body.review-mode #nav-next, body.review-mode #counte
 .org-row { display:flex; gap: 12px; justify-content:center; }
 .org-row.subs .org-node { background: var(--paper); border-top: 3px solid var(--amber); padding: 9px 16px; }
 .org-row.subs .org-node small { display:block; font-family:var(--sans); font-weight:400; font-size:8pt; color: var(--g500); margin-top:2px; letter-spacing:0; text-transform:none; }
+.org-row.subs4 { display:grid; grid-template-columns: repeat(4, 1fr); gap: 10px; width:100%; padding: 0 4px; }
+.org-row.subs4 .org-node { background: var(--paper); border-top: 3px solid var(--amber); padding: 8px 12px; font-size: 9.5pt; }
+.org-row.subs4 .org-node small { display:block; font-family:var(--sans); font-weight:400; font-size:7.5pt; color: var(--g500); margin-top:2px; letter-spacing:0; text-transform:none; line-height:1.3; }
+.org-row.subs4 .org-node small em { font-style:italic; color: var(--gp-red); font-weight:600; }
 .org-row.buckets { margin-top: 8px; flex-wrap: wrap; }
 .org-row.buckets .org-node { background: var(--near-white); font-size: 9pt; padding: 10px 14px; border-top: 2px solid var(--blue); }
 .buckets-explain { margin-top: 10px; padding: 10px 14px; background: var(--paper); border: 1px solid var(--g200); border-radius: 8px; }
@@ -332,7 +342,10 @@ body.review-mode #nav-prev, body.review-mode #nav-next, body.review-mode #counte
         Growth &amp; New Ventures
         <span>Business Case al Consejo Directivo</span>
       </div>
-      <div class="cover-confidencial">Confidencial · Interno</div>
+      <div class="cover-top-right">
+        <img class="cover-logo" src="../assets/logos/LOGO-GP-Blanco.png" alt="Grupo Plasencia Automotriz">
+        <div class="cover-confidencial">Confidencial · Interno</div>
+      </div>
     </div>
     <div>
       <div class="cover-eyebrow">Marketing Corporativo</div>
@@ -372,7 +385,7 @@ body.review-mode #nav-prev, body.review-mode #nav-next, body.review-mode #counte
   </div>
   <div class="slide-footer">
     <span><span class="dot"></span>Reconocimiento del legado</span>
-    <span class="brand">Grupo Plasencia Automotriz</span>
+    <span class="brand"><img src="../assets/logos/Logo-GP-Negro.png" alt="Grupo Plasencia">Grupo Plasencia Automotriz</span>
   </div>
 </section>
 
@@ -429,7 +442,7 @@ body.review-mode #nav-prev, body.review-mode #nav-next, body.review-mode #counte
   </div>
   <div class="slide-footer">
     <span><span class="dot"></span>01 · Situación · Base y evidencia</span>
-    <span class="brand">Grupo Plasencia Automotriz</span>
+    <span class="brand"><img src="../assets/logos/Logo-GP-Negro.png" alt="Grupo Plasencia">Grupo Plasencia Automotriz</span>
   </div>
 </section>
 
@@ -467,7 +480,7 @@ body.review-mode #nav-prev, body.review-mode #nav-next, body.review-mode #counte
   </div>
   <div class="slide-footer">
     <span><span class="dot"></span>01 · CX como habilitador · Marketplace como exponente</span>
-    <span class="brand">Grupo Plasencia Automotriz</span>
+    <span class="brand"><img src="../assets/logos/Logo-GP-Negro.png" alt="Grupo Plasencia">Grupo Plasencia Automotriz</span>
   </div>
 </section>
 
@@ -514,7 +527,7 @@ body.review-mode #nav-prev, body.review-mode #nav-next, body.review-mode #counte
   </div>
   <div class="slide-footer">
     <span><span class="dot"></span>01 · El BAU marca por marca · Cada Director decide</span>
-    <span class="brand">Grupo Plasencia Automotriz</span>
+    <span class="brand"><img src="../assets/logos/Logo-GP-Negro.png" alt="Grupo Plasencia">Grupo Plasencia Automotriz</span>
   </div>
 </section>
 
@@ -543,7 +556,7 @@ body.review-mode #nav-prev, body.review-mode #nav-next, body.review-mode #counte
   </div>
   <div class="slide-footer">
     <span><span class="dot"></span>02 · Complicación · Tres vacíos estructurales</span>
-    <span class="brand">Grupo Plasencia Automotriz</span>
+    <span class="brand"><img src="../assets/logos/Logo-GP-Negro.png" alt="Grupo Plasencia">Grupo Plasencia Automotriz</span>
   </div>
 </section>
 
@@ -568,7 +581,7 @@ body.review-mode #nav-prev, body.review-mode #nav-next, body.review-mode #counte
   </div>
   <div class="slide-footer">
     <span><span class="dot"></span>02 · Costo de no actuar</span>
-    <span class="brand">Grupo Plasencia Automotriz</span>
+    <span class="brand"><img src="../assets/logos/Logo-GP-Negro.png" alt="Grupo Plasencia">Grupo Plasencia Automotriz</span>
   </div>
 </section>
 
@@ -588,7 +601,7 @@ body.review-mode #nav-prev, body.review-mode #nav-next, body.review-mode #counte
   </div>
   <div class="slide-footer">
     <span><span class="dot"></span>03 · Resolución · La tesis</span>
-    <span class="brand">Grupo Plasencia Automotriz</span>
+    <span class="brand"><img src="../assets/logos/Logo-GP-Negro.png" alt="Grupo Plasencia">Grupo Plasencia Automotriz</span>
   </div>
 </section>
 
@@ -624,7 +637,7 @@ body.review-mode #nav-prev, body.review-mode #nav-next, body.review-mode #counte
   </div>
   <div class="slide-footer">
     <span><span class="dot"></span>03 · Los cuatro pilares como sistema</span>
-    <span class="brand">Grupo Plasencia Automotriz</span>
+    <span class="brand"><img src="../assets/logos/Logo-GP-Negro.png" alt="Grupo Plasencia">Grupo Plasencia Automotriz</span>
   </div>
 </section>
 
@@ -647,7 +660,7 @@ body.review-mode #nav-prev, body.review-mode #nav-next, body.review-mode #counte
   </div>
   <div class="slide-footer">
     <span><span class="dot"></span>03 · Lo que esta estrategia NO es</span>
-    <span class="brand">Grupo Plasencia Automotriz</span>
+    <span class="brand"><img src="../assets/logos/Logo-GP-Negro.png" alt="Grupo Plasencia">Grupo Plasencia Automotriz</span>
   </div>
 </section>
 
@@ -657,16 +670,18 @@ body.review-mode #nav-prev, body.review-mode #nav-next, body.review-mode #counte
 <section class="slide" data-index="11">
   <div class="content">
     <div class="section-num">04 · El Modelo · Estructura</div>
-    <h1 class="slide-h1">Un <em>Director de Crecimiento externo</em>, dos personas del Grupo, cuatro proveedores.</h1>
-    <p class="slide-lede">La Dirección reporta al Consejo. El Director de Crecimiento entra como firma externa con pago fijo mensual más bono por resultados. Dos Subdirecciones internas del propio Grupo consolidan el reporte del BAU. Cuatro proveedores externos entregan por función.</p>
+    <h1 class="slide-h1">Un <em>Director de Crecimiento externo</em>, cuatro Subdirecciones, cuatro proveedores.</h1>
+    <p class="slide-lede">La Dirección reporta al Consejo. El Director de Crecimiento entra como firma externa con pago fijo mensual + bono por resultados. Cuatro Subdirecciones internas del propio Grupo — dos que se dividen las marcas del BAU, una para las líneas nuevas de negocio, una para growth que se busca fuera del Grupo. Cuatro proveedores externos entregan por función.</p>
     <div class="org-chart">
       <div class="org-node consejo">Consejo Directivo</div>
       <div class="org-connector"></div>
       <div class="org-node cgo">Director de Crecimiento · Asesor externo<small>Firma externa · Pago fijo + bono por resultados</small></div>
       <div class="org-connector"></div>
-      <div class="org-row subs">
-        <div class="org-node">Marketing Ops<small><strong>Florencia Alcaraz</strong> · Consolida el reporte del BAU · Lidera la construcción del Centro de Excelencia</small></div>
-        <div class="org-node">Nuevas Verticales y Ventures<small><strong>Verónica Orozco</strong> · Marketplace · Marca china · Autolease · Flotillas</small></div>
+      <div class="org-row subs4">
+        <div class="org-node">Marketing Ops · Marcas A<small><strong>Florencia Alcaraz</strong> · Bloque de marcas del BAU · Centro de Excelencia</small></div>
+        <div class="org-node">Marketing Ops · Marcas B<small><strong>Verónica Orozco</strong> · Bloque de marcas del BAU · Centro de Excelencia</small></div>
+        <div class="org-node">Nuevas Verticales<small><strong>Elia García</strong> · Marketplace · Marca china · Autolease · Flotillas</small></div>
+        <div class="org-node">Growth<small><em>TBD</em> · Perfil que hoy no existe en el Grupo · se busca fuera</small></div>
       </div>
     </div>
     <div class="buckets-explain">
@@ -681,7 +696,7 @@ body.review-mode #nav-prev, body.review-mode #nav-next, body.review-mode #counte
   </div>
   <div class="slide-footer">
     <span><span class="dot"></span>04 · Estructura de la Dirección</span>
-    <span class="brand">Grupo Plasencia Automotriz</span>
+    <span class="brand"><img src="../assets/logos/Logo-GP-Negro.png" alt="Grupo Plasencia">Grupo Plasencia Automotriz</span>
   </div>
 </section>
 
@@ -713,7 +728,7 @@ body.review-mode #nav-prev, body.review-mode #nav-next, body.review-mode #counte
   </div>
   <div class="slide-footer">
     <span><span class="dot"></span>04 · Relación con el BAU · Tres flujos formales</span>
-    <span class="brand">Grupo Plasencia Automotriz</span>
+    <span class="brand"><img src="../assets/logos/Logo-GP-Negro.png" alt="Grupo Plasencia">Grupo Plasencia Automotriz</span>
   </div>
 </section>
 
@@ -758,7 +773,7 @@ body.review-mode #nav-prev, body.review-mode #nav-next, body.review-mode #counte
   </div>
   <div class="slide-footer">
     <span><span class="dot"></span>04 · Marketplace two-sided · Cómo genera dinero</span>
-    <span class="brand">Grupo Plasencia Automotriz</span>
+    <span class="brand"><img src="../assets/logos/Logo-GP-Negro.png" alt="Grupo Plasencia">Grupo Plasencia Automotriz</span>
   </div>
 </section>
 
@@ -823,7 +838,7 @@ body.review-mode #nav-prev, body.review-mode #nav-next, body.review-mode #counte
   </div>
   <div class="slide-footer">
     <span><span class="dot"></span>05 · El Roadmap · Tres fases con kill criteria</span>
-    <span class="brand">Grupo Plasencia Automotriz</span>
+    <span class="brand"><img src="../assets/logos/Logo-GP-Negro.png" alt="Grupo Plasencia">Grupo Plasencia Automotriz</span>
   </div>
 </section>
 
@@ -855,7 +870,7 @@ body.review-mode #nav-prev, body.review-mode #nav-next, body.review-mode #counte
   </div>
   <div class="slide-footer">
     <span><span class="dot"></span>06 · Tres partes del caso financiero</span>
-    <span class="brand">Grupo Plasencia Automotriz</span>
+    <span class="brand"><img src="../assets/logos/Logo-GP-Negro.png" alt="Grupo Plasencia">Grupo Plasencia Automotriz</span>
   </div>
 </section>
 
@@ -890,7 +905,7 @@ body.review-mode #nav-prev, body.review-mode #nav-next, body.review-mode #counte
   </div>
   <div class="slide-footer">
     <span><span class="dot"></span>06 · Killer metric + Benchmark comparativo</span>
-    <span class="brand">Grupo Plasencia Automotriz</span>
+    <span class="brand"><img src="../assets/logos/Logo-GP-Negro.png" alt="Grupo Plasencia">Grupo Plasencia Automotriz</span>
   </div>
 </section>
 
@@ -941,7 +956,7 @@ body.review-mode #nav-prev, body.review-mode #nav-next, body.review-mode #counte
   </div>
   <div class="slide-footer">
     <span><span class="dot"></span>07 · Cinco decisiones de sí o no</span>
-    <span class="brand">Grupo Plasencia Automotriz</span>
+    <span class="brand"><img src="../assets/logos/Logo-GP-Negro.png" alt="Grupo Plasencia">Grupo Plasencia Automotriz</span>
   </div>
 </section>
 
@@ -951,7 +966,10 @@ body.review-mode #nav-prev, body.review-mode #nav-next, body.review-mode #counte
 <section class="slide closing" data-index="18">
   <div class="closing-inner">
     <div class="closing-top">
-      <div class="closing-eyebrow">El orden correcto</div>
+      <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:14px;">
+        <div class="closing-eyebrow">El orden correcto</div>
+        <img class="closing-logo" src="../assets/logos/LOGO-GP-Blanco.png" alt="Grupo Plasencia">
+      </div>
       <h1 class="closing-title">Primero <em>la decisión</em>. Después el plan.</h1>
     </div>
     <div class="ask3-timeline">
