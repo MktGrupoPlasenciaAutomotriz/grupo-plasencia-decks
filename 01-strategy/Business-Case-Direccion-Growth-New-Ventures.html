@@ -124,6 +124,16 @@ body.review-mode #nav-prev, body.review-mode #nav-next, body.review-mode #counte
 .org-row.subs .org-node small { display:block; font-family:var(--sans); font-weight:400; font-size:8.5pt; color: var(--g500); margin-top:3px; letter-spacing:0; text-transform:none; }
 .org-row.buckets { margin-top: 8px; flex-wrap: wrap; }
 .org-row.buckets .org-node { background: var(--near-white); font-size: 9pt; padding: 10px 14px; border-top: 2px solid var(--blue); }
+.org-row-ce { display:flex; flex-direction:column; align-items:center; margin-top:8px; }
+.ce-line { width:2px; height:12px; background: var(--amber); }
+.ce-node { background: var(--near-white); border: 1px dashed var(--amber); border-radius:8px; padding: 10px 22px; text-align:center; font-family:var(--sans); font-size:10pt; font-weight:600; color: var(--gp-navy); }
+.ce-node small { display:block; font-family:var(--sans); font-weight:400; font-size:8pt; color: var(--g500); margin-top:3px; letter-spacing:0; text-transform:none; font-style:italic; }
+.buckets-explain { margin-top: 14px; padding: 14px 18px; background: var(--paper); border: 1px solid var(--g200); border-radius: 8px; }
+.buckets-label { font-family:var(--sans); font-size:9pt; font-weight:700; letter-spacing:1.5px; color: var(--blue); text-transform:uppercase; margin-bottom:10px; }
+.buckets-grid { display:grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.bucket-item { padding: 8px 10px; border-left: 3px solid var(--blue); background: rgba(66,153,225,.05); border-radius: 4px; }
+.bucket-item strong { display:block; font-family:var(--sans); font-size:9.5pt; color: var(--gp-navy); font-weight:700; margin-bottom:3px; }
+.bucket-item small { font-family:var(--sans); font-size:8pt; color: var(--g600); line-height:1.35; }
 
 /* ========== BAU 3 FLUJOS ========== */
 .flujos-grid { display:grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 16px; }
@@ -260,6 +270,11 @@ body.review-mode #nav-prev, body.review-mode #nav-next, body.review-mode #counte
 .mp-note { grid-column: 1 / -1; padding: 14px 22px; background: rgba(30,39,64,.04); border-left: 3px solid var(--gp-navy); border-radius: 4px; font-family:var(--sans); font-size:10pt; color: var(--gp-navy); line-height:1.5; font-weight:500; margin-top: 4px; }
 .mp-note strong { font-weight:700; }
 .mp-note em { font-style:italic; }
+.mp-scope { padding: 12px 16px; background: var(--paper); border: 1px solid var(--g200); border-radius: 8px; border-left: 4px solid var(--gp-red); }
+.mp-scope-label { font-family:var(--sans); font-size:8.5pt; font-weight:700; letter-spacing:1.5px; color: var(--gp-red); text-transform:uppercase; margin-bottom:8px; }
+.mp-scope-grid { display:grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.mp-scope-item strong { display:block; font-family:var(--sans); font-size:9.5pt; color: var(--gp-navy); font-weight:700; margin-bottom:3px; }
+.mp-scope-item small { font-family:var(--sans); font-size:8pt; color: var(--g600); line-height:1.35; display:block; }
 
 /* ========== BAU TABLE + LINEAS TRANSVERSALES ========== */
 .bau-table-wrap { background: var(--paper); border: 1px solid var(--g200); border-radius: 10px; padding: 6px 16px; box-shadow: 0 1px 3px rgba(30,39,64,.05); }
@@ -552,18 +567,18 @@ body.review-mode #nav-prev, body.review-mode #nav-next, body.review-mode #counte
     <div class="pilares-grid">
       <div class="pilar-card">
         <div class="pilar-num">Uno</div>
-        <div class="pilar-title">Plataforma de canal con <em>revenue propio</em></div>
-        <div class="pilar-body">Marketplace <strong>de dos lados</strong>. Vendors voluntarios pagan fee mensual + take rate. Medición dual: la plataforma responde por citas, el vendor por walk-in y cierre. Se apalanca en CX del Grupo sin duplicar.</div>
+        <div class="pilar-title">Plataforma con <em>vendors del Grupo</em></div>
+        <div class="pilar-body">Marketplace de dos lados. <strong>Los vendors son los propios concesionarios OEM del Grupo</strong> — cada marca decide entrar voluntariamente, publica catálogo bajo marco de calidad, y paga fee mensual + take rate. Los primeros en unirse son <em>Founding Partners</em>: 2-3 marcas del Grupo que arrancan con fee subvencionado en Fase 1 como caso de referencia. Medición dual: la plataforma responde por citas, el vendor por walk-in y cierre.</div>
       </div>
       <div class="pilar-card">
         <div class="pilar-num">Dos</div>
-        <div class="pilar-title">Vertical <em>PoC end-to-end</em></div>
-        <div class="pilar-body">Una marca del portafolio operada bajo la Dirección con el <strong>blueprint completo</strong>: catálogo, brand, adquisición, cita, walk-in, venta, servicio, retorno como seminuevo, recompra. P&amp;L propio, riesgo contenido.</div>
+        <div class="pilar-title">Vertical PoC · <em>una marca china</em></div>
+        <div class="pilar-body"><strong>Changan o GAC</strong> como candidatas naturales por tres razones: porción reducida del volumen de ventas del Grupo (si falla, no afecta el consolidado), sus Directores han mostrado apertura explícita al modelo, y son las marcas del Grupo con fabricantes más flexibles a innovación digital. Blueprint E2E completo — catálogo, brand con influencers, adquisición, walk-in, venta, servicio, retorno, recompra — con P&amp;L propio y riesgo contenido.</div>
       </div>
       <div class="pilar-card">
         <div class="pilar-num">Tres</div>
         <div class="pilar-title">Marca-<em>paraguas</em> del Grupo</div>
-        <div class="pilar-body">Plasencia como marca del canal, no como suma de marcas OEM. Contenido, presencia de creators, campañas de brand cross-marca. <strong>Libera</strong> el terreno de brand que hoy los fabricantes limitan al concesionario individual.</div>
+        <div class="pilar-body">Plasencia como marca del canal, no como suma de marcas OEM. <strong>Trabajo con creators e influencers</strong> en los canales donde el comprador de auto descubre — prioridad que <em>el Consejo ha planteado explícitamente</em>, no imposición de la Dirección. Contenido editorial, campañas de awareness del Grupo como concepto, activaciones. Patrón Kavak/Lithia/Asbury: la marca del retailer termina pesando más que la marca del fabricante en la decisión de compra.</div>
       </div>
       <div class="pilar-card">
         <div class="pilar-num">Cuatro</div>
@@ -608,23 +623,29 @@ body.review-mode #nav-prev, body.review-mode #nav-next, body.review-mode #counte
 <section class="slide" data-index="11">
   <div class="content">
     <div class="section-num">04 · El Modelo · Estructura</div>
-    <h1 class="slide-h1">CGO externo + <em>dos Subdirecciones</em> + cuatro buckets de partners.</h1>
-    <p class="slide-lede">La Dirección reporta directamente al Consejo. El CGO externo se contrata via <strong>firma externa</strong> bajo modelo retainer + performance-linked. Dos Subdirecciones internas reportan al CGO. Cuatro buckets de partners externos entregan por proyecto.</p>
+    <h1 class="slide-h1">CGO externo, <em>dos Subdirecciones internas</em>, cuatro proveedores externos.</h1>
+    <p class="slide-lede">La Dirección reporta directamente al Consejo. El CGO se contrata via firma externa con retainer + performance-linked. Dos Subdirecciones internas del Grupo consolidan el reporte del BAU y lideran la transición al Centro de Excelencia. Cuatro buckets de proveedores externos reportan al CGO por función.</p>
     <div class="org-chart">
       <div class="org-node consejo">Consejo Directivo</div>
       <div class="org-connector"></div>
       <div class="org-node cgo">CGO externo estratégico<small>Firma externa · Retainer + performance-linked</small></div>
       <div class="org-connector"></div>
       <div class="org-row subs">
-        <div class="org-node">Subdirección de Marketing Ops<small>Florencia Alcaraz + Verónica Orozco · relación la define el Consejo</small></div>
-        <div class="org-node">Subdirección de Nuevas Verticales y Ventures<small>Elia García</small></div>
+        <div class="org-node">Subdirección · Marketing Ops<small><strong>Florencia Alcaraz</strong> · consolida BAU as-is del Grupo · lidera transición al CoE MKT internalizado</small></div>
+        <div class="org-node">Subdirección · Nuevas Verticales y Ventures<small><strong>Verónica Orozco</strong> · Marketplace + vertical PoC + Autolease + Flotillas + Ola 3</small></div>
       </div>
-      <div class="org-connector"></div>
-      <div class="org-row buckets">
-        <div class="org-node">Digital Factory<br><small style="color:var(--g500); font-weight:400; font-size:8pt;">+ línea IA conversacional</small></div>
-        <div class="org-node">Diseño Estratégico</div>
-        <div class="org-node">Marketing y Growth Ops</div>
-        <div class="org-node">Marketplace Ops · BD</div>
+      <div class="org-row-ce">
+        <div class="ce-line"></div>
+        <div class="ce-node">Centro de Excelencia MKT internalizado del Grupo<small>Reporta a Marketing Ops · Formalizado en la transición del BAU</small></div>
+      </div>
+    </div>
+    <div class="buckets-explain">
+      <div class="buckets-label">Cuatro proveedores externos que reportan al CGO</div>
+      <div class="buckets-grid">
+        <div class="bucket-item"><strong>Digital Factory</strong><small>Product + design + engineering. Construye la plataforma. Incluye línea IA conversacional del Grupo (Plasi como primer producto).</small></div>
+        <div class="bucket-item"><strong>Diseño Estratégico</strong><small>User research + service design + brand identity. Define qué se construye antes de construirlo.</small></div>
+        <div class="bucket-item"><strong>Marketing &amp; Growth Ops</strong><small>Performance media + creativos + content + analytics + CRO. Enciende la máquina de adquisición.</small></div>
+        <div class="bucket-item"><strong>Marketplace Ops · BD</strong><small>Seller success + partnerships financieros + servicios adyacentes + BD B2B para Flotillas y Ola 3.</small></div>
       </div>
     </div>
   </div>
@@ -672,29 +693,36 @@ body.review-mode #nav-prev, body.review-mode #nav-next, body.review-mode #counte
 <section class="slide" data-index="13">
   <div class="content">
     <div class="section-num">04 · El Modelo · Marketplace two-sided</div>
-    <h1 class="slide-h1">Plataforma de dos lados con <em>revenue propio</em>.</h1>
-    <p class="slide-lede">Cada vendor firma condiciones estándar: fee mensual + marco de calidad + SLA operativo. A cambio recibe tráfico calificado, atribución auditable, presencia en la marca-paraguas y acceso a las capacidades cross-marca. Dos fuentes de revenue estructurales.</p>
-    <div class="mp-flow">
+    <h1 class="slide-h1">Plataforma <em>end-to-end cross-marca</em> con revenue propio.</h1>
+    <p class="slide-lede">El vendor firma fee mensual + marco de calidad + SLA operativo. A cambio accede a <strong>la propuesta cross-marca completa del Grupo</strong>: gestión del journey del cliente en todas las marcas, todas las líneas de negocio y todos los productos y servicios — offering al 100% del Grupo, end-to-end, cross-marca.</p>
+    <div class="mp-scope">
+      <div class="mp-scope-label">Alcance del Marketplace · lo que el vendor accede</div>
+      <div class="mp-scope-grid">
+        <div class="mp-scope-item"><strong>Todas las marcas</strong><small>Marcas OEM del portafolio + Seminuevos</small></div>
+        <div class="mp-scope-item"><strong>Todas las líneas</strong><small>Nuevos, Seminuevos, Servicio, Refacciones, Seguros, Flotillas B2B, Autolease</small></div>
+        <div class="mp-scope-item"><strong>Journey E2E</strong><small>Descubrimiento, comparación, agenda, walk-in, venta, entrega, post-venta, mantenimiento, retorno, recompra</small></div>
+        <div class="mp-scope-item"><strong>Originación digital y pagos</strong><small>Crédito, arrendamiento, apartados, enganches, adelantos, pagos de mantenimiento</small></div>
+      </div>
+    </div>
+    <div class="mp-flow" style="margin-top:14px;">
       <div class="mp-panel">
         <h3>Subscription <em>recurrente</em></h3>
         <ul>
           <li><strong>Fee mensual</strong> por vendor por estar en la plataforma</li>
-          <li>Tiers y monto se calibran con el Consejo en Fase 1</li>
-          <li>Cubre <strong>costo operativo por vendor</strong> + contribución al fondo de publicidad general</li>
-          <li>Beneficia a todos los vendors por halo cross-brand</li>
+          <li>Cubre costo operativo por vendor + fondo de publicidad general</li>
+          <li>Beneficia a todos por <strong>halo cross-brand</strong> de la marca-paraguas</li>
         </ul>
       </div>
       <div class="mp-panel">
         <h3>Take rate sobre <em>venta atribuida</em></h3>
         <ul>
-          <li>Porcentaje sobre venta cerrada del canal</li>
+          <li>Porcentaje sobre venta cerrada del canal — análogo a MercadoLibre</li>
           <li>Capitaliza al Marketplace su rol de <strong>generador de lead y cita</strong></li>
-          <li>Análogo a MercadoLibre con sellers profesionales</li>
           <li>Streams incrementales: crédito, seguros, servicio, Autolease</li>
         </ul>
       </div>
       <div class="mp-note">
-        <strong>Fees y take rate quedan íntegros como pool interno del Marketplace</strong> con cinco destinos: operación central, publicidad general de la marca-paraguas, amortización del CapEx del Consejo, reinversión en expansión y un innovation fund. <em>La comp del CGO externo se calibra sobre attributable revenue growth generado por la Dirección en su conjunto — no sobre el take rate específico del Marketplace.</em>
+        Fees y take rate son <strong>pool interno del Marketplace</strong> con cinco destinos: operación central, publicidad general marca-paraguas, amortización CapEx del Consejo, reinversión y innovation fund. <em>La comp del CGO se calibra sobre attributable revenue growth de la Dirección en su conjunto, no sobre el take rate específico.</em>
       </div>
     </div>
   </div>
@@ -718,7 +746,7 @@ body.review-mode #nav-prev, body.review-mode #nav-next, body.review-mode #counte
         <div class="fase-title">Fundación y arranque</div>
         <div class="fase-block">
           <div class="fase-block-label">Qué hacemos</div>
-          <div class="fase-block-body">Formalización de la Dirección + CGO externo. Descubrimiento tech con TI y Contraloría. Plan de integración con CX. Contratación de primeros perfiles de bucket. Onboarding de 2–3 Founding Partners internos.</div>
+          <div class="fase-block-body">Formalización de la Dirección + CGO externo. Descubrimiento tech con TI y Finanzas. Plan de integración con CX. Contratación de primeros perfiles de bucket. Onboarding de 2–3 Founding Partners internos.</div>
         </div>
         <div class="fase-block">
           <div class="fase-block-label">Qué ve el Consejo</div>
@@ -781,12 +809,12 @@ body.review-mode #nav-prev, body.review-mode #nav-next, body.review-mode #counte
       <div class="capa-card">
         <div class="capa-num">Capa 1</div>
         <div class="capa-title">Comp CGO externo estratégico</div>
-        <div class="capa-body">Firma externa · <strong>retainer + performance-linked</strong>. Benchmark global: fractional CGO enterprise <em>$20–50K USD/mes</em> + kicker 1–5% sobre attributable revenue growth. Modelo híbrido canónico: retainer floor 60% del fair market + performance + equity opcional. McKinsey opera ~25% de fees globales en outcome-based; Bain con tied economics desde hace décadas. Performance se calibra sobre revenue growth de la Dirección en su conjunto, no sobre take rate específico.</div>
+        <div class="capa-body"><strong>Firma externa · retainer + performance-linked</strong> sobre attributable revenue growth de la Dirección en su conjunto (no sobre take rate específico). El patrón está probado en la industria automotriz: <em>Ford</em> paga a Doug Field (Chief EV, Digital &amp; Design Officer de Model e) ~$15M USD/año con 97% equity y 3% cash — comp atada al valor que crea el vertical. <em>Meta</em> paga a Andrew Bosworth (Head Reality Labs) ~$23M USD/año, 92% equity. <em>Alphabet</em> ata parte de la comp de Pichai al éxito de Waymo. <em>GM Cruise</em> operó con equity structure separada. Benchmark fractional CGO enterprise: retainer <em>$20-50K USD/mes</em> + kicker 1-5% sobre incremental. Los montos se calibran con el Consejo.</div>
       </div>
       <div class="capa-card c2">
         <div class="capa-num">Capa 2</div>
         <div class="capa-title">CapEx del Consejo · Setup + Partners</div>
-        <div class="capa-body">Starter kit para Fase 1. Descubrimiento tech con TI y Contraloría, formalización de Subdirecciones internas, subsidio de Founding Partners iniciales, ingesta del cubo BITAM 30008 de Servicio a D1. Partida más significativa: contratación de <strong>cuatro buckets de partners externos</strong> — Digital Factory con IA conversacional, Diseño Estratégico, Marketing y Growth Ops, Marketplace Ops y BD. Cotizaciones se cierran en Fase 1.</div>
+        <div class="capa-body">Starter kit para Fase 1. Descubrimiento tech con TI y Finanzas, formalización de Subdirecciones internas, subsidio de Founding Partners iniciales, ingesta del cubo BITAM 30008 de Servicio a D1. Partida más significativa: contratación de <strong>cuatro buckets de partners externos</strong> — Digital Factory con IA conversacional, Diseño Estratégico, Marketing y Growth Ops, Marketplace Ops y BD. Cotizaciones se cierran en Fase 1.</div>
       </div>
       <div class="capa-card c3">
         <div class="capa-num">Capa 3</div>
@@ -812,21 +840,21 @@ body.review-mode #nav-prev, body.review-mode #nav-next, body.review-mode #counte
       <div class="killer-panel">
         <div class="killer-label">ROI del piloto · 90 días</div>
         <div class="killer-num">371% <em>–</em> 1,000%+</div>
-        <div class="killer-context">Con la mínima estructura posible: <strong>una persona coordinando doce disciplinas simultáneas</strong>. El modelo escalado, con equipo dimensionado y partners de bucket, tiene margen para deteriorarse significativamente y seguir siendo el <strong>mejor uso marginal del capital de Marketing del Grupo</strong>.</div>
+        <div class="killer-context"><strong>Una persona coordinando doce disciplinas simultáneas</strong>: infraestructura Cloudflare Workers + D1 · motor de atribución con matching contable · tracking server-side (CAPI + GA4) · CRM y kanban con routing WhatsApp · landings y SPAs por marca · catálogos y data pipelines · prototipo Marketplace + IA · pauta Meta multi-cuenta (Andromeda) · producción creativa · UX writing y contenido · docs estratégicos al Consejo · coordinación con gerencias de marca. El modelo escalado tiene <strong>margen para deteriorarse mucho y seguir siendo el mejor uso marginal del capital de MKT</strong>.</div>
       </div>
       <div class="benchmark-panel">
-        <div class="benchmark-label">No sería vanguardia. Sería contemporáneo.</div>
+        <div class="benchmark-label">El patrón ya está probado</div>
         <div class="benchmark-grid">
-          <div class="benchmark-item">Ford Model e vs Ford Blue<small>Separación 2022 · SEC filing público</small></div>
-          <div class="benchmark-item">Alphabet Other Bets<small>Waymo, Verily, X con CEO propio</small></div>
-          <div class="benchmark-item">Meta Reality Labs<small>Segment reporting separado</small></div>
-          <div class="benchmark-item">Toyota Woven Holdings<small>Woven Core + Alpha + Capital</small></div>
-          <div class="benchmark-item">FEMSA · Spin by OXXO<small>Digital cross-marca separado del retail</small></div>
-          <div class="benchmark-item">Cemex Ventures<small>CVC formal desde 2017</small></div>
-          <div class="benchmark-item">Grupo Bimbo Ventures<small>CVC de foodtech desde 2017</small></div>
-          <div class="benchmark-item">Grupo Autofin<small>Cross-vertical automotriz mexicano familiar</small></div>
+          <div class="benchmark-item">Ford (2022)<small>Separó Model e (EV) de Ford Blue (combustión) y Ford Pro (comercial) — tres unidades con P&amp;L y CEO propios</small></div>
+          <div class="benchmark-item">Alphabet<small>Waymo, Verily y Other Bets con CEO propio + segment reporting en 10-K</small></div>
+          <div class="benchmark-item">Meta<small>Reality Labs como segment aparte con inversión y pérdidas visibles al mercado</small></div>
+          <div class="benchmark-item">Toyota<small>Woven Holdings con 3 opcos: Core (software) + Alpha (movilidad) + Capital ($800M VC)</small></div>
+          <div class="benchmark-item">FEMSA<small>Digital@FEMSA con Spin by OXXO como vertical digital cross-marca separado del retail</small></div>
+          <div class="benchmark-item">Cemex Ventures<small>CVC formal desde 2017 — precedente familiar mexicano de venture arm</small></div>
+          <div class="benchmark-item">Grupo Alfa<small>Spin-off secuencial de Nemak (2020), Axtel (2023), Alpek (2024) con acciones directo a shareholders</small></div>
+          <div class="benchmark-item">Grupo Autofin<small>El grupo automotriz familiar mexicano más comparable: 57 dealers, 29 marcas + verticales autonomizadas</small></div>
         </div>
-        <div class="benchmark-close">Plasencia no sería vanguardia — sería <em>contemporáneo</em> con lo que los mayores grupos familiares mexicanos y los corporativos automotrices globales ya adoptaron.</div>
+        <div class="benchmark-close">Separar una vertical con revenue propio y coordinación cross-grupo es <em>el estándar</em> que el sector adoptó hace años. Plasencia no sería vanguardia con este movimiento — sería contemporáneo con los grupos familiares mexicanos de mayor escala y los corporativos automotrices globales.</div>
       </div>
     </div>
   </div>
@@ -907,7 +935,7 @@ body.review-mode #nav-prev, body.review-mode #nav-next, body.review-mode #counte
       </div>
       <div class="week-card w3">
         <div class="week-label">Semana 3</div>
-        <div class="week-body">Convocatoria a la <strong>mesa de descubrimiento tech</strong> con TI, Contraloría y el equipo CX para el diseño formal de la integración por olas.</div>
+        <div class="week-body">Convocatoria a la <strong>mesa de descubrimiento tech</strong> con TI, Finanzas y el equipo CX para el diseño formal de la integración por olas.</div>
       </div>
       <div class="week-card w4">
         <div class="week-label">Semana 4</div>
