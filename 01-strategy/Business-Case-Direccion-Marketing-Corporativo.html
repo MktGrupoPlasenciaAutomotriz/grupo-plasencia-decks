@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dirección de Marketing Corporativo · Business Case v0.6 · Grupo Plasencia Automotriz</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@500;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gp-red: #C8102E; --gp-navy: #1E2740; --gp-slate: #2D3748;
+  --green: #48BB78; --deep-green: #276749;
+  --blue: #4299E1; --deep-blue: #2B6CB0;
+  --amber: #D69E2E; --gold: #ECC94B;
+  --bg: #F0F4F8; --paper: #FFFFFF; --near-white: #F7FAFC;
+  --g100: #EDF2F7; --g200: #E2E8F0; --g300: #CBD5E0; --g400: #A0AEC0; --g500: #718096; --g600: #4A5568; --g700: #2D3748;
+  --text: #2D3748;
+  --serif: 'Playfair Display', Georgia, serif;
+  --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { width:100%; height:100%; overflow:hidden; background:#0d1117; font-family:var(--sans); -webkit-font-smoothing:antialiased; }
+.deck { width:100vw; height:100vh; position:relative; }
+.slide { overflow:hidden; position:absolute; top:0; left:0; width:1280px; height:720px; transform-origin:top left; opacity:0; visibility:hidden; transition: opacity .6s cubic-bezier(.4,0,.2,1); display:flex; flex-direction:column; background: var(--bg); color: var(--text); box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 12px 40px rgba(30,39,64,.12); }
+.slide.active { opacity:1; visibility:visible; }
+.slide.cover, .slide.closing { background: var(--gp-navy); color: var(--near-white); }
+body.review-mode { overflow-y:auto; background:#0A0F1F; padding:32px 0; }
+body.review-mode .slide { position:relative !important; opacity:1 !important; visibility:visible !important; transform:none !important; left:auto !important; top:auto !important; margin:0 auto 32px auto; box-shadow:0 8px 32px rgba(0,0,0,.4); }
+body.review-mode #nav-prev, body.review-mode #nav-next, body.review-mode #counter, body.review-mode #progress { display:none; }
+.content { padding: 42px 72px 56px 72px; flex:1; display:flex; flex-direction:column; gap: 14px; position:relative; }
+.section-num { font-family:var(--sans); font-size:9.5pt; font-weight:700; letter-spacing:4px; color: var(--gp-red); text-transform:uppercase; }
+.slide-h1 { font-family:var(--serif); font-weight:800; font-size:30pt; line-height:1.08; letter-spacing:-1.1px; color: var(--gp-navy); margin-top:4px; }
+.slide-h1 em { font-style:italic; color: var(--amber); font-weight:700; }
+.slide-lede { font-family:var(--sans); font-size:11pt; color: var(--g600); line-height:1.5; margin-top: 2px; max-width: 1130px; }
+.slide-lede strong { color: var(--gp-navy); font-weight:700; }
+.slide-lede em { font-style: italic; color: var(--gp-navy); }
+.slide-footer { position:absolute; bottom:18px; left:72px; right:72px; display:flex; justify-content:space-between; align-items:center; font-family: var(--sans); font-size: 8.5pt; color: var(--g500); border-top: 1px solid var(--g200); padding-top: 10px; gap: 16px; }
+.slide-footer .dot { display:inline-block; width:8px; height:8px; background: var(--gp-red); border-radius:50%; margin-right:6px; vertical-align:middle; }
+.slide-footer .brand { display:flex; align-items:center; gap:8px; }
+.slide-footer .brand img { height: 20px; width: auto; opacity: 0.85; }
+
+.cover-inner { padding: 56px 72px 46px 72px; flex:1; display:flex; flex-direction:column; justify-content:space-between; background: radial-gradient(ellipse at 100% 0%, rgba(236,201,75,.18) 0%, transparent 55%), radial-gradient(ellipse at 0% 100%, rgba(200,16,46,.14) 0%, transparent 55%), var(--gp-navy); }
+.cover-top { display:flex; justify-content:space-between; align-items:flex-start; }
+.cover-mark { font-family:var(--sans); font-weight:700; font-size:10.5pt; letter-spacing:4px; color: var(--gold); text-transform:uppercase; }
+.cover-mark span { display:block; font-weight:400; color: rgba(255,255,255,.6); margin-top:4px; letter-spacing:1px; font-size:8.5pt; }
+.cover-top-right { display:flex; flex-direction:column; align-items:flex-end; gap:8px; }
+.cover-logo { height:44px; width:auto; opacity:0.95; }
+.cover-confidencial { font-family:var(--sans); font-weight:700; font-size:9pt; letter-spacing:3.5px; color: var(--gp-red); text-transform:uppercase; }
+.cover-eyebrow { font-family:var(--sans); font-size:10.5pt; font-weight:700; letter-spacing:5px; color: var(--gp-red); text-transform:uppercase; margin-top:16px; }
+.cover-title { font-family:var(--serif); font-weight:800; font-size:46pt; line-height:1.06; letter-spacing:-1.5px; margin-top:14px; color: var(--near-white); max-width:1080px; }
+.cover-title em { font-style:italic; color: var(--gold); font-weight:700; }
+.cover-subtitle { font-family:var(--serif); font-weight:500; font-style:italic; font-size:14pt; color: rgba(255,255,255,.86); margin-top:16px; letter-spacing:-.2px; line-height:1.45; max-width:1020px; }
+.cover-subtitle strong { color: var(--near-white); font-style: normal; font-weight: 700; }
+.cover-meta { display:grid; grid-template-columns: repeat(4, 1fr); gap: 16px; border-top: 1px solid rgba(255,255,255,.18); padding-top:16px; margin-top: 22px; }
+.cover-meta-block { font-size:9pt; color: rgba(255,255,255,.7); line-height:1.6; font-family: var(--sans); }
+.cover-meta-block strong { display:block; color: var(--gold); font-weight:700; font-size:8pt; letter-spacing:1.5px; margin-bottom:3px; text-transform:uppercase; }
+.cover-meta-block span { color: rgba(255,255,255,.92); font-weight:500; font-size:10pt; }
+
+.closing-inner { padding: 60px 72px; flex:1; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; background: radial-gradient(ellipse at center, rgba(236,201,75,.10) 0%, transparent 60%), var(--gp-navy); }
+.closing-eyebrow { font-family: var(--sans); font-size: 10pt; font-weight: 700; letter-spacing: 5px; color: var(--gold); text-transform: uppercase; }
+.closing-rule { width: 80px; height: 1px; background: var(--gold); margin: 14px auto; opacity: .7; }
+.closing-h { font-family: var(--serif); font-weight: 800; font-size: 40pt; line-height: 1.12; letter-spacing: -1.3px; color: var(--near-white); margin-top: 10px; max-width: 1020px; }
+.closing-h em { font-style: italic; color: var(--gold); font-weight: 700; }
+.closing-logo { height:56px; margin-top: 20px; opacity:0.85; }
+.closing-sub { font-family: var(--sans); font-size: 10.5pt; color: rgba(255,255,255,.72); margin-top: 26px; letter-spacing: 1.5px; text-transform: uppercase; }
+
+.kpi-grid { display:grid; gap:14px; }
+.kpi-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+.kpi-grid.cols-4 { grid-template-columns: repeat(4, 1fr); }
+.kpi-card { background: var(--paper); border: 1px solid var(--g200); border-radius: 10px; padding: 18px 22px; position:relative; box-shadow: 0 1px 3px rgba(30,39,64,.05); }
+.kpi-card::before { content:""; position:absolute; top:0; left:0; right:0; height:4px; background: var(--gp-red); border-radius: 10px 10px 0 0; }
+.kpi-card.navy::before { background: var(--gp-navy); }
+.kpi-card.gold::before { background: var(--gold); }
+.kpi-card.green::before { background: var(--green); }
+.kpi-card.blue::before { background: var(--blue); }
+.kpi-label { font-family:var(--sans); font-size:8.5pt; font-weight:700; letter-spacing:1.4px; text-transform:uppercase; color: var(--g500); margin-bottom: 6px; }
+.kpi-num { font-family:var(--serif); font-weight:900; font-size:32pt; line-height:1.02; letter-spacing:-1.4px; color: var(--gp-navy); font-variant-numeric: tabular-nums; }
+.kpi-num.red { color: var(--gp-red); }
+.kpi-num.gold { color: var(--amber); }
+.kpi-num.green { color: var(--deep-green); }
+.kpi-num.blue { color: var(--deep-blue); }
+.kpi-sub { font-family: var(--sans); font-size: 9pt; color: var(--g600); margin-top: 6px; line-height: 1.5; }
+.kpi-sub strong { color: var(--gp-navy); font-weight:700; }
+
+.pilar-grid { display:grid; grid-template-columns: repeat(3, 1fr); gap:14px; }
+.pilar-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+.pilar-card { background: var(--paper); border: 1px solid var(--g200); border-left: 4px solid var(--gp-navy); border-radius: 6px; padding: 16px 18px; box-shadow: 0 1px 2px rgba(30,39,64,.04); display:flex; flex-direction:column; gap:6px; }
+.pilar-card.gold { border-left-color: var(--gold); }
+.pilar-card.red { border-left-color: var(--gp-red); }
+.pilar-card.green { border-left-color: var(--deep-green); }
+.pilar-card.blue { border-left-color: var(--blue); }
+.pilar-header { font-family:var(--sans); font-size:8.5pt; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color: var(--gp-navy); }
+.pilar-card.gold .pilar-header { color: var(--amber); }
+.pilar-card.red .pilar-header { color: var(--gp-red); }
+.pilar-card.green .pilar-header { color: var(--deep-green); }
+.pilar-card.blue .pilar-header { color: var(--deep-blue); }
+.pilar-title { font-family:var(--serif); font-weight:800; font-size:14pt; line-height:1.2; letter-spacing:-.3px; color: var(--gp-navy); }
+.pilar-title em { font-style:italic; color: var(--amber); font-weight:700; }
+.pilar-body { font-family:var(--sans); font-size:9.5pt; color: var(--g600); line-height:1.5; }
+.pilar-body strong { color: var(--gp-navy); font-weight:700; }
+.pilar-body em { font-style:italic; color: var(--gp-navy); }
+
+.killer-wrap { display:grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 14px; margin-top: 6px; }
+.killer-main { background: var(--gp-navy); color: var(--near-white); border-radius: 12px; padding: 22px 26px; position:relative; overflow:hidden; }
+.killer-main::before { content:""; position:absolute; top:0; right:0; width:200px; height:200px; background: radial-gradient(circle, rgba(236,201,75,.24) 0%, transparent 70%); }
+.killer-main .label { font-family: var(--sans); font-size: 8.5pt; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); }
+.killer-main .num { font-family: var(--serif); font-weight: 900; font-size: 68pt; line-height: 1; letter-spacing: -2.8px; color: var(--gold); margin-top: 6px; font-variant-numeric: tabular-nums; }
+.killer-main .sub { font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 12pt; color: rgba(255,255,255,.92); margin-top: 8px; line-height: 1.3; }
+.killer-side { background: var(--paper); border: 1px solid var(--g200); border-top: 4px solid var(--gp-red); border-radius: 10px; padding: 16px 20px; display:flex; flex-direction:column; justify-content:center; box-shadow: 0 1px 2px rgba(30,39,64,.04); }
+.killer-side.navy { border-top-color: var(--gp-navy); }
+.killer-side.green { border-top-color: var(--deep-green); }
+.killer-side .label { font-family: var(--sans); font-size: 8.5pt; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gp-red); margin-bottom: 6px; }
+.killer-side.navy .label { color: var(--gp-navy); }
+.killer-side.green .label { color: var(--deep-green); }
+.killer-side .num { font-family: var(--serif); font-weight: 900; font-size: 26pt; line-height: 1.05; letter-spacing: -1.1px; color: var(--gp-navy); font-variant-numeric: tabular-nums; }
+.killer-side .sub { font-family: var(--sans); font-size: 9pt; color: var(--g600); margin-top: 6px; line-height: 1.5; }
+
+table.deck-table { width:100%; border-collapse: collapse; font-family: var(--sans); font-size: 9.5pt; background: var(--paper); border-radius: 8px; overflow:hidden; box-shadow: 0 1px 2px rgba(30,39,64,.04); }
+.deck-table th { background: var(--gp-navy); color: var(--near-white); font-weight:700; font-size:8.5pt; letter-spacing:1.3px; text-transform:uppercase; padding: 10px 12px; text-align:left; }
+.deck-table th.num, .deck-table th.center { text-align:right; }
+.deck-table th.center { text-align:center; }
+.deck-table td { padding: 9px 12px; border-bottom: 1px solid var(--g200); color: var(--g600); vertical-align: middle; line-height:1.4; }
+.deck-table tr:nth-child(even) td { background: var(--g100); }
+.deck-table td strong { color: var(--gp-navy); font-weight:700; }
+.deck-table td em { font-style:italic; color: var(--g600); }
+.deck-table td.num { text-align:right; font-variant-numeric: tabular-nums; font-weight: 700; color: var(--gp-navy); }
+.deck-table td.center { text-align:center; font-variant-numeric: tabular-nums; font-weight:700; color: var(--gp-navy); }
+.deck-table td.win { color: var(--deep-green); font-weight: 800; }
+.deck-table td.warn { color: var(--amber); font-weight: 700; }
+.deck-table td.bad { color: var(--gp-red); }
+.deck-table tr.total td { background: var(--gp-navy); color: var(--near-white); font-weight: 700; }
+.deck-table tr.total td strong { color: var(--gold); }
+.deck-table tr.total td.num, .deck-table tr.total td.center { color: var(--gold); font-weight: 800; }
+
+.callout-big { background: linear-gradient(to right, rgba(30,39,64,0.06), rgba(30,39,64,0.01)); border-left: 4px solid var(--gp-navy); padding: 12px 20px; border-radius: 0 6px 6px 0; }
+.callout-big.red { background: linear-gradient(to right, rgba(200,16,46,0.07), rgba(200,16,46,0.01)); border-left-color: var(--gp-red); }
+.callout-big.gold { background: linear-gradient(to right, rgba(236,201,75,0.14), rgba(236,201,75,0.02)); border-left-color: var(--gold); }
+.callout-big.green { background: linear-gradient(to right, rgba(72,187,120,0.10), rgba(72,187,120,0.02)); border-left-color: var(--deep-green); }
+.callout-t { font-family: var(--serif); font-weight: 700; font-style: italic; color: var(--gp-navy); margin-bottom: 4px; font-size: 13pt; letter-spacing: -0.3px; line-height: 1.2; }
+.callout-body { font-family: var(--sans); font-size: 9.5pt; color: var(--g600); line-height: 1.55; }
+.callout-body strong { color: var(--gp-navy); font-weight: 700; }
+.callout-body em { font-style: italic; color: var(--gp-navy); }
+
+.two-track { display:grid; grid-template-columns: 1fr 1fr; gap:14px; margin-top:6px; }
+.track-card { background: var(--paper); border: 1px solid var(--g200); border-top: 4px solid var(--gp-navy); border-radius: 10px; padding: 18px 20px; display:flex; flex-direction:column; gap:8px; box-shadow: 0 1px 2px rgba(30,39,64,.04); }
+.track-card.gold { border-top-color: var(--amber); }
+.track-card.red { border-top-color: var(--gp-red); }
+.track-card.green { border-top-color: var(--deep-green); }
+.track-card.blue { border-top-color: var(--blue); }
+.track-eyebrow { font-family:var(--sans); font-size:8.5pt; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color: var(--gp-red); }
+.track-card.gold .track-eyebrow { color: var(--amber); }
+.track-card.green .track-eyebrow { color: var(--deep-green); }
+.track-card.blue .track-eyebrow { color: var(--deep-blue); }
+.track-title { font-family:var(--serif); font-weight:800; font-size:16pt; line-height:1.15; letter-spacing:-.4px; color: var(--gp-navy); }
+.track-title em { font-style:italic; color: var(--amber); font-weight:700; }
+.track-body { font-family:var(--sans); font-size:9.5pt; color: var(--g600); line-height:1.5; }
+.track-body strong { color: var(--gp-navy); font-weight:700; }
+.track-body em { font-style:italic; color: var(--gp-navy); }
+
+.buckets-list { display:grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-top: 6px; }
+.bucket-mini { background: var(--paper); border: 1px solid var(--g200); border-top: 3px solid var(--gp-navy); border-radius: 8px; padding: 12px 14px; display:flex; flex-direction:column; gap:5px; }
+.bucket-mini.gold { border-top-color: var(--amber); }
+.bucket-mini.red { border-top-color: var(--gp-red); }
+.bucket-mini.green { border-top-color: var(--deep-green); }
+.bucket-mini.blue { border-top-color: var(--blue); }
+.bucket-mini-lbl { font-family:var(--sans); font-size:8pt; font-weight:700; letter-spacing:1.2px; text-transform:uppercase; color: var(--gp-red); }
+.bucket-mini.gold .bucket-mini-lbl { color: var(--amber); }
+.bucket-mini.green .bucket-mini-lbl { color: var(--deep-green); }
+.bucket-mini.blue .bucket-mini-lbl { color: var(--deep-blue); }
+.bucket-mini-title { font-family:var(--serif); font-weight:800; font-size:11.5pt; line-height:1.2; color: var(--gp-navy); }
+.bucket-mini-body { font-family:var(--sans); font-size:8.5pt; color: var(--g600); line-height:1.45; }
+
+.no-list { display:flex; flex-direction:column; gap:8px; margin-top:4px; }
+.no-item { display:flex; align-items:flex-start; gap:12px; padding: 10px 16px; background: var(--paper); border: 1px solid var(--g200); border-left: 3px solid var(--gp-red); border-radius: 6px; }
+.no-mark { font-family: var(--serif); font-weight: 900; font-size: 16pt; color: var(--gp-red); line-height: 1; margin-top:1px; }
+.no-text { font-family: var(--sans); font-size: 10pt; color: var(--g600); line-height: 1.45; }
+.no-text strong { color: var(--gp-navy); font-weight: 700; }
+
+.ask-list { display:flex; flex-direction:column; gap:10px; margin-top:6px; }
+.ask-item { display:grid; grid-template-columns: 40px 1fr; gap:14px; padding: 14px 18px; background: var(--paper); border: 1px solid var(--g200); border-left: 4px solid var(--gold); border-radius: 6px; }
+.ask-num { font-family: var(--serif); font-weight: 900; font-size: 22pt; color: var(--amber); line-height: 1; }
+.ask-text { font-family: var(--sans); font-size: 10pt; color: var(--g600); line-height: 1.5; }
+.ask-text strong { color: var(--gp-navy); font-weight: 700; }
+.ask-text em { font-style: italic; color: var(--gp-navy); }
+
+.stats-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; background: var(--paper); border: 1px solid var(--g200); border-radius: 8px; overflow: hidden; box-shadow: 0 1px 2px rgba(30,39,64,.04); }
+.stats-strip > div { padding: 12px 16px; border-right: 1px solid var(--g200); }
+.stats-strip > div:last-child { border-right: none; }
+.stat-lbl { font-family: var(--sans); font-size: 7.5pt; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: var(--g500); margin-bottom: 3px; }
+.stat-num { font-family: var(--serif); font-weight: 900; font-size: 18pt; line-height: 1; letter-spacing: -.7px; color: var(--gp-navy); font-variant-numeric: tabular-nums; }
+.stat-num.red { color: var(--gp-red); }
+.stat-num.green { color: var(--deep-green); }
+.stat-num.blue { color: var(--deep-blue); }
+.stat-sub { font-family: var(--sans); font-size: 7.5pt; color: var(--g500); margin-top: 4px; line-height: 1.3; }
+
+#progress { opacity:.6; position:fixed; top:0; left:0; height:2px; background: var(--gold); z-index:9999; transition: width .4s cubic-bezier(.4,0,.2,1); }
+#counter { position:fixed; bottom:14px; right:22px; font-size:12px; font-weight:500; color: rgba(255,255,255,.85); z-index:9999; letter-spacing:.5px; font-family: var(--sans); background:rgba(0,0,0,.5); padding:6px 12px; border-radius:14px; backdrop-filter:blur(8px); }
+.nav-btn { position:fixed; top:50%; transform:translateY(-50%); z-index:9999; width:48px; height:64px; background:rgba(0,0,0,.55); backdrop-filter:blur(8px); color:#FFF; border:none; cursor:pointer; font-size:24px; display:flex; align-items:center; justify-content:center; transition:background .2s; border-radius:8px; }
+.nav-btn:hover { background:rgba(200,16,46,.85); }
+#nav-prev { left:18px; } #nav-next { right:18px; }
+#review-toggle { position:fixed; top:14px; right:22px; z-index:9999; background:rgba(0,0,0,.55); backdrop-filter:blur(8px); color:#FFF; border:none; cursor:pointer; font-size:11px; font-weight:600; font-family:var(--sans); padding:7px 14px; border-radius:14px; letter-spacing:.5px; text-transform:uppercase; transition:background .2s; }
+#review-toggle:hover { background:rgba(200,16,46,.85); }
+
+@media print { @page { size: 1280px 720px landscape; margin: 0; } html, body { overflow: visible; background: white; } .slide { position: relative !important; opacity: 1 !important; visibility: visible !important; transform: none !important; left: auto !important; top: auto !important; page-break-after: always; box-shadow: none; } .slide:last-child { page-break-after: avoid; } #progress, #counter, .nav-btn, #review-toggle { display: none; } }
+</style>
+</head>
+<body>
+
+<div id="progress"></div>
+<div id="counter">1 / 20</div>
+<button id="nav-prev" class="nav-btn">‹</button>
+<button id="nav-next" class="nav-btn">›</button>
+<button id="review-toggle">Ver todo ↕</button>
+
+<div class="deck" id="deck">
+
+<!-- SLIDE 1 · COVER -->
+<section class="slide cover active" data-index="1">
+  <div class="cover-inner">
+    <div class="cover-top">
+      <div class="cover-mark">Marketing Corporativo<span>Business Case v0.6 al Consejo Directivo</span></div>
+      <div class="cover-top-right">
+        <img class="cover-logo" src="../assets/logos/LOGO-GP-Blanco.png" alt="Grupo Plasencia Automotriz">
+        <div class="cover-confidencial">Confidencial · Interno</div>
+      </div>
+    </div>
+    <div>
+      <div class="cover-eyebrow">Función Corporativa</div>
+      <h1 class="cover-title">Dirección de <em>Marketing Corporativo</em></h1>
+      <p class="cover-subtitle">Dos carreteras diferenciadas al servicio del Grupo: <strong>Marketing Ops</strong> como agencia interna a solicitud de las marcas, y <strong>Estratégica</strong> como plataforma corporativa donde viven todos los proyectos digitales que trascienden a cualquier marca individual.</p>
+    </div>
+    <div class="cover-meta">
+      <div class="cover-meta-block"><strong>Autor</strong><span>Jesús Pérez Porras</span></div>
+      <div class="cover-meta-block"><strong>Rol</strong><span>Director de Marketing Corporativo</span></div>
+      <div class="cover-meta-block"><strong>Para</strong><span>Consejo Directivo · Grupo Plasencia</span></div>
+      <div class="cover-meta-block"><strong>Fecha</strong><span>4 de julio de 2026 · v0.6</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 2 · LEGACY -->
+<section class="slide" data-index="2">
+  <div class="content">
+    <div class="section-num">00 · Reconocimiento del legado</div>
+    <h1 class="slide-h1">El Grupo se construyó honrando la palabra <em>concesión por concesión</em>.</h1>
+    <p class="slide-lede" style="font-size:12pt; line-height:1.6; margin-top:14px;">Grupo Plasencia ganó los mandatos con Mazda, Hyundai, Stellantis, Ford, GAC, GWM, Changan e Isuzu con la disciplina de honrar cada relación de largo plazo. No es una historia de canales digitales — es una historia de relaciones. Esta propuesta no viene a poner en cuestión ese modelo.</p>
+    <p class="slide-lede" style="font-size:12pt; line-height:1.6; margin-top:4px;">Los Directores de Marca son los custodios naturales de la relación con cada fabricante, y esa autoridad se mantiene intacta. Lo que se propone es construir, <strong>al lado del modelo actual</strong>, la capacidad que hoy no existe: <em>servir a las marcas del Grupo con estrategia y ejecución de marketing a solicitud</em>, y <em>desarrollar los proyectos digitales del Grupo que no caben en el mandato de ninguna marca por diseño</em>.</p>
+    <div class="callout-big gold" style="margin-top:14px;">
+      <div class="callout-t">Movimiento aditivo — no sustitutivo.</div>
+      <div class="callout-body">Y es el momento correcto para hacerlo.</div>
+    </div>
+  </div>
+  <div class="slide-footer"><span><span class="dot"></span>00 · Reconocimiento del legado</span><span class="brand"><img src="../assets/logos/Logo-GP-Negro.png" alt="Grupo Plasencia">Grupo Plasencia Automotriz</span></div>
+</section>
+
+<!-- SLIDE 3 · SITUACIÓN BASELINE -->
+<section class="slide" data-index="3">
+  <div class="content">
+    <div class="section-num">01 · Situación · Base</div>
+    <h1 class="slide-h1">$87.9M netos anuales en Marketing distribuidos en <em>silos por marca</em>.</h1>
+    <p class="slide-lede">El Grupo produce alrededor de <strong>$15 mil millones de revenue anual</strong> sobre 8 marcas activas más líneas transversales. El centro de costo de Marketing carga $114.8M brutos al año; la marca (OEM) devuelve $26.9M vía rebate. El neto que el Grupo paga es <strong>$87.9M al año</strong> — 0.22% del revenue, por debajo del benchmark automotriz (0.8% a 1.5%). No es problema de tamaño de la inversión — <em>es problema de estructura</em>.</p>
+    <div class="kpi-grid cols-4" style="margin-top:14px;">
+      <div class="kpi-card navy"><div class="kpi-label">Revenue Grupo</div><div class="kpi-num">~$15B</div><div class="kpi-sub">MXN anual · 8 marcas + líneas transversales</div></div>
+      <div class="kpi-card"><div class="kpi-label">MKT neto Grupo</div><div class="kpi-num red">$87.9M</div><div class="kpi-sub"><strong>0.22%</strong> del revenue · vs 0.8-1.5% benchmark</div></div>
+      <div class="kpi-card gold"><div class="kpi-label">MKT bruto P&amp;L</div><div class="kpi-num gold">$114.8M</div><div class="kpi-sub">Devuelve OEM: $26.9M · Rebate desigual por marca</div></div>
+      <div class="kpi-card blue"><div class="kpi-label">Nómina MKT</div><div class="kpi-num blue">$15.1M</div><div class="kpi-sub">63 personas · Marketing y Ventas Digital</div></div>
+    </div>
+    <div class="callout-big" style="margin-top:14px;">
+      <div class="callout-body">Cada Director de Marca opera hoy con su propio equipo, landing, CRM y canales digitales. Cumple con su fabricante. <strong>Ninguno tiene el mandato de coordinar estrategia cross-marca ni de desarrollar los proyectos digitales del Grupo que trascienden a una marca individual.</strong></div>
+    </div>
+  </div>
+  <div class="slide-footer"><span><span class="dot"></span>01 · Situación · Baseline</span><span class="brand"><img src="../assets/logos/Logo-GP-Negro.png" alt="Grupo Plasencia">Grupo Plasencia Automotriz</span></div>
+</section>
+
+<!-- SLIDE 4 · PILOTO EVIDENCIA -->
+<section class="slide" data-index="4">
+  <div class="content">
+    <div class="section-num">01 · Situación · Piloto operativo</div>
+    <h1 class="slide-h1">El piloto probó que <em>el modelo funciona</em> con estructura mínima.</h1>
+    <p class="slide-lede">Entre abril y junio de 2026 se corrió un piloto operativo controlado en tres marcas del portafolio — Seminuevos, Hyundai y Stellantis. Probó tres cosas en paralelo: infraestructura de atribución auditable con matching contable, integración del stack tecnológico (Meta CAPI server-side + GA4 + motor de atribución propio), y modelo comercial cross-marca.</p>
+    <div class="killer-wrap">
+      <div class="killer-main">
+        <div class="label">Killer metric del piloto</div>
+        <div class="num">411%</div>
+        <div class="sub">ROI operativo · una persona coordinando doce disciplinas simultáneas durante 87 días</div>
+      </div>
+      <div class="killer-side navy">
+        <div class="label">Ventas atribuidas</div>
+        <div class="num">73</div>
+        <div class="sub">Con matching contable auditable contra el DMS · $22.32M revenue</div>
+      </div>
+      <div class="killer-side green">
+        <div class="label">CAC blended piloto</div>
+        <div class="num">$2,805</div>
+        <div class="sub">Ancla dura: Seminuevos $1,050 · marcas restantes proxy</div>
+      </div>
+    </div>
+    <div class="callout-big green" style="margin-top:12px;">
+      <div class="callout-t">Dos casos rescate cross-marca cerrados a mano.</div>
+      <div class="callout-body">Un cliente de <strong>Hyundai cerró en Mazda con $46K de profit</strong> sobre venta de $412K. Un cliente de <strong>Stellantis cerró en GWM con $91K de profit</strong> sobre venta de $494K. Sin sistema, esos casos se pierden. Con sistema, escalan a línea de negocio.</div>
+    </div>
+  </div>
+  <div class="slide-footer"><span><span class="dot"></span>01 · Piloto operativo como evidencia</span><span class="brand"><img src="../assets/logos/Logo-GP-Negro.png" alt="Grupo Plasencia">Grupo Plasencia Automotriz</span></div>
+</section>
+
+<!-- SLIDE 5 · CX + PROTOTIPO -->
+<section class="slide" data-index="5">
+  <div class="content">
+    <div class="section-num">01 · Situación · Infraestructura habilitadora</div>
+    <h1 class="slide-h1">El Consejo ya validó operar como <em>Grupo</em>, no como suma de marcas.</h1>
+    <p class="slide-lede">Dos activos habilitadores del Grupo ya están construidos o en marcha, listos para conectarse con la Dirección de Marketing Corporativo.</p>
+    <div class="pilar-grid cols-2" style="margin-top:8px;">
+      <div class="pilar-card blue">
+        <div class="pilar-header">Proyecto CX cross-Grupo</div>
+        <div class="pilar-title">Ya <em>aprobado y arrancado</em> por el Consejo</div>
+        <div class="pilar-body">Evidencia estructural de que el Consejo ya validó operar como Grupo, no como suma de marcas separadas. La Dirección de Marketing Corporativo se integra con CX de manera progresiva desde Fase 1 · <strong>no compite con CX</strong> · lo complementa en la capa de adquisición y experiencia cross-marca.</div>
+      </div>
+      <div class="pilar-card gold">
+        <div class="pilar-header">Prototipo Marketplace del Grupo</div>
+        <div class="pilar-title">Vivo hoy bajo <em>dominio corporativo</em></div>
+        <div class="pilar-body">Materializa la interfaz cliente-Grupo con acceso controlado. Existe. Lo que falta es la <strong>estructura organizacional para conectarlo al Grupo real</strong> y para servir a las marcas con estrategia y ejecución día a día. La Dirección construye esa capa.</div>
+      </div>
+    </div>
+    <div class="callout-big gold" style="margin-top:12px;">
+      <div class="callout-t">La tecnología ya funciona. Lo que falta es organización.</div>
+      <div class="callout-body">El piloto probó que la infraestructura opera como sistema integrado. El prototipo demostró que la interfaz cliente-Grupo existe. CX cross-Grupo ya está aprobado. <strong>La capacidad organizacional para operar todo esto en régimen es lo que la Dirección de Marketing Corporativo entrega.</strong></div>
+    </div>
+  </div>
+  <div class="slide-footer"><span><span class="dot"></span>01 · Infraestructura habilitadora ya en marcha</span><span class="brand"><img src="../assets/logos/Logo-GP-Negro.png" alt="Grupo Plasencia">Grupo Plasencia Automotriz</span></div>
+</section>
+
+<!-- SLIDE 6 · BAU MARCA POR MARCA -->
+<section class="slide" data-index="6">
+  <div class="content">
+    <div class="section-num">01 · Situación · BAU marca por marca</div>
+    <h1 class="slide-h1">El peso publicitario se distribuye <em>desigual</em> por apoyo OEM.</h1>
+    <p class="slide-lede">Cada Director de Marca opera hoy con presupuesto propio y con apoyo OEM que varía radicalmente. Ninguno cubre lo cross-marca — porque el cliente cross-marca no le corresponde a ningún Director por diseño.</p>
+    <table class="deck-table" style="margin-top:8px;">
+      <thead>
+        <tr><th>Marca</th><th class="num">Peso publicitario 2025</th><th class="num">Apoyo OEM</th><th class="num">Neto al Grupo</th><th class="center">% Apoyo</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Mazda</strong></td><td class="num">$118.2M</td><td class="num">$3.6M</td><td class="num">$114.5M</td><td class="center">3%</td></tr>
+        <tr><td><strong>Hyundai</strong></td><td class="num">$41.2M</td><td class="num">$11.5M</td><td class="num">$29.7M</td><td class="center">28%</td></tr>
+        <tr><td><strong>Ford</strong></td><td class="num">$19.9M</td><td class="num">$5.3M</td><td class="num">$14.6M</td><td class="center">27%</td></tr>
+        <tr><td><strong>Stellantis</strong></td><td class="num">$4.5M</td><td class="num">$0</td><td class="num">$4.5M</td><td class="center">0%</td></tr>
+        <tr><td><strong>GAC</strong></td><td class="num">$1.6M</td><td class="num">$1.6M</td><td class="num">$0</td><td class="center win">100%</td></tr>
+        <tr><td><strong>Changan</strong></td><td class="num">$1.5M</td><td class="num">$0.3M</td><td class="num">$1.2M</td><td class="center">21%</td></tr>
+        <tr><td><strong>GWM</strong></td><td class="num">$0.5M</td><td class="num">$0.2M</td><td class="num">$0.3M</td><td class="center">35%</td></tr>
+      </tbody>
+    </table>
+    <div class="callout-big" style="margin-top:10px;">
+      <div class="callout-body">Estos son los presupuestos de marca cumpliendo con cada fabricante. Ninguno cubre lo cross-marca — porque <strong>el cliente cross-marca no le corresponde a ningún Director por diseño</strong>. Fuente: Deep Dive Cost Center presentado al Consejo · corte 2025.</div>
+    </div>
+  </div>
+  <div class="slide-footer"><span><span class="dot"></span>01 · BAU marca por marca · apoyo OEM desigual</span><span class="brand"><img src="../assets/logos/Logo-GP-Negro.png" alt="Grupo Plasencia">Grupo Plasencia Automotriz</span></div>
+</section>
+
+<!-- SLIDE 7 · COMPLICACIÓN -->
+<section class="slide" data-index="7">
+  <div class="content">
+    <div class="section-num">02 · Complicación</div>
+    <h1 class="slide-h1">Dos problemas simultáneos <em>sin owner estructural</em>.</h1>
+    <p class="slide-lede">Las marcas del Grupo enfrentan hoy dos problemas simultáneos que ninguna estructura interna resuelve. Uno operativo del día a día. Uno estructural de largo plazo.</p>
+    <div class="two-track" style="margin-top:8px;">
+      <div class="track-card red">
+        <div class="track-eyebrow">Problema 1 · Operativo</div>
+        <div class="track-title">Capacidad de servicio de marketing <em>ausente</em> al Grupo</div>
+        <div class="track-body">Cuando un Director de Marca, Gerente General o miembro del Consejo identifica una oportunidad de marketing — impulsar ventas, hacer una campaña específica, optimizar un canal, replantear una estrategia, construir una experiencia digital nueva — <strong>no tiene un equipo transversal del Grupo al cual acudir con un brief y recibir una propuesta de trabajo con costo, alcance y tiempos claros</strong>. Cada uno debe resolverlo con sus recursos actuales o contratando externo caso por caso, sin coordinación cross-Grupo y sin aprovechar el ecosistema digital ya construido.</div>
+      </div>
+      <div class="track-card gold">
+        <div class="track-eyebrow">Problema 2 · Estructural</div>
+        <div class="track-title">Proyectos digitales del Grupo <em>sin owner</em></div>
+        <div class="track-body">El Marketplace, la experiencia cross-marca del cliente, el journey ideal end-to-end, la integración phygital, el rescate sistemático cross-marca, la marca-paraguas Plasencia digital, nuevas verticales — <strong>todos son proyectos que benefician al Grupo como plataforma, no a una marca en particular</strong>. Como no le corresponden a ningún Director por diseño, quedan sin ejecutar. Mientras tanto, Kavak, D2C de OEM y actores globales están capturando la relación digital con el cliente automotriz mexicano.</div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer"><span><span class="dot"></span>02 · Dos problemas simultáneos sin owner</span><span class="brand"><img src="../assets/logos/Logo-GP-Negro.png" alt="Grupo Plasencia">Grupo Plasencia Automotriz</span></div>
+</section>
+
+<!-- SLIDE 8 · COSTO DE NO ACTUAR -->
+<section class="slide" data-index="8">
+  <div class="content">
+    <div class="section-num">02 · Costo de no actuar</div>
+    <h1 class="slide-h1">Este es el ciclo en el que <em>se define quién controla</em> la relación digital con el cliente.</h1>
+    <p class="slide-lede">El costo no es "perder oportunidad futura". Es perder relación con el cliente que ya es del Grupo, y ceder terreno estructural a los actores que están construyendo su ventaja en este mismo ciclo.</p>
+    <div class="pilar-grid" style="margin-top:8px;">
+      <div class="pilar-card red">
+        <div class="pilar-header">Corto plazo</div>
+        <div class="pilar-title">Ventas cross-marca <em>no capturadas</em></div>
+        <div class="pilar-body">Decenas de millones de pesos anuales del propio pool actual del Grupo, según las palancas documentadas del Deep Dive. Más capacidad de servicio de marketing ausente para marcas con necesidades específicas sin equipo corporativo al cual acudir.</div>
+      </div>
+      <div class="pilar-card gold">
+        <div class="pilar-header">Mediano plazo</div>
+        <div class="pilar-title">Terreno digital cross-marca <em>cedido</em></div>
+        <div class="pilar-body">Kavak ya capturó la relación digital para seminuevos con más de mil millones de dólares en valuación acumulada. Las OEM están abriendo modelos D2C directos. Actores globales están entrando al mercado mexicano con capital y stack digital que los dealer groups familiares no tienen individualmente.</div>
+      </div>
+      <div class="pilar-card">
+        <div class="pilar-num">Década</div>
+        <div class="pilar-title">Ciclo <em>en curso</em></div>
+        <div class="pilar-body">Este es el ciclo en el que se define quién controla la relación con el cliente automotriz mexicano en la próxima década. El piloto probó que la infraestructura funciona y que el modelo captura al cliente cross-marca. <strong>Falta estructura organizacional para operarlo en régimen.</strong></div>
+      </div>
+    </div>
+    <div class="callout-big red" style="margin-top:12px;">
+      <div class="callout-t">La ventana no queda abierta indefinidamente.</div>
+      <div class="callout-body">El piloto probó que el modelo funciona con estructura mínima. La infraestructura tecnológica ya existe. Los precedentes internos (CX cross-Grupo aprobado) muestran que el Consejo ya validó operar como Grupo. <strong>Lo que falta es levantar la estructura organizacional que hoy no existe.</strong></div>
+    </div>
+  </div>
+  <div class="slide-footer"><span><span class="dot"></span>02 · Costo estructural de no actuar</span><span class="brand"><img src="../assets/logos/Logo-GP-Negro.png" alt="Grupo Plasencia">Grupo Plasencia Automotriz</span></div>
+</section>
+
+<!-- SLIDE 9 · TESIS -->
+<section class="slide" data-index="9">
+  <div class="content">
+    <div class="section-num">03 · Resolución · La tesis</div>
+    <h1 class="slide-h1">Dirección de Marketing Corporativo con <em>dos carreteras diferenciadas</em>.</h1>
+    <p class="slide-lede">Se propone al Consejo la creación de la Dirección como función corporativa reportando directo al Consejo Directivo. Un <strong>Director externo bajo modelo independiente</strong> (contratado vía firma) opera la Dirección en dos carreteras que atienden los dos problemas por separado. <em>TODO tercerizado en Fase 1 · cero headcount interno nuevo · cero fricción con la plantilla actual del Grupo.</em></p>
+    <div class="two-track" style="margin-top:8px;">
+      <div class="track-card red">
+        <div class="track-eyebrow">Carretera 1 · BAU autofinanciado</div>
+        <div class="track-title">Marketing Ops · <em>agencia interna a solicitud</em></div>
+        <div class="track-body">Atiende el <strong>problema operativo</strong>. La Dirección envía brief de levantamiento cuando una marca solicita apoyo, produce propuesta formal con costo/alcance/tiempos/impacto esperado, la marca decide contratar y paga directo como agencia externa. <strong>Cero OpEx corporativo · cero subsidio cruzado</strong>. Growth vive dentro como servicio a solicitud cuando la marca pide impulso adicional de ventas.</div>
+      </div>
+      <div class="track-card gold">
+        <div class="track-eyebrow">Carretera 2 · CapEx del Consejo</div>
+        <div class="track-title">Estratégica · <em>plataforma corporativa</em></div>
+        <div class="track-body">Atiende el <strong>problema estructural</strong>. La Dirección opera los proyectos digitales del Grupo que trascienden a cualquier marca. Marketplace es el proyecto ancla. Alrededor conviven el pipeline de New Ventures: vertical PoC, Autolease/Arrendadora, Flotillas, F&amp;I embedded, postventa cross-marca, marca-paraguas Plasencia digital, y el pipeline abierto de iniciativas futuras. <strong>Con CapEx del Consejo · phase gates trimestrales · kill criteria explícitos · autofondeo desde Año 2.</strong></div>
+      </div>
+    </div>
+    <div class="callout-big gold" style="margin-top:12px;">
+      <div class="callout-t">Precedentes duales documentados: FEMSA Digital · Cemex Ventures · Bimbo Ventures.</div>
+      <div class="callout-body">New Ventures corporativas con revenue propio + CapEx del corporate para pipeline es el patrón consistente cuando la vertical tiene revenue propio y la corporate quiere aprobar el modelo sin comprometer OpEx recurrente indefinido. <strong>Plasencia sería contemporáneo con este estándar</strong>, no vanguardia.</div>
+    </div>
+  </div>
+  <div class="slide-footer"><span><span class="dot"></span>03 · La tesis · dos carreteras diferenciadas</span><span class="brand"><img src="../assets/logos/Logo-GP-Negro.png" alt="Grupo Plasencia">Grupo Plasencia Automotriz</span></div>
+</section>
+
+<!-- SLIDE 10 · CARRETERA 1 · MARKETING OPS -->
+<section class="slide" data-index="10">
+  <div class="content">
+    <div class="section-num">03 · Carretera 1 · Marketing Ops</div>
+    <h1 class="slide-h1">Agencia interna <em>a solicitud</em>. Cada marca decide, cada marca paga.</h1>
+    <p class="slide-lede">Cualquier Director de Marca, Gerente General o miembro del Consejo puede acudir con una necesidad de estrategia, ejecución u optimización de marketing. La Dirección responde con propuesta formal · la marca elige · la marca paga directo. Disciplina automática: si el impacto no justifica el costo, no era prioritario.</p>
+    <div class="pilar-grid" style="margin-top:8px;">
+      <div class="pilar-card">
+        <div class="pilar-header">Paso 1 · Brief de levantamiento</div>
+        <div class="pilar-title">La marca <em>solicita</em></div>
+        <div class="pilar-body">Director de Marca, Gerente General o miembro del Consejo identifica necesidad. La Dirección envía brief estructurado: objetivo, alcance, restricciones, timing, criterios de éxito.</div>
+      </div>
+      <div class="pilar-card gold">
+        <div class="pilar-header">Paso 2 · Propuesta formal</div>
+        <div class="pilar-title">La Dirección <em>propone</em></div>
+        <div class="pilar-body">Estrategia + plan de ejecución + costo específico + tiempos de implementación + impacto esperado. La marca decide contratar o no. <strong>Media budget viene incluido; la marca lo autoriza y paga directo.</strong></div>
+      </div>
+      <div class="pilar-card green">
+        <div class="pilar-header">Paso 3 · Ejecución</div>
+        <div class="pilar-title">Los partners <em>entregan</em></div>
+        <div class="pilar-body">La Dirección coordina la ejecución con los partners externos que apliquen. El impacto se mide contra los criterios de éxito acordados en la propuesta. Priorización trimestral hasta 3 iniciativas de alto impacto por marca.</div>
+      </div>
+    </div>
+    <div class="callout-big" style="margin-top:12px;">
+      <div class="callout-t">Catálogo abierto de servicios.</div>
+      <div class="callout-body">Campañas de pauta orquestada · landings y micrositios · estrategia y planeación · optimización de campañas existentes · <strong>Growth como servicio a solicitud</strong> cuando la marca pide impulso adicional de ventas · análisis y reportería · uso del ecosistema digital ya construido (SPAs, catálogos, CRM, pipeline) como artefactos habilitables con evaluación caso por caso.</div>
+    </div>
+  </div>
+  <div class="slide-footer"><span><span class="dot"></span>03 · Carretera 1 · Marketing Ops autofinanciada</span><span class="brand"><img src="../assets/logos/Logo-GP-Negro.png" alt="Grupo Plasencia">Grupo Plasencia Automotriz</span></div>
+</section>
+
+<!-- SLIDE 11 · CARRETERA 2 · ESTRATÉGICA -->
+<section class="slide" data-index="11">
+  <div class="content">
+    <div class="section-num">03 · Carretera 2 · Estratégica</div>
+    <h1 class="slide-h1">Plataforma corporativa donde viven <em>todos los new ventures</em> del Grupo.</h1>
+    <p class="slide-lede">Marketplace es el proyecto ancla. Alrededor conviven el pipeline de iniciativas digitales del Grupo que trascienden a cualquier marca individual — actuales y futuras. El marco es <strong>escalable por diseño</strong>: nuevas iniciativas se enmarcan aquí sin necesidad de aprobación nueva del Consejo cada vez.</p>
+    <div class="pilar-grid" style="margin-top:8px;">
+      <div class="pilar-card gold">
+        <div class="pilar-header">Proyecto ancla</div>
+        <div class="pilar-title">Marketplace <em>del Grupo</em></div>
+        <div class="pilar-body">Canal cross-marca con Founding Partners del Grupo. Cuota mensual + take rate + servicios add-on (Studio Marketplace, IA de matching, F&amp;I embedded, postventa cross-marca). Autofondeo progresivo desde Año 2.</div>
+      </div>
+      <div class="pilar-card blue">
+        <div class="pilar-header">Iniciativas identificadas</div>
+        <div class="pilar-title">Pipeline <em>presente</em></div>
+        <div class="pilar-body">Vertical PoC end-to-end · Autolease / Arrendadora Plasencia · Flotillas B2B enterprise · F&amp;I embedded y seguros cross-marca · postventa cross-marca (Servicio $1.57B · 43% margen; Seguros $1.68B · 21.5% margen) · marca-paraguas Plasencia digital.</div>
+      </div>
+      <div class="pilar-card green">
+        <div class="pilar-header">Marco escalable</div>
+        <div class="pilar-title">Pipeline <em>futuro</em></div>
+        <div class="pilar-body">Nuevas iniciativas digitales del Grupo se enmarcan en la misma Dirección conforme emerjan, sin aprobación nueva del Consejo cada vez. <strong>La Dirección se convierte en la plataforma corporativa</strong> donde viven todos los new ventures digitales del Grupo.</div>
+      </div>
+    </div>
+    <div class="callout-big gold" style="margin-top:12px;">
+      <div class="callout-t">Founding Partners · marco abierto.</div>
+      <div class="callout-body">Cualquier marca o línea de negocio del Grupo que decida participar en el Marketplace en Fase 1 se convierte en Founding Partner. Universo elegible: <strong>8 marcas OEM del portafolio + Seminuevos + Flotillas + Autolease/Arrendadora Plasencia + nuevas líneas futuras del pipeline</strong>. Beneficios subsidiados por escrito con cada uno: cuota 0% Año 1, take rate a mitad del estándar 24 meses, prioridad Studio Marketplace, voz consultiva en Founding Council, case study status.</div>
+    </div>
+  </div>
+  <div class="slide-footer"><span><span class="dot"></span>03 · Carretera 2 · Marketplace y pipeline abierto</span><span class="brand"><img src="../assets/logos/Logo-GP-Negro.png" alt="Grupo Plasencia">Grupo Plasencia Automotriz</span></div>
+</section>
+
+<!-- SLIDE 12 · LO QUE NO ES -->
+<section class="slide" data-index="12">
+  <div class="content">
+    <div class="section-num">03 · Distinciones que ordenan la conversación</div>
+    <h1 class="slide-h1">Lo que esta propuesta <em>NO es</em>.</h1>
+    <div class="no-list">
+      <div class="no-item"><span class="no-mark">×</span><span class="no-text"><strong>No es un rediseño del marketing tradicional del Grupo.</strong> El BAU de cada marca se mantiene intacto. Los Directores de Marca conservan autoridad completa sobre sus concesiones.</span></div>
+      <div class="no-item"><span class="no-mark">×</span><span class="no-text"><strong>No es OpEx recurrente que el Grupo corporativo asume.</strong> La Carretera 1 la pagan las marcas solicitantes directamente cuando contratan una propuesta. Cero subsidio cruzado entre marcas.</span></div>
+      <div class="no-item"><span class="no-mark">×</span><span class="no-text"><strong>No es una opco separada del Grupo.</strong> Es función corporativa dentro del Grupo con revenue propio y reporting al Consejo — modelo dual FEMSA Digital / Cemex Ventures / Bimbo Ventures, no spin-off.</span></div>
+      <div class="no-item"><span class="no-mark">×</span><span class="no-text"><strong>No es un compromiso de plantilla nueva.</strong> La operación es 100% tercerizada en Fase 1. Cero headcount interno nuevo. Cero redeployment del pool actual del Grupo.</span></div>
+      <div class="no-item"><span class="no-mark">×</span><span class="no-text"><strong>No es un roadmap prescriptivo con líneas de negocio predeterminadas.</strong> La priorización de la Carretera 2 se define con data durante la Fase 1 en paralelo al MVP · phase gates trimestrales · kill criteria explícitos.</span></div>
+      <div class="no-item"><span class="no-mark">×</span><span class="no-text"><strong>No compite con CX cross-Grupo.</strong> Se integra al proyecto ya aprobado de manera gradual y progresiva desde Fase 1.</span></div>
+    </div>
+  </div>
+  <div class="slide-footer"><span><span class="dot"></span>03 · Distinciones limpias</span><span class="brand"><img src="../assets/logos/Logo-GP-Negro.png" alt="Grupo Plasencia">Grupo Plasencia Automotriz</span></div>
+</section>
+
+<!-- SLIDE 13 · ESTRUCTURA TERCERIZADA -->
+<section class="slide" data-index="13">
+  <div class="content">
+    <div class="section-num">04 · El Modelo · Estructura</div>
+    <h1 class="slide-h1">Director externo + cinco buckets de partners. <em>Cero headcount interno nuevo</em>.</h1>
+    <p class="slide-lede">Un Director de Crecimiento externo (contratado vía firma bajo retainer + performance-linked) reporta directo al Consejo, coordina las dos carreteras y opera con cinco buckets de partners externos especializados. Cada bucket es contrato por resultado, no headcount permanente. Cotizaciones se cierran durante Fase 1.</p>
+    <div class="buckets-list">
+      <div class="bucket-mini">
+        <div class="bucket-mini-lbl">1 · Digital Factory</div>
+        <div class="bucket-mini-title">Productos del Grupo</div>
+        <div class="bucket-mini-body">Marketplace, motor de atribución, CRM, dashboards, feeds, integración DMS. <strong>Reemplaza SaaS con IP propio</strong> capitalizado en balance del Grupo.</div>
+      </div>
+      <div class="bucket-mini gold">
+        <div class="bucket-mini-lbl">2 · IA Institucional</div>
+        <div class="bucket-mini-title">La IA del Grupo</div>
+        <div class="bucket-mini-body">Modelos, prompts, embeddings, agents a la medida del negocio automotriz del Grupo. <strong>Opción build (IP propio) u opción buy</strong> (Vambe / Carbot / módulo conversacional CX).</div>
+      </div>
+      <div class="bucket-mini green">
+        <div class="bucket-mini-lbl">3 · Diseño Estratégico</div>
+        <div class="bucket-mini-title">Marco de referencia</div>
+        <div class="bucket-mini-body">Design system, brand del canal, journey ideal, arquitectura estratégica. <strong>Deliverables quedan por años</strong> · sin OpEx recurrente.</div>
+      </div>
+      <div class="bucket-mini blue">
+        <div class="bucket-mini-lbl">4 · Marketing y Growth Ops</div>
+        <div class="bucket-mini-title">Ejecución Carretera 1</div>
+        <div class="bucket-mini-body">Pauta orquestada, creativos, contenido, experimentación. Growth como servicio a solicitud. <strong>Costo se cotiza por brief</strong> · marca solicitante paga directo.</div>
+      </div>
+      <div class="bucket-mini red">
+        <div class="bucket-mini-lbl">5 · Marketplace Ops + BD</div>
+        <div class="bucket-mini-title">Operación Carretera 2</div>
+        <div class="bucket-mini-body">Onboarding de Founding Partners, moderación operativa, atención comercial, gestión del Founding Council, BD de nuevos Founding Partners en olas posteriores.</div>
+      </div>
+    </div>
+    <div class="callout-big gold" style="margin-top:12px;">
+      <div class="callout-t">Modelo independiente · el Director reporta al Consejo como externo.</div>
+      <div class="callout-body">Contratado vía firma externa bajo retainer + performance-linked. Reporta directo al Consejo Directivo. <strong>No es empleado del Grupo</strong>. Cero fricción con nómina actual. Referencias: Chief Outsiders (1,500+ compañías), a16z Operating Partners, porciones outcome-based de McKinsey y Bain.</div>
+    </div>
+  </div>
+  <div class="slide-footer"><span><span class="dot"></span>04 · Estructura 100% tercerizada</span><span class="brand"><img src="../assets/logos/Logo-GP-Negro.png" alt="Grupo Plasencia">Grupo Plasencia Automotriz</span></div>
+</section>
+
+<!-- SLIDE 14 · FASE 1 DOS PISTAS PARALELAS -->
+<section class="slide" data-index="14">
+  <div class="content">
+    <div class="section-num">04 · Fase 1 del Marketplace</div>
+    <h1 class="slide-h1">Dos pistas <em>paralelas</em> desde el Día 1. Lean startup corporate.</h1>
+    <p class="slide-lede">La Fase 1 del Marketplace no espera doce meses para preguntarse *"¿qué sigue?"*. Opera con dos pistas simultáneas — el MVP genera revenue rápido mientras el Diseño Estratégico define la Ola 2 con data en tiempo real. Al cerrar Fase 1 ya hay recomendación cerrada para presentar Ola 2 al Consejo con evidencia acumulada.</p>
+    <div class="two-track" style="margin-top:8px;">
+      <div class="track-card gold">
+        <div class="track-eyebrow">Pista A · Operativa · desde Día 1</div>
+        <div class="track-title">MVP · venta <em>cross-marca de autos</em></div>
+        <div class="track-body">Use case ya probado por el piloto. Canal cross-marca funcional con Founding Partners onboardeados · motor de atribución en producción con matching contable auditable · IA Institucional v1 con matching cross-marca básico · catálogos unificados · tooling para vendors · CRM y kanban con routing WhatsApp. <strong>Ventas atribuidas cerrándose desde las primeras semanas.</strong> Deliverable: revenue medible + calibración real de CACs por marca en primeras 8-12 semanas.</div>
+      </div>
+      <div class="track-card blue">
+        <div class="track-eyebrow">Pista B · Estratégica · en paralelo</div>
+        <div class="track-title">Diseño <em>define Ola 2</em> con data</div>
+        <div class="track-body">Bucket de Diseño Estratégico trabaja durante Fase 1 para tener lista la siguiente línea de negocio con evidencia. Análisis de data del canal en producción · análisis del BAU actual por línea · journey ideal + phygital en discovery · evaluación de líneas candidatas (postventa $1.57B / 43% · Autolease · Flotillas · F&amp;I embedded · marca-paraguas · pipeline futuro). <strong>Deliverable: propuesta de Ola 2 con línea priorizada + business case + phase gate para aprobación del Consejo al cierre de Fase 1.</strong></div>
+      </div>
+    </div>
+    <div class="callout-big gold" style="margin-top:12px;">
+      <div class="callout-t">Modelo lean startup corporate documentado.</div>
+      <div class="callout-body">Ford Model e ejecutó Mach-E como MVP mientras diseñaba F-150 Lightning con la data del Mach-E. Kavak operó marketplace de seminuevos como MVP mientras diseñaba financing con la data del marketplace. <strong>MVP + discovery paralelo = validación + próximo bet listo.</strong> Al cerrar Ola 1 hay evidencia y recomendación de Ola 2 lista para el Consejo.</div>
+    </div>
+  </div>
+  <div class="slide-footer"><span><span class="dot"></span>04 · Fase 1 con dos pistas paralelas</span><span class="brand"><img src="../assets/logos/Logo-GP-Negro.png" alt="Grupo Plasencia">Grupo Plasencia Automotriz</span></div>
+</section>
+
+<!-- SLIDE 15 · ROADMAP OLAS -->
+<section class="slide" data-index="15">
+  <div class="content">
+    <div class="section-num">05 · Roadmap</div>
+    <h1 class="slide-h1">Tres olas con <em>phase gates trimestrales</em> y kill criteria explícitos.</h1>
+    <p class="slide-lede">El Grupo no compromete un CapEx único de todo el programa. Compra el derecho a evaluar cada ola con la evidencia acumulada. Ola 1 se cubre con CapEx aprobado por el Consejo. Ola 2 se cubre con revenue de Ola 1 en 50-70%. Ola 3 se cubre con revenue de Olas 1+2 en 80-95%. <strong>El único cheque puro del Grupo es el de la Ola 1.</strong></p>
+    <table class="deck-table" style="margin-top:8px;">
+      <thead>
+        <tr><th>Ola / Fase</th><th>Alcance</th><th>Autofondeo</th><th>Kill criteria</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Ola 1 · Fase 1 · Año 1</strong><br><em>Levantamiento + MVP</em></td>
+          <td>Descubrimiento tech · RFP a 5 buckets cerrado · MVP Marketplace en producción · sistema de tickets Carretera 1 operando · Founding Partners firmados · propuesta Ola 2 lista al cierre</td>
+          <td class="center">0% (CapEx Consejo)</td>
+          <td class="warn">Descubrimiento tech no cierra Q1 · Founding Partners no firman en 90 días · CACs no-Seminuevos exceden 4× piso Seminuevos al cierre semestre</td>
+        </tr>
+        <tr>
+          <td><strong>Ola 2 · Fase 2 · Año 2</strong><br><em>Línea priorizada por data</em></td>
+          <td>Marketplace v1.0 con Studio Marketplace · primeros Founding Partners externos al Grupo · IA v2 · onboarding sistematizado · línea de negocio priorizada por Diseño Estratégico</td>
+          <td class="center win">50-70% con revenue Ola 1</td>
+          <td class="warn">P&amp;L Marketplace no en trayectoria a break-even · línea priorizada sin unit economics comparables al MVP · integración CX no ejecutada según lo firmado</td>
+        </tr>
+        <tr>
+          <td><strong>Ola 3 · Fase 3 · Año 3</strong><br><em>Plataforma abierta</em></td>
+          <td>Marketplace v2.0 abierto a Founding Partners fuera del Grupo · Flotillas B2B enterprise · financiamiento white-label · seguros embedded · brand builder Plasencia digital · evaluación de estructura legal separada</td>
+          <td class="center win">80-95% con revenue Olas 1+2</td>
+          <td class="warn">No se dispara al menos un trigger de reasignación estructural antes del cierre Año 2 · modelo entra en revisión estructural</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="callout-big gold" style="margin-top:10px;">
+      <div class="callout-body">Del Año 2 en adelante el OpEx recurrente de la Carretera 2 se cubre con cuotas mensuales de Founding Partners + take rate sobre venta atribuida + servicios del canal. <strong>El único cheque puro del Grupo corporativo es el de la Ola 1.</strong> Cada ola siguiente se aprueba con la evidencia del propio negocio pagándose.</div>
+    </div>
+  </div>
+  <div class="slide-footer"><span><span class="dot"></span>05 · Tres olas · phase gates · kill criteria</span><span class="brand"><img src="../assets/logos/Logo-GP-Negro.png" alt="Grupo Plasencia">Grupo Plasencia Automotriz</span></div>
+</section>
+
+<!-- SLIDE 16 · CAPEX VS OPEX EDUCATIVO -->
+<section class="slide" data-index="16">
+  <div class="content" style="padding:32px 60px 44px 60px; gap:8px;">
+    <div class="section-num">06 · Educación contable</div>
+    <h1 class="slide-h1" style="font-size:22pt; line-height:1.06;">¿Qué es CapEx? ¿Qué es OpEx? <em>Por qué cada bucket va en su cubeta</em>.</h1>
+    <p class="slide-lede" style="font-size:10pt; line-height:1.4;">La cubeta correcta define cómo se aprueba, cómo se contabiliza y cómo se autofondea. Analogías del negocio automotriz.</p>
+    <div class="two-track" style="margin-top:4px; gap:10px;">
+      <div class="track-card" style="padding:12px 14px; gap:4px;">
+        <div class="track-eyebrow" style="font-size:8pt;">CapEx · inversión de largo plazo</div>
+        <div class="track-body" style="font-size:8.5pt; line-height:1.4;"><strong>Queda como activo del Grupo.</strong> Se paga una vez, se amortiza en balance. <em>Analogía:</em> comprar el terreno de una concesionaria. En este business case: infraestructura tecnológica, productos digitales del Grupo, IP, design system.</div>
+      </div>
+      <div class="track-card gold" style="padding:12px 14px; gap:4px;">
+        <div class="track-eyebrow" style="font-size:8pt;">OpEx · gasto operativo recurrente</div>
+        <div class="track-body" style="font-size:8.5pt; line-height:1.4;"><strong>Se paga con revenue del negocio.</strong> Corre año con año. <em>Analogía:</em> la nómina mensual o la pauta que se compra cada mes. En este business case: operación mensual del canal, evolución de modelos, soporte a Founding Partners.</div>
+      </div>
+    </div>
+    <table class="deck-table" style="margin-top:8px; font-size:8.5pt;">
+      <thead>
+        <tr><th style="padding:7px 10px;">Bucket</th><th class="center" style="padding:7px 10px;">CapEx</th><th class="center" style="padding:7px 10px;">OpEx</th><th style="padding:7px 10px;">Racional</th></tr>
+      </thead>
+      <tbody style="font-size:8.5pt;">
+        <tr><td style="padding:5px 10px;"><strong>Digital Factory</strong></td><td class="center win" style="padding:5px 10px;">Sí</td><td class="center warn" style="padding:5px 10px;">TBD por proyecto</td><td style="padding:5px 10px;">Construye productos del Grupo como activo. OpEx se cotiza con propuesta a la medida por producto</td></tr>
+        <tr><td style="padding:5px 10px;"><strong>IA Institucional · build</strong></td><td class="center win" style="padding:5px 10px;">Sí</td><td class="center win" style="padding:5px 10px;">Sí</td><td style="padding:5px 10px;">Setup + entrenamiento modelos = IP del Grupo. OpEx = mantenimiento + APIs + evolución</td></tr>
+        <tr><td style="padding:5px 10px;"><strong>IA · opción buy</strong></td><td class="center" style="padding:5px 10px;">Setup mínimo</td><td class="center" style="padding:5px 10px;">Fee mensual</td><td style="padding:5px 10px;">Vambe / Carbot / módulo conversacional CX. Trade-off velocidad vs valor residual como IP</td></tr>
+        <tr><td style="padding:5px 10px;"><strong>Diseño Estratégico</strong></td><td class="center win" style="padding:5px 10px;">Sí</td><td class="center bad" style="padding:5px 10px;">No aplica</td><td style="padding:5px 10px;">Deliverables (design system, brand, journey) quedan como marco por años. Sin operación mensual</td></tr>
+        <tr><td style="padding:5px 10px;"><strong>Marketing y Growth Ops · Carretera 1</strong></td><td class="center bad" style="padding:5px 10px;">No aplica</td><td class="center warn" style="padding:5px 10px;">TBD por brief</td><td style="padding:5px 10px;">Agencia externa a solicitud. Media budget lo paga la marca solicitante</td></tr>
+        <tr><td style="padding:5px 10px;"><strong>Marketplace Ops · Carretera 2</strong></td><td class="center win" style="padding:5px 10px;">Sí</td><td class="center win" style="padding:5px 10px;">Sí</td><td style="padding:5px 10px;">CapEx setup del sistema. OpEx operación recurrente (moderación, soporte, evolución)</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="slide-footer"><span><span class="dot"></span>06 · CapEx vs OpEx · cada bucket en su cubeta</span><span class="brand"><img src="../assets/logos/Logo-GP-Negro.png" alt="Grupo Plasencia">Grupo Plasencia Automotriz</span></div>
+</section>
+
+<!-- SLIDE 17 · RANGOS POR BUCKET Y ASK -->
+<section class="slide" data-index="17">
+  <div class="content" style="padding:36px 60px 48px 60px; gap:10px;">
+    <div class="section-num">06 · Ask al Consejo</div>
+    <h1 class="slide-h1" style="font-size:24pt; line-height:1.06;">Ask total Año 1: <em>$6.7M – $11.1M</em>. El resto TBD por proyecto o brief.</h1>
+    <p class="slide-lede" style="font-size:10pt; line-height:1.4;">Rangos por bucket con racional CapEx/OpEx. El rango firme es el compromiso del Consejo. Los TBD explícitos son <strong>no compromiso corporativo</strong>: se cotizan con propuesta a la medida caso por caso.</p>
+    <table class="deck-table" style="margin-top:4px; font-size:9pt;">
+      <thead>
+        <tr><th style="padding:8px 12px;">Bucket</th><th class="num" style="padding:8px 12px;">Setup CapEx (una vez)</th><th class="num" style="padding:8px 12px;">OpEx anual</th></tr>
+      </thead>
+      <tbody>
+        <tr><td style="padding:6px 12px;"><strong>Digital Factory</strong></td><td class="num" style="padding:6px 12px;">$1.5M – $2.0M</td><td class="num warn" style="padding:6px 12px;">TBD por proyecto</td></tr>
+        <tr><td style="padding:6px 12px;"><strong>IA Institucional · opción build</strong></td><td class="num" style="padding:6px 12px;">$400K – $1.0M</td><td class="num" style="padding:6px 12px;">$300K – $700K</td></tr>
+        <tr><td style="padding:6px 12px;"><strong>IA · opción buy</strong> (Vambe / Carbot / CX)</td><td class="num" style="padding:6px 12px;">Setup mínimo</td><td class="num" style="padding:6px 12px;">Fee mensual del proveedor</td></tr>
+        <tr><td style="padding:6px 12px;"><strong>Diseño Estratégico</strong></td><td class="num" style="padding:6px 12px;">~$2.0M</td><td class="num bad" style="padding:6px 12px;">Sin OpEx recurrente</td></tr>
+        <tr><td style="padding:6px 12px;"><strong>Marketing y Growth Ops · Carretera 1</strong></td><td class="num bad" style="padding:6px 12px;">Sin setup corporativo</td><td class="num warn" style="padding:6px 12px;">TBD por brief · marca paga</td></tr>
+        <tr><td style="padding:6px 12px;"><strong>Marketplace Ops + BD · Carretera 2</strong></td><td class="num" style="padding:6px 12px;">$300K – $600K</td><td class="num" style="padding:6px 12px;">$2.2M – $4.8M</td></tr>
+        <tr class="total"><td style="padding:8px 12px;"><strong>Total al Consejo · rango firme</strong></td><td class="num" style="padding:8px 12px;"><strong>$4.2M – $5.6M</strong></td><td class="num" style="padding:8px 12px;"><strong>$2.5M – $5.5M</strong></td></tr>
+      </tbody>
+    </table>
+    <div class="killer-wrap" style="margin-top:8px;">
+      <div class="killer-main" style="padding:14px 20px;">
+        <div class="label" style="font-size:7.5pt;">Ask total Año 1 · rango firme</div>
+        <div class="num" style="font-size:38pt; letter-spacing:-1.6px; margin-top:2px;">$6.7M – $11.1M</div>
+        <div class="sub" style="font-size:9.5pt; margin-top:4px;">CapEx único Fase 1 + OpEx corredor firme · resto TBD por proyecto o brief</div>
+      </div>
+      <div class="killer-side green" style="padding:12px 16px;">
+        <div class="label" style="font-size:7.5pt;">Autofondeo desde Año 2</div>
+        <div class="num" style="font-size:16pt; letter-spacing:-.6px;">Progresivo</div>
+        <div class="sub" style="font-size:8pt; margin-top:4px;">50-70% Ola 1 · 80-95% Ola 3 con cuotas + take rate + servicios del canal</div>
+      </div>
+      <div class="killer-side navy" style="padding:12px 16px;">
+        <div class="label" style="font-size:7.5pt;">Sin OpEx corporativo</div>
+        <div class="num" style="font-size:16pt; letter-spacing:-.6px;">Carretera 1</div>
+        <div class="sub" style="font-size:8pt; margin-top:4px;">Marketing Ops se autofinancía con lo que cada marca contrata</div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer"><span><span class="dot"></span>06 · Rangos por bucket · ask total al Consejo</span><span class="brand"><img src="../assets/logos/Logo-GP-Negro.png" alt="Grupo Plasencia">Grupo Plasencia Automotriz</span></div>
+</section>
+
+<!-- SLIDE 18 · ANCLA SEMINUEVOS + COMP DIRECTOR -->
+<section class="slide" data-index="18">
+  <div class="content">
+    <div class="section-num">06 · Ancla empírica + Compensación Director</div>
+    <h1 class="slide-h1">Piloto Seminuevos como <em>piso comprobado</em>. Retornos por marca calibran en Fase 1.</h1>
+    <p class="slide-lede">Los rangos financieros del ask son costos precisos. Los retornos específicos del canal por marca no se comprometen en este documento — son deliverable de Fase 1 conforme se calibran los CACs reales en las primeras 8-12 semanas del canal en producción. Lo que sí se compromete es la evidencia ya demostrada por el piloto.</p>
+    <div class="killer-wrap" style="margin-top:6px;">
+      <div class="killer-main">
+        <div class="label">Ancla empírica única · piloto Seminuevos</div>
+        <div class="num">$1,050</div>
+        <div class="sub">CAC comprobado en 66 ventas atribuidas · $69,437 de spend · 87 días · margen bruto DCA real 11.23% · ROI 411%</div>
+      </div>
+      <div class="killer-side navy">
+        <div class="label">Casos rescate cross-marca</div>
+        <div class="num">$137K</div>
+        <div class="sub">Profit total documentado: HYU→Mazda $46K + STL→GWM $91K · cerrados a mano · escalan a línea con sistema</div>
+      </div>
+      <div class="killer-side green">
+        <div class="label">CACs otras marcas</div>
+        <div class="num">Proxy</div>
+        <div class="sub">Calibración real por marca es deliverable de Fase 1 · primeras 8-12 semanas del canal en producción</div>
+      </div>
+    </div>
+    <div class="callout-big" style="margin-top:14px;">
+      <div class="callout-t">Compensación del Director de Marketing Corporativo.</div>
+      <div class="callout-body"><strong>Base fija · retainer mensual</strong> que cubre el gobierno de la Dirección, la gestión de propuestas a las marcas (Carretera 1), coordinación y relación con Consejo. La base específica la calibra el Consejo con Finanzas contra rango de mercado documentado y ancla interna del Grupo. <strong>Componente variable a elegir por el Consejo entre dos esquemas alternativos (no ambos):</strong> Opción A revenue-linked 1.5%-2.5% del revenue incremental atribuible al canal desde Año 1, o Opción B EBITDA-linked 8%-12% del EBITDA de vertical autofondeada desde Año 2. Ambos alinean incentivos al output de la Carretera 2. <em>Carry equity opcional Ola 3+ cuando haya consolidación</em>, planteado como conversación abierta con evidencia acumulada.</div>
+    </div>
+  </div>
+  <div class="slide-footer"><span><span class="dot"></span>06 · Ancla empírica única · sin proyecciones cross-marca</span><span class="brand"><img src="../assets/logos/Logo-GP-Negro.png" alt="Grupo Plasencia">Grupo Plasencia Automotriz</span></div>
+</section>
+
+<!-- SLIDE 19 · EL ASK -->
+<section class="slide" data-index="19">
+  <div class="content">
+    <div class="section-num">07 · El Ask</div>
+    <h1 class="slide-h1">Cuatro decisiones <em>binarias</em> al Consejo hoy.</h1>
+    <p class="slide-lede">El orden correcto es primero la decisión, después el plan. Con estas cuatro decisiones + green light para presentar a Directores de Marca, la Fase 1 arranca en 30 días.</p>
+    <div class="ask-list">
+      <div class="ask-item"><div class="ask-num">01</div><div class="ask-text"><strong>Creación de la Dirección de Marketing Corporativo</strong> como función corporativa reportando directo al Consejo Directivo, operada por Director externo bajo modelo independiente vía firma, con las dos carreteras diferenciadas descritas. <em>La Dirección no gobierna al BAU, no interviene la operación de los Directores de Marca y no controla la inversión OEM.</em></div></div>
+      <div class="ask-item"><div class="ask-num">02</div><div class="ask-text"><strong>Modelo tercerizado y estructura de operación.</strong> Director externo + cinco buckets de partners externos especializados. <em>Cero headcount interno nuevo. Cero redeployment del pool actual del Grupo.</em> Cotizaciones específicas se cierran durante Fase 1 y se presentan al Consejo para validación del CapEx agregado.</div></div>
+      <div class="ask-item"><div class="ask-num">03</div><div class="ask-text"><strong>CapEx Fase 1 acotado con kill criteria explícitos.</strong> Starter kit con rango cotizado <em>$6.7M – $11.1M al Año 1</em> (CapEx firme + OpEx corredor firme; OpEx Digital Factory y Marketing y Growth Ops quedan como TBD por proyecto o brief). Con phase gates trimestrales.</div></div>
+      <div class="ask-item"><div class="ask-num">04</div><div class="ask-text"><strong>Marco de Founding Partners abierto y dos pistas paralelas en Fase 1.</strong> Cualquier marca o línea de negocio del Grupo que decida participar en el Marketplace en Fase 1 recibe beneficios subsidiados por escrito. Fase 1 opera con Pista A (MVP venta cross-marca de autos) y Pista B (Diseño Estratégico define Ola 2 con data). <em>Green light para presentar el modelo a Directores de Marca del Grupo</em>.</div></div>
+    </div>
+  </div>
+  <div class="slide-footer"><span><span class="dot"></span>07 · Cuatro decisiones binarias al Consejo</span><span class="brand"><img src="../assets/logos/Logo-GP-Negro.png" alt="Grupo Plasencia">Grupo Plasencia Automotriz</span></div>
+</section>
+
+<!-- SLIDE 20 · CIERRE -->
+<section class="slide closing" data-index="20">
+  <div class="closing-inner">
+    <div class="closing-eyebrow">Lo que se pide del Consejo hoy</div>
+    <div class="closing-rule"></div>
+    <h1 class="closing-h">Primero la decisión, <em>después el plan</em>.</h1>
+    <p style="font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 14pt; color: rgba(255,255,255,.85); margin-top: 22px; max-width: 920px; line-height: 1.5;">
+      Validación de la visión y del modelo. Confirmación del rango de budget para Fase 1. Green light para presentar el modelo a los Directores de Marca del Grupo para alinear el modelo operativo y las decisiones individuales de participación.
+    </p>
+    <img class="closing-logo" src="../assets/logos/LOGO-GP-Blanco.png" alt="Grupo Plasencia Automotriz">
+    <div class="closing-sub">Con eso, la Fase 1 arranca en 30 días</div>
+    <div style="margin-top: 32px; font-family: var(--sans); font-size: 9.5pt; color: rgba(255,255,255,.65); letter-spacing: 1.5px; text-transform: uppercase;">
+      Jesús Pérez Porras · Director de Marketing Corporativo · Grupo Plasencia Automotriz
+    </div>
+  </div>
+</section>
+
+</div>
+
+<script>
+const deck = document.getElementById('deck');
+const slides = Array.from(deck.querySelectorAll('.slide'));
+const total = slides.length;
+const counter = document.getElementById('counter');
+const progress = document.getElementById('progress');
+const reviewBtn = document.getElementById('review-toggle');
+let current = 0;
+function fit(){
+  if (document.body.classList.contains('review-mode')) { slides.forEach(s => { s.style.transform=''; }); return; }
+  const sx = window.innerWidth/1280, sy = window.innerHeight/720, s = Math.min(sx,sy);
+  const ox = (window.innerWidth-1280*s)/2, oy = (window.innerHeight-720*s)/2;
+  slides.forEach(sl => sl.style.transform = `translate(${ox}px, ${oy}px) scale(${s})`);
+}
+function go(i){
+  current = (i+total)%total;
+  slides.forEach((s,k)=>s.classList.toggle('active', k===current));
+  counter.textContent = `${current+1} / ${total}`;
+  progress.style.width = `${((current+1)/total)*100}%`;
+}
+window.addEventListener('resize', fit);
+document.getElementById('nav-prev').addEventListener('click', ()=>go(current-1));
+document.getElementById('nav-next').addEventListener('click', ()=>go(current+1));
+document.addEventListener('keydown', e => {
+  if (e.key==='ArrowRight'||e.key==='PageDown'||e.key===' ') go(current+1);
+  if (e.key==='ArrowLeft'||e.key==='PageUp') go(current-1);
+  if (e.key==='Home') go(0);
+  if (e.key==='End') go(total-1);
+});
+reviewBtn.addEventListener('click', ()=>{
+  document.body.classList.toggle('review-mode');
+  reviewBtn.textContent = document.body.classList.contains('review-mode') ? 'Modo Presentación ▶' : 'Ver todo ↕';
+  fit();
+});
+if (location.hash === '#review') { document.body.classList.add('review-mode'); reviewBtn.textContent = 'Modo Presentación ▶'; }
+fit();
+go(0);
+</script>
+
+</body>
+</html>
