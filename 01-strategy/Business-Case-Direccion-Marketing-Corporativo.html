@@ -815,26 +815,78 @@ table.deck-table { width:100%; border-collapse: collapse; font-family: var(--san
       </div>
     </div>
 
-    <!-- PUENTE CORTO A LA TABLA -->
-    <p style="font-family:var(--sans); font-size:8pt; line-height:1.3; margin-top:4px; margin-bottom:0; color:#2D3748;"><strong>Cinco dimensiones donde cambia la operación</strong> · cada fila compara el estado actual del Grupo (columna izquierda, rojo · fragmentación) contra el nuevo modelo con la Dirección (columna derecha, verde · consolidación con control).</p>
+    <!-- PUENTE CORTO -->
+    <p style="font-family:var(--sans); font-size:8pt; line-height:1.3; margin-top:5px; margin-bottom:0; color:#2D3748; text-align:center;"><strong>Cinco dimensiones donde cambia la operación</strong> — <em>hoy</em> <span style="color:#7B1F2B;">▮</span> · <em>con la Dirección</em> <span style="color:#2F855A;">▮</span></p>
 
-    <!-- CUADRO COMPARATIVO HOY VS CON LA DIRECCIÓN -->
-    <table class="deck-table" style="margin-top:3px; font-size:7.5pt;">
-      <thead>
-        <tr>
-          <th style="padding:4px 7px; width:22%; font-size:7pt;">Dimensión</th>
-          <th style="padding:4px 7px; width:39%; background:#7B1F2B; font-size:7pt;">Hoy · fragmentación</th>
-          <th style="padding:4px 7px; width:39%; background:#2F855A; font-size:7pt;">Con la Dirección · consolidación</th>
-        </tr>
-      </thead>
-      <tbody style="font-size:7.3pt;">
-        <tr><td style="padding:3px 7px;"><strong>Puntos de contratación</strong></td><td style="padding:3px 7px;">9 marcas × contratos individuales · 14+ proveedores directos</td><td style="padding:3px 7px;">1 pool corporativo · 3-5 buckets con contratos consolidados</td></tr>
-        <tr><td style="padding:3px 7px;"><strong>Auditabilidad</strong></td><td style="padding:3px 7px;">9 marcas · 40+ sucursales · 14+ proveedores · $41M gasto disperso</td><td style="padding:3px 7px;">1 área · 3-5 buckets con entregables auditables · reportería única</td></tr>
-        <tr><td style="padding:3px 7px;"><strong>Control de ejecución</strong></td><td style="padding:3px 7px;">Cada marca autogestiona su BAU y sus proveedores</td><td style="padding:3px 7px;">SLAs corporativos + visibilidad tiempo real desde un panel</td></tr>
-        <tr><td style="padding:3px 7px;"><strong>Resultados e impacto</strong></td><td style="padding:3px 7px;">Reportería por marca · sin vista consolidada del gasto</td><td style="padding:3px 7px;">Vista consolidada · ROI por brief · impacto cross-marca auditado</td></tr>
-        <tr><td style="padding:3px 7px;"><strong>Base absorción BAU</strong></td><td style="padding:3px 7px;">No existe estructura corporativa para migrar el BAU</td><td style="padding:3px 7px;">Evidencia trimestre a trimestre · migración voluntaria cuando cada marca decida</td></tr>
-      </tbody>
-    </table>
+    <!-- CINCO CARDS ANTES/DESPUÉS -->
+    <div style="display:grid; grid-template-columns:repeat(5,1fr); gap:6px; margin-top:6px;">
+
+      <div style="background:#FFF; border:1px solid #E2E8F0; border-radius:6px; padding:8px 8px 9px 8px; box-shadow:0 1px 2px rgba(0,0,0,0.04);">
+        <div style="font-family:var(--sans); font-size:6.5pt; font-weight:700; letter-spacing:1.2px; color:#1E2740; text-transform:uppercase; text-align:center; padding-bottom:5px; border-bottom:1px solid #E2E8F0;">Puntos de contratación</div>
+        <div style="text-align:center; padding-top:6px;">
+          <div style="font-family:var(--serif); font-weight:800; font-size:16pt; color:#7B1F2B; line-height:1;">14+</div>
+          <div style="font-family:var(--sans); font-size:6.5pt; color:#4A5568; line-height:1.2; margin-top:1px;">proveedores individuales</div>
+        </div>
+        <div style="text-align:center; font-size:11pt; color:#CBD5E0; line-height:0.6; margin:3px 0;">↓</div>
+        <div style="text-align:center;">
+          <div style="font-family:var(--serif); font-weight:800; font-size:16pt; color:#2F855A; line-height:1;">3-5</div>
+          <div style="font-family:var(--sans); font-size:6.5pt; color:#4A5568; line-height:1.2; margin-top:1px;">buckets consolidados</div>
+        </div>
+      </div>
+
+      <div style="background:#FFF; border:1px solid #E2E8F0; border-radius:6px; padding:8px 8px 9px 8px; box-shadow:0 1px 2px rgba(0,0,0,0.04);">
+        <div style="font-family:var(--sans); font-size:6.5pt; font-weight:700; letter-spacing:1.2px; color:#1E2740; text-transform:uppercase; text-align:center; padding-bottom:5px; border-bottom:1px solid #E2E8F0;">Auditabilidad</div>
+        <div style="text-align:center; padding-top:6px;">
+          <div style="font-family:var(--serif); font-weight:800; font-size:14pt; color:#7B1F2B; line-height:1;">$41M</div>
+          <div style="font-family:var(--sans); font-size:6.5pt; color:#4A5568; line-height:1.2; margin-top:1px;">disperso en 9 marcas × 40+ sucursales</div>
+        </div>
+        <div style="text-align:center; font-size:11pt; color:#CBD5E0; line-height:0.6; margin:3px 0;">↓</div>
+        <div style="text-align:center;">
+          <div style="font-family:var(--serif); font-weight:800; font-size:14pt; color:#2F855A; line-height:1;">1 área</div>
+          <div style="font-family:var(--sans); font-size:6.5pt; color:#4A5568; line-height:1.2; margin-top:1px;">reportería única al Consejo</div>
+        </div>
+      </div>
+
+      <div style="background:#FFF; border:1px solid #E2E8F0; border-radius:6px; padding:8px 8px 9px 8px; box-shadow:0 1px 2px rgba(0,0,0,0.04);">
+        <div style="font-family:var(--sans); font-size:6.5pt; font-weight:700; letter-spacing:1.2px; color:#1E2740; text-transform:uppercase; text-align:center; padding-bottom:5px; border-bottom:1px solid #E2E8F0;">Control ejecución</div>
+        <div style="text-align:center; padding-top:6px;">
+          <div style="font-family:var(--serif); font-weight:800; font-size:11pt; color:#7B1F2B; line-height:1.05;">Cada marca autogestiona</div>
+          <div style="font-family:var(--sans); font-size:6.5pt; color:#4A5568; line-height:1.2; margin-top:3px;">sin vista corporativa</div>
+        </div>
+        <div style="text-align:center; font-size:11pt; color:#CBD5E0; line-height:0.6; margin:3px 0;">↓</div>
+        <div style="text-align:center;">
+          <div style="font-family:var(--serif); font-weight:800; font-size:11pt; color:#2F855A; line-height:1.05;">SLAs + panel tiempo real</div>
+          <div style="font-family:var(--sans); font-size:6.5pt; color:#4A5568; line-height:1.2; margin-top:3px;">visibilidad de un vistazo</div>
+        </div>
+      </div>
+
+      <div style="background:#FFF; border:1px solid #E2E8F0; border-radius:6px; padding:8px 8px 9px 8px; box-shadow:0 1px 2px rgba(0,0,0,0.04);">
+        <div style="font-family:var(--sans); font-size:6.5pt; font-weight:700; letter-spacing:1.2px; color:#1E2740; text-transform:uppercase; text-align:center; padding-bottom:5px; border-bottom:1px solid #E2E8F0;">Resultados e impacto</div>
+        <div style="text-align:center; padding-top:6px;">
+          <div style="font-family:var(--serif); font-weight:800; font-size:11pt; color:#7B1F2B; line-height:1.05;">Reportería fragmentada</div>
+          <div style="font-family:var(--sans); font-size:6.5pt; color:#4A5568; line-height:1.2; margin-top:3px;">por marca, sin ROI cross-Grupo</div>
+        </div>
+        <div style="text-align:center; font-size:11pt; color:#CBD5E0; line-height:0.6; margin:3px 0;">↓</div>
+        <div style="text-align:center;">
+          <div style="font-family:var(--serif); font-weight:800; font-size:11pt; color:#2F855A; line-height:1.05;">Vista consolidada</div>
+          <div style="font-family:var(--sans); font-size:6.5pt; color:#4A5568; line-height:1.2; margin-top:3px;">ROI por brief · impacto auditado</div>
+        </div>
+      </div>
+
+      <div style="background:#FFF; border:1px solid #E2E8F0; border-radius:6px; padding:8px 8px 9px 8px; box-shadow:0 1px 2px rgba(0,0,0,0.04);">
+        <div style="font-family:var(--sans); font-size:6.5pt; font-weight:700; letter-spacing:1.2px; color:#1E2740; text-transform:uppercase; text-align:center; padding-bottom:5px; border-bottom:1px solid #E2E8F0;">Absorción BAU</div>
+        <div style="text-align:center; padding-top:6px;">
+          <div style="font-family:var(--serif); font-weight:800; font-size:11pt; color:#7B1F2B; line-height:1.05;">Sin estructura para migrar</div>
+          <div style="font-family:var(--sans); font-size:6.5pt; color:#4A5568; line-height:1.2; margin-top:3px;">BAU se queda fragmentado</div>
+        </div>
+        <div style="text-align:center; font-size:11pt; color:#CBD5E0; line-height:0.6; margin:3px 0;">↓</div>
+        <div style="text-align:center;">
+          <div style="font-family:var(--serif); font-weight:800; font-size:11pt; color:#2F855A; line-height:1.05;">Base consolidada</div>
+          <div style="font-family:var(--sans); font-size:6.5pt; color:#4A5568; line-height:1.2; margin-top:3px;">migración voluntaria por marca</div>
+        </div>
+      </div>
+
+    </div>
   </div>
   <div class="slide-footer"><span><span class="dot"></span>07 · Consolidación cross-marca y cross-línea · auditable · un solo pool</span><span class="brand"><img src="../assets/logos/Logo-GP-Negro.png" alt="Grupo Plasencia">Grupo Plasencia Automotriz</span></div>
 </section>
