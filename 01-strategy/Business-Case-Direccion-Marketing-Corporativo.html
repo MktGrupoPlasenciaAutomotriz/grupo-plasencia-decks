@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dirección de Marketing &amp; Transformación Digital · Business Case v0.6 · Grupo Plasencia Automotriz</title>
+<title>Dirección de Marketing &amp; Transformación Digital · Business Case v0.7 · Grupo Plasencia Automotriz</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@500;700;800;900&display=swap" rel="stylesheet">
@@ -28,14 +28,14 @@ html, body { width:100%; height:100%; overflow:hidden; background:#0d1117; font-
 body.review-mode { overflow-y:auto; background:#0A0F1F; padding:32px 0; }
 body.review-mode .slide { position:relative !important; opacity:1 !important; visibility:visible !important; transform:none !important; left:auto !important; top:auto !important; margin:0 auto 32px auto; box-shadow:0 8px 32px rgba(0,0,0,.4); }
 body.review-mode #nav-prev, body.review-mode #nav-next, body.review-mode #counter, body.review-mode #progress { display:none; }
-.content { padding: 42px 72px 56px 72px; flex:1; display:flex; flex-direction:column; gap: 14px; position:relative; }
+.content { padding: 42px 72px 18px 72px; flex:1; display:flex; flex-direction:column; gap: 14px; position:relative; min-height:0; overflow:hidden; }
 .section-num { font-family:var(--sans); font-size:9.5pt; font-weight:700; letter-spacing:4px; color: var(--gp-red); text-transform:uppercase; }
 .slide-h1 { font-family:var(--serif); font-weight:800; font-size:30pt; line-height:1.08; letter-spacing:-1.1px; color: var(--gp-navy); margin-top:4px; }
 .slide-h1 em { font-style:italic; color: var(--amber); font-weight:700; }
 .slide-lede { font-family:var(--sans); font-size:11pt; color: var(--g600); line-height:1.5; margin-top: 2px; max-width: 1130px; }
 .slide-lede strong { color: var(--gp-navy); font-weight:700; }
 .slide-lede em { font-style: italic; color: var(--gp-navy); }
-.slide-footer { position:absolute; bottom:18px; left:72px; right:72px; display:flex; justify-content:space-between; align-items:center; font-family: var(--sans); font-size: 8.5pt; color: var(--g500); border-top: 1px solid var(--g200); padding-top: 10px; gap: 16px; }
+.slide-footer { position:relative; margin: 0 72px; padding: 10px 0 18px 0; display:flex; justify-content:space-between; align-items:center; font-family: var(--sans); font-size: 8.5pt; color: var(--g500); border-top: 1px solid var(--g200); gap: 16px; flex-shrink:0; }
 .slide-footer .dot { display:inline-block; width:8px; height:8px; background: var(--gp-red); border-radius:50%; margin-right:6px; vertical-align:middle; }
 .slide-footer .brand { display:flex; align-items:center; gap:8px; }
 .slide-footer .brand img { height: 20px; width: auto; opacity: 0.85; }
@@ -177,10 +177,10 @@ table.deck-table { width:100%; border-collapse: collapse; font-family: var(--san
 .no-text { font-family: var(--sans); font-size: 10pt; color: var(--g600); line-height: 1.45; }
 .no-text strong { color: var(--gp-navy); font-weight: 700; }
 
-.ask-list { display:flex; flex-direction:column; gap:10px; margin-top:6px; }
-.ask-item { display:grid; grid-template-columns: 40px 1fr; gap:14px; padding: 14px 18px; background: var(--paper); border: 1px solid var(--g200); border-left: 4px solid var(--gold); border-radius: 6px; }
-.ask-num { font-family: var(--serif); font-weight: 900; font-size: 22pt; color: var(--amber); line-height: 1; }
-.ask-text { font-family: var(--sans); font-size: 10pt; color: var(--g600); line-height: 1.5; }
+.ask-list { display:flex; flex-direction:column; gap:6px; margin-top:4px; }
+.ask-item { display:grid; grid-template-columns: 36px 1fr; gap:12px; padding: 8px 16px; background: var(--paper); border: 1px solid var(--g200); border-left: 4px solid var(--gold); border-radius: 6px; }
+.ask-num { font-family: var(--serif); font-weight: 900; font-size: 18pt; color: var(--amber); line-height: 1; }
+.ask-text { font-family: var(--sans); font-size: 9pt; color: var(--g600); line-height: 1.4; }
 .ask-text strong { color: var(--gp-navy); font-weight: 700; }
 .ask-text em { font-style: italic; color: var(--gp-navy); }
 
@@ -219,7 +219,7 @@ table.deck-table { width:100%; border-collapse: collapse; font-family: var(--san
 <section class="slide cover active" data-index="1">
   <div class="cover-inner">
     <div class="cover-top">
-      <div class="cover-mark">Marketing Corporativo<span>Business Case v0.6 al Consejo Directivo</span></div>
+      <div class="cover-mark">Marketing Corporativo<span>Business Case v0.7 al Consejo Directivo</span></div>
       <div class="cover-top-right">
         <img class="cover-logo" src="../assets/logos/LOGO-GP-Blanco.png" alt="Grupo Plasencia Automotriz">
         <div class="cover-confidencial">Confidencial · Interno</div>
@@ -234,7 +234,7 @@ table.deck-table { width:100%; border-collapse: collapse; font-family: var(--san
       <div class="cover-meta-block"><strong>Autor</strong><span>Jesús Pérez Porras</span></div>
       <div class="cover-meta-block"><strong>Rol</strong><span>Director de Marketing Corporativo</span></div>
       <div class="cover-meta-block"><strong>Para</strong><span>Consejo Directivo · Grupo Plasencia</span></div>
-      <div class="cover-meta-block"><strong>Fecha</strong><span>4 de julio de 2026 · v0.6</span></div>
+      <div class="cover-meta-block"><strong>Fecha</strong><span>7 de julio de 2026 · v0.7</span></div>
     </div>
   </div>
 </section>
@@ -244,7 +244,7 @@ table.deck-table { width:100%; border-collapse: collapse; font-family: var(--san
   <div class="content">
     <div class="section-num">00 · Reconocimiento del legado</div>
     <h1 class="slide-h1">El Grupo se construyó honrando la palabra <em>concesión por concesión</em>.</h1>
-    <p class="slide-lede" style="font-size:12pt; line-height:1.6; margin-top:14px;">Grupo Plasencia ganó los mandatos con Mazda, Hyundai, Stellantis, Ford, GAC, GWM, Changan e Isuzu con la disciplina de honrar cada relación de largo plazo. No es una historia de canales digitales — es una historia de relaciones. Esta propuesta no viene a poner en cuestión ese modelo.</p>
+    <p class="slide-lede" style="font-size:12pt; line-height:1.6; margin-top:14px;">Grupo Plasencia ganó los mandatos con Mazda, Hyundai, Stellantis, Ford, GAC, GWM, Changan e Isuzu con la disciplina de honrar cada relación de largo plazo con cada fabricante. El origen del Grupo son esas relaciones, no la infraestructura digital. Esta propuesta no viene a poner en cuestión ese modelo.</p>
     <p class="slide-lede" style="font-size:12pt; line-height:1.6; margin-top:4px;">Los Directores de Marca son los custodios naturales de la relación con cada fabricante, y esa autoridad se mantiene intacta. Lo que se propone es construir, <strong>al lado del modelo actual</strong>, la capacidad que hoy no existe: <em>servir a las marcas del Grupo con estrategia y ejecución de marketing a solicitud</em>, y <em>desarrollar los proyectos digitales del Grupo que no caben en el mandato de ninguna marca por diseño</em>.</p>
     <div class="callout-big gold" style="margin-top:14px;">
       <div class="callout-t">Movimiento aditivo — no sustitutivo.</div>
@@ -286,11 +286,11 @@ table.deck-table { width:100%; border-collapse: collapse; font-family: var(--san
 </section>
 
 <!-- SLIDE 4 · SITUACIÓN BASELINE -->
-<section class="slide" data-index="3">
+<section class="slide" data-index="4">
   <div class="content">
     <div class="section-num">01 · Situación · Base</div>
     <h1 class="slide-h1">$87.9M netos anuales en Marketing distribuidos en <em>silos por marca</em>.</h1>
-    <p class="slide-lede">El Grupo produce alrededor de <strong>$15 mil millones de revenue anual</strong> sobre 8 marcas activas más líneas transversales. El centro de costo de Marketing carga $114.8M brutos al año; la marca (OEM) devuelve $26.9M vía rebate. El neto que el Grupo paga es <strong>$87.9M al año</strong> — 0.22% del revenue, por debajo del benchmark automotriz (0.8% a 1.5%). No es problema de tamaño de la inversión — <em>es problema de estructura</em>.</p>
+    <p class="slide-lede">El Grupo produce alrededor de <strong>$15 mil millones de revenue anual</strong> sobre 8 marcas activas más líneas transversales. El centro de costo de Marketing carga $114.8M brutos al año; la marca (OEM) devuelve $26.9M vía rebate. El neto que el Grupo paga es <strong>$87.9M al año</strong> — 0.22% del revenue, por debajo del benchmark automotriz (0.8% a 1.5%). El monto no es la fricción; <em>la estructura sí</em>.</p>
     <div class="kpi-grid cols-4" style="margin-top:14px;">
       <div class="kpi-card navy"><div class="kpi-label">Revenue Grupo</div><div class="kpi-num">~$15B</div><div class="kpi-sub">MXN anual · 8 marcas + líneas transversales</div></div>
       <div class="kpi-card"><div class="kpi-label">MKT neto Grupo</div><div class="kpi-num red">$87.9M</div><div class="kpi-sub"><strong>0.22%</strong> del revenue · vs 0.8-1.5% benchmark</div></div>
@@ -305,7 +305,7 @@ table.deck-table { width:100%; border-collapse: collapse; font-family: var(--san
 </section>
 
 <!-- SLIDE 4 · PILOTO EVIDENCIA -->
-<section class="slide" data-index="4">
+<section class="slide" data-index="5">
   <div class="content">
     <div class="section-num">01 · Situación · Piloto operativo</div>
     <h1 class="slide-h1">El piloto probó que <em>el modelo funciona</em> con estructura mínima.</h1>
@@ -336,7 +336,7 @@ table.deck-table { width:100%; border-collapse: collapse; font-family: var(--san
 </section>
 
 <!-- SLIDE 5 · CX + PROTOTIPO -->
-<section class="slide" data-index="5">
+<section class="slide" data-index="6">
   <div class="content">
     <div class="section-num">01 · Situación · Infraestructura habilitadora</div>
     <h1 class="slide-h1">El Consejo ya validó operar como <em>Grupo</em>, no como suma de marcas.</h1>
@@ -362,7 +362,7 @@ table.deck-table { width:100%; border-collapse: collapse; font-family: var(--san
 </section>
 
 <!-- SLIDE 6 · BAU MARCA POR MARCA -->
-<section class="slide" data-index="6">
+<section class="slide" data-index="7">
   <div class="content" style="padding:36px 60px 48px 60px; gap:10px;">
     <div class="section-num">01 · Situación · Sin partner corporativo SME</div>
     <h1 class="slide-h1" style="font-size:24pt; line-height:1.06;">Cada marca administra su presupuesto <em>sola</em>. Sin partner SME al que acudir.</h1>
@@ -390,7 +390,7 @@ table.deck-table { width:100%; border-collapse: collapse; font-family: var(--san
 </section>
 
 <!-- SLIDE 7 · COMPLICACIÓN -->
-<section class="slide" data-index="7">
+<section class="slide" data-index="8">
   <div class="content">
     <div class="section-num">02 · Complicación</div>
     <h1 class="slide-h1">Dos problemas simultáneos <em>sin owner estructural</em>.</h1>
@@ -412,7 +412,7 @@ table.deck-table { width:100%; border-collapse: collapse; font-family: var(--san
 </section>
 
 <!-- SLIDE 8 · COSTO DE NO ACTUAR -->
-<section class="slide" data-index="8">
+<section class="slide" data-index="9">
   <div class="content">
     <div class="section-num">02 · Costo de no actuar</div>
     <h1 class="slide-h1">Este es el ciclo en el que <em>se define quién controla</em> la relación digital con el cliente.</h1>
@@ -443,7 +443,7 @@ table.deck-table { width:100%; border-collapse: collapse; font-family: var(--san
 </section>
 
 <!-- SLIDE 9 · TESIS -->
-<section class="slide" data-index="9">
+<section class="slide" data-index="10">
   <div class="content">
     <div class="section-num">03 · Resolución · La tesis</div>
     <h1 class="slide-h1">Dirección de Marketing &amp; Transformación Digital con <em>dos áreas</em>.</h1>
@@ -469,7 +469,7 @@ table.deck-table { width:100%; border-collapse: collapse; font-family: var(--san
 </section>
 
 <!-- SLIDE 10 · CARRETERA 1 · MARKETING OPS -->
-<section class="slide" data-index="10">
+<section class="slide" data-index="11">
   <div class="content">
     <div class="section-num">03 · Área Marketing · Ops + Growth</div>
     <h1 class="slide-h1">Partner SME corporativo <em>a solicitud del Grupo</em>. Reactivo y consultivo.</h1>
@@ -500,7 +500,7 @@ table.deck-table { width:100%; border-collapse: collapse; font-family: var(--san
 </section>
 
 <!-- SLIDE 11 · ÁREA TRANSFORMACIÓN DIGITAL -->
-<section class="slide" data-index="11">
+<section class="slide" data-index="12">
   <div class="content" style="padding:36px 60px 48px 60px; gap:10px;">
     <div class="section-num">03 · Área Transformación Digital</div>
     <h1 class="slide-h1" style="font-size:24pt; line-height:1.06;">Capturar la relación <em>cliente-producto E2E</em> del portafolio completo.</h1>
@@ -531,7 +531,7 @@ table.deck-table { width:100%; border-collapse: collapse; font-family: var(--san
 </section>
 
 <!-- SLIDE 12 · LO QUE NO ES -->
-<section class="slide" data-index="12">
+<section class="slide" data-index="13">
   <div class="content">
     <div class="section-num">03 · Distinciones que ordenan la conversación</div>
     <h1 class="slide-h1">Lo que esta propuesta <em>NO es</em>.</h1>
@@ -549,7 +549,7 @@ table.deck-table { width:100%; border-collapse: collapse; font-family: var(--san
 </section>
 
 <!-- SLIDE 13 · ESTRUCTURA TERCERIZADA -->
-<section class="slide" data-index="13">
+<section class="slide" data-index="14">
   <div class="content">
     <div class="section-num">04 · El Modelo · Estructura</div>
     <h1 class="slide-h1">Director externo + cinco buckets de partners. <em>Cero headcount interno nuevo</em>.</h1>
@@ -600,7 +600,7 @@ table.deck-table { width:100%; border-collapse: collapse; font-family: var(--san
 </section>
 
 <!-- SLIDE 14 · FASE 1 DOS PISTAS PARALELAS -->
-<section class="slide" data-index="14">
+<section class="slide" data-index="15">
   <div class="content" style="padding:36px 60px 48px 60px; gap:8px;">
     <div class="section-num">04 · Fase 1 del Marketplace</div>
     <h1 class="slide-h1" style="font-size:24pt; line-height:1.06;">Modelo <em>lean startup corporate</em>. MVP + discovery paralelo desde Día 1.</h1>
@@ -626,7 +626,7 @@ table.deck-table { width:100%; border-collapse: collapse; font-family: var(--san
       <div class="pilar-card gold" style="padding:12px 14px; gap:4px;">
         <div class="pilar-header" style="font-size:8pt;">Precedente 2 · Kavak</div>
         <div class="pilar-title" style="font-size:12pt;">Marketplace → <em>Kavak Capital</em> con data</div>
-        <div class="pilar-body" style="font-size:8.5pt; line-height:1.4;">Kavak operó el <strong>marketplace de seminuevos como MVP</strong> capturando data del comportamiento de compra automotriz digital mexicano. En paralelo diseñaba el brazo de financing con esa data — quién compra, qué monto, qué plazos, qué riesgo. Cuando Kavak Capital entró, <em>ya venía calibrado con clientes reales.</em></div>
+        <div class="pilar-body" style="font-size:8.5pt; line-height:1.4;">La lógica de Kavak fue distinta pero apunta al mismo principio. Primero lanzaron el marketplace de seminuevos y dejaron correr las transacciones el tiempo necesario para saber quién compra, con qué monto, qué plazo pide, cuál es su perfil de riesgo. Kavak Capital no se diseñó en teoría — se calibró con los propios clientes del marketplace antes de existir como producto.</div>
       </div>
     </div>
   </div>
@@ -739,7 +739,7 @@ table.deck-table { width:100%; border-collapse: collapse; font-family: var(--san
 </section>
 
 <!-- SLIDE 20 · BENEFICIOS Y VENTAJAS -->
-<section class="slide" data-index="20">
+<section class="slide" data-index="19">
   <div class="content">
     <div class="section-num">07 · Lo que gana el Grupo · <em>desde Año 1</em></div>
     <h1 class="slide-h1">Impacto de negocio <em>desde el Día 1</em>. La Dirección es la agencia interna.</h1>
@@ -748,7 +748,7 @@ table.deck-table { width:100%; border-collapse: collapse; font-family: var(--san
       <div class="track-card red" style="padding:12px 16px;">
         <div class="track-eyebrow" style="font-size:8pt;">Área Marketing · Ops + Growth · impacto Día 1 · cross-marca + cross-línea</div>
         <div class="track-title" style="font-size:14pt;">Agencia interna <em>a petición del Grupo</em></div>
-        <div class="track-body" style="font-size:8.5pt; line-height:1.4;"><strong>Cada Director de familia, Director de Marca o Gerente MKT</strong> pide servicio desde brief 1 para <em>cualquier marca u línea del portafolio</em>: <strong>8 OEM</strong> (Mazda · Hyundai · Stellantis · Ford · GAC · GWM · Changan · Isuzu) + <strong>líneas transversales</strong> (Seminuevos · Flotillas · Autolease/Arrendadora Plasencia · Postventa · F&amp;I + Seguros embedded · marca-paraguas Plasencia digital) + <strong>pipeline futuro</strong>. Modelo agencia interna Salinas / MEXA: primero al corporativo, se cotiza por brief, la marca u línea paga directo. Cero subsidio cruzado · cero riesgo corporativo · learnings cross-Grupo estandarizables · base para absorción voluntaria y gradual del BAU.</div>
+        <div class="track-body" style="font-size:8.5pt; line-height:1.4;"><strong>Cada Director de familia, Director de Marca o Gerente MKT</strong> pide servicio desde brief 1 para <em>cualquier marca u línea del portafolio</em>: <strong>8 OEM</strong> (Mazda · Hyundai · Stellantis · Ford · GAC · GWM · Changan · Isuzu) + <strong>líneas transversales</strong> (Seminuevos · Flotillas · Autolease/Arrendadora Plasencia · Postventa · F&amp;I + Seguros embedded · marca-paraguas Plasencia digital) + <strong>pipeline futuro</strong>. Modelo agencia interna Salinas / MEXA: primero al corporativo, se cotiza por brief, la marca u línea paga directo. Cero subsidio cruzado · cero riesgo corporativo · learnings cross-Grupo estandarizables · base para absorción voluntaria y gradual del BAU. <strong>Beneficio económico directo por concesionaria:</strong> se evita el sobrepago típico de comisión de agencia sobre compra de medios (10-20% de lo que un intermediario externo cobraría) y la inversión en medios queda como <em>gasto de marketing deducible al 100%</em> para la concesionaria porque contrata directo con la Dirección corporativa, sin capa intermediaria que erosione el beneficio fiscal.</div>
       </div>
       <div class="track-card gold" style="padding:12px 16px;">
         <div class="track-eyebrow" style="font-size:8pt;">Área Transformación Digital · impacto Día 1 y futuro</div>
@@ -765,60 +765,60 @@ table.deck-table { width:100%; border-collapse: collapse; font-family: var(--san
 </section>
 
 <!-- SLIDE 21 · CONSOLIDACIÓN CROSS-MARCA Y CROSS-LÍNEA -->
-<section class="slide" data-index="21">
-  <div class="content" style="padding:32px 60px 44px 60px; gap:8px;">
+<section class="slide" data-index="20">
+  <div class="content" style="padding:26px 60px 10px 60px; gap:6px;">
     <div class="section-num">07 · Consolidación estratégica</div>
-    <h1 class="slide-h1" style="font-size:23pt; line-height:1.06;">Un pool. Un área. <em>Todo el portafolio</em> auditable.</h1>
-    <p class="slide-lede" style="font-size:9pt; line-height:1.4; margin-top:2px;">Consolidar reduce el universo auditable de <strong>9 marcas × 40+ sucursales × 14+ proveedores externos ($41M en el pool actual)</strong> a <strong>1 área corporativa + 3-5 buckets especializados</strong>. Un solo partner corporativo cubre <em>cross-marca y cross-línea desde Día 1</em>. Cuando la evidencia se acumula, el BAU de cada concesionario migra voluntariamente hacia la estructura consolidada.</p>
+    <h1 class="slide-h1" style="font-size:21pt; line-height:1.04;">Un pool. Un área. <em>Todo el portafolio</em> auditable.</h1>
+    <p class="slide-lede" style="font-size:8.5pt; line-height:1.38; margin-top:0;"><em>Un pool</em> = 3-5 buckets acotados de partners externos (hoy 14+ proveedores individuales por marca). <em>Un área</em> = una sola función corporativa que reporta al Consejo (hoy cada marca autogestiona). <em>Todo el portafolio auditable</em> = 8 marcas OEM + líneas transversales + pipeline futuro en la misma capa consolidada. Consolidar reduce el universo auditable de <strong>9 marcas × 40+ sucursales × 14+ proveedores externos ($41M en el pool actual)</strong> a <strong>1 área + 3-5 buckets</strong>. Cross-marca y cross-línea desde Día 1.</p>
 
     <!-- GRID VISUAL CROSS-MARCA + CROSS-LÍNEA · SUJETO = MARCA-PARAGUAS GP -->
-    <div style="background:#F7FAFC; border-radius:10px; padding:11px 16px 12px 16px; margin-top:4px;">
+    <div style="background:#F7FAFC; border-radius:8px; padding:8px 14px 9px 14px;">
       <!-- BANNER SUPERIOR · MARCA-PARAGUAS GP COMO SUJETO -->
-      <div style="background:linear-gradient(90deg,#1E2740 0%,#2D3748 100%); color:#FFF; border-radius:6px; padding:6px 14px; text-align:center; margin-bottom:6px;">
-        <div style="font-family:var(--sans); font-size:6.5pt; font-weight:700; letter-spacing:1.6px; color:#ECC94B; text-transform:uppercase;">Sujeto del impulso corporativo · marca-paraguas cross-marca</div>
-        <div style="font-family:var(--serif); font-style:italic; font-size:15pt; font-weight:700; line-height:1.05;">Grupo Plasencia</div>
+      <div style="background:linear-gradient(90deg,#1E2740 0%,#2D3748 100%); color:#FFF; border-radius:5px; padding:4px 12px; text-align:center; margin-bottom:5px;">
+        <div style="font-family:var(--sans); font-size:6pt; font-weight:700; letter-spacing:1.5px; color:#ECC94B; text-transform:uppercase;">Sujeto del impulso corporativo · marca-paraguas cross-marca</div>
+        <div style="font-family:var(--serif); font-style:italic; font-size:13pt; font-weight:700; line-height:1.05;">Grupo Plasencia</div>
       </div>
-      <div style="text-align:center; font-family:var(--sans); font-size:7pt; font-weight:700; letter-spacing:1.2px; color:#744210; text-transform:uppercase; margin-bottom:4px;">Sus marcas OEM · ejecución del impulso</div>
-      <div style="display:grid; grid-template-columns:repeat(8,1fr); gap:5px; margin-bottom:5px;">
-        <div style="background:#FFF; border:1px solid #CBD5E0; border-top:2px solid #1E2740; border-radius:5px; padding:5px 3px; text-align:center; font-family:var(--sans); font-size:8pt; font-weight:600; color:#1E2740;">Mazda</div>
-        <div style="background:#FFF; border:1px solid #CBD5E0; border-top:2px solid #1E2740; border-radius:5px; padding:5px 3px; text-align:center; font-family:var(--sans); font-size:8pt; font-weight:600; color:#1E2740;">Hyundai</div>
-        <div style="background:#FFF; border:1px solid #CBD5E0; border-top:2px solid #1E2740; border-radius:5px; padding:5px 3px; text-align:center; font-family:var(--sans); font-size:8pt; font-weight:600; color:#1E2740;">Stellantis</div>
-        <div style="background:#FFF; border:1px solid #CBD5E0; border-top:2px solid #1E2740; border-radius:5px; padding:5px 3px; text-align:center; font-family:var(--sans); font-size:8pt; font-weight:600; color:#1E2740;">Ford</div>
-        <div style="background:#FFF; border:1px solid #CBD5E0; border-top:2px solid #1E2740; border-radius:5px; padding:5px 3px; text-align:center; font-family:var(--sans); font-size:8pt; font-weight:600; color:#1E2740;">GAC</div>
-        <div style="background:#FFF; border:1px solid #CBD5E0; border-top:2px solid #1E2740; border-radius:5px; padding:5px 3px; text-align:center; font-family:var(--sans); font-size:8pt; font-weight:600; color:#1E2740;">GWM</div>
-        <div style="background:#FFF; border:1px solid #CBD5E0; border-top:2px solid #1E2740; border-radius:5px; padding:5px 3px; text-align:center; font-family:var(--sans); font-size:8pt; font-weight:600; color:#1E2740;">Changan</div>
-        <div style="background:#FFF; border:1px solid #CBD5E0; border-top:2px solid #1E2740; border-radius:5px; padding:5px 3px; text-align:center; font-family:var(--sans); font-size:8pt; font-weight:600; color:#1E2740;">Isuzu</div>
+      <div style="text-align:center; font-family:var(--sans); font-size:6.5pt; font-weight:700; letter-spacing:1.2px; color:#744210; text-transform:uppercase; margin-bottom:3px;">Sus marcas OEM · ejecución</div>
+      <div style="display:grid; grid-template-columns:repeat(8,1fr); gap:4px; margin-bottom:4px;">
+        <div style="background:#FFF; border:1px solid #CBD5E0; border-top:2px solid #1E2740; border-radius:4px; padding:4px 3px; text-align:center; font-family:var(--sans); font-size:7.5pt; font-weight:600; color:#1E2740;">Mazda</div>
+        <div style="background:#FFF; border:1px solid #CBD5E0; border-top:2px solid #1E2740; border-radius:4px; padding:4px 3px; text-align:center; font-family:var(--sans); font-size:7.5pt; font-weight:600; color:#1E2740;">Hyundai</div>
+        <div style="background:#FFF; border:1px solid #CBD5E0; border-top:2px solid #1E2740; border-radius:4px; padding:4px 3px; text-align:center; font-family:var(--sans); font-size:7.5pt; font-weight:600; color:#1E2740;">Stellantis</div>
+        <div style="background:#FFF; border:1px solid #CBD5E0; border-top:2px solid #1E2740; border-radius:4px; padding:4px 3px; text-align:center; font-family:var(--sans); font-size:7.5pt; font-weight:600; color:#1E2740;">Ford</div>
+        <div style="background:#FFF; border:1px solid #CBD5E0; border-top:2px solid #1E2740; border-radius:4px; padding:4px 3px; text-align:center; font-family:var(--sans); font-size:7.5pt; font-weight:600; color:#1E2740;">GAC</div>
+        <div style="background:#FFF; border:1px solid #CBD5E0; border-top:2px solid #1E2740; border-radius:4px; padding:4px 3px; text-align:center; font-family:var(--sans); font-size:7.5pt; font-weight:600; color:#1E2740;">GWM</div>
+        <div style="background:#FFF; border:1px solid #CBD5E0; border-top:2px solid #1E2740; border-radius:4px; padding:4px 3px; text-align:center; font-family:var(--sans); font-size:7.5pt; font-weight:600; color:#1E2740;">Changan</div>
+        <div style="background:#FFF; border:1px solid #CBD5E0; border-top:2px solid #1E2740; border-radius:4px; padding:4px 3px; text-align:center; font-family:var(--sans); font-size:7.5pt; font-weight:600; color:#1E2740;">Isuzu</div>
       </div>
-      <div style="text-align:center; font-family:var(--sans); font-size:7pt; font-weight:700; letter-spacing:1.2px; color:#744210; text-transform:uppercase; margin-bottom:4px;">Sus líneas transversales · ejecución del impulso</div>
-      <div style="display:grid; grid-template-columns:repeat(5,1fr); gap:5px; margin-bottom:5px;">
-        <div style="background:#FFF; border:1px solid #CBD5E0; border-top:2px solid #ECC94B; border-radius:5px; padding:5px 3px; text-align:center; font-family:var(--sans); font-size:7.5pt; font-weight:600; color:#744210;">Seminuevos</div>
-        <div style="background:#FFF; border:1px solid #CBD5E0; border-top:2px solid #ECC94B; border-radius:5px; padding:5px 3px; text-align:center; font-family:var(--sans); font-size:7.5pt; font-weight:600; color:#744210;">Flotillas B2B</div>
-        <div style="background:#FFF; border:1px solid #CBD5E0; border-top:2px solid #ECC94B; border-radius:5px; padding:5px 3px; text-align:center; font-family:var(--sans); font-size:7.5pt; font-weight:600; color:#744210;">Autolease</div>
-        <div style="background:#FFF; border:1px solid #CBD5E0; border-top:2px solid #ECC94B; border-radius:5px; padding:5px 3px; text-align:center; font-family:var(--sans); font-size:7.5pt; font-weight:600; color:#744210;">Postventa</div>
-        <div style="background:#FFF; border:1px solid #CBD5E0; border-top:2px solid #ECC94B; border-radius:5px; padding:5px 3px; text-align:center; font-family:var(--sans); font-size:7.5pt; font-weight:600; color:#744210;">F&amp;I + Seguros</div>
+      <div style="text-align:center; font-family:var(--sans); font-size:6.5pt; font-weight:700; letter-spacing:1.2px; color:#744210; text-transform:uppercase; margin-bottom:3px;">Sus líneas transversales · ejecución</div>
+      <div style="display:grid; grid-template-columns:repeat(5,1fr); gap:4px; margin-bottom:3px;">
+        <div style="background:#FFF; border:1px solid #CBD5E0; border-top:2px solid #ECC94B; border-radius:4px; padding:4px 3px; text-align:center; font-family:var(--sans); font-size:7pt; font-weight:600; color:#744210;">Seminuevos</div>
+        <div style="background:#FFF; border:1px solid #CBD5E0; border-top:2px solid #ECC94B; border-radius:4px; padding:4px 3px; text-align:center; font-family:var(--sans); font-size:7pt; font-weight:600; color:#744210;">Flotillas B2B</div>
+        <div style="background:#FFF; border:1px solid #CBD5E0; border-top:2px solid #ECC94B; border-radius:4px; padding:4px 3px; text-align:center; font-family:var(--sans); font-size:7pt; font-weight:600; color:#744210;">Autolease</div>
+        <div style="background:#FFF; border:1px solid #CBD5E0; border-top:2px solid #ECC94B; border-radius:4px; padding:4px 3px; text-align:center; font-family:var(--sans); font-size:7pt; font-weight:600; color:#744210;">Postventa</div>
+        <div style="background:#FFF; border:1px solid #CBD5E0; border-top:2px solid #ECC94B; border-radius:4px; padding:4px 3px; text-align:center; font-family:var(--sans); font-size:7pt; font-weight:600; color:#744210;">F&amp;I + Seguros</div>
       </div>
-      <div style="text-align:center; font-family:var(--sans); font-size:13pt; color:#C8102E; line-height:0.6; margin:1px 0 3px 0;">▼</div>
-      <div style="background:#7B1F2B; color:#FFF; border-radius:6px; padding:7px 14px; text-align:center;">
-        <div style="font-family:var(--serif); font-style:italic; font-size:12pt; font-weight:600; line-height:1.1;">Dirección de Marketing &amp; Transformación Digital</div>
-        <div style="font-family:var(--sans); font-size:7pt; color:#ECC94B; letter-spacing:1px; text-transform:uppercase; margin-top:2px;">Partner corporativo del Grupo · SME a solicitud · cross-marca y cross-línea</div>
+      <div style="text-align:center; font-family:var(--sans); font-size:11pt; color:#C8102E; line-height:0.5; margin:0;">▼</div>
+      <div style="background:#7B1F2B; color:#FFF; border-radius:5px; padding:5px 12px; text-align:center; margin-top:2px;">
+        <div style="font-family:var(--serif); font-style:italic; font-size:11pt; font-weight:600; line-height:1.05;">Dirección de Marketing &amp; Transformación Digital</div>
+        <div style="font-family:var(--sans); font-size:6.5pt; color:#ECC94B; letter-spacing:1px; text-transform:uppercase; margin-top:1px;">Partner corporativo del Grupo · SME a solicitud</div>
       </div>
     </div>
 
     <!-- CUADRO COMPARATIVO HOY VS CON LA DIRECCIÓN -->
-    <table class="deck-table" style="margin-top:4px; font-size:8pt;">
+    <table class="deck-table" style="margin-top:2px; font-size:7.5pt;">
       <thead>
         <tr>
-          <th style="padding:5px 8px; width:22%;">Dimensión</th>
-          <th style="padding:5px 8px; width:39%; background:#7B1F2B;">Hoy · fragmentación operativa</th>
-          <th style="padding:5px 8px; width:39%; background:#2F855A;">Con la Dirección · consolidación con control</th>
+          <th style="padding:4px 7px; width:22%; font-size:7pt;">Dimensión</th>
+          <th style="padding:4px 7px; width:39%; background:#7B1F2B; font-size:7pt;">Hoy · fragmentación</th>
+          <th style="padding:4px 7px; width:39%; background:#2F855A; font-size:7pt;">Con la Dirección · consolidación</th>
         </tr>
       </thead>
-      <tbody style="font-size:7.8pt;">
-        <tr><td style="padding:4px 8px;"><strong>Puntos de contratación</strong></td><td style="padding:4px 8px;">9 marcas × contratos individuales · 14+ proveedores directos por marca</td><td style="padding:4px 8px;">1 pool corporativo · 3-5 buckets con contratos consolidados</td></tr>
-        <tr><td style="padding:4px 8px;"><strong>Auditabilidad</strong></td><td style="padding:4px 8px;">9 marcas · 40+ sucursales · 14+ proveedores · $41M gasto externo disperso</td><td style="padding:4px 8px;">1 área corporativa · 3-5 buckets con entregables auditables · reportería única</td></tr>
-        <tr><td style="padding:4px 8px;"><strong>Control de ejecución</strong></td><td style="padding:4px 8px;">Cada marca autogestiona su BAU y sus proveedores individualmente</td><td style="padding:4px 8px;">SLAs corporativos + visibilidad de ejecución en tiempo real desde un solo panel</td></tr>
-        <tr><td style="padding:4px 8px;"><strong>Resultados e impacto</strong></td><td style="padding:4px 8px;">Reportería por marca · sin vista consolidada del gasto ni del impacto cross-Grupo</td><td style="padding:4px 8px;">Vista consolidada de gasto · ROI por brief · impacto cross-marca auditado</td></tr>
-        <tr><td style="padding:4px 8px;"><strong>Base para absorción BAU</strong></td><td style="padding:4px 8px;">No existe estructura corporativa consolidada sobre la cual migrar el BAU</td><td style="padding:4px 8px;">Evidencia acumulada trimestre a trimestre · migración voluntaria cuando cada marca lo decida</td></tr>
+      <tbody style="font-size:7.3pt;">
+        <tr><td style="padding:3px 7px;"><strong>Puntos de contratación</strong></td><td style="padding:3px 7px;">9 marcas × contratos individuales · 14+ proveedores directos</td><td style="padding:3px 7px;">1 pool corporativo · 3-5 buckets con contratos consolidados</td></tr>
+        <tr><td style="padding:3px 7px;"><strong>Auditabilidad</strong></td><td style="padding:3px 7px;">9 marcas · 40+ sucursales · 14+ proveedores · $41M gasto disperso</td><td style="padding:3px 7px;">1 área · 3-5 buckets con entregables auditables · reportería única</td></tr>
+        <tr><td style="padding:3px 7px;"><strong>Control de ejecución</strong></td><td style="padding:3px 7px;">Cada marca autogestiona su BAU y sus proveedores</td><td style="padding:3px 7px;">SLAs corporativos + visibilidad tiempo real desde un panel</td></tr>
+        <tr><td style="padding:3px 7px;"><strong>Resultados e impacto</strong></td><td style="padding:3px 7px;">Reportería por marca · sin vista consolidada del gasto</td><td style="padding:3px 7px;">Vista consolidada · ROI por brief · impacto cross-marca auditado</td></tr>
+        <tr><td style="padding:3px 7px;"><strong>Base absorción BAU</strong></td><td style="padding:3px 7px;">No existe estructura corporativa para migrar el BAU</td><td style="padding:3px 7px;">Evidencia trimestre a trimestre · migración voluntaria cuando cada marca decida</td></tr>
       </tbody>
     </table>
   </div>
@@ -826,7 +826,7 @@ table.deck-table { width:100%; border-collapse: collapse; font-family: var(--san
 </section>
 
 <!-- SLIDE 22 · EL ASK -->
-<section class="slide" data-index="22">
+<section class="slide" data-index="21">
   <div class="content">
     <div class="section-num">07 · El Ask</div>
     <h1 class="slide-h1">Cinco decisiones <em>binarias</em> al Consejo hoy.</h1>
@@ -843,7 +843,7 @@ table.deck-table { width:100%; border-collapse: collapse; font-family: var(--san
 </section>
 
 <!-- SLIDE 23 · PRÓXIMOS PASOS · PROGRESIÓN POST-ASK -->
-<section class="slide" data-index="23">
+<section class="slide" data-index="22">
   <div class="content" style="padding:32px 60px 44px 60px; gap:8px;">
     <div class="section-num">08 · Próximos pasos · <em>post-ask</em></div>
     <h1 class="slide-h1" style="font-size:23pt; line-height:1.06;">Con el ask aprobado: <em>el Grupo</em> arranca el trabajo en dos carriles simultáneos.</h1>
@@ -884,7 +884,7 @@ table.deck-table { width:100%; border-collapse: collapse; font-family: var(--san
 </section>
 
 <!-- SLIDE 24 · CIERRE -->
-<section class="slide closing" data-index="20">
+<section class="slide closing" data-index="23">
   <div class="closing-inner">
     <div class="closing-eyebrow">Lo que se pide del Consejo hoy</div>
     <div class="closing-rule"></div>
