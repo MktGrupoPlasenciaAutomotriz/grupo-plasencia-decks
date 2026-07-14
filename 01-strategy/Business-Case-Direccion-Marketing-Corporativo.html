@@ -46,6 +46,24 @@ body.review-mode #nav-prev, body.review-mode #nav-next, body.review-mode #counte
 .closing-h em { font-style: italic; color: var(--gold); font-weight: 700; }
 .closing-sub { font-family: var(--sans); font-size: 10.5pt; color: rgba(255,255,255,.72); margin-top: 24px; letter-spacing: 1.5px; text-transform: uppercase; }
 
+/* Cover */
+.cover-inner { padding: 52px 72px 40px 72px; flex:1; display:flex; flex-direction:column; justify-content:space-between; background: radial-gradient(ellipse at 100% 0%, rgba(236,201,75,.18) 0%, transparent 55%), radial-gradient(ellipse at 0% 100%, rgba(200,16,46,.14) 0%, transparent 55%), var(--gp-navy); }
+.cover-top { display:flex; justify-content:space-between; align-items:flex-start; }
+.cover-mark { font-family:var(--sans); font-weight:700; font-size:10.5pt; letter-spacing:4px; color: var(--gold); text-transform:uppercase; }
+.cover-mark span { display:block; font-weight:400; color: rgba(255,255,255,.6); margin-top:4px; letter-spacing:1px; font-size:8.5pt; }
+.cover-confidencial { font-family:var(--sans); font-weight:700; font-size:9pt; letter-spacing:3.5px; color: var(--gp-red); text-transform:uppercase; text-align:right; }
+.cover-confidencial span { display:block; color: rgba(255,255,255,.55); font-weight:400; letter-spacing:1px; font-size:8pt; margin-top:4px; }
+.cover-center { flex:1; display:flex; flex-direction:column; justify-content:center; padding: 20px 0; }
+.cover-eyebrow { font-family:var(--sans); font-size:10.5pt; font-weight:700; letter-spacing:5px; color: var(--gp-red); text-transform:uppercase; }
+.cover-title { font-family:var(--serif); font-weight:800; font-size:42pt; line-height:1.06; letter-spacing:-1.5px; margin-top:14px; color: var(--near-white); max-width:1080px; }
+.cover-title em { font-style:italic; color: var(--gold); font-weight:700; }
+.cover-subtitle { font-family:var(--serif); font-weight:500; font-style:italic; font-size:14pt; color: rgba(255,255,255,.86); margin-top:18px; letter-spacing:-.2px; line-height:1.45; max-width:1020px; }
+.cover-subtitle strong { color: var(--near-white); font-style: normal; font-weight: 700; }
+.cover-meta { display:grid; grid-template-columns: repeat(4, 1fr); gap: 16px; border-top: 1px solid rgba(255,255,255,.18); padding-top:16px; margin-top: 22px; }
+.cover-meta-block { font-size:9pt; color: rgba(255,255,255,.7); line-height:1.6; font-family: var(--sans); }
+.cover-meta-block strong { display:block; color: var(--gold); font-weight:700; font-size:8pt; letter-spacing:1.5px; margin-bottom:3px; text-transform:uppercase; }
+.cover-meta-block span { display:block; color: rgba(255,255,255,.92); font-weight:500; font-size:10pt; margin-bottom:2px; }
+
 /* Semáforo */
 .semaforo-grid { display:grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 4px; }
 .semaforo-card { background: var(--paper); border: 1px solid var(--g200); border-radius: 10px; padding: 14px 16px; display:flex; flex-direction:column; gap:6px; box-shadow: 0 1px 3px rgba(30,39,64,.05); position:relative; overflow:hidden; }
@@ -179,14 +197,37 @@ body.review-mode #nav-prev, body.review-mode #nav-next, body.review-mode #counte
 <body>
 
 <div id="progress"></div>
-<div id="counter">1 / 8</div>
+<div id="counter">1 / 9</div>
 <button id="nav-prev" class="nav-btn">‹</button>
 <button id="nav-next" class="nav-btn">›</button>
 <button id="review-toggle">Ver todo ↕</button>
 
 <div class="deck" id="deck">
 
-<!-- ================================ SLIDE 1 · SEMÁFORO ================================ -->
+<!-- ================================ SLIDE 1 · PORTADA ================================ -->
+<section class="slide cover">
+  <div class="cover-inner">
+    <div class="cover-top">
+      <div class="cover-mark">Grupo Plasencia Automotriz<span>Consejo Directivo · Julio 2026</span></div>
+      <div class="cover-confidencial">Confidencial<span>Pre-read del Consejo</span></div>
+    </div>
+
+    <div class="cover-center">
+      <div class="cover-eyebrow">Business Case · Función Corporativa Nueva</div>
+      <h1 class="cover-title">Dirección de Marketing &amp; <em>Transformación Digital</em></h1>
+      <p class="cover-subtitle">Agencia interna del Grupo · <strong>tercerizada · voluntaria · sin headcount nuevo</strong>. 13 entidades del portafolio atendidas con una sola función corporativa. IP capitalizado al Grupo. <strong>Ask $8M–$11M firme · costo neto tiende a cero por diseño.</strong></p>
+    </div>
+
+    <div class="cover-meta">
+      <div class="cover-meta-block"><strong>Autor</strong><span>Jesús Pérez Porras</span>Director propuesto · firma externa</div>
+      <div class="cover-meta-block"><strong>Reporta</strong><span>Consejo Directivo</span>a través de la Dirección de Finanzas</div>
+      <div class="cover-meta-block"><strong>Cascada de aprobación</strong><span>Pepe + Dani → Consejo</span>Draft · revisión · visto bueno</div>
+      <div class="cover-meta-block"><strong>Versión · fecha</strong><span>v0.8.2 · 14-jul-2026</span>Formato canonizado 8-jul</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================ SLIDE 2 · SEMÁFORO ================================ -->
 <section class="slide">
   <div class="content">
     <div class="section-num">Business Case · Dirección MKT &amp; TxD · Julio 2026</div>
@@ -226,7 +267,7 @@ body.review-mode #nav-prev, body.review-mode #nav-next, body.review-mode #counte
   <footer class="slide-footer">
     <span class="brand"><span class="dot"></span>Grupo Plasencia Automotriz · Dirección MKT &amp; TxD</span>
     <span>Confidencial · Consejo · Julio 2026</span>
-    <span>1 / 8</span>
+    <span>2 / 9</span>
   </footer>
 </section>
 
@@ -277,7 +318,7 @@ body.review-mode #nav-prev, body.review-mode #nav-next, body.review-mode #counte
   <footer class="slide-footer">
     <span class="brand"><span class="dot"></span>Grupo Plasencia Automotriz · Dirección MKT &amp; TxD</span>
     <span>Confidencial · Consejo · Julio 2026</span>
-    <span>2 / 8</span>
+    <span>3 / 9</span>
   </footer>
 </section>
 
@@ -314,7 +355,7 @@ body.review-mode #nav-prev, body.review-mode #nav-next, body.review-mode #counte
   <footer class="slide-footer">
     <span class="brand"><span class="dot"></span>Grupo Plasencia Automotriz · Dirección MKT &amp; TxD</span>
     <span>Confidencial · Consejo · Julio 2026</span>
-    <span>3 / 8</span>
+    <span>4 / 9</span>
   </footer>
 </section>
 
@@ -357,7 +398,7 @@ body.review-mode #nav-prev, body.review-mode #nav-next, body.review-mode #counte
   <footer class="slide-footer">
     <span class="brand"><span class="dot"></span>Grupo Plasencia Automotriz · Dirección MKT &amp; TxD</span>
     <span>Confidencial · Consejo · Julio 2026</span>
-    <span>4 / 8</span>
+    <span>5 / 9</span>
   </footer>
 </section>
 
@@ -397,7 +438,7 @@ body.review-mode #nav-prev, body.review-mode #nav-next, body.review-mode #counte
   <footer class="slide-footer">
     <span class="brand"><span class="dot"></span>Grupo Plasencia Automotriz · Dirección MKT &amp; TxD</span>
     <span>Confidencial · Consejo · Julio 2026</span>
-    <span>5 / 8</span>
+    <span>6 / 9</span>
   </footer>
 </section>
 
@@ -419,7 +460,7 @@ body.review-mode #nav-prev, body.review-mode #nav-next, body.review-mode #counte
   <footer class="slide-footer">
     <span class="brand"><span class="dot"></span>Grupo Plasencia Automotriz · Dirección MKT &amp; TxD</span>
     <span>Confidencial · Consejo · Julio 2026</span>
-    <span>6 / 8</span>
+    <span>7 / 9</span>
   </footer>
 </section>
 
@@ -462,7 +503,7 @@ body.review-mode #nav-prev, body.review-mode #nav-next, body.review-mode #counte
   <footer class="slide-footer">
     <span class="brand"><span class="dot"></span>Grupo Plasencia Automotriz · Dirección MKT &amp; TxD</span>
     <span>Confidencial · Consejo · Julio 2026</span>
-    <span>7 / 8</span>
+    <span>8 / 9</span>
   </footer>
 </section>
 
@@ -477,7 +518,7 @@ body.review-mode #nav-prev, body.review-mode #nav-next, body.review-mode #counte
   <footer class="slide-footer" style="border-color: rgba(255,255,255,.15); color: rgba(255,255,255,.55);">
     <span class="brand"><span class="dot"></span>Grupo Plasencia Automotriz · Dirección MKT &amp; TxD</span>
     <span>Confidencial · Consejo · Julio 2026</span>
-    <span>8 / 8</span>
+    <span>9 / 9</span>
   </footer>
 </section>
 
