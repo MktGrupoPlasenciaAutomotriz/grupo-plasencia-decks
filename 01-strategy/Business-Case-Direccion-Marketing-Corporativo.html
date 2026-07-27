@@ -177,6 +177,59 @@ body.review-mode #nav-prev, body.review-mode #nav-next, body.review-mode #counte
 .next-what { font-family:var(--serif); font-weight:700; font-size:11pt; color: var(--gp-navy); line-height:1.2; }
 .next-who { font-family:var(--sans); font-size:8.5pt; color: var(--g500); line-height:1.4; }
 
+/* ===== ANEXO A/B/C · Plan H2 2026 ===== */
+.anexo-eyebrow { font-family:var(--sans); font-size:9.5pt; font-weight:800; letter-spacing:3.5px; color: var(--amber); text-transform:uppercase; }
+.anexo-eyebrow span { color: var(--gp-red); }
+
+/* Tabla 4 pilotos */
+.pilotos-table { width:100%; border-collapse:separate; border-spacing:0; margin-top:4px; font-family:var(--sans); font-size:8.5pt; }
+.pilotos-table thead th { background: var(--gp-navy); color: var(--gold); font-weight:800; font-size:7.5pt; letter-spacing:.8px; text-transform:uppercase; padding:6px 8px; text-align:left; border:1px solid var(--gp-navy); }
+.pilotos-table thead th:first-child { border-top-left-radius:8px; }
+.pilotos-table thead th:last-child { border-top-right-radius:8px; }
+.pilotos-table tbody td { padding:6px 8px; border:1px solid var(--g200); vertical-align:top; color: var(--text); background: var(--paper); font-size:8pt; line-height:1.35; }
+.pilotos-table tbody tr:nth-child(even) td { background: #FAFCFD; }
+.pilotos-table tbody td strong { color: var(--gp-navy); font-weight:700; }
+.pilotos-table tbody td em { font-style: italic; color: var(--gp-navy); }
+.pilotos-table .piloto-name { font-weight:800; font-size:9.5pt; color: var(--gp-navy); }
+.pilotos-table .piloto-name span { display:block; font-weight:500; font-size:7.5pt; color: var(--g500); letter-spacing:.4px; text-transform:uppercase; margin-top:2px; }
+.pilotos-table .budget { color: var(--gp-red); font-weight:800; }
+.pilotos-table .budget span { display:block; font-weight:400; font-size:7.5pt; color: var(--g500); margin-top:2px; }
+.pilotos-table tfoot td { background: var(--gp-navy); color: var(--gold); font-weight:800; padding:7px 10px; border:1px solid var(--gp-navy); font-size:8.5pt; letter-spacing:.4px; }
+.pilotos-table tfoot td:first-child { text-transform:uppercase; letter-spacing:1.5px; font-size:8.5pt; color: rgba(255,255,255,.72); }
+.pilotos-table tfoot td strong { color: var(--near-white); font-weight:800; }
+.pilotos-table tfoot td.total-right { text-align:right; color: var(--gold); }
+.pilotos-table tfoot td.total-right strong { color: var(--gold); }
+
+/* Carril lento (2 mini cards horizontales) */
+.carril-grid { display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:2px; }
+.carril-card { background: var(--paper); border: 1px solid var(--g200); border-left: 4px solid var(--gp-navy); border-radius: 8px; padding: 10px 14px; }
+.carril-card.red { border-left-color: var(--gp-red); }
+.carril-lbl { font-family:var(--sans); font-size:7.5pt; font-weight:800; letter-spacing:1.5px; text-transform:uppercase; color: var(--gp-navy); margin-bottom:3px; }
+.carril-card.red .carril-lbl { color: var(--gp-red); }
+.carril-body { font-family:var(--sans); font-size:8.5pt; color: var(--g600); line-height:1.5; }
+.carril-body strong { color: var(--gp-navy); font-weight:700; }
+.carril-body em { font-style:italic; color: var(--gp-navy); }
+
+/* Fractional CMO · 2 cards navy */
+.cmo-grid { display:grid; grid-template-columns: 1fr 1fr; gap:14px; margin-top:2px; }
+.cmo-card { background: linear-gradient(135deg, var(--gp-navy) 0%, #2A3654 100%); color: var(--near-white); border-radius: 10px; padding: 14px 18px; position:relative; overflow:hidden; }
+.cmo-card::before { content:""; position:absolute; top:-60px; right:-60px; width:200px; height:200px; background: radial-gradient(circle, rgba(236,201,75,.14) 0%, transparent 70%); border-radius:50%; }
+.cmo-lbl { position:relative; z-index:2; font-family:var(--sans); font-size:8pt; font-weight:800; letter-spacing:1.8px; text-transform:uppercase; color: var(--gold); margin-bottom:6px; }
+.cmo-title { position:relative; z-index:2; font-family:var(--serif); font-weight:700; font-size:14pt; color: var(--near-white); line-height:1.2; margin-bottom:6px; letter-spacing:-.3px; }
+.cmo-title em { font-style:italic; color: var(--gold); }
+.cmo-body { position:relative; z-index:2; font-family:var(--sans); font-size:9pt; color: rgba(255,255,255,.88); line-height:1.5; }
+.cmo-body strong { color: var(--gold); font-weight:700; }
+.cmo-body ul { list-style:none; padding:0; margin:5px 0 0; }
+.cmo-body ul li { padding:2px 0 2px 14px; position:relative; font-size:8.5pt; color: rgba(255,255,255,.85); line-height:1.4; }
+.cmo-body ul li::before { content:"→"; position:absolute; left:0; color: var(--gold); font-weight:700; }
+.cmo-body ul li strong { color: var(--near-white); font-weight:700; }
+
+/* Cronograma 3 nodos */
+.cmo-crono { margin-top: 10px; background: linear-gradient(to right, rgba(236,201,75,.12), rgba(236,201,75,.02)); border: 1px solid var(--g200); border-left: 4px solid var(--gold); border-radius: 0 8px 8px 0; padding: 10px 16px; display:grid; grid-template-columns: auto 1fr 1fr 1fr; gap: 18px; align-items:center; }
+.cmo-crono-lbl { font-family:var(--sans); font-size:7.5pt; font-weight:800; letter-spacing:1.8px; text-transform:uppercase; color: var(--amber); }
+.cmo-crono-nodo { font-family:var(--sans); font-size:8.5pt; color: var(--g600); line-height:1.4; padding-left:14px; border-left: 1px solid var(--g300); }
+.cmo-crono-nodo strong { display:block; color: var(--gp-navy); font-weight:800; font-size:8pt; letter-spacing:1px; text-transform:uppercase; margin-bottom:2px; }
+
 /* Anchor callout */
 .anchor { background: linear-gradient(to right, rgba(236,201,75,0.14), rgba(236,201,75,0.02)); border-left: 4px solid var(--gold); border-radius: 0 8px 8px 0; padding: 10px 16px; margin-top: 2px; }
 .anchor-t { font-family: var(--serif); font-weight: 700; font-style: italic; color: var(--gp-navy); font-size: 11.5pt; letter-spacing: -0.3px; line-height: 1.25; margin-bottom: 3px; }
@@ -197,7 +250,7 @@ body.review-mode #nav-prev, body.review-mode #nav-next, body.review-mode #counte
 <body>
 
 <div id="progress"></div>
-<div id="counter">1 / 9</div>
+<div id="counter">1 / 12</div>
 <button id="nav-prev" class="nav-btn">‹</button>
 <button id="nav-next" class="nav-btn">›</button>
 <button id="review-toggle">Ver todo ↕</button>
@@ -267,7 +320,7 @@ body.review-mode #nav-prev, body.review-mode #nav-next, body.review-mode #counte
   <footer class="slide-footer">
     <span class="brand"><span class="dot"></span>Grupo Plasencia Automotriz · Dirección de Marketing y Digital</span>
     <span>Confidencial · Consejo · Julio 2026</span>
-    <span>2 / 9</span>
+    <span>2 / 12</span>
   </footer>
 </section>
 
@@ -322,7 +375,7 @@ body.review-mode #nav-prev, body.review-mode #nav-next, body.review-mode #counte
   <footer class="slide-footer">
     <span class="brand"><span class="dot"></span>Grupo Plasencia Automotriz · Dirección de Marketing y Digital</span>
     <span>Confidencial · Consejo · Julio 2026</span>
-    <span>3 / 9</span>
+    <span>3 / 12</span>
   </footer>
 </section>
 
@@ -359,7 +412,7 @@ body.review-mode #nav-prev, body.review-mode #nav-next, body.review-mode #counte
   <footer class="slide-footer">
     <span class="brand"><span class="dot"></span>Grupo Plasencia Automotriz · Dirección de Marketing y Digital</span>
     <span>Confidencial · Consejo · Julio 2026</span>
-    <span>4 / 9</span>
+    <span>4 / 12</span>
   </footer>
 </section>
 
@@ -393,7 +446,7 @@ body.review-mode #nav-prev, body.review-mode #nav-next, body.review-mode #counte
   <footer class="slide-footer">
     <span class="brand"><span class="dot"></span>Grupo Plasencia Automotriz · Dirección de Marketing y Digital</span>
     <span>Confidencial · Consejo · Julio 2026</span>
-    <span>5 / 9</span>
+    <span>5 / 12</span>
   </footer>
 </section>
 
@@ -435,7 +488,7 @@ body.review-mode #nav-prev, body.review-mode #nav-next, body.review-mode #counte
   <footer class="slide-footer">
     <span class="brand"><span class="dot"></span>Grupo Plasencia Automotriz · Dirección de Marketing y Digital</span>
     <span>Confidencial · Consejo · Julio 2026</span>
-    <span>6 / 9</span>
+    <span>6 / 12</span>
   </footer>
 </section>
 
@@ -457,7 +510,7 @@ body.review-mode #nav-prev, body.review-mode #nav-next, body.review-mode #counte
   <footer class="slide-footer">
     <span class="brand"><span class="dot"></span>Grupo Plasencia Automotriz · Dirección de Marketing y Digital</span>
     <span>Confidencial · Consejo · Julio 2026</span>
-    <span>7 / 9</span>
+    <span>7 / 12</span>
   </footer>
 </section>
 
@@ -500,11 +553,162 @@ body.review-mode #nav-prev, body.review-mode #nav-next, body.review-mode #counte
   <footer class="slide-footer">
     <span class="brand"><span class="dot"></span>Grupo Plasencia Automotriz · Dirección de Marketing y Digital</span>
     <span>Confidencial · Consejo · Julio 2026</span>
-    <span>8 / 9</span>
+    <span>8 / 12</span>
   </footer>
 </section>
 
-<!-- ================================ SLIDE 8 · CIERRE ================================ -->
+<!-- ================================ ANEXO A · FOCO H2 · PORTAFOLIO 4 PILOTOS ================================ -->
+<section class="slide">
+  <div class="content">
+    <div class="anexo-eyebrow"><span>Anexo A</span> · Plan H2 2026 · dónde enfoco el ancho de banda</div>
+    <h1 class="slide-h1">El 80% del semestre en <em>cuatro pilotos con el mismo motor</em></h1>
+    <p class="slide-lede">Respondiendo a los puntos planteados por el Consejo. El <strong>80% del ancho de banda</strong> se concentra en <em>cuatro pilotos ejecutando el mismo patrón</em> — Tienda + IA conversacional + handoff a vendedor digital. Genera el P&amp;L de corto plazo y, en paralelo, valida la deseabilidad del Marketplace: ya hay leads, product-detail views y registros. El <strong>20% restante</strong> avanza estructura y proveedores en carril lento, como <em>área de servicio</em> dentro de la Dirección.</p>
+
+    <table class="pilotos-table">
+      <thead>
+        <tr>
+          <th style="width:14%;">Piloto</th>
+          <th style="width:11%;">Tienda</th>
+          <th style="width:12%;">IA conversacional</th>
+          <th style="width:18%;">Estado hoy</th>
+          <th style="width:20%;">Escalamiento H2</th>
+          <th style="width:14%;">Budget mensual</th>
+          <th style="width:11%;">Milestone Dic</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="piloto-name">Seminuevos<span>BAU · Adquisición</span></td>
+          <td>Tienda Seminuevos</td>
+          <td>Vambe (validado)</td>
+          <td>Handoff productivo · Vambe atiende toda la demanda que se genera</td>
+          <td>Escala a todas las sucursales GDL (López Mateos + Bugambilias + concesionarias Mazda Seminuevos)</td>
+          <td class="budget">M1 $70K<br>M2-3 $90K<br>M4-6 $120K<span>Mix 70% Google · 30% Meta</span></td>
+          <td>BAU cross-lote funcionando</td>
+        </tr>
+        <tr>
+          <td class="piloto-name">GAC<span>Preparando escala</span></td>
+          <td>Tienda GAC</td>
+          <td>Karbot + módulo IA</td>
+          <td>Piloto activo · deseabilidad Marketplace validada</td>
+          <td>Piloto se estabiliza · al pasar a crecimiento adopta la curva Seminuevos (70/90/120)</td>
+          <td class="budget">$50K piloto<span>→ curva Seminuevos al escalar</span></td>
+          <td>Escalable con mismo patrón</td>
+        </tr>
+        <tr>
+          <td class="piloto-name">Mazda<span>Por explorar</span></td>
+          <td>¿Tienda Mazda?</td>
+          <td>Vambe · Karbot · CX <em>(por definir con Enrique)</em></td>
+          <td>Por definir alcance con la Dirección de marca</td>
+          <td>Piloto contenido · alcance a acordar con Enrique</td>
+          <td class="budget">$50K/mes</td>
+          <td>Definición IA + primer batch validado</td>
+        </tr>
+        <tr>
+          <td class="piloto-name">Flotillas<span>Nuevo · cross-brand</span></td>
+          <td>Tienda Flotillas</td>
+          <td>Vambe · Karbot · CX <em>(elige Aurora)</em></td>
+          <td>Por arrancar · demanda B2B latente identificada</td>
+          <td>Piloto se estabiliza · al pasar a crecimiento adopta la curva Seminuevos (70/90/120)</td>
+          <td class="budget">$50K piloto<span>→ curva Seminuevos al escalar</span></td>
+          <td>Primer batch de leads B2B calificados</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td>Total portafolio H2 · rango</td>
+          <td colspan="4">Arranque M1: <strong>~$220K/mes</strong> · Estabilización M4-6: <strong>~$270 – 310K/mes</strong></td>
+          <td colspan="2" class="total-right">Semestre estimado: <strong>$1.5M – $1.8M</strong></td>
+        </tr>
+      </tfoot>
+    </table>
+
+    <div class="anchor">
+      <div class="anchor-t">Preámbulo empírico del Marketplace</div>
+      <div class="anchor-b">Los cuatro pilotos son la <strong>evidencia observable</strong> de la deseabilidad del Marketplace <em>antes</em> de comprometer el CapEx de Digital Factory: mismo motor aplicado en cuatro contextos, con métricas comparables y validación cross-marca en tiempo real.</div>
+    </div>
+  </div>
+  <footer class="slide-footer">
+    <span class="brand"><span class="dot"></span>Grupo Plasencia Automotriz · Dirección de Marketing y Digital</span>
+    <span>Confidencial · Consejo · Julio 2026</span>
+    <span>9 / 12</span>
+  </footer>
+</section>
+
+<!-- ================================ ANEXO B · CÓMO EL CONSEJO ME HABILITA · 5 ASKS ================================ -->
+<section class="slide">
+  <div class="content">
+    <div class="anexo-eyebrow"><span>Anexo B</span> · cinco asks al Consejo para habilitar el semestre</div>
+    <h1 class="slide-h1">Cinco cosas que el Consejo <em>puede hacer hoy</em> para habilitar el H2</h1>
+    <p class="slide-lede">Estructura y proveedores avanzan en carril lento como <em>área de servicio</em> dentro de la Dirección, sin bloquear el portafolio de pilotos. Estos son los cinco puntos que sí requieren decisión del Consejo en esta sesión para habilitar la ejecución del semestre.</p>
+
+    <div class="carril-grid">
+      <div class="carril-card">
+        <div class="carril-lbl">Estructura interna · queda como está</div>
+        <div class="carril-body">Directores de familia, marca y gerentes de marketing solicitan servicio a la Dirección como <strong>área de servicio</strong>, conforme al modelo del deck. Los cuatro pilotos son los casos de uso reales de corto plazo que hacen tangible el modelo antes de discutir plantilla adicional.</div>
+      </div>
+      <div class="carril-card red">
+        <div class="carril-lbl">Proveedores · sin renegociar el BAU</div>
+        <div class="carril-body">BAU se queda con sus proveedores. La Dirección incorpora los propios para las solicitudes que reciba. Único desbloqueo requerido: autorización del <strong>piso mensual $1.5M – $3.0M</strong> del Slide 4 · con eso cotizaciones y contrataciones fluyen sin fricción.</div>
+      </div>
+    </div>
+
+    <div class="decision-list" style="margin-top:8px; gap:6px;">
+      <div class="decision-item" style="padding:8px 16px; border-left-color: var(--gp-red);"><div class="decision-num" style="color: var(--gp-red); font-size:19pt;">01</div><div class="decision-text" style="font-size:9pt;"><strong>Política corporativa formal · marketing es el primer stop antes de contratar externos.</strong> Directores de familia y marca consultan a la Dirección antes de proveedores externos. <em>Mensaje del Consejo hacia abajo este mes.</em></div></div>
+      <div class="decision-item" style="padding:8px 16px; border-left-color: var(--gp-red);"><div class="decision-num" style="color: var(--gp-red); font-size:19pt;">02</div><div class="decision-text" style="font-size:9pt;"><strong>Sponsor familiar de Transformación Digital dentro del Consejo.</strong> Preferencia por <strong>Andrés</strong> (dirige familia GAC · alineado con el piloto que ancla el diseño estratégico phygital-omnicanal). El sponsor y la Dirección conforman un <em>Comité de Transformación Digital mínimo viable</em> con los stakeholders que ambos consideren clave — no lista fija predefinida. <em>Definir en esta sesión.</em></div></div>
+      <div class="decision-item" style="padding:8px 16px; border-left-color: var(--gp-red);"><div class="decision-num" style="color: var(--gp-red); font-size:19pt;">03</div><div class="decision-text" style="font-size:9pt;"><strong>Autoridad de la Dirección sobre proveedores, equipo y plantilla</strong> de los pilotos y de las solicitudes que reciba de Directores. <em>Autorización explícita en el acta.</em></div></div>
+      <div class="decision-item" style="padding:8px 16px; border-left-color: var(--gp-red);"><div class="decision-num" style="color: var(--gp-red); font-size:19pt;">04</div><div class="decision-text" style="font-size:9pt;"><strong>Autorización del piso mensual $1.5M – $3.0M del Slide 4</strong> (Marketing y Growth Ops · Área Marketing · piso + servicios brief). Desbloquea cotizaciones y servicios sin fricción. <em>Aprobar en esta sesión.</em></div></div>
+      <div class="decision-item" style="padding:8px 16px; border-left-color: var(--gp-red);"><div class="decision-num" style="color: var(--gp-red); font-size:19pt;">05</div><div class="decision-text" style="font-size:9pt;"><strong>Patrocinio del diseño estratégico phygital-omnicanal</strong>, con ancla en <strong>GAC</strong> (Andrés como director de familia · el piloto ya tiene Tienda + Karbot IA operando). Define qué activos digitales tienen sentido desde el punto de vista del cliente — el Marketplace MVP. <em>Arranca H2.</em></div></div>
+    </div>
+  </div>
+  <footer class="slide-footer">
+    <span class="brand"><span class="dot"></span>Grupo Plasencia Automotriz · Dirección de Marketing y Digital</span>
+    <span>Confidencial · Consejo · Julio 2026</span>
+    <span>10 / 12</span>
+  </footer>
+</section>
+
+<!-- ================================ ANEXO C · CEREZA · FRACTIONAL CMO EXTERNO ================================ -->
+<section class="slide">
+  <div class="content">
+    <div class="anexo-eyebrow"><span>Anexo C</span> · coherencia end-to-end · cómo lo hago yo</div>
+    <h1 class="slide-h1">Aplicándome el mismo modelo · <em>Fractional CMO externo</em></h1>
+    <p class="slide-lede">Para que el modelo sea coherente de punta a punta — marketing como área de servicio · proveedores externos como primera opción · lógica de agencia interna a la <strong>Salinas / MEXA</strong> — propongo formalizarme como <em>Fractional CMO externo</em> del Grupo, aplicándome a mí mismo el esquema que se propone para todo lo demás.</p>
+
+    <div class="cmo-grid">
+      <div class="cmo-card">
+        <div class="cmo-lbl">Fee fijo</div>
+        <div class="cmo-title">Equivalente al <em>bruto actual antes de impuestos</em></div>
+        <div class="cmo-body">Incluye la formalización del beneficio de auto — parte de la oferta original de contratación · pendiente de instrumentar con Talento a la fecha. Bajo figura de consultor externo, el Grupo <strong>deja de absorber cuotas patronales y carga fiscal</strong>: esas responsabilidades pasan al consultor.</div>
+      </div>
+      <div class="cmo-card">
+        <div class="cmo-lbl">Variable · success fee direccional</div>
+        <div class="cmo-title">Aprobado conceptualmente por <em>Andrés</em></div>
+        <div class="cmo-body">Pendiente propuesta del Director y formalización con Finanzas. Escalonado en tres capas:
+          <ul>
+            <li><strong>Citas agendadas</strong> — OMTM de marketing · lo único que la Dirección controla al 100%</li>
+            <li><strong>Vistas realizadas</strong> — conjunto con las áreas comerciales</li>
+            <li><strong>Ventas atribuidas</strong> a campañas · pilotos · canales-tiendas</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="cmo-crono">
+      <div class="cmo-crono-lbl">Cronograma</div>
+      <div class="cmo-crono-nodo"><strong>Esta sesión</strong>Vobo del principio del Consejo</div>
+      <div class="cmo-crono-nodo"><strong>Jul – Ago 2026</strong>Propuesta detallada del variable con Finanzas</div>
+      <div class="cmo-crono-nodo"><strong>Sep 2026</strong>Formalización de contrato · incluyendo la instrumentación del auto</div>
+    </div>
+  </div>
+  <footer class="slide-footer">
+    <span class="brand"><span class="dot"></span>Grupo Plasencia Automotriz · Dirección de Marketing y Digital</span>
+    <span>Confidencial · Consejo · Julio 2026</span>
+    <span>11 / 12</span>
+  </footer>
+</section>
+
+<!-- ================================ SLIDE 12 · CIERRE ================================ -->
 <section class="slide closing">
   <div class="closing-inner">
     <div class="closing-eyebrow">La decisión</div>
@@ -515,7 +719,7 @@ body.review-mode #nav-prev, body.review-mode #nav-next, body.review-mode #counte
   <footer class="slide-footer" style="border-color: rgba(255,255,255,.15); color: rgba(255,255,255,.55);">
     <span class="brand"><span class="dot"></span>Grupo Plasencia Automotriz · Dirección de Marketing y Digital</span>
     <span>Confidencial · Consejo · Julio 2026</span>
-    <span>9 / 9</span>
+    <span>12 / 12</span>
   </footer>
 </section>
 
