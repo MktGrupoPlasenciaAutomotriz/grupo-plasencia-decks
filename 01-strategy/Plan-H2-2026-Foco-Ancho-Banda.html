@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plan H2 2026 · Dónde enfoco el ancho de banda · Grupo Plasencia Automotriz</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@500;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gp-red: #C8102E;
+  --gp-navy: #1E2740;
+  --deep-green: #276749;
+  --deep-blue: #2B6CB0;
+  --amber: #D69E2E;
+  --gold: #ECC94B;
+  --paper: #FFFFFF;
+  --near-white: #F7FAFC;
+  --g100: #EDF2F7;
+  --g200: #E2E8F0;
+  --g300: #CBD5E0;
+  --g400: #A0AEC0;
+  --g500: #718096;
+  --g600: #4A5568;
+  --text: #2D3748;
+  --serif: 'Playfair Display', Georgia, serif;
+  --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; -webkit-font-smoothing: antialiased; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+html, body { background: #E2E8F0; color: var(--text); font-family: var(--sans); font-size: 9pt; line-height: 1.5; }
+
+.page { width: 210mm; height: 297mm; background: var(--paper); margin: 20px auto; padding: 0; box-shadow: 0 2px 12px rgba(0,0,0,.12); position: relative; display: flex; flex-direction: column; page-break-after: always; overflow: hidden; }
+.page:last-child { page-break-after: auto; }
+
+@media print {
+  body { background: white; }
+  @page { size: A4; margin: 0; }
+  .page { margin: 0 !important; box-shadow: none !important; width: 210mm !important; height: 297mm !important; page-break-after: always !important; page-break-inside: avoid !important; overflow: hidden !important; }
+  .page:last-child { page-break-after: auto !important; }
+}
+
+/* Header */
+.op-header {
+  background: linear-gradient(135deg, var(--gp-navy) 0%, #2A3654 40%, #384868 100%);
+  color: var(--near-white);
+  padding: 18px 40px 16px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.op-header::before {
+  content: "";
+  position: absolute;
+  top: -100px; right: -100px;
+  width: 340px; height: 340px;
+  background: radial-gradient(circle, rgba(236,201,75,.16) 0%, transparent 70%);
+  border-radius: 50%;
+}
+.op-header::after {
+  content: "";
+  position: absolute;
+  bottom: -160px; left: -80px;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(200,16,46,.08) 0%, transparent 70%);
+  border-radius: 50%;
+}
+.op-header-top {
+  display: flex; justify-content: space-between; align-items: center;
+  position: relative; z-index: 2;
+  margin-bottom: 12px;
+}
+.op-header-brand-tag {
+  font-family: var(--sans);
+  font-weight: 800;
+  font-size: 12pt;
+  color: var(--gold);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.op-header-brand-tag span { display:block; font-weight: 400; color: rgba(255,255,255,.55); font-size: 8pt; letter-spacing: 1.2px; margin-top: 3px; }
+.op-header-date {
+  font-family: var(--sans);
+  font-size: 9pt;
+  color: rgba(236,201,75,.75);
+  font-weight: 700;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  text-align: right;
+}
+.op-header-date span { display: block; color: var(--gp-red); font-weight: 800; margin-bottom: 3px; letter-spacing: 2.5px; font-size: 8.5pt; }
+.op-header-eyebrow {
+  position: relative; z-index: 2;
+  font-family: var(--sans);
+  font-size: 9pt;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: rgba(255,255,255,.6);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.op-header-title {
+  position: relative; z-index: 2;
+  font-family: var(--serif);
+  font-weight: 800;
+  font-size: 21pt;
+  line-height: 1.06;
+  letter-spacing: -.5px;
+  color: var(--near-white);
+}
+.op-header-title em {
+  font-style: italic;
+  color: var(--gold);
+  font-weight: 700;
+}
+.op-header-sub {
+  position: relative; z-index: 2;
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: 9pt;
+  color: rgba(255,255,255,.88);
+  line-height: 1.4;
+  margin-top: 6px;
+  max-width: 640px;
+}
+.op-header-sub strong { color: var(--near-white); font-weight: 700; }
+
+/* Body */
+.op-body { padding: 12px 40px 8px; flex: 1; overflow: hidden; display: flex; flex-direction: column; }
+
+/* Section titles */
+.op-section-t {
+  font-family: var(--sans);
+  font-weight: 800;
+  font-size: 9.5pt;
+  color: var(--gp-navy);
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  padding-bottom: 4px;
+  border-bottom: 2px solid var(--gp-navy);
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+.op-section-t .num {
+  font-family: var(--serif);
+  font-weight: 900;
+  font-style: italic;
+  font-size: 15pt;
+  color: var(--gp-red);
+  letter-spacing: -.5px;
+}
+
+/* Answer-first statement */
+.op-answer {
+  background: linear-gradient(135deg, #F7FAFC 0%, #EDF2F7 100%);
+  border-left: 4px solid var(--gp-red);
+  padding: 10px 16px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+.op-answer p {
+  font-family: var(--sans);
+  font-size: 8.5pt;
+  color: var(--text);
+  line-height: 1.5;
+}
+.op-answer p strong { color: var(--gp-navy); font-weight: 700; }
+.op-answer p em { font-style: normal; color: var(--gp-red); font-weight: 700; }
+
+/* Tabla pilotos */
+.op-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--sans);
+  font-size: 8pt;
+  margin-bottom: 6px;
+}
+.op-table thead th {
+  background: var(--gp-navy);
+  color: var(--near-white);
+  font-weight: 800;
+  font-size: 7pt;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+  padding: 5px 5px;
+  text-align: left;
+  border: 1px solid var(--gp-navy);
+}
+.op-table thead th:first-child { border-top-left-radius: 6px; }
+.op-table thead th:last-child { border-top-right-radius: 6px; }
+.op-table tbody td {
+  padding: 6px 5px;
+  border: 1px solid var(--g200);
+  vertical-align: top;
+  line-height: 1.35;
+  color: var(--text);
+  font-size: 7.5pt;
+}
+.op-table tbody tr:nth-child(even) td { background: #FAFCFD; }
+.op-table tbody td strong { color: var(--gp-navy); font-weight: 700; }
+.op-table tbody .piloto-name {
+  font-family: var(--sans);
+  font-weight: 800;
+  font-size: 8.5pt;
+  color: var(--gp-navy);
+  letter-spacing: .2px;
+}
+.op-table tbody .piloto-name span {
+  display: block;
+  font-weight: 500;
+  font-size: 7pt;
+  color: var(--g500);
+  letter-spacing: .3px;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+.op-table tfoot td {
+  background: var(--gp-navy);
+  color: var(--gold);
+  font-weight: 800;
+  padding: 6px 5px;
+  border: 1px solid var(--gp-navy);
+  font-size: 7.5pt;
+  letter-spacing: .3px;
+}
+.op-table tfoot td:first-child { text-transform: uppercase; letter-spacing: 1px; font-size: 7.5pt; color: rgba(255,255,255,.75); }
+.op-table tfoot td strong { color: var(--near-white); font-weight: 800; }
+
+/* Bloque 3 · dos mini bloques compactos */
+.op-mini-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 4px;
+}
+.op-mini {
+  border: 1px solid var(--g200);
+  border-left: 3px solid var(--gp-navy);
+  border-radius: 6px;
+  padding: 8px 11px;
+  background: #FAFCFD;
+}
+.op-mini.red { border-left-color: var(--gp-red); }
+.op-mini h4 {
+  font-family: var(--sans);
+  font-weight: 800;
+  font-size: 8pt;
+  color: var(--gp-navy);
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  margin-bottom: 4px;
+}
+.op-mini.red h4 { color: var(--gp-red); }
+.op-mini p {
+  font-family: var(--sans);
+  font-size: 7.5pt;
+  color: var(--text);
+  line-height: 1.45;
+}
+.op-mini p strong { color: var(--gp-navy); font-weight: 700; }
+
+/* Bloque 4 · asks */
+.op-asks {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-top: 4px;
+}
+.op-ask {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 8px 12px;
+  background: #FAFCFD;
+  border: 1px solid var(--g200);
+  border-left: 4px solid var(--gp-red);
+  border-radius: 6px;
+}
+.op-ask-num {
+  font-family: var(--serif);
+  font-weight: 900;
+  font-size: 14pt;
+  color: var(--gp-red);
+  line-height: 1;
+  min-width: 26px;
+  font-variant-numeric: tabular-nums;
+}
+.op-ask-content h5 {
+  font-family: var(--sans);
+  font-weight: 800;
+  font-size: 8.5pt;
+  color: var(--gp-navy);
+  margin-bottom: 2px;
+  letter-spacing: .2px;
+}
+.op-ask-content p {
+  font-family: var(--sans);
+  font-size: 7.5pt;
+  color: var(--g600);
+  line-height: 1.45;
+}
+.op-ask-content p strong { color: var(--gp-navy); font-weight: 700; }
+
+/* Bloque 5 · Cereza (Fractional CMO) */
+.op-cereza {
+  margin-top: 12px;
+  background: linear-gradient(135deg, var(--gp-navy) 0%, #2A3654 100%);
+  color: var(--near-white);
+  padding: 16px 22px;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+}
+.op-cereza::before {
+  content: "";
+  position: absolute;
+  top: -80px; right: -80px;
+  width: 260px; height: 260px;
+  background: radial-gradient(circle, rgba(236,201,75,.14) 0%, transparent 70%);
+  border-radius: 50%;
+}
+.op-cereza-lbl {
+  position: relative; z-index: 2;
+  font-family: var(--sans);
+  font-size: 8pt;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.op-cereza-t {
+  position: relative; z-index: 2;
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 15pt;
+  color: var(--near-white);
+  line-height: 1.2;
+  letter-spacing: -.3px;
+  margin-bottom: 8px;
+}
+.op-cereza-t em { font-style: italic; color: var(--gold); }
+.op-cereza-frame {
+  position: relative; z-index: 2;
+  font-family: var(--sans);
+  font-size: 8.5pt;
+  color: rgba(255,255,255,.88);
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+.op-cereza-frame strong { color: var(--gold); font-weight: 700; }
+.op-cereza-items {
+  position: relative; z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+.op-cereza-item {
+  background: rgba(255,255,255,.06);
+  border-left: 2px solid var(--gold);
+  padding: 7px 10px;
+  border-radius: 4px;
+}
+.op-cereza-item h6 {
+  font-family: var(--sans);
+  font-weight: 800;
+  font-size: 8pt;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: .6px;
+  margin-bottom: 3px;
+}
+.op-cereza-item p {
+  font-family: var(--sans);
+  font-size: 7.5pt;
+  color: rgba(255,255,255,.85);
+  line-height: 1.45;
+}
+.op-cereza-item p strong { color: var(--near-white); font-weight: 700; }
+.op-cereza-item ul { list-style: none; padding: 0; margin: 3px 0 0; }
+.op-cereza-item ul li { padding: 1px 0 1px 12px; position: relative; font-size: 7.5pt; color: rgba(255,255,255,.82); line-height: 1.4; }
+.op-cereza-item ul li::before { content: "→"; position: absolute; left: 0; color: var(--gold); font-weight: 700; }
+.op-cereza-cronograma {
+  position: relative; z-index: 2;
+  font-family: var(--sans);
+  font-size: 7.5pt;
+  color: rgba(236,201,75,.85);
+  border-top: 1px solid rgba(236,201,75,.25);
+  padding-top: 7px;
+  letter-spacing: .3px;
+}
+.op-cereza-cronograma strong { color: var(--gold); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; font-size: 7pt; }
+
+/* Footer */
+.op-footer {
+  padding: 8px 40px;
+  background: var(--g100);
+  border-top: 1px solid var(--g200);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--sans);
+  font-size: 7.5pt;
+  color: var(--g500);
+  flex-shrink: 0;
+}
+.op-footer strong { color: var(--gp-navy); font-weight: 700; letter-spacing: .5px; text-transform: uppercase; }
+
+/* Página 2 banner mini */
+.op-banner-p2 {
+  background: var(--gp-navy);
+  color: var(--near-white);
+  padding: 12px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+}
+.op-banner-p2-t {
+  font-family: var(--sans);
+  font-weight: 800;
+  font-size: 11pt;
+  color: var(--near-white);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.op-banner-p2-t span { color: var(--gold); font-weight: 500; font-style: italic; font-family: var(--serif); text-transform: none; letter-spacing: -.2px; font-size: 13pt; }
+.op-banner-p2-r {
+  font-family: var(--sans);
+  font-size: 8pt;
+  color: rgba(236,201,75,.75);
+  font-weight: 700;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<!-- PÁGINA 1 · Header + Answer-First + Tabla pilotos + Estructura/Proveedores -->
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="op-header">
+    <div class="op-header-top">
+      <div class="op-header-brand-tag">GP · Automotriz<span>Marketing y Transformación Digital</span></div>
+      <div class="op-header-date"><span>Anexo #8 · Business Case</span>Julio 2026 · v1.0</div>
+    </div>
+    <div class="op-header-eyebrow">Consejo Directivo · Plan del semestre</div>
+    <h1 class="op-header-title">Plan <em>H2 2026</em> · Dónde enfoco el ancho de banda</h1>
+    <p class="op-header-sub">Respuesta a los puntos planteados por <strong>Andrés</strong>. Portafolio de <strong>4 pilotos ejecutando el mismo patrón</strong> — Tienda + IA + handoff a vendedor digital — como motor de corto plazo y preámbulo empírico del Marketplace. Estructura interna y proveedores avanzan en paralelo, sin bloquear ni depender del portafolio.</p>
+  </div>
+
+  <div class="op-body">
+
+    <!-- Bloque 1 · Answer-First -->
+    <div class="op-section-t"><span class="num">01</span> El 80/20 del semestre</div>
+    <div class="op-answer">
+      <p>El <strong>80% del ancho de banda</strong> se enfoca en <em>4 pilotos ejecutando el mismo patrón</em>: <strong>Tienda + IA conversacional + handoff a vendedor digital</strong> — Seminuevos escalando a BAU · GAC preparando escala · Mazda explorando · Flotillas nuevo. El portafolio genera el P&amp;L de corto plazo y, en paralelo, valida la deseabilidad del Marketplace (que ya está sucediendo: hay leads, product-detail views y registros). El <strong>20% restante</strong> avanza <strong>estructura interna y proveedores</strong> por etapas, ambos operando como <em>área de servicio</em> dentro de MKT Ops — sin bloquear ni depender del portafolio.</p>
+    </div>
+
+    <!-- Bloque 2 · Tabla de 4 pilotos -->
+    <div class="op-section-t"><span class="num">02</span> Los 4 pilotos · mismo motor, cuatro contextos</div>
+    <table class="op-table">
+      <thead>
+        <tr>
+          <th style="width: 15%;">Piloto</th>
+          <th style="width: 12%;">Tienda</th>
+          <th style="width: 12%;">IA</th>
+          <th style="width: 18%;">Estado hoy</th>
+          <th style="width: 20%;">Escalamiento H2</th>
+          <th style="width: 12%;">Budget mensual</th>
+          <th style="width: 11%;">Milestone Dic</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="piloto-name">Seminuevos<span>BAU · Adquisición</span></td>
+          <td>Tienda Seminuevos</td>
+          <td>Vambe (validado)</td>
+          <td>Handoff productivo · Vambe atiende toda la demanda</td>
+          <td>Escala a todas las sucursales GDL (López Mateos + Bugambilias + concesionarias Mazda Seminuevos)</td>
+          <td><strong>M1 $70K</strong><br>M2-3 $90K<br>M4-6 $120K<br><span style="font-size:6.5pt;color:var(--g500);">Mix 70% Google · 30% Meta</span></td>
+          <td>BAU cross-lote funcionando</td>
+        </tr>
+        <tr>
+          <td class="piloto-name">GAC<span>Preparando escala</span></td>
+          <td>Tienda GAC</td>
+          <td>Karbot + módulo IA</td>
+          <td>Piloto activo · deseabilidad Marketplace validada</td>
+          <td>Piloto se estabiliza · al pasar a crecimiento adopta la curva Seminuevos (70/90/120)</td>
+          <td><strong>$50K piloto</strong><br><span style="font-size:6.5pt;color:var(--g500);">→ curva Seminuevos al escalar</span></td>
+          <td>Escalable con mismo patrón</td>
+        </tr>
+        <tr>
+          <td class="piloto-name">Mazda<span>Por explorar</span></td>
+          <td>¿Tienda Mazda?</td>
+          <td>Vambe · Karbot · CX (por definir con Enrique)</td>
+          <td>Por definir alcance con la dirección de marca</td>
+          <td>Piloto contenido · alcance a acordar con Enrique</td>
+          <td><strong>$50K/mes</strong></td>
+          <td>Definición IA + primer batch validado</td>
+        </tr>
+        <tr>
+          <td class="piloto-name">Flotillas<span>Nuevo · cross-brand</span></td>
+          <td>Tienda Flotillas</td>
+          <td>Vambe · Karbot · CX (elige Aurora)</td>
+          <td>Por arrancar · demanda B2B latente identificada</td>
+          <td>Piloto se estabiliza · al pasar a crecimiento adopta la curva Seminuevos (70/90/120)</td>
+          <td><strong>$50K piloto</strong><br><span style="font-size:6.5pt;color:var(--g500);">→ curva Seminuevos al escalar</span></td>
+          <td>Primer batch de leads B2B calificados</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td>Total portafolio H2 · rango</td>
+          <td colspan="4" style="text-align:left;">Arranque M1: <strong>~$220K/mes</strong> · Estabilización M4-6: <strong>~$270–310K/mes</strong></td>
+          <td colspan="2" style="text-align:right;">Semestre estimado: <strong>$1.5M – $1.8M</strong></td>
+        </tr>
+      </tfoot>
+    </table>
+
+    <!-- Bloque 3 · Estructura + Proveedores en carril lento -->
+    <div class="op-section-t" style="margin-top: 10px;"><span class="num">03</span> El otro 20% · estructura y proveedores en carril lento</div>
+    <div class="op-mini-grid">
+      <div class="op-mini">
+        <h4>Estructura interna · queda como está</h4>
+        <p>Directores de familia · marca · gerentes de MKT me solicitan servicio · yo cotizo como <strong>área de servicio</strong> dentro de la carretera MKT Ops del deck. Los 4 pilotos son los primeros casos de uso reales de corto plazo que hacen tangible el modelo antes de discutir plantilla adicional.</p>
+      </div>
+      <div class="op-mini red">
+        <h4>Proveedores · sin renegociar el BAU</h4>
+        <p>BAU se queda con los suyos · yo meto los míos para las solicitudes que reciba. No cotizo antes del vobo del modelo. Único desbloqueo requerido: autorización del <strong>piso mensual $1.5M – $3.0M</strong> del Slide 4 (MKT y Growth Ops · Área Marketing · piso + servicios brief). Con eso, cotizaciones y contrataciones fluyen sin fricción.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="op-footer">
+    <div><strong>Grupo Plasencia Automotriz</strong> · Dirección de Marketing y Transformación Digital · Jesús Pérez Porras</div>
+    <div>Anexo #8 al Business Case · Página 1 de 2</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<!-- PÁGINA 2 · Asks al Consejo + Cereza (Fractional CMO) -->
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="op-banner-p2">
+    <div class="op-banner-p2-t">Cómo <span>el Consejo</span> me habilita el semestre</div>
+    <div class="op-banner-p2-r">5 asks + 1 cierre</div>
+  </div>
+
+  <div class="op-body">
+
+    <!-- Bloque 4 · Asks -->
+    <div class="op-section-t"><span class="num">04</span> Cinco asks binarios al Consejo</div>
+    <div class="op-asks">
+      <div class="op-ask">
+        <div class="op-ask-num">01</div>
+        <div class="op-ask-content">
+          <h5>Política corporativa formal · MKT es el primer stop antes de contratar 3ros</h5>
+          <p>Para que Directores de familia y marca me busquen antes de proveedores externos · mensaje del Consejo hacia abajo <strong>este mes</strong>.</p>
+        </div>
+      </div>
+      <div class="op-ask">
+        <div class="op-ask-num">02</div>
+        <div class="op-ask-content">
+          <h5>Sponsor familiar de Transformación Digital dentro del Consejo</h5>
+          <p><strong>Preferencia: Andrés</strong> (dirige familia GAC · alineado con el piloto de marca china que ancla el diseño estratégico phygital-omnicanal). El sponsor y yo conformamos un <strong>Comité de Transformación Digital mínimo viable</strong> con los stakeholders que ambos consideremos clave — no lista fija predefinida. <strong>Definir en esta sesión</strong>.</p>
+        </div>
+      </div>
+      <div class="op-ask">
+        <div class="op-ask-num">03</div>
+        <div class="op-ask-content">
+          <h5>Autoridad sobre decisiones de proveedores, equipo y plantilla</h5>
+          <p>De los pilotos y de las solicitudes que reciba de Directores · para ejecutar sin cuellos de botella · <strong>autorización explícita en el acta</strong>.</p>
+        </div>
+      </div>
+      <div class="op-ask">
+        <div class="op-ask-num">04</div>
+        <div class="op-ask-content">
+          <h5>Autorización del piso mensual $1.5M – $3.0M del Slide 4</h5>
+          <p>MKT y Growth Ops · Área Marketing · piso + servicios brief. Desbloquea cotizaciones y servicios sin fricción · <strong>aprobar en esta sesión</strong>.</p>
+        </div>
+      </div>
+      <div class="op-ask">
+        <div class="op-ask-num">05</div>
+        <div class="op-ask-content">
+          <h5>Patrocinio del diseño estratégico phygital-omnicanal</h5>
+          <p>Ancla en <strong>GAC</strong> (Andrés como director de familia · ya tiene piloto Tienda + Karbot IA). Da la definición de <strong>qué activos digitales tienen sentido desde el punto de vista del cliente</strong> — el Marketplace MVP. <strong>Arranca H2</strong>.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bloque 5 · Cereza · Fractional CMO -->
+    <div class="op-cereza">
+      <div class="op-cereza-lbl">05 · Cómo lo hago yo · cierre</div>
+      <h3 class="op-cereza-t">Fractional CMO externo <em>con skin-in-the-game</em></h3>
+      <p class="op-cereza-frame">Para que el modelo sea coherente de punta a punta — MKT como área de servicio · proveedores externos como primera opción · lógica de agencia interna a la <strong>Salinas / MEXA</strong> — propongo formalizarme como <strong>Fractional CMO externo</strong> del Grupo, aplicándome a mí mismo el esquema que estoy proponiendo para todo lo demás.</p>
+
+      <div class="op-cereza-items">
+        <div class="op-cereza-item">
+          <h6>Fee fijo</h6>
+          <p>Equivalente a mi <strong>paquete de compensación bruto actual antes de impuestos</strong>, incluyendo la formalización del beneficio de auto (parte de la oferta original de contratación · pendiente de instrumentar con Talento a la fecha). Bajo figura de consultor externo, el Grupo <strong>deja de absorber cuotas patronales y carga fiscal</strong> — esas responsabilidades pasan a mi lado.</p>
+        </div>
+        <div class="op-cereza-item">
+          <h6>Variable · success fee direccional</h6>
+          <p><strong>Aprobado conceptualmente por Andrés · pendiente propuesta de mi lado y formalización con Finanzas</strong>. Escalonado en tres capas:</p>
+          <ul>
+            <li><strong>Citas agendadas</strong> — mi OMTM · lo único que MKT controla al 100%</li>
+            <li><strong>Vistas realizadas</strong> — conjunto con las áreas comerciales</li>
+            <li><strong>Ventas atribuidas</strong> a mis campañas · pilotos · canales-tiendas</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="op-cereza-cronograma">
+        <strong>Cronograma</strong> &nbsp;·&nbsp; Vobo del principio en esta sesión &nbsp;·&nbsp; Propuesta detallada del variable con Finanzas Jul-Ago &nbsp;·&nbsp; Formalización del contrato (incluyendo la instrumentación del auto) Sep 2026.
+      </div>
+    </div>
+
+  </div>
+
+  <div class="op-footer">
+    <div><strong>Grupo Plasencia Automotriz</strong> · Dirección de Marketing y Transformación Digital · Jesús Pérez Porras</div>
+    <div>Anexo #8 al Business Case · Página 2 de 2</div>
+  </div>
+</div>
+
+</body>
+</html>
