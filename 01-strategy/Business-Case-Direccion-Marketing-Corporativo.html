@@ -244,7 +244,7 @@ body.review-mode #nav-prev, body.review-mode #nav-next, body.review-mode #counte
 #review-toggle { position:fixed; top:14px; right:22px; z-index:9999; background:rgba(0,0,0,.55); backdrop-filter:blur(8px); color:#FFF; border:none; cursor:pointer; font-size:11px; font-weight:600; font-family:var(--sans); padding:7px 14px; border-radius:14px; letter-spacing:.5px; text-transform:uppercase; transition:background .2s; }
 #review-toggle:hover { background:rgba(200,16,46,.85); }
 
-@media print { @page { size: 1280px 720px landscape; margin: 0; } html, body { overflow: visible; background: white; } .slide { position: relative !important; opacity: 1 !important; visibility: visible !important; transform: none !important; left: auto !important; top: auto !important; page-break-after: always; box-shadow: none; } .slide:last-child { page-break-after: avoid; } #progress, #counter, .nav-btn, #review-toggle { display: none; } }
+@media print { @page { size: 13.333in 7.5in; margin: 0; } html, body { overflow: visible; background: white; width: 13.333in; } .slide { position: relative !important; opacity: 1 !important; visibility: visible !important; transform: none !important; left: auto !important; top: auto !important; width: 1280px !important; height: 720px !important; page-break-after: always; page-break-inside: avoid; box-shadow: none; margin: 0; } .slide:last-child { page-break-after: avoid; } #progress, #counter, .nav-btn, #review-toggle { display: none; } }
 </style>
 </head>
 <body>
