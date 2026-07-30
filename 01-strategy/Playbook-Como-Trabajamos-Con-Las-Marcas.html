@@ -401,21 +401,39 @@ html, body { background: #E2E8F0; color: var(--text); font-family: var(--sans); 
 .tablero-mockup-hdr { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; padding: 0 4px; }
 .tablero-mockup-t { font-family: var(--sans); font-weight: 800; font-size: 8pt; color: var(--gp-navy); text-transform: uppercase; letter-spacing: .8px; }
 .tablero-mockup-sub { font-family: var(--sans); font-size: 6.5pt; color: var(--g500); font-style: italic; }
-.tablero-cols { display: grid; grid-template-columns: repeat(8, 1fr); gap: 3px; }
-.tablero-col { background: var(--paper); border: 1px solid var(--g200); border-top: 2px solid var(--gp-navy); border-radius: 3px; padding: 4px 3px; min-height: 100px; }
+.tablero-cols-row { display: grid; gap: 3px; margin-bottom: 4px; }
+.tablero-cols-row.activas { grid-template-columns: repeat(7, 1fr); }
+.tablero-cols-row.terminales { grid-template-columns: repeat(5, 1fr); margin-bottom: 0; }
+.tablero-row-lbl { font-family: var(--sans); font-size: 5.5pt; font-weight: 800; color: var(--g500); text-transform: uppercase; letter-spacing: .8px; margin: 4px 4px 3px; }
+.tablero-col { background: var(--paper); border: 1px solid var(--g200); border-top: 2px solid var(--gp-navy); border-radius: 3px; padding: 4px 3px; min-height: 78px; position: relative; }
+.tablero-col.ayuda { border-top-color: var(--gp-red); }
 .tablero-col.cita { border-top-color: var(--amber); }
 .tablero-col.visita { border-top-color: var(--deep-blue); }
 .tablero-col.neg { border-top-color: var(--amber); }
 .tablero-col.ganada { border-top-color: var(--deep-green); }
+.tablero-col.auditar { border-top-color: #DD6B20; }
+.tablero-col.otro { border-top-color: #805AD5; }
 .tablero-col.perdida { border-top-color: var(--gp-red); }
+.tablero-col.nocont { border-top-color: var(--g500); }
+.tablero-col.lock::after { content: "🔒"; position: absolute; top: 2px; right: 3px; font-size: 5pt; }
 .tablero-col-hdr { font-family: var(--sans); font-weight: 800; font-size: 5.5pt; color: var(--gp-navy); text-transform: uppercase; letter-spacing: .2px; margin-bottom: 3px; text-align: center; line-height: 1.15; min-height: 20px; }
 .tablero-col-count { font-family: var(--serif); font-weight: 900; font-size: 12pt; color: var(--gp-navy); text-align: center; margin-bottom: 3px; line-height: 1; font-variant-numeric: tabular-nums; }
 .tablero-col.cita .tablero-col-count { color: var(--amber); }
 .tablero-col.visita .tablero-col-count { color: var(--deep-blue); }
 .tablero-col.ganada .tablero-col-count { color: var(--deep-green); }
+.tablero-col.auditar .tablero-col-count { color: #DD6B20; }
+.tablero-col.otro .tablero-col-count { color: #805AD5; }
 .tablero-col.perdida .tablero-col-count { color: var(--gp-red); }
+.tablero-col.nocont .tablero-col-count { color: var(--g500); }
 .tablero-card { background: var(--near-white); border: 1px solid var(--g200); border-radius: 2px; padding: 2px 3px; margin-bottom: 2px; font-family: var(--sans); font-size: 5.2pt; color: var(--g600); line-height: 1.2; }
 .tablero-card strong { display: block; font-weight: 700; color: var(--gp-navy); font-size: 5.8pt; }
+
+/* Señales técnicas box */
+.senales-box { margin-top: 8px; background: linear-gradient(135deg, #1E2740 0%, #2A3654 100%); color: white; padding: 10px 16px; border-radius: 8px; position: relative; overflow: hidden; }
+.senales-box::before { content: ""; position: absolute; top: 0; right: 0; width: 160px; height: 160px; background: radial-gradient(circle, rgba(66,153,225,.14) 0%, transparent 70%); border-radius: 50%; }
+.senales-lbl { position: relative; z-index: 2; font-family: var(--sans); font-size: 7pt; font-weight: 800; letter-spacing: 1.6px; text-transform: uppercase; color: #63B3ED; margin-bottom: 4px; }
+.senales-body { position: relative; z-index: 2; font-family: var(--sans); font-size: 7.5pt; color: rgba(255,255,255,.88); line-height: 1.5; }
+.senales-body strong { color: white; font-weight: 700; }
 
 /* Compromiso mutuo box */
 .compromiso-box { margin-top: 10px; background: linear-gradient(135deg, #C8102E 0%, #A00A25 100%); color: white; padding: 14px 20px; border-radius: 10px; position: relative; overflow: hidden; }
@@ -489,7 +507,7 @@ html, body { background: #E2E8F0; color: var(--text); font-family: var(--sans); 
 
     <div class="cover-context" style="margin-top:10px; background: linear-gradient(135deg, #276749 0%, #2F855A 100%);">
       <div class="cover-context-lbl" style="color: #ECC94B;">Espíritu del playbook</div>
-      <div class="cover-context-body">La Dirección <strong>no impone</strong>. Cada Director de Marca sigue mandando en su marca. Cada Dirección comercial sigue con su modelo si así lo prefiere. El Consejo y las Direcciones de Familia pueden pedir servicios en nombre del Grupo. Los tres modos se combinan, se toman por separado o se dejan de lado. Sin fricción.</div>
+      <div class="cover-context-body">La Dirección <strong>no impone</strong>. Cada Director de Marca, Comercial o de línea de negocio corporativa sigue mandando en la suya. El Consejo y las Direcciones de Familia pueden pedir servicios en nombre del Grupo. Los tres modos se combinan, se toman por separado o se dejan de lado. Sin fricción.</div>
     </div>
   </div>
 
@@ -867,18 +885,31 @@ html, body { background: #E2E8F0; color: var(--text); font-family: var(--sans); 
     <div class="tablero-mockup">
       <div class="tablero-mockup-hdr">
         <div class="tablero-mockup-t">Tablero · Piloto Seminuevos · vista real</div>
-        <div class="tablero-mockup-sub">datos ilustrativos</div>
+        <div class="tablero-mockup-sub">datos ilustrativos · 12 etapas del kanban corporativo</div>
       </div>
-      <div class="tablero-cols">
+      <div class="tablero-row-lbl">Etapas activas (siete)</div>
+      <div class="tablero-cols-row activas">
+        <div class="tablero-col ayuda"><div class="tablero-col-hdr">Ayuda humana</div><div class="tablero-col-count">2</div><div class="tablero-card"><strong>B. Cano</strong>Pide asesor</div></div>
         <div class="tablero-col"><div class="tablero-col-hdr">Por contactar</div><div class="tablero-col-count">14</div><div class="tablero-card"><strong>C. Ramírez</strong>Mazda CX-5</div><div class="tablero-card"><strong>J. Torres</strong>Kia Rio</div></div>
-        <div class="tablero-col"><div class="tablero-col-hdr">En seguimiento</div><div class="tablero-col-count">22</div><div class="tablero-card"><strong>A. Muñoz</strong>Nissan Kicks</div><div class="tablero-card"><strong>R. López</strong>Chevy Aveo</div></div>
         <div class="tablero-col"><div class="tablero-col-hdr">Recontactar</div><div class="tablero-col-count">8</div><div class="tablero-card"><strong>S. Vega</strong>VW Vento</div></div>
+        <div class="tablero-col"><div class="tablero-col-hdr">En seguimiento</div><div class="tablero-col-count">22</div><div class="tablero-card"><strong>A. Muñoz</strong>Nissan Kicks</div><div class="tablero-card"><strong>R. López</strong>Chevy Aveo</div></div>
         <div class="tablero-col cita"><div class="tablero-col-hdr">Cita agendada</div><div class="tablero-col-count">11</div><div class="tablero-card"><strong>M. Ríos</strong>Honda Civic</div><div class="tablero-card"><strong>P. Ortiz</strong>Toyota Yaris</div></div>
         <div class="tablero-col visita"><div class="tablero-col-hdr">Visita realizada</div><div class="tablero-col-count">6</div><div class="tablero-card"><strong>L. García</strong>Ford Escape</div></div>
         <div class="tablero-col neg"><div class="tablero-col-hdr">Negociación</div><div class="tablero-col-count">4</div><div class="tablero-card"><strong>D. Reyes</strong>Chevy Trax</div></div>
-        <div class="tablero-col ganada"><div class="tablero-col-hdr">Cerrado atribuible</div><div class="tablero-col-count">3</div><div class="tablero-card"><strong>V. Solís</strong>Mazda 3</div></div>
-        <div class="tablero-col perdida"><div class="tablero-col-hdr">Perdida</div><div class="tablero-col-count">7</div><div class="tablero-card"><strong>N. Vega</strong>Sin decisión</div></div>
       </div>
+      <div class="tablero-row-lbl">Etapas terminales (cinco)</div>
+      <div class="tablero-cols-row terminales">
+        <div class="tablero-col ganada"><div class="tablero-col-hdr">Cerrado atribuible</div><div class="tablero-col-count">3</div><div class="tablero-card"><strong>V. Solís</strong>Mazda 3 · $310K</div></div>
+        <div class="tablero-col auditar lock"><div class="tablero-col-hdr">Cerrado por auditar</div><div class="tablero-col-count">1</div><div class="tablero-card"><strong>T. Ávalos</strong>Match parcial</div></div>
+        <div class="tablero-col otro lock"><div class="tablero-col-hdr">Cerrado otro cliente</div><div class="tablero-col-count">2</div><div class="tablero-card"><strong>E. Peña</strong>VIN cerró otro</div></div>
+        <div class="tablero-col perdida"><div class="tablero-col-hdr">Perdida</div><div class="tablero-col-count">7</div><div class="tablero-card"><strong>N. Vega</strong>Sin decisión</div></div>
+        <div class="tablero-col nocont"><div class="tablero-col-hdr">No contactable</div><div class="tablero-col-count">4</div><div class="tablero-card"><strong>H. Silva</strong>Sin respuesta</div></div>
+      </div>
+    </div>
+
+    <div class="senales-box">
+      <div class="senales-lbl">Cada movimiento del tablero se convierte en señal para las plataformas</div>
+      <div class="senales-body">Cuando una card avanza (lead → cita agendada → visita realizada → cerrado atribuible), la Dirección envía la conversión posterior al clic <strong>en tiempo real, del lado del servidor</strong>, a <strong>Meta (CAPI + Pixel)</strong>, <strong>Google Ads (Enhanced Conversions)</strong> y <strong>GA4 (Measurement Protocol)</strong>. Los algoritmos dejan de aprender solo del clic o del formulario. Aprenden de la <strong>cita agendada, la visita al piso y la venta cerrada</strong>. Esa es la calidad de señal que reduce el costo por venta y mejora el retorno mes a mes.</div>
     </div>
 
     <div class="compromiso-box">
@@ -940,7 +971,7 @@ html, body { background: #E2E8F0; color: var(--text); font-family: var(--sans); 
         <div class="estado-row"><div class="estado-marca">Hyundai</div><div class="estado-info">hyundai.grupoplasencia.com</div></div>
         <div class="estado-row"><div class="estado-marca">Stellantis</div><div class="estado-info">stellantis.grupoplasencia.com</div></div>
         <div class="estado-row"><div class="estado-marca">GAC</div><div class="estado-info">gac.grupoplasencia.com</div></div>
-        <div class="estado-nota">Sin reconfirmación explícita del Director de Marca, el piloto se <strong>detiene ordenadamente</strong> y los recursos se reasignan.</div>
+        <div class="estado-nota">Sin reconfirmación explícita del <strong>Director de Marca, Comercial o de línea de negocio</strong>, el piloto se <strong>detiene ordenadamente</strong> y los recursos se reasignan.</div>
       </div>
       <div class="estado-tabla-block cola">
         <div class="estado-tabla-hdr">En cola · backlog activo</div>
@@ -1011,12 +1042,12 @@ html, body { background: #E2E8F0; color: var(--text); font-family: var(--sans); 
     <div class="gobierno-box">
       <div class="gobierno-lbl">Gobierno · alcance · CX cross-Grupo</div>
       <div class="gobierno-body">
-        <strong>Reporte político.</strong> La Dirección reporta al Consejo Directivo a través de la Dirección de Finanzas (Pepe Morales). Cascada: Dirección → Finanzas + Talento y Cultura → Direcciones de Familia con ejemplos → Consejo.
+        <strong>Reporte político.</strong> La Dirección reporta al Consejo Directivo a través de la Dirección de Finanzas (Pepe Morales). Cascada: Dirección → Finanzas → Direcciones de Familia con ejemplos → Consejo.
         <ul>
           <li>Se opera bajo modelo <strong>tercerizado</strong>; no crea estructura de personal nueva.</li>
           <li>Respeta la operación diaria de cada marca.</li>
           <li>No interviene en la inversión negociada directamente entre la marca y su OEM.</li>
-          <li>Opera de forma <strong>voluntaria</strong>. Cada Director de Marca conserva plena autonomía sobre su BAU.</li>
+          <li>Opera de forma <strong>voluntaria</strong>. Cada Director de Marca, Comercial o de línea de negocio corporativa conserva plena autonomía sobre su BAU.</li>
           <li><strong>CX cross-Grupo (Enrique Rojas)</strong> está fuera del alcance de esta Dirección construir o duplicar. Se evalúa conjuntamente con Enrique qué componentes de CX se integran a los pilotos y en qué ritmo. La IA conversacional (Vambe / Karbot / módulo CX) sigue un roadmap de consolidación acordado.</li>
         </ul>
       </div>
@@ -1035,7 +1066,7 @@ html, body { background: #E2E8F0; color: var(--text); font-family: var(--sans); 
       </div>
       <div class="faq-item">
         <div class="faq-q">¿Los pilotos actuales se detienen si no reconfirmo?</div>
-        <div class="faq-a">Sí, ordenadamente. La Dirección necesita <strong>vobo explícito</strong> del Director de Marca para seguir invirtiendo tiempo del equipo. La reconfirmación implica firmar el <strong>compromiso mutuo</strong> con las métricas del funnel (citas, visitas, ventas).</div>
+        <div class="faq-a">Sí, ordenadamente. La Dirección necesita <strong>vobo explícito</strong> del Director de Marca, Comercial o de línea de negocio corporativa para seguir invirtiendo tiempo del equipo. La reconfirmación implica firmar el <strong>compromiso mutuo</strong> con las métricas del funnel (citas, visitas, ventas).</div>
       </div>
       <div class="faq-item">
         <div class="faq-q">¿La compra consolidada de medios me obliga a algo?</div>
