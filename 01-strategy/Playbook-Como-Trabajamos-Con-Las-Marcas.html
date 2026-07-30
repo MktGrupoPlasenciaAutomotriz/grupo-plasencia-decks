@@ -386,6 +386,62 @@ html, body { background: #E2E8F0; color: var(--text); font-family: var(--sans); 
 /* ===================== FOOTER ===================== */
 .pb-footer { padding: 10px 40px; background: var(--g100); border-top: 1px solid var(--g200); display: flex; justify-content: space-between; align-items: center; font-family: var(--sans); font-size: 7.5pt; color: var(--g500); flex-shrink: 0; }
 .pb-footer strong { color: var(--gp-navy); font-weight: 700; letter-spacing: .5px; text-transform: uppercase; }
+
+/* ===================== EJEMPLO PILOTO EN ACCIÓN (P7 nueva) ===================== */
+.landings-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; margin-top: 4px; }
+.landing-card { background: var(--paper); border: 1px solid var(--g200); border-top: 3px solid var(--deep-blue); border-radius: 6px; padding: 8px 8px; text-align: center; }
+.landing-card.pending { border-top-color: var(--amber); }
+.landing-marca { font-family: var(--sans); font-weight: 800; font-size: 8pt; color: var(--gp-navy); text-transform: uppercase; letter-spacing: .5px; margin-bottom: 4px; }
+.landing-card.pending .landing-marca { color: var(--amber); }
+.landing-url { font-family: 'SF Mono', Monaco, monospace; font-size: 6pt; color: var(--deep-blue); word-break: break-all; line-height: 1.2; }
+.landing-status { font-family: var(--sans); font-size: 6pt; color: var(--amber); font-weight: 700; text-transform: uppercase; letter-spacing: .5px; margin-top: 3px; font-style: italic; }
+
+/* Mockup tablero */
+.tablero-mockup { margin-top: 8px; background: #F5F7FA; border: 1px solid var(--g200); border-radius: 8px; padding: 8px 8px 10px; }
+.tablero-mockup-hdr { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; padding: 0 4px; }
+.tablero-mockup-t { font-family: var(--sans); font-weight: 800; font-size: 8pt; color: var(--gp-navy); text-transform: uppercase; letter-spacing: .8px; }
+.tablero-mockup-sub { font-family: var(--sans); font-size: 6.5pt; color: var(--g500); font-style: italic; }
+.tablero-cols { display: grid; grid-template-columns: repeat(8, 1fr); gap: 3px; }
+.tablero-col { background: var(--paper); border: 1px solid var(--g200); border-top: 2px solid var(--gp-navy); border-radius: 3px; padding: 4px 3px; min-height: 100px; }
+.tablero-col.cita { border-top-color: var(--amber); }
+.tablero-col.visita { border-top-color: var(--deep-blue); }
+.tablero-col.neg { border-top-color: var(--amber); }
+.tablero-col.ganada { border-top-color: var(--deep-green); }
+.tablero-col.perdida { border-top-color: var(--gp-red); }
+.tablero-col-hdr { font-family: var(--sans); font-weight: 800; font-size: 5.5pt; color: var(--gp-navy); text-transform: uppercase; letter-spacing: .2px; margin-bottom: 3px; text-align: center; line-height: 1.15; min-height: 20px; }
+.tablero-col-count { font-family: var(--serif); font-weight: 900; font-size: 12pt; color: var(--gp-navy); text-align: center; margin-bottom: 3px; line-height: 1; font-variant-numeric: tabular-nums; }
+.tablero-col.cita .tablero-col-count { color: var(--amber); }
+.tablero-col.visita .tablero-col-count { color: var(--deep-blue); }
+.tablero-col.ganada .tablero-col-count { color: var(--deep-green); }
+.tablero-col.perdida .tablero-col-count { color: var(--gp-red); }
+.tablero-card { background: var(--near-white); border: 1px solid var(--g200); border-radius: 2px; padding: 2px 3px; margin-bottom: 2px; font-family: var(--sans); font-size: 5.2pt; color: var(--g600); line-height: 1.2; }
+.tablero-card strong { display: block; font-weight: 700; color: var(--gp-navy); font-size: 5.8pt; }
+
+/* Compromiso mutuo box */
+.compromiso-box { margin-top: 10px; background: linear-gradient(135deg, #C8102E 0%, #A00A25 100%); color: white; padding: 14px 20px; border-radius: 10px; position: relative; overflow: hidden; }
+.compromiso-box::before { content: ""; position: absolute; top: 0; right: 0; width: 200px; height: 200px; background: radial-gradient(circle, rgba(236,201,75,.14) 0%, transparent 70%); border-radius: 50%; }
+.compromiso-lbl { position: relative; z-index: 2; font-family: var(--sans); font-size: 8pt; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 5px; }
+.compromiso-t { position: relative; z-index: 2; font-family: var(--serif); font-weight: 700; font-style: italic; font-size: 12pt; color: white; line-height: 1.35; letter-spacing: -.2px; margin-bottom: 8px; }
+.compromiso-t em { color: var(--gold); font-style: italic; }
+.compromiso-body { position: relative; z-index: 2; font-family: var(--sans); font-size: 8pt; color: rgba(255,255,255,.9); line-height: 1.5; }
+.compromiso-body strong { color: white; font-weight: 700; }
+
+/* Estado tabla (reemplaza estado-actual-grid) */
+.estado-tabla { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 4px; }
+.estado-tabla-block { background: var(--paper); border: 1px solid var(--g200); border-radius: 8px; padding: 8px 12px; }
+.estado-tabla-block.operando { border-top: 3px solid var(--deep-green); }
+.estado-tabla-block.cola { border-top: 3px solid var(--amber); }
+.estado-tabla-hdr { font-family: var(--sans); font-weight: 800; font-size: 7.5pt; text-transform: uppercase; letter-spacing: .8px; color: var(--gp-navy); margin-bottom: 6px; padding-bottom: 4px; border-bottom: 1px solid var(--g200); }
+.estado-tabla-block.operando .estado-tabla-hdr { color: var(--deep-green); }
+.estado-tabla-block.cola .estado-tabla-hdr { color: var(--amber); }
+.estado-row { display: grid; grid-template-columns: 78px 1fr; gap: 6px; padding: 3px 0; border-bottom: 1px dashed var(--g200); align-items: center; }
+.estado-row:last-of-type { border-bottom: none; }
+.estado-marca { font-family: var(--sans); font-weight: 700; font-size: 7pt; color: var(--gp-navy); }
+.estado-info { font-family: 'SF Mono', Monaco, monospace; font-size: 6.5pt; color: var(--deep-blue); word-break: break-all; }
+.estado-info.pending { color: var(--amber); font-family: var(--sans); font-style: italic; font-weight: 600; }
+.estado-info.eval { color: var(--g500); font-family: var(--sans); font-style: italic; }
+.estado-nota { font-family: var(--sans); font-size: 7pt; color: var(--g600); line-height: 1.4; margin-top: 6px; padding-top: 6px; border-top: 1px solid var(--g200); }
+.estado-nota strong { color: var(--gp-navy); font-weight: 700; }
 </style>
 </head>
 <body>
@@ -407,7 +463,7 @@ html, body { background: #E2E8F0; color: var(--text); font-family: var(--sans); 
   <div class="pb-body">
     <div class="cover-bluf">
       <div class="cover-bluf-lbl">En una frase</div>
-      <div class="cover-bluf-t">La Dirección opera como <em>área de servicio del Grupo</em> con tres modos distintos: <strong>agencia interna</strong>, <strong>consultoría con recomendaciones puntuales</strong> y <strong>pilotos propios de adquisición punta a punta</strong>. Los tres se activan <em>exclusivamente bajo solicitud expresa</em> del líder que corresponda. Modelo <strong>pull, no push</strong>.</div>
+      <div class="cover-bluf-t">La Dirección opera como <em>área de servicio del Grupo</em> con tres modos distintos: <strong>agencia interna</strong>, <strong>consultoría con recomendaciones puntuales</strong> y <strong>pilotos propios de adquisición de anuncio a venta</strong>. Los tres se activan <em>exclusivamente bajo solicitud expresa</em> del líder que corresponda. Modelo <strong>pull, no push</strong>.</div>
     </div>
 
     <div class="cover-meta">
@@ -423,7 +479,7 @@ html, body { background: #E2E8F0; color: var(--text); font-family: var(--sans); 
 
     <div class="cover-context">
       <div class="cover-context-lbl">Lo que el Consejo ya aprobó</div>
-      <div class="cover-context-body">El 27 de julio de 2026 el Consejo canonizó el marco de la Dirección de Marketing y Transformación Digital como función corporativa de Grupo Plasencia. <strong>Dos áreas complementarias</strong> (Marketing Ops + Growth · Transformación Digital) que en conjunto reúnen <strong>20 disciplinas</strong> con capacidad para atender a las 13 entidades del portafolio del Grupo. Este playbook aterriza cómo se traduce ese marco en el día a día operativo.</div>
+      <div class="cover-context-body">El 27 de julio de 2026 el Consejo aprobó el marco de la Dirección de Marketing y Transformación Digital como función corporativa de Grupo Plasencia, con <strong>dos carreteras de trabajo</strong>: una <strong>operativa</strong> (agencia interna a solicitud de las marcas · autofinanciada) y una <strong>estratégica</strong> (iniciativas corporativas cross-Grupo · CapEx del Consejo). <strong>Este playbook aterriza únicamente la carretera operativa: el esquema de operaciones de Marketing y Digital al servicio de las marcas y líneas del Grupo</strong>. La carretera estratégica se conduce por separado con la agenda del Consejo.</div>
     </div>
 
     <div class="cover-context" style="margin-top:10px; background: linear-gradient(135deg, #C8102E 0%, #A00A25 100%);">
@@ -439,7 +495,7 @@ html, body { background: #E2E8F0; color: var(--text); font-family: var(--sans); 
 
   <div class="pb-footer">
     <span><strong>Grupo Plasencia Automotriz</strong> · Playbook · Cómo trabajamos con las marcas</span>
-    <span>Julio 2026 · Confidencial · Página 1 de 8</span>
+    <span>Julio 2026 · Confidencial · Página 1 de 9</span>
   </div>
 </div>
 
@@ -458,7 +514,7 @@ html, body { background: #E2E8F0; color: var(--text); font-family: var(--sans); 
         <div class="modo-card-num">01</div>
         <div class="modo-card-eyebrow">Agencia interna</div>
         <div class="modo-card-t">Ejecución a la carta</div>
-        <div class="modo-card-body">Briefs puntuales o programas sostenidos con cualquiera de las <strong>20 disciplinas</strong>. Compra de medios consolidada opcional. Flujo: <strong>Solicitud → Propuesta → Costo → Ejecución</strong>. Facturación intercompany con IVA acreditable al 100%.</div>
+        <div class="modo-card-body">Briefs puntuales o programas sostenidos con cualquiera de las <strong>20 disciplinas</strong>. Compra de medios consolidada opcional. Flujo: <strong>Solicitud → Propuesta → Costo → Ejecución</strong>. Facturación entre empresas del Grupo con IVA acreditable al 100%.</div>
         <div class="modo-card-piso">
           <span class="modo-card-piso-lbl">Piso económico</span>
           <div class="modo-card-piso-body"><strong>Sin piso por solicitante.</strong> Cada brief se cotiza según viabilidad vía discovery → planteamiento → propuesta económica.</div>
@@ -479,11 +535,11 @@ html, body { background: #E2E8F0; color: var(--text); font-family: var(--sans); 
       <div class="modo-card red">
         <div class="modo-card-num">03</div>
         <div class="modo-card-eyebrow">Pilotos E2E</div>
-        <div class="modo-card-t">Adquisición punta a punta</div>
-        <div class="modo-card-body">Iniciativa propia de la Dirección para probar nuevos flujos de adquisición <strong>de anuncio a venta</strong>. Estándar actual: Motor de Atribución con IA conversacional + pipeline kanban + hand-off al vendedor humano.</div>
+        <div class="modo-card-t">Adquisición de anuncio a venta</div>
+        <div class="modo-card-body">Iniciativa propia de la Dirección para probar nuevos flujos de adquisición <strong>de anuncio a venta</strong>. Estándar actual: Motor de Atribución con IA conversacional + pipeline kanban + entrega al vendedor humano.</div>
         <div class="modo-card-piso">
           <span class="modo-card-piso-lbl">Piso económico</span>
-          <div class="modo-card-piso-body"><strong>$35K/mes</strong> + inversión publicitaria fondeada por la marca al 100%.</div>
+          <div class="modo-card-piso-body"><strong>$35K/mes pauta pura mínima.</strong> Servicios operativos del piloto se cotizan según propuesta.</div>
         </div>
       </div>
     </div>
@@ -501,7 +557,7 @@ html, body { background: #E2E8F0; color: var(--text); font-family: var(--sans); 
 
   <div class="pb-footer">
     <span><strong>Grupo Plasencia Automotriz</strong> · Playbook · Cómo trabajamos con las marcas</span>
-    <span>Julio 2026 · Confidencial · Página 2 de 8</span>
+    <span>Julio 2026 · Confidencial · Página 2 de 9</span>
   </div>
 </div>
 
@@ -525,7 +581,7 @@ html, body { background: #E2E8F0; color: var(--text); font-family: var(--sans); 
           <span>Performance ads (paid)</span>
           <span>Compra de medios</span>
           <span>Creativo y contenido</span>
-          <span>CRO y experimentación</span>
+          <span>Optimización de conversión (CRO) y experimentación</span>
           <span>Analytics y atribución</span>
           <span>Marketing automation</span>
           <span>Brand strategy y gestión</span>
@@ -542,7 +598,7 @@ html, body { background: #E2E8F0; color: var(--text); font-family: var(--sans); 
           <span>Service Design</span>
           <span>Desarrollo de producto digital</span>
           <span>Data + IA institucional</span>
-          <span>Modelo phygital (físico + digital)</span>
+          <span>Experiencia integrada físico + digital</span>
           <span>Customer 360 y CRM</span>
           <span>E-commerce y Marketplace</span>
           <span>Automatización de procesos</span>
@@ -556,13 +612,13 @@ html, body { background: #E2E8F0; color: var(--text); font-family: var(--sans); 
       <div class="compra-medios-t">Compra de medios consolidada cross-marca</div>
       <div class="compra-medios-body">La compra de medios se puede activar en modalidad <strong>consolidada cross-marca</strong> a través de un tercero especializado. La Dirección negocia la comisión del tercero por el <strong>monto total consolidado</strong> de las marcas que se sumen; el poder de negociación crece con el volumen consolidado. Cada marca sigue viendo su inversión individual y sus resultados individuales. Lo que se consolida es la operación de compra y la relación comercial con el proveedor.
       <br><br>
-      <strong>Beneficio directo:</strong> la comisión negociada sobre el pool consolidado suele ser menor a la comisión típica de agencia (10–20%), y el ahorro se traduce directamente a la marca. Entrar al pool es <strong>opcional</strong>; si la marca prefiere seguir con su relación actual con Meta / Google / su agencia, sin cambio.</div>
+      <strong>En la práctica</strong>, la comisión negociada sobre el pool consolidado suele ser menor a la comisión típica de agencia (10–20%). El ahorro se traduce directamente a la marca. Entrar al pool es <strong>opcional</strong>; si la marca prefiere seguir con su relación actual con Meta o Google o con su agencia actual, sin cambio.</div>
     </div>
   </div>
 
   <div class="pb-footer">
     <span><strong>Grupo Plasencia Automotriz</strong> · Playbook · Cómo trabajamos con las marcas</span>
-    <span>Julio 2026 · Confidencial · Página 3 de 8</span>
+    <span>Julio 2026 · Confidencial · Página 3 de 9</span>
   </div>
 </div>
 
@@ -574,7 +630,7 @@ html, body { background: #E2E8F0; color: var(--text); font-family: var(--sans); 
   </div>
 
   <div class="pb-body tight">
-    <div class="pb-section-hdr small"><span class="num">B</span>Flujo canonizado · Solicitud → Propuesta → Costo → Ejecución</div>
+    <div class="pb-section-hdr small"><span class="num">B</span>Flujo aprobado · Solicitud → Propuesta → Costo → Ejecución</div>
 
     <div class="flujo-4">
       <div class="flujo-4-paso">
@@ -599,9 +655,9 @@ html, body { background: #E2E8F0; color: var(--text); font-family: var(--sans); 
       </div>
     </div>
 
-    <div class="pb-section-hdr small" style="margin-top: 16px;"><span class="num">C</span>Cómo se cobra · facturación intercompany</div>
+    <div class="pb-section-hdr small" style="margin-top: 16px;"><span class="num">C</span>Cómo se cobra · facturación entre empresas del Grupo</div>
 
-    <p class="pb-p">Los servicios se cobran vía <strong>intercompany</strong> entre la marca solicitante y la entidad corporativa donde reside la Dirección. Factura con <strong>IVA acreditable al 100%</strong>, a diferencia de servicios contratados directo al extranjero (por ejemplo Meta Platforms Ireland Limited), donde el IVA no se acredita.</p>
+    <p class="pb-p">Los servicios se cobran vía <strong>entre empresas del Grupo</strong> entre la marca solicitante y la entidad corporativa donde reside la Dirección. Factura con <strong>IVA acreditable al 100%</strong>, a diferencia de servicios contratados directo al extranjero (por ejemplo Meta Platforms Ireland Limited), donde el IVA no se acredita.</p>
 
     <p class="pb-p"><strong>No hay piso económico por solicitante en la ejecución a la carta.</strong> Cada brief entra al proceso de evaluación de viabilidad: <strong>discovery → planteamiento → propuesta económica</strong>. La Dirección emite la propuesta después de estudiar el alcance real de la solicitud; el solicitante decide si aprueba o descarta sin fricción y sin cargo. Los servicios aprobados se facturan proyecto por proyecto contra la propuesta firmada. El pool anual de servicios de la Dirección está autorizado por el Consejo como marco presupuestal de la función, no como piso individual por marca o línea.</p>
 
@@ -618,7 +674,7 @@ html, body { background: #E2E8F0; color: var(--text); font-family: var(--sans); 
 
   <div class="pb-footer">
     <span><strong>Grupo Plasencia Automotriz</strong> · Playbook · Cómo trabajamos con las marcas</span>
-    <span>Julio 2026 · Confidencial · Página 4 de 8</span>
+    <span>Julio 2026 · Confidencial · Página 4 de 9</span>
   </div>
 </div>
 
@@ -630,7 +686,7 @@ html, body { background: #E2E8F0; color: var(--text); font-family: var(--sans); 
   </div>
 
   <div class="pb-body tight">
-    <p class="pb-lede">Programa consultivo canonizado en el <strong>Anexo #7 · Programa de Acompañamiento Ejecutivo a las Marcas</strong> presentado al Consejo. Operado con los recursos actuales desde el día uno, <strong>independiente del Business Case</strong>. Voluntario, respeta autonomía, no ejecuta.</p>
+    <p class="pb-lede">Programa consultivo aprobado en el <strong>Anexo #7 · Programa de Acompañamiento Ejecutivo a las Marcas</strong> presentado al Consejo. Operado con los recursos actuales desde el día uno, <strong>independiente del Business Case</strong>. Voluntario, respeta autonomía, no ejecuta.</p>
 
     <div class="pb-section-hdr small"><span class="num">A</span>Los cuatro momentos del programa</div>
 
@@ -663,17 +719,17 @@ html, body { background: #E2E8F0; color: var(--text); font-family: var(--sans); 
       <div class="cadencia-card">
         <div class="cadencia-when">Primeros 90 días</div>
         <div class="cadencia-t">Sesiones bisemanales</div>
-        <div class="cadencia-d"><strong>30 minutos</strong> con el solicitante, cada dos semanas. Momentum inicial alto y ajustes rápidos a las primeras recomendaciones.</div>
+        <div class="cadencia-d"><strong>45 a 60 minutos</strong> con el solicitante, cada dos semanas. Momentum inicial alto y ajustes rápidos a las primeras recomendaciones.</div>
       </div>
       <div class="cadencia-card gold">
         <div class="cadencia-when">Desde el mes 4</div>
         <div class="cadencia-t">Sesiones mensuales</div>
-        <div class="cadencia-d"><strong>45 minutos</strong> una vez al mes. Cadencia sostenible que se sincroniza con el semáforo mensual al Consejo.</div>
+        <div class="cadencia-d"><strong>45 a 60 minutos</strong> una vez al mes. Cadencia sostenible que se sincroniza con el semáforo mensual al Consejo.</div>
       </div>
       <div class="cadencia-card green">
         <div class="cadencia-when">Dirección de Familia</div>
         <div class="cadencia-t">Revisión trimestral</div>
-        <div class="cadencia-d"><strong>30 minutos</strong> cada trimestre para revisar el consolidado cross-marca con las Direcciones de Familia.</div>
+        <div class="cadencia-d"><strong>45 a 60 minutos</strong> cada trimestre para revisar el consolidado cross-marca con las Direcciones de Familia.</div>
       </div>
     </div>
 
@@ -683,15 +739,15 @@ html, body { background: #E2E8F0; color: var(--text); font-family: var(--sans); 
       <div class="rec-card">
         <div class="rec-card-num">01</div>
         <div class="rec-card-content">
-          <h5>Meta Always-On con contenido evergreen</h5>
-          <p>Mantener campañas <strong>encendidas todo el año</strong> con contenido base sobre los autos, no solo ofertas comerciales. Al prender y apagar por promos del OEM, el algoritmo pierde el hilo.</p>
+          <h5>Meta encendida todo el año con contenido permanente</h5>
+          <p>Mantener campañas <strong>activas todo el año</strong> con contenido base sobre los autos, no solo ofertas comerciales. Al prender y apagar por promos del OEM, el algoritmo pierde el aprendizaje acumulado.</p>
         </div>
       </div>
       <div class="rec-card">
         <div class="rec-card-num">02</div>
         <div class="rec-card-content">
-          <h5>Que los leads suban al pipeline visible</h5>
-          <p>Todo lead entra al <strong>kanban corporativo</strong>. La métrica cambia de "cuántos leads" a <strong>"cuántas citas agendadas"</strong>.</p>
+          <h5>Que los leads suban al tablero visible</h5>
+          <p>Todo lead entra al <strong>tablero corporativo</strong>. La métrica cambia de "cuántos leads" a <strong>"cuántas citas agendadas"</strong>.</p>
         </div>
       </div>
       <div class="rec-card">
@@ -704,7 +760,7 @@ html, body { background: #E2E8F0; color: var(--text); font-family: var(--sans); 
       <div class="rec-card">
         <div class="rec-card-num">04</div>
         <div class="rec-card-content">
-          <h5>Conectar el pipeline con el motor de atribución</h5>
+          <h5>Conectar el tablero con el motor de atribución</h5>
           <p>Cuando la card avanza (lead → cita → visita → venta), la señal se envía a Meta y Google. Pasa de optimizar por leads a optimizar por <strong>ventas y retorno</strong>. Da <strong>visibilidad para gestión de vendedores digitales</strong>.</p>
         </div>
       </div>
@@ -725,7 +781,7 @@ html, body { background: #E2E8F0; color: var(--text); font-family: var(--sans); 
 
   <div class="pb-footer">
     <span><strong>Grupo Plasencia Automotriz</strong> · Playbook · Cómo trabajamos con las marcas</span>
-    <span>Julio 2026 · Confidencial · Página 5 de 8</span>
+    <span>Julio 2026 · Confidencial · Página 5 de 9</span>
   </div>
 </div>
 
@@ -737,20 +793,20 @@ html, body { background: #E2E8F0; color: var(--text); font-family: var(--sans); 
   </div>
 
   <div class="pb-body tight">
-    <p class="pb-lede">Iniciativa <strong>propia de la Dirección</strong> para probar nuevos flujos de adquisición punta a punta. La Dirección diseña, integra tecnología y opera el motor; la marca fondea y participa activamente. <strong>Estándar actual:</strong> Motor de Atribución con IA conversacional + pipeline kanban + hand-off al vendedor humano.</p>
+    <p class="pb-lede">Iniciativa <strong>propia de la Dirección</strong> para probar nuevos flujos de adquisición de anuncio a venta. La Dirección diseña, integra tecnología y opera el motor; la marca fondea y participa activamente. <strong>Estándar actual:</strong> Motor de Atribución con IA conversacional + pipeline kanban + entrega al vendedor humano.</p>
 
     <div class="pb-section-hdr small"><span class="num">A</span>Flujo E2E · 9 pasos del piloto (anuncio → cierre en DCA)</div>
 
     <div class="flujo-9">
-      <div class="paso-9"><div class="paso-9-num">01</div><div class="paso-9-body"><strong>Anuncio</strong>Meta y Google optimizados por conversiones offline, no por lead gen.</div></div>
+      <div class="paso-9"><div class="paso-9-num">01</div><div class="paso-9-body"><strong>Anuncio</strong>Meta y Google optimizados por conversiones posteriores al clic, no por lead gen.</div></div>
       <div class="paso-9"><div class="paso-9-num">02</div><div class="paso-9-body"><strong>Landing / catálogo</strong>Tienda del piloto, propiedad de la Dirección, con inventario sincronizado.</div></div>
-      <div class="paso-9"><div class="paso-9-num">03</div><div class="paso-9-body"><strong>Pipeline kanban</strong>Fuente de verdad. Visibilidad del embudo para marca, Dirección y Consejo.</div></div>
+      <div class="paso-9"><div class="paso-9-num">03</div><div class="paso-9-body"><strong>Tablero de seguimiento</strong>Fuente de verdad. Visibilidad del embudo para marca, Dirección y Consejo.</div></div>
       <div class="paso-9 ia"><div class="paso-9-num">04</div><div class="paso-9-body"><strong>IA conversacional</strong>Perfilamiento + conversación de ventas + agenda de cita.</div></div>
-      <div class="paso-9 humano"><div class="paso-9-num">05</div><div class="paso-9-body"><strong>Hand-off</strong>La IA entrega la cita agendada al vendedor digital humano de la marca.</div></div>
+      <div class="paso-9 humano"><div class="paso-9-num">05</div><div class="paso-9-body"><strong>Entrega</strong>La IA entrega la cita agendada al vendedor digital humano de la marca.</div></div>
       <div class="paso-9 humano"><div class="paso-9-num">06</div><div class="paso-9-body"><strong>Confirma y garantiza</strong>Vendedor humano confirma la cita y garantiza la visita al piso.</div></div>
       <div class="paso-9 humano"><div class="paso-9-num">07</div><div class="paso-9-body"><strong>Venta física</strong>Proceso físico de venta de la marca hasta pago y facturación.</div></div>
       <div class="paso-9 dca"><div class="paso-9-num">08</div><div class="paso-9-body"><strong>Registro DCA</strong>Factura + VIN registrados en DCA por el equipo de la marca.</div></div>
-      <div class="paso-9 dca"><div class="paso-9-num">09</div><div class="paso-9-body"><strong>Cierre pipeline</strong>Vendedor humano mueve la card a "Cerrado atribuible".</div></div>
+      <div class="paso-9 dca"><div class="paso-9-num">09</div><div class="paso-9-body"><strong>Cierre en el tablero</strong>Vendedor humano mueve la card a "Cerrado atribuible".</div></div>
     </div>
 
     <div class="flujo-9-legend">
@@ -771,22 +827,74 @@ html, body { background: #E2E8F0; color: var(--text); font-family: var(--sans); 
       <div class="cq-card piloto">
         <div class="cq-card-lbl">Piloto · estándar de la Dirección</div>
         <h4>Optimización por ventas</h4>
-        <p>El Motor recoge <strong>lo que pasó después del clic</strong> (cita, visita, compra, monto) y lo regresa a Meta y Google como conversiones offline. La IA deja de buscar clickers y busca <strong>compradores</strong>. Resultado: menos leads pero mejor perfil, más citas confirmadas, más visitas al piso, más ventas.</p>
+        <p>El Motor recoge <strong>lo que pasó después del clic</strong> (cita, visita, compra, monto) y lo regresa a Meta y Google como conversiones posteriores al clic. La IA deja de buscar clickers y busca <strong>compradores</strong>. Resultado: menos leads pero mejor perfil, más citas confirmadas, más visitas al piso, más ventas.</p>
       </div>
     </div>
 
     <div class="corto-navy">
-      <div class="corto-navy-t">En corto: hoy las campañas de la marca optimizan por <em>cantidad de contactos</em>. El piloto optimiza por <em>cantidad de autos vendidos</em>.</div>
+      <div class="corto-navy-t">Hoy las campañas de la marca optimizan por <em>cantidad de contactos</em>. El piloto optimiza por <em>cantidad de autos vendidos</em>.</div>
     </div>
   </div>
 
   <div class="pb-footer">
     <span><strong>Grupo Plasencia Automotriz</strong> · Playbook · Cómo trabajamos con las marcas</span>
-    <span>Julio 2026 · Confidencial · Página 6 de 8</span>
+    <span>Julio 2026 · Confidencial · Página 6 de 9</span>
   </div>
 </div>
 
-<!-- ============================ PÁGINA 7 · MODO 3 · IA + PISO + NSM + ESTADO + CASOS ============================ -->
+<!-- ============================ PÁGINA 7 · MODO 3 · EJEMPLO DEL PILOTO EN ACCIÓN ============================ -->
+<div class="page">
+  <div class="pb-header pb-header-compact">
+    <div class="pb-header-eyebrow">Modo 3 de 3 · Pilotos · el ejemplo</div>
+    <h1 class="pb-header-title">El piloto <em>en acción</em></h1>
+  </div>
+
+  <div class="pb-body tight">
+    <div class="pb-section-hdr small"><span class="num">C</span>Landings del piloto · así se ve la tienda por marca o línea</div>
+    <p class="pb-lede">Cada piloto vive detrás de una landing propiedad de la Dirección, con inventario sincronizado y captura de leads al tablero de seguimiento corporativo.</p>
+
+    <div class="landings-grid">
+      <div class="landing-card"><div class="landing-marca">Seminuevos</div><div class="landing-url">seminuevos.grupoplasencia.com</div></div>
+      <div class="landing-card"><div class="landing-marca">Hyundai</div><div class="landing-url">hyundai.grupoplasencia.com</div></div>
+      <div class="landing-card"><div class="landing-marca">Stellantis</div><div class="landing-url">stellantis.grupoplasencia.com</div></div>
+      <div class="landing-card"><div class="landing-marca">GAC</div><div class="landing-url">gac.grupoplasencia.com</div></div>
+      <div class="landing-card pending"><div class="landing-marca">Flotillas</div><div class="landing-url">flotillas.grupoplasencia.com</div><div class="landing-status">por confirmar</div></div>
+    </div>
+
+    <div class="pb-section-hdr small" style="margin-top: 12px;"><span class="num">D</span>Tablero de seguimiento · ejemplo real de Seminuevos</div>
+    <p class="pb-lede">Cada lead avanza por las etapas del embudo. La Dirección opera hasta cita agendada; de ahí el vendedor humano de la marca toma la conversación, la lleva al piso y cierra la venta. La visibilidad del embudo es responsabilidad conjunta a través del tablero.</p>
+
+    <div class="tablero-mockup">
+      <div class="tablero-mockup-hdr">
+        <div class="tablero-mockup-t">Tablero · Piloto Seminuevos · vista real</div>
+        <div class="tablero-mockup-sub">datos ilustrativos</div>
+      </div>
+      <div class="tablero-cols">
+        <div class="tablero-col"><div class="tablero-col-hdr">Por contactar</div><div class="tablero-col-count">14</div><div class="tablero-card"><strong>C. Ramírez</strong>Mazda CX-5</div><div class="tablero-card"><strong>J. Torres</strong>Kia Rio</div></div>
+        <div class="tablero-col"><div class="tablero-col-hdr">En seguimiento</div><div class="tablero-col-count">22</div><div class="tablero-card"><strong>A. Muñoz</strong>Nissan Kicks</div><div class="tablero-card"><strong>R. López</strong>Chevy Aveo</div></div>
+        <div class="tablero-col"><div class="tablero-col-hdr">Recontactar</div><div class="tablero-col-count">8</div><div class="tablero-card"><strong>S. Vega</strong>VW Vento</div></div>
+        <div class="tablero-col cita"><div class="tablero-col-hdr">Cita agendada</div><div class="tablero-col-count">11</div><div class="tablero-card"><strong>M. Ríos</strong>Honda Civic</div><div class="tablero-card"><strong>P. Ortiz</strong>Toyota Yaris</div></div>
+        <div class="tablero-col visita"><div class="tablero-col-hdr">Visita realizada</div><div class="tablero-col-count">6</div><div class="tablero-card"><strong>L. García</strong>Ford Escape</div></div>
+        <div class="tablero-col neg"><div class="tablero-col-hdr">Negociación</div><div class="tablero-col-count">4</div><div class="tablero-card"><strong>D. Reyes</strong>Chevy Trax</div></div>
+        <div class="tablero-col ganada"><div class="tablero-col-hdr">Cerrado atribuible</div><div class="tablero-col-count">3</div><div class="tablero-card"><strong>V. Solís</strong>Mazda 3</div></div>
+        <div class="tablero-col perdida"><div class="tablero-col-hdr">Perdida</div><div class="tablero-col-count">7</div><div class="tablero-card"><strong>N. Vega</strong>Sin decisión</div></div>
+      </div>
+    </div>
+
+    <div class="compromiso-box">
+      <div class="compromiso-lbl">Compromiso mutuo · premisa de entrada y de continuidad</div>
+      <div class="compromiso-t">Entrar o confirmar un piloto es <em>más que aprobar un presupuesto</em>. Es firmar corresponsabilidad estratégica sobre todo el camino del cliente, y accountability operativa clara en cada tramo.</div>
+      <div class="compromiso-body"><strong>Marketing y Digital</strong> es responsable operativo de la máquina de adquisición <strong>hasta la cita agendada</strong> (campañas, producto digital, experiencia de usuario, IA conversacional). De la <strong>entrega en adelante — visita al piso, negociación, cierre, factura — la accountability operativa es de las áreas comerciales</strong> de la marca. <strong>Pero estratégicamente ambos somos corresponsables del éxito del piloto</strong> en las dos partes del camino del cliente: lo que pasa antes de la visita y lo que pasa después, hasta la venta (o hasta el servicio, cuando el caso de uso es postventa).</div>
+    </div>
+  </div>
+
+  <div class="pb-footer">
+    <span><strong>Grupo Plasencia Automotriz</strong> · Playbook · Cómo trabajamos con las marcas</span>
+    <span>Julio 2026 · Confidencial · Página 7 de 9</span>
+  </div>
+</div>
+
+<!-- ============================ PÁGINA 8 · MODO 3 · IA + PISO + NSM + ESTADO + CASOS ============================ -->
 <div class="page">
   <div class="pb-header pb-header-compact">
     <div class="pb-header-eyebrow">Modo 3 de 3 · Pilotos · continuación</div>
@@ -800,47 +908,46 @@ html, body { background: #E2E8F0; color: var(--text); font-family: var(--sans); 
       <div class="ia-nota-lbl">Karbot es el estándar actual · no está escrito en piedra</div>
       <div class="ia-nota-body">
         <p>Karbot es la IA conversacional que la Dirección tiene <strong>definida como estándar</strong> para los pilotos, después de haberla evaluado contra alternativas para los casos de uso del motor de adquisición del Grupo.</p>
-        <p>Si la marca o línea de negocio <strong>ya usa otra IA conversacional</strong> en su operación actual (por ejemplo Vambe, el módulo de CX cross-Grupo, u otra herramienta contratada), <strong>esa herramienta se integra al flujo del piloto sin necesidad de reemplazarla</strong>. El único criterio es que cubra el proceso de ventas hasta el hand-off al vendedor humano con la trazabilidad que el Motor de Atribución requiere para enviar señales de conversión offline a Meta y Google.</p>
+        <p>Si la marca o línea de negocio <strong>ya usa otra IA conversacional</strong> en su operación actual (por ejemplo Vambe, el módulo de CX cross-Grupo, u otra herramienta contratada), <strong>esa herramienta se integra al flujo del piloto sin necesidad de reemplazarla</strong>. El único criterio es que cubra el proceso de ventas hasta el entrega al vendedor humano con la trazabilidad que el Motor de Atribución requiere para enviar señales de conversión offline a Meta y Google.</p>
         <p>Cuando la marca no tiene una IA en operación, la Dirección arranca con Karbot como default y lo deja implementado en <strong>menos de 4 semanas</strong>.</p>
       </div>
     </div>
 
     <div class="piso-metrics">
       <div class="piso-box">
-        <div class="piso-box-lbl">Piso mínimo para entrar a piloto</div>
+        <div class="piso-box-lbl">Piso mínimo del piloto · pauta pura</div>
         <div class="piso-box-num">$35K <span style="font-size:12pt; color: rgba(255,255,255,.7);">MXN / mes</span></div>
-        <div class="piso-box-sub">Incluye <strong>servicios operativos completos</strong>: setup, integraciones IA, motor de atribución, pipeline, media buying, analytics y reporte. <br><br>La <strong>inversión publicitaria</strong> (pauta en Meta/Google) va aparte y la fondea la marca al 100%, sin tope superior definido.</div>
+        <div class="piso-box-sub">Inversión mínima en pauta (Meta y Google) para que el algoritmo tenga volumen suficiente. <br><br><strong>Servicios operativos del piloto</strong> (setup, IA, motor de atribución, tablero, compra de medios, analítica, reporte) <strong>no van incluidos en el piso</strong>. Se cotizan y comunican como parte de la propuesta del piloto según el alcance. Pauta adicional al piso, la fondea la marca al 100%.</div>
       </div>
 
       <div class="nsm-box">
         <div class="nsm-box-lbl">Métricas del funnel · compromiso mutuo</div>
         <div class="nsm-metrics">
-          <div class="nsm-metric">Citas agendadas (IA + hand-off cerrado)</div>
+          <div class="nsm-metric">Citas agendadas (IA + entrega cerrado)</div>
           <div class="nsm-metric">Visitas al piso (vendedor confirma llegada)</div>
           <div class="nsm-metric">Ventas (factura + VIN en DCA)</div>
         </div>
-        <div class="nsm-nsm">North Star Metric: <em>autos facturados</em></div>
+        <div class="nsm-nsm">Métrica principal: <em>autos facturados</em></div>
       </div>
     </div>
 
     <div class="pb-section-hdr small" style="margin-top: 12px;"><span class="num">D</span>Estado actual del piloto y regla de continuidad</div>
 
-    <div class="estado-actual">
-      <div class="estado-actual-grid">
-        <div class="estado-actual-block">
-          <h5>Marcas hoy en piloto · reconfirmar explícitamente para continuar</h5>
-          <div style="margin: 4px 0 6px;">
-            <span class="marcas-chip">Seminuevos</span>
-            <span class="marcas-chip">Hyundai</span>
-            <span class="marcas-chip">Stellantis</span>
-            <span class="marcas-chip">GAC</span>
-          </div>
-          <p>Sin reconfirmación explícita del Director de Marca, el piloto se <strong>detiene ordenadamente</strong> y los recursos se reasignan a otras marcas del portafolio.</p>
-        </div>
-        <div class="estado-actual-block new">
-          <h5>Marcas nuevas que quieran entrar</h5>
-          <p>Deben solicitarlo explícitamente para considerarlo en el backlog y estimar viabilidad. El proceso de arranque es el mismo flujo del <strong>Modo 1</strong>: discovery → planteamiento → cotización → levantamiento → ejecución. La marca fondea todo lo que se plantee, incluyendo la inversión publicitaria.</p>
-        </div>
+    <div class="estado-tabla">
+      <div class="estado-tabla-block operando">
+        <div class="estado-tabla-hdr">Operando · reconfirmar con compromiso mutuo</div>
+        <div class="estado-row"><div class="estado-marca">Seminuevos</div><div class="estado-info">seminuevos.grupoplasencia.com</div></div>
+        <div class="estado-row"><div class="estado-marca">Hyundai</div><div class="estado-info">hyundai.grupoplasencia.com</div></div>
+        <div class="estado-row"><div class="estado-marca">Stellantis</div><div class="estado-info">stellantis.grupoplasencia.com</div></div>
+        <div class="estado-row"><div class="estado-marca">GAC</div><div class="estado-info">gac.grupoplasencia.com</div></div>
+        <div class="estado-nota">Sin reconfirmación explícita del Director de Marca, el piloto se <strong>detiene ordenadamente</strong> y los recursos se reasignan.</div>
+      </div>
+      <div class="estado-tabla-block cola">
+        <div class="estado-tabla-hdr">En cola · backlog activo</div>
+        <div class="estado-row"><div class="estado-marca">Changan</div><div class="estado-info pending">Confirmado · arranque próximo</div></div>
+        <div class="estado-row"><div class="estado-marca">Flotillas</div><div class="estado-info pending">Por confirmar</div></div>
+        <div class="estado-row"><div class="estado-marca">Autolease</div><div class="estado-info eval">Solicitado · evaluación de viabilidad</div></div>
+        <div class="estado-nota">Marcas y líneas nuevas: solicitar explícitamente. Mismo flujo del Modo 1 (<strong>discovery → propuesta → ejecución</strong>). La marca fondea y firma el compromiso mutuo.</div>
       </div>
     </div>
 
@@ -850,7 +957,7 @@ html, body { background: #E2E8F0; color: var(--text); font-family: var(--sans); 
       <div class="caso-card">
         <div class="caso-card-lbl">Uso principal actual</div>
         <h5>Adquisición de autos</h5>
-        <p>Nuevos y seminuevos. Uso del estándar canonizado en las 4 marcas piloto activas.</p>
+        <p>Nuevos y seminuevos. Uso del estándar aprobado en las 4 marcas piloto activas.</p>
       </div>
       <div class="caso-card postventa">
         <div class="caso-card-lbl">Reutilizable</div>
@@ -867,7 +974,7 @@ html, body { background: #E2E8F0; color: var(--text); font-family: var(--sans); 
 
   <div class="pb-footer">
     <span><strong>Grupo Plasencia Automotriz</strong> · Playbook · Cómo trabajamos con las marcas</span>
-    <span>Julio 2026 · Confidencial · Página 7 de 8</span>
+    <span>Julio 2026 · Confidencial · Página 8 de 9</span>
   </div>
 </div>
 
@@ -885,7 +992,7 @@ html, body { background: #E2E8F0; color: var(--text); font-family: var(--sans); 
         <div class="canal-list">
           <div class="canal-item"><strong>Email:</strong> <code>jperezp@gpsi.mx</code> · con copia al Gerente de MKT de la marca o línea de negocio.</div>
           <div class="canal-item"><strong>Teams (async):</strong> para seguimiento, aclaraciones y coordinación operativa en el hilo del proyecto correspondiente.</div>
-          <div class="canal-item"><strong>Reunión de scoping:</strong> se agenda después de recibida la solicitud (30–60 min · vía Teams o presencial según agenda).</div>
+          <div class="canal-item"><strong>Reunión de scoping:</strong> se agenda después de recibida la solicitud (45 a 60 min · vía Teams o presencial según agenda).</div>
         </div>
       </div>
 
@@ -928,7 +1035,7 @@ html, body { background: #E2E8F0; color: var(--text); font-family: var(--sans); 
       </div>
       <div class="faq-item">
         <div class="faq-q">¿Los pilotos actuales se detienen si no reconfirmo?</div>
-        <div class="faq-a">Sí, ordenadamente. La Dirección necesita <strong>vobo explícito</strong> del Director de Marca para seguir invirtiendo bandwidth.</div>
+        <div class="faq-a">Sí, ordenadamente. La Dirección necesita <strong>vobo explícito</strong> del Director de Marca para seguir invirtiendo tiempo del equipo. La reconfirmación implica firmar el <strong>compromiso mutuo</strong> con las métricas del funnel (citas, visitas, ventas).</div>
       </div>
       <div class="faq-item">
         <div class="faq-q">¿La compra consolidada de medios me obliga a algo?</div>
@@ -936,7 +1043,7 @@ html, body { background: #E2E8F0; color: var(--text); font-family: var(--sans); 
       </div>
       <div class="faq-item">
         <div class="faq-q">¿Quién factura los servicios a mi marca?</div>
-        <div class="faq-a">La entidad corporativa donde reside la Dirección, intercompany con <strong>IVA acreditable al 100%</strong>.</div>
+        <div class="faq-a">La entidad corporativa donde reside la Dirección, entre empresas del Grupo con <strong>IVA acreditable al 100%</strong>.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q">¿Puedo pedir un caso de uso de piloto no listado?</div>
@@ -966,7 +1073,7 @@ html, body { background: #E2E8F0; color: var(--text); font-family: var(--sans); 
 
   <div class="pb-footer">
     <span><strong>Grupo Plasencia Automotriz</strong> · Playbook · Cómo trabajamos con las marcas</span>
-    <span>Julio 2026 · Confidencial · Página 8 de 8</span>
+    <span>Julio 2026 · Confidencial · Página 9 de 9</span>
   </div>
 </div>
 
