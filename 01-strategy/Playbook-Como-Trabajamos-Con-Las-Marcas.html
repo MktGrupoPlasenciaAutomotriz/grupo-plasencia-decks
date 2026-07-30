@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Playbook · Cómo trabajamos con las marcas · Grupo Plasencia Automotriz</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@500;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gp-red: #C8102E;
+  --gp-navy: #1E2740;
+  --deep-green: #276749;
+  --deep-blue: #2B6CB0;
+  --amber: #D69E2E;
+  --gold: #ECC94B;
+  --paper: #FFFFFF;
+  --near-white: #F7FAFC;
+  --g100: #EDF2F7;
+  --g200: #E2E8F0;
+  --g300: #CBD5E0;
+  --g400: #A0AEC0;
+  --g500: #718096;
+  --g600: #4A5568;
+  --text: #2D3748;
+  --serif: 'Playfair Display', Georgia, serif;
+  --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; -webkit-font-smoothing: antialiased; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+html, body { background: #E2E8F0; color: var(--text); font-family: var(--sans); font-size: 9pt; line-height: 1.5; }
+
+.page { width: 210mm; height: 297mm; background: var(--paper); margin: 20px auto; padding: 0; box-shadow: 0 2px 12px rgba(0,0,0,.12); position: relative; display: flex; flex-direction: column; page-break-after: always; overflow: hidden; }
+.page:last-child { page-break-after: auto; }
+
+@media print {
+  body { background: white; }
+  @page { size: A4; margin: 0; }
+  .page { margin: 0 !important; box-shadow: none !important; width: 210mm !important; height: 297mm !important; page-break-after: always !important; page-break-inside: avoid !important; overflow: hidden !important; }
+  .page:last-child { page-break-after: auto !important; }
+}
+
+/* ===================== HEADER ===================== */
+.pb-header {
+  background: linear-gradient(135deg, var(--gp-navy) 0%, #2A3654 40%, #384868 100%);
+  color: var(--near-white);
+  padding: 22px 40px 20px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.pb-header::before { content: ""; position: absolute; top: -100px; right: -100px; width: 340px; height: 340px; background: radial-gradient(circle, rgba(236,201,75,.16) 0%, transparent 70%); border-radius: 50%; }
+.pb-header::after { content: ""; position: absolute; bottom: -160px; left: -80px; width: 400px; height: 400px; background: radial-gradient(circle, rgba(200,16,46,.08) 0%, transparent 70%); border-radius: 50%; }
+.pb-header-top { display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 2; margin-bottom: 12px; }
+.pb-header-brand-tag { font-family: var(--sans); font-weight: 800; font-size: 12pt; color: var(--gold); letter-spacing: 2px; text-transform: uppercase; }
+.pb-header-brand-tag span { display: block; font-weight: 400; color: rgba(255,255,255,.55); font-size: 8pt; letter-spacing: 1.2px; margin-top: 3px; }
+.pb-header-date { font-family: var(--sans); font-size: 9pt; color: rgba(236,201,75,.75); font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase; text-align: right; }
+.pb-header-date span { display: block; color: var(--gp-red); font-weight: 800; margin-bottom: 3px; letter-spacing: 2.5px; font-size: 8.5pt; }
+.pb-header-eyebrow { position: relative; z-index: 2; font-family: var(--sans); font-size: 9pt; font-weight: 700; letter-spacing: 3px; color: rgba(255,255,255,.6); text-transform: uppercase; margin-bottom: 6px; }
+.pb-header-title { position: relative; z-index: 2; font-family: var(--serif); font-weight: 800; font-size: 24pt; line-height: 1.06; letter-spacing: -.5px; color: var(--near-white); }
+.pb-header-title em { font-style: italic; color: var(--gold); font-weight: 700; }
+.pb-header-sub { position: relative; z-index: 2; font-family: var(--sans); font-weight: 400; font-size: 10pt; color: rgba(255,255,255,.88); line-height: 1.5; margin-top: 8px; max-width: 620px; }
+.pb-header-sub strong { color: var(--near-white); font-weight: 700; }
+
+/* Compact header (páginas internas) */
+.pb-header-compact { padding: 14px 40px 12px; }
+.pb-header-compact .pb-header-title { font-size: 18pt; }
+.pb-header-compact .pb-header-sub { display: none; }
+
+/* ===================== BODY ===================== */
+.pb-body { padding: 20px 40px 12px; flex: 1; overflow: hidden; display: flex; flex-direction: column; }
+.pb-body.tight { padding: 14px 40px 8px; }
+
+/* Section headers */
+.pb-section-hdr { font-family: var(--sans); font-weight: 800; font-size: 11pt; color: var(--gp-navy); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px; padding-bottom: 6px; border-bottom: 2px solid var(--gold); display: flex; align-items: center; gap: 10px; }
+.pb-section-hdr .num { font-family: var(--serif); font-weight: 900; font-size: 16pt; color: var(--amber); line-height: 1; }
+.pb-section-hdr.small { font-size: 9pt; margin-bottom: 6px; padding-bottom: 4px; }
+.pb-section-hdr.small .num { font-size: 12pt; }
+
+.pb-lede { font-family: var(--sans); font-size: 9pt; color: var(--text); line-height: 1.55; margin-bottom: 12px; }
+.pb-lede strong { color: var(--gp-navy); font-weight: 700; }
+.pb-lede em { color: var(--amber); font-style: italic; }
+
+.pb-p { font-family: var(--sans); font-size: 9pt; color: var(--text); line-height: 1.5; margin-bottom: 6px; }
+.pb-p strong { color: var(--gp-navy); font-weight: 700; }
+
+/* ===================== COVER (P1) ===================== */
+.cover-bluf {
+  margin-top: 6px;
+  background: linear-gradient(135deg, #F7FAFC 0%, #EDF2F7 100%);
+  border: 1px solid var(--g200);
+  border-left: 4px solid var(--amber);
+  border-radius: 8px;
+  padding: 16px 20px;
+}
+.cover-bluf-lbl { font-family: var(--sans); font-size: 7.5pt; font-weight: 800; letter-spacing: 1.8px; color: var(--amber); text-transform: uppercase; margin-bottom: 6px; }
+.cover-bluf-t { font-family: var(--serif); font-weight: 700; font-style: italic; font-size: 13.5pt; color: var(--gp-navy); line-height: 1.35; letter-spacing: -.2px; }
+.cover-bluf-t em { color: var(--gp-red); font-style: italic; }
+
+.cover-meta { margin-top: 14px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.cover-meta-card { background: var(--paper); border: 1px solid var(--g200); border-top: 3px solid var(--gp-navy); border-radius: 8px; padding: 10px 14px; }
+.cover-meta-card.gold { border-top-color: var(--amber); }
+.cover-meta-lbl { font-family: var(--sans); font-size: 7.5pt; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gp-navy); margin-bottom: 6px; }
+.cover-meta-card.gold .cover-meta-lbl { color: var(--amber); }
+.cover-meta-body { font-family: var(--sans); font-size: 8.5pt; color: var(--g600); line-height: 1.4; }
+.cover-meta-body strong { color: var(--gp-navy); font-weight: 700; }
+
+.cover-context {
+  margin-top: 12px;
+  background: var(--gp-navy);
+  color: var(--near-white);
+  padding: 14px 20px;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+}
+.cover-context::before { content: ""; position: absolute; top: 0; right: 0; width: 200px; height: 200px; background: radial-gradient(circle, rgba(236,201,75,.15) 0%, transparent 70%); border-radius: 50%; }
+.cover-context-lbl { position: relative; z-index: 2; font-family: var(--sans); font-size: 8pt; font-weight: 800; letter-spacing: 2px; color: var(--gold); text-transform: uppercase; margin-bottom: 6px; }
+.cover-context-body { position: relative; z-index: 2; font-family: var(--sans); font-size: 9pt; color: rgba(255,255,255,.9); line-height: 1.55; }
+.cover-context-body strong { color: var(--near-white); font-weight: 700; }
+
+/* ===================== 3 MODOS OVERVIEW (P2) ===================== */
+.modos-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-top: 4px; }
+.modo-card { background: var(--paper); border: 1px solid var(--g200); border-top: 4px solid var(--gp-navy); border-radius: 10px; padding: 14px 16px; display: flex; flex-direction: column; }
+.modo-card.gold { border-top-color: var(--amber); }
+.modo-card.green { border-top-color: var(--deep-green); }
+.modo-card.red { border-top-color: var(--gp-red); }
+.modo-card-num { font-family: var(--serif); font-weight: 900; font-size: 32pt; color: var(--gp-navy); line-height: 1; margin-bottom: 6px; font-variant-numeric: tabular-nums; }
+.modo-card.gold .modo-card-num { color: var(--amber); }
+.modo-card.green .modo-card-num { color: var(--deep-green); }
+.modo-card.red .modo-card-num { color: var(--gp-red); }
+.modo-card-eyebrow { font-family: var(--sans); font-size: 7.5pt; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: var(--g500); margin-bottom: 3px; }
+.modo-card-t { font-family: var(--serif); font-weight: 800; font-size: 13pt; color: var(--gp-navy); line-height: 1.15; letter-spacing: -.2px; margin-bottom: 8px; }
+.modo-card-body { font-family: var(--sans); font-size: 8pt; color: var(--g600); line-height: 1.45; margin-bottom: 8px; flex: 1; }
+.modo-card-body strong { color: var(--gp-navy); font-weight: 700; }
+.modo-card-piso { font-family: var(--sans); font-size: 7.5pt; padding: 7px 10px; background: var(--g100); border-radius: 6px; border-left: 3px solid var(--gp-navy); }
+.modo-card.gold .modo-card-piso { border-left-color: var(--amber); background: rgba(236,201,75,.08); }
+.modo-card.green .modo-card-piso { border-left-color: var(--deep-green); background: rgba(39,103,73,.06); }
+.modo-card.red .modo-card-piso { border-left-color: var(--gp-red); background: rgba(200,16,46,.06); }
+.modo-card-piso-lbl { display: block; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase; color: var(--gp-navy); margin-bottom: 2px; font-size: 7pt; }
+.modo-card-piso-body { font-family: var(--sans); font-size: 8pt; color: var(--g600); line-height: 1.35; }
+.modo-card-piso-body strong { color: var(--gp-navy); font-weight: 700; }
+
+.audiencia-box {
+  margin-top: 14px;
+  background: linear-gradient(to right, rgba(43,108,176,.10), rgba(43,108,176,.02));
+  border-left: 4px solid var(--deep-blue);
+  border-radius: 0 8px 8px 0;
+  padding: 12px 18px;
+}
+.audiencia-lbl { font-family: var(--sans); font-size: 8pt; font-weight: 800; letter-spacing: 1.5px; color: var(--deep-blue); text-transform: uppercase; margin-bottom: 4px; }
+.audiencia-body { font-family: var(--sans); font-size: 9pt; color: var(--text); line-height: 1.5; }
+.audiencia-body strong { color: var(--gp-navy); font-weight: 700; }
+
+.libertad-box {
+  margin-top: 10px;
+  background: linear-gradient(to right, rgba(39,103,73,.10), rgba(39,103,73,.02));
+  border-left: 4px solid var(--deep-green);
+  border-radius: 0 8px 8px 0;
+  padding: 10px 18px;
+}
+.libertad-lbl { font-family: var(--sans); font-size: 8pt; font-weight: 800; letter-spacing: 1.5px; color: var(--deep-green); text-transform: uppercase; margin-bottom: 4px; }
+.libertad-body { font-family: var(--sans); font-size: 9pt; color: var(--text); line-height: 1.5; }
+.libertad-body strong { color: var(--gp-navy); font-weight: 700; }
+
+/* ===================== DISCIPLINAS GRID (P3) ===================== */
+.disc-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 4px; }
+.disc-col { background: var(--paper); border: 1px solid var(--g200); border-radius: 10px; padding: 12px 14px; }
+.disc-col.gold { background: linear-gradient(135deg, rgba(236,201,75,.04), rgba(236,201,75,.01)); border-color: rgba(236,201,75,.4); }
+.disc-col-hdr { font-family: var(--sans); font-weight: 800; font-size: 8.5pt; color: var(--gp-navy); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 4px; }
+.disc-col.gold .disc-col-hdr { color: var(--amber); }
+.disc-col-title { font-family: var(--serif); font-weight: 700; font-style: italic; font-size: 9.5pt; color: var(--g600); margin-bottom: 8px; padding-bottom: 8px; border-bottom: 1px dashed var(--g300); }
+.disc-list { display: grid; grid-template-columns: 1fr; gap: 4px; }
+.disc-list span { display: block; font-family: var(--sans); font-size: 8pt; color: var(--text); padding: 4px 8px 4px 20px; background: var(--g100); border-radius: 4px; position: relative; }
+.disc-col.gold .disc-list span { background: rgba(236,201,75,.06); }
+.disc-list span::before { content: "→"; position: absolute; left: 8px; color: var(--gp-navy); font-weight: 700; }
+.disc-col.gold .disc-list span::before { color: var(--amber); }
+
+.compra-medios {
+  margin-top: 12px;
+  background: linear-gradient(135deg, #F7FAFC 0%, #EDF2F7 100%);
+  border: 1px solid var(--g200);
+  border-left: 4px solid var(--gp-red);
+  border-radius: 8px;
+  padding: 12px 16px;
+}
+.compra-medios-lbl { font-family: var(--sans); font-size: 7.5pt; font-weight: 800; letter-spacing: 1.5px; color: var(--gp-red); text-transform: uppercase; margin-bottom: 5px; }
+.compra-medios-t { font-family: var(--serif); font-weight: 700; font-size: 11pt; color: var(--gp-navy); margin-bottom: 6px; letter-spacing: -.2px; }
+.compra-medios-body { font-family: var(--sans); font-size: 8.5pt; color: var(--g600); line-height: 1.5; }
+.compra-medios-body strong { color: var(--gp-navy); font-weight: 700; }
+
+/* ===================== FLUJO 4 PASOS (P4) ===================== */
+.flujo-4 { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 8px; margin-top: 4px; position: relative; }
+.flujo-4-paso { background: var(--paper); border: 1px solid var(--g200); border-top: 3px solid var(--gp-navy); border-radius: 8px; padding: 10px 12px; position: relative; }
+.flujo-4-paso.p2 { border-top-color: var(--amber); }
+.flujo-4-paso.p3 { border-top-color: var(--deep-green); }
+.flujo-4-paso.p4 { border-top-color: var(--gp-red); }
+.flujo-4-paso-num { font-family: var(--serif); font-weight: 900; font-size: 20pt; line-height: 1; color: var(--gp-navy); margin-bottom: 4px; font-variant-numeric: tabular-nums; }
+.flujo-4-paso.p2 .flujo-4-paso-num { color: var(--amber); }
+.flujo-4-paso.p3 .flujo-4-paso-num { color: var(--deep-green); }
+.flujo-4-paso.p4 .flujo-4-paso-num { color: var(--gp-red); }
+.flujo-4-paso h4 { font-family: var(--sans); font-weight: 800; font-size: 8.5pt; text-transform: uppercase; color: var(--gp-navy); letter-spacing: .5px; margin-bottom: 4px; }
+.flujo-4-paso p { font-family: var(--sans); font-size: 7.5pt; color: var(--g600); line-height: 1.35; }
+.flujo-4-paso p strong { color: var(--gp-navy); font-weight: 700; }
+
+.facturacion {
+  margin-top: 12px;
+  background: var(--gp-navy);
+  color: var(--near-white);
+  padding: 14px 18px;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+}
+.facturacion::before { content: ""; position: absolute; top: 0; right: 0; width: 180px; height: 180px; background: radial-gradient(circle, rgba(236,201,75,.14) 0%, transparent 70%); border-radius: 50%; }
+.facturacion-lbl { position: relative; z-index: 2; font-family: var(--sans); font-size: 7.5pt; font-weight: 800; letter-spacing: 1.8px; color: var(--gold); text-transform: uppercase; margin-bottom: 5px; }
+.facturacion-t { position: relative; z-index: 2; font-family: var(--serif); font-weight: 700; font-style: italic; font-size: 11pt; color: var(--near-white); line-height: 1.4; letter-spacing: -.2px; }
+.facturacion-t em { color: var(--gold); font-style: italic; }
+
+/* ===================== MOMENTOS + CADENCIA (P5) ===================== */
+.momentos-4 { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 8px; margin-top: 4px; }
+.momento-card { background: var(--paper); border: 1px solid var(--g200); border-top: 3px solid var(--gp-navy); border-radius: 6px; padding: 8px 11px; }
+.momento-card.gold { border-top-color: var(--amber); }
+.momento-card.green { border-top-color: var(--deep-green); }
+.momento-card.red { border-top-color: var(--gp-red); }
+.momento-card-num { font-family: var(--serif); font-weight: 900; font-size: 16pt; color: var(--gp-navy); line-height: 1; margin-bottom: 4px; }
+.momento-card.gold .momento-card-num { color: var(--amber); }
+.momento-card.green .momento-card-num { color: var(--deep-green); }
+.momento-card.red .momento-card-num { color: var(--gp-red); }
+.momento-card h4 { font-family: var(--sans); font-weight: 800; font-size: 8.5pt; color: var(--gp-navy); letter-spacing: .3px; text-transform: uppercase; margin-bottom: 3px; }
+.momento-card p { font-family: var(--sans); font-size: 7.5pt; color: var(--g600); line-height: 1.4; }
+
+.cadencia-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-top: 10px; }
+.cadencia-card { background: var(--paper); border: 1px solid var(--g200); border-left: 4px solid var(--gp-navy); border-radius: 6px; padding: 8px 12px; }
+.cadencia-card.gold { border-left-color: var(--amber); }
+.cadencia-card.green { border-left-color: var(--deep-green); }
+.cadencia-when { font-family: var(--sans); font-size: 7pt; font-weight: 800; letter-spacing: 1.4px; text-transform: uppercase; color: var(--gp-red); margin-bottom: 3px; }
+.cadencia-card.gold .cadencia-when { color: var(--amber); }
+.cadencia-card.green .cadencia-when { color: var(--deep-green); }
+.cadencia-t { font-family: var(--serif); font-weight: 700; font-size: 10pt; color: var(--gp-navy); line-height: 1.15; margin-bottom: 3px; letter-spacing: -.2px; }
+.cadencia-d { font-family: var(--sans); font-size: 7.5pt; color: var(--g600); line-height: 1.4; }
+.cadencia-d strong { color: var(--gp-navy); font-weight: 700; }
+
+.recs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-top: 10px; }
+.rec-card { background: var(--paper); border: 1px solid var(--g200); border-left: 3px solid var(--amber); border-radius: 4px; padding: 6px 10px; display: flex; gap: 8px; align-items: flex-start; }
+.rec-card-num { font-family: var(--serif); font-weight: 900; font-size: 13pt; color: var(--amber); line-height: 1; flex-shrink: 0; font-variant-numeric: tabular-nums; }
+.rec-card-content h5 { font-family: var(--sans); font-weight: 800; font-size: 7.5pt; color: var(--gp-navy); text-transform: uppercase; letter-spacing: .3px; margin-bottom: 3px; }
+.rec-card-content p { font-family: var(--sans); font-size: 7pt; color: var(--g600); line-height: 1.35; }
+.rec-card-content p strong { color: var(--gp-navy); font-weight: 700; }
+.rec-full { grid-column: 1 / -1; }
+
+.alcance-modo2 { margin-top: 8px; background: rgba(200,16,46,.03); border-left: 3px solid var(--gp-red); border-radius: 0 4px 4px 0; padding: 8px 14px; }
+.alcance-modo2-lbl { font-family: var(--sans); font-size: 7pt; font-weight: 800; letter-spacing: 1.4px; text-transform: uppercase; color: var(--gp-red); margin-bottom: 3px; }
+.alcance-modo2 p { font-family: var(--sans); font-size: 7.5pt; color: var(--g600); line-height: 1.4; }
+.alcance-modo2 p strong { color: var(--gp-navy); font-weight: 700; }
+
+/* ===================== FLUJO 9 PASOS (P6) ===================== */
+.flujo-9 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-top: 6px; }
+.paso-9 { background: var(--paper); border: 1px solid var(--g200); border-left: 3px solid var(--gp-navy); border-radius: 4px; padding: 7px 10px; display: flex; gap: 8px; align-items: flex-start; }
+.paso-9.ia { border-left-color: var(--amber); background: rgba(236,201,75,.05); }
+.paso-9.humano { border-left-color: var(--deep-green); background: rgba(39,103,73,.04); }
+.paso-9.dca { border-left-color: var(--gp-red); background: rgba(200,16,46,.04); }
+.paso-9-num { font-family: var(--serif); font-weight: 900; font-size: 14pt; color: var(--gp-navy); line-height: 1; flex-shrink: 0; font-variant-numeric: tabular-nums; }
+.paso-9.ia .paso-9-num { color: var(--amber); }
+.paso-9.humano .paso-9-num { color: var(--deep-green); }
+.paso-9.dca .paso-9-num { color: var(--gp-red); }
+.paso-9-body { font-family: var(--sans); font-size: 7pt; color: var(--text); line-height: 1.35; }
+.paso-9-body strong { color: var(--gp-navy); font-weight: 700; display: block; margin-bottom: 2px; font-size: 7.5pt; text-transform: uppercase; letter-spacing: .3px; }
+
+.flujo-9-legend { margin-top: 6px; display: flex; gap: 14px; justify-content: center; font-family: var(--sans); font-size: 7pt; color: var(--g600); }
+.flujo-9-legend span { display: flex; align-items: center; gap: 5px; }
+.flujo-9-legend .dot { width: 10px; height: 3px; border-radius: 2px; background: var(--gp-navy); }
+.flujo-9-legend .dot.ia { background: var(--amber); }
+.flujo-9-legend .dot.humano { background: var(--deep-green); }
+.flujo-9-legend .dot.dca { background: var(--gp-red); }
+
+.calidad-cantidad { margin-top: 10px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.cq-card { background: var(--paper); border: 1px solid var(--g200); border-top: 3px solid var(--gp-red); border-radius: 8px; padding: 10px 14px; }
+.cq-card.piloto { border-top-color: var(--deep-green); }
+.cq-card-lbl { font-family: var(--sans); font-size: 7.5pt; font-weight: 800; letter-spacing: 1.4px; text-transform: uppercase; color: var(--gp-red); margin-bottom: 4px; }
+.cq-card.piloto .cq-card-lbl { color: var(--deep-green); }
+.cq-card h4 { font-family: var(--serif); font-weight: 800; font-size: 10.5pt; color: var(--gp-navy); line-height: 1.2; margin-bottom: 6px; letter-spacing: -.2px; }
+.cq-card p { font-family: var(--sans); font-size: 7.5pt; color: var(--g600); line-height: 1.45; }
+.cq-card p strong { color: var(--gp-navy); font-weight: 700; }
+
+.corto-navy { margin-top: 8px; background: var(--gp-navy); color: var(--near-white); padding: 10px 16px; border-radius: 8px; }
+.corto-navy-t { font-family: var(--serif); font-weight: 700; font-style: italic; font-size: 10.5pt; line-height: 1.4; letter-spacing: -.2px; text-align: center; }
+.corto-navy-t em { color: var(--gold); font-style: italic; }
+
+/* ===================== MODO 3 P7 ===================== */
+.ia-nota { background: linear-gradient(to right, rgba(236,201,75,.12), rgba(236,201,75,.02)); border-left: 4px solid var(--amber); border-radius: 0 8px 8px 0; padding: 10px 16px; margin-top: 4px; }
+.ia-nota-lbl { font-family: var(--sans); font-size: 7.5pt; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: var(--amber); margin-bottom: 4px; }
+.ia-nota-body { font-family: var(--sans); font-size: 8pt; color: var(--text); line-height: 1.5; }
+.ia-nota-body strong { color: var(--gp-navy); font-weight: 700; }
+.ia-nota-body p { margin-bottom: 5px; }
+.ia-nota-body p:last-child { margin-bottom: 0; }
+
+.piso-metrics { display: grid; grid-template-columns: 1.2fr 1fr; gap: 10px; margin-top: 10px; }
+.piso-box { background: var(--gp-navy); color: var(--near-white); padding: 12px 16px; border-radius: 10px; position: relative; overflow: hidden; }
+.piso-box::before { content: ""; position: absolute; top: 0; right: 0; width: 180px; height: 180px; background: radial-gradient(circle, rgba(200,16,46,.14) 0%, transparent 70%); border-radius: 50%; }
+.piso-box-lbl { position: relative; z-index: 2; font-family: var(--sans); font-size: 7.5pt; font-weight: 800; letter-spacing: 1.8px; color: var(--gold); text-transform: uppercase; margin-bottom: 6px; }
+.piso-box-num { position: relative; z-index: 2; font-family: var(--serif); font-weight: 900; font-size: 24pt; color: var(--gp-red); line-height: 1; margin-bottom: 4px; font-variant-numeric: tabular-nums; }
+.piso-box-sub { position: relative; z-index: 2; font-family: var(--sans); font-size: 8pt; color: rgba(255,255,255,.85); line-height: 1.45; }
+.piso-box-sub strong { color: var(--near-white); font-weight: 700; }
+
+.nsm-box { background: var(--paper); border: 1px solid var(--g200); border-top: 4px solid var(--deep-green); border-radius: 10px; padding: 12px 14px; }
+.nsm-box-lbl { font-family: var(--sans); font-size: 7pt; font-weight: 800; letter-spacing: 1.6px; text-transform: uppercase; color: var(--deep-green); margin-bottom: 4px; }
+.nsm-metrics { display: grid; grid-template-columns: 1fr; gap: 3px; margin-top: 4px; }
+.nsm-metric { font-family: var(--sans); font-size: 8pt; color: var(--text); padding: 4px 8px 4px 22px; background: var(--g100); border-radius: 4px; position: relative; }
+.nsm-metric::before { content: "→"; position: absolute; left: 8px; color: var(--deep-green); font-weight: 700; }
+.nsm-nsm { margin-top: 8px; background: var(--deep-green); color: white; padding: 8px 12px; border-radius: 6px; font-family: var(--serif); font-weight: 800; font-size: 10pt; text-align: center; letter-spacing: -.2px; }
+.nsm-nsm em { color: var(--gold); font-style: italic; }
+
+.estado-actual { margin-top: 10px; background: var(--paper); border: 1px solid var(--g200); border-radius: 8px; padding: 10px 14px; }
+.estado-actual-hdr { font-family: var(--sans); font-weight: 800; font-size: 8pt; color: var(--gp-navy); letter-spacing: 1.4px; text-transform: uppercase; margin-bottom: 6px; padding-bottom: 4px; border-bottom: 1px solid var(--g200); }
+.estado-actual-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.estado-actual-block h5 { font-family: var(--sans); font-weight: 800; font-size: 7.5pt; color: var(--gp-red); text-transform: uppercase; letter-spacing: .5px; margin-bottom: 4px; }
+.estado-actual-block.new h5 { color: var(--deep-green); }
+.estado-actual-block p { font-family: var(--sans); font-size: 7.5pt; color: var(--g600); line-height: 1.4; }
+.estado-actual-block p strong { color: var(--gp-navy); font-weight: 700; }
+.marcas-chip { display: inline-block; background: rgba(43,108,176,.1); color: var(--deep-blue); font-family: var(--sans); font-size: 7pt; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin: 2px 4px 2px 0; letter-spacing: .3px; }
+
+.casos-uso { margin-top: 8px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
+.caso-card { background: var(--paper); border: 1px solid var(--g200); border-top: 3px solid var(--gp-navy); border-radius: 6px; padding: 8px 12px; }
+.caso-card.postventa { border-top-color: var(--amber); }
+.caso-card.otros { border-top-color: var(--deep-blue); }
+.caso-card-lbl { font-family: var(--sans); font-size: 7pt; font-weight: 800; letter-spacing: 1.3px; text-transform: uppercase; color: var(--gp-navy); margin-bottom: 3px; }
+.caso-card.postventa .caso-card-lbl { color: var(--amber); }
+.caso-card.otros .caso-card-lbl { color: var(--deep-blue); }
+.caso-card h5 { font-family: var(--serif); font-weight: 700; font-size: 9.5pt; color: var(--gp-navy); line-height: 1.15; margin-bottom: 4px; letter-spacing: -.2px; }
+.caso-card p { font-family: var(--sans); font-size: 7pt; color: var(--g600); line-height: 1.4; }
+
+/* ===================== P8 (canal, gobierno, FAQ) ===================== */
+.canal-brief { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 4px; }
+.canal-box { background: var(--paper); border: 1px solid var(--g200); border-left: 4px solid var(--deep-blue); border-radius: 8px; padding: 10px 14px; }
+.canal-lbl { font-family: var(--sans); font-size: 7.5pt; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: var(--deep-blue); margin-bottom: 6px; }
+.canal-list { display: grid; grid-template-columns: 1fr; gap: 5px; }
+.canal-item { font-family: var(--sans); font-size: 8pt; color: var(--text); line-height: 1.45; padding-left: 14px; position: relative; }
+.canal-item::before { content: "→"; position: absolute; left: 0; color: var(--deep-blue); font-weight: 700; }
+.canal-item strong { color: var(--gp-navy); font-weight: 700; }
+.canal-item code { font-family: 'SF Mono', Monaco, monospace; background: var(--g100); padding: 1px 5px; border-radius: 3px; font-size: 7.5pt; color: var(--gp-navy); }
+
+.brief-list { display: grid; grid-template-columns: 1fr; gap: 3px; }
+.brief-item { font-family: var(--sans); font-size: 8pt; color: var(--text); line-height: 1.4; padding: 4px 8px 4px 22px; background: var(--g100); border-radius: 4px; position: relative; }
+.brief-item strong { color: var(--gp-navy); font-weight: 700; }
+.brief-item::before { position: absolute; left: 8px; font-family: var(--serif); font-weight: 900; color: var(--amber); font-variant-numeric: tabular-nums; }
+.brief-item:nth-child(1)::before { content: "1"; }
+.brief-item:nth-child(2)::before { content: "2"; }
+.brief-item:nth-child(3)::before { content: "3"; }
+.brief-item:nth-child(4)::before { content: "4"; }
+.brief-item:nth-child(5)::before { content: "5"; }
+
+.gobierno-box { margin-top: 10px; background: linear-gradient(135deg, #F7FAFC 0%, #EDF2F7 100%); border: 1px solid var(--g200); border-left: 4px solid var(--gp-navy); border-radius: 8px; padding: 10px 14px; }
+.gobierno-lbl { font-family: var(--sans); font-size: 7.5pt; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gp-navy); margin-bottom: 6px; }
+.gobierno-body { font-family: var(--sans); font-size: 7.5pt; color: var(--g600); line-height: 1.5; }
+.gobierno-body strong { color: var(--gp-navy); font-weight: 700; }
+.gobierno-body ul { list-style: none; padding: 0; margin: 4px 0 0; }
+.gobierno-body ul li { padding: 2px 0 2px 14px; position: relative; }
+.gobierno-body ul li::before { content: "·"; position: absolute; left: 4px; color: var(--gp-navy); font-weight: 900; }
+
+.faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-top: 8px; }
+.faq-item { background: var(--paper); border: 1px solid var(--g200); border-radius: 4px; padding: 6px 10px; }
+.faq-q { font-family: var(--sans); font-weight: 800; font-size: 7.5pt; color: var(--gp-navy); letter-spacing: .2px; margin-bottom: 3px; }
+.faq-a { font-family: var(--sans); font-size: 7pt; color: var(--g600); line-height: 1.4; }
+.faq-a strong { color: var(--gp-navy); font-weight: 700; }
+
+.firma-final {
+  margin-top: 10px;
+  background: var(--gp-navy);
+  color: var(--near-white);
+  padding: 12px 20px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+.firma-final::before { content: ""; position: absolute; top: 0; right: 0; width: 180px; height: 180px; background: radial-gradient(circle, rgba(236,201,75,.14) 0%, transparent 70%); border-radius: 50%; }
+.firma-final-nombre { position: relative; z-index: 2; }
+.firma-final-nombre .name { font-family: var(--serif); font-weight: 800; font-style: italic; font-size: 13pt; color: var(--near-white); letter-spacing: -.2px; }
+.firma-final-nombre .rol { font-family: var(--sans); font-size: 8pt; color: rgba(236,201,75,.85); font-weight: 600; letter-spacing: .5px; margin-top: 2px; }
+.firma-final-contacto { position: relative; z-index: 2; text-align: right; font-family: var(--sans); font-size: 8pt; color: rgba(255,255,255,.85); line-height: 1.4; }
+.firma-final-contacto code { font-family: 'SF Mono', Monaco, monospace; background: rgba(255,255,255,.1); padding: 2px 6px; border-radius: 3px; color: var(--gold); font-size: 7.5pt; }
+
+/* ===================== FOOTER ===================== */
+.pb-footer { padding: 10px 40px; background: var(--g100); border-top: 1px solid var(--g200); display: flex; justify-content: space-between; align-items: center; font-family: var(--sans); font-size: 7.5pt; color: var(--g500); flex-shrink: 0; }
+.pb-footer strong { color: var(--gp-navy); font-weight: 700; letter-spacing: .5px; text-transform: uppercase; }
+</style>
+</head>
+<body>
+
+<!-- ============================ PÁGINA 1 · COVER + BLUF + CONTEXTO ============================ -->
+<div class="page">
+  <div class="pb-header">
+    <div class="pb-header-top">
+      <div>
+        <div class="pb-header-brand-tag">Grupo Plasencia Automotriz<span>Marketing y Digital · Dirección Corporativa</span></div>
+      </div>
+      <div class="pb-header-date"><span>Confidencial</span>Julio 2026 · v0.1</div>
+    </div>
+    <div class="pb-header-eyebrow">Playbook Operativo</div>
+    <h1 class="pb-header-title">Cómo trabajamos <em>con las marcas</em></h1>
+    <p class="pb-header-sub">Tres modos de trabajo con la Dirección de Marketing y Transformación Digital. Todos activados <strong>a solicitud</strong>, con respeto pleno a la autonomía de cada marca y a su operación diaria.</p>
+  </div>
+
+  <div class="pb-body">
+    <div class="cover-bluf">
+      <div class="cover-bluf-lbl">En una frase</div>
+      <div class="cover-bluf-t">La Dirección opera como <em>área de servicio del Grupo</em> con tres modos distintos: <strong>agencia interna</strong>, <strong>consultoría con recomendaciones puntuales</strong> y <strong>pilotos propios de adquisición punta a punta</strong>. El solicitante decide qué modo usa, cuándo y con qué alcance.</div>
+    </div>
+
+    <div class="cover-meta">
+      <div class="cover-meta-card">
+        <div class="cover-meta-lbl">Para quién</div>
+        <div class="cover-meta-body">Consejo Directivo · Direcciones de Familia · Directores de Marca · Direcciones comerciales · Gerentes de Marketing · <strong>cualquier líder autorizado de marca o línea de negocio del Grupo</strong>.</div>
+      </div>
+      <div class="cover-meta-card gold">
+        <div class="cover-meta-lbl">De quién</div>
+        <div class="cover-meta-body"><strong>Jesús Pérez Porras</strong> · Director de Marketing y Transformación Digital Corporativo. Reporta al Consejo Directivo <strong>a través de la Dirección de Finanzas</strong> (Pepe Morales).</div>
+      </div>
+    </div>
+
+    <div class="cover-context">
+      <div class="cover-context-lbl">Lo que el Consejo ya aprobó</div>
+      <div class="cover-context-body">El 14 de julio de 2026 el Consejo canonizó el marco de la Dirección de Marketing y Transformación Digital como función corporativa de Grupo Plasencia. <strong>Dos áreas complementarias</strong> (Marketing Ops + Growth · Transformación Digital) que en conjunto reúnen <strong>20 disciplinas</strong> con capacidad para atender a las 13 entidades del portafolio del Grupo. Este playbook aterriza cómo se traduce ese marco en el día a día operativo.</div>
+    </div>
+
+    <div class="cover-context" style="margin-top:10px; background: linear-gradient(135deg, #276749 0%, #2F855A 100%);">
+      <div class="cover-context-lbl" style="color: #ECC94B;">Espíritu del playbook</div>
+      <div class="cover-context-body">La Dirección <strong>no impone</strong>. Cada Director de Marca sigue mandando en su marca. Cada Dirección comercial sigue con su modelo si así lo prefiere. El Consejo y las Direcciones de Familia pueden pedir servicios en nombre del Grupo. Los tres modos se combinan, se toman por separado o se dejan de lado. Sin fricción.</div>
+    </div>
+  </div>
+
+  <div class="pb-footer">
+    <span><strong>Grupo Plasencia Automotriz</strong> · Playbook · Cómo trabajamos con las marcas</span>
+    <span>Julio 2026 · Confidencial · Página 1 de 8</span>
+  </div>
+</div>
+
+<!-- ============================ PÁGINA 2 · LOS 3 MODOS OVERVIEW ============================ -->
+<div class="page">
+  <div class="pb-header pb-header-compact">
+    <div class="pb-header-eyebrow">Capítulo 1 · Panorama</div>
+    <h1 class="pb-header-title">Los tres <em>modos de trabajo</em></h1>
+  </div>
+
+  <div class="pb-body">
+    <p class="pb-lede">La Dirección opera con <strong>tres modos distintos</strong>, todos activados a solicitud del líder que corresponda. Se pueden usar en paralelo, por separado, o no usarse. Es la marca (o el Consejo, o la Dirección de Familia) quien decide cuándo y con qué alcance.</p>
+
+    <div class="modos-grid">
+      <div class="modo-card">
+        <div class="modo-card-num">01</div>
+        <div class="modo-card-eyebrow">Agencia interna</div>
+        <div class="modo-card-t">Ejecución a la carta</div>
+        <div class="modo-card-body">Briefs puntuales o programas sostenidos con cualquiera de las <strong>20 disciplinas</strong>. Compra de medios consolidada opcional. Flujo: <strong>Solicitud → Propuesta → Costo → Ejecución</strong>. Facturación intercompany con IVA acreditable al 100%.</div>
+        <div class="modo-card-piso">
+          <span class="modo-card-piso-lbl">Piso económico</span>
+          <div class="modo-card-piso-body"><strong>$125K – $250K/mes</strong> pool ya autorizado por el Consejo + servicios por brief.</div>
+        </div>
+      </div>
+
+      <div class="modo-card gold">
+        <div class="modo-card-num">02</div>
+        <div class="modo-card-eyebrow">Consultoría SME</div>
+        <div class="modo-card-t">Recomendaciones puntuales</div>
+        <div class="modo-card-body">Sesiones periódicas 1:1 con recomendaciones <strong>tipo semáforo monetizadas</strong>. La ejecución la hace el equipo del solicitante o sus proveedores actuales. La Dirección aporta la mirada estratégica cross-marca.</div>
+        <div class="modo-card-piso">
+          <span class="modo-card-piso-lbl">Piso económico</span>
+          <div class="modo-card-piso-body"><strong>Sin costo.</strong> Parte del rol del Director Corporativo desde el día uno.</div>
+        </div>
+      </div>
+
+      <div class="modo-card red">
+        <div class="modo-card-num">03</div>
+        <div class="modo-card-eyebrow">Pilotos E2E</div>
+        <div class="modo-card-t">Adquisición punta a punta</div>
+        <div class="modo-card-body">Iniciativa propia de la Dirección para probar nuevos flujos de adquisición <strong>de anuncio a venta</strong>. Estándar actual: Motor de Atribución con IA conversacional + pipeline kanban + hand-off al vendedor humano.</div>
+        <div class="modo-card-piso">
+          <span class="modo-card-piso-lbl">Piso económico</span>
+          <div class="modo-card-piso-body"><strong>$35K/mes</strong> + inversión publicitaria fondeada por la marca al 100%.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="audiencia-box">
+      <div class="audiencia-lbl">Quién puede solicitar</div>
+      <div class="audiencia-body">Consejo Directivo · Direcciones de Familia (Andrés / Nicolás) · Directores de Marca · Direcciones comerciales · Gerentes de Marketing · <strong>cualquier líder autorizado de marca o línea de negocio del Grupo</strong>. La Dirección atiende con el mismo rigor y transparencia sin importar el origen de la solicitud.</div>
+    </div>
+
+    <div class="libertad-box">
+      <div class="libertad-lbl">Libertad de combinación</div>
+      <div class="libertad-body">Los tres modos son complementarios. Un caso típico: <strong>consultoría SME</strong> para la mirada estratégica, <strong>agencia interna</strong> para ejecutar dos briefs puntuales, <strong>piloto</strong> en un flujo específico de adquisición. También es válido optar por no usar ninguno y continuar con la operación actual sin cambio.</div>
+    </div>
+  </div>
+
+  <div class="pb-footer">
+    <span><strong>Grupo Plasencia Automotriz</strong> · Playbook · Cómo trabajamos con las marcas</span>
+    <span>Julio 2026 · Confidencial · Página 2 de 8</span>
+  </div>
+</div>
+
+<!-- ============================ PÁGINA 3 · MODO 1 · AGENCIA INTERNA (disciplinas + compra medios) ============================ -->
+<div class="page">
+  <div class="pb-header pb-header-compact">
+    <div class="pb-header-eyebrow">Modo 1 de 3 · Agencia interna</div>
+    <h1 class="pb-header-title">Agencia interna del <em>Grupo</em></h1>
+  </div>
+
+  <div class="pb-body tight">
+    <div class="pb-section-hdr small"><span class="num">A</span>Qué ofrece · las 20 disciplinas del deck aprobado por el Consejo</div>
+    <p class="pb-lede">Cualquiera de las 20 disciplinas de las dos áreas de la Dirección, en formato de agencia interna. Piso mensual autorizado + servicios adicionales por brief.</p>
+
+    <div class="disc-wrap">
+      <div class="disc-col">
+        <div class="disc-col-hdr">Área 1 · Marketing (Ops + Growth)</div>
+        <div class="disc-col-title">Agencia interna del Grupo · 10 disciplinas</div>
+        <div class="disc-list">
+          <span>Estrategia y planeación MKT</span>
+          <span>Performance ads (paid)</span>
+          <span>Compra de medios</span>
+          <span>Creativo y contenido</span>
+          <span>CRO y experimentación</span>
+          <span>Analytics y atribución</span>
+          <span>Marketing automation</span>
+          <span>Brand strategy y gestión</span>
+          <span>Email + CRM marketing</span>
+          <span>SEO orgánico</span>
+        </div>
+      </div>
+      <div class="disc-col gold">
+        <div class="disc-col-hdr">Área 2 · Transformación Digital</div>
+        <div class="disc-col-title">Plataforma corporativa · 10 disciplinas</div>
+        <div class="disc-list">
+          <span>Estrategia y product management</span>
+          <span>Diseño UX/UI</span>
+          <span>Service Design</span>
+          <span>Desarrollo de producto digital</span>
+          <span>Data + IA institucional</span>
+          <span>Modelo phygital (físico + digital)</span>
+          <span>Customer 360 y CRM</span>
+          <span>E-commerce y Marketplace</span>
+          <span>Automatización de procesos</span>
+          <span>Growth loops y experimentación</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="compra-medios">
+      <div class="compra-medios-lbl">Sub-módulo especial · dentro de "Compra de medios"</div>
+      <div class="compra-medios-t">Compra de medios consolidada cross-marca</div>
+      <div class="compra-medios-body">La compra de medios se puede activar en modalidad <strong>consolidada cross-marca</strong> a través de un tercero especializado. La Dirección negocia la comisión del tercero por el <strong>monto total consolidado</strong> de las marcas que se sumen; el poder de negociación crece con el volumen consolidado. Cada marca sigue viendo su inversión individual y sus resultados individuales. Lo que se consolida es la operación de compra y la relación comercial con el proveedor.
+      <br><br>
+      <strong>Beneficio directo:</strong> la comisión negociada sobre el pool consolidado suele ser menor a la comisión típica de agencia (10–20%), y el ahorro se traduce directamente a la marca. Entrar al pool es <strong>opcional</strong>; si la marca prefiere seguir con su relación actual con Meta / Google / su agencia, sin cambio.</div>
+    </div>
+  </div>
+
+  <div class="pb-footer">
+    <span><strong>Grupo Plasencia Automotriz</strong> · Playbook · Cómo trabajamos con las marcas</span>
+    <span>Julio 2026 · Confidencial · Página 3 de 8</span>
+  </div>
+</div>
+
+<!-- ============================ PÁGINA 4 · MODO 1 · FLUJO + FACTURACIÓN ============================ -->
+<div class="page">
+  <div class="pb-header pb-header-compact">
+    <div class="pb-header-eyebrow">Modo 1 de 3 · Agencia interna · continuación</div>
+    <h1 class="pb-header-title">Cómo se <em>activa</em> y cómo se <em>cobra</em></h1>
+  </div>
+
+  <div class="pb-body tight">
+    <div class="pb-section-hdr small"><span class="num">B</span>Flujo canonizado · Solicitud → Propuesta → Costo → Ejecución</div>
+
+    <div class="flujo-4">
+      <div class="flujo-4-paso">
+        <div class="flujo-4-paso-num">01</div>
+        <h4>Solicitud</h4>
+        <p>El solicitante manda el brief. Canal + brief mínimo en <strong>capítulo 5</strong>.</p>
+      </div>
+      <div class="flujo-4-paso p2">
+        <div class="flujo-4-paso-num">02</div>
+        <h4>Propuesta</h4>
+        <p>La Dirección prepara <strong>alcance, plan de trabajo, timeline y costo</strong> con el mismo rigor que una agencia externa. Tiempo típico: <strong>3–7 días hábiles</strong>.</p>
+      </div>
+      <div class="flujo-4-paso p3">
+        <div class="flujo-4-paso-num">03</div>
+        <h4>Costo</h4>
+        <p>El solicitante <strong>decide si aprueba</strong>. Si sí, se firma acuerdo interno con presupuesto y recursos dedicados. Si no, sin fricción y sin cargo.</p>
+      </div>
+      <div class="flujo-4-paso p4">
+        <div class="flujo-4-paso-num">04</div>
+        <h4>Ejecución</h4>
+        <p>Se opera bajo modelo de <strong>partner interno</strong>. Cadencia de revisión acordada. Entregables y métricas trazables.</p>
+      </div>
+    </div>
+
+    <div class="pb-section-hdr small" style="margin-top: 16px;"><span class="num">C</span>Cómo se cobra · facturación intercompany</div>
+
+    <p class="pb-p">Los servicios se cobran vía <strong>intercompany</strong> entre la marca solicitante y la entidad corporativa donde reside la Dirección. Factura con <strong>IVA acreditable al 100%</strong>, a diferencia de servicios contratados directo al extranjero (por ejemplo Meta Platforms Ireland Limited), donde el IVA no se acredita.</p>
+
+    <p class="pb-p">El piso <strong>$125K – $250K/mes</strong> del pool de servicios ya está autorizado por el Consejo. Los servicios adicionales por brief se facturan proyecto por proyecto contra la propuesta aprobada.</p>
+
+    <div class="facturacion" style="margin-top: 14px;">
+      <div class="facturacion-lbl">Beneficio operativo de la agencia interna</div>
+      <div class="facturacion-t">La marca <em>no sobrepaga</em> la comisión típica de agencia externa (10–20%) y <em>recupera el IVA</em> que hoy pierde con proveedores del extranjero. El ahorro se traduce directamente al presupuesto de la marca.</div>
+    </div>
+
+    <div class="ia-nota" style="margin-top: 12px; border-left-color: var(--gp-navy); background: linear-gradient(to right, rgba(30,39,64,.08), rgba(30,39,64,.01));">
+      <div class="ia-nota-lbl" style="color: var(--gp-navy);">Cadencia de revisión operativa</div>
+      <div class="ia-nota-body">La cadencia se acuerda en la propuesta según naturaleza del brief. Para programas sostenidos, la Dirección propone <strong>revisión quincenal operativa</strong> + <strong>revisión mensual estratégica</strong>. Para briefs puntuales, revisión al hito. Todo con dashboard vivo cuando aplique.</div>
+    </div>
+  </div>
+
+  <div class="pb-footer">
+    <span><strong>Grupo Plasencia Automotriz</strong> · Playbook · Cómo trabajamos con las marcas</span>
+    <span>Julio 2026 · Confidencial · Página 4 de 8</span>
+  </div>
+</div>
+
+<!-- ============================ PÁGINA 5 · MODO 2 · CONSULTORÍA SME ============================ -->
+<div class="page">
+  <div class="pb-header pb-header-compact">
+    <div class="pb-header-eyebrow">Modo 2 de 3 · Consultoría SME</div>
+    <h1 class="pb-header-title">Recomendaciones <em>puntuales mensuales</em></h1>
+  </div>
+
+  <div class="pb-body tight">
+    <p class="pb-lede">Programa consultivo canonizado en el <strong>Anexo #7 · Programa de Acompañamiento Ejecutivo a las Marcas</strong> presentado al Consejo. Operado con los recursos actuales desde el día uno, <strong>independiente del Business Case</strong>. Voluntario, respeta autonomía, no ejecuta.</p>
+
+    <div class="pb-section-hdr small"><span class="num">A</span>Los cuatro momentos del programa</div>
+
+    <div class="momentos-4">
+      <div class="momento-card">
+        <div class="momento-card-num">01</div>
+        <h4>Inmersión</h4>
+        <p>Una hora con el solicitante, sin presentación de la Dirección. Se escucha contexto, prioridades, iniciativas en curso.</p>
+      </div>
+      <div class="momento-card gold">
+        <div class="momento-card-num">02</div>
+        <h4>Recomendaciones</h4>
+        <p>Máximo <strong>3–5</strong>, formato semáforo, cada una con sugerencia clara, acción específica y <strong>cifra monetizada</strong>.</p>
+      </div>
+      <div class="momento-card green">
+        <div class="momento-card-num">03</div>
+        <h4>Plan de acción</h4>
+        <p>Para cada recomendación adoptada: qué, quién, cuándo, cómo se mide. Redactado por la Dirección, aprobado por el solicitante.</p>
+      </div>
+      <div class="momento-card red">
+        <div class="momento-card-num">04</div>
+        <h4>Seguimiento</h4>
+        <p>Semáforo de avance. Lo que avanza se refuerza. Lo que no funciona se ajusta o se retira <strong>sin drama</strong>.</p>
+      </div>
+    </div>
+
+    <div class="pb-section-hdr small" style="margin-top: 12px;"><span class="num">B</span>Cadencia sugerida por fase</div>
+
+    <div class="cadencia-3">
+      <div class="cadencia-card">
+        <div class="cadencia-when">Primeros 90 días</div>
+        <div class="cadencia-t">Sesiones bisemanales</div>
+        <div class="cadencia-d"><strong>30 minutos</strong> con el solicitante, cada dos semanas. Momentum inicial alto y ajustes rápidos a las primeras recomendaciones.</div>
+      </div>
+      <div class="cadencia-card gold">
+        <div class="cadencia-when">Desde el mes 4</div>
+        <div class="cadencia-t">Sesiones mensuales</div>
+        <div class="cadencia-d"><strong>45 minutos</strong> una vez al mes. Cadencia sostenible que se sincroniza con el semáforo mensual al Consejo.</div>
+      </div>
+      <div class="cadencia-card green">
+        <div class="cadencia-when">Dirección de Familia</div>
+        <div class="cadencia-t">Revisión trimestral</div>
+        <div class="cadencia-d"><strong>30 minutos</strong> cada trimestre para revisar el consolidado cross-marca con Andrés y Nicolás.</div>
+      </div>
+    </div>
+
+    <div class="pb-section-hdr small" style="margin-top: 12px;"><span class="num">C</span>Cinco recomendaciones canónicas que salen del piloto (se ajustan por marca)</div>
+
+    <div class="recs-grid">
+      <div class="rec-card">
+        <div class="rec-card-num">01</div>
+        <div class="rec-card-content">
+          <h5>Meta Always-On con contenido evergreen</h5>
+          <p>Mantener campañas <strong>encendidas todo el año</strong> con contenido base sobre los autos, no solo ofertas comerciales. Al prender y apagar por promos del OEM, el algoritmo pierde el hilo.</p>
+        </div>
+      </div>
+      <div class="rec-card">
+        <div class="rec-card-num">02</div>
+        <div class="rec-card-content">
+          <h5>Que los leads suban al pipeline visible</h5>
+          <p>Todo lead entra al <strong>kanban corporativo</strong>. La métrica cambia de "cuántos leads" a <strong>"cuántas citas agendadas"</strong>.</p>
+        </div>
+      </div>
+      <div class="rec-card">
+        <div class="rec-card-num">03</div>
+        <div class="rec-card-content">
+          <h5>IA conversacional para el primer contacto</h5>
+          <p>Una IA hace el primer contacto y perfilamiento, entrega al vendedor humano la <strong>cita agendada</strong>. Si ya hay una IA en la marca, se suma; si no, implementación en <strong>menos de 4 semanas</strong>.</p>
+        </div>
+      </div>
+      <div class="rec-card">
+        <div class="rec-card-num">04</div>
+        <div class="rec-card-content">
+          <h5>Conectar el pipeline con el motor de atribución</h5>
+          <p>Cuando la card avanza (lead → cita → visita → venta), la señal se envía a Meta y Google. Pasa de optimizar por leads a optimizar por <strong>ventas y retorno</strong>. Da <strong>visibilidad para gestión de vendedores digitales</strong>.</p>
+        </div>
+      </div>
+      <div class="rec-card rec-full">
+        <div class="rec-card-num">05</div>
+        <div class="rec-card-content">
+          <h5>Vendedores digitales operan solo en apps conversacionales autorizadas</h5>
+          <p>Dejar de usar WhatsApp personal y celulares del negocio para atender leads. Los vendedores digitales atienden <strong>única y exclusivamente</strong> desde apps autorizadas por la Dirección (Vambe, Karbot o el módulo de CX). Trazabilidad completa, medición disciplinada, protección de datos del cliente.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="alcance-modo2">
+      <div class="alcance-modo2-lbl">Lo que este modo no hace</div>
+      <p>No ejecuta operativamente campañas ni sistemas. No sustituye al equipo interno ni a las agencias externas actuales. No interviene en la inversión que los OEM canalizan directamente. <strong>Alcance estratégico y consultivo.</strong> Cada recomendación es una sugerencia con criterio, no una imposición.</p>
+    </div>
+  </div>
+
+  <div class="pb-footer">
+    <span><strong>Grupo Plasencia Automotriz</strong> · Playbook · Cómo trabajamos con las marcas</span>
+    <span>Julio 2026 · Confidencial · Página 5 de 8</span>
+  </div>
+</div>
+
+<!-- ============================ PÁGINA 6 · MODO 3 · FLUJO 9 PASOS + CALIDAD VS CANTIDAD ============================ -->
+<div class="page">
+  <div class="pb-header pb-header-compact">
+    <div class="pb-header-eyebrow">Modo 3 de 3 · Pilotos de adquisición E2E</div>
+    <h1 class="pb-header-title">De <em>anuncio a venta</em> · el estándar del piloto</h1>
+  </div>
+
+  <div class="pb-body tight">
+    <p class="pb-lede">Iniciativa <strong>propia de la Dirección</strong> para probar nuevos flujos de adquisición punta a punta. La Dirección diseña, integra tecnología y opera el motor; la marca fondea y participa activamente. <strong>Estándar actual:</strong> Motor de Atribución con IA conversacional + pipeline kanban + hand-off al vendedor humano.</p>
+
+    <div class="pb-section-hdr small"><span class="num">A</span>Flujo E2E · 9 pasos del piloto (anuncio → cierre en DCA)</div>
+
+    <div class="flujo-9">
+      <div class="paso-9"><div class="paso-9-num">01</div><div class="paso-9-body"><strong>Anuncio</strong>Meta y Google optimizados por conversiones offline, no por lead gen.</div></div>
+      <div class="paso-9"><div class="paso-9-num">02</div><div class="paso-9-body"><strong>Landing / catálogo</strong>Tienda del piloto, propiedad de la Dirección, con inventario sincronizado.</div></div>
+      <div class="paso-9"><div class="paso-9-num">03</div><div class="paso-9-body"><strong>Pipeline kanban</strong>Fuente de verdad. Visibilidad del embudo para marca, Dirección y Consejo.</div></div>
+      <div class="paso-9 ia"><div class="paso-9-num">04</div><div class="paso-9-body"><strong>IA conversacional</strong>Perfilamiento + conversación de ventas + agenda de cita.</div></div>
+      <div class="paso-9 humano"><div class="paso-9-num">05</div><div class="paso-9-body"><strong>Hand-off</strong>La IA entrega la cita agendada al vendedor digital humano de la marca.</div></div>
+      <div class="paso-9 humano"><div class="paso-9-num">06</div><div class="paso-9-body"><strong>Confirma y garantiza</strong>Vendedor humano confirma la cita y garantiza la visita al piso.</div></div>
+      <div class="paso-9 humano"><div class="paso-9-num">07</div><div class="paso-9-body"><strong>Venta física</strong>Proceso físico de venta de la marca hasta pago y facturación.</div></div>
+      <div class="paso-9 dca"><div class="paso-9-num">08</div><div class="paso-9-body"><strong>Registro DCA</strong>Factura + VIN registrados en DCA por el equipo de la marca.</div></div>
+      <div class="paso-9 dca"><div class="paso-9-num">09</div><div class="paso-9-body"><strong>Cierre pipeline</strong>Vendedor humano mueve la card a "Cerrado atribuible".</div></div>
+    </div>
+
+    <div class="flujo-9-legend">
+      <span><span class="dot"></span>Motor + tecnología (Dirección)</span>
+      <span><span class="dot ia"></span>IA conversacional</span>
+      <span><span class="dot humano"></span>Vendedor humano (marca)</span>
+      <span><span class="dot dca"></span>DCA + cierre</span>
+    </div>
+
+    <div class="pb-section-hdr small" style="margin-top: 12px;"><span class="num">B</span>Calidad vs cantidad · el argumento central</div>
+
+    <div class="calidad-cantidad">
+      <div class="cq-card">
+        <div class="cq-card-lbl">Hoy · default del mercado</div>
+        <h4>Optimización por lead gen</h4>
+        <p>Las campañas optimizan por <strong>volumen de formularios y mensajes de WhatsApp</strong>. Meta y Google no saben quién de esos leads realmente compró. La IA de la plataforma busca <strong>más gente que llena formularios</strong>, no más gente que compra. Resultado: mucho lead, poca venta, dispersión alta de CPA.</p>
+      </div>
+      <div class="cq-card piloto">
+        <div class="cq-card-lbl">Piloto · estándar de la Dirección</div>
+        <h4>Optimización por ventas</h4>
+        <p>El Motor recoge <strong>lo que pasó después del clic</strong> (cita, visita, compra, monto) y lo regresa a Meta y Google como conversiones offline. La IA deja de buscar clickers y busca <strong>compradores</strong>. Resultado: menos leads pero mejor perfil, más citas confirmadas, más visitas al piso, más ventas.</p>
+      </div>
+    </div>
+
+    <div class="corto-navy">
+      <div class="corto-navy-t">En corto: hoy las campañas de la marca optimizan por <em>cantidad de contactos</em>. El piloto optimiza por <em>cantidad de autos vendidos</em>.</div>
+    </div>
+  </div>
+
+  <div class="pb-footer">
+    <span><strong>Grupo Plasencia Automotriz</strong> · Playbook · Cómo trabajamos con las marcas</span>
+    <span>Julio 2026 · Confidencial · Página 6 de 8</span>
+  </div>
+</div>
+
+<!-- ============================ PÁGINA 7 · MODO 3 · IA + PISO + NSM + ESTADO + CASOS ============================ -->
+<div class="page">
+  <div class="pb-header pb-header-compact">
+    <div class="pb-header-eyebrow">Modo 3 de 3 · Pilotos · continuación</div>
+    <h1 class="pb-header-title">Piso, métricas, estado <em>y casos</em></h1>
+  </div>
+
+  <div class="pb-body tight">
+    <div class="pb-section-hdr small"><span class="num">C</span>Nota sobre la IA conversacional del flujo</div>
+
+    <div class="ia-nota">
+      <div class="ia-nota-lbl">Karbot es el estándar actual · no está escrito en piedra</div>
+      <div class="ia-nota-body">
+        <p>Karbot es la IA conversacional que la Dirección tiene <strong>definida como estándar</strong> para los pilotos, después de haberla evaluado contra alternativas para los casos de uso del motor de adquisición del Grupo.</p>
+        <p>Si la marca o línea de negocio <strong>ya usa otra IA conversacional</strong> en su operación actual (por ejemplo Vambe, el módulo de CX cross-Grupo, u otra herramienta contratada), <strong>esa herramienta se integra al flujo del piloto sin necesidad de reemplazarla</strong>. El único criterio es que cubra el proceso de ventas hasta el hand-off al vendedor humano con la trazabilidad que el Motor de Atribución requiere para enviar señales de conversión offline a Meta y Google.</p>
+        <p>Cuando la marca no tiene una IA en operación, la Dirección arranca con Karbot como default y lo deja implementado en <strong>menos de 4 semanas</strong>.</p>
+      </div>
+    </div>
+
+    <div class="piso-metrics">
+      <div class="piso-box">
+        <div class="piso-box-lbl">Piso mínimo para entrar a piloto</div>
+        <div class="piso-box-num">$35K <span style="font-size:12pt; color: rgba(255,255,255,.7);">MXN / mes</span></div>
+        <div class="piso-box-sub">Incluye <strong>servicios operativos completos</strong>: setup, integraciones IA, motor de atribución, pipeline, media buying, analytics y reporte. <br><br>La <strong>inversión publicitaria</strong> (pauta en Meta/Google) va aparte y la fondea la marca al 100%, sin tope superior definido.</div>
+      </div>
+
+      <div class="nsm-box">
+        <div class="nsm-box-lbl">Métricas del funnel · compromiso mutuo</div>
+        <div class="nsm-metrics">
+          <div class="nsm-metric">Citas agendadas (IA + hand-off cerrado)</div>
+          <div class="nsm-metric">Visitas al piso (vendedor confirma llegada)</div>
+          <div class="nsm-metric">Ventas (factura + VIN en DCA)</div>
+        </div>
+        <div class="nsm-nsm">North Star Metric: <em>autos facturados</em></div>
+      </div>
+    </div>
+
+    <div class="pb-section-hdr small" style="margin-top: 12px;"><span class="num">D</span>Estado actual del piloto y regla de continuidad</div>
+
+    <div class="estado-actual">
+      <div class="estado-actual-grid">
+        <div class="estado-actual-block">
+          <h5>Marcas hoy en piloto · reconfirmar explícitamente para continuar</h5>
+          <div style="margin: 4px 0 6px;">
+            <span class="marcas-chip">Seminuevos</span>
+            <span class="marcas-chip">Hyundai</span>
+            <span class="marcas-chip">Stellantis</span>
+            <span class="marcas-chip">GAC</span>
+          </div>
+          <p>Sin reconfirmación explícita del Director de Marca, el piloto se <strong>detiene ordenadamente</strong> y los recursos se reasignan a otras marcas del portafolio.</p>
+        </div>
+        <div class="estado-actual-block new">
+          <h5>Marcas nuevas que quieran entrar</h5>
+          <p>Deben solicitarlo explícitamente para considerarlo en el backlog y estimar viabilidad. El proceso de arranque es el mismo flujo del <strong>Modo 1</strong>: discovery → planteamiento → cotización → levantamiento → ejecución. La marca fondea todo lo que se plantee, incluyendo la inversión publicitaria.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="pb-section-hdr small" style="margin-top: 10px;"><span class="num">E</span>Casos de uso posibles del piloto</div>
+
+    <div class="casos-uso">
+      <div class="caso-card">
+        <div class="caso-card-lbl">Uso principal actual</div>
+        <h5>Adquisición de autos</h5>
+        <p>Nuevos y seminuevos. Uso del estándar canonizado en las 4 marcas piloto activas.</p>
+      </div>
+      <div class="caso-card postventa">
+        <div class="caso-card-lbl">Reutilizable</div>
+        <h5>Postventa</h5>
+        <p>Mismo flujo E2E aplicado a generar prospectos, conversaciones y citas hacia mantenimiento, refacciones y hojalatería.</p>
+      </div>
+      <div class="caso-card otros">
+        <div class="caso-card-lbl">Bajo demanda</div>
+        <h5>Otros casos</h5>
+        <p>Cualquier flujo de adquisición o retención se puede plantear como piloto bajo el mismo formato. El motor es reutilizable.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="pb-footer">
+    <span><strong>Grupo Plasencia Automotriz</strong> · Playbook · Cómo trabajamos con las marcas</span>
+    <span>Julio 2026 · Confidencial · Página 7 de 8</span>
+  </div>
+</div>
+
+<!-- ============================ PÁGINA 8 · CANAL + BRIEF + GOBIERNO + FAQ + FIRMA ============================ -->
+<div class="page">
+  <div class="pb-header pb-header-compact">
+    <div class="pb-header-eyebrow">Capítulos 5 · 6 · 7 · Operativo · Gobierno · FAQ</div>
+    <h1 class="pb-header-title">Cómo <em>pides las cosas</em> y con qué gobierno</h1>
+  </div>
+
+  <div class="pb-body tight">
+    <div class="canal-brief">
+      <div class="canal-box">
+        <div class="canal-lbl">Canales institucionales de solicitud</div>
+        <div class="canal-list">
+          <div class="canal-item"><strong>Email:</strong> <code>jperezp@gpsi.mx</code> · con copia al Gerente de MKT de la marca o línea de negocio.</div>
+          <div class="canal-item"><strong>Teams (async):</strong> para seguimiento, aclaraciones y coordinación operativa en el hilo del proyecto correspondiente.</div>
+          <div class="canal-item"><strong>Reunión de scoping:</strong> se agenda después de recibida la solicitud (30–60 min · vía Teams o presencial según agenda).</div>
+        </div>
+      </div>
+
+      <div class="canal-box" style="border-left-color: var(--amber);">
+        <div class="canal-lbl" style="color: var(--amber);">Brief mínimo que la Dirección necesita saber</div>
+        <div class="brief-list">
+          <div class="brief-item"><strong>Objetivo comercial</strong> · qué se quiere mover (ventas, citas, cobertura, marca, retención).</div>
+          <div class="brief-item"><strong>Contexto de marca</strong> · qué pasa hoy, qué ya está en marcha, con qué proveedores.</div>
+          <div class="brief-item"><strong>Horizonte</strong> · cuándo se quiere ver funcionando o resuelto.</div>
+          <div class="brief-item"><strong>Restricciones</strong> · presupuesto, lineamientos OEM, políticas Grupo, aprobaciones.</div>
+          <div class="brief-item"><strong>Punto de contacto</strong> · quién del equipo del solicitante es el owner.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gobierno-box">
+      <div class="gobierno-lbl">Gobierno · alcance · CX cross-Grupo</div>
+      <div class="gobierno-body">
+        <strong>Reporte político.</strong> La Dirección reporta al Consejo Directivo a través de la Dirección de Finanzas (Pepe Morales). Cascada: Dirección → Pepe (Finanzas) + Daniel Aceves (Talento y Cultura) → Andrés / Nicolás / Enrique con ejemplos → Consejo.
+        <ul>
+          <li>Se opera bajo modelo <strong>tercerizado</strong>; no crea estructura de personal nueva.</li>
+          <li>Respeta la operación diaria de cada marca.</li>
+          <li>No interviene en la inversión negociada directamente entre la marca y su OEM.</li>
+          <li>Opera de forma <strong>voluntaria</strong>. Cada Director de Marca conserva plena autonomía sobre su BAU.</li>
+          <li><strong>CX cross-Grupo (Enrique Rojas)</strong> está fuera del alcance de esta Dirección construir o duplicar. Se evalúa conjuntamente con Enrique qué componentes de CX se integran a los pilotos y en qué ritmo. La IA conversacional (Vambe / Karbot / módulo CX) sigue un roadmap de consolidación acordado.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="pb-section-hdr small" style="margin-top: 10px;"><span class="num">?</span>Preguntas frecuentes</div>
+
+    <div class="faq-grid">
+      <div class="faq-item">
+        <div class="faq-q">¿Puedo usar los tres modos a la vez?</div>
+        <div class="faq-a">Sí. Son complementarios. Caso típico: consultoría (Modo 2) para mirada estratégica + agencia interna (Modo 1) para briefs puntuales + piloto (Modo 3) en un flujo de adquisición.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">¿Qué pasa si no quiero ningún modo?</div>
+        <div class="faq-a">Nada. La operación continúa sin cambio ni fricción. El programa opera de manera voluntaria en los tres modos.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">¿Los pilotos actuales se detienen si no reconfirmo?</div>
+        <div class="faq-a">Sí, ordenadamente. La Dirección necesita <strong>vobo explícito</strong> del Director de Marca para seguir invirtiendo bandwidth.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">¿La compra consolidada de medios me obliga a algo?</div>
+        <div class="faq-a">No. Es opcional. Si suma a la marca, entra al pool. Si prefiere seguir con su esquema actual, sin cambio.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">¿Quién factura los servicios a mi marca?</div>
+        <div class="faq-a">La entidad corporativa donde reside la Dirección, intercompany con <strong>IVA acreditable al 100%</strong>.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">¿Puedo pedir un caso de uso de piloto no listado?</div>
+        <div class="faq-a">Sí. El motor es reutilizable para cualquier flujo de adquisición o retención que se quiera probar.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">¿Qué pasa con mis agencias actuales?</div>
+        <div class="faq-a">No se tocan por default. La Dirección no interviene en la operación actual. Si en algún momento se plantea consolidación, se hace vía propuesta específica que el Director aprueba o descarta.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">¿Karbot es obligatorio en los pilotos?</div>
+        <div class="faq-a">No. Es el <strong>estándar actual</strong> de la Dirección. Si la marca ya usa otra IA (Vambe, CX u otra), se integra al flujo del piloto sin reemplazarla.</div>
+      </div>
+    </div>
+
+    <div class="firma-final">
+      <div class="firma-final-nombre">
+        <div class="name">Jesús Pérez Porras</div>
+        <div class="rol">Director de Marketing y Transformación Digital · Grupo Plasencia Automotriz</div>
+      </div>
+      <div class="firma-final-contacto">
+        <code>jperezp@gpsi.mx</code><br>
+        Teams (async)
+      </div>
+    </div>
+  </div>
+
+  <div class="pb-footer">
+    <span><strong>Grupo Plasencia Automotriz</strong> · Playbook · Cómo trabajamos con las marcas</span>
+    <span>Julio 2026 · Confidencial · Página 8 de 8</span>
+  </div>
+</div>
+
+</body>
+</html>
