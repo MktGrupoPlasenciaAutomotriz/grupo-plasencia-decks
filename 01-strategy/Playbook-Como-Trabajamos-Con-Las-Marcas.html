@@ -427,6 +427,20 @@ html, body { background: #E2E8F0; color: var(--text); font-family: var(--sans); 
 .tablero-col.nocont .tablero-col-count { color: var(--g500); }
 .tablero-card { background: var(--near-white); border: 1px solid var(--g200); border-radius: 2px; padding: 2px 3px; margin-bottom: 2px; font-family: var(--sans); font-size: 5.2pt; color: var(--g600); line-height: 1.2; }
 .tablero-card strong { display: block; font-weight: 700; color: var(--gp-navy); font-size: 5.8pt; }
+.tablero-col-valor { font-family: var(--sans); font-weight: 700; font-size: 6pt; color: var(--g500); text-align: center; margin-bottom: 4px; font-variant-numeric: tabular-nums; }
+.tablero-col.ganada .tablero-col-valor, .tablero-col.otro .tablero-col-valor { color: var(--gp-navy); }
+.tablero-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-bottom: 8px; }
+.tablero-stat { background: var(--paper); border: 1px solid var(--g200); border-radius: 4px; padding: 5px 8px; text-align: center; }
+.tablero-stat.a { border-top: 2px solid var(--deep-blue); }
+.tablero-stat.b { border-top: 2px solid var(--amber); }
+.tablero-stat.c { border-top: 2px solid var(--deep-green); }
+.tablero-stat.d { border-top: 2px solid var(--gp-red); }
+.tablero-stat-num { font-family: var(--serif); font-weight: 900; font-size: 13pt; color: var(--gp-navy); line-height: 1; font-variant-numeric: tabular-nums; }
+.tablero-stat.a .tablero-stat-num { color: var(--deep-blue); }
+.tablero-stat.b .tablero-stat-num { color: var(--amber); }
+.tablero-stat.c .tablero-stat-num { color: var(--deep-green); }
+.tablero-stat.d .tablero-stat-num { color: var(--gp-red); }
+.tablero-stat-lbl { font-family: var(--sans); font-weight: 700; font-size: 6pt; color: var(--g500); text-transform: uppercase; letter-spacing: .3px; margin-top: 3px; line-height: 1.2; }
 
 /* Señales técnicas box */
 .senales-box { margin-top: 8px; background: linear-gradient(135deg, #1E2740 0%, #2A3654 100%); color: white; padding: 10px 16px; border-radius: 8px; position: relative; overflow: hidden; }
@@ -890,25 +904,33 @@ html, body { background: #E2E8F0; color: var(--text); font-family: var(--sans); 
     <div class="tablero-mockup">
       <div class="tablero-mockup-hdr">
         <div class="tablero-mockup-t">Tablero · Piloto Seminuevos · vista real</div>
-        <div class="tablero-mockup-sub">datos ilustrativos · 12 etapas del kanban corporativo</div>
+        <div class="tablero-mockup-sub">datos vivos al 30-jul-2026 · 12 etapas del kanban corporativo</div>
       </div>
-      <div class="tablero-row-lbl">Etapas activas (siete)</div>
+
+      <div class="tablero-stats">
+        <div class="tablero-stat a"><div class="tablero-stat-num">235</div><div class="tablero-stat-lbl">Oportunidades<br>activas</div></div>
+        <div class="tablero-stat b"><div class="tablero-stat-num">$72M</div><div class="tablero-stat-lbl">Pipeline<br>en curso</div></div>
+        <div class="tablero-stat c"><div class="tablero-stat-num">149</div><div class="tablero-stat-lbl">Ventas<br>atribuidas</div></div>
+        <div class="tablero-stat c"><div class="tablero-stat-num">$22.6M</div><div class="tablero-stat-lbl">Revenue<br>cerrado</div></div>
+      </div>
+
+      <div class="tablero-row-lbl">Etapas activas (siete) · 235 oportunidades · $72M en pipeline</div>
       <div class="tablero-cols-row activas">
-        <div class="tablero-col ayuda"><div class="tablero-col-hdr">Ayuda humana</div><div class="tablero-col-count">2</div><div class="tablero-card"><strong>B. Cano</strong>Pide asesor</div></div>
-        <div class="tablero-col"><div class="tablero-col-hdr">Por contactar</div><div class="tablero-col-count">14</div><div class="tablero-card"><strong>C. Ramírez</strong>Mazda CX-5</div><div class="tablero-card"><strong>J. Torres</strong>Kia Rio</div></div>
-        <div class="tablero-col"><div class="tablero-col-hdr">Recontactar</div><div class="tablero-col-count">8</div><div class="tablero-card"><strong>S. Vega</strong>VW Vento</div></div>
-        <div class="tablero-col"><div class="tablero-col-hdr">En seguimiento</div><div class="tablero-col-count">22</div><div class="tablero-card"><strong>A. Muñoz</strong>Nissan Kicks</div><div class="tablero-card"><strong>R. López</strong>Chevy Aveo</div></div>
-        <div class="tablero-col cita"><div class="tablero-col-hdr">Cita agendada</div><div class="tablero-col-count">11</div><div class="tablero-card"><strong>M. Ríos</strong>Honda Civic</div><div class="tablero-card"><strong>P. Ortiz</strong>Toyota Yaris</div></div>
-        <div class="tablero-col visita"><div class="tablero-col-hdr">Visita realizada</div><div class="tablero-col-count">6</div><div class="tablero-card"><strong>L. García</strong>Ford Escape</div></div>
-        <div class="tablero-col neg"><div class="tablero-col-hdr">Negociación</div><div class="tablero-col-count">4</div><div class="tablero-card"><strong>D. Reyes</strong>Chevy Trax</div></div>
+        <div class="tablero-col ayuda"><div class="tablero-col-hdr">Ayuda humana</div><div class="tablero-col-count">12</div><div class="tablero-col-valor">$3.3M</div></div>
+        <div class="tablero-col"><div class="tablero-col-hdr">Por contactar</div><div class="tablero-col-count">91</div><div class="tablero-col-valor">$28.9M</div></div>
+        <div class="tablero-col"><div class="tablero-col-hdr">Recontactar</div><div class="tablero-col-count">3</div><div class="tablero-col-valor">$1.1M</div></div>
+        <div class="tablero-col"><div class="tablero-col-hdr">En seguimiento</div><div class="tablero-col-count">116</div><div class="tablero-col-valor">$35.7M</div></div>
+        <div class="tablero-col cita"><div class="tablero-col-hdr">Cita agendada</div><div class="tablero-col-count">5</div><div class="tablero-col-valor">$980K</div></div>
+        <div class="tablero-col visita"><div class="tablero-col-hdr">Visita realizada</div><div class="tablero-col-count">5</div><div class="tablero-col-valor">$1.5M</div></div>
+        <div class="tablero-col neg"><div class="tablero-col-hdr">Negociación</div><div class="tablero-col-count">3</div><div class="tablero-col-valor">$890K</div></div>
       </div>
-      <div class="tablero-row-lbl">Etapas terminales (cinco)</div>
+      <div class="tablero-row-lbl">Etapas terminales (cinco) · 149 ventas atribuidas al piloto · $22.6M cerrado</div>
       <div class="tablero-cols-row terminales">
-        <div class="tablero-col ganada"><div class="tablero-col-hdr">Cerrado atribuible</div><div class="tablero-col-count">3</div><div class="tablero-card"><strong>V. Solís</strong>Mazda 3 · $310K</div></div>
-        <div class="tablero-col auditar lock"><div class="tablero-col-hdr">Cerrado por auditar</div><div class="tablero-col-count">1</div><div class="tablero-card"><strong>T. Ávalos</strong>Match parcial</div></div>
-        <div class="tablero-col otro lock"><div class="tablero-col-hdr">Cerrado otro cliente</div><div class="tablero-col-count">2</div><div class="tablero-card"><strong>E. Peña</strong>VIN cerró otro</div></div>
-        <div class="tablero-col perdida"><div class="tablero-col-hdr">Perdida</div><div class="tablero-col-count">7</div><div class="tablero-card"><strong>N. Vega</strong>Sin decisión</div></div>
-        <div class="tablero-col nocont"><div class="tablero-col-hdr">No contactable</div><div class="tablero-col-count">4</div><div class="tablero-card"><strong>H. Silva</strong>Sin respuesta</div></div>
+        <div class="tablero-col ganada"><div class="tablero-col-hdr">Cerrado atribuible</div><div class="tablero-col-count">47</div><div class="tablero-col-valor">$13.8M · 44 VIN</div></div>
+        <div class="tablero-col auditar lock"><div class="tablero-col-hdr">Cerrado por auditar</div><div class="tablero-col-count">0</div><div class="tablero-col-valor">—</div></div>
+        <div class="tablero-col otro lock"><div class="tablero-col-hdr">Cerrado otro cliente</div><div class="tablero-col-count">102</div><div class="tablero-col-valor">$8.8M</div></div>
+        <div class="tablero-col perdida"><div class="tablero-col-hdr">Perdida</div><div class="tablero-col-count">622</div><div class="tablero-col-valor">—</div></div>
+        <div class="tablero-col nocont"><div class="tablero-col-hdr">No contactable</div><div class="tablero-col-count">9</div><div class="tablero-col-valor">—</div></div>
       </div>
     </div>
 
