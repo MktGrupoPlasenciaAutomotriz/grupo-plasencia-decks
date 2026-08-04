@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plan 90 Días · Dirección de Marketing y Transformación Digital · Grupo Plasencia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@500;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gp-red: #C8102E;
+  --gp-navy: #1E2740;
+  --deep-green: #276749;
+  --deep-blue: #2B6CB0;
+  --amber: #D69E2E;
+  --gold: #ECC94B;
+  --paper: #FFFFFF;
+  --near-white: #F7FAFC;
+  --g100: #EDF2F7;
+  --g200: #E2E8F0;
+  --g300: #CBD5E0;
+  --g400: #A0AEC0;
+  --g500: #718096;
+  --g600: #4A5568;
+  --text: #2D3748;
+  --serif: 'Playfair Display', Georgia, serif;
+  --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; -webkit-font-smoothing: antialiased; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+html, body { background: #E2E8F0; color: var(--text); font-family: var(--sans); font-size: 9pt; line-height: 1.5; }
+
+.page { width: 210mm; height: 297mm; background: var(--paper); margin: 20px auto; padding: 0; box-shadow: 0 2px 12px rgba(0,0,0,.12); position: relative; display: flex; flex-direction: column; page-break-after: always; overflow: hidden; }
+.page:last-child { page-break-after: auto; }
+
+@media print {
+  body { background: white; }
+  @page { size: A4; margin: 0; }
+  .page { margin: 0 !important; box-shadow: none !important; width: 210mm !important; height: 297mm !important; page-break-after: always !important; page-break-inside: avoid !important; overflow: hidden !important; }
+  .page:last-child { page-break-after: auto !important; }
+}
+
+.hdr { background: linear-gradient(135deg, var(--gp-navy) 0%, #2A3654 40%, #384868 100%); color: var(--near-white); padding: 22px 40px 20px; position: relative; overflow: hidden; flex-shrink: 0; }
+.hdr::before { content: ""; position: absolute; top: -100px; right: -100px; width: 340px; height: 340px; background: radial-gradient(circle, rgba(236,201,75,.16) 0%, transparent 70%); border-radius: 50%; }
+.hdr::after { content: ""; position: absolute; bottom: -160px; left: -80px; width: 400px; height: 400px; background: radial-gradient(circle, rgba(200,16,46,.08) 0%, transparent 70%); border-radius: 50%; }
+.hdr-top { display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 2; margin-bottom: 12px; }
+.hdr-brand { font-family: var(--sans); font-weight: 800; font-size: 12pt; color: var(--gold); letter-spacing: 2px; text-transform: uppercase; }
+.hdr-brand span { display: block; font-weight: 400; color: rgba(255,255,255,.55); font-size: 8pt; letter-spacing: 1.2px; margin-top: 3px; }
+.hdr-date { font-family: var(--sans); font-size: 9pt; color: rgba(236,201,75,.75); font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase; text-align: right; }
+.hdr-date span { display: block; color: var(--gp-red); font-weight: 800; margin-bottom: 3px; letter-spacing: 2.5px; font-size: 8.5pt; }
+.hdr-eyebrow { position: relative; z-index: 2; font-family: var(--sans); font-size: 9pt; font-weight: 700; letter-spacing: 3px; color: rgba(255,255,255,.6); text-transform: uppercase; margin-bottom: 6px; }
+.hdr-title { position: relative; z-index: 2; font-family: var(--serif); font-weight: 800; font-size: 24pt; line-height: 1.06; letter-spacing: -.5px; color: var(--near-white); }
+.hdr-title em { font-style: italic; color: var(--gold); font-weight: 700; }
+.hdr-sub { position: relative; z-index: 2; font-family: var(--sans); font-weight: 400; font-size: 10pt; color: rgba(255,255,255,.88); line-height: 1.5; margin-top: 8px; max-width: 620px; }
+.hdr-sub strong { color: var(--near-white); font-weight: 700; }
+
+.hdr-compact { padding: 14px 40px 12px; }
+.hdr-compact .hdr-title { font-size: 18pt; }
+.hdr-compact .hdr-sub { display: none; }
+
+.body { padding: 20px 40px 12px; flex: 1; overflow: hidden; display: flex; flex-direction: column; }
+.body.tight { padding: 14px 40px 8px; }
+
+.section-hdr { font-family: var(--sans); font-weight: 800; font-size: 11pt; color: var(--gp-navy); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px; padding-bottom: 6px; border-bottom: 2px solid var(--gold); display: flex; align-items: center; gap: 10px; }
+.section-hdr .num { font-family: var(--serif); font-weight: 900; font-size: 16pt; color: var(--amber); line-height: 1; }
+.section-hdr.small { font-size: 9pt; margin-bottom: 6px; padding-bottom: 4px; }
+.section-hdr.small .num { font-size: 12pt; }
+
+.lede { font-family: var(--sans); font-size: 9pt; color: var(--text); line-height: 1.55; margin-bottom: 12px; }
+.lede strong { color: var(--gp-navy); font-weight: 700; }
+.lede em { color: var(--amber); font-style: italic; }
+
+.p { font-family: var(--sans); font-size: 9pt; color: var(--text); line-height: 1.5; margin-bottom: 6px; }
+.p strong { color: var(--gp-navy); font-weight: 700; }
+
+/* Cover BLUF */
+.cover-bluf { margin-top: 6px; background: linear-gradient(135deg, #F7FAFC 0%, #EDF2F7 100%); border: 1px solid var(--g200); border-left: 4px solid var(--amber); border-radius: 8px; padding: 16px 20px; }
+.cover-bluf-lbl { font-family: var(--sans); font-size: 7.5pt; font-weight: 800; letter-spacing: 1.8px; color: var(--amber); text-transform: uppercase; margin-bottom: 6px; }
+.cover-bluf-t { font-family: var(--serif); font-weight: 700; font-style: italic; font-size: 13.5pt; color: var(--gp-navy); line-height: 1.35; letter-spacing: -.2px; }
+.cover-bluf-t em { color: var(--gp-red); font-style: italic; }
+
+.cover-meta { margin-top: 14px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.cover-meta-card { background: var(--paper); border: 1px solid var(--g200); border-top: 3px solid var(--gp-navy); border-radius: 8px; padding: 10px 14px; }
+.cover-meta-card.gold { border-top-color: var(--amber); }
+.cover-meta-lbl { font-family: var(--sans); font-size: 7.5pt; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gp-navy); margin-bottom: 6px; }
+.cover-meta-card.gold .cover-meta-lbl { color: var(--amber); }
+.cover-meta-body { font-family: var(--sans); font-size: 8.5pt; color: var(--g600); line-height: 1.4; }
+.cover-meta-body strong { color: var(--gp-navy); font-weight: 700; }
+
+.cover-context { margin-top: 12px; background: var(--gp-navy); color: var(--near-white); padding: 14px 20px; border-radius: 10px; position: relative; overflow: hidden; }
+.cover-context::before { content: ""; position: absolute; top: 0; right: 0; width: 200px; height: 200px; background: radial-gradient(circle, rgba(236,201,75,.15) 0%, transparent 70%); border-radius: 50%; }
+.cover-context-lbl { position: relative; z-index: 2; font-family: var(--sans); font-size: 8pt; font-weight: 800; letter-spacing: 2px; color: var(--gold); text-transform: uppercase; margin-bottom: 6px; }
+.cover-context-body { position: relative; z-index: 2; font-family: var(--sans); font-size: 9pt; color: rgba(255,255,255,.9); line-height: 1.55; }
+.cover-context-body strong { color: var(--near-white); font-weight: 700; }
+
+/* Modos overview */
+.modos-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-top: 4px; }
+.modo-card { background: var(--paper); border: 1px solid var(--g200); border-top: 4px solid var(--gp-navy); border-radius: 10px; padding: 14px 16px; display: flex; flex-direction: column; }
+.modo-card.red { border-top-color: var(--gp-red); }
+.modo-card.gold { border-top-color: var(--amber); }
+.modo-card-num { font-family: var(--serif); font-weight: 900; font-size: 32pt; color: var(--gp-navy); line-height: 1; margin-bottom: 6px; }
+.modo-card.red .modo-card-num { color: var(--gp-red); }
+.modo-card.gold .modo-card-num { color: var(--amber); }
+.modo-card-eyebrow { font-family: var(--sans); font-size: 7.5pt; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: var(--g500); margin-bottom: 3px; }
+.modo-card-t { font-family: var(--serif); font-weight: 800; font-size: 13pt; color: var(--gp-navy); line-height: 1.15; letter-spacing: -.2px; margin-bottom: 8px; }
+.modo-card-body { font-family: var(--sans); font-size: 8pt; color: var(--g600); line-height: 1.45; flex: 1; }
+.modo-card-body strong { color: var(--gp-navy); font-weight: 700; }
+
+/* Tabla */
+.tbl { width: 100%; border-collapse: collapse; margin-top: 4px; font-family: var(--sans); font-size: 8pt; }
+.tbl th { background: var(--gp-navy); color: var(--near-white); padding: 8px 10px; text-align: left; font-size: 8pt; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+.tbl td { padding: 8px 10px; border-bottom: 1px solid var(--g200); font-size: 8.5pt; color: var(--text); }
+.tbl tr:last-child td { border-bottom: none; }
+.tbl td strong { color: var(--gp-navy); font-weight: 700; }
+.tbl td.num { text-align: right; font-variant-numeric: tabular-nums; }
+.tbl td.center { text-align: center; }
+.tbl-hdr-red th { background: var(--gp-red); }
+.tbl-hdr-gold th { background: var(--amber); }
+
+.priority-block { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-top: 8px; }
+.priority-card { background: var(--paper); border: 1px solid var(--g200); border-top: 3px solid var(--deep-green); border-radius: 8px; padding: 12px 14px; }
+.priority-card.amber { border-top-color: var(--amber); }
+.priority-card.red { border-top-color: var(--gp-red); }
+.priority-lbl { font-family: var(--sans); font-size: 7.5pt; font-weight: 800; letter-spacing: 1.4px; text-transform: uppercase; color: var(--deep-green); margin-bottom: 3px; }
+.priority-card.amber .priority-lbl { color: var(--amber); }
+.priority-card.red .priority-lbl { color: var(--gp-red); }
+.priority-title { font-family: var(--serif); font-weight: 700; font-size: 10pt; color: var(--gp-navy); margin-bottom: 4px; letter-spacing: -.1px; }
+.priority-detail { font-family: var(--sans); font-size: 8pt; color: var(--g600); line-height: 1.45; }
+.priority-detail strong { color: var(--gp-navy); font-weight: 700; }
+.priority-marcas { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 8px; }
+.marca-chip { background: var(--g100); color: var(--gp-navy); font-family: var(--sans); font-size: 7pt; font-weight: 700; padding: 2px 8px; border-radius: 10px; letter-spacing: .3px; }
+.priority-card.red .marca-chip { background: rgba(200,16,46,.12); color: var(--gp-red); }
+.priority-card.amber .marca-chip { background: rgba(214,158,46,.12); color: var(--amber); }
+
+/* Callouts */
+.callout { margin-top: 10px; padding: 12px 16px; border-radius: 8px; border-left: 4px solid; }
+.callout.navy { background: linear-gradient(to right, rgba(30,39,64,.08), rgba(30,39,64,.02)); border-left-color: var(--gp-navy); }
+.callout.gold { background: linear-gradient(to right, rgba(236,201,75,.12), rgba(236,201,75,.02)); border-left-color: var(--amber); }
+.callout.red { background: linear-gradient(to right, rgba(200,16,46,.08), rgba(200,16,46,.02)); border-left-color: var(--gp-red); }
+.callout.green { background: linear-gradient(to right, rgba(39,103,73,.10), rgba(39,103,73,.02)); border-left-color: var(--deep-green); }
+.callout-lbl { font-family: var(--sans); font-size: 7.5pt; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 5px; }
+.callout.navy .callout-lbl { color: var(--gp-navy); }
+.callout.gold .callout-lbl { color: var(--amber); }
+.callout.red .callout-lbl { color: var(--gp-red); }
+.callout.green .callout-lbl { color: var(--deep-green); }
+.callout-body { font-family: var(--sans); font-size: 8.5pt; color: var(--text); line-height: 1.55; }
+.callout-body strong { color: var(--gp-navy); font-weight: 700; }
+
+/* Timeline Gantt */
+.gantt { background: var(--paper); border: 1px solid var(--g200); border-radius: 8px; padding: 12px; margin-top: 8px; overflow: hidden; }
+.gantt-hdr { display: grid; grid-template-columns: 140px repeat(13, 1fr); gap: 2px; font-family: var(--sans); font-weight: 800; font-size: 7pt; color: var(--g500); text-transform: uppercase; letter-spacing: .5px; padding-bottom: 6px; border-bottom: 1px solid var(--g200); margin-bottom: 6px; }
+.gantt-hdr div { text-align: center; }
+.gantt-hdr div:first-child { text-align: left; }
+.gantt-row { display: grid; grid-template-columns: 140px repeat(13, 1fr); gap: 2px; padding: 3px 0; font-size: 7.5pt; align-items: center; }
+.gantt-row.section { border-top: 1px solid var(--g200); margin-top: 4px; padding-top: 6px; }
+.gantt-lbl { font-weight: 700; color: var(--gp-navy); font-family: var(--sans); font-size: 7.5pt; }
+.gantt-lbl.sub { padding-left: 10px; font-weight: 500; color: var(--g600); }
+.gantt-cell { height: 12px; border-radius: 2px; background: transparent; }
+.gantt-cell.act { background: var(--deep-blue); }
+.gantt-cell.build { background: var(--amber); }
+.gantt-cell.milestone { background: var(--gp-red); }
+.gantt-cell.ops { background: rgba(39,103,73,.4); border: 1px dashed var(--deep-green); }
+.gantt-legend { display: flex; gap: 12px; justify-content: center; margin-top: 10px; font-size: 7pt; color: var(--g600); }
+.gantt-legend span { display: flex; align-items: center; gap: 4px; }
+.gantt-legend .dot { width: 10px; height: 8px; border-radius: 2px; background: var(--deep-blue); display: inline-block; }
+.gantt-legend .dot.build { background: var(--amber); }
+.gantt-legend .dot.milestone { background: var(--gp-red); }
+.gantt-legend .dot.ops { background: rgba(39,103,73,.4); border: 1px dashed var(--deep-green); }
+
+/* Métricas éxito */
+.milestones { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-top: 6px; }
+.milestone-card { background: var(--paper); border: 1px solid var(--g200); border-top: 3px solid var(--gp-red); border-radius: 8px; padding: 10px 12px; }
+.milestone-lbl { font-family: var(--sans); font-size: 7.5pt; font-weight: 800; letter-spacing: 1.4px; color: var(--gp-red); text-transform: uppercase; margin-bottom: 4px; }
+.milestone-t { font-family: var(--serif); font-weight: 700; font-size: 11pt; color: var(--gp-navy); margin-bottom: 5px; letter-spacing: -.2px; }
+.milestone-list { list-style: none; padding: 0; margin: 0; }
+.milestone-list li { padding: 3px 0 3px 14px; position: relative; font-size: 7.5pt; color: var(--g600); line-height: 1.4; }
+.milestone-list li::before { content: "→"; position: absolute; left: 0; color: var(--gp-red); font-weight: 700; }
+.milestone-list li strong { color: var(--gp-navy); font-weight: 700; }
+
+/* Footer */
+.foot { padding: 10px 40px; background: var(--g100); border-top: 1px solid var(--g200); display: flex; justify-content: space-between; align-items: center; font-family: var(--sans); font-size: 7.5pt; color: var(--g500); flex-shrink: 0; }
+.foot strong { color: var(--gp-navy); font-weight: 700; letter-spacing: .5px; text-transform: uppercase; }
+</style>
+</head>
+<body>
+
+<!-- ============================ PÁGINA 1 · COVER + BLUF ============================ -->
+<div class="page">
+  <div class="hdr">
+    <div class="hdr-top">
+      <div>
+        <div class="hdr-brand">Grupo Plasencia Automotriz<span>Marketing y Digital · Dirección Corporativa</span></div>
+      </div>
+      <div class="hdr-date"><span>Confidencial</span>Agosto 2026 · v0.1</div>
+    </div>
+    <div class="hdr-eyebrow">Plan operativo · Primeros 90 días</div>
+    <h1 class="hdr-title">De marco aprobado <em>a operación</em></h1>
+    <p class="hdr-sub">Aterrizaje operativo de los <strong>tres modos de trabajo</strong> del Playbook v0.2. Foco en tracción medible, no en cobertura teórica. <strong>Priorización explícita por capacidad instalada.</strong></p>
+  </div>
+
+  <div class="body">
+    <div class="cover-bluf">
+      <div class="cover-bluf-lbl">En una frase</div>
+      <div class="cover-bluf-t">Cocreación con <em>5 marcas prioritarias</em>, beta público del Marketplace en <em>8 semanas</em> y contrato de compra de medios consolidada firmado en <em>6 semanas</em>. Todo bajo gobierno del <em>Comité de Transformación Digital</em> que se formaliza en semana 1.</div>
+    </div>
+
+    <div class="cover-meta">
+      <div class="cover-meta-card">
+        <div class="cover-meta-lbl">Sponsor</div>
+        <div class="cover-meta-body"><strong>Pepe Morales</strong> · Dirección de Finanzas · revisión inicial hoy · ronda con Andrés y Nicolás la próxima semana.</div>
+      </div>
+      <div class="cover-meta-card gold">
+        <div class="cover-meta-lbl">Owner operativo</div>
+        <div class="cover-meta-body"><strong>Jesús Pérez Porras</strong> · Dirección de Marketing y Transformación Digital · team-of-one + IA · capacidad ~40 horas por semana.</div>
+      </div>
+    </div>
+
+    <div class="cover-context">
+      <div class="cover-context-lbl">Ventana operativa</div>
+      <div class="cover-context-body">Semana 1 de agosto → semana 13 (última semana de octubre 2026). <strong>Tres reportes semáforo al Consejo:</strong> semana 4 (fin de fase build), semana 8 (fin de fase escalamiento) y semana 13 (cierre de 90 días con métricas medibles). Comité de Transformación Digital formalizado en semana 1 como órgano de gobierno del plan.</div>
+    </div>
+
+    <div class="cover-context" style="background: linear-gradient(135deg, #C8102E 0%, #A00A25 100%);">
+      <div class="cover-context-lbl" style="color: var(--gold);">Filosofía · calidad sobre cobertura</div>
+      <div class="cover-context-body">No se aborda a las 11 marcas del portafolio en Modo 1 desde la semana 1. Se prioriza <strong>5 marcas Fase 1</strong> (pilotos operando + confirmadas en cola) para asegurar cocreación de plan comercial con calidad y firma tripartita. Fase 2 y Fase 3 se activan por <strong>pull comercial</strong>, no por push de la Dirección.</div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <span><strong>Grupo Plasencia</strong> · Plan 90 Días · Dirección de Marketing y TxD</span>
+    <span>Agosto 2026 · Confidencial · Página 1 de 7</span>
+  </div>
+</div>
+
+<!-- ============================ PÁGINA 2 · PRIORIZACIÓN + 3 MODOS ============================ -->
+<div class="page">
+  <div class="hdr hdr-compact">
+    <div class="hdr-eyebrow">Capítulo 1 · Prioridades y filosofía</div>
+    <h1 class="hdr-title">Priorización por <em>capacidad instalada</em></h1>
+  </div>
+
+  <div class="body">
+    <p class="lede"><strong>Team-of-one + IA cubre ~40 horas por semana efectivas.</strong> El Modo 1 de cocreación consume aproximadamente 4 horas por semana por marca durante las primeras 4 semanas (sesión + preparación + redacción del plan + circulación firma). Cinco marcas en Fase 1 equivalen a 20 horas por semana en Modo 1, dejando espacio para el build del Marketplace (Modo 2) y el RFP de compra de medios (Modo 3). Once marcas simultáneas serían infactibles.</p>
+
+    <div class="section-hdr small"><span class="num">A</span>Priorización canonizada · 3 fases</div>
+
+    <div class="priority-block">
+      <div class="priority-card">
+        <div class="priority-lbl">Fase 1 · Semanas 1 a 6</div>
+        <div class="priority-title">Confirmadas o en piloto</div>
+        <div class="priority-detail">Pilotos operando o solicitud explícita en cola. Arranque escalonado para no saturar. <strong>Cocreación + firma tripartita en 4 semanas por marca.</strong></div>
+        <div class="priority-marcas">
+          <span class="marca-chip">Seminuevos</span>
+          <span class="marca-chip">Hyundai</span>
+          <span class="marca-chip">GAC</span>
+          <span class="marca-chip">Changan</span>
+          <span class="marca-chip">Flotillas</span>
+        </div>
+      </div>
+
+      <div class="priority-card amber">
+        <div class="priority-lbl">Fase 2 · Semanas 7 a 10</div>
+        <div class="priority-title">Backlog activo + dogfooding</div>
+        <div class="priority-detail">Stellantis se suma cuando las Fase 1 pasan a cadencia mensual (baja de 4 hr a 1 hr por semana por marca). Corporativo se aplica al propio flujo con experiencia acumulada de Fase 1.</div>
+        <div class="priority-marcas">
+          <span class="marca-chip">Stellantis</span>
+          <span class="marca-chip">Corporativo</span>
+        </div>
+      </div>
+
+      <div class="priority-card red">
+        <div class="priority-lbl">Fase 3 · Semanas 11 a 13</div>
+        <div class="priority-title">Pull explícito o esperan</div>
+        <div class="priority-detail">Solo se activan si el Consejo o las Direcciones de Familia empujan top-down, o si el Director de Marca lo pide con solicitud expresa. <strong>Modelo pull, no push.</strong></div>
+        <div class="priority-marcas">
+          <span class="marca-chip">Mazda</span>
+          <span class="marca-chip">Ford</span>
+          <span class="marca-chip">GWM</span>
+          <span class="marca-chip">Isuzu</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-hdr small" style="margin-top: 16px;"><span class="num">B</span>Los 3 modos aterrizados en 90 días</div>
+
+    <div class="modos-grid">
+      <div class="modo-card">
+        <div class="modo-card-num">01</div>
+        <div class="modo-card-eyebrow">Cocreación estratégica</div>
+        <div class="modo-card-t">Plan comercial firmado tripartita</div>
+        <div class="modo-card-body">Cocreación del plan comercial de marketing de cada marca Fase 1. Cuatro momentos: inmersión, cocreación del plan, firma tripartita (Dirección de Familia, Director de Marca, Director de MKT) y seguimiento cercano. <strong>Meta 90 días: 7 planes firmados (5 Fase 1 + 2 Fase 2).</strong></div>
+      </div>
+
+      <div class="modo-card red">
+        <div class="modo-card-num">02</div>
+        <div class="modo-card-eyebrow">Lead a venta</div>
+        <div class="modo-card-t">Marketplace beta público</div>
+        <div class="modo-card-body">Conversión de las tiendas del piloto en un producto marketplace unificado. Cada marca sube su feed de catálogo (modelo Mercado Libre o Shopify). Dirección habilita el canal digital, la marca es responsable de gestión de piso y venta. <strong>Meta 90 días: beta público operando con 5 marcas.</strong></div>
+      </div>
+
+      <div class="modo-card gold">
+        <div class="modo-card-num">03</div>
+        <div class="modo-card-eyebrow">Agencia interna</div>
+        <div class="modo-card-t">RFP compra de medios consolidada</div>
+        <div class="modo-card-body">Primer RFP formal de la Dirección para centralizar la compra de medios cross-marca bajo el esquema de compras de Finanzas. Dos proveedores actuales y uno propuesto por la Dirección. Voto del Comité de Transformación Digital. <strong>Meta 90 días: contrato firmado y operación centralizada arrancando.</strong></div>
+      </div>
+    </div>
+
+    <div class="callout navy" style="margin-top: 12px;">
+      <div class="callout-lbl">Gobierno del plan · Comité de Transformación Digital</div>
+      <div class="callout-body">Se formaliza en semana 1 como órgano de gobierno permanente. Composición: <strong>Andrés y Nicolás (Direcciones de Familia)</strong>, <strong>Pepe Morales (Dirección de Finanzas)</strong>, <strong>Jesús Pérez Porras (Dirección de MKT y TxD)</strong>, <strong>Sergio (Dirección de Compras)</strong> como validador operativo. Se invita a Directores de Marca puntuales según el tema. El Comité vota decisiones cross-marca del plan (selección de proveedor de medios, autorización de Customer Success, aprobación de escalamiento del Marketplace).</div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <span><strong>Grupo Plasencia</strong> · Plan 90 Días · Dirección de Marketing y TxD</span>
+    <span>Agosto 2026 · Confidencial · Página 2 de 7</span>
+  </div>
+</div>
+
+<!-- ============================ PÁGINA 3 · MODO 1 COCREACIÓN ============================ -->
+<div class="page">
+  <div class="hdr hdr-compact">
+    <div class="hdr-eyebrow">Modo 1 de 3 · Cocreación estratégica</div>
+    <h1 class="hdr-title">Plan comercial <em>firmado por marca</em></h1>
+  </div>
+
+  <div class="body">
+    <p class="lede">Sesiones semanales con gerentes y directores para <strong>cocrear el plan comercial de marketing</strong> de cada marca prioritaria. La Dirección no llega con recomendaciones prescritas; llega a escuchar el plan comercial que ya tiene la marca y retroalimentarlo o construirlo juntos si no existe. El plan resultante se <strong>firma tripartita</strong> (Dirección de Familia autoriza, Director de Marca firma, Director de MKT firma) y se opera de forma conjunta durante el horizonte.</p>
+
+    <div class="section-hdr small"><span class="num">A</span>Cadencia por marca (4 momentos del Playbook)</div>
+
+    <table class="tbl">
+      <thead>
+        <tr>
+          <th>Momento</th>
+          <th>Duración</th>
+          <th>Semana relativa a la marca</th>
+          <th>Entregable</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Inmersión</strong></td>
+          <td>45 a 60 min</td>
+          <td>Semana 1</td>
+          <td>Notas de contexto, prioridades, iniciativas en curso</td>
+        </tr>
+        <tr>
+          <td><strong>Cocreación del plan</strong></td>
+          <td>2 sesiones × 60 min</td>
+          <td>Semanas 2 y 3</td>
+          <td>Draft del plan comercial · calendario H2 · activaciones · KPIs · 3 a 5 líneas prioritarias con cifra monetizada</td>
+        </tr>
+        <tr>
+          <td><strong>Firma tripartita</strong></td>
+          <td>Sesión 45 min + circulación</td>
+          <td>Semana 4</td>
+          <td>Plan firmado por Dirección de Familia, Director de Marca y Director de MKT</td>
+        </tr>
+        <tr>
+          <td><strong>Seguimiento cercano</strong></td>
+          <td>30 min bisemanal · después mensual desde el mes 4</td>
+          <td>Semana 5 en adelante</td>
+          <td>Semáforo de avance por línea del plan</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="section-hdr small" style="margin-top: 12px;"><span class="num">B</span>Escalonamiento Fase 1 · una marca arranca por semana</div>
+
+    <p class="p">El escalonamiento evita picos de carga. Cada marca entra al ciclo de 4 semanas una semana después de la anterior. En la semana 5, Seminuevos ya está en seguimiento mensual mientras Flotillas está en semana 1 (inmersión). El load promedio se mantiene en aproximadamente 20 horas por semana en Modo 1 durante Fase 1.</p>
+
+    <table class="tbl" style="margin-top: 6px;">
+      <thead class="tbl-hdr-gold">
+        <tr>
+          <th>Marca</th>
+          <th>Sem 1</th>
+          <th>Sem 2</th>
+          <th>Sem 3</th>
+          <th>Sem 4</th>
+          <th>Sem 5</th>
+          <th>Sem 6</th>
+          <th>Sem 7+</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Seminuevos</strong></td><td class="center">Inm.</td><td class="center">Coc.</td><td class="center">Coc.</td><td class="center">Firma</td><td class="center">Seg.</td><td class="center">Seg.</td><td class="center">Mensual</td></tr>
+        <tr><td><strong>Hyundai</strong></td><td class="center">—</td><td class="center">Inm.</td><td class="center">Coc.</td><td class="center">Coc.</td><td class="center">Firma</td><td class="center">Seg.</td><td class="center">Mensual</td></tr>
+        <tr><td><strong>GAC</strong></td><td class="center">—</td><td class="center">—</td><td class="center">Inm.</td><td class="center">Coc.</td><td class="center">Coc.</td><td class="center">Firma</td><td class="center">Seg.</td></tr>
+        <tr><td><strong>Changan</strong></td><td class="center">—</td><td class="center">—</td><td class="center">—</td><td class="center">Inm.</td><td class="center">Coc.</td><td class="center">Coc.</td><td class="center">Firma S7</td></tr>
+        <tr><td><strong>Flotillas</strong></td><td class="center">—</td><td class="center">—</td><td class="center">—</td><td class="center">—</td><td class="center">Inm.</td><td class="center">Coc.</td><td class="center">Firma S8</td></tr>
+        <tr><td><strong>Stellantis</strong> (F2)</td><td class="center">—</td><td class="center">—</td><td class="center">—</td><td class="center">—</td><td class="center">—</td><td class="center">—</td><td class="center">Arranca S8</td></tr>
+        <tr><td><strong>Corporativo</strong> (F2)</td><td class="center">—</td><td class="center">—</td><td class="center">—</td><td class="center">—</td><td class="center">—</td><td class="center">—</td><td class="center">Arranca S9</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout gold" style="margin-top: 12px;">
+      <div class="callout-lbl">Materiales requeridos · a construir en semana 0</div>
+      <div class="callout-body"><strong>Template de Plan Comercial de Marketing</strong> (1 pág A4, 5 secciones: calendario · activaciones · KPIs · presupuesto · firmantes). <strong>Instrumento de firma tripartita</strong> (PDF firmable o DocuSign). <strong>Semáforo de avance</strong> (extensión del Directorio de Proveedores o hoja separada). El template se estandariza para asegurar comparabilidad cross-marca al reportar al Consejo.</div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <span><strong>Grupo Plasencia</strong> · Plan 90 Días · Dirección de Marketing y TxD</span>
+    <span>Agosto 2026 · Confidencial · Página 3 de 7</span>
+  </div>
+</div>
+
+<!-- ============================ PÁGINA 4 · MODO 2 MARKETPLACE ============================ -->
+<div class="page">
+  <div class="hdr hdr-compact">
+    <div class="hdr-eyebrow">Modo 2 de 3 · Lead a venta</div>
+    <h1 class="hdr-title">Marketplace beta · <em>de tiendas a producto</em></h1>
+  </div>
+
+  <div class="body">
+    <p class="lede">Se convierten las cuatro tiendas del piloto Motor de Atribución (Seminuevos, Hyundai, Stellantis, GAC) en el <strong>producto Marketplace del Grupo</strong> en su versión beta. Cada marca opera como <em>vendedor</em> del marketplace (modelo Mercado Libre o Shopify): sube su feed de catálogo, gestiona su equipo comercial digital y capitaliza las ventas. La Dirección de MKT y TxD <strong>habilita el producto digital y el canal de ventas</strong>, opera el motor de adquisición hasta la cita agendada y transfiere los aprendizajes.</p>
+
+    <div class="section-hdr small"><span class="num">A</span>Split de responsabilidad · quién hace qué</div>
+
+    <table class="tbl">
+      <thead>
+        <tr>
+          <th>Componente</th>
+          <th>Dirección de MKT y TxD</th>
+          <th>La marca</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Feed de catálogo</strong></td>
+          <td>Especifica el formato JSON o CSV estandarizado · valida ingesta</td>
+          <td>Sube y mantiene actualizado su inventario</td>
+        </tr>
+        <tr>
+          <td><strong>Producto digital + canal</strong></td>
+          <td>Landing marketplace · pipeline visible · IA conversacional Karbot · atribución posterior al clic</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td><strong>Adquisición hasta cita agendada</strong></td>
+          <td>Pauta en Meta y Google · Karbot atiende y agenda</td>
+          <td>Fondea el piso ($35K MXN/mes de pauta pura)</td>
+        </tr>
+        <tr>
+          <td><strong>Cita en adelante</strong></td>
+          <td>—</td>
+          <td>Equipo comercial digital confirma, garantiza visita al piso, cierra venta, registra en DCA</td>
+        </tr>
+        <tr>
+          <td><strong>Retroalimentación al motor</strong></td>
+          <td>Recibe show/no-show y venta cerrada · optimiza campañas</td>
+          <td>Reporta show/no-show y venta cerrada diligentemente</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="section-hdr small" style="margin-top: 12px;"><span class="num">B</span>Roadmap 8 semanas · beta interno S4, beta público S8</div>
+
+    <table class="tbl">
+      <thead>
+        <tr>
+          <th>Sem</th>
+          <th>Actividad</th>
+          <th>Entregable</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="center"><strong>S1</strong></td><td>Especificación del producto marketplace (multi-tenant, feed de catálogo por marca, gobernanza). Escalar rol Customer Success a Consejo.</td><td>Doc de especificación + solicitud formal del rol</td></tr>
+        <tr><td class="center"><strong>S2</strong></td><td>Diseño de arquitectura técnica (schema catálogo, API feed, deploys, integración Karbot cross-marca).</td><td>Diagrama de arquitectura + endpoints definidos</td></tr>
+        <tr><td class="center"><strong>S3</strong></td><td>Build del backend (Worker + D1 unificado catálogo, Karbot per-tenant, atribución unificada).</td><td>Backend beta funcional</td></tr>
+        <tr><td class="center"><strong>S4</strong></td><td>Build del frontend marketplace + integración con las landings existentes. <strong>Beta interno lanzado con Seminuevos.</strong></td><td>Landing marketplace + Seminuevos operando</td></tr>
+        <tr><td class="center"><strong>S5</strong></td><td>Testing con Seminuevos · corrección de bugs · onboarding de la segunda marca (Hyundai).</td><td>Beta interno estable · 2 marcas activas</td></tr>
+        <tr><td class="center"><strong>S6</strong></td><td>Customer Success onboarded (asumiendo autorización del Consejo en S1-S3). SOP formal de retroalimentación.</td><td>Rol CS operando · reportando a la Dirección</td></tr>
+        <tr><td class="center"><strong>S7</strong></td><td>Onboarding acelerado: GAC · Changan · Flotillas al marketplace.</td><td>5 marcas activas</td></tr>
+        <tr><td class="center"><strong>S8</strong></td><td><strong>Beta público con las 5 marcas.</strong> Reporte semanal a Pepe y al Consejo con métricas.</td><td>Beta público estable · métricas visibles</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout red" style="margin-top: 12px;">
+      <div class="callout-lbl">Autorización pendiente del Comité de TxD · Customer Success</div>
+      <div class="callout-body">El rol de <strong>Customer Success reportando a la Dirección de MKT</strong> es requisito para el beta público del marketplace. Sin el rol, el loop de retroalimentación (show/no-show, venta cerrada) queda dependiente del voluntarismo de los equipos comerciales de cada marca y el motor de atribución pierde señal. La solicitud formal se escala al Consejo en semana 1 y se espera respuesta a más tardar semana 3 para no bloquear el beta público.</div>
+    </div>
+
+    <div class="callout navy" style="margin-top: 8px;">
+      <div class="callout-lbl">Fondeo por marca · piso comprometido</div>
+      <div class="callout-body"><strong>$35,000 MXN por mes de pauta pura</strong> como mínimo obligatorio para que el algoritmo aprenda con volumen suficiente. Los servicios operativos (setup, integraciones, tablero, atribución) van cotizados como parte de la propuesta del piloto según el alcance de cada marca. <strong>Marketing Ops adicional (TBD)</strong> se define caso por caso en la propuesta específica de cada marca.</div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <span><strong>Grupo Plasencia</strong> · Plan 90 Días · Dirección de Marketing y TxD</span>
+    <span>Agosto 2026 · Confidencial · Página 4 de 7</span>
+  </div>
+</div>
+
+<!-- ============================ PÁGINA 5 · MODO 3 RFP ============================ -->
+<div class="page">
+  <div class="hdr hdr-compact">
+    <div class="hdr-eyebrow">Modo 3 de 3 · Agencia interna</div>
+    <h1 class="hdr-title">RFP compra de medios · <em>consolidación cross-marca</em></h1>
+  </div>
+
+  <div class="body">
+    <p class="lede">Primer RFP formal de la Dirección para centralizar la compra de medios cross-marca. Se opera <strong>bajo el esquema de compras de la Dirección de Finanzas</strong>, con dos proveedores actuales del Grupo y uno propuesto por la Dirección. Selección por <strong>voto ponderado del Comité de Transformación Digital</strong>. El proveedor ganador arranca la operación centralizada bajo intercompany con IVA acreditable al 100%.</p>
+
+    <div class="section-hdr small"><span class="num">A</span>Roadmap 5 semanas · desde brief hasta contrato firmado</div>
+
+    <table class="tbl">
+      <thead>
+        <tr>
+          <th>Sem</th>
+          <th>Actividad</th>
+          <th>Materiales</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="center"><strong>S1</strong></td><td>Preparación del RFP con Sergio (Compras) y Pepe (Finanzas). Brief formal, criterios de evaluación ponderados, presupuesto anual estimado, KPIs y timeline.</td><td>Doc RFP (5 a 7 págs A4) + matriz de criterios</td></tr>
+        <tr><td class="center"><strong>S2</strong></td><td>Invitación a los 3 candidatos: 2 proveedores actuales del Grupo + 1 propuesto por la Dirección. Firma de NDA. Sesión de Q&A abierta vía Teams.</td><td>Cartas de invitación + NDAs firmados</td></tr>
+        <tr><td class="center"><strong>S3</strong></td><td>Recepción de propuestas (deadline lunes S3). Scoring técnico (Chucho) y económico (Pepe) sobre la matriz de criterios ponderada.</td><td>Matriz de scoring poblada por los evaluadores</td></tr>
+        <tr><td class="center"><strong>S4</strong></td><td>Presentación de 30 min de cada proveedor al Comité de TxD. Deliberación y voto ponderado. Selección del ganador.</td><td>Actas del Comité + resolución de selección</td></tr>
+        <tr><td class="center"><strong>S5</strong></td><td>Notificación al ganador y a los no seleccionados (con feedback constructivo). Arranque de la negociación contractual.</td><td>Contrato firmado (target S6-S7)</td></tr>
+      </tbody>
+    </table>
+
+    <div class="section-hdr small" style="margin-top: 12px;"><span class="num">B</span>Criterios de evaluación · ponderación explícita</div>
+
+    <table class="tbl">
+      <thead>
+        <tr>
+          <th>Criterio</th>
+          <th style="width: 80px; text-align:center;">Peso</th>
+          <th>Qué se evalúa</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Precio y estructura de comisión</strong></td><td class="center"><strong>30%</strong></td><td>Comisión sobre pool consolidado · target 2% · escalabilidad por volumen</td></tr>
+        <tr><td><strong>Capacidad técnica y stack</strong></td><td class="center"><strong>25%</strong></td><td>Integraciones Meta, Google, GA4 · reporting · APIs · velocidad de operación</td></tr>
+        <tr><td><strong>Track record verificable</strong></td><td class="center"><strong>20%</strong></td><td>Referencias con grupos automotrices o retailers similares · casos con volumen equivalente</td></tr>
+        <tr><td><strong>Servicio y SLA</strong></td><td class="center"><strong>15%</strong></td><td>Response time · account manager dedicado · escalamiento · reporting</td></tr>
+        <tr><td><strong>Fit cultural y confidencialidad</strong></td><td class="center"><strong>10%</strong></td><td>Trato con Directores de Marca · manejo de conflictos entre marcas · protección de data</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout navy" style="margin-top: 12px;">
+      <div class="callout-lbl">Reglas del proceso · trazabilidad y equidad</div>
+      <div class="callout-body">NDA firmado antes de recibir el brief. Formato estandarizado de propuesta (máximo 15 págs). <strong>Anonimización de propuestas económicas hasta el día del voto</strong> para evitar sesgo de anclaje. Voto ponderado del Comité (no simple mayoría) para reflejar peso decisorio real. Documentación en acta de razones del voto de cada miembro. Feedback constructivo a proveedores no seleccionados para mantener la relación comercial.</div>
+    </div>
+
+    <div class="callout gold" style="margin-top: 8px;">
+      <div class="callout-lbl">Beneficios operativos y fiscales del ganador</div>
+      <div class="callout-body"><strong>Beneficio comercial:</strong> comisión negociada sobre pool consolidado significativamente menor a la comisión típica de agencia individual (10% a 20%). <strong>Beneficio fiscal:</strong> canalizada por la entidad del Grupo, la pauta se vuelve IVA acreditable al 100% (versus pago directo a Meta desde Irlanda, donde no aplica). <strong>Gobierno de activos:</strong> toda agencia con relación terminada está obligada a entregar los activos digitales del Grupo (píxeles, cuentas, catálogos, audiencias, dashboards).</div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <span><strong>Grupo Plasencia</strong> · Plan 90 Días · Dirección de Marketing y TxD</span>
+    <span>Agosto 2026 · Confidencial · Página 5 de 7</span>
+  </div>
+</div>
+
+<!-- ============================ PÁGINA 6 · TIMELINE + CAPACIDAD ============================ -->
+<div class="page">
+  <div class="hdr hdr-compact">
+    <div class="hdr-eyebrow">Capítulo 4 · Consolidación</div>
+    <h1 class="hdr-title">Timeline 90 días <em>y capacidad instalada</em></h1>
+  </div>
+
+  <div class="body">
+    <div class="section-hdr small"><span class="num">A</span>Timeline consolidado · 13 semanas</div>
+
+    <div class="gantt">
+      <div class="gantt-hdr">
+        <div>Actividad</div>
+        <div>S1</div><div>S2</div><div>S3</div><div>S4</div><div>S5</div><div>S6</div><div>S7</div><div>S8</div><div>S9</div><div>S10</div><div>S11</div><div>S12</div><div>S13</div>
+      </div>
+      <div class="gantt-row section"><div class="gantt-lbl">Modo 1 · Cocreación</div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+      <div class="gantt-row"><div class="gantt-lbl sub">Seminuevos</div><div class="gantt-cell act"></div><div class="gantt-cell act"></div><div class="gantt-cell act"></div><div class="gantt-cell milestone"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div></div>
+      <div class="gantt-row"><div class="gantt-lbl sub">Hyundai</div><div></div><div class="gantt-cell act"></div><div class="gantt-cell act"></div><div class="gantt-cell act"></div><div class="gantt-cell milestone"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div></div>
+      <div class="gantt-row"><div class="gantt-lbl sub">GAC</div><div></div><div></div><div class="gantt-cell act"></div><div class="gantt-cell act"></div><div class="gantt-cell act"></div><div class="gantt-cell milestone"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div></div>
+      <div class="gantt-row"><div class="gantt-lbl sub">Changan</div><div></div><div></div><div></div><div class="gantt-cell act"></div><div class="gantt-cell act"></div><div class="gantt-cell act"></div><div class="gantt-cell milestone"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div></div>
+      <div class="gantt-row"><div class="gantt-lbl sub">Flotillas</div><div></div><div></div><div></div><div></div><div class="gantt-cell act"></div><div class="gantt-cell act"></div><div class="gantt-cell act"></div><div class="gantt-cell milestone"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div></div>
+      <div class="gantt-row"><div class="gantt-lbl sub">Stellantis (F2)</div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div class="gantt-cell act"></div><div class="gantt-cell act"></div><div class="gantt-cell act"></div><div class="gantt-cell milestone"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div></div>
+      <div class="gantt-row"><div class="gantt-lbl sub">Corporativo (F2)</div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div class="gantt-cell act"></div><div class="gantt-cell act"></div><div class="gantt-cell act"></div><div class="gantt-cell milestone"></div><div class="gantt-cell ops"></div></div>
+
+      <div class="gantt-row section"><div class="gantt-lbl">Modo 2 · Marketplace</div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+      <div class="gantt-row"><div class="gantt-lbl sub">Spec + arquitectura</div><div class="gantt-cell build"></div><div class="gantt-cell build"></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+      <div class="gantt-row"><div class="gantt-lbl sub">Build backend</div><div></div><div></div><div class="gantt-cell build"></div><div class="gantt-cell build"></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+      <div class="gantt-row"><div class="gantt-lbl sub">Build frontend + beta interno</div><div></div><div></div><div></div><div class="gantt-cell milestone"></div><div class="gantt-cell build"></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+      <div class="gantt-row"><div class="gantt-lbl sub">Customer Success onboarded</div><div></div><div></div><div></div><div></div><div></div><div class="gantt-cell build"></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+      <div class="gantt-row"><div class="gantt-lbl sub">Onboarding masivo · beta público</div><div></div><div></div><div></div><div></div><div></div><div></div><div class="gantt-cell build"></div><div class="gantt-cell milestone"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div></div>
+
+      <div class="gantt-row section"><div class="gantt-lbl">Modo 3 · RFP</div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+      <div class="gantt-row"><div class="gantt-lbl sub">Brief + invitación + scoring</div><div class="gantt-cell act"></div><div class="gantt-cell act"></div><div class="gantt-cell act"></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+      <div class="gantt-row"><div class="gantt-lbl sub">Comité + voto + contrato</div><div></div><div></div><div></div><div class="gantt-cell milestone"></div><div class="gantt-cell act"></div><div class="gantt-cell milestone"></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+      <div class="gantt-row"><div class="gantt-lbl sub">Ops centralizada</div><div></div><div></div><div></div><div></div><div></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div></div>
+
+      <div class="gantt-row section"><div class="gantt-lbl">Reporte al Consejo</div><div></div><div></div><div></div><div class="gantt-cell milestone"></div><div></div><div></div><div></div><div class="gantt-cell milestone"></div><div></div><div></div><div></div><div class="gantt-cell milestone"></div><div></div></div>
+
+      <div class="gantt-legend">
+        <span><span class="dot"></span>Actividad</span>
+        <span><span class="dot build"></span>Build técnico</span>
+        <span><span class="dot ops"></span>Operación recurrente</span>
+        <span><span class="dot milestone"></span>Milestone / entregable</span>
+      </div>
+    </div>
+
+    <div class="section-hdr small" style="margin-top: 12px;"><span class="num">B</span>Capacidad estimada · semanas 1 a 8 (fase pico)</div>
+
+    <table class="tbl">
+      <thead>
+        <tr><th>Actividad</th><th class="center">Horas por semana</th><th>Notas</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Modo 1 · Cocreación 5 marcas Fase 1</td><td class="center">15 a 20</td><td>Escalonadas · pico en S3-S5 cuando hay 3-4 en cocreación simultánea</td></tr>
+        <tr><td>Modo 2 · Marketplace build y beta</td><td class="center">12 a 15</td><td>Intensivo en S2-S5 durante build backend y frontend</td></tr>
+        <tr><td>Modo 3 · RFP</td><td class="center">3 a 5</td><td>Concentrado en S1-S5 · después baja a mantenimiento</td></tr>
+        <tr><td>Reportes al Consejo · admin</td><td class="center">5 a 7</td><td>Preparación de reportes semáforo mensuales</td></tr>
+        <tr><td><strong>Total</strong></td><td class="center"><strong>35 a 47</strong></td><td>Se ajusta con IA. En pico requiere concentración.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="foot">
+    <span><strong>Grupo Plasencia</strong> · Plan 90 Días · Dirección de Marketing y TxD</span>
+    <span>Agosto 2026 · Confidencial · Página 6 de 7</span>
+  </div>
+</div>
+
+<!-- ============================ PÁGINA 7 · RIESGOS + MÉTRICAS ============================ -->
+<div class="page">
+  <div class="hdr hdr-compact">
+    <div class="hdr-eyebrow">Capítulo 5 · Éxito y riesgos</div>
+    <h1 class="hdr-title">Métricas de éxito <em>y mitigación de riesgos</em></h1>
+  </div>
+
+  <div class="body">
+    <div class="section-hdr small"><span class="num">A</span>Milestones y métricas de éxito por reporte al Consejo</div>
+
+    <div class="milestones">
+      <div class="milestone-card">
+        <div class="milestone-lbl">Reporte 1 · Semana 4</div>
+        <div class="milestone-t">Fin fase build</div>
+        <ul class="milestone-list">
+          <li>Plan comercial firmado tripartita para <strong>Seminuevos</strong> (primera marca)</li>
+          <li>Cocreación en curso para Hyundai, GAC, Changan</li>
+          <li><strong>Beta interno del Marketplace</strong> operando con Seminuevos</li>
+          <li>RFP compra de medios en <strong>fase de voto del Comité</strong></li>
+          <li>Comité de TxD formalizado y sesionando</li>
+        </ul>
+      </div>
+
+      <div class="milestone-card">
+        <div class="milestone-lbl">Reporte 2 · Semana 8</div>
+        <div class="milestone-t">Fin fase escalamiento</div>
+        <ul class="milestone-list">
+          <li><strong>4 marcas Fase 1</strong> con plan firmado y ejecutándose (SEM, HYU, GAC, Changan)</li>
+          <li>Flotillas en firma tripartita</li>
+          <li><strong>Beta público del Marketplace</strong> con las 5 marcas · Customer Success operando</li>
+          <li>Contrato de <strong>compra de medios centralizada firmado</strong> y operativo</li>
+          <li>Comité de TxD con 2 votaciones documentadas</li>
+        </ul>
+      </div>
+
+      <div class="milestone-card">
+        <div class="milestone-lbl">Reporte 3 · Semana 13</div>
+        <div class="milestone-t">Cierre 90 días</div>
+        <ul class="milestone-list">
+          <li><strong>7 marcas con plan firmado</strong> (5 Fase 1 + Stellantis + Corporativo)</li>
+          <li>Fase 3 activada por pull para marcas restantes</li>
+          <li>Marketplace escalado a 7 marcas activas · métricas visibles</li>
+          <li>Ahorro medible en compra de medios (baseline vs consolidado)</li>
+          <li>Directorio de Proveedores Plasencia cerrado · reconciliado contra DCA y BIFISCOR</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-hdr small" style="margin-top: 14px;"><span class="num">B</span>Riesgos identificados y mitigaciones</div>
+
+    <table class="tbl">
+      <thead>
+        <tr>
+          <th>Riesgo</th>
+          <th style="width: 80px;">Probabilidad</th>
+          <th>Mitigación</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Consejo no autoriza el rol de Customer Success en S1-S3</strong></td>
+          <td>Media</td>
+          <td>El beta interno de S4 opera sin CS. El beta público se retrasa 2 semanas hasta autorización. Escalar la solicitud en el próximo Consejo formal.</td>
+        </tr>
+        <tr>
+          <td><strong>Marcas Fase 1 no vienen a sesiones de cocreación</strong></td>
+          <td>Media-alta</td>
+          <td>Approach top-down: Andrés y Nicolás como cheerleaders piden a Directores de Marca que agenden. Si no se agenda en 2 semanas, la marca se despriorizará.</td>
+        </tr>
+        <tr>
+          <td><strong>RFP no atrae ofertas competitivas del nuevo proveedor</strong></td>
+          <td>Baja</td>
+          <td>Los 2 proveedores actuales ya están. Siempre habrá alguna oferta viable. Si el nuevo no funciona, se renegocia con el incumbent.</td>
+        </tr>
+        <tr>
+          <td><strong>Marketplace beta rompe UX de landings actuales</strong></td>
+          <td>Media</td>
+          <td>Deploy en URL separada. Las landings actuales no se tocan hasta que el beta público esté estable.</td>
+        </tr>
+        <tr>
+          <td><strong>Firma tripartita se atora en un Director</strong></td>
+          <td>Media</td>
+          <td>Sin firma no se ejecuta. La marca queda en cola. Cero recursos comprometidos. Riesgo político mínimo por diseño.</td>
+        </tr>
+        <tr>
+          <td><strong>Padre de Chucho requiere atención y baja conectividad</strong></td>
+          <td>Media</td>
+          <td>El plan tiene un buffer del 10% en capacidad. Cocreaciones son remote-friendly. Beta público puede correrse una semana si aplica.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout navy" style="margin-top: 12px;">
+      <div class="callout-lbl">Filosofía del plan · calidad sobre cobertura</div>
+      <div class="callout-body">El éxito de estos 90 días no se mide por cuántas marcas se tocaron, sino por cuántos <strong>planes comerciales firmados están ejecutándose con métricas visibles</strong>, cuántas ventas incrementales generó el Marketplace beta y cuánto ahorro se materializó en la consolidación de compra de medios. Es preferible entregar 5 marcas con plan firmado y ejecutando que 11 marcas con conversaciones abiertas sin cierre.</div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <span><strong>Grupo Plasencia</strong> · Plan 90 Días · Dirección de Marketing y TxD</span>
+    <span>Agosto 2026 · Confidencial · Página 7 de 7</span>
+  </div>
+</div>
+
+</body>
+</html>
