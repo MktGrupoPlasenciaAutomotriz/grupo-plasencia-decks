@@ -54,7 +54,7 @@ body.review-mode #nav-prev, body.review-mode #nav-next, body.review-mode #counte
 .content { padding: 48px 80px 60px 80px; flex:1; display:flex; flex-direction:column; gap: 16px; position:relative; }
 .section-num { font-family:var(--sans); font-size:10pt; font-weight:700; letter-spacing:4.5px; color: var(--gp-red); text-transform:uppercase; }
 .slide-h1 { font-family:var(--serif); font-weight:800; font-size:34pt; line-height:1.08; letter-spacing:-1.2px; color: var(--gp-navy); margin-top:6px; }
-.slide-h1 em { font-style:italic; color: var(--gp-red); font-weight:700; }
+.slide-h1 em { font-style:italic; color: var(--gold); font-weight:700; }
 .slide-lede { font-family:var(--sans); font-size:12pt; color: var(--g600); line-height:1.55; margin-top: 4px; max-width: 1100px; }
 .slide-lede strong { color: var(--gp-navy); font-weight:700; }
 .slide-lede em { font-style: italic; color: var(--gp-navy); }
@@ -187,7 +187,7 @@ table.deck-table { width:100%; border-collapse: collapse; font-family: var(--san
 <section class="slide cover active" data-slide="cover">
   <div class="cover-inner">
     <div class="cover-top">
-      <div class="cover-mark">Reporte del Piloto · Documento 2 de 3<span>Evidencia operativa de los primeros 79 días · Grupo Plasencia Automotriz</span></div>
+      <div class="cover-mark">Reporte del Piloto · Documento 2 de 3<span>Corte al 30 de junio de 2026 · Grupo Plasencia Automotriz</span></div>
       <div style="display:flex; align-items:center; gap:18px;">
         <img src="../assets/logos/LOGO-GP-Blanco.png" alt="Grupo Plasencia Automotriz" style="height:52px; width:auto; mix-blend-mode:screen; opacity:.95;"/>
         <div class="cover-confidencial">Confidencial</div>
@@ -195,9 +195,9 @@ table.deck-table { width:100%; border-collapse: collapse; font-family: var(--san
     </div>
     <div>
       <div class="cover-rule"></div>
-      <div class="cover-eyebrow">Reporte ejecutivo · 01 julio 2026</div>
-      <div class="cover-title">79 días de piloto. <em>La evidencia para convertir Marketing en Revenue & Profit Center.</em></div>
-      <div class="cover-subtitle">Este documento es la evidencia operativa de los primeros 79 días de esta Dirección. <strong>El Deep Dive</strong> describe a Marketing como cost center en su estado actual; <strong>este reporte</strong> demuestra con cifras auditadas vs DCA que la mecánica para convertirlo en Revenue & Profit Center ya funciona. <strong>El Resumen Ejecutivo</strong> toma ambas partes y plantea la decisión al Consejo.</div>
+      <div class="cover-eyebrow">Reporte ejecutivo · corte al 30 de junio de 2026</div>
+      <div class="cover-title">Marketing ya está probado. <em>Falta activar el modelo operativo de Ventas.</em></div>
+      <div class="cover-subtitle">Evidencia del piloto al <strong>30 de junio de 2026</strong>: Seminuevos 87 días · Stellantis 25 días desde Pivote 2 · Hyundai 23 días desde Pivote 2. El piloto probó el lado de Marketing con cifras auditadas vs DCA. Lo que falta activar es el <strong>modelo operativo de Ventas</strong> — el puente entre lo digital y el piso. En Seminuevos ese modelo opera con Vambe + gestión de piso; en Hyundai y Stellantis está pendiente. Esta evidencia conecta con el <strong>Resumen Ejecutivo al Consejo</strong>.</div>
     </div>
     <div class="cover-meta">
       <div class="cover-meta-block"><strong>Para</strong><span>Pepe Morales<br/>+ Consejo Directivo</span></div>
@@ -208,12 +208,50 @@ table.deck-table { width:100%; border-collapse: collapse; font-family: var(--san
   </div>
 </section>
 
+<section class="slide" data-slide="antesala-motor">
+  <div class="content" style="gap: 12px; padding: 32px 80px 52px 80px;">
+    <div>
+      <div class="section-num">Antesala · Qué es este piloto y por qué existe</div>
+      <h1 class="slide-h1" style="font-size: 32pt;">Antes no se podía trazar del anuncio a la venta. <em>Ahora sí.</em></h1>
+      <p class="slide-lede" style="font-size: 11pt;">Marketing gastaba en pauta sin poder demostrar cuántos autos vendió. Ventas cerraba en piso sin saber si el cliente venía del digital. Cada quien tenía su propia atribución · no había un solo criterio contable. La operación Marketing → Ventas no se medía punta a punta. <strong>Este piloto levantó la infraestructura que conecta el anuncio con el auto facturado en la contabilidad del Grupo</strong> — el <em>motor de atribución</em>.</p>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 18px;">
+      <div style="background: rgba(197,48,48,.06); border-left: 4px solid var(--gp-red); border-radius: 6px; padding: 14px 18px;">
+        <div style="font-family: var(--sans); font-size: 8pt; font-weight: 800; letter-spacing: 1.6px; text-transform: uppercase; color: var(--gp-red); margin-bottom: 8px;">El problema · lo que pasaba antes</div>
+        <ul style="margin: 0; padding-left: 18px; font-size: 10pt; line-height: 1.6; color: var(--g600);">
+          <li>No se sabía cuánto profit trajo cada peso de pauta al Grupo</li>
+          <li>Los leads del digital y las ventas del DMS eran dos mundos separados</li>
+          <li>Marketing operaba como cost center sin trazabilidad al P&L</li>
+          <li>La operación Marketing + Ventas no se medía como un solo ciclo</li>
+        </ul>
+      </div>
+      <div style="background: rgba(56,161,105,.06); border-left: 4px solid var(--deep-green); border-radius: 6px; padding: 14px 18px;">
+        <div style="font-family: var(--sans); font-size: 8pt; font-weight: 800; letter-spacing: 1.6px; text-transform: uppercase; color: var(--deep-green); margin-bottom: 8px;">La solución · lo que este piloto construyó</div>
+        <ul style="margin: 0; padding-left: 18px; font-size: 10pt; line-height: 1.6; color: var(--g600);">
+          <li>Landing propia por marca con formulario web (lead con intención real)</li>
+          <li>Eventos server-side a Meta y Google · el algoritmo aprende</li>
+          <li>WhatsApp con ruteo automático a la sucursal · IA (Vambe) califica y agenda</li>
+          <li>Tablero de pipeline visible marca por marca</li>
+          <li><strong>Matching contra la contabilidad</strong> · cada venta atada a un VIN</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout-big" style="padding: 12px 22px; background: var(--gp-navy); color: #FFF; border-radius: 8px;">
+      <div style="font-family: var(--sans); font-size: 9pt; font-weight: 800; letter-spacing: 1.6px; text-transform: uppercase; color: var(--gold); margin-bottom: 6px;">Qué es atribución · en lenguaje llano</div>
+      <p style="font-size: 11pt; color: rgba(255,255,255,.92); line-height: 1.5; margin: 0;">Atribución es <strong style="color: #FFF;">saber a qué esfuerzo comercial se le debe cada venta que aparece en la contabilidad</strong>. Este piloto lo hace cruzando el lead del digital con el VIN facturado en el DMS. <strong style="color: var(--gold);">La cifra deja de ser opinión · es contable.</strong> Todo lo que verás en los siguientes slides sale de ese cruce.</p>
+    </div>
+  </div>
+  <div class="slide-footer"><span>Slide 2 · Antesala · qué es el Motor de Atribución y por qué se levantó · corte al 30-jun-2026</span><span style="display:flex; align-items:center; gap:8px;"><img class="gp-logo" src="../assets/logos/Logo-GP-Negro.png" alt="GP"/>Grupo Plasencia Automotriz · Dirección MKT Corporativo</span></div>
+</section>
+
 <section class="slide" data-slide="cancha-comun">
   <div class="content" style="gap: 12px; padding: 36px 80px 56px 80px;">
     <div>
-      <div class="section-num">La cancha común · Ola 1 del Roadmap · 3 sub-olas de pilotos</div>
-      <h1 class="slide-h1" style="font-size: 26pt;">Mismo stack técnico, distinto handoff. <em>Una marca a la vez.</em></h1>
-      <p class="slide-lede" style="font-size: 10.5pt;">Las 3 marcas LIVE corren con el mismo sitio, datalayer, CAPI server-side y matching v8.3 contra DCA. <strong>La única variable que cambia es el handoff humano.</strong> Detrás hay 3 marcas en cascada inmediata (Flotillas a días del lanzamiento · Changan · GWM) y 3 más en backlog de largo plazo (Ford · Mazda · Autolease). <em>Todo el plan opera dentro de la Ola 1 del roadmap (Mes 0-12) que busca escalar REVOPS a las 10 marcas del Grupo.</em></p>
+      <div class="section-num">La cancha común · 3 marcas LIVE · corte al 30 de junio de 2026</div>
+      <h1 class="slide-h1" style="font-size: 26pt;">Misma cancha técnica en las 3 marcas. <em>La variable operativa aún no.</em></h1>
+      <p class="slide-lede" style="font-size: 10.5pt;">Las 3 marcas LIVE corren con el mismo modelo: landing propia con formulario web (mayor calidad de prospección que WhatsApp Ads / LeadGen forms) · datalayer instrumentado · eventos server-side vía CAPI en cada cambio de etapa (alimentan el aprendizaje de Meta y Google) · matching v8.3 contra DCA como validador contable. <strong>La variable que aún cambia entre marcas es el eslabón operativo: quién gestiona el pipeline entre Por contactar y la cita.</strong> En Seminuevos Vambe cubre ese tramo. En Hyundai y Stellantis todavía depende 100% del vendedor humano.</p>
     </div>
 
     <div>
@@ -221,18 +259,18 @@ table.deck-table { width:100%; border-collapse: collapse; font-family: var(--san
       <div class="pilar-grid" style="grid-template-columns: repeat(3, 1fr); gap: 12px;">
         <div class="pilar-card gold" style="padding: 12px 14px;">
           <div class="pilar-num" style="font-size: 22pt;">01</div>
-          <div class="pilar-header" style="font-size: 8.5pt;">Seminuevos · 79 días</div>
-          <div class="pilar-body" style="font-size: 9pt;">8 sucursales GDL · IA temprana <strong>Vambe</strong> gestiona Por contactar → Cita · vendedor cierra en piso.</div>
+          <div class="pilar-header" style="font-size: 8.5pt;">Seminuevos · lanzamiento 5-abr · 87 días</div>
+          <div class="pilar-body" style="font-size: 9pt;">8 sucursales GDL · <strong>Vambe cubre Por contactar → Cita Agendada</strong> · vendedor humano solo cierra en piso.</div>
         </div>
         <div class="pilar-card blue" style="padding: 12px 14px;">
           <div class="pilar-num" style="font-size: 22pt;">02</div>
-          <div class="pilar-header" style="font-size: 8.5pt;">Hyundai · 83 días</div>
-          <div class="pilar-body" style="font-size: 9pt;">2 agencias OEM en GDL · <strong>Pivote 2 desde 7-jun</strong> · landing propia + catálogo evergreen.</div>
+          <div class="pilar-header" style="font-size: 8.5pt;">Hyundai · Pivote 2 desde 7-jun · 23 días</div>
+          <div class="pilar-body" style="font-size: 9pt;">2 agencias OEM en GDL · landing propia + catálogo evergreen · <strong>primer tramo del pipeline sin Vambe · depende del vendedor</strong>.</div>
         </div>
         <div class="pilar-card red" style="padding: 12px 14px;">
           <div class="pilar-num" style="font-size: 22pt;">03</div>
-          <div class="pilar-header" style="font-size: 8.5pt;">Stellantis · 71 días</div>
-          <div class="pilar-body" style="font-size: 9pt;">2 agencias · 5 submarcas (RAM Jeep Peugeot Dodge Fiat) · <strong>Pivote 2 desde 5-jun</strong> + Always-On.</div>
+          <div class="pilar-header" style="font-size: 8.5pt;">Stellantis · Pivote 2 desde 5-jun · 25 días</div>
+          <div class="pilar-body" style="font-size: 9pt;">2 agencias · 5 submarcas (RAM Jeep Peugeot Dodge Fiat) + Always-On · <strong>primer tramo del pipeline sin Vambe · depende del vendedor</strong>.</div>
         </div>
       </div>
     </div>
@@ -263,220 +301,231 @@ table.deck-table { width:100%; border-collapse: collapse; font-family: var(--san
 
     <div class="callout-big" style="padding: 10px 18px;">
       <div class="callout-t" style="font-size: 12pt;">Por qué cascada y no paralelo · y qué viene después</div>
-      <p style="font-size: 9.5pt;">Levantar una marca exige: definir handoff con Dirección de Marca + construir sitio/landing + integrar datalayer + activar CAPI + sincronizar matching + pilotar 2-3 semanas. Las 4 LIVE consumieron 79 días y la capacidad actual no aguanta dos en paralelo. <strong>Sub-Ola C de Ola 1 (backlog de largo plazo dentro del Mes 0-12):</strong> Ford · Mazda · Autolease — entran cuando Sub-Ola B (Flotillas → Changan → GWM) estabilice y haya cancha operativa instalada.</p>
+      <p style="font-size: 9.5pt;">Levantar una marca exige: alinear handoff con Dirección de Marca + construir sitio/landing + integrar datalayer + activar CAPI y server-side + sincronizar matching + pilotar 2-3 semanas. Las 3 marcas LIVE consumieron 87 días desde el arranque del piloto y la capacidad operativa actual no aguanta dos en paralelo. <strong>Sub-Ola C de Ola 1 (backlog dentro del Mes 0-12):</strong> Ford · Mazda · Autolease — entran cuando Sub-Ola B (Flotillas → Changan → GWM) estabilice y haya cancha operativa instalada.</p>
     </div>
   </div>
-  <div class="slide-footer"><span>Slide 2 · Ola 1 del Roadmap · Sub-A LIVE (4 marcas) + Sub-B cascada (Flotillas·Changan·GWM) + Sub-C backlog (Ford·Mazda·Autolease) · al 30-jun-2026</span><span style="display:flex; align-items:center; gap:8px;"><img class="gp-logo" src="../assets/logos/Logo-GP-Negro.png" alt="GP"/>Grupo Plasencia Automotriz · Dirección MKT Corporativo</span></div>
+  <div class="slide-footer"><span>Slide 2 · La cancha común · corte al 30-jun-2026 · SEM 87 días (5-abr) · STL 25 días (5-jun) · HYU 23 días (7-jun)</span><span style="display:flex; align-items:center; gap:8px;"><img class="gp-logo" src="../assets/logos/Logo-GP-Negro.png" alt="GP"/>Grupo Plasencia Automotriz · Dirección MKT Corporativo</span></div>
 </section>
 
 <section class="slide" data-slide="benchmark-sem">
   <div class="content" style="gap: 12px; padding: 36px 80px 52px 80px;">
     <div>
-      <div class="section-num">El benchmark que ya tiene el Grupo · Seminuevos</div>
-      <h1 class="slide-h1" style="font-size: 30pt;">Seminuevos es la vara de comparación <em>del propio Grupo.</em></h1>
-      <p class="slide-lede">No traemos un benchmark externo · no sacamos cifras del sector. <strong>Seminuevos aporta 70 ventas únicas atribuidas al DCA (dedup 1-VIN-1-atribución) con CAC $2,048</strong> · operando con las mismas reglas técnicas que Hyundai y Stellantis. La diferencia: Vambe gestiona la primera conversación y un equipo recibe la cita en piso. <em>El piloto también corre un rescate cross-brand HYU/STL → Seminuevos que aporta cobertura adicional al Grupo.</em></p>
+      <div class="section-num">Seminuevos · 87 días al 30 de junio de 2026</div>
+      <h1 class="slide-h1" style="font-size: 32pt;">Seminuevos vendió 65 autos <em>con $69,437 de pauta.</em></h1>
+      <p class="slide-lede" style="font-size: 11pt;">Cifras auditadas contra la contabilidad del Grupo. El modelo funciona porque Vambe (la IA del Grupo) toma la primera llamada, califica al prospecto y agenda la cita antes de que se enfríe. El vendedor recibe al cliente listo para cerrar en piso.</p>
     </div>
     <div class="kpi-grid cols-4" style="gap: 12px;">
-      <div class="kpi-card gold" style="padding: 12px 18px;">
-        <div class="kpi-label">Atribuciones DCA</div>
-        <div class="kpi-num gold" style="font-size: 28pt;">70</div>
-        <div class="kpi-sub" style="font-size: 8.5pt;">ventas únicas dedup VIN · <strong>29.5% share uds Grupo</strong></div>
+      <div class="kpi-card gold" style="padding: 14px 18px;">
+        <div class="kpi-label">Autos vendidos</div>
+        <div class="kpi-num gold" style="font-size: 34pt;">66</div>
+        <div class="kpi-sub" style="font-size: 9pt;">65 propias + 1 rescate cross-brand HYU→SEM · <strong>28% de Mazda Usados del Grupo</strong></div>
       </div>
-      <div class="kpi-card green" style="padding: 12px 18px;">
-        <div class="kpi-label">Revenue del piloto</div>
-        <div class="kpi-num green" style="font-size: 28pt;">$21.06M</div>
-        <div class="kpi-sub" style="font-size: 8.5pt;"><strong>23.0% revenue SEM</strong> Grupo · ROAS <strong>147×</strong></div>
+      <div class="kpi-card" style="padding: 14px 18px;">
+        <div class="kpi-label">Costo por auto vendido · CAC</div>
+        <div class="kpi-num" style="font-size: 34pt;">$1,052</div>
+        <div class="kpi-sub" style="font-size: 9pt;">$69,437 de pauta ÷ 66 autos vendidos</div>
       </div>
-      <div class="kpi-card green" style="padding: 12px 18px;">
-        <div class="kpi-label">Profit · ROI</div>
-        <div class="kpi-num green" style="font-size: 28pt;">$2.37M</div>
-        <div class="kpi-sub" style="font-size: 8.5pt;">margen 11.23% real DCA · <strong>ROI 1,552%</strong> · CAC $2,048</div>
+      <div class="kpi-card green" style="padding: 14px 18px;">
+        <div class="kpi-label">Cada $1 de pauta trajo · ROAS</div>
+        <div class="kpi-num green" style="font-size: 34pt;">$302</div>
+        <div class="kpi-sub" style="font-size: 9pt;">en venta · <strong>$34 en utilidad bruta</strong></div>
       </div>
-      <div class="kpi-card" style="padding: 12px 18px;">
-        <div class="kpi-label">Lead-to-purchase</div>
-        <div class="kpi-num" style="font-size: 28pt;">12.8 d</div>
-        <div class="kpi-sub" style="font-size: 8.5pt;">SEM ponderado · HYU 4d · STL 25.5d · <strong>blend 13.3d</strong></div>
+      <div class="kpi-card green" style="padding: 14px 18px;">
+        <div class="kpi-label">Payback · autos para pagar la pauta</div>
+        <div class="kpi-num green" style="font-size: 34pt;">2 autos</div>
+        <div class="kpi-sub" style="font-size: 9pt;">$69,437 ÷ utilidad por auto ($35,538)</div>
       </div>
     </div>
     <div class="callout-big gold" style="padding: 10px 20px;">
-      <div class="callout-t" style="font-size: 12pt;">Lo que el benchmark dice de los demás</div>
-      <p style="font-size: 9.5pt;"><strong>Seminuevos aporta 70 ventas únicas al DCA (dedup 1-VIN-1-atribución).</strong> En 79 días · <strong>$21.06M revenue · $2.37M profit @ 11.23% real DCA · 29.5% uds · 23.0% revenue del Grupo</strong> (universo 237 uds · $91.73M Mazda Usados 8 sucursales SEM). <strong>1 de cada 3.4 ventas SEM del Grupo se origina en el embudo digital.</strong> Adicionalmente 2 recuperaciones cross-brand: <strong>Patricia HYU→Mazda C30 ($411,900) · Luis Rojo STL→GWM POER ($493,900)</strong>. <em>La pregunta: ¿cómo replicamos en cada marca lo que Seminuevos ya tiene corriendo?</em></p>
+      <div class="callout-t" style="font-size: 12pt;">Por qué esto sirve como referencia interna del Grupo</div>
+      <p style="font-size: 9.5pt;">Las tres marcas del piloto comparten la misma cancha técnica: landing web, datalayer, eventos server-side y matching contable contra DCA. <strong>La única variable que cambia entre Seminuevos y el resto es Vambe cubriendo el primer tramo del pipeline.</strong> En 87 días esa combinación entregó $20.55M en revenue y $2.31M en profit real DCA · 22.4% del revenue Mazda Usados del Grupo · 1 de cada 3.6 ventas SEM del Grupo se originó en el embudo digital. Se suma una recuperación cross-brand deliberada: Patricia DE HARO entró por Hyundai y cerró Mazda C30 ($411,900) · el costo publicitario Hyundai se recuperó a nivel Grupo vía Seminuevos.</p>
     </div>
     <div class="pregunta">
-      <div class="pregunta-lbl">Punto de conversación</div>
-      <div class="pregunta-q">"Con cada marca operando como Seminuevos, cada $30K/mes invertidos son ~15 cierres atribuibles (CAC $2,048). ¿Qué dejamos sobre la mesa si no movemos el handoff?"</div>
+      <div class="pregunta-lbl">La conversación que abre este resultado</div>
+      <div class="pregunta-q">"¿Qué necesitamos activar en Hyundai y Stellantis para que la pauta que ya se está gastando termine en autos vendidos como en Seminuevos?"</div>
     </div>
   </div>
-  <div class="slide-footer"><span>Slide 3 · Benchmark Seminuevos · cifras auditadas vs DCA matching v8.3 al 30-jun-2026</span><span style="display:flex; align-items:center; gap:8px;"><img class="gp-logo" src="../assets/logos/Logo-GP-Negro.png" alt="GP"/>Grupo Plasencia Automotriz · Dirección MKT Corporativo</span></div>
+  <div class="slide-footer"><span>Slide 3 · Seminuevos · lanzamiento 5-abr · 87 días · corte al 30-jun-2026 · cifras verificadas vs cubo 30003 DCA</span><span style="display:flex; align-items:center; gap:8px;"><img class="gp-logo" src="../assets/logos/Logo-GP-Negro.png" alt="GP"/>Grupo Plasencia Automotriz · Dirección MKT Corporativo</span></div>
 </section>
 
 <section class="slide" data-slide="gap-hyu">
   <div class="content" style="gap: 8px; padding: 24px 80px 48px 80px;">
     <div>
-      <div class="section-num">El gap operativo · Hyundai · 83 días · al 30-jun</div>
-      <h1 class="slide-h1" style="font-size: 28pt;">El embudo entregó 473 leads. <em>Hyundai cerró 1.</em></h1>
-      <p class="slide-lede" style="font-size: 11pt;">Hyundai recibió <strong>473 leads cualificados</strong> con catálogo evergreen y landing propia desde el Pivote 2 (7-jun). Hoy <strong>248 en Perdida y 142 en No-contactable</strong> — 82% del cohort fuera. <strong>1 cierre atribuido al digital: Patricia DE HARO cerró Mazda Seminuevos $411,900 (cross-brand · costo hundido HYU recuperado por el Grupo vía Seminuevos).</strong> El landing también corre el rescate cross-brand hacia Seminuevos como mecánica de cobertura adicional. <em>El embudo entregó volumen y calidad; lo que se rompió fue la primera llamada. Matching en HYU/STL es por datos de contacto (celular/email/nombre), no por VIN.</em></p>
+      <div class="section-num">Hyundai · Pivote 2 desde 7 de junio · 23 días al corte 30 de junio de 2026</div>
+      <h1 class="slide-h1" style="font-size: 28pt;">473 leads entregados por el digital. <em>0 ventas propias Hyundai.</em></h1>
+      <p class="slide-lede" style="font-size: 11pt;">Hyundai recibió <strong>473 leads calificados</strong> desde el Pivote 2 (7 de junio) con la misma tecnología que Seminuevos. La diferencia es operativa: <strong>Vambe no toma la primera llamada, nadie confirma la cita, no hay hostess recibiendo en piso.</strong> Resultado al corte: 248 en Perdida · 142 No-contactables · 332 leads perdidos rescatados a Seminuevos · <strong>solo 1 cerró en SEM</strong> (Patricia DE HARO · Mazda C30 · $411,900 · venta contabilizada en Seminuevos).</p>
     </div>
 
     <div class="stats-strip">
-      <div><div class="stat-lbl">Spend Meta+Google</div><div class="stat-num red">$37,179</div><div class="stat-sub">82 días · ~$13.6K/mes</div></div>
-      <div><div class="stat-lbl">CPA por lead</div><div class="stat-num">$72</div><div class="stat-sub">el más bajo del piloto</div></div>
-      <div><div class="stat-lbl">CAC por cierre</div><div class="stat-num red">$37,179</div><div class="stat-sub">1 cierre · costo absorbido</div></div>
-      <div><div class="stat-lbl">Conversión actual</div><div class="stat-num red">0.21%</div><div class="stat-sub">1 sobre 473 leads</div></div>
-      <div><div class="stat-lbl">Con pauta actual como Seminuevos</div><div class="stat-num green">~7</div><div class="stat-sub">cierres/mes · CAC $2,048 × $13.5K spend</div></div>
+      <div><div class="stat-lbl">Pauta Meta+Google (23 días)</div><div class="stat-num red">$37,617</div><div class="stat-sub">solo Meta · ritmo ~$15.5K/mes</div></div>
+      <div><div class="stat-lbl">CPA por lead</div><div class="stat-num">$80</div><div class="stat-sub">$37,617 / 471 leads · más eficiente del piloto</div></div>
+      <div><div class="stat-lbl">Cierres Hyundai propios</div><div class="stat-num red">0</div><div class="stat-sub">verificado vs DCA · 1 pendiente auditar (Fabio $304K)</div></div>
+      <div><div class="stat-lbl">Rescatados a Seminuevos</div><div class="stat-num" style="color: var(--deep-blue);">332</div><div class="stat-sub">1 cerró en SEM (Patricia · $411,900)</div></div>
+      <div><div class="stat-lbl">Potencial al ritmo Seminuevos</div><div class="stat-num green">~15</div><div class="stat-sub">cierres/mes · CAC $1,068 aplicado a $15.5K/mes</div></div>
     </div>
 
     <table class="deck-table" style="font-size: 9.5pt;">
-      <thead><tr><th>Agencia</th><th class="center">Leads recibidos</th><th class="center">Por contactar</th><th class="center">Seguimiento</th><th class="center">Cita</th><th class="center">Cierres totales</th><th class="center">Perdida + N/C</th></tr></thead>
+      <thead><tr><th>Agencia</th><th class="center">Leads recibidos</th><th class="center">Por contactar</th><th class="center">Seguimiento</th><th class="center">Cita</th><th class="center">Cierres HYU propios</th><th class="center">Rescatados a SEM</th><th class="center">Perdida + N/C</th></tr></thead>
       <tbody>
-        <tr><td><strong>Hyundai Plasencia GDL</strong></td><td class="center">389</td><td class="center">9</td><td class="center">1</td><td class="center zero">0</td><td class="center win">2</td><td class="center bad">380</td></tr>
-        <tr><td><strong>Hyundai Santa Anita</strong></td><td class="center">71</td><td class="center">50</td><td class="center">12</td><td class="center">1</td><td class="center zero">0</td><td class="center bad">4</td></tr>
-        <tr class="total-blue"><td><strong>TOTAL Hyundai · 2 agencias</strong></td><td class="center">460</td><td class="center">59</td><td class="center">13</td><td class="center">1</td><td class="center"><strong>2</strong></td><td class="center">384</td></tr>
+        <tr><td><strong>Hyundai Plasencia GDL</strong></td><td class="center">389</td><td class="center">9</td><td class="center">1</td><td class="center zero">0</td><td class="center zero">0</td><td class="center" style="color: var(--deep-blue); font-weight:700;">302</td><td class="center bad">380</td></tr>
+        <tr><td><strong>Hyundai Santa Anita</strong></td><td class="center">71</td><td class="center">50</td><td class="center">12</td><td class="center">1</td><td class="center zero">0</td><td class="center" style="color: var(--deep-blue); font-weight:700;">30</td><td class="center bad">4</td></tr>
+        <tr class="total-blue"><td><strong>TOTAL Hyundai · 2 agencias</strong></td><td class="center">460</td><td class="center">59</td><td class="center">13</td><td class="center">1</td><td class="center"><strong>0</strong></td><td class="center"><strong>332</strong></td><td class="center">384</td></tr>
       </tbody>
     </table>
-    <div class="callout-big red">
-      <div class="callout-t">El patrón opuesto entre las dos agencias</div>
-      <p><strong>Plasencia GDL descalifica el grueso del cohort.</strong> Santa Anita mantiene leads vivos en proceso. Misma marca, mismo embudo, mismo catálogo — distintos SLAs de primera llamada. <em>Patricia DE HARO entró por Hyundai y compró un Mazda (cross-brand); el lead funciona · lo que falla es el seguimiento dentro de Hyundai.</em></p>
+    <div class="callout-big">
+      <div class="callout-t">Lo que la comparación entre agencias muestra</div>
+      <p>Misma cancha técnica, mismo catálogo. La diferencia al corte es el ritmo del primer toque: Plasencia GDL marca Perdida rápido · Santa Anita mantiene leads vivos. Patricia DE HARO (Hyundai → Mazda) confirma que el lead sí compra · la palanca es cerrar el ciclo dentro de Hyundai.</p>
     </div>
     <div class="pregunta">
-      <div class="pregunta-lbl">Lo que queremos entender contigo</div>
-      <div class="pregunta-q">"¿Qué SLA tiene la primera llamada en Plasencia GDL hoy? ¿Cómo descubrimos qué hizo Santa Anita distinto · y qué necesitamos para que Plasencia GDL replique ese patrón antes del cierre de julio?"</div>
+      <div class="pregunta-q">"¿Cómo activamos Vambe en Hyundai y qué SLA de primera llamada instalamos antes del cierre de julio?"</div>
     </div>
   </div>
-  <div class="slide-footer"><span>Slide 4 · Gap operativo Hyundai al 30-jun · 2 agencias OEM GDL · Pivote 2 desde 7-jun-2026</span><span style="display:flex; align-items:center; gap:8px;"><img class="gp-logo" src="../assets/logos/Logo-GP-Negro.png" alt="GP"/>Grupo Plasencia Automotriz · Dirección MKT Corporativo</span></div>
+  <div class="slide-footer"><span>Slide 4 · Hyundai · Pivote 2 desde 7-jun · 23 días · corte al 30-jun-2026 · 2 agencias OEM GDL</span><span style="display:flex; align-items:center; gap:8px;"><img class="gp-logo" src="../assets/logos/Logo-GP-Negro.png" alt="GP"/>Grupo Plasencia Automotriz · Dirección MKT Corporativo</span></div>
 </section>
 
 <section class="slide" data-slide="gap-stl">
   <div class="content" style="gap: 8px; padding: 24px 80px 48px 80px;">
     <div>
-      <div class="section-num">El gap operativo · Stellantis · 71 días</div>
-      <h1 class="slide-h1" style="font-size: 28pt;">269 leads recibidos. <em>206 siguen esperando una llamada.</em></h1>
-      <p class="slide-lede" style="font-size: 11pt;">Stellantis recibió <strong>269 leads</strong> distribuidos en 5 submarcas (RAM, Jeep, Peugeot, Dodge, Fiat). Hoy <strong>104 siguen "Por contactar" y 102 en "Recontactar"</strong> — 206 leads sin primera definición. Stellantis no descalifica como Hyundai; acumula. <strong>2 cierres atribuidos al digital: Miguel Ochoa cerró RAM 700 ($349,900) · Luis Rojo entró por Stellantis y cerró GWM POER cross-brand ($493,900) · costo hundido STL recuperado por el Grupo vía GWM.</strong> El pipeline más pesado del piloto · donde el lead caliente se enfría sin cerrar ni descartar.</p>
+      <div class="section-num">Stellantis · Pivote 2 desde 5 de junio · 25 días al corte 30 de junio de 2026</div>
+      <h1 class="slide-h1" style="font-size: 28pt;">269 leads en 5 submarcas. <em>Los mismos 3 eslabones pendientes.</em></h1>
+      <p class="slide-lede" style="font-size: 11pt;">Stellantis recibió <strong>269 leads calificados</strong> en 5 submarcas (RAM, Jeep, Peugeot, Dodge, Fiat) desde el Pivote 2 (5 de junio). <strong>Mismo diagnóstico operativo que Hyundai:</strong> faltan los eslabones Vambe · Customer Success · Hostess. Resultado al corte: 206 leads pendientes de primera definición · 1 cierre propio (Miguel Ochoa · RAM 700 · $349,900) · 37 leads rescatados a Seminuevos (0 cierres).</p>
     </div>
 
     <div class="stats-strip">
-      <div><div class="stat-lbl">Spend Meta+Google</div><div class="stat-num red">$37,193</div><div class="stat-sub">70 días · ~$16K/mes</div></div>
-      <div><div class="stat-lbl">CPA por lead</div><div class="stat-num">$124</div><div class="stat-sub">2× más caro que Hyundai</div></div>
-      <div><div class="stat-lbl">CAC por cierre</div><div class="stat-num red">$37,193</div><div class="stat-sub">1 cierre · costo absorbido</div></div>
-      <div><div class="stat-lbl">Conversión actual</div><div class="stat-num red">0.37%</div><div class="stat-sub">1 sobre 269 leads</div></div>
-      <div><div class="stat-lbl">Con pauta actual como Seminuevos</div><div class="stat-num green">~8</div><div class="stat-sub">cierres/mes · CAC $2,048 × $16K spend</div></div>
+      <div><div class="stat-lbl">Pauta Meta+Google (25 días)</div><div class="stat-num red">$37,697</div><div class="stat-sub">solo Meta · ritmo ~$20K/mes</div></div>
+      <div><div class="stat-lbl">CPA por lead</div><div class="stat-num">$140</div><div class="stat-sub">$37,697 / 269 leads del período</div></div>
+      <div><div class="stat-lbl">Cierres Stellantis propios</div><div class="stat-num" style="color: var(--gp-navy);">1</div><div class="stat-sub">Miguel Ochoa · RAM 700 · $349,900</div></div>
+      <div><div class="stat-lbl">Rescate cross-brand a SEM</div><div class="stat-num" style="color: var(--deep-blue);">37</div><div class="stat-sub">leads rescatados · 0 cierres al corte</div></div>
+      <div><div class="stat-lbl">Potencial al ritmo Seminuevos</div><div class="stat-num green">~20</div><div class="stat-sub">cierres/mes · CAC $1,068 aplicado a $20K/mes</div></div>
     </div>
 
     <table class="deck-table" style="font-size: 9.5pt;">
-      <thead><tr><th>Agencia</th><th class="center">Leads recibidos</th><th class="center">Por contactar</th><th class="center">Recontactar</th><th class="center">Cita / Neg</th><th class="center">Cierres totales</th><th class="center">Perdida</th></tr></thead>
+      <thead><tr><th>Agencia</th><th class="center">Leads recibidos</th><th class="center">Por contactar</th><th class="center">Recontactar</th><th class="center">Cita / Neg</th><th class="center">Cierres STL propios</th><th class="center">Rescate a SEM</th><th class="center">Perdida</th></tr></thead>
       <tbody>
-        <tr><td><strong>Stellantis Plasencia (M. Otero)</strong></td><td class="center">213</td><td class="center">82</td><td class="center">81</td><td class="center">10</td><td class="center win">1</td><td class="center bad">32</td></tr>
-        <tr><td><strong>Stellantis Santa Anita</strong></td><td class="center">56</td><td class="center">27</td><td class="center">16</td><td class="center">2</td><td class="center zero">0</td><td class="center bad">5</td></tr>
-        <tr class="total-red"><td><strong>TOTAL Stellantis · 2 agencias · 5 marcas</strong></td><td class="center">269</td><td class="center">109</td><td class="center">97</td><td class="center">12</td><td class="center"><strong>1</strong></td><td class="center">37</td></tr>
+        <tr><td><strong>Stellantis Plasencia (M. Otero)</strong></td><td class="center">213</td><td class="center">82</td><td class="center">81</td><td class="center">10</td><td class="center win">1</td><td class="center" style="color: var(--deep-blue); font-weight:700;">28</td><td class="center bad">32</td></tr>
+        <tr><td><strong>Stellantis Santa Anita</strong></td><td class="center">56</td><td class="center">27</td><td class="center">16</td><td class="center">2</td><td class="center zero">0</td><td class="center" style="color: var(--deep-blue); font-weight:700;">9</td><td class="center bad">5</td></tr>
+        <tr class="total-red"><td><strong>TOTAL Stellantis · 2 agencias · 5 marcas</strong></td><td class="center">269</td><td class="center">109</td><td class="center">97</td><td class="center">12</td><td class="center"><strong>1</strong></td><td class="center"><strong>37</strong></td><td class="center">37</td></tr>
       </tbody>
     </table>
-    <div class="callout-big red">
-      <div class="callout-t">La cifra que importa para la conversación</div>
-      <p><strong>206 leads esperando ser tocados o descartados.</strong> No es un problema de calidad — Miguel Ochoa ya cerró un RAM en Stellantis Plasencia, prueba de que el embudo funciona. El problema es que la primera llamada no convierte ni descarta — solo difiere. <em>Cada semana que pasa, el lead caliente se enfría y se vuelve estadística.</em></p>
+    <div class="callout-big">
+      <div class="callout-t">Lo que la evidencia al corte muestra</div>
+      <p>El embudo funciona · Miguel Ochoa cerró un RAM. La palanca es el ritmo del primer toque · 206 leads siguen sin resolver. Vambe activo en ese tramo (como en Seminuevos) resuelve la ventana en minutos.</p>
     </div>
     <div class="pregunta">
-      <div class="pregunta-lbl">Lo que queremos entender contigo</div>
-      <div class="pregunta-q">"¿Cómo definimos esta semana los 206 leads sin definir? ¿Qué necesita el equipo de Plasencia (163 acumulados) para limpiar el pipeline antes del cierre de mes?"</div>
+      <div class="pregunta-q">"¿Qué necesita el equipo de Plasencia (163 leads acumulados) para pasar del pending al agendado esta semana?"</div>
     </div>
   </div>
-  <div class="slide-footer"><span>Slide 5 · Gap operativo Stellantis al 30-jun · 2 agencias · 5 submarcas · Pivote 2 desde 5-jun-2026</span><span style="display:flex; align-items:center; gap:8px;"><img class="gp-logo" src="../assets/logos/Logo-GP-Negro.png" alt="GP"/>Grupo Plasencia Automotriz · Dirección MKT Corporativo</span></div>
+  <div class="slide-footer"><span>Slide 5 · Stellantis · Pivote 2 desde 5-jun · 25 días · corte al 30-jun-2026 · 2 agencias · 5 submarcas</span><span style="display:flex; align-items:center; gap:8px;"><img class="gp-logo" src="../assets/logos/Logo-GP-Negro.png" alt="GP"/>Grupo Plasencia Automotriz · Dirección MKT Corporativo</span></div>
 </section>
 
 <section class="slide" data-slide="patron-comun">
   <div class="content">
     <div>
-      <div class="section-num">El patrón común · no es la marca, es el handoff</div>
-      <h1 class="slide-h1" style="font-size: 30pt;">El lead llega caliente. <em>Se enfría entre la entrega y la llamada.</em></h1>
-      <p class="slide-lede">Las cifras por marca son distintas; el mecanismo es el mismo. <strong>Donde hay alguien gestionando el primer toque, el embudo cierra. Donde no, el lead se acumula o se descarta.</strong> Esta lectura libera la conversación de "qué hace marketing por mi marca" — el embudo ya entregó. Pasamos a "qué hacemos juntos con lo que ya entregó".</p>
+      <div class="section-num">La cadena del piloto · Marketing probado · Ventas pendiente · corte al 30 de junio de 2026</div>
+      <h1 class="slide-h1" style="font-size: 28pt;">El piloto probó Marketing. <em>Falta el modelo operativo de Ventas.</em></h1>
+      <p class="slide-lede" style="font-size: 10.5pt;">El pipeline es una cadena de 5 pasos con 4 handoffs entre roles. El piloto de Marketing ya está probado en las 3 marcas (pasos 1 y 2: landing web + prefiltro con IA). Lo que aún no está activo en Hyundai y Stellantis es el <strong>modelo operativo de Ventas</strong> · los pasos 3, 4 y 5: cómo se confirma la cita, cómo se recibe al cliente en piso, cómo se mide la visita, cómo se gestiona al vendedor. Seminuevos tiene la cadena completa y la conversión sostiene 12.2% con payback en 2 ventas SEM. Donde faltan los eslabones humanos, el lead se enfría antes de convertirse en visita real.</p>
     </div>
-    <div class="pilar-grid">
-      <div class="pilar-card gold">
-        <div class="pilar-header">Donde funciona · Seminuevos</div>
-        <div class="pilar-title" style="font-size: 16pt;">Vambe agenda el primer toque</div>
-        <div class="pilar-body" style="font-size: 9.5pt;">La IA conversacional califica al lead, agenda la cita, libera al vendedor para cerrar en piso. <strong>70 ventas únicas atribuidas · CAC $2,048.</strong> El vendedor no es el filtro · es el cierre.</div>
+    <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin: 6px 0;">
+      <div style="background: var(--paper); border: 1px solid var(--g200); border-top: 3px solid var(--gp-navy); border-radius: 6px; padding: 10px 12px; position: relative;">
+        <div style="position: absolute; top: 8px; right: 10px; font-family: var(--sans); font-size: 6.5pt; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; color: #FFF; background: var(--deep-green); padding: 1px 6px; border-radius: 3px;">Marketing</div>
+        <div style="font-family: var(--sans); font-size: 7pt; font-weight: 800; letter-spacing: 1.4px; text-transform: uppercase; color: var(--gp-navy);">1 · Marketing</div>
+        <div style="font-family: var(--serif); font-weight: 700; font-size: 11pt; color: var(--gp-navy); margin-top: 4px; line-height: 1.2;">Genera lead de calidad</div>
+        <div style="font-family: var(--sans); font-size: 8pt; color: var(--g600); margin-top: 4px; line-height: 1.4;">Landing web con formulario · datalayer · CAPI + server-side · Motor valida vs DCA. <strong>Activo en las 3 marcas.</strong></div>
       </div>
-      <div class="pilar-card red">
-        <div class="pilar-header">Donde se rompe · Hyundai + Stellantis</div>
-        <div class="pilar-title" style="font-size: 16pt;">La primera llamada depende del vendedor</div>
-        <div class="pilar-body" style="font-size: 9.5pt;">No hay figura humana ni IA garantizando el primer toque dentro de SLA. El vendedor decide si llama, cuándo y a quién. <strong>Hyundai 0.21% conv · Stellantis 0.37%.</strong> El lead caliente espera.</div>
+      <div style="background: var(--paper); border: 1px solid var(--g200); border-top: 3px solid var(--gold); border-radius: 6px; padding: 10px 12px; position: relative;">
+        <div style="position: absolute; top: 8px; right: 10px; font-family: var(--sans); font-size: 6.5pt; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; color: #FFF; background: var(--deep-green); padding: 1px 6px; border-radius: 3px;">Marketing</div>
+        <div style="font-family: var(--sans); font-size: 7pt; font-weight: 800; letter-spacing: 1.4px; text-transform: uppercase; color: var(--amber);">2 · IA · prefiltro</div>
+        <div style="font-family: var(--serif); font-weight: 700; font-size: 11pt; color: var(--gp-navy); margin-top: 4px; line-height: 1.2;">Por contactar → Cita Agendada</div>
+        <div style="font-family: var(--sans); font-size: 8pt; color: var(--g600); margin-top: 4px; line-height: 1.4;">Vambe hoy · Plasi replicable. Primer contacto en minutos · califica · propone horarios · agenda cita. <strong>Activo en SEM · pendiente HYU y STL.</strong></div>
       </div>
-      <div class="pilar-card blue">
-        <div class="pilar-header">Lo que la cancha permite</div>
-        <div class="pilar-title" style="font-size: 16pt;">El modelo Seminuevos es replicable</div>
-        <div class="pilar-body" style="font-size: 9.5pt;">El Grupo ya tiene la IA (Plasi) lista para gestionar el primer toque en Hyundai y Stellantis. El stack técnico es el mismo. <em>Falta el OK del Director de Marca y la figura que reciba la cita en piso.</em></div>
+      <div style="background: var(--paper); border: 1px solid var(--g200); border-top: 3px solid var(--gp-red); border-radius: 6px; padding: 10px 12px; position: relative;">
+        <div style="position: absolute; top: 8px; right: 10px; font-family: var(--sans); font-size: 6.5pt; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; color: #FFF; background: var(--gp-red); padding: 1px 6px; border-radius: 3px;">Ventas</div>
+        <div style="font-family: var(--sans); font-size: 7pt; font-weight: 800; letter-spacing: 1.4px; text-transform: uppercase; color: var(--gp-red);">3 · Customer Success</div>
+        <div style="font-family: var(--serif); font-weight: 700; font-size: 11pt; color: var(--gp-navy); margin-top: 4px; line-height: 1.2;">Cita Agendada → confirmada</div>
+        <div style="font-family: var(--sans); font-size: 8pt; color: var(--g600); margin-top: 4px; line-height: 1.4;">Toma el pase de la IA. Confirma cita con el prospecto · envía <strong>gancho con QR</strong> (bono, descuento) que se redime al llegar a la agencia.</div>
+      </div>
+      <div style="background: var(--paper); border: 1px solid var(--g200); border-top: 3px solid var(--gp-red); border-radius: 6px; padding: 10px 12px; position: relative;">
+        <div style="position: absolute; top: 8px; right: 10px; font-family: var(--sans); font-size: 6.5pt; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; color: #FFF; background: var(--gp-red); padding: 1px 6px; border-radius: 3px;">Ventas</div>
+        <div style="font-family: var(--sans); font-size: 7pt; font-weight: 800; letter-spacing: 1.4px; text-transform: uppercase; color: var(--gp-red);">4 · Hostess · QR phygital</div>
+        <div style="font-family: var(--serif); font-weight: 700; font-size: 11pt; color: var(--gp-navy); margin-top: 4px; line-height: 1.2;">Cita confirmada → Visita</div>
+        <div style="font-family: var(--sans); font-size: 8pt; color: var(--g600); margin-top: 4px; line-height: 1.4;">Recibe al cliente en piso · escanea el QR y registra la visita. <strong>El QR es el puente entre lo digital y lo que pasa en el piso</strong> · mide aunque el vendedor no lo capture.</div>
+      </div>
+      <div style="background: var(--paper); border: 1px solid var(--g200); border-top: 3px solid var(--gp-red); border-radius: 6px; padding: 10px 12px; position: relative;">
+        <div style="position: absolute; top: 8px; right: 10px; font-family: var(--sans); font-size: 6.5pt; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; color: #FFF; background: var(--gp-red); padding: 1px 6px; border-radius: 3px;">Ventas</div>
+        <div style="font-family: var(--sans); font-size: 7pt; font-weight: 800; letter-spacing: 1.4px; text-transform: uppercase; color: var(--deep-green);">5 · Vendedor piso</div>
+        <div style="font-family: var(--serif); font-weight: 700; font-size: 11pt; color: var(--gp-navy); margin-top: 4px; line-height: 1.2;">Visita → Cierre</div>
+        <div style="font-family: var(--sans); font-size: 8pt; color: var(--g600); margin-top: 4px; line-height: 1.4;">Recibe al prospecto ya calificado y agendado. Su rol operativo es cerrar la venta en piso · no filtrar leads. Reporta status al Dir. MKT en paralelo.</div>
       </div>
     </div>
-    <div class="callout-big blue">
-      <div class="callout-t">El reframe del piloto</div>
-      <p><strong>El piloto no es un proyecto de marketing — es la primera vez que el Grupo puede ver el handoff Mkt→Vtas con cifras auditables.</strong> Las tres acciones del siguiente slide no son demandas de la Dirección MKT a las marcas. Son <em>lo que el Grupo necesita autorizar para que el embudo que ya entrega leads termine cerrando ventas en cada marca no-Seminuevos.</em></p>
+    <div class="callout-big blue" style="padding: 10px 18px;">
+      <div class="callout-t" style="font-size: 11.5pt;">Lo que el piloto muestra sobre esta cadena</div>
+      <p style="font-size: 9.5pt;">Seminuevos tiene los 5 pasos activos y sostenidos · resultado: 65 ventas propias verificadas vs DCA · 12.2% conversión lead-venta · CAC $1,068 · payback en 2 ventas SEM. Hyundai y Stellantis tienen probada la parte de <strong>Marketing</strong> (pasos 1 y 2 replicables con Plasi) · lo que aún no está activo es el <strong>modelo operativo de Ventas</strong> (pasos 3, 4 y 5): Customer Success confirmando la cita, hostess de piso recibiendo al cliente con QR, gestión del vendedor con trazabilidad al Corporativo. <em>La palanca pendiente no es la pauta ni la calidad del lead · es activar el modelo operativo de Ventas · con el QR como puente phygital entre lo digital y el piso.</em></p>
     </div>
   </div>
-  <div class="slide-footer"><span>Slide 6 · El patrón · IA en el primer toque produce conversión · 70 ventas SEM vs 1-2 (Hyundai/Stellantis) · misma cancha técnica · al 30-jun</span><span style="display:flex; align-items:center; gap:8px;"><img class="gp-logo" src="../assets/logos/Logo-GP-Negro.png" alt="GP"/>Grupo Plasencia Automotriz · Dirección MKT Corporativo</span></div>
+  <div class="slide-footer"><span>Slide 6 · Modelo Marketing-Ventas conectado · Seminuevos con Vambe activo (65 ventas) vs Hyundai/Stellantis sin Vambe (0-1) · corte al 30-jun-2026</span><span style="display:flex; align-items:center; gap:8px;"><img class="gp-logo" src="../assets/logos/Logo-GP-Negro.png" alt="GP"/>Grupo Plasencia Automotriz · Dirección MKT Corporativo</span></div>
 </section>
 
 <!-- 7 · IMPACTO ECONÓMICO DEL PILOTO -->
 <section class="slide" data-slide="impacto-economico">
   <div class="content" style="gap: 8px; padding: 24px 80px 48px 80px;">
     <div>
-      <div class="section-num">Impacto económico del piloto · 79 días · al 30-jun-2026</div>
-      <h1 class="slide-h1" style="font-size: 24pt;">$2.50M de profit por <em>$222,767 de pauta.</em></h1>
-      <p class="slide-lede" style="font-size: 9.5pt;"><strong>73 atribuciones piloto</strong> (dedup 1-VIN-1-atribución · motor v8) generaron <strong>$22.32M de revenue</strong>. Aplicando margen bruto real DCA por marca (cubo 30003), <strong>$2.50M de profit real</strong> · ROAS profit 11.2× · ROI 1,023%. <strong>Seminuevos concentra el 95%</strong> con 70 ventas ($2.37M) · Hyundai 1 recuperación cross-brand ($411K → $46K profit) · Stellantis 2 (RAM $349K + GWM cross $494K → $91K profit).</p>
+      <div class="section-num">Impacto económico del piloto · corte al 30 de junio de 2026 · verificado vs DCA</div>
+      <h1 class="slide-h1" style="font-size: 24pt;">$2.40M de utilidad bruta por <em>$144,751 de pauta.</em></h1>
+      <p class="slide-lede" style="font-size: 9.5pt;"><strong>67 ventas verificadas contra el DMS</strong> (card con vin_facturado en pipeline + VIN existente en DCA cubo 30003 · dedup 1-VIN-1-atribución) generaron <strong>$21.32M de revenue</strong> y <strong>$2.40M de utilidad bruta</strong> (margen real DCA cubo 30003). Cada $1 de pauta produjo $147 en venta y $16.60 en utilidad · la pauta se recuperó con 4 ventas. <strong>Seminuevos concentra 99%</strong> con 66 ventas (65 propias + 1 rescate cross-brand desde Hyundai · Patricia DE HARO cerró Mazda C30 $411,900) · Stellantis 1 propia (Miguel Ochoa RAM 700 · $349K) · Hyundai 0 ventas propias · el único mecanismo cross-brand del piloto es el rescate HYU/STL → Seminuevos (369 leads rescatados, 1 cerró).</p>
     </div>
 
     <div class="killer-wrap">
       <div class="killer-main" style="padding: 14px 20px;">
-        <div class="label">Profit real · 79 días</div>
-        <div class="num" style="font-size: 54pt;">$2.50M</div>
-        <div class="sub" style="font-size: 10pt;">$22.32M × margen real DCA · SEM 11.23% · STL 12.92% · HYU/Mazda 11.23% · GWM 9.18%</div>
+        <div class="label">Utilidad bruta real · 87 días desde lanzamiento SEM</div>
+        <div class="num" style="font-size: 54pt;">$2.40M</div>
+        <div class="sub" style="font-size: 10pt;">$21.32M × margen real DCA · SEM 11.23% · STL RAM 12.92% · HYU rescate→Mazda 11.23%</div>
       </div>
       <div class="killer-side green" style="padding: 12px 16px;">
-        <div class="label">ROAS revenue</div>
-        <div class="num" style="font-size: 24pt;">100×</div>
-        <div class="sub" style="font-size: 8pt;">$22.32M / $222,767 · <strong>ROAS profit 11.2×</strong> · ROI 1,023%</div>
+        <div class="label">Cada $1 de pauta</div>
+        <div class="num" style="font-size: 24pt;">$156</div>
+        <div class="sub" style="font-size: 8pt;">en venta · <strong>$16.60 en utilidad bruta</strong> · ROAS 147× rev · 16.6× profit</div>
       </div>
       <div class="killer-side navy" style="padding: 12px 16px;">
-        <div class="label">CAC blended</div>
-        <div class="num" style="font-size: 24pt;">$3,051</div>
-        <div class="sub" style="font-size: 8pt;">$222,767 / 73 · Seminuevos $2,048 jala el promedio</div>
+        <div class="label">Payback de la pauta</div>
+        <div class="num" style="font-size: 24pt;">4 ventas</div>
+        <div class="sub" style="font-size: 8pt;">recuperan los $144,751 · CAC blended $2,161 real · SEM $1,068</div>
       </div>
     </div>
 
     <table class="deck-table" style="font-size: 7.5pt;">
-      <thead><tr><th>Marca</th><th class="center">Ventas únicas</th><th class="center">Directo</th><th class="center">Cross-brand</th><th class="center">Revenue</th><th class="center">Margen real</th><th class="center">Profit</th><th class="center">Spend</th><th class="center">CAC</th><th class="center">ROAS rev</th></tr></thead>
+      <thead><tr><th>Marca donde cerró</th><th class="center">Ventas</th><th class="center">Propias</th><th class="center">Rescate desde otra marca</th><th class="center">Revenue</th><th class="center">Margen real</th><th class="center">Profit</th><th class="center">Spend Meta+Google</th><th class="center">CAC</th><th class="center">ROAS rev</th></tr></thead>
       <tbody>
-        <tr><td><strong>Seminuevos</strong></td><td class="center">70</td><td class="center">70</td><td class="center zero">0</td><td class="center">$21.06M</td><td class="center">11.23%</td><td class="center">$2.37M</td><td class="center">$143,387</td><td class="center">$2,048</td><td class="center" style="color: var(--deep-green); font-weight: 800;">147×</td></tr>
-        <tr><td><strong>Hyundai</strong></td><td class="center">1</td><td class="center zero">0</td><td class="center" style="color: var(--deep-blue); font-weight: 700;">1</td><td class="center">$0.41M</td><td class="center">11.23%</td><td class="center">$46K</td><td class="center">$41,685</td><td class="center">$41,685</td><td class="center" style="color: var(--gp-red);">9.9×</td></tr>
-        <tr><td><strong>Stellantis</strong></td><td class="center">2</td><td class="center">1</td><td class="center" style="color: var(--deep-blue); font-weight: 700;">1</td><td class="center">$0.84M</td><td class="center">10.73%</td><td class="center">$91K</td><td class="center">$37,695</td><td class="center">$18,848</td><td class="center" style="color: var(--gp-red);">22.4×</td></tr>
-        <tr class="total"><td><strong>TOTAL piloto · 79 días</strong></td><td class="center">73</td><td class="center">71</td><td class="center"><strong>2</strong></td><td class="center"><strong>$22.32M</strong></td><td class="center">11.21%</td><td class="center"><strong>$2.50M</strong></td><td class="center">$222,767</td><td class="center">$3,051</td><td class="center"><strong>100×</strong></td></tr>
+        <tr><td><strong>Seminuevos</strong></td><td class="center">66</td><td class="center">65</td><td class="center" style="color: var(--deep-blue); font-weight: 700;">1</td><td class="center">$20.97M</td><td class="center">11.23%</td><td class="center">$2.35M</td><td class="center">$69,437</td><td class="center">$1,052</td><td class="center" style="color: var(--deep-green); font-weight: 800;">302×</td></tr>
+        <tr><td><strong>Hyundai</strong></td><td class="center zero">0</td><td class="center zero">0</td><td class="center zero">—</td><td class="center zero">$0</td><td class="center">—</td><td class="center zero">$0</td><td class="center">$37,617</td><td class="center" style="color: var(--gp-red);">n/a</td><td class="center" style="color: var(--gp-red);">n/a</td></tr>
+        <tr><td><strong>Stellantis</strong></td><td class="center">1</td><td class="center">1</td><td class="center zero">—</td><td class="center">$0.35M</td><td class="center">12.92%</td><td class="center">$45K</td><td class="center">$37,697</td><td class="center">$37,697</td><td class="center" style="color: var(--gp-red);">9.3×</td></tr>
+        <tr class="total"><td><strong>TOTAL piloto · 87 días</strong></td><td class="center">67</td><td class="center">66</td><td class="center"><strong>1</strong></td><td class="center"><strong>$21.32M</strong></td><td class="center">11.26%</td><td class="center"><strong>$2.40M</strong></td><td class="center">$144,751</td><td class="center">$2,161</td><td class="center"><strong>147×</strong></td></tr>
       </tbody>
     </table>
-    <p style="font-family: var(--sans); font-size: 7pt; color: var(--g500); margin-top: 2px; line-height: 1.35;"><strong>Margen bruto real DCA</strong> (cubo 30003 · Utilidad Bruta $ por VIN · 13-abr→30-jun 2026): SEM Mazda Usados 8 suc <strong>11.23%</strong> · STL nuevos <strong>12.92%</strong> · HYU nuevos <strong>6.26%</strong> · GWM nuevos <strong>9.18%</strong>. Se aplica margen de marca DESTINO (Patricia→Mazda 11.23%; Luis Rojo→GWM 9.18%). Cifra contable estricta, no proxy. <strong>Cross-brand</strong>: lead entró por landing marca X y cerró en marca Y del Grupo · campañas intencionales entre marcas.</p>
-
-    <div class="callout-big gold" style="padding: 8px 16px;">
-      <div class="callout-t" style="font-size: 11pt;">Lo que esta cifra significa</div>
-      <p style="font-size: 9pt;"><strong>El piloto ya pagó su propia operación 11.2× en profit.</strong> Seminuevos contribuyó 29.5% uds y 23.0% revenue del periodo (Mazda Usados 8 suc SEM) · Hyundai 1 recuperación cross-brand · Stellantis 2 (1 directo + 1 cross-brand GWM). <em>Siguiente slide: qué pasa si las 2 marcas no-Seminuevos operan al benchmark.</em></p>
+    <div class="callout-big gold" style="padding: 10px 18px;">
+      <div class="callout-t" style="font-size: 12pt;">Cómo se lee esta tabla</div>
+      <p style="font-size: 10pt;">Cada venta está contra el DMS (cubo 30003 · matching motor v8 · dedup 1-VIN). La pauta se recuperó con 4 ventas · las 63 restantes son utilidad al Grupo. <em>El siguiente slide proyecta qué pasa si el modelo Seminuevos se activa también en Hyundai y Stellantis.</em></p>
     </div>
   </div>
-  <div class="slide-footer"><span>Slide 7 · Impacto económico · $22.32M revenue · $2.50M profit real DCA · dedup 1-VIN-1-atribución · 73 ventas únicas al 30-jun</span><span style="display:flex; align-items:center; gap:8px;"><img class="gp-logo" src="../assets/logos/Logo-GP-Negro.png" alt="GP"/>Grupo Plasencia Automotriz · Dirección MKT Corporativo</span></div>
+  <div class="slide-footer"><span>Slide 7 · Impacto económico · corte al 30-jun-2026 · $21.32M revenue · $2.40M utilidad bruta · payback en 4 ventas · verificado vs cubo 30003</span><span style="display:flex; align-items:center; gap:8px;"><img class="gp-logo" src="../assets/logos/Logo-GP-Negro.png" alt="GP"/>Grupo Plasencia Automotriz · Dirección MKT Corporativo</span></div>
 </section>
 
 <!-- 8 · COSTO DE NO ACTUAR · 3 ESCENARIOS BASELINE → INCREMENTAL -->
 <section class="slide" data-slide="costo-no-actuar">
-  <div class="content" style="gap: 12px; padding: 32px 80px 56px 80px;">
+  <div class="content" style="gap: 8px; padding: 24px 80px 44px 80px;">
     <div>
-      <div class="section-num">Si tu marca opera como Seminuevos · 3 escenarios por inversión</div>
-      <h1 class="slide-h1" style="font-size: 24pt;">Conservador. Optimista. Ideal. <em>El diferencial es el incremental.</em></h1>
-      <p class="slide-lede" style="font-size: 10pt;">El cálculo es lineal: <strong>cierres/mes = inversión/mes ÷ CAC Seminuevos ($2,048).</strong> Hyundai cierra 0.4/mes hoy · Stellantis 0.4. <strong>El incremental es la diferencia entre ese baseline y lo que cada escenario produciría</strong> aplicando el CPL/CAC de Seminuevos. AOV blended HYU+STL autos nuevos <strong>$492K</strong> · margen bruto ponderado HYU+STL <strong>7.80%</strong> (real DCA cubo 30003 · Utilidad Bruta $ · periodo 13-abr → 30-jun 2026).</p>
+      <div class="section-num" style="font-size: 7.5pt; letter-spacing: 1.6px;">Escenarios cross-marca · Hyundai + Stellantis · 12 meses · CAC $1,068 al ritmo Seminuevos</div>
+      <h1 class="slide-h1" style="font-size: 36pt; line-height: 1.05;">$25.7M–$77.4M de utilidad bruta anual. <em>El costo de no activar el eslabón operativo.</em></h1>
+      <p class="slide-lede" style="font-size: 10pt;">Cálculo lineal: <strong>cierres/mes = inversión/mes ÷ CAC Seminuevos ($1,068).</strong> Baseline al corte del piloto: Hyundai 0 cierres propios en 23 días · Stellantis 1 en 25 días → ~0.3/mes por marca blended. El incremental es la diferencia entre ese baseline y lo que cada escenario produciría replicando el ratio SEM (CPL $130 · 8 leads por venta · $69,437 de pauta con 533 leads directos). Supuesto declarado: se activa Vambe en el primer tramo del pipeline HYU/STL y el CAC se sostiene al escalar pauta 2×–3×. AOV blended HYU+STL <strong>$492K</strong> · margen bruto ponderado <strong>7.80%</strong> real DCA cubo 30003.</p>
     </div>
 
     <div style="background: var(--paper); border: 1px solid var(--g200); border-radius: 8px; padding: 10px 18px; box-shadow: 0 1px 2px rgba(30,39,64,.04); display: grid; grid-template-columns: auto auto auto auto auto auto auto; gap: 14px; align-items: center; justify-content: center;">
-      <div style="text-align:center;"><div style="font-family: var(--sans); font-size: 7pt; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: var(--g500);">CPL Seminuevos</div><div style="font-family: var(--serif); font-weight: 900; font-size: 16pt; color: var(--gp-navy); line-height: 1;">$123</div></div>
+      <div style="text-align:center;"><div style="font-family: var(--sans); font-size: 7pt; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: var(--g500);">CPL Seminuevos</div><div style="font-family: var(--serif); font-weight: 900; font-size: 16pt; color: var(--gp-navy); line-height: 1;">$130</div></div>
       <div style="font-family: var(--serif); font-size: 14pt; color: var(--g400);">×</div>
-      <div style="text-align:center;"><div style="font-family: var(--sans); font-size: 7pt; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: var(--g500);">Leads/cierre</div><div style="font-family: var(--serif); font-weight: 900; font-size: 16pt; color: var(--gp-navy); line-height: 1;">13</div></div>
+      <div style="text-align:center;"><div style="font-family: var(--sans); font-size: 7pt; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: var(--g500);">Leads/venta</div><div style="font-family: var(--serif); font-weight: 900; font-size: 16pt; color: var(--gp-navy); line-height: 1;">8</div></div>
       <div style="font-family: var(--serif); font-size: 14pt; color: var(--g400);">=</div>
-      <div style="text-align:center;"><div style="font-family: var(--sans); font-size: 7pt; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: var(--deep-green);">CAC Seminuevos</div><div style="font-family: var(--serif); font-weight: 900; font-size: 16pt; color: var(--deep-green); line-height: 1;">$2,048</div></div>
+      <div style="text-align:center;"><div style="font-family: var(--sans); font-size: 7pt; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: var(--deep-green);">CAC Seminuevos</div><div style="font-family: var(--serif); font-weight: 900; font-size: 16pt; color: var(--deep-green); line-height: 1;">$1,068</div></div>
       <div style="font-family: var(--serif); font-size: 14pt; color: var(--g400);">·</div>
-      <div style="text-align:center;"><div style="font-family: var(--sans); font-size: 7pt; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: var(--gp-red);">Baseline marca no-SEM</div><div style="font-family: var(--serif); font-weight: 900; font-size: 16pt; color: var(--gp-red); line-height: 1;">0.13 / mes</div></div>
+      <div style="text-align:center;"><div style="font-family: var(--sans); font-size: 7pt; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: var(--gp-red);">Baseline marca no-SEM</div><div style="font-family: var(--serif); font-weight: 900; font-size: 16pt; color: var(--gp-red); line-height: 1;">0.3 / mes</div></div>
     </div>
 
     <div class="kpi-grid cols-3" style="gap: 12px;">
@@ -489,18 +538,18 @@ table.deck-table { width:100%; border-collapse: collapse; font-family: var(--san
         <div class="kpi-num" style="font-size: 26pt; color: var(--gp-navy); line-height: 1.05;">$30K / mes</div>
         <div style="height: 1px; background: var(--g200); margin: 8px 0;"></div>
         <div style="font-family: var(--sans); font-size: 8.5pt; line-height: 1.55; color: var(--g600);">
-          <div style="display:flex; justify-content:space-between;"><span>Leads/mes</span><strong style="color: var(--gp-navy);">188</strong></div>
-          <div style="display:flex; justify-content:space-between;"><span>Cierres potenciales/mes</span><strong style="color: var(--gp-navy);">15</strong></div>
-          <div style="display:flex; justify-content:space-between;"><span>Baseline marca</span><strong style="color: var(--gp-red);">−0.13</strong></div>
+          <div style="display:flex; justify-content:space-between;"><span>Leads/mes (CPL $130)</span><strong style="color: var(--gp-navy);">231</strong></div>
+          <div style="display:flex; justify-content:space-between;"><span>Cierres potenciales/mes</span><strong style="color: var(--gp-navy);">28.1</strong></div>
+          <div style="display:flex; justify-content:space-between;"><span>Baseline marca</span><strong style="color: var(--gp-red);">−0.3</strong></div>
         </div>
         <div style="background: rgba(72,187,120,.10); border-radius: 4px; padding: 6px 10px; margin-top: 8px; text-align:center;">
           <div style="font-family: var(--sans); font-size: 7pt; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase; color: var(--deep-green);">Incremental / mes</div>
-          <div style="font-family: var(--serif); font-weight: 900; font-size: 22pt; color: var(--deep-green); line-height: 1;">+14.9</div>
+          <div style="font-family: var(--serif); font-weight: 900; font-size: 22pt; color: var(--deep-green); line-height: 1;">+27.8</div>
         </div>
         <div style="font-family: var(--sans); font-size: 8.5pt; line-height: 1.55; color: var(--g600); margin-top: 8px;">
-          <div style="display:flex; justify-content:space-between;"><span>Δ Revenue/mes</span><strong style="color: var(--gp-navy);">$7.2M</strong></div>
-          <div style="display:flex; justify-content:space-between;"><span>Δ Profit/mes</span><strong style="color: var(--amber);">$0.56M</strong></div>
-          <div style="display:flex; justify-content:space-between; border-top: 1px dashed var(--g300); padding-top: 4px; margin-top: 4px;"><span>Δ Profit/año</span><strong style="color: var(--amber); font-size: 11pt;">$6.7M</strong></div>
+          <div style="display:flex; justify-content:space-between;"><span>Δ Revenue/mes</span><strong style="color: var(--gp-navy);">$13.7M</strong></div>
+          <div style="display:flex; justify-content:space-between;"><span>Δ Profit/mes</span><strong style="color: var(--amber);">$1.07M</strong></div>
+          <div style="display:flex; justify-content:space-between; border-top: 1px dashed var(--g300); padding-top: 4px; margin-top: 4px;"><span>Δ Profit/año</span><strong style="color: var(--amber); font-size: 11pt;">$12.8M</strong></div>
         </div>
       </div>
 
@@ -512,18 +561,18 @@ table.deck-table { width:100%; border-collapse: collapse; font-family: var(--san
         <div class="kpi-num" style="font-size: 26pt; color: var(--amber); line-height: 1.05;">$60K / mes</div>
         <div style="height: 1px; background: var(--g200); margin: 8px 0;"></div>
         <div style="font-family: var(--sans); font-size: 8.5pt; line-height: 1.55; color: var(--g600);">
-          <div style="display:flex; justify-content:space-between;"><span>Leads/mes</span><strong style="color: var(--gp-navy);">375</strong></div>
-          <div style="display:flex; justify-content:space-between;"><span>Cierres potenciales/mes</span><strong style="color: var(--gp-navy);">29</strong></div>
-          <div style="display:flex; justify-content:space-between;"><span>Baseline marca</span><strong style="color: var(--gp-red);">−0.13</strong></div>
+          <div style="display:flex; justify-content:space-between;"><span>Leads/mes (CPL $130)</span><strong style="color: var(--gp-navy);">462</strong></div>
+          <div style="display:flex; justify-content:space-between;"><span>Cierres potenciales/mes</span><strong style="color: var(--gp-navy);">56.2</strong></div>
+          <div style="display:flex; justify-content:space-between;"><span>Baseline marca</span><strong style="color: var(--gp-red);">−0.3</strong></div>
         </div>
         <div style="background: rgba(72,187,120,.10); border-radius: 4px; padding: 6px 10px; margin-top: 8px; text-align:center;">
           <div style="font-family: var(--sans); font-size: 7pt; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase; color: var(--deep-green);">Incremental / mes</div>
-          <div style="font-family: var(--serif); font-weight: 900; font-size: 22pt; color: var(--deep-green); line-height: 1;">+28.9</div>
+          <div style="font-family: var(--serif); font-weight: 900; font-size: 22pt; color: var(--deep-green); line-height: 1;">+55.9</div>
         </div>
         <div style="font-family: var(--sans); font-size: 8.5pt; line-height: 1.55; color: var(--g600); margin-top: 8px;">
-          <div style="display:flex; justify-content:space-between;"><span>Δ Revenue/mes</span><strong style="color: var(--gp-navy);">$14.4M</strong></div>
-          <div style="display:flex; justify-content:space-between;"><span>Δ Profit/mes</span><strong style="color: var(--amber);">$1.12M</strong></div>
-          <div style="display:flex; justify-content:space-between; border-top: 1px dashed var(--g300); padding-top: 4px; margin-top: 4px;"><span>Δ Profit/año</span><strong style="color: var(--amber); font-size: 11pt;">$13.5M</strong></div>
+          <div style="display:flex; justify-content:space-between;"><span>Δ Revenue/mes</span><strong style="color: var(--gp-navy);">$27.5M</strong></div>
+          <div style="display:flex; justify-content:space-between;"><span>Δ Profit/mes</span><strong style="color: var(--amber);">$2.15M</strong></div>
+          <div style="display:flex; justify-content:space-between; border-top: 1px dashed var(--g300); padding-top: 4px; margin-top: 4px;"><span>Δ Profit/año</span><strong style="color: var(--amber); font-size: 11pt;">$25.7M</strong></div>
         </div>
       </div>
 
@@ -535,18 +584,18 @@ table.deck-table { width:100%; border-collapse: collapse; font-family: var(--san
         <div class="kpi-num" style="font-size: 26pt; color: var(--deep-green); line-height: 1.05;">$90K / mes</div>
         <div style="height: 1px; background: var(--g200); margin: 8px 0;"></div>
         <div style="font-family: var(--sans); font-size: 8.5pt; line-height: 1.55; color: var(--g600);">
-          <div style="display:flex; justify-content:space-between;"><span>Leads/mes</span><strong style="color: var(--gp-navy);">563</strong></div>
-          <div style="display:flex; justify-content:space-between;"><span>Cierres potenciales/mes</span><strong style="color: var(--gp-navy);">44</strong></div>
-          <div style="display:flex; justify-content:space-between;"><span>Baseline marca</span><strong style="color: var(--gp-red);">−0.13</strong></div>
+          <div style="display:flex; justify-content:space-between;"><span>Leads/mes (CPL $130)</span><strong style="color: var(--gp-navy);">692</strong></div>
+          <div style="display:flex; justify-content:space-between;"><span>Cierres potenciales/mes</span><strong style="color: var(--gp-navy);">84.3</strong></div>
+          <div style="display:flex; justify-content:space-between;"><span>Baseline marca</span><strong style="color: var(--gp-red);">−0.3</strong></div>
         </div>
         <div style="background: rgba(72,187,120,.10); border-radius: 4px; padding: 6px 10px; margin-top: 8px; text-align:center;">
           <div style="font-family: var(--sans); font-size: 7pt; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase; color: var(--deep-green);">Incremental / mes</div>
-          <div style="font-family: var(--serif); font-weight: 900; font-size: 22pt; color: var(--deep-green); line-height: 1;">+43.9</div>
+          <div style="font-family: var(--serif); font-weight: 900; font-size: 22pt; color: var(--deep-green); line-height: 1;">+84.0</div>
         </div>
         <div style="font-family: var(--sans); font-size: 8.5pt; line-height: 1.55; color: var(--g600); margin-top: 8px;">
-          <div style="display:flex; justify-content:space-between;"><span>Δ Revenue/mes</span><strong style="color: var(--gp-navy);">$21.6M</strong></div>
-          <div style="display:flex; justify-content:space-between;"><span>Δ Profit/mes</span><strong style="color: var(--amber);">$1.69M</strong></div>
-          <div style="display:flex; justify-content:space-between; border-top: 1px dashed var(--g300); padding-top: 4px; margin-top: 4px;"><span>Δ Profit/año</span><strong style="color: var(--amber); font-size: 11pt;">$20.2M</strong></div>
+          <div style="display:flex; justify-content:space-between;"><span>Δ Revenue/mes</span><strong style="color: var(--gp-navy);">$41.3M</strong></div>
+          <div style="display:flex; justify-content:space-between;"><span>Δ Profit/mes</span><strong style="color: var(--amber);">$3.22M</strong></div>
+          <div style="display:flex; justify-content:space-between; border-top: 1px dashed var(--g300); padding-top: 4px; margin-top: 4px;"><span>Δ Profit/año</span><strong style="color: var(--amber); font-size: 11pt;">$38.7M</strong></div>
         </div>
       </div>
 
@@ -554,54 +603,72 @@ table.deck-table { width:100%; border-collapse: collapse; font-family: var(--san
 
     <div class="callout-big gold" style="padding: 9px 18px;">
       <div class="callout-t" style="font-size: 11.5pt;">Cómo leer la tabla</div>
-      <p style="font-size: 9pt;"><strong>Cifras por marca individual.</strong> Baseline = 0.13 cierres/mes (Hyundai 0 · única venta digital fue cross-brand a Mazda · Stellantis 0.4). AOV blended <strong>$492K real DCA 2026</strong> (HYU $448K · STL $536K) · margen bruto ponderado <strong>7.80%</strong> real (HYU 6.26% · STL 12.92%). <em>Aplicado a las 2 marcas no-Seminuevos (Hyundai + Stellantis), el profit incremental anual cross-marca es $13.5M (conservador) · $27.0M (optimista) · $40.5M (ideal) — supuesto: handoff humano replicado y CPL sostenido al escalar pauta.</em></p>
+      <p style="font-size: 9.5pt;">Cifras <strong>por marca individual</strong>. Aplicado a las 2 marcas no-Seminuevos (HYU + STL), el profit incremental anual cross-marca es <strong>$25.7M–$77.4M</strong>. AOV blended $492K · margen ponderado 7.80% real DCA. <em>Supuesto: la mecánica se replica marca por marca y el CAC $1,068 se sostiene al escalar pauta 3×.</em></p>
     </div>
   </div>
-  <div class="slide-footer"><span>Slide 8 · Costo de no actuar · CAC Seminuevos $2,048 · AOV $492K blended HYU+STL · margen bruto ponderado real 7.80% (DCA cubo 30003) · 12 meses</span><span style="display:flex; align-items:center; gap:8px;"><img class="gp-logo" src="../assets/logos/Logo-GP-Negro.png" alt="GP"/>Grupo Plasencia Automotriz · Dirección MKT Corporativo</span></div>
+  <div class="slide-footer"><span>Slide 8 · Escenarios cross-marca HYU+STL · corte 30-jun-2026 · CAC SEM $1,068 · CPL $130 · 8 leads/venta · AOV $492K · margen 7.80% · 12 meses</span><span style="display:flex; align-items:center; gap:8px;"><img class="gp-logo" src="../assets/logos/Logo-GP-Negro.png" alt="GP"/>Grupo Plasencia Automotriz · Dirección MKT Corporativo</span></div>
 </section>
 
 <section class="slide" data-slide="acciones">
-  <div class="content">
+  <div class="content" style="gap: 12px; padding: 28px 80px 48px 80px;">
     <div>
-      <div class="section-num">Lo que destrabamos juntos · 3 acciones operativas</div>
-      <h1 class="slide-h1" style="font-size: 32pt;">Tres movimientos. <em>Cero presupuesto incremental.</em></h1>
-      <p class="slide-lede">No pedimos contratar gente nueva, cambiar la titularidad del cliente final, ni mover el KPI OEM. Pedimos tres movimientos operativos que el Grupo puede activar sin presupuesto adicional — cada uno con kill criterion para auditar el resultado en hitos visibles.</p>
+      <div class="section-num">3 acciones para activar el modelo operativo de Ventas · corte al 30-jun-2026</div>
+      <h1 class="slide-h1" style="font-size: 30pt;">Marketing ya opera. <em>Faltan tres eslabones del lado de Ventas.</em></h1>
+      <p class="slide-lede">El piloto de Marketing ya opera; el vendedor en piso también. Falta activar en Hyundai y Stellantis el modelo operativo de Ventas: <strong>prefiltro con IA · Customer Success o hostess confirmando la cita · gestión del vendedor con reporte al Corporativo.</strong> El Grupo puede activarlas sin presupuesto adicional · cada una con kill criterion. Alineadas 1:1 con el Resumen Ejecutivo.</p>
     </div>
-    <table class="deck-table" style="font-size: 10pt;">
-      <thead><tr><th class="center" style="width:6%">#</th><th>Acción</th><th style="width:22%">Quién firma</th><th style="width:24%">Kill criterion al cierre Q3</th></tr></thead>
+    <table class="deck-table" style="font-size: 9.5pt;">
+      <thead><tr><th class="center" style="width:6%">#</th><th>Paso de la cadena</th><th>Acción operativa</th><th style="width:18%">Quién firma</th><th style="width:20%">Kill criterion al cierre Q3</th></tr></thead>
       <tbody>
-        <tr><td class="center" style="background: var(--gp-red); color: #FFF; font-family: var(--serif); font-weight: 900; font-size: 16pt;">1</td><td><strong>Plasi (IA del Grupo) en el primer toque.</strong> Replica el modelo Vambe-Seminuevos. La IA califica al lead, propone horarios, agenda la cita y entrega el contacto listo al vendedor en piso. El vendedor deja de ser el filtro · pasa a ser el cierre.</td><td>Dir. de Marca</td><td>Conversión &lt; 2% al cierre del Q3</td></tr>
-        <tr><td class="center" style="background: var(--gp-red); color: #FFF; font-family: var(--serif); font-weight: 900; font-size: 16pt;">2</td><td><strong>Customer Success por marca · doble reporting.</strong> Una persona del equipo de marca confirma la cita, asegura que haya vendedor en piso esperando y reporta status del handoff a Dir. de Marca + Dir. MKT. Garantiza el paso Cita → Visita.</td><td>Dir. de Marca puesta · doble reporting</td><td>Sin CS asignado al mes 1</td></tr>
-        <tr><td class="center" style="background: var(--gp-red); color: #FFF; font-family: var(--serif); font-weight: 900; font-size: 16pt;">3</td><td><strong>Vendedores piloto · reporte punteado al Dir. MKT.</strong> Los vendedores asignados al embudo digital reportan status del kanban + SLA semanal a Dir. MKT (además de su reporte normal a la marca). No los reemplaza · agrega trazabilidad e2e del lead a la facturación.</td><td>Dir. de Marca firma</td><td>3 Directores no firman al mes 3</td></tr>
+        <tr>
+          <td class="center" style="background: var(--gp-red); color: #FFF; font-family: var(--serif); font-weight: 900; font-size: 16pt;">1</td>
+          <td><strong>Paso 2 · Prefiltro con IA</strong><br/><span style="font-size: 8.5pt; color: var(--g500);">Por contactar → Cita Agendada</span></td>
+          <td><strong>Plasi (la IA propia del Grupo) hace el primer contacto.</strong> Igual que ya lo hace Vambe en Seminuevos · califica al cliente, propone horario, agenda la cita y le entrega al vendedor el contacto listo. El vendedor deja de decidir a quién llamar · se dedica a cerrar en piso.</td>
+          <td>Director de Marca</td>
+          <td>La conversión sigue debajo del 2% al cerrar el trimestre</td>
+        </tr>
+        <tr>
+          <td class="center" style="background: var(--gp-red); color: #FFF; font-family: var(--serif); font-weight: 900; font-size: 16pt;">2</td>
+          <td><strong>Pasos 3 y 4 · Customer Success + Hostess + QR</strong><br/><span style="font-size: 8.5pt; color: var(--g500);">Cita Agendada → confirmada → Visita</span></td>
+          <td><strong>Alguien confirma la cita y recibe al cliente en piso.</strong> Puede ser una persona dedicada por marca (Customer Success) · o la hostess del piso · más un <strong>gancho para el cliente</strong> (descuento, bono) que se redime con un QR cuando llega a la agencia. <em>El QR es el puente entre lo digital y lo que pasa en el piso · así medimos cada visita real aunque el vendedor no lo registre en el kanban.</em></td>
+          <td>Director de Marca</td>
+          <td>Al mes 1 no se asignó a nadie a este rol</td>
+        </tr>
+        <tr>
+          <td class="center" style="background: var(--gp-red); color: #FFF; font-family: var(--serif); font-weight: 900; font-size: 16pt;">3</td>
+          <td><strong>Paso 5 · Vendedor piso</strong><br/><span style="font-size: 8.5pt; color: var(--g500);">Visita → Cierre</span></td>
+          <td><strong>Los vendedores del piloto reportan al Director de Marketing.</strong> Sin dejar de reportar a su marca · una línea semanal al Corporativo con estado de sus leads. No los reemplaza · agrega trazabilidad del lead a la factura en DMS. Su rol operativo es cerrar en piso, no filtrar leads.</td>
+          <td>Director de Marca</td>
+          <td>Al mes 3 no firmaron tres Directores de Marca</td>
+        </tr>
       </tbody>
     </table>
-    <div class="callout-big gold">
-      <div class="callout-t">Lo que NO estamos proponiendo</div>
-      <p>Ni un peso adicional de pauta · ni reemplazar al Director de Marca · ni centralizar PMA OEM · ni cambiar la titularidad del cliente final. <em>Tu marca sigue siendo tu marca. El embudo digital sigue siendo del Grupo. Lo que destrabamos es el puente entre los dos.</em></p>
+    <div class="callout-big gold" style="padding: 10px 18px;">
+      <div class="callout-t" style="font-size: 11pt;">Lo que NO estamos proponiendo</div>
+      <p style="font-size: 9.5pt;">Ni pauta adicional · ni reemplazar al Director de Marca · ni centralizar PMA OEM · ni cambiar la titularidad del cliente. <em>Tu marca sigue siendo tu marca. Este piloto activa el puente operativo con el QR entre lo digital y el piso.</em></p>
     </div>
   </div>
-  <div class="slide-footer"><span>Slide 9 · 3 acciones operativas · costo $0 incremental · kill criterion en cada una</span><span style="display:flex; align-items:center; gap:8px;"><img class="gp-logo" src="../assets/logos/Logo-GP-Negro.png" alt="GP"/>Grupo Plasencia Automotriz · Dirección MKT Corporativo</span></div>
+  <div class="slide-footer"><span>Slide 9 · 3 acciones del modelo operativo de Ventas · corte al 30-jun-2026 · costo $0 incremental · alineadas con Resumen Ejecutivo al Consejo</span><span style="display:flex; align-items:center; gap:8px;"><img class="gp-logo" src="../assets/logos/Logo-GP-Negro.png" alt="GP"/>Grupo Plasencia Automotriz · Dirección MKT Corporativo</span></div>
 </section>
 
 <section class="slide" data-slide="anexo-sem">
-  <div class="content" style="gap: 10px; padding: 36px 80px 56px 80px;">
+  <div class="content" style="gap: 10px; padding: 28px 80px 44px 80px;">
     <div>
-      <div class="section-num">Anexo · Seminuevos por sucursal · al 30-jun</div>
-      <h1 class="slide-h1" style="font-size: 26pt;">El benchmark al detalle · <em>8 sucursales Seminuevos.</em></h1>
-      <p class="slide-lede" style="font-size: 10.5pt;">Detalle de las 8 sucursales SEM post-dedup 1-VIN-1-atribución. <strong>65 cierres kanban únicos + 5 WEAK Perdida = 70 ventas únicas SEM atribuidas al piloto.</strong> Mazda Plasencia + Bugámbilias + Mazda Acueducto concentran <strong>38 cierres únicos (58% del kanban)</strong>. Es el patrón que la IA debe replicar en Hyundai y Stellantis.</p>
+      <div class="section-num">Anexo A1 · Seminuevos por sucursal · corte al 30 de junio de 2026 · lanzamiento 5-abr · 87 días</div>
+      <h1 class="slide-h1" style="font-size: 26pt;">El playbook al detalle · <em>8 sucursales Seminuevos.</em></h1>
+      <p class="slide-lede" style="font-size: 10.5pt;">Detalle de las 8 sucursales SEM · dedup 1-VIN-1-atribución vs DCA cubo 30003. <strong>65 ventas propias</strong> · Mazda Plasencia + Bugámbilias + Mazda Acueducto concentran el volumen. Es el patrón que se busca replicar en Hyundai y Stellantis.</p>
     </div>
     <table class="deck-table" style="font-size: 8.5pt;">
       <thead><tr><th>Sucursal</th><th class="center">Por contactar</th><th class="center">Recontactar</th><th class="center">Cita</th><th class="center">Seguimiento</th><th class="center">Cierres únicos</th><th class="center">Pérdidas org</th></tr></thead>
       <tbody>
-        <tr><td><strong>Mazda Plasencia</strong></td><td class="center zero">0</td><td class="center zero">0</td><td class="center">1</td><td class="center">2</td><td class="center win">14</td><td class="center bad">19</td></tr>
-        <tr><td><strong>Bugámbilias</strong></td><td class="center">2</td><td class="center">1</td><td class="center zero">0</td><td class="center">6</td><td class="center win">14</td><td class="center bad">65</td></tr>
-        <tr><td><strong>Mazda Acueducto</strong></td><td class="center">7</td><td class="center">6</td><td class="center zero">0</td><td class="center">9</td><td class="center win">10</td><td class="center bad">16</td></tr>
-        <tr><td><strong>Mazda Santa Anita</strong></td><td class="center">3</td><td class="center zero">0</td><td class="center zero">0</td><td class="center">1</td><td class="center win">9</td><td class="center bad">5</td></tr>
+        <tr><td><strong>Mazda Plasencia</strong></td><td class="center zero">0</td><td class="center zero">0</td><td class="center">1</td><td class="center">3</td><td class="center win">12</td><td class="center bad">28</td></tr>
+        <tr><td><strong>Bugámbilias</strong></td><td class="center zero">0</td><td class="center">1</td><td class="center zero">0</td><td class="center">8</td><td class="center win">12</td><td class="center bad">38</td></tr>
+        <tr><td><strong>Mazda Acueducto</strong></td><td class="center">7</td><td class="center">6</td><td class="center zero">0</td><td class="center">9</td><td class="center win">10</td><td class="center bad">22</td></tr>
+        <tr><td><strong>Mazda Santa Anita</strong></td><td class="center">4</td><td class="center zero">0</td><td class="center zero">0</td><td class="center">1</td><td class="center win">9</td><td class="center bad">47</td></tr>
         <tr><td><strong>Mazda Américas</strong></td><td class="center">2</td><td class="center zero">0</td><td class="center zero">0</td><td class="center">63</td><td class="center win">7</td><td class="center bad">28</td></tr>
-        <tr><td><strong>López Mateos</strong></td><td class="center">2</td><td class="center zero">0</td><td class="center">7</td><td class="center">5</td><td class="center win">6</td><td class="center bad">411</td></tr>
-        <tr><td><strong>Mazda Galerías</strong></td><td class="center">26</td><td class="center zero">0</td><td class="center zero">0</td><td class="center">1</td><td class="center win">4</td><td class="center bad">15</td></tr>
-        <tr><td><strong>Mazda Glez Gallo</strong></td><td class="center">39</td><td class="center zero">0</td><td class="center">1</td><td class="center">3</td><td class="center win">1</td><td class="center bad">14</td></tr>
-        <tr class="total"><td><strong>TOTAL · 8 sucursales</strong></td><td class="center">81</td><td class="center">7</td><td class="center">9</td><td class="center">90</td><td class="center"><strong>65</strong></td><td class="center">573</td></tr>
+        <tr><td><strong>López Mateos</strong></td><td class="center">1</td><td class="center zero">0</td><td class="center">3</td><td class="center">5</td><td class="center win">6</td><td class="center bad">89</td></tr>
+        <tr><td><strong>Mazda Galerías</strong></td><td class="center">27</td><td class="center zero">0</td><td class="center zero">0</td><td class="center">1</td><td class="center win">4</td><td class="center bad">17</td></tr>
+        <tr><td><strong>Mazda Glez Gallo</strong></td><td class="center">39</td><td class="center zero">0</td><td class="center zero">0</td><td class="center">3</td><td class="center win">1</td><td class="center bad">14</td></tr>
+        <tr class="total"><td><strong>TOTAL · 8 sucursales</strong></td><td class="center">80</td><td class="center">7</td><td class="center">4</td><td class="center">93</td><td class="center"><strong>61</strong></td><td class="center">283</td></tr>
       </tbody>
     </table>
     <div class="pilar-grid" style="gap: 12px; grid-template-columns: repeat(2, 1fr);">
@@ -612,111 +679,111 @@ table.deck-table { width:100%; border-collapse: collapse; font-family: var(--san
       </div>
       <div class="pilar-card red" style="padding: 12px 16px;">
         <div class="pilar-header" style="font-size: 8.5pt;">SLA en riesgo · orgánico</div>
-        <div class="pilar-title" style="font-size: 13pt;">81 por contactar</div>
-        <div class="pilar-body" style="font-size: 9pt;">Glez Gallo 39 · Galerías 26 · Acueducto 7. Glez Gallo concentra el riesgo: 39 sin tocar y 1 cierre. Auditar SLA de primera llamada.</div>
+        <div class="pilar-title" style="font-size: 13pt;">80 por contactar</div>
+        <div class="pilar-body" style="font-size: 9pt;">Glez Gallo 39 · Galerías 27 · Acueducto 7. Glez Gallo concentra el riesgo: 39 sin tocar y 1 cierre. Auditar SLA de primera llamada. <em>Tabla excluye 369 rescates HYU/STL → SEM (esos son leads de otras marcas).</em></div>
       </div>
     </div>
   </div>
-  <div class="slide-footer"><span>Anexo A1 · Seminuevos al 30-jun-2026 · 8 sucursales · estado vivo del kanban</span><span style="display:flex; align-items:center; gap:8px;"><img class="gp-logo" src="../assets/logos/Logo-GP-Negro.png" alt="GP"/>Grupo Plasencia Automotriz · Dirección MKT Corporativo</span></div>
+  <div class="slide-footer"><span>Anexo A1 · Seminuevos · lanzamiento 5-abr · 87 días · corte al 30-jun-2026 · 8 sucursales · verificado vs cubo 30003 DCA</span><span style="display:flex; align-items:center; gap:8px;"><img class="gp-logo" src="../assets/logos/Logo-GP-Negro.png" alt="GP"/>Grupo Plasencia Automotriz · Dirección MKT Corporativo</span></div>
 </section>
 
 <section class="slide" data-slide="anexo-hyu">
   <div class="content">
     <div>
-      <div class="section-num">Anexo · Hyundai por agencia · al 30-jun</div>
-      <h1 class="slide-h1" style="font-size: 28pt;">473 leads entregados. <em>81 vivos. 1 cierre.</em></h1>
-      <p class="slide-lede">El detalle por agencia muestra el patrón opuesto: <strong>Santa Anita procesa el embudo</strong> (66 leads activos · concentra 80% del Por contactar), <strong>Plasencia GDL descalifica</strong> (386 cierres negativos sobre 403 leads). Misma marca, mismo embudo, mismo catálogo — distinto SLA de primera llamada.</p>
+      <div class="section-num">Anexo A2 · Hyundai por agencia · Pivote 2 desde 7-jun · 23 días · corte al 30-jun-2026</div>
+      <h1 class="slide-h1" style="font-size: 28pt;">473 leads en Hyundai. <em>El ritmo entre agencias marca la diferencia.</em></h1>
+      <p class="slide-lede">El detalle por agencia muestra el patrón operativo al corte: <strong>Santa Anita mantiene el volumen activo</strong> (66 leads en proceso · concentra 80% del Por contactar), <strong>Plasencia GDL cierra el cohort más rápido en negativos</strong> (386 leads en Perdida + No-contactable sobre 403 recibidos). Misma marca, misma cancha técnica, mismo catálogo · lo que cambia es el ritmo del primer toque humano. <em>La venta Hyundai atribuida al piloto fue cross-brand: Patricia DE HARO cerró Mazda ($411,900) · el costo publicitario Hyundai se recuperó a nivel Grupo vía Seminuevos.</em></p>
     </div>
     <table class="deck-table" style="font-size: 10pt;">
-      <thead><tr><th>Agencia</th><th class="center">Por contactar</th><th class="center">Recontactar</th><th class="center">Seguimiento</th><th class="center">Cita / Visita</th><th class="center">Activas total</th><th class="center">Cierres totales</th><th class="center">Perdida + N/C</th></tr></thead>
+      <thead><tr><th>Agencia</th><th class="center">Por contactar</th><th class="center">Recontactar</th><th class="center">Seguimiento</th><th class="center">Cita / Visita</th><th class="center">Activas total</th><th class="center">HYU propios</th><th class="center">Rescatados a SEM</th><th class="center">Perdida + N/C</th></tr></thead>
       <tbody>
-        <tr><td><strong>Hyundai Plasencia GDL</strong></td><td class="center">13</td><td class="center zero">0</td><td class="center">1</td><td class="center">1</td><td class="center" style="color: var(--deep-blue); font-weight:800;">15</td><td class="center win">1</td><td class="center bad">386</td></tr>
-        <tr><td><strong>Hyundai Santa Anita</strong></td><td class="center">52</td><td class="center">1</td><td class="center">12</td><td class="center">1</td><td class="center" style="color: var(--deep-blue); font-weight:800;">66</td><td class="center zero">0</td><td class="center bad">4</td></tr>
-        <tr class="total-blue"><td><strong>TOTAL Hyundai · 2 agencias</strong></td><td class="center">65</td><td class="center">1</td><td class="center">13</td><td class="center">2</td><td class="center"><strong>81</strong></td><td class="center"><strong>1</strong></td><td class="center">390</td></tr>
+        <tr><td><strong>Hyundai Plasencia GDL</strong></td><td class="center">13</td><td class="center zero">0</td><td class="center">1</td><td class="center">1</td><td class="center" style="color: var(--deep-blue); font-weight:800;">15</td><td class="center zero">0</td><td class="center" style="color: var(--deep-blue); font-weight:700;">302</td><td class="center bad">386</td></tr>
+        <tr><td><strong>Hyundai Santa Anita</strong></td><td class="center">52</td><td class="center">1</td><td class="center">12</td><td class="center">1</td><td class="center" style="color: var(--deep-blue); font-weight:800;">66</td><td class="center zero">0</td><td class="center" style="color: var(--deep-blue); font-weight:700;">30</td><td class="center bad">4</td></tr>
+        <tr class="total-blue"><td><strong>TOTAL Hyundai · 2 agencias</strong></td><td class="center">65</td><td class="center">1</td><td class="center">13</td><td class="center">2</td><td class="center"><strong>81</strong></td><td class="center"><strong>0</strong></td><td class="center"><strong>332</strong></td><td class="center">390</td></tr>
       </tbody>
     </table>
     <div class="pilar-grid">
       <div class="pilar-card blue">
-        <div class="pilar-header">Lo más urgente</div>
+        <div class="pilar-header">Lo más inmediato</div>
         <div class="pilar-title" style="font-size: 14pt;">65 por contactar</div>
-        <div class="pilar-body" style="font-size: 10pt;">Santa Anita concentra <strong>52 (80%)</strong> · Plasencia GDL 13. El embudo alimenta Santa Anita; Plasencia GDL no captura como volumen.</div>
+        <div class="pilar-body" style="font-size: 10pt;">Santa Anita concentra <strong>52 (80%)</strong> · Plasencia GDL 13. El embudo alimenta más volumen activo a Santa Anita al corte.</div>
       </div>
-      <div class="pilar-card red">
-        <div class="pilar-header">El patrón a entender</div>
-        <div class="pilar-title" style="font-size: 14pt;">386 cerrados sin tocar</div>
-        <div class="pilar-body" style="font-size: 10pt;"><strong>Plasencia GDL:</strong> 386 cierres negativos (244 Perdida + 142 No-contactable) sobre 403 leads recibidos. Es el patrón que la conversación de hoy tiene que destrabar.</div>
+      <div class="pilar-card">
+        <div class="pilar-header">La variable operativa</div>
+        <div class="pilar-title" style="font-size: 14pt;">386 cerrados como negativo</div>
+        <div class="pilar-body" style="font-size: 10pt;"><strong>Plasencia GDL:</strong> 386 cierres en Perdida + No-contactable sobre 403 leads recibidos al corte. La palanca es el ritmo del primer toque humano · Vambe activo resuelve esta ventana en minutos.</div>
       </div>
       <div class="pilar-card green">
         <div class="pilar-header">Cosecha próxima</div>
-        <div class="pilar-title" style="font-size: 14pt;">2 citas + 13 segto</div>
-        <div class="pilar-body" style="font-size: 10pt;">2 Cita Agendada (1 Plasencia GDL · 1 SA) + 13 En seguimiento. <strong>1 cierre atribuido</strong> (Patricia DE HARO cross-brand a Mazda · $411,900 DMS) + 1 en Cerrado por auditar. El landing HYU también corre el rescate cross-brand hacia Seminuevos.</div>
+        <div class="pilar-title" style="font-size: 14pt;">2 citas + 13 en seguimiento</div>
+        <div class="pilar-body" style="font-size: 10pt;">2 Cita Agendada (1 Plasencia GDL · 1 SA) + 13 En seguimiento. <strong>0 cierres Hyundai propios al corte</strong> + 1 recuperación cross-brand (Patricia DE HARO → Mazda · $411,900) + 1 pendiente auditar contra DMS (Fabio Ascencio · $304K).</div>
       </div>
     </div>
   </div>
-  <div class="slide-footer"><span>Anexo A2 · Hyundai al 30-jun-2026 · 2 agencias OEM GDL · Pivote 2 desde 7-jun</span><span style="display:flex; align-items:center; gap:8px;"><img class="gp-logo" src="../assets/logos/Logo-GP-Negro.png" alt="GP"/>Grupo Plasencia Automotriz · Dirección MKT Corporativo</span></div>
+  <div class="slide-footer"><span>Anexo A2 · Hyundai · Pivote 2 desde 7-jun · 23 días · corte al 30-jun-2026 · 2 agencias OEM GDL</span><span style="display:flex; align-items:center; gap:8px;"><img class="gp-logo" src="../assets/logos/Logo-GP-Negro.png" alt="GP"/>Grupo Plasencia Automotriz · Dirección MKT Corporativo</span></div>
 </section>
 
 <section class="slide" data-slide="anexo-stl">
   <div class="content">
     <div>
-      <div class="section-num">Anexo · Stellantis por agencia · al 30-jun</div>
-      <h1 class="slide-h1" style="font-size: 28pt;">269 leads. <em>231 vivos sin definir.</em></h1>
-      <p class="slide-lede">Stellantis no descalifica · acumula. 104 Por contactar + 102 Recontactar = <strong>206 leads sin primera definición</strong>. Plasencia (M. Otero) concentra el grueso de leads activos. El cuello está en convertir la primera llamada en un sí o un no · no en seguir difiriéndolo.</p>
+      <div class="section-num">Anexo A3 · Stellantis por agencia · Pivote 2 desde 5-jun · 25 días · corte al 30-jun-2026</div>
+      <h1 class="slide-h1" style="font-size: 28pt;">269 leads en Stellantis. <em>231 pendientes de primera definición.</em></h1>
+      <p class="slide-lede">Stellantis mantiene los leads vivos en pipeline al corte · 104 Por contactar + 102 Recontactar = <strong>206 leads pendientes de primera definición</strong>. Plasencia (M. Otero) concentra el grueso del volumen activo. La palanca operativa es acortar el ciclo del primer toque humano · Vambe activo en ese tramo (como en Seminuevos) resuelve la ventana en minutos en vez de días.</p>
     </div>
     <table class="deck-table" style="font-size: 10pt;">
-      <thead><tr><th>Agencia</th><th class="center">Por contactar</th><th class="center">Recontactar</th><th class="center">Seguimiento</th><th class="center">Cita / Neg</th><th class="center">Activas total</th><th class="center">Cierres totales</th><th class="center">Perdida</th></tr></thead>
+      <thead><tr><th>Agencia</th><th class="center">Por contactar</th><th class="center">Recontactar</th><th class="center">Seguimiento</th><th class="center">Cita / Neg</th><th class="center">Activas total</th><th class="center">STL propios</th><th class="center">Rescate a SEM</th><th class="center">Perdida</th></tr></thead>
       <tbody>
-        <tr><td><strong>Stellantis Plasencia (M. Otero)</strong></td><td class="center">82</td><td class="center">81</td><td class="center">7</td><td class="center">10</td><td class="center" style="color: var(--gp-red); font-weight:800;">180</td><td class="center win">1</td><td class="center bad">32</td></tr>
-        <tr><td><strong>Stellantis Santa Anita</strong></td><td class="center">22</td><td class="center">21</td><td class="center">6</td><td class="center">2</td><td class="center" style="color: var(--gp-red); font-weight:800;">51</td><td class="center zero">0</td><td class="center bad">5</td></tr>
-        <tr class="total-red"><td><strong>TOTAL Stellantis · 2 agencias · 5 marcas</strong></td><td class="center">109</td><td class="center">97</td><td class="center">13</td><td class="center">12</td><td class="center"><strong>231</strong></td><td class="center"><strong>1</strong></td><td class="center">37</td></tr>
+        <tr><td><strong>Stellantis Plasencia (M. Otero)</strong></td><td class="center">82</td><td class="center">81</td><td class="center">7</td><td class="center">10</td><td class="center" style="color: var(--gp-red); font-weight:800;">180</td><td class="center win">1</td><td class="center" style="color: var(--deep-blue); font-weight:700;">28</td><td class="center bad">32</td></tr>
+        <tr><td><strong>Stellantis Santa Anita</strong></td><td class="center">22</td><td class="center">21</td><td class="center">6</td><td class="center">2</td><td class="center" style="color: var(--gp-red); font-weight:800;">51</td><td class="center zero">0</td><td class="center" style="color: var(--deep-blue); font-weight:700;">9</td><td class="center bad">5</td></tr>
+        <tr class="total-red"><td><strong>TOTAL Stellantis · 2 agencias · 5 marcas</strong></td><td class="center">109</td><td class="center">97</td><td class="center">13</td><td class="center">12</td><td class="center"><strong>231</strong></td><td class="center"><strong>1</strong></td><td class="center"><strong>37</strong></td><td class="center">37</td></tr>
       </tbody>
     </table>
     <div class="pilar-grid">
-      <div class="pilar-card red">
-        <div class="pilar-header">SLA hoy · primera llamada</div>
-        <div class="pilar-title" style="font-size: 14pt;">104 sin tocar</div>
-        <div class="pilar-body" style="font-size: 10pt;">Plasencia 82 (79%) · Santa Anita 22. <strong>La cifra más alta del piloto Stellantis.</strong> Contactar el mismo día o el lead muere caliente.</div>
+      <div class="pilar-card">
+        <div class="pilar-header">Lo más inmediato</div>
+        <div class="pilar-title" style="font-size: 14pt;">104 por contactar</div>
+        <div class="pilar-body" style="font-size: 10pt;">Plasencia 82 (79%) · Santa Anita 22. Es el volumen más alto del piloto Stellantis · contactar el mismo día conserva la intención del prospecto.</div>
       </div>
       <div class="pilar-card">
-        <div class="pilar-header">Pipeline atorado</div>
-        <div class="pilar-title" style="font-size: 14pt;">102 en "Recontactar"</div>
-        <div class="pilar-body" style="font-size: 10pt;">38% del pipeline · Plasencia 81 · SA 21. Definir esta semana: cita o cierre por pérdida. No puede seguir difiriéndose.</div>
+        <div class="pilar-header">Pipeline en Recontactar</div>
+        <div class="pilar-title" style="font-size: 14pt;">102 leads en seguimiento</div>
+        <div class="pilar-body" style="font-size: 10pt;">38% del pipeline · Plasencia 81 · Santa Anita 21. La palanca operativa es cerrar el ciclo en la semana: cita agendada o cierre por decisión del prospecto.</div>
       </div>
       <div class="pilar-card green">
-        <div class="pilar-header">Próxima cosecha</div>
-        <div class="pilar-title" style="font-size: 14pt;">12 citas + 13 segto</div>
-        <div class="pilar-body" style="font-size: 10pt;">12 Cita Agendada (10 Plasencia · 2 SA) + 13 En seguimiento. <strong>1 cierre total</strong> (Miguel Ochoa RAM · $349,900 DMS). El landing STL también corre el rescate cross-brand hacia Seminuevos.</div>
+        <div class="pilar-header">Cosecha próxima</div>
+        <div class="pilar-title" style="font-size: 14pt;">12 citas + 13 en seguimiento</div>
+        <div class="pilar-body" style="font-size: 10pt;">12 Cita Agendada (10 Plasencia · 2 SA) + 13 En seguimiento. <strong>1 cierre Stellantis propio al corte</strong> (Miguel Ochoa RAM · $349,900). El landing STL corre el rescate cross-brand hacia Seminuevos · 37 leads rescatados, 0 cierres al corte.</div>
       </div>
     </div>
   </div>
-  <div class="slide-footer"><span>Anexo A3 · Stellantis al 30-jun-2026 · 2 agencias · 5 submarcas · Pivote 2 desde 5-jun</span><span style="display:flex; align-items:center; gap:8px;"><img class="gp-logo" src="../assets/logos/Logo-GP-Negro.png" alt="GP"/>Grupo Plasencia Automotriz · Dirección MKT Corporativo</span></div>
+  <div class="slide-footer"><span>Anexo A3 · Stellantis · Pivote 2 desde 5-jun · 25 días · corte al 30-jun-2026 · 2 agencias · 5 submarcas</span><span style="display:flex; align-items:center; gap:8px;"><img class="gp-logo" src="../assets/logos/Logo-GP-Negro.png" alt="GP"/>Grupo Plasencia Automotriz · Dirección MKT Corporativo</span></div>
 </section>
 
 <section class="slide closing" data-slide="closing">
   <div class="closing-inner">
     <div class="closing-eyebrow">Cierre · Reporte del Piloto · Documento 2 de 3</div>
     <div class="closing-rule"></div>
-    <h1 class="closing-h">$2.50M de profit en 79 días. <em>La evidencia para convertir Marketing en motor de utilidad.</em></h1>
-    <div class="closing-sub">El piloto demostró con cifras auditadas vs DCA que la mecánica funciona (73 ventas únicas dedup 1-VIN-1-atribución). El cuello está en el handoff humano, no en el embudo. Aplicando el CAC $2,048 de Seminuevos al benchmark del Grupo (AOV $492K · DCA 2026), el modelo proyecta <strong>$13.5M–$40.5M de profit anual incremental cross-marca (HYU + STL)</strong>. Esta evidencia es la base — junto al Deep Dive — del Resumen Ejecutivo que se presenta al Consejo.</div>
+    <h1 class="closing-h">$2.40M de utilidad bruta en 87 días. <em>Marketing probado · falta activar Ventas.</em></h1>
+    <div class="closing-sub">Al corte del 30-jun-2026, el piloto probó que <strong>la mecánica de Marketing funciona</strong> (67 ventas vs DCA · $147 en venta y $16.60 en utilidad por cada $1 de pauta · payback en 4 ventas). Falta activar en Hyundai y Stellantis el <strong>modelo operativo de Ventas</strong>: prefiltro con Plasi · Customer Success o hostess confirmando cita · gancho phygital con QR · vendedores reportando al Corporativo. Con el CAC $1,068 real de Seminuevos, el modelo proyecta <strong>$25.7M–$77.4M de utilidad bruta anual incremental (HYU + STL)</strong>. Esta evidencia conecta con el <strong>Resumen Ejecutivo al Consejo</strong>.</div>
     <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 32px; width: 100%; max-width: 880px;">
       <div style="text-align: center; padding: 14px 16px; background: rgba(255,255,255,.06); border-radius: 8px; border-top: 3px solid var(--gold);">
-        <div style="font-family: var(--sans); font-size: 8.5pt; letter-spacing: 1.6px; text-transform: uppercase; color: var(--gold); font-weight: 700;">Lo construido</div>
-        <div style="font-family: var(--serif); font-weight: 900; font-size: 24pt; color: var(--near-white); margin-top: 6px; line-height: 1;">73 ventas únicas</div>
-        <div style="font-family: var(--sans); font-size: 8.5pt; color: rgba(255,255,255,.7); margin-top: 6px;">$22.32M revenue · ROAS 100× · piloto digital · matching v8.3 LIVE</div>
+        <div style="font-family: var(--sans); font-size: 8.5pt; letter-spacing: 1.6px; text-transform: uppercase; color: var(--gold); font-weight: 700;">Lo probado</div>
+        <div style="font-family: var(--serif); font-weight: 900; font-size: 24pt; color: var(--near-white); margin-top: 6px; line-height: 1;">67 ventas · $2.40M</div>
+        <div style="font-family: var(--sans); font-size: 8.5pt; color: rgba(255,255,255,.7); margin-top: 6px;">verificadas vs DCA · ROAS 147× · payback 4 ventas</div>
       </div>
       <div style="text-align: center; padding: 14px 16px; background: rgba(255,255,255,.06); border-radius: 8px; border-top: 3px solid var(--green);">
-        <div style="font-family: var(--sans); font-size: 8.5pt; letter-spacing: 1.6px; text-transform: uppercase; color: #9AE6B4; font-weight: 700;">Lo demostrado</div>
-        <div style="font-family: var(--serif); font-weight: 900; font-size: 24pt; color: var(--near-white); margin-top: 6px; line-height: 1;">CAC $2,048</div>
-        <div style="font-family: var(--sans); font-size: 8.5pt; color: rgba(255,255,255,.7); margin-top: 6px;">benchmark replicable a Hyundai · Stellantis</div>
+        <div style="font-family: var(--sans); font-size: 8.5pt; letter-spacing: 1.6px; text-transform: uppercase; color: #9AE6B4; font-weight: 700;">Lo replicable</div>
+        <div style="font-family: var(--serif); font-weight: 900; font-size: 24pt; color: var(--near-white); margin-top: 6px; line-height: 1;">CAC $1,068</div>
+        <div style="font-family: var(--sans); font-size: 8.5pt; color: rgba(255,255,255,.7); margin-top: 6px;">modelo Seminuevos aplicable a Hyundai y Stellantis</div>
       </div>
       <div style="text-align: center; padding: 14px 16px; background: rgba(255,255,255,.06); border-radius: 8px; border-top: 3px solid var(--gp-red);">
         <div style="font-family: var(--sans); font-size: 8.5pt; letter-spacing: 1.6px; text-transform: uppercase; color: #FBD38D; font-weight: 700;">Lo siguiente</div>
         <div style="font-family: var(--serif); font-weight: 900; font-size: 24pt; color: var(--near-white); margin-top: 6px; line-height: 1;">3 acciones</div>
-        <div style="font-family: var(--sans); font-size: 8.5pt; color: rgba(255,255,255,.7); margin-top: 6px;">Plasi · Customer Success · reporte punteado · costo $0</div>
+        <div style="font-family: var(--sans); font-size: 8.5pt; color: rgba(255,255,255,.7); margin-top: 6px;">Plasi + Customer Success + reporte punteado · costo $0</div>
       </div>
     </div>
     <div style="font-family: var(--sans); font-size: 9pt; color: rgba(255,255,255,.55); margin-top: 30px; letter-spacing: 1px; text-align: center;">
-      Siguiente documento · Resumen Ejecutivo al Consejo · Dirección MKT Corporativo · 24 junio 2026
+      Siguiente documento · Resumen Ejecutivo al Consejo · Dirección MKT Corporativo · corte al 30 de junio de 2026
     </div>
   </div>
 </section>
