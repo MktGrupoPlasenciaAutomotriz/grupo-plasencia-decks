@@ -167,7 +167,7 @@ html, body { background: #E2E8F0; color: var(--text); font-family: var(--sans); 
 .gantt-legend .dot.milestone { background: var(--gp-red); }
 .gantt-legend .dot.ops { background: rgba(39,103,73,.4); border: 1px dashed var(--deep-green); }
 
-/* Métricas éxito */
+/* Milestones */
 .milestones { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-top: 6px; }
 .milestone-card { background: var(--paper); border: 1px solid var(--g200); border-top: 3px solid var(--gp-red); border-radius: 8px; padding: 10px 12px; }
 .milestone-lbl { font-family: var(--sans); font-size: 7.5pt; font-weight: 800; letter-spacing: 1.4px; color: var(--gp-red); text-transform: uppercase; margin-bottom: 4px; }
@@ -176,6 +176,29 @@ html, body { background: #E2E8F0; color: var(--text); font-family: var(--sans); 
 .milestone-list li { padding: 3px 0 3px 14px; position: relative; font-size: 7.5pt; color: var(--g600); line-height: 1.4; }
 .milestone-list li::before { content: "→"; position: absolute; left: 0; color: var(--gp-red); font-weight: 700; }
 .milestone-list li strong { color: var(--gp-navy); font-weight: 700; }
+
+/* White Label progression */
+.wl-stages { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 10px; margin-top: 8px; }
+.wl-stage { background: var(--paper); border: 1px solid var(--g200); border-radius: 8px; padding: 12px 14px; position: relative; }
+.wl-stage.now { border-top: 3px solid var(--deep-green); background: rgba(39,103,73,.04); }
+.wl-stage.next { border-top: 3px solid var(--amber); }
+.wl-stage.later { border-top: 3px solid var(--deep-blue); }
+.wl-stage.future { border-top: 3px solid var(--g400); }
+.wl-stage-num { font-family: var(--serif); font-weight: 900; font-size: 22pt; line-height: 1; margin-bottom: 4px; }
+.wl-stage.now .wl-stage-num { color: var(--deep-green); }
+.wl-stage.next .wl-stage-num { color: var(--amber); }
+.wl-stage.later .wl-stage-num { color: var(--deep-blue); }
+.wl-stage.future .wl-stage-num { color: var(--g400); }
+.wl-stage-when { font-family: var(--sans); font-size: 7pt; font-weight: 800; letter-spacing: 1.3px; text-transform: uppercase; color: var(--g500); margin-bottom: 4px; }
+.wl-stage-t { font-family: var(--serif); font-weight: 700; font-size: 10.5pt; color: var(--gp-navy); margin-bottom: 6px; letter-spacing: -.1px; line-height: 1.15; }
+.wl-stage-body { font-family: var(--sans); font-size: 7.5pt; color: var(--g600); line-height: 1.45; }
+.wl-stage-body strong { color: var(--gp-navy); font-weight: 700; }
+
+/* RACI */
+.raci { width: 100%; border-collapse: collapse; margin-top: 6px; font-family: var(--sans); font-size: 8pt; }
+.raci th { background: var(--gp-navy); color: var(--near-white); padding: 8px 8px; text-align: left; font-size: 7.5pt; font-weight: 700; text-transform: uppercase; letter-spacing: .8px; }
+.raci td { padding: 7px 8px; border-bottom: 1px solid var(--g200); font-size: 8pt; color: var(--text); vertical-align: top; }
+.raci td.actor { font-weight: 700; color: var(--gp-navy); width: 22%; }
 
 /* Footer */
 .foot { padding: 10px 40px; background: var(--g100); border-top: 1px solid var(--g200); display: flex; justify-content: space-between; align-items: center; font-family: var(--sans); font-size: 7.5pt; color: var(--g500); flex-shrink: 0; }
@@ -191,23 +214,23 @@ html, body { background: #E2E8F0; color: var(--text); font-family: var(--sans); 
       <div>
         <div class="hdr-brand">Grupo Plasencia Automotriz<span>Marketing y Digital · Dirección Corporativa</span></div>
       </div>
-      <div class="hdr-date"><span>Confidencial</span>Agosto 2026 · v0.4</div>
+      <div class="hdr-date"><span>Confidencial</span>Agosto 2026 · v0.5</div>
     </div>
     <div class="hdr-eyebrow">Plan operativo · Primeros 90 días</div>
     <h1 class="hdr-title">De marco aprobado <em>a operación</em></h1>
-    <p class="hdr-sub">Aterrizaje operativo de los <strong>tres modos de trabajo</strong> del Playbook v0.2. Foco en tracción medible, no en cobertura teórica. <strong>Priorización explícita por capacidad instalada.</strong></p>
+    <p class="hdr-sub">Aterrizaje operativo de los <strong>tres modos de trabajo</strong> del Playbook v0.5. Cocreación con 6 marcas prioritarias, Marketplace público en semanas 6 a 7 y compra de medios consolidada bajo <strong>Medios Plasencia</strong> con dos RFPs escalonados.</p>
   </div>
 
   <div class="body">
     <div class="cover-bluf">
       <div class="cover-bluf-lbl">En una frase</div>
-      <div class="cover-bluf-t">Cocreación con <em>5 marcas prioritarias</em>, beta público del Marketplace en <em>8 semanas</em> y <em>dos RFPs escalonados</em> de compra de medios (Digital semana 5 · Off/análogos semana 12). Todo bajo gobierno del <em>Comité de Transformación Digital</em> que se formaliza en semana 1.</div>
+      <div class="cover-bluf-t">Cocreación con <em>6 marcas prioritarias</em>, Marketplace público en <em>semanas 6 a 7</em> (con ~30 días de operación real antes del reporte S13), <em>dos RFPs escalonados</em> bajo <strong>Medios Plasencia</strong> (Digital + implants semana 5 · Off/análogos semana 12) y un <strong>RFP transparente Carbot vs Vambe</strong> por volumen consolidado para la IA conversacional. Gobierno del <em>Comité de Transformación Digital</em> desde semana 1.</div>
     </div>
 
     <div class="cover-meta">
       <div class="cover-meta-card">
         <div class="cover-meta-lbl">Sponsor</div>
-        <div class="cover-meta-body"><strong>Pepe Morales</strong> · Dirección de Finanzas · revisión inicial hoy · ronda con Andrés y Nicolás la próxima semana.</div>
+        <div class="cover-meta-body"><strong>Pepe Morales</strong> · Dirección de Finanzas · ronda de revisión con Andrés y Nicolás la semana siguiente al arranque.</div>
       </div>
       <div class="cover-meta-card gold">
         <div class="cover-meta-lbl">Owner operativo</div>
@@ -217,18 +240,18 @@ html, body { background: #E2E8F0; color: var(--text); font-family: var(--sans); 
 
     <div class="cover-context">
       <div class="cover-context-lbl">Ventana operativa · 13 semanas</div>
-      <div class="cover-context-body">Sprint <strong>S1 = semana 33 del 2026</strong> (lunes 10 al domingo 16 de agosto) → <strong>S13 = semana 45</strong> (lunes 3 al domingo 9 de noviembre). <strong>Tres reportes semáforo al Consejo:</strong> S4 · semana 36 (fin de fase build · lunes 31 ago), S8 · semana 40 (fin de fase escalamiento · lunes 28 sep), S13 · semana 45 (cierre de 90 días con métricas medibles · lunes 3 nov). Comité de Transformación Digital formalizado en S1 como órgano de gobierno del plan.</div>
+      <div class="cover-context-body">Sprint <strong>S1 = semana 33 del 2026</strong> (lunes 10 al domingo 16 de agosto) → <strong>S13 = semana 45</strong> (lunes 3 al domingo 9 de noviembre). <strong>Tres reportes semáforo al Consejo:</strong> S4 · semana 36 (fin de fase build · lunes 31 ago), S8 · semana 40 (Marketplace público operando · lunes 28 sep), S13 · semana 45 (cierre de 90 días con métricas medibles · lunes 3 nov). Comité de Transformación Digital formalizado en S1.</div>
     </div>
 
     <div class="cover-context" style="background: linear-gradient(135deg, #C8102E 0%, #A00A25 100%);">
-      <div class="cover-context-lbl" style="color: var(--gold);">Filosofía · calidad sobre cobertura</div>
-      <div class="cover-context-body">No se aborda a las 11 marcas del portafolio en Modo 1 desde la semana 1. Se prioriza <strong>5 marcas Fase 1</strong> (pilotos operando + confirmadas en cola) para asegurar cocreación de plan comercial con calidad y firma tripartita. Fase 2 y Fase 3 se activan por <strong>pull comercial</strong>, no por push de la Dirección.</div>
+      <div class="cover-context-lbl" style="color: var(--gold);">Filosofía · calidad sobre cobertura, memoria sobre pipeline</div>
+      <div class="cover-context-body">Fase 1 amplia a <strong>6 marcas</strong> para asegurar cobertura de las líneas con mayor demanda de plan comercial (Seminuevos · Hyundai · Stellantis · GAC · Changan · Flotillas). El Marketplace público se recorta a S6-S7 porque <em>"la gente se acuerda de los últimos 30 días"</em>: la sensación de éxito debe estar vigente al reporte S13. Fase 3 (marcas restantes) se activa por <strong>pull</strong> comercial, no por push.</div>
     </div>
   </div>
 
   <div class="foot">
     <span><strong>Grupo Plasencia</strong> · Plan 90 Días · Dirección de Marketing y TxD</span>
-    <span>Agosto 2026 · Confidencial · Página 1 de 7</span>
+    <span>Agosto 2026 · Confidencial · Página 1 de 8</span>
   </div>
 </div>
 
@@ -240,18 +263,19 @@ html, body { background: #E2E8F0; color: var(--text); font-family: var(--sans); 
   </div>
 
   <div class="body">
-    <p class="lede"><strong>Team-of-one + IA cubre ~40 horas por semana efectivas.</strong> El Modo 1 de cocreación consume aproximadamente 4 horas por semana por marca durante las primeras 4 semanas (sesión + preparación + redacción del plan + circulación firma). Cinco marcas en Fase 1 equivalen a 20 horas por semana en Modo 1, dejando espacio para el build del Marketplace (Modo 2) y el RFP de compra de medios (Modo 3). Once marcas simultáneas serían infactibles.</p>
+    <p class="lede"><strong>Team-of-one + IA cubre ~40 horas por semana efectivas.</strong> El Modo 1 de cocreación consume aproximadamente 4 horas por semana por marca durante las primeras 4 semanas (sesión + preparación + redacción del plan + circulación firma). Seis marcas Fase 1 escalonadas equivalen a 20-24 horas por semana en Modo 1 en el pico, dejando espacio para el build del Marketplace (Modo 2) y los RFPs de Medios Plasencia (Modo 3). Once marcas simultáneas serían infactibles.</p>
 
     <div class="section-hdr small"><span class="num">A</span>Priorización canonizada · 3 fases</div>
 
     <div class="priority-block">
       <div class="priority-card">
-        <div class="priority-lbl">Fase 1 · Semanas 1 a 6</div>
-        <div class="priority-title">Confirmadas o en piloto</div>
-        <div class="priority-detail">Pilotos operando o solicitud explícita en cola. Arranque escalonado para no saturar. <strong>Cocreación + firma tripartita en 4 semanas por marca.</strong></div>
+        <div class="priority-lbl">Fase 1 · Semanas 1 a 8</div>
+        <div class="priority-title">6 marcas con plan firmado</div>
+        <div class="priority-detail">Confirmadas por pilotos operando o solicitud explícita en cola. Arranque escalonado (una por semana) para no saturar. <strong>Cocreación + firma tripartita en 4 semanas por marca.</strong> Flotillas mantiene funnel B2B propio, no entra al Marketplace público.</div>
         <div class="priority-marcas">
           <span class="marca-chip">Seminuevos</span>
           <span class="marca-chip">Hyundai</span>
+          <span class="marca-chip">Stellantis</span>
           <span class="marca-chip">GAC</span>
           <span class="marca-chip">Changan</span>
           <span class="marca-chip">Flotillas</span>
@@ -259,63 +283,62 @@ html, body { background: #E2E8F0; color: var(--text); font-family: var(--sans); 
       </div>
 
       <div class="priority-card amber">
-        <div class="priority-lbl">Fase 2 · Semanas 7 a 10</div>
-        <div class="priority-title">Backlog activo + dogfooding</div>
-        <div class="priority-detail">Stellantis se suma cuando las Fase 1 pasan a cadencia mensual (baja de 4 hr a 1 hr por semana por marca). Corporativo se aplica al propio flujo con experiencia acumulada de Fase 1.</div>
+        <div class="priority-lbl">Fase 2 · Semanas 9 a 11</div>
+        <div class="priority-title">Dogfooding Corporativo</div>
+        <div class="priority-detail">El propio Corporativo aplica el mismo Modo 1 sobre su plan de marketing con la experiencia acumulada de Fase 1. Sirve además de <em>dogfooding</em> del framework: si funciona hacia dentro, gana credibilidad hacia fuera.</div>
         <div class="priority-marcas">
-          <span class="marca-chip">Stellantis</span>
           <span class="marca-chip">Corporativo</span>
         </div>
       </div>
 
       <div class="priority-card red">
-        <div class="priority-lbl">Fase 3 · Semanas 11 a 13</div>
+        <div class="priority-lbl">Fase 3 · Semanas 12 a 13</div>
         <div class="priority-title">Pull explícito o esperan</div>
-        <div class="priority-detail">Solo se activan si el Consejo o las Direcciones de Familia empujan top-down, o si el Director de Marca lo pide con solicitud expresa. <strong>Modelo pull, no push.</strong></div>
+        <div class="priority-detail">Autolease entra por solicitud explícita (ya solicitado). El resto solo se activa si el Consejo o las Direcciones de Familia empujan top-down, o si el Director de Marca lo pide con solicitud expresa. <strong>Modelo pull, no push.</strong></div>
         <div class="priority-marcas">
+          <span class="marca-chip">Autolease</span>
           <span class="marca-chip">Mazda</span>
           <span class="marca-chip">Ford</span>
           <span class="marca-chip">GWM</span>
           <span class="marca-chip">Isuzu</span>
-          <span class="marca-chip">Autolease</span>
         </div>
       </div>
     </div>
 
-    <div class="section-hdr small" style="margin-top: 16px;"><span class="num">B</span>Los 3 modos aterrizados en 90 días</div>
+    <div class="section-hdr small" style="margin-top: 14px;"><span class="num">B</span>Los 3 modos aterrizados en 90 días</div>
 
     <div class="modos-grid">
       <div class="modo-card">
         <div class="modo-card-num">01</div>
         <div class="modo-card-eyebrow">Cocreación estratégica</div>
         <div class="modo-card-t">Plan comercial firmado tripartita</div>
-        <div class="modo-card-body">Cocreación del plan comercial de marketing de cada marca Fase 1. Cuatro momentos: inmersión, cocreación del plan, firma tripartita (Dirección de Familia, Director de Marca, Director de MKT) y seguimiento cercano. <strong>Meta 90 días: 7 planes firmados (5 Fase 1 + 2 Fase 2).</strong></div>
+        <div class="modo-card-body">Cocreación del plan comercial de marketing de cada marca Fase 1. Cuatro momentos: inmersión, cocreación del plan, firma tripartita (Dirección de Familia, Director de Marca, Director de MKT) y seguimiento cercano. <strong>Meta 90 días: 7 planes firmados (6 Fase 1 + Corporativo).</strong></div>
       </div>
 
       <div class="modo-card red">
         <div class="modo-card-num">02</div>
         <div class="modo-card-eyebrow">Lead a venta</div>
-        <div class="modo-card-t">Marketplace beta público</div>
-        <div class="modo-card-body">Conversión de las tiendas del piloto en un producto marketplace unificado. Cada marca sube su feed de catálogo (modelo Mercado Libre o Shopify). Dirección habilita el canal digital, la marca es responsable de gestión de piso y venta. <strong>Meta 90 días: beta público operando con 5 marcas.</strong></div>
+        <div class="modo-card-t">Marketplace público + ecosistema Karbot</div>
+        <div class="modo-card-body">Marketplace del Grupo Plasencia con las 5 marcas de retail (Flotillas mantiene funnel B2B aparte). Cada marca sube su feed de catálogo y opera como <em>tiendita</em>. Encima corre el ecosistema Karbot: IA conversacional + encuestas NPS + broadcast + Karlopay para pagos digitales. <strong>Meta 90 días: público operando en S6-S7 con 5 marcas.</strong></div>
       </div>
 
       <div class="modo-card gold">
         <div class="modo-card-num">03</div>
-        <div class="modo-card-eyebrow">Agencia interna</div>
-        <div class="modo-card-t">Dos RFPs escalonados · Digital y Off</div>
-        <div class="modo-card-body">Dos RFPs formales para centralizar la compra de medios cross-marca bajo el esquema de compras de Finanzas y voto del Comité de TxD. <strong>RFP #1 Digital</strong> (prioridad · Meta, Google, programmatic · firma S5). <strong>RFP #2 Off/análogos</strong> (OOH, espectaculares, radio, TV, prensa · arranca S8 · firma S12). Los dos mundos tienen dinámicas y proveedores distintos.</div>
+        <div class="modo-card-eyebrow">Medios Plasencia</div>
+        <div class="modo-card-t">Dos RFPs escalonados · Digital + Off</div>
+        <div class="modo-card-body">Compra de medios cross-marca centralizada bajo <strong>Medios Plasencia</strong> (modelo KPMG/BienSea/Aurora arrendadora). <strong>RFP #1 · Digital + implants</strong> (Meta, Google, programmatic · firma S5). <strong>RFP #2 · Off/análogos</strong> (OOH, radio, TV · firma S12). Sergio de Compras en cc desde primer email. Fase 2 post-90d: constituir empresa formal.</div>
       </div>
     </div>
 
     <div class="callout navy" style="margin-top: 12px;">
       <div class="callout-lbl">Gobierno del plan · Comité de Transformación Digital</div>
-      <div class="callout-body">Se formaliza en semana 1 como órgano de gobierno permanente. Composición: <strong>Andrés y Nicolás (Direcciones de Familia)</strong>, <strong>Pepe Morales (Dirección de Finanzas)</strong>, <strong>Jesús Pérez Porras (Dirección de MKT y TxD)</strong>, <strong>Sergio (Dirección de Compras)</strong> como validador operativo. Se invita a Directores de Marca puntuales según el tema. El Comité vota decisiones cross-marca del plan (selección de proveedor de medios, autorización de Customer Success, aprobación de escalamiento del Marketplace).</div>
+      <div class="callout-body">Se formaliza en semana 1 como órgano de gobierno permanente. Composición: <strong>Andrés y Nicolás (Direcciones de Familia)</strong>, <strong>Pepe Morales (Dirección de Finanzas)</strong>, <strong>Jesús Pérez Porras (Dirección de MKT y TxD)</strong>, <strong>Sergio (Dirección de Compras)</strong> como validador operativo. Se invita a Directores de Marca puntuales según el tema. El Comité vota decisiones cross-marca: selección de proveedor de medios, autorización de Customer Success, aprobación de escalamiento del Marketplace, resolución del RFP Carbot vs Vambe.</div>
     </div>
   </div>
 
   <div class="foot">
     <span><strong>Grupo Plasencia</strong> · Plan 90 Días · Dirección de Marketing y TxD</span>
-    <span>Agosto 2026 · Confidencial · Página 2 de 7</span>
+    <span>Agosto 2026 · Confidencial · Página 2 de 8</span>
   </div>
 </div>
 
@@ -327,9 +350,9 @@ html, body { background: #E2E8F0; color: var(--text); font-family: var(--sans); 
   </div>
 
   <div class="body">
-    <p class="lede">Sesiones semanales con gerentes y directores para <strong>cocrear el plan comercial de marketing</strong> de cada marca prioritaria. La Dirección no llega con recomendaciones prescritas; llega a escuchar el plan comercial que ya tiene la marca y retroalimentarlo o construirlo juntos si no existe. El plan resultante se <strong>firma tripartita</strong> (Dirección de Familia autoriza, Director de Marca firma, Director de MKT firma) y se opera de forma conjunta durante el horizonte.</p>
+    <p class="lede">Sesiones semanales con gerentes y directores para <strong>cocrear el plan comercial de marketing</strong> de cada marca prioritaria. La Dirección no llega con recomendaciones prescritas; llega a escuchar el plan comercial que ya tiene la marca y retroalimentarlo o construirlo juntos si no existe. El plan resultante se <strong>firma tripartita</strong> (Dirección de Familia autoriza, Director de Marca firma, Director de MKT firma) y se opera de forma conjunta durante el horizonte. <strong>Cocreación cierra en 4 semanas por marca</strong> (no 4 a 6); ese hito coincide con el reporte al Consejo del sprint 4.</p>
 
-    <div class="section-hdr small"><span class="num">A</span>Cadencia por marca (4 momentos del Playbook)</div>
+    <div class="section-hdr small"><span class="num">A</span>Cadencia por marca · 4 momentos del Playbook · 4 semanas</div>
 
     <table class="tbl">
       <thead>
@@ -370,33 +393,35 @@ html, body { background: #E2E8F0; color: var(--text); font-family: var(--sans); 
 
     <div class="section-hdr small" style="margin-top: 12px;"><span class="num">B</span>Escalonamiento Fase 1 · una marca arranca por semana</div>
 
-    <p class="p">El escalonamiento evita picos de carga. Cada marca entra al ciclo de 4 semanas una semana después de la anterior. En la semana 5, Seminuevos ya está en seguimiento mensual mientras Flotillas está en semana 1 (inmersión). El load promedio se mantiene en aproximadamente 20 horas por semana en Modo 1 durante Fase 1.</p>
+    <p class="p">Cada marca entra al ciclo de 4 semanas una semana después de la anterior. En la semana 5, Seminuevos ya está en seguimiento mensual mientras Stellantis está en semana 1 (inmersión). El load promedio se mantiene alrededor de 20 a 24 horas por semana en Modo 1 durante Fase 1.</p>
 
     <table class="tbl" style="margin-top: 6px;">
       <thead class="tbl-hdr-gold">
         <tr>
           <th>Marca</th>
-          <th>Sem 1</th>
-          <th>Sem 2</th>
-          <th>Sem 3</th>
-          <th>Sem 4</th>
-          <th>Sem 5</th>
-          <th>Sem 6</th>
-          <th>Sem 7+</th>
+          <th>S1</th>
+          <th>S2</th>
+          <th>S3</th>
+          <th>S4</th>
+          <th>S5</th>
+          <th>S6</th>
+          <th>S7</th>
+          <th>S8</th>
+          <th>S9+</th>
         </tr>
       </thead>
       <tbody>
-        <tr><td><strong>Seminuevos</strong></td><td class="center">Inm.</td><td class="center">Coc.</td><td class="center">Coc.</td><td class="center">Firma</td><td class="center">Seg.</td><td class="center">Seg.</td><td class="center">Mensual</td></tr>
-        <tr><td><strong>Hyundai</strong></td><td class="center">—</td><td class="center">Inm.</td><td class="center">Coc.</td><td class="center">Coc.</td><td class="center">Firma</td><td class="center">Seg.</td><td class="center">Mensual</td></tr>
-        <tr><td><strong>GAC</strong></td><td class="center">—</td><td class="center">—</td><td class="center">Inm.</td><td class="center">Coc.</td><td class="center">Coc.</td><td class="center">Firma</td><td class="center">Seg.</td></tr>
-        <tr><td><strong>Changan</strong></td><td class="center">—</td><td class="center">—</td><td class="center">—</td><td class="center">Inm.</td><td class="center">Coc.</td><td class="center">Coc.</td><td class="center">Firma S7</td></tr>
-        <tr><td><strong>Flotillas</strong></td><td class="center">—</td><td class="center">—</td><td class="center">—</td><td class="center">—</td><td class="center">Inm.</td><td class="center">Coc.</td><td class="center">Firma S8</td></tr>
-        <tr><td><strong>Stellantis</strong> (F2)</td><td class="center">—</td><td class="center">—</td><td class="center">—</td><td class="center">—</td><td class="center">—</td><td class="center">—</td><td class="center">Arranca S8</td></tr>
-        <tr><td><strong>Corporativo</strong> (F2)</td><td class="center">—</td><td class="center">—</td><td class="center">—</td><td class="center">—</td><td class="center">—</td><td class="center">—</td><td class="center">Arranca S9</td></tr>
+        <tr><td><strong>Seminuevos</strong></td><td class="center">Inm.</td><td class="center">Coc.</td><td class="center">Coc.</td><td class="center">Firma</td><td class="center">Seg.</td><td class="center">Seg.</td><td class="center">Seg.</td><td class="center">Seg.</td><td class="center">Mensual</td></tr>
+        <tr><td><strong>Hyundai</strong></td><td class="center">—</td><td class="center">Inm.</td><td class="center">Coc.</td><td class="center">Coc.</td><td class="center">Firma</td><td class="center">Seg.</td><td class="center">Seg.</td><td class="center">Seg.</td><td class="center">Mensual</td></tr>
+        <tr><td><strong>Stellantis</strong></td><td class="center">—</td><td class="center">—</td><td class="center">Inm.</td><td class="center">Coc.</td><td class="center">Coc.</td><td class="center">Firma</td><td class="center">Seg.</td><td class="center">Seg.</td><td class="center">Mensual</td></tr>
+        <tr><td><strong>GAC</strong></td><td class="center">—</td><td class="center">—</td><td class="center">—</td><td class="center">Inm.</td><td class="center">Coc.</td><td class="center">Coc.</td><td class="center">Firma</td><td class="center">Seg.</td><td class="center">Seg.</td></tr>
+        <tr><td><strong>Changan</strong></td><td class="center">—</td><td class="center">—</td><td class="center">—</td><td class="center">—</td><td class="center">Inm.</td><td class="center">Coc.</td><td class="center">Coc.</td><td class="center">Firma</td><td class="center">Seg.</td></tr>
+        <tr><td><strong>Flotillas</strong></td><td class="center">—</td><td class="center">—</td><td class="center">—</td><td class="center">—</td><td class="center">—</td><td class="center">Inm.</td><td class="center">Coc.</td><td class="center">Coc.</td><td class="center">Firma S9</td></tr>
+        <tr><td><strong>Corporativo</strong> (F2)</td><td class="center">—</td><td class="center">—</td><td class="center">—</td><td class="center">—</td><td class="center">—</td><td class="center">—</td><td class="center">—</td><td class="center">—</td><td class="center">Arranca S9</td></tr>
       </tbody>
     </table>
 
-    <div class="callout gold" style="margin-top: 12px;">
+    <div class="callout gold" style="margin-top: 10px;">
       <div class="callout-lbl">Materiales requeridos · a construir en semana 0</div>
       <div class="callout-body"><strong>Template de Plan Comercial de Marketing</strong> (1 pág A4, 5 secciones: calendario · activaciones · KPIs · presupuesto · firmantes). <strong>Instrumento de firma tripartita</strong> (PDF firmable o DocuSign). <strong>Semáforo de avance</strong> (extensión del Directorio de Proveedores o hoja separada). El template se estandariza para asegurar comparabilidad cross-marca al reportar al Consejo.</div>
     </div>
@@ -404,7 +429,7 @@ html, body { background: #E2E8F0; color: var(--text); font-family: var(--sans); 
 
   <div class="foot">
     <span><strong>Grupo Plasencia</strong> · Plan 90 Días · Dirección de Marketing y TxD</span>
-    <span>Agosto 2026 · Confidencial · Página 3 de 7</span>
+    <span>Agosto 2026 · Confidencial · Página 3 de 8</span>
   </div>
 </div>
 
@@ -412,11 +437,13 @@ html, body { background: #E2E8F0; color: var(--text); font-family: var(--sans); 
 <div class="page">
   <div class="hdr hdr-compact">
     <div class="hdr-eyebrow">Modo 2 de 3 · Lead a venta</div>
-    <h1 class="hdr-title">Marketplace beta · <em>de tiendas a producto</em></h1>
+    <h1 class="hdr-title">Marketplace público · <em>Grupo como plataforma</em></h1>
   </div>
 
   <div class="body">
-    <p class="lede">Se convierten las cuatro tiendas del piloto Motor de Atribución (Seminuevos, Hyundai, Stellantis, GAC) en el <strong>producto Marketplace del Grupo</strong> en su versión beta. Cada marca opera como <em>vendedor</em> del marketplace (modelo Mercado Libre o Shopify): sube su feed de catálogo, gestiona su equipo comercial digital y capitaliza las ventas. La Dirección de MKT y TxD <strong>habilita el producto digital y el canal transaccional</strong>, opera el ecosistema Karbot (IA conversacional + encuestas + broadcast + Karlopay para pagos digitales) hasta la cita agendada y el cierre, y transfiere los aprendizajes. <strong>No es solo un agendador: es un canal transaccional digital real</strong> con capacidad de monetización end-to-end (apartados de vehículos y pagos de postventa vía Karlopay).</p>
+    <p class="lede">Concepto canonizado: <strong>Grupo Plasencia = Marketplace · cada marca = tiendita</strong>. La publicidad se ejerce como Grupo Plasencia (no marca individual) para eliminar restricciones OEM sobre la palabra "Marketplace" y sobre logotipos. Las marcas conservan capacidad creativa: suben catálogo propio, fotos, descripciones y ofertas al Marketplace del Grupo en lugar de tenerlos regados en Facebook Marketplace externo. <strong>Flotillas no entra al Marketplace</strong>: mantiene su landing dedicada Aurora corporativas con funnel B2B propio.</p>
+
+    <p class="lede" style="margin-top: -6px;">Encima del Marketplace corre el <strong>ecosistema Karbot</strong>: IA conversacional que atiende, califica y agenda · <strong>encuestas NPS</strong> automatizadas al cliente en cada punto de contacto · <strong>broadcast</strong> operativo por WhatsApp para campañas y avisos · <strong>Karlopay</strong> para pagos digitales (apartados de vehículos y pagos de postventa). <em>No es solo un agendador: es un canal transaccional digital con capacidad de monetización end-to-end.</em></p>
 
     <div class="section-hdr small"><span class="num">A</span>Split de responsabilidad · quién hace qué</div>
 
@@ -432,17 +459,17 @@ html, body { background: #E2E8F0; color: var(--text); font-family: var(--sans); 
         <tr>
           <td><strong>Feed de catálogo</strong></td>
           <td>Especifica el formato JSON o CSV estandarizado · valida ingesta</td>
-          <td>Sube y mantiene actualizado su inventario</td>
+          <td>Sube y mantiene actualizado su inventario · fotos y descripciones</td>
         </tr>
         <tr>
           <td><strong>Producto digital + canal</strong></td>
-          <td>Landing marketplace · pipeline visible · IA conversacional Karbot · atribución posterior al clic</td>
+          <td>Landing Marketplace · pipeline visible · Karbot cross-marca · atribución posterior al clic</td>
           <td>—</td>
         </tr>
         <tr>
           <td><strong>Registro → cita agendada</strong> · <em>KPI operativo garantizado por MKT</em></td>
-          <td>Pauta en Meta y Google · Karbot (precio consolidado Grupo) atiende, califica y agenda</td>
-          <td>Fondea el piso ($35K MXN/mes de pauta pura)</td>
+          <td>Pauta en Meta y Google · Karbot (precio consolidado Grupo tras RFP) atiende, califica, agenda</td>
+          <td>Fondea el piso ($35K MXN/mes de pauta pura desde S6-S7)</td>
         </tr>
         <tr>
           <td><strong>Cita agendada → confirmación</strong></td>
@@ -451,7 +478,7 @@ html, body { background: #E2E8F0; color: var(--text); font-family: var(--sans); 
         </tr>
         <tr>
           <td><strong>Confirmación → visita al piso → cierre</strong></td>
-          <td>Customer Success acompaña el hand-off</td>
+          <td>Customer Success acompaña el hand-off · encuesta NPS post-visita vía Karbot</td>
           <td>Vendedor digital garantiza visita, atiende, negocia, cierra y registra factura + VIN en DCA</td>
         </tr>
         <tr>
@@ -462,7 +489,7 @@ html, body { background: #E2E8F0; color: var(--text); font-family: var(--sans); 
       </tbody>
     </table>
 
-    <div class="section-hdr small" style="margin-top: 12px;"><span class="num">B</span>Roadmap 8 semanas · beta interno S4 (semana 36 · 31 ago) · beta público S8 (semana 40 · 28 sep)</div>
+    <div class="section-hdr small" style="margin-top: 10px;"><span class="num">B</span>Roadmap recortado · beta interno S3-S4 · público S6-S7</div>
 
     <table class="tbl">
       <thead>
@@ -473,43 +500,42 @@ html, body { background: #E2E8F0; color: var(--text); font-family: var(--sans); 
         </tr>
       </thead>
       <tbody>
-        <tr><td class="center"><strong>S1</strong></td><td>Especificación del producto marketplace (multi-tenant, feed de catálogo por marca, gobernanza). Escalar rol Customer Success a Consejo.</td><td>Doc de especificación + solicitud formal del rol</td></tr>
-        <tr><td class="center"><strong>S2</strong></td><td>Diseño de arquitectura técnica (schema catálogo, API feed, deploys, integración Karbot cross-marca).</td><td>Diagrama de arquitectura + endpoints definidos</td></tr>
-        <tr><td class="center"><strong>S3</strong></td><td>Build del backend (Worker + D1 unificado catálogo, Karbot per-tenant, atribución unificada).</td><td>Backend beta funcional</td></tr>
-        <tr><td class="center"><strong>S4</strong></td><td>Build del frontend marketplace + integración con las landings existentes. <strong>Beta interno lanzado con Seminuevos.</strong></td><td>Landing marketplace + Seminuevos operando</td></tr>
-        <tr><td class="center"><strong>S5</strong></td><td>Testing con Seminuevos · corrección de bugs · onboarding de la segunda marca (Hyundai).</td><td>Beta interno estable · 2 marcas activas</td></tr>
-        <tr><td class="center"><strong>S6</strong></td><td>Customer Success onboarded (asumiendo autorización del Consejo en S1-S3). SOP formal de retroalimentación.</td><td>Rol CS operando · reportando a la Dirección</td></tr>
-        <tr><td class="center"><strong>S7</strong></td><td>Onboarding acelerado: GAC · Changan · Flotillas al marketplace.</td><td>5 marcas activas</td></tr>
-        <tr><td class="center"><strong>S8</strong></td><td><strong>Beta público con las 5 marcas.</strong> <strong>Arranque de campañas Meta Ads y Google Ads con el piso de $35K MXN/mes por marca</strong> (hasta este momento el Marketplace se construye sin pauta encendida). Reporte semanal a Pepe y al Consejo con métricas.</td><td>Beta público estable · campañas activas · métricas visibles</td></tr>
+        <tr><td class="center"><strong>S1</strong></td><td>Especificación del producto Marketplace (multi-tenant, feed catálogo por marca, gobernanza). Escalar rol Customer Success a Consejo. RFP transparente Carbot vs Vambe arranca.</td><td>Doc de especificación + solicitud formal CS + brief RFP IA</td></tr>
+        <tr><td class="center"><strong>S2</strong></td><td>Diseño de arquitectura + build backend (Worker + D1 unificado, integración Karbot cross-marca, atribución).</td><td>Backend beta funcional</td></tr>
+        <tr><td class="center"><strong>S3</strong></td><td>Build del frontend + integración landings existentes. <strong>Beta interno con Seminuevos.</strong> Marcas Fase 1 empiezan a subir catálogo.</td><td>Marketplace beta interno + Seminuevos operando</td></tr>
+        <tr><td class="center"><strong>S4</strong></td><td>Testing + corrección de bugs · onboarding acelerado Hyundai y Stellantis. Reporte al Consejo (fin fase build).</td><td>Beta interno estable · 3 marcas activas · reporte S4</td></tr>
+        <tr><td class="center"><strong>S5</strong></td><td>Customer Success onboarded (asumiendo autorización S1-S3). SOP formal de retroalimentación. Onboarding GAC + Changan.</td><td>Rol CS operando · 5 marcas retail activas</td></tr>
+        <tr><td class="center"><strong>S6-S7</strong></td><td><strong>Beta público con las 5 marcas retail.</strong> <strong>Arranque de campañas Meta Ads + Google Ads con piso $35K MXN/mes por marca</strong>. Ecosistema Karbot completo activo (IA + NPS + broadcast + Karlopay). Reporte semanal a Pepe.</td><td>Marketplace público · campañas activas · métricas visibles</td></tr>
+        <tr><td class="center"><strong>S8-S13</strong></td><td>Operación estable · optimización continua · <strong>~30 días de operación real</strong> antes del reporte S13. Métricas de sensación de éxito vigentes.</td><td>3 reportes semáforo intermedios (bisemanales)</td></tr>
       </tbody>
     </table>
 
-    <div class="callout red" style="margin-top: 12px;">
+    <div class="callout red" style="margin-top: 10px;">
       <div class="callout-lbl">Autorización pendiente del Comité de TxD · Customer Success</div>
-      <div class="callout-body">El rol de <strong>Customer Success reportando a la Dirección de MKT</strong> es requisito para el beta público del marketplace. Sin el rol, el loop de retroalimentación (show/no-show, venta cerrada) queda dependiente del voluntarismo de los equipos comerciales de cada marca y el motor de atribución pierde señal. La solicitud formal se escala al Consejo en semana 1 y se espera respuesta a más tardar semana 3 para no bloquear el beta público.</div>
+      <div class="callout-body">El rol de <strong>Customer Success reportando a la Dirección de MKT</strong> es requisito para el beta público del Marketplace. Sin el rol, el loop de retroalimentación (show/no-show, venta cerrada) queda dependiente del voluntarismo de los equipos comerciales de cada marca y el motor de atribución pierde señal. La solicitud formal se escala al Consejo en semana 1 y se espera respuesta a más tardar semana 3.</div>
     </div>
 
     <div class="callout navy" style="margin-top: 8px;">
-      <div class="callout-lbl">Fondeo por marca · piso comprometido y timing</div>
-      <div class="callout-body"><strong>$35,000 MXN por mes de pauta pura</strong> como mínimo obligatorio para que el algoritmo aprenda con volumen suficiente. <strong>Este piso se activa hasta que el Marketplace de la marca está levantado y listo para operar (S8, con el beta público)</strong>. Mientras se construye no se enciende pauta. Los servicios operativos del piloto (setup, integraciones, tablero, atribución) van cotizados como parte de la propuesta según el alcance de cada marca. <strong>Marketing Ops adicional</strong> (personas dedicadas al día a día) se cotiza a través del proveedor ganador del <strong>RFP #1 · Digital + implants</strong> con precio consolidado del Grupo, y se comunica caso por caso como parte de la propuesta del piloto.</div>
+      <div class="callout-lbl">Piso $35K/mes · 100% pauta pura · se activa con el público</div>
+      <div class="callout-body"><strong>$35,000 MXN por mes por marca de pauta pura (100% a Google Ads o Meta Ads)</strong> como mínimo obligatorio para que el algoritmo aprenda con volumen suficiente. <strong>Se activa hasta S6-S7</strong> cuando el Marketplace de la marca está levantado y listo para operar. Mientras se construye no se enciende pauta. El <strong>soporte operativo</strong> (trafficker, MKT Ops adicional) se cotiza y factura aparte a través del ganador del RFP #1 Digital + implants, no sale del piso de pauta.</div>
     </div>
   </div>
 
   <div class="foot">
     <span><strong>Grupo Plasencia</strong> · Plan 90 Días · Dirección de Marketing y TxD</span>
-    <span>Agosto 2026 · Confidencial · Página 4 de 7</span>
+    <span>Agosto 2026 · Confidencial · Página 4 de 8</span>
   </div>
 </div>
 
-<!-- ============================ PÁGINA 5 · MODO 3 RFP ============================ -->
+<!-- ============================ PÁGINA 5 · MODO 3 MEDIOS PLASENCIA ============================ -->
 <div class="page">
   <div class="hdr hdr-compact">
-    <div class="hdr-eyebrow">Modo 3 de 3 · Agencia interna</div>
-    <h1 class="hdr-title">Dos RFPs escalonados · <em>Digital + implants · después Off</em></h1>
+    <div class="hdr-eyebrow">Modo 3 de 3 · Medios Plasencia</div>
+    <h1 class="hdr-title">Compra consolidada <em>bajo entidad propia</em></h1>
   </div>
 
   <div class="body">
-    <p class="lede">La Dirección corre <strong>dos RFPs escalonados</strong> bajo el esquema de compras de Finanzas y voto ponderado del Comité de Transformación Digital. <strong>RFP #1 · Digital + implants MKT Ops</strong> (prioridad · Meta, Google, programmatic, retargeting + <strong>cotización de personas especializadas dedicadas al equipo MKT Ops corporativo del Marketplace</strong>) arranca semana 1 y firma en semana 5. <strong>RFP #2 · Off / análogos</strong> (OOH, espectaculares, radio, TV, prensa) arranca semana 8 y firma en semana 12. Los dos mundos tienen dinámicas, proveedores y ciclos distintos, y separarlos permite dar prioridad al digital sin comprometer plazos del off.</p>
+    <p class="lede">La Dirección corre <strong>Medios Plasencia</strong> como brazo operativo de compra de medios cross-marca. Referencia estructural: <strong>KPMG</strong> (servicios profesionales del Grupo), <strong>BienSea</strong> (seguros) y <strong>Aurora arrendadora</strong> (arrendamiento). Fase 1 (dentro de los 90 días) es un RFP con agencias existentes del Grupo + un comodín, ganador estandariza. Fase 2 (post-90d) constituye la empresa formal. Dos RFPs escalonados: <strong>RFP #1 · Digital + implants</strong> (Meta, Google, programmatic + personas dedicadas al equipo MKT Ops corporativo) firma S5. <strong>RFP #2 · Off/análogos</strong> (OOH, radio, TV, prensa) firma S12. <strong>Sergio (Compras) copiado desde el primer email</strong> de toda cotización.</p>
 
     <div class="section-hdr small"><span class="num">A</span>RFP #1 · Digital + implants MKT Ops · roadmap 5 semanas</div>
 
@@ -522,15 +548,15 @@ html, body { background: #E2E8F0; color: var(--text); font-family: var(--sans); 
         </tr>
       </thead>
       <tbody>
-        <tr><td class="center"><strong>S1</strong></td><td>Preparación del RFP #1 (Digital + implants) con Sergio (Compras) y Pepe (Finanzas). Brief formal, criterios ponderados, presupuesto anual digital estimado, <strong>perfil y número de implants MKT Ops requeridos para el Marketplace</strong>, KPIs y timeline.</td><td>Doc RFP Digital + implants (7 a 10 págs A4) + matriz de criterios</td></tr>
-        <tr><td class="center"><strong>S2</strong></td><td>Invitación a 3 candidatos digitales: 2 proveedores actuales del Grupo + 1 propuesto por la Dirección. NDA. Q&A abierta vía Teams.</td><td>Cartas de invitación + NDAs firmados</td></tr>
-        <tr><td class="center"><strong>S3</strong></td><td>Recepción de propuestas (deadline lunes S3). Scoring técnico (Chucho) y económico (Pepe) sobre la matriz ponderada.</td><td>Matriz de scoring poblada por los evaluadores</td></tr>
+        <tr><td class="center"><strong>S1</strong></td><td>Preparación del RFP #1 con Sergio (Compras) y Pepe (Finanzas). Brief formal, criterios ponderados, presupuesto anual digital estimado, perfil y número de <strong>implants MKT Ops</strong> requeridos para el Marketplace, KPIs y timeline.</td><td>Doc RFP Digital + implants (7 a 10 págs A4) + matriz de criterios</td></tr>
+        <tr><td class="center"><strong>S2</strong></td><td>Invitación a 3 candidatos digitales: <strong>2 agencias existentes del Grupo + 1 comodín propuesto por la Dirección</strong>. NDA. Q&amp;A abierta vía Teams.</td><td>Cartas de invitación + NDAs firmados</td></tr>
+        <tr><td class="center"><strong>S3</strong></td><td>Recepción de propuestas (deadline lunes S3). Scoring técnico (Chucho) y económico (Pepe) sobre matriz ponderada.</td><td>Matriz de scoring poblada</td></tr>
         <tr><td class="center"><strong>S4</strong></td><td>Presentación de 30 min de cada proveedor al Comité de TxD. Deliberación y voto ponderado. Selección del ganador digital.</td><td>Actas del Comité + resolución de selección</td></tr>
-        <tr><td class="center"><strong>S5</strong></td><td>Notificación al ganador y a los no seleccionados (con feedback). Arranque de negociación contractual. <strong>Contrato Digital + implants firmado (target S6-S7)</strong> · onboarding de implants a la operación del Marketplace.</td><td>Contrato firmado + plan de onboarding de implants</td></tr>
+        <tr><td class="center"><strong>S5</strong></td><td>Notificación al ganador y a los no seleccionados con feedback. Arranque de negociación contractual. <strong>Contrato Digital + implants firmado</strong> · onboarding de implants a la operación del Marketplace justo antes del arranque del piso $35K.</td><td>Contrato firmado + plan de onboarding de implants</td></tr>
       </tbody>
     </table>
 
-    <div class="section-hdr small" style="margin-top: 12px;"><span class="num">B</span>RFP #2 · Off / análogos · roadmap 5 semanas · arranca semana 8</div>
+    <div class="section-hdr small" style="margin-top: 10px;"><span class="num">B</span>RFP #2 · Off / análogos · arranca S8 · firma S12</div>
 
     <table class="tbl">
       <thead>
@@ -542,50 +568,42 @@ html, body { background: #E2E8F0; color: var(--text); font-family: var(--sans); 
       </thead>
       <tbody>
         <tr><td class="center"><strong>S8</strong></td><td>Preparación RFP #2 Off (OOH, espectaculares, radio, TV, prensa). Criterios ajustados a dinámica análoga (compromisos anuales, inventario, ubicaciones).</td><td>Doc RFP Off (5 a 7 págs A4) + matriz</td></tr>
-        <tr><td class="center"><strong>S9</strong></td><td>Invitación a 3 candidatos off: 2 mediashops tradicionales del Grupo + 1 propuesto por la Dirección. NDA.</td><td>Cartas + NDAs</td></tr>
-        <tr><td class="center"><strong>S10</strong></td><td>Recepción de propuestas + scoring técnico y económico.</td><td>Matriz poblada</td></tr>
-        <tr><td class="center"><strong>S11</strong></td><td>Presentación al Comité de TxD, voto ponderado, selección.</td><td>Acta + resolución</td></tr>
-        <tr><td class="center"><strong>S12</strong></td><td>Notificación + negociación contractual. <strong>Contrato Off firmado (target S13)</strong>.</td><td>Contrato Off firmado</td></tr>
+        <tr><td class="center"><strong>S9-S11</strong></td><td>Invitación (2 mediashops del Grupo + 1 comodín), NDA, recepción de propuestas, scoring técnico y económico.</td><td>Cartas · NDAs · matriz poblada</td></tr>
+        <tr><td class="center"><strong>S12</strong></td><td>Presentación al Comité de TxD, voto ponderado, selección. Notificación + negociación. <strong>Contrato Off firmado.</strong></td><td>Acta + resolución + contrato firmado</td></tr>
       </tbody>
     </table>
 
-    <div class="section-hdr small" style="margin-top: 12px;"><span class="num">C</span>Criterios de evaluación · ponderación explícita (aplica a ambos RFPs con ajustes menores por naturaleza del medio)</div>
+    <div class="section-hdr small" style="margin-top: 10px;"><span class="num">C</span>RFP paralelo · IA conversacional Carbot vs Vambe · transparente por volumen</div>
 
     <table class="tbl">
       <thead>
         <tr>
-          <th>Criterio</th>
-          <th style="width: 80px; text-align:center;">Peso</th>
-          <th>Qué se evalúa</th>
+          <th>Ítem</th>
+          <th>Detalle</th>
         </tr>
       </thead>
       <tbody>
-        <tr><td><strong>Precio y estructura de comisión</strong></td><td class="center"><strong>30%</strong></td><td>Comisión sobre pool consolidado · target 2% · escalabilidad por volumen</td></tr>
-        <tr><td><strong>Capacidad técnica y stack</strong></td><td class="center"><strong>25%</strong></td><td>Integraciones Meta, Google, GA4 · reporting · APIs · velocidad de operación</td></tr>
-        <tr><td><strong>Track record verificable</strong></td><td class="center"><strong>20%</strong></td><td>Referencias con grupos automotrices o retailers similares · casos con volumen equivalente</td></tr>
-        <tr><td><strong>Servicio y SLA</strong></td><td class="center"><strong>15%</strong></td><td>Response time · account manager dedicado · escalamiento · reporting</td></tr>
-        <tr><td><strong>Fit cultural y confidencialidad</strong></td><td class="center"><strong>10%</strong></td><td>Trato con Directores de Marca · manejo de conflictos entre marcas · protección de data</td></tr>
+        <tr><td><strong>Alcance de cotización</strong></td><td>Volumen consolidado Hyundai + Stellantis + GAC + Changan + Flotillas (Seminuevos mantiene Vambe como excepción por contrato vigente).</td></tr>
+        <tr><td><strong>Proveedores invitados</strong></td><td>Carbot (referencia Mario · Hyundai) y Vambe (referencia Seminuevos). Mismo brief, mismos criterios, mismo deadline.</td></tr>
+        <tr><td><strong>Sergio en cc</strong></td><td><strong>Obligatorio desde el primer email</strong> de solicitud de cotización · política canónica desde ya.</td></tr>
+        <tr><td><strong>Regla de decisión</strong></td><td>Mejor precio + capacidad operativa por volumen consolidado. Ganador estandariza para las 5 marcas invitadas.</td></tr>
+        <tr><td><strong>Seminuevos</strong></td><td>Excepción: continúa con Vambe hasta reevaluar al cierre del ciclo.</td></tr>
       </tbody>
     </table>
 
-    <div class="callout navy" style="margin-top: 12px;">
-      <div class="callout-lbl">Reglas del proceso · trazabilidad y equidad</div>
-      <div class="callout-body">NDA firmado antes de recibir el brief. Formato estandarizado de propuesta (máximo 15 págs). <strong>Anonimización de propuestas económicas hasta el día del voto</strong> para evitar sesgo de anclaje. Voto ponderado del Comité (no simple mayoría) para reflejar peso decisorio real. Documentación en acta de razones del voto de cada miembro. Feedback constructivo a proveedores no seleccionados para mantener la relación comercial.</div>
-    </div>
-
-    <div class="callout gold" style="margin-top: 8px;">
+    <div class="callout gold" style="margin-top: 10px;">
       <div class="callout-lbl">Beneficios operativos y fiscales del ganador</div>
-      <div class="callout-body"><strong>Beneficio comercial:</strong> comisión negociada sobre pool consolidado significativamente menor a la comisión típica de agencia individual (10% a 20%). <strong>Beneficio fiscal:</strong> canalizada por la entidad del Grupo, la pauta se vuelve IVA acreditable al 100% (versus pago directo a Meta desde Irlanda, donde no aplica). <strong>Gobierno de activos:</strong> toda agencia con relación terminada está obligada a entregar los activos digitales del Grupo (píxeles, cuentas, catálogos, audiencias, dashboards).</div>
+      <div class="callout-body"><strong>Comercial:</strong> comisión negociada sobre pool consolidado menor a la comisión típica de agencia individual (10% a 20%). <strong>Fiscal:</strong> canalizada por la entidad del Grupo, la pauta se vuelve IVA acreditable al 100% (versus pago directo a Meta desde Irlanda, donde no aplica). <strong>Gobierno de activos:</strong> toda agencia con relación terminada está obligada a entregar los activos digitales del Grupo (píxeles, cuentas, catálogos, audiencias, dashboards).</div>
     </div>
   </div>
 
   <div class="foot">
     <span><strong>Grupo Plasencia</strong> · Plan 90 Días · Dirección de Marketing y TxD</span>
-    <span>Agosto 2026 · Confidencial · Página 5 de 7</span>
+    <span>Agosto 2026 · Confidencial · Página 5 de 8</span>
   </div>
 </div>
 
-<!-- ============================ PÁGINA 6 · TIMELINE + CAPACIDAD ============================ -->
+<!-- ============================ PÁGINA 6 · TIMELINE ============================ -->
 <div class="page">
   <div class="hdr hdr-compact">
     <div class="hdr-eyebrow">Capítulo 4 · Consolidación</div>
@@ -608,28 +626,29 @@ html, body { background: #E2E8F0; color: var(--text); font-family: var(--sans); 
         <div>Sprint</div>
         <div>S1</div><div>S2</div><div>S3</div><div>S4</div><div>S5</div><div>S6</div><div>S7</div><div>S8</div><div>S9</div><div>S10</div><div>S11</div><div>S12</div><div>S13</div>
       </div>
+
       <div class="gantt-row section"><div class="gantt-lbl">Modo 1 · Cocreación</div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
       <div class="gantt-row"><div class="gantt-lbl sub">Seminuevos</div><div class="gantt-cell act"></div><div class="gantt-cell act"></div><div class="gantt-cell act"></div><div class="gantt-cell milestone"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div></div>
       <div class="gantt-row"><div class="gantt-lbl sub">Hyundai</div><div></div><div class="gantt-cell act"></div><div class="gantt-cell act"></div><div class="gantt-cell act"></div><div class="gantt-cell milestone"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div></div>
-      <div class="gantt-row"><div class="gantt-lbl sub">GAC</div><div></div><div></div><div class="gantt-cell act"></div><div class="gantt-cell act"></div><div class="gantt-cell act"></div><div class="gantt-cell milestone"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div></div>
-      <div class="gantt-row"><div class="gantt-lbl sub">Changan</div><div></div><div></div><div></div><div class="gantt-cell act"></div><div class="gantt-cell act"></div><div class="gantt-cell act"></div><div class="gantt-cell milestone"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div></div>
-      <div class="gantt-row"><div class="gantt-lbl sub">Flotillas</div><div></div><div></div><div></div><div></div><div class="gantt-cell act"></div><div class="gantt-cell act"></div><div class="gantt-cell act"></div><div class="gantt-cell milestone"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div></div>
-      <div class="gantt-row"><div class="gantt-lbl sub">Stellantis (F2)</div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div class="gantt-cell act"></div><div class="gantt-cell act"></div><div class="gantt-cell act"></div><div class="gantt-cell milestone"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div></div>
+      <div class="gantt-row"><div class="gantt-lbl sub">Stellantis</div><div></div><div></div><div class="gantt-cell act"></div><div class="gantt-cell act"></div><div class="gantt-cell act"></div><div class="gantt-cell milestone"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div></div>
+      <div class="gantt-row"><div class="gantt-lbl sub">GAC</div><div></div><div></div><div></div><div class="gantt-cell act"></div><div class="gantt-cell act"></div><div class="gantt-cell act"></div><div class="gantt-cell milestone"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div></div>
+      <div class="gantt-row"><div class="gantt-lbl sub">Changan</div><div></div><div></div><div></div><div></div><div class="gantt-cell act"></div><div class="gantt-cell act"></div><div class="gantt-cell act"></div><div class="gantt-cell milestone"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div></div>
+      <div class="gantt-row"><div class="gantt-lbl sub">Flotillas</div><div></div><div></div><div></div><div></div><div></div><div class="gantt-cell act"></div><div class="gantt-cell act"></div><div class="gantt-cell act"></div><div class="gantt-cell milestone"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div></div>
       <div class="gantt-row"><div class="gantt-lbl sub">Corporativo (F2)</div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div class="gantt-cell act"></div><div class="gantt-cell act"></div><div class="gantt-cell act"></div><div class="gantt-cell milestone"></div><div class="gantt-cell ops"></div></div>
 
       <div class="gantt-row section"><div class="gantt-lbl">Modo 2 · Marketplace</div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
-      <div class="gantt-row"><div class="gantt-lbl sub">Spec + arquitectura</div><div class="gantt-cell build"></div><div class="gantt-cell build"></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
-      <div class="gantt-row"><div class="gantt-lbl sub">Build backend</div><div></div><div></div><div class="gantt-cell build"></div><div class="gantt-cell build"></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
-      <div class="gantt-row"><div class="gantt-lbl sub">Build frontend + beta interno</div><div></div><div></div><div></div><div class="gantt-cell milestone"></div><div class="gantt-cell build"></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
-      <div class="gantt-row"><div class="gantt-lbl sub">Customer Success onboarded</div><div></div><div></div><div></div><div></div><div></div><div class="gantt-cell build"></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
-      <div class="gantt-row"><div class="gantt-lbl sub">Onboarding masivo · beta público</div><div></div><div></div><div></div><div></div><div></div><div></div><div class="gantt-cell build"></div><div class="gantt-cell milestone"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div></div>
+      <div class="gantt-row"><div class="gantt-lbl sub">Spec + backend</div><div class="gantt-cell build"></div><div class="gantt-cell build"></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+      <div class="gantt-row"><div class="gantt-lbl sub">Beta interno (SEM, HYU, STL)</div><div></div><div></div><div class="gantt-cell milestone"></div><div class="gantt-cell build"></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+      <div class="gantt-row"><div class="gantt-lbl sub">Onboarding GAC + Changan + CS</div><div></div><div></div><div></div><div></div><div class="gantt-cell build"></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+      <div class="gantt-row"><div class="gantt-lbl sub">Beta público + piso $35K</div><div></div><div></div><div></div><div></div><div></div><div class="gantt-cell milestone"></div><div class="gantt-cell milestone"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div></div>
+      <div class="gantt-row"><div class="gantt-lbl sub">Ecosistema Karbot completo</div><div></div><div></div><div></div><div></div><div></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div></div>
 
-      <div class="gantt-row section"><div class="gantt-lbl">Modo 3 · RFP</div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
-      <div class="gantt-row"><div class="gantt-lbl sub">Brief + invitación + scoring</div><div class="gantt-cell act"></div><div class="gantt-cell act"></div><div class="gantt-cell act"></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
-      <div class="gantt-row"><div class="gantt-lbl sub">Comité + voto + contrato</div><div></div><div></div><div></div><div class="gantt-cell milestone"></div><div class="gantt-cell act"></div><div class="gantt-cell milestone"></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
-      <div class="gantt-row"><div class="gantt-lbl sub">Ops centralizada</div><div></div><div></div><div></div><div></div><div></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div><div class="gantt-cell ops"></div></div>
+      <div class="gantt-row section"><div class="gantt-lbl">Modo 3 · Medios Plasencia</div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+      <div class="gantt-row"><div class="gantt-lbl sub">RFP #1 Digital + implants</div><div class="gantt-cell act"></div><div class="gantt-cell act"></div><div class="gantt-cell act"></div><div class="gantt-cell act"></div><div class="gantt-cell milestone"></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+      <div class="gantt-row"><div class="gantt-lbl sub">RFP IA (Carbot vs Vambe)</div><div class="gantt-cell act"></div><div class="gantt-cell act"></div><div class="gantt-cell milestone"></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+      <div class="gantt-row"><div class="gantt-lbl sub">RFP #2 Off/análogos</div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div class="gantt-cell act"></div><div class="gantt-cell act"></div><div class="gantt-cell act"></div><div class="gantt-cell act"></div><div class="gantt-cell milestone"></div><div></div></div>
 
-      <div class="gantt-row section"><div class="gantt-lbl">Reporte al Consejo</div><div></div><div></div><div></div><div class="gantt-cell milestone"></div><div></div><div></div><div></div><div class="gantt-cell milestone"></div><div></div><div></div><div></div><div class="gantt-cell milestone"></div><div></div></div>
+      <div class="gantt-row section"><div class="gantt-lbl">Reporte al Consejo</div><div></div><div></div><div></div><div class="gantt-cell milestone"></div><div></div><div></div><div></div><div class="gantt-cell milestone"></div><div></div><div></div><div></div><div></div><div class="gantt-cell milestone"></div></div>
 
       <div class="gantt-legend">
         <span><span class="dot"></span>Actividad</span>
@@ -639,29 +658,29 @@ html, body { background: #E2E8F0; color: var(--text); font-family: var(--sans); 
       </div>
     </div>
 
-    <div class="section-hdr small" style="margin-top: 12px;"><span class="num">B</span>Capacidad estimada · semanas 1 a 8 (fase pico)</div>
+    <div class="section-hdr small" style="margin-top: 10px;"><span class="num">B</span>Capacidad estimada · semanas 1 a 8 (fase pico)</div>
 
     <table class="tbl">
       <thead>
         <tr><th>Actividad</th><th class="center">Horas por semana</th><th>Notas</th></tr>
       </thead>
       <tbody>
-        <tr><td>Modo 1 · Cocreación 5 marcas Fase 1</td><td class="center">15 a 20</td><td>Escalonadas · pico en S3-S5 cuando hay 3-4 en cocreación simultánea</td></tr>
-        <tr><td>Modo 2 · Marketplace build y beta</td><td class="center">12 a 15</td><td>Intensivo en S2-S5 durante build backend y frontend</td></tr>
-        <tr><td>Modo 3 · RFP</td><td class="center">3 a 5</td><td>Concentrado en S1-S5 · después baja a mantenimiento</td></tr>
+        <tr><td>Modo 1 · Cocreación 6 marcas Fase 1</td><td class="center">20 a 24</td><td>Escalonadas · pico en S3-S5 cuando hay 3-4 en cocreación simultánea</td></tr>
+        <tr><td>Modo 2 · Marketplace build, beta y ecosistema Karbot</td><td class="center">12 a 16</td><td>Intensivo en S1-S5. Reduce cuando entra a operación en S6-S7</td></tr>
+        <tr><td>Modo 3 · Medios Plasencia (RFP #1 + RFP IA)</td><td class="center">3 a 5</td><td>Concentrado en S1-S5. RFP #2 arranca en S8</td></tr>
         <tr><td>Reportes al Consejo · admin</td><td class="center">5 a 7</td><td>Preparación de reportes semáforo mensuales</td></tr>
-        <tr><td><strong>Total</strong></td><td class="center"><strong>35 a 47</strong></td><td>Se ajusta con IA. En pico requiere concentración.</td></tr>
+        <tr><td><strong>Total</strong></td><td class="center"><strong>40 a 52</strong></td><td>Se ajusta con IA. En pico requiere concentración.</td></tr>
       </tbody>
     </table>
   </div>
 
   <div class="foot">
     <span><strong>Grupo Plasencia</strong> · Plan 90 Días · Dirección de Marketing y TxD</span>
-    <span>Agosto 2026 · Confidencial · Página 6 de 7</span>
+    <span>Agosto 2026 · Confidencial · Página 6 de 8</span>
   </div>
 </div>
 
-<!-- ============================ PÁGINA 7 · RIESGOS + MÉTRICAS ============================ -->
+<!-- ============================ PÁGINA 7 · MÉTRICAS + RIESGOS ============================ -->
 <div class="page">
   <div class="hdr hdr-compact">
     <div class="hdr-eyebrow">Capítulo 5 · Éxito y riesgos</div>
@@ -676,22 +695,22 @@ html, body { background: #E2E8F0; color: var(--text); font-family: var(--sans); 
         <div class="milestone-lbl">Reporte 1 · Semana 4</div>
         <div class="milestone-t">Fin fase build</div>
         <ul class="milestone-list">
-          <li>Plan comercial firmado tripartita para <strong>Seminuevos</strong> (primera marca)</li>
-          <li>Cocreación en curso para Hyundai, GAC, Changan</li>
-          <li><strong>Beta interno del Marketplace</strong> operando con Seminuevos</li>
-          <li>RFP #1 Digital + implants en <strong>fase de voto del Comité</strong></li>
+          <li>Plan comercial firmado tripartita para <strong>Seminuevos</strong></li>
+          <li>Cocreación en curso para Hyundai, Stellantis, GAC</li>
+          <li><strong>Beta interno del Marketplace</strong> operando con Seminuevos + Hyundai + Stellantis</li>
+          <li>RFP #1 Digital + implants en <strong>fase de voto del Comité</strong> · RFP IA con Carbot y Vambe resuelto</li>
           <li>Comité de TxD formalizado y sesionando</li>
         </ul>
       </div>
 
       <div class="milestone-card">
         <div class="milestone-lbl">Reporte 2 · Semana 8</div>
-        <div class="milestone-t">Fin fase escalamiento</div>
+        <div class="milestone-t">Marketplace público operando</div>
         <ul class="milestone-list">
-          <li><strong>4 marcas Fase 1</strong> con plan firmado y ejecutándose (SEM, HYU, GAC, Changan)</li>
-          <li>Flotillas en firma tripartita</li>
-          <li><strong>Beta público del Marketplace</strong> con las 5 marcas · Customer Success operando</li>
-          <li>Contrato <strong>RFP #1 Digital + implants firmado</strong> y operativo · implants onboarded al Marketplace · <strong>RFP #2 Off en scoring del Comité</strong></li>
+          <li><strong>5 marcas Fase 1 con plan firmado</strong> (SEM, HYU, STL, GAC, Changan)</li>
+          <li>Flotillas en cocreación final</li>
+          <li><strong>Marketplace público operando desde S6-S7</strong> · 5 marcas retail activas · piso $35K por marca encendido · Karbot completo</li>
+          <li>Contrato <strong>RFP #1 Digital + implants firmado</strong> · implants onboarded · <strong>RFP #2 Off arrancando</strong></li>
           <li>Comité de TxD con 2 votaciones documentadas</li>
         </ul>
       </div>
@@ -700,16 +719,16 @@ html, body { background: #E2E8F0; color: var(--text); font-family: var(--sans); 
         <div class="milestone-lbl">Reporte 3 · Semana 13</div>
         <div class="milestone-t">Cierre 90 días</div>
         <ul class="milestone-list">
-          <li><strong>7 marcas con plan firmado</strong> (5 Fase 1 + Stellantis + Corporativo)</li>
-          <li>Fase 3 activada por pull para marcas restantes</li>
-          <li>Marketplace escalado a 7 marcas activas · métricas visibles</li>
-          <li>Ahorro medible en compra de medios (baseline vs consolidado)</li>
-          <li>Directorio de Proveedores Plasencia cerrado · reconciliado contra DCA y BIFISCOR</li>
+          <li><strong>7 marcas con plan firmado</strong> (6 Fase 1 + Corporativo)</li>
+          <li>Fase 3 activada por pull (Autolease en cola)</li>
+          <li>Marketplace con <strong>~30 días de operación real</strong> · métricas de sensación de éxito vigentes</li>
+          <li>Ahorro medible en compra de medios (baseline Daniel Galindo vs consolidado Medios Plasencia)</li>
+          <li>Directorio de Proveedores cerrado · reconciliado contra DCA y BIFISCOR · aprendizajes capitalizables por marca</li>
         </ul>
       </div>
     </div>
 
-    <div class="section-hdr small" style="margin-top: 14px;"><span class="num">B</span>Riesgos identificados y mitigaciones</div>
+    <div class="section-hdr small" style="margin-top: 12px;"><span class="num">B</span>Riesgos identificados y mitigaciones</div>
 
     <table class="tbl">
       <thead>
@@ -723,22 +742,22 @@ html, body { background: #E2E8F0; color: var(--text); font-family: var(--sans); 
         <tr>
           <td><strong>Consejo no autoriza el rol de Customer Success en S1-S3</strong></td>
           <td>Media</td>
-          <td>El beta interno de S4 opera sin CS. El beta público se retrasa 2 semanas hasta autorización. Escalar la solicitud en el próximo Consejo formal.</td>
+          <td>El beta interno de S3-S4 opera sin CS. El beta público se retrasa 2 semanas hasta autorización. Escalar la solicitud en el próximo Consejo formal.</td>
         </tr>
         <tr>
           <td><strong>Marcas Fase 1 no vienen a sesiones de cocreación</strong></td>
           <td>Media-alta</td>
-          <td>Approach top-down: Andrés y Nicolás como cheerleaders piden a Directores de Marca que agenden. Si no se agenda en 2 semanas, la marca se despriorizará.</td>
+          <td>Approach top-down: Direcciones de Familia como cheerleaders piden a Directores de Marca que agenden. Si no se agenda en 2 semanas, la marca se despriorizará.</td>
         </tr>
         <tr>
-          <td><strong>RFP no atrae ofertas competitivas del nuevo proveedor</strong></td>
+          <td><strong>RFPs no atraen ofertas competitivas</strong></td>
           <td>Baja</td>
-          <td>Los 2 proveedores actuales ya están. Siempre habrá alguna oferta viable. Si el nuevo no funciona, se renegocia con el incumbent.</td>
+          <td>Las agencias actuales del Grupo ya están invitadas + 1 comodín. Siempre habrá alguna oferta viable. Sergio (Compras) valida representatividad del pool.</td>
         </tr>
         <tr>
           <td><strong>Marketplace beta rompe UX de landings actuales</strong></td>
           <td>Media</td>
-          <td>Deploy en URL separada. Las landings actuales no se tocan hasta que el beta público esté estable.</td>
+          <td>Deploy en URL separada. Las landings actuales no se tocan hasta que el beta público esté estable. Marcas mantienen capacidad creativa: solo cambia el canal transaccional.</td>
         </tr>
         <tr>
           <td><strong>Firma tripartita se atora en un Director</strong></td>
@@ -748,15 +767,107 @@ html, body { background: #E2E8F0; color: var(--text); font-family: var(--sans); 
       </tbody>
     </table>
 
-    <div class="callout navy" style="margin-top: 12px;">
-      <div class="callout-lbl">Filosofía del plan · calidad sobre cobertura</div>
-      <div class="callout-body">El éxito de estos 90 días no se mide por cuántas marcas se tocaron, sino por cuántos <strong>planes comerciales firmados están ejecutándose con métricas visibles</strong>, cuántas ventas incrementales generó el Marketplace beta y cuánto ahorro se materializó en la consolidación de compra de medios. Es preferible entregar 5 marcas con plan firmado y ejecutando que 11 marcas con conversaciones abiertas sin cierre.</div>
+    <div class="callout navy" style="margin-top: 10px;">
+      <div class="callout-lbl">Filosofía del plan · calidad sobre cobertura, memoria sobre pipeline</div>
+      <div class="callout-body">El éxito de estos 90 días no se mide por cuántas marcas se tocaron, sino por cuántos <strong>planes comerciales firmados están ejecutándose con métricas visibles</strong>, cuántas ventas incrementales generó el Marketplace en sus <strong>~30 días de operación real</strong> antes del cierre, y cuánto ahorro se materializó en la consolidación de compra de medios bajo Medios Plasencia. Las marcas que recibieron la primer versión de campañas tienen <strong>aprendizajes que pueden capitalizar</strong> desde el arranque del piso $35K en S6-S7.</div>
     </div>
   </div>
 
   <div class="foot">
     <span><strong>Grupo Plasencia</strong> · Plan 90 Días · Dirección de Marketing y TxD</span>
-    <span>Agosto 2026 · Confidencial · Página 7 de 7</span>
+    <span>Agosto 2026 · Confidencial · Página 7 de 8</span>
+  </div>
+</div>
+
+<!-- ============================ PÁGINA 8 · POST-90D MEDIOS PLASENCIA WHITE LABEL ============================ -->
+<div class="page">
+  <div class="hdr hdr-compact">
+    <div class="hdr-eyebrow">Capítulo 6 · Progresión post-90 días</div>
+    <h1 class="hdr-title">Medios Plasencia · <em>de agencia interna a producto comercial</em></h1>
+  </div>
+
+  <div class="body">
+    <p class="lede">La ambición estructural detrás del rebranding "Medios Plasencia" no termina al cierre de los 90 días. La misma lógica que llevó al Grupo a constituir <strong>Aurora arrendadora</strong> y <strong>BienSea seguros</strong> —ofrecer servicios cross-Grupo desde una entidad propia, y eventualmente venderlos hacia fuera del grupo automotriz— aplica a la compra de medios y a la suite digital. La empresa Medios Plasencia constituida formalmente puede evolucionar a <strong>startup digital automotriz</strong> vendiendo la suite completa (Marketplace + IA conversacional + Karlopay + encuestas NPS + broadcast) como <strong>white label</strong> a otros concesionarios y grupos automotrices de México.</p>
+
+    <div class="section-hdr small"><span class="num">A</span>Progresión en 4 estadios</div>
+
+    <div class="wl-stages">
+      <div class="wl-stage now">
+        <div class="wl-stage-num">1</div>
+        <div class="wl-stage-when">S1 – S13 · Cliente cautivo interno</div>
+        <div class="wl-stage-t">Aterrizar la operación cross-marca</div>
+        <div class="wl-stage-body">Marketplace + Karbot + Medios Plasencia operando en las 6 marcas Fase 1. Ganador del RFP #1 estandariza compra digital. Ahorro real medible. <strong>Dogfooding total antes de vender hacia fuera.</strong></div>
+      </div>
+
+      <div class="wl-stage next">
+        <div class="wl-stage-num">2</div>
+        <div class="wl-stage-when">Post-S13 · Empresa constituida</div>
+        <div class="wl-stage-t">Constituir Medios Plasencia S.A.</div>
+        <div class="wl-stage-body">Constitución formal tipo Aurora arrendadora / BienSea seguros. Modelo intercompany: las marcas del Grupo pagan servicios a Medios Plasencia (facturación cross-entidad). <strong>Ahorro que financia el negocio</strong> = comisiones que hoy pagan a agencias externas.</div>
+      </div>
+
+      <div class="wl-stage later">
+        <div class="wl-stage-num">3</div>
+        <div class="wl-stage-when">Q1-Q2 2027 · Piloto white label</div>
+        <div class="wl-stage-t">Primer grupo automotriz externo</div>
+        <div class="wl-stage-body">Piloto con un grupo o concesionario automotriz fuera del Grupo Plasencia. Suite Marketplace + IA conversacional + Karlopay como white label. Chucho + Pepe como <strong>Product Owners</strong> del canal comercial.</div>
+      </div>
+
+      <div class="wl-stage future">
+        <div class="wl-stage-num">4</div>
+        <div class="wl-stage-when">Post-2027 · Suite abierta</div>
+        <div class="wl-stage-t">Mercado automotriz nacional</div>
+        <div class="wl-stage-body">Suite comercial abierta al nicho automotriz mexicano. Nombre y branding posiblemente distintos al apellido Plasencia (algunos grupos automotrices ven el apellido y no lo compran). Flujo de efectivo intercompany como <em>capital semilla</em> del canal externo.</div>
+      </div>
+    </div>
+
+    <div class="section-hdr small" style="margin-top: 14px;"><span class="num">B</span>Estructura societaria propuesta · autorización Consejo requerida</div>
+
+    <table class="tbl">
+      <thead>
+        <tr>
+          <th>Ítem</th>
+          <th>Propuesta directional (requiere autorización Consejo post-S13)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Accionistas base</strong></td>
+          <td>Grupo Plasencia (mayoritario), con participación de Chucho y Pepe pagando su participación con <em>"capital sudor 15 años"</em> por su trayectoria en el Grupo. Sujeto a autorización explícita del Consejo.</td>
+        </tr>
+        <tr>
+          <td><strong>Nombre y branding externo</strong></td>
+          <td>Puede requerir marca distinta al apellido Plasencia para no espantar a la competencia automotriz. Analogía interna: cuñado Carlos Vizcaíno con equipo de microcirugía, la familia atrás fondeando sin el apellido al frente.</td>
+        </tr>
+        <tr>
+          <td><strong>Facturación intercompany</strong></td>
+          <td>Modelo por resolver con Carlos (contratos) y Dirección de Finanzas. Objetivo: las marcas del Grupo pagan servicios a Medios Plasencia S.A. como facturación intercompany estándar.</td>
+        </tr>
+        <tr>
+          <td><strong>Product Owners del canal</strong></td>
+          <td>Chucho + Pepe como Product Owners de la suite comercial. Roadmap, pricing, comercial y operación.</td>
+        </tr>
+        <tr>
+          <td><strong>Precedente estructural</strong></td>
+          <td>Aurora arrendadora · BienSea seguros. Ambas constituidas como entidades del Grupo con capacidad de comercializar hacia fuera del grupo automotriz.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout gold" style="margin-top: 12px;">
+      <div class="callout-lbl">Corresponsabilidad post-90d · quién hace qué en cada estadio</div>
+      <div class="callout-body"><strong>Consejo:</strong> autoriza constitución, estructura societaria, participación Chucho + Pepe, facturación intercompany. <strong>Direcciones de Familia:</strong> validan cliente externo antes de firmar white label. <strong>Dirección de Finanzas:</strong> modela flujo intercompany, valida margen y pricing hacia fuera. <strong>Dirección MKT y TxD:</strong> mantiene roadmap producto, opera con marcas internas y clientes white label. <strong>Sergio (Compras):</strong> política de proveedores externos si Medios Plasencia subcontrata a terceros.</div>
+    </div>
+
+    <div class="callout navy" style="margin-top: 10px;">
+      <div class="callout-lbl">Documentado como ambición, no como compromiso</div>
+      <div class="callout-body">Esta progresión se registra en el plan de 90 días para dejar la ambición mapeada, no como compromiso ejecutable. La constitución de Medios Plasencia S.A. y todos los ítems societarios requieren <strong>autorización explícita del Consejo</strong> en la siguiente ronda de gobierno, después del cierre del reporte S13.</div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <span><strong>Grupo Plasencia</strong> · Plan 90 Días · Dirección de Marketing y TxD</span>
+    <span>Agosto 2026 · Confidencial · Página 8 de 8</span>
   </div>
 </div>
 
