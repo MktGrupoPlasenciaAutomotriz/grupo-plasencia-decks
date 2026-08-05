@@ -24,8 +24,12 @@ FILE_PATH="01-strategy/Reporte-Piloto-Consejo.html"
 WORKER_URL="https://decks-plasencia.grupo-plasencia-automotriz.workers.dev/${FILE_PATH}"
 
 MIRROR_PRIVATE="/Users/JPEREZ/Documents/grupo-plasencia-docs/${FILE_PATH}"
-DOWNLOADS="/Users/JPEREZ/Downloads/Reporte-Piloto-Consejo.html"
 ONEDRIVE="/Users/JPEREZ/Library/CloudStorage/OneDrive-GrupoPlasencia/Documents/Direccion de Marketing/Mkt Corp | Paquete al consejo (primeros 3 meses)/2-Reporte-Piloto.html"
+# Los HTMLs usan `../assets/logos/*.png` — el path relativo baja un nivel.
+# Copiamos los logos a la raíz de "Direccion de Marketing/" y a la raíz del mirror privado.
+LOGOS_SRC="${REPO_ROOT}/assets/logos"
+LOGOS_ONEDRIVE="/Users/JPEREZ/Library/CloudStorage/OneDrive-GrupoPlasencia/Documents/Direccion de Marketing/assets/logos"
+LOGOS_MIRROR="/Users/JPEREZ/Documents/grupo-plasencia-docs/assets/logos"
 
 echo "==> 1/3 Deploy source al worker (wrangler deploy)"
 cd "$REPO_ROOT"
@@ -42,10 +46,16 @@ echo "  Bytes servidos: $(wc -c < "$TMPFILE")"
 echo "  MD5:            $(md5 -q "$TMPFILE")"
 
 echo ""
-echo "==> 3/3 Sync a los 3 destinos espejo"
+echo "==> 3/3 Sync HTML + logos a los 2 destinos espejo"
 cp "$TMPFILE" "$MIRROR_PRIVATE"     && echo "  ✓ mirror privado docs"
-cp "$TMPFILE" "$DOWNLOADS"          && echo "  ✓ ~/Downloads"
 cp "$TMPFILE" "$ONEDRIVE"           && echo "  ✓ OneDrive · Paquete Consejo"
+
+# Sync logos (los HTML esperan encontrarlos en ../assets/logos/)
+mkdir -p "$LOGOS_ONEDRIVE" "$LOGOS_MIRROR"
+cp "$LOGOS_SRC/Logo-GP-Negro.png"  "$LOGOS_ONEDRIVE/"  && echo "  ✓ logo negro   → OneDrive assets"
+cp "$LOGOS_SRC/LOGO-GP-Blanco.png" "$LOGOS_ONEDRIVE/"  && echo "  ✓ logo blanco  → OneDrive assets"
+cp "$LOGOS_SRC/Logo-GP-Negro.png"  "$LOGOS_MIRROR/"    && echo "  ✓ logo negro   → mirror privado"
+cp "$LOGOS_SRC/LOGO-GP-Blanco.png" "$LOGOS_MIRROR/"    && echo "  ✓ logo blanco  → mirror privado"
 
 rm -f "$TMPFILE"
 
