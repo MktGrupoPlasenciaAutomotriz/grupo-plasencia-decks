@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Medios Plasencia · Evolución del modelo · Grupo Plasencia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@500;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gp-red: #C8102E;
+  --gp-navy: #1E2740;
+  --deep-green: #276749;
+  --deep-blue: #2B6CB0;
+  --amber: #D69E2E;
+  --gold: #ECC94B;
+  --paper: #FFFFFF;
+  --near-white: #F7FAFC;
+  --g100: #EDF2F7;
+  --g200: #E2E8F0;
+  --g300: #CBD5E0;
+  --g400: #A0AEC0;
+  --g500: #718096;
+  --g600: #4A5568;
+  --text: #2D3748;
+  --serif: 'Playfair Display', Georgia, serif;
+  --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; -webkit-font-smoothing: antialiased; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+html, body { background: #E2E8F0; color: var(--text); font-family: var(--sans); font-size: 9pt; line-height: 1.5; }
+
+.page { width: 210mm; height: 297mm; background: var(--paper); margin: 20px auto; padding: 0; box-shadow: 0 2px 12px rgba(0,0,0,.12); position: relative; display: flex; flex-direction: column; page-break-after: always; overflow: hidden; }
+.page:last-child { page-break-after: auto; }
+
+@media print {
+  body { background: white; }
+  @page { size: A4; margin: 0; }
+  .page { margin: 0 !important; box-shadow: none !important; width: 210mm !important; height: 297mm !important; page-break-after: always !important; page-break-inside: avoid !important; overflow: hidden !important; }
+  .page:last-child { page-break-after: auto !important; }
+}
+
+.hdr { background: linear-gradient(135deg, var(--gp-navy) 0%, #2A3654 40%, #384868 100%); color: var(--near-white); padding: 22px 40px 20px; position: relative; overflow: hidden; flex-shrink: 0; }
+.hdr::before { content: ""; position: absolute; top: -100px; right: -100px; width: 340px; height: 340px; background: radial-gradient(circle, rgba(236,201,75,.16) 0%, transparent 70%); border-radius: 50%; }
+.hdr::after { content: ""; position: absolute; bottom: -160px; left: -80px; width: 400px; height: 400px; background: radial-gradient(circle, rgba(200,16,46,.08) 0%, transparent 70%); border-radius: 50%; }
+.hdr-top { display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 2; margin-bottom: 12px; }
+.hdr-brand { font-family: var(--sans); font-weight: 800; font-size: 12pt; color: var(--gold); letter-spacing: 2px; text-transform: uppercase; }
+.hdr-brand span { display: block; font-weight: 400; color: rgba(255,255,255,.55); font-size: 8pt; letter-spacing: 1.2px; margin-top: 3px; }
+.hdr-date { font-family: var(--sans); font-size: 9pt; color: rgba(236,201,75,.75); font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase; text-align: right; }
+.hdr-date span { display: block; color: var(--gp-red); font-weight: 800; margin-bottom: 3px; letter-spacing: 2.5px; font-size: 8.5pt; }
+.hdr-eyebrow { position: relative; z-index: 2; font-family: var(--sans); font-size: 9pt; font-weight: 700; letter-spacing: 3px; color: rgba(255,255,255,.6); text-transform: uppercase; margin-bottom: 6px; }
+.hdr-title { position: relative; z-index: 2; font-family: var(--serif); font-weight: 800; font-size: 24pt; line-height: 1.06; letter-spacing: -.5px; color: var(--near-white); }
+.hdr-title em { font-style: italic; color: var(--gold); font-weight: 700; }
+.hdr-sub { position: relative; z-index: 2; font-family: var(--sans); font-weight: 400; font-size: 10pt; color: rgba(255,255,255,.88); line-height: 1.5; margin-top: 8px; max-width: 620px; }
+.hdr-sub strong { color: var(--near-white); font-weight: 700; }
+
+.hdr-compact { padding: 14px 40px 12px; }
+.hdr-compact .hdr-title { font-size: 18pt; }
+.hdr-compact .hdr-sub { display: none; }
+
+.body { padding: 20px 40px 12px; flex: 1; overflow: hidden; display: flex; flex-direction: column; }
+
+.section-hdr { font-family: var(--sans); font-weight: 800; font-size: 11pt; color: var(--gp-navy); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px; padding-bottom: 6px; border-bottom: 2px solid var(--gold); display: flex; align-items: center; gap: 10px; }
+.section-hdr .num { font-family: var(--serif); font-weight: 900; font-size: 16pt; color: var(--amber); line-height: 1; }
+.section-hdr.small { font-size: 9pt; margin-bottom: 6px; padding-bottom: 4px; }
+.section-hdr.small .num { font-size: 12pt; }
+
+.lede { font-family: var(--sans); font-size: 9pt; color: var(--text); line-height: 1.55; margin-bottom: 12px; }
+.lede strong { color: var(--gp-navy); font-weight: 700; }
+.lede em { color: var(--amber); font-style: italic; }
+
+.p { font-family: var(--sans); font-size: 9pt; color: var(--text); line-height: 1.5; margin-bottom: 6px; }
+.p strong { color: var(--gp-navy); font-weight: 700; }
+
+.cover-bluf { margin-top: 6px; background: linear-gradient(135deg, #F7FAFC 0%, #EDF2F7 100%); border: 1px solid var(--g200); border-left: 4px solid var(--amber); border-radius: 8px; padding: 16px 20px; }
+.cover-bluf-lbl { font-family: var(--sans); font-size: 7.5pt; font-weight: 800; letter-spacing: 1.8px; color: var(--amber); text-transform: uppercase; margin-bottom: 6px; }
+.cover-bluf-t { font-family: var(--serif); font-weight: 700; font-style: italic; font-size: 13.5pt; color: var(--gp-navy); line-height: 1.35; letter-spacing: -.2px; }
+.cover-bluf-t em { color: var(--gp-red); font-style: italic; }
+
+.cover-context { margin-top: 12px; background: var(--gp-navy); color: var(--near-white); padding: 14px 20px; border-radius: 10px; position: relative; overflow: hidden; }
+.cover-context::before { content: ""; position: absolute; top: 0; right: 0; width: 200px; height: 200px; background: radial-gradient(circle, rgba(236,201,75,.15) 0%, transparent 70%); border-radius: 50%; }
+.cover-context-lbl { position: relative; z-index: 2; font-family: var(--sans); font-size: 8pt; font-weight: 800; letter-spacing: 2px; color: var(--gold); text-transform: uppercase; margin-bottom: 6px; }
+.cover-context-body { position: relative; z-index: 2; font-family: var(--sans); font-size: 9pt; color: rgba(255,255,255,.9); line-height: 1.55; }
+.cover-context-body strong { color: var(--near-white); font-weight: 700; }
+
+.tbl { width: 100%; border-collapse: collapse; margin-top: 4px; font-family: var(--sans); font-size: 8pt; }
+.tbl th { background: var(--gp-navy); color: var(--near-white); padding: 8px 10px; text-align: left; font-size: 8pt; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+.tbl td { padding: 8px 10px; border-bottom: 1px solid var(--g200); font-size: 8.5pt; color: var(--text); vertical-align: top; }
+.tbl tr:last-child td { border-bottom: none; }
+.tbl td strong { color: var(--gp-navy); font-weight: 700; }
+
+.callout { margin-top: 10px; padding: 12px 16px; border-radius: 8px; border-left: 4px solid; }
+.callout.navy { background: linear-gradient(to right, rgba(30,39,64,.08), rgba(30,39,64,.02)); border-left-color: var(--gp-navy); }
+.callout.gold { background: linear-gradient(to right, rgba(236,201,75,.12), rgba(236,201,75,.02)); border-left-color: var(--amber); }
+.callout.green { background: linear-gradient(to right, rgba(39,103,73,.10), rgba(39,103,73,.02)); border-left-color: var(--deep-green); }
+.callout-lbl { font-family: var(--sans); font-size: 7.5pt; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 5px; }
+.callout.navy .callout-lbl { color: var(--gp-navy); }
+.callout.gold .callout-lbl { color: var(--amber); }
+.callout.green .callout-lbl { color: var(--deep-green); }
+.callout-body { font-family: var(--sans); font-size: 8.5pt; color: var(--text); line-height: 1.55; }
+.callout-body strong { color: var(--gp-navy); font-weight: 700; }
+
+.wl-stages { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 10px; margin-top: 8px; }
+.wl-stage { background: var(--paper); border: 1px solid var(--g200); border-radius: 8px; padding: 12px 14px; position: relative; }
+.wl-stage.now { border-top: 3px solid var(--deep-green); background: rgba(39,103,73,.04); }
+.wl-stage.next { border-top: 3px solid var(--amber); }
+.wl-stage.later { border-top: 3px solid var(--deep-blue); }
+.wl-stage.future { border-top: 3px solid var(--g400); }
+.wl-stage-num { font-family: var(--serif); font-weight: 900; font-size: 22pt; line-height: 1; margin-bottom: 4px; }
+.wl-stage.now .wl-stage-num { color: var(--deep-green); }
+.wl-stage.next .wl-stage-num { color: var(--amber); }
+.wl-stage.later .wl-stage-num { color: var(--deep-blue); }
+.wl-stage.future .wl-stage-num { color: var(--g400); }
+.wl-stage-when { font-family: var(--sans); font-size: 7pt; font-weight: 800; letter-spacing: 1.3px; text-transform: uppercase; color: var(--g500); margin-bottom: 4px; }
+.wl-stage-t { font-family: var(--serif); font-weight: 700; font-size: 10.5pt; color: var(--gp-navy); margin-bottom: 6px; letter-spacing: -.1px; line-height: 1.15; }
+.wl-stage-body { font-family: var(--sans); font-size: 7.5pt; color: var(--g600); line-height: 1.45; }
+.wl-stage-body strong { color: var(--gp-navy); font-weight: 700; }
+
+.precedente-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 8px; }
+.precedente-card { background: var(--paper); border: 1px solid var(--g200); border-top: 3px solid var(--gp-navy); border-radius: 8px; padding: 12px 14px; }
+.precedente-lbl { font-family: var(--sans); font-size: 7.5pt; font-weight: 800; letter-spacing: 1.4px; text-transform: uppercase; color: var(--gp-navy); margin-bottom: 3px; }
+.precedente-title { font-family: var(--serif); font-weight: 700; font-size: 12pt; color: var(--gp-navy); margin-bottom: 6px; letter-spacing: -.2px; }
+.precedente-body { font-family: var(--sans); font-size: 8pt; color: var(--g600); line-height: 1.5; }
+.precedente-body strong { color: var(--gp-navy); font-weight: 700; }
+
+.foot { padding: 10px 40px; background: var(--g100); border-top: 1px solid var(--g200); display: flex; justify-content: space-between; align-items: center; font-family: var(--sans); font-size: 7.5pt; color: var(--g500); flex-shrink: 0; }
+.foot strong { color: var(--gp-navy); font-weight: 700; letter-spacing: .5px; text-transform: uppercase; }
+</style>
+</head>
+<body>
+
+<!-- ============================ PÁGINA 1 · COVER ============================ -->
+<div class="page">
+  <div class="hdr">
+    <div class="hdr-top">
+      <div>
+        <div class="hdr-brand">Grupo Plasencia Automotriz<span>Marketing y Digital · Dirección Corporativa</span></div>
+      </div>
+      <div class="hdr-date"><span>Anexo confidencial</span>Agosto 2026 · v0.1</div>
+    </div>
+    <div class="hdr-eyebrow">Anexo del Plan 90 días</div>
+    <h1 class="hdr-title">Medios Plasencia · <em>cómo puede evolucionar</em> el modelo</h1>
+    <p class="hdr-sub">Complemento visionario del Plan 90 días. Describe cómo <strong>Medios Plasencia</strong> puede pasar de agencia interna a entidad formal del Grupo, con el Marketplace como canal propio operado por Product Owners internos.</p>
+  </div>
+
+  <div class="body">
+    <div class="cover-bluf">
+      <div class="cover-bluf-lbl">En una frase</div>
+      <div class="cover-bluf-t">Si los 90 días demuestran que el modelo funciona, Medios Plasencia puede evolucionar de <em>agencia interna</em> a <em>entidad formal del Grupo</em> (análogo a Aurora arrendadora o BienSea seguros), operar el Marketplace como <em>canal propio</em> con Product Owners internos, y eventualmente comercializar la suite hacia otros grupos automotrices como <em>white label</em>.</div>
+    </div>
+
+    <div class="cover-context">
+      <div class="cover-context-lbl">Contexto del anexo</div>
+      <div class="cover-context-body">Este anexo se separa del Plan 90 días para no mezclar <strong>ejecución operativa</strong> (los 90 días) con <strong>visión de evolución</strong> (post-90 días). El Plan cubre los primeros 90 días con métricas concretas · este anexo describe las opciones de escalamiento del modelo después de esa ventana, para que Direcciones de Familia y Consejo tengan el mapa completo cuando llegue el momento de decidir. Nada de lo aquí descrito es compromiso ejecutable · toda constitución de entidad, estructura societaria y facturación intercompany requiere autorización explícita del Consejo en la ronda de gobierno correspondiente.</div>
+    </div>
+
+    <div class="cover-context" style="background: linear-gradient(135deg, #C8102E 0%, #A00A25 100%);">
+      <div class="cover-context-lbl" style="color: var(--gold);">Concepto nuevo para el Grupo</div>
+      <div class="cover-context-body">El Grupo tiene tradición de constituir entidades formales para servicios cross-marca (Aurora arrendadora · BienSea seguros · KPMG-Plasencia). Lo que Medios Plasencia agrega es la figura de <strong>Product Owner interno</strong> del canal comercial (Chucho + Pepe operando roadmap, pricing y comercial de la suite digital). Es una figura que el Grupo no maneja hoy y que se propone como parte natural del modelo, sujeto al mismo escrutinio y aprobación que las otras entidades del Grupo.</div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <span><strong>Grupo Plasencia</strong> · Anexo · Medios Plasencia · Evolución del modelo</span>
+    <span>Agosto 2026 · Confidencial · Página 1 de 4</span>
+  </div>
+</div>
+
+<!-- ============================ PÁGINA 2 · LOS 4 ESTADIOS ============================ -->
+<div class="page">
+  <div class="hdr hdr-compact">
+    <div class="hdr-eyebrow">Capítulo 1 · Evolución en 4 estadios</div>
+    <h1 class="hdr-title">De agencia interna <em>a producto comercial</em></h1>
+  </div>
+
+  <div class="body">
+    <p class="lede">La evolución del modelo va en cuatro estadios naturales, cada uno depende de que el anterior demuestre resultados medibles. No es un compromiso lineal en tiempos · es una lógica de escalamiento que solo avanza cuando el estadio anterior lo justifica.</p>
+
+    <div class="wl-stages">
+      <div class="wl-stage now">
+        <div class="wl-stage-num">1</div>
+        <div class="wl-stage-when">S1 – S13 · Cliente cautivo interno</div>
+        <div class="wl-stage-t">Aterrizar la operación cross-marca</div>
+        <div class="wl-stage-body">Marketplace + Karbot + Medios Plasencia operando en las 4 marcas Fase 1 y arrancando con las 3 de Fase 2. Ganador del RFP #1 Digital + implants estandariza compra de medios. <strong>Ahorro real medible</strong> vs baseline Daniel Galindo. Cero compromisos societarios en este estadio · solo demostración operativa.</div>
+      </div>
+
+      <div class="wl-stage next">
+        <div class="wl-stage-num">2</div>
+        <div class="wl-stage-when">Post-S13 · Empresa constituida</div>
+        <div class="wl-stage-t">Constituir Medios Plasencia S.A.</div>
+        <div class="wl-stage-body">Si el estadio 1 demuestra el modelo, se constituye la entidad formal (análogo a Aurora arrendadora / BienSea seguros). Modelo <strong>intercompany</strong>: las marcas del Grupo pagan servicios a Medios Plasencia S.A. como facturación cross-entidad estándar. El ahorro comercial vs agencias externas es lo que financia el negocio.</div>
+      </div>
+
+      <div class="wl-stage later">
+        <div class="wl-stage-num">3</div>
+        <div class="wl-stage-when">Q1-Q2 2027 · Piloto white label</div>
+        <div class="wl-stage-t">Primer grupo automotriz externo</div>
+        <div class="wl-stage-body">Con la entidad ya operando cross-Grupo, se prueba comercializar la suite (Marketplace + IA conversacional + Karlopay + encuestas NPS + broadcast) a un grupo o concesionario automotriz externo como <strong>white label</strong>. Piloto controlado · una sola cuenta · aprendizaje del proceso comercial hacia afuera.</div>
+      </div>
+
+      <div class="wl-stage future">
+        <div class="wl-stage-num">4</div>
+        <div class="wl-stage-when">Post-2027 · Suite abierta</div>
+        <div class="wl-stage-t">Mercado automotriz nacional</div>
+        <div class="wl-stage-body">Suite comercial abierta al nicho automotriz mexicano si el piloto white label lo justifica. Flujo intercompany interno del Grupo funciona como <em>capital semilla</em> del canal externo. En este estadio se decide política de branding, estructura societaria abierta a terceros, y ritmo de crecimiento.</div>
+      </div>
+    </div>
+
+    <div class="callout gold" style="margin-top: 14px;">
+      <div class="callout-lbl">Gate entre estadios · demostrar antes de escalar</div>
+      <div class="callout-body">Cada estadio tiene un <strong>gate explícito</strong>: no se avanza al siguiente sin evidencia medible del anterior. Estadio 1 → 2 requiere que el reporte S13 muestre ahorro real y modelo operativo estable. Estadio 2 → 3 requiere que la entidad constituida tenga al menos 3 trimestres de operación con métricas positivas. Estadio 3 → 4 requiere que el piloto white label cierre exitosamente con al menos un cliente externo pagando. El Consejo controla cada gate.</div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <span><strong>Grupo Plasencia</strong> · Anexo · Medios Plasencia · Evolución del modelo</span>
+    <span>Agosto 2026 · Confidencial · Página 2 de 4</span>
+  </div>
+</div>
+
+<!-- ============================ PÁGINA 3 · ESTRUCTURA SOCIETARIA + PRECEDENTES ============================ -->
+<div class="page">
+  <div class="hdr hdr-compact">
+    <div class="hdr-eyebrow">Capítulo 2 · Estructura societaria</div>
+    <h1 class="hdr-title">Propuesta directional <em>para el Consejo</em></h1>
+  </div>
+
+  <div class="body">
+    <p class="lede">Cuando llegue el momento del estadio 2 (constitución formal), el Consejo tendrá que resolver cinco decisiones estructurales. Este anexo documenta la <strong>propuesta directional</strong> de MKT Corporativo para cada una, para que cuando la conversación se abra formalmente no arranque en cero. Todos estos ítems requieren autorización explícita del Consejo · nada aquí es compromiso.</p>
+
+    <div class="section-hdr small"><span class="num">A</span>Cinco decisiones estructurales · propuesta directional</div>
+
+    <table class="tbl">
+      <thead>
+        <tr>
+          <th>Decisión</th>
+          <th>Propuesta directional (sujeta a autorización Consejo)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Accionistas base</strong></td>
+          <td>Grupo Plasencia como accionista mayoritario. Se propone considerar participación de Chucho y Pepe como Product Owners del canal, con esquema de <em>equity por trayectoria</em> similar a modelos usados en otras entidades cuando corresponde reconocer contribución acumulada. Sujeto a decisión explícita del Consejo · no es compromiso.</td>
+        </tr>
+        <tr>
+          <td><strong>Nombre y branding externo</strong></td>
+          <td>Para operación interna cross-Grupo, el nombre <em>Medios Plasencia</em> funciona bien (identidad clara con el Grupo). Para operación white label hacia otros grupos automotrices, se propone evaluar una marca externa distinta al apellido Plasencia (algunos grupos automotrices pueden preferir no contratar servicios etiquetados con la competencia). Decisión pospuesta hasta estadio 3.</td>
+        </tr>
+        <tr>
+          <td><strong>Facturación intercompany</strong></td>
+          <td>Modelo estándar de facturación cross-entidad entre marcas del Grupo y Medios Plasencia S.A. Diseño operativo pendiente de resolver con Dirección de Finanzas y Contratos (Carlos). Objetivo: que el dinero que hoy sale a agencias externas quede como flujo intercompany, financiando la operación.</td>
+        </tr>
+        <tr>
+          <td><strong>Product Owners del canal</strong></td>
+          <td>Chucho (MKT y TxD) + Pepe (Finanzas) como Product Owners de la suite comercial: roadmap, pricing, operación cross-marca, y decisiones comerciales hacia clientes externos. Es figura nueva en la estructura del Grupo · se propone reconocer explícitamente para claridad de gobierno.</td>
+        </tr>
+        <tr>
+          <td><strong>Órgano de gobierno</strong></td>
+          <td>Comité de Transformación Digital (ya formalizado en Plan 90d) evoluciona a Consejo Consultivo de Medios Plasencia S.A. cuando la entidad se constituya. Mantiene la composición actual (Direcciones de Familia + Finanzas + MKT y TxD + Compras) con adición del área legal-fiscal según necesidad.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout navy" style="margin-top: 12px;">
+      <div class="callout-lbl">Estado de alineación al 5 de agosto de 2026</div>
+      <div class="callout-body">El concepto está discutido y alineado con <strong>Dirección de Finanzas</strong> (Pepe Morales · sponsor del ejercicio). <strong>Nicolás Plasencia</strong> tiene la visión clara y ha empujado el ritmo (recomendó arrancar con RFP contra agencias existentes en Fase 1 antes de constituir entidad). <strong>Andrés Plasencia</strong> comprende el modelo · pendiente conversación específica sobre estadios 2 en adelante. El Consejo pleno no ha discutido formalmente ninguna de las decisiones estructurales de esta página.</div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <span><strong>Grupo Plasencia</strong> · Anexo · Medios Plasencia · Evolución del modelo</span>
+    <span>Agosto 2026 · Confidencial · Página 3 de 4</span>
+  </div>
+</div>
+
+<!-- ============================ PÁGINA 4 · PRECEDENTES + AUTORIZACIONES ============================ -->
+<div class="page">
+  <div class="hdr hdr-compact">
+    <div class="hdr-eyebrow">Capítulo 3 · Precedentes y autorizaciones</div>
+    <h1 class="hdr-title">Cómo el Grupo <em>ya lo ha hecho antes</em></h1>
+  </div>
+
+  <div class="body">
+    <p class="lede">El Grupo ha constituido entidades formales para servicios cross-marca en varias ocasiones · Medios Plasencia sigue el mismo patrón que ya conocen las Direcciones de Familia y el Consejo. Esta página documenta esos precedentes para dar contexto y calibrar expectativas.</p>
+
+    <div class="section-hdr small"><span class="num">A</span>Precedentes estructurales del Grupo</div>
+
+    <div class="precedente-grid">
+      <div class="precedente-card">
+        <div class="precedente-lbl">Precedente 1</div>
+        <div class="precedente-title">Aurora arrendadora</div>
+        <div class="precedente-body">Entidad formal del Grupo para arrendamiento. Sirve a marcas del Grupo internamente y opera comercialmente hacia clientes externos (corporativos, flotillas). Modelo intercompany + comercial abierto. Es el patrón más cercano a lo que se propone para Medios Plasencia.</div>
+      </div>
+      <div class="precedente-card">
+        <div class="precedente-lbl">Precedente 2</div>
+        <div class="precedente-title">BienSea seguros</div>
+        <div class="precedente-body">Entidad de seguros del Grupo. Vende internamente a marcas + externo. Demuestra que la lógica de "servicio cross-Grupo con capacidad comercial externa" es replicable en distintas categorías (arrendamiento, seguros, y ahora marketing digital).</div>
+      </div>
+    </div>
+
+    <div class="callout gold" style="margin-top: 12px;">
+      <div class="callout-lbl">Diferencia clave con los precedentes</div>
+      <div class="callout-body">Aurora y BienSea venden servicios <strong>financieros y transaccionales</strong> (arrendamiento, seguros) que son commodity relativamente estandarizado. Medios Plasencia vendería servicios de <strong>marketing digital y suite tecnológica</strong> · más customizados, más dependientes de know-how, con figura explícita de Product Owner del canal (rol operativo continuo, no solo comercial). Es la diferencia que justifica reconocer explícitamente esta figura en la estructura societaria.</div>
+    </div>
+
+    <div class="section-hdr small" style="margin-top: 14px;"><span class="num">B</span>Autorizaciones requeridas · por estadio</div>
+
+    <table class="tbl">
+      <thead>
+        <tr>
+          <th>Estadio</th>
+          <th>Qué requiere autorización explícita del Consejo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Estadio 1 · S1-S13</strong></td>
+          <td>Rol de Customer Success reportando a MKT (ya escalado en Plan 90d). Presupuesto del piso $35K/mes de pauta pura por marca activa. Autorización a Sergio (Compras) para conducir RFP #1 y RFP #2 con la política canónica.</td>
+        </tr>
+        <tr>
+          <td><strong>Estadio 2 · Post-S13</strong></td>
+          <td>Constitución formal de Medios Plasencia S.A. Estructura de accionistas incluyendo eventual participación de Product Owners. Modelo de facturación intercompany entre marcas y la nueva entidad. Órgano de gobierno de la entidad.</td>
+        </tr>
+        <tr>
+          <td><strong>Estadio 3 · Q1-Q2 2027</strong></td>
+          <td>Firma del primer contrato white label con grupo externo (Direcciones de Familia validan cliente antes de firma). Política de precios hacia afuera. Decisión de branding externo si aplica.</td>
+        </tr>
+        <tr>
+          <td><strong>Estadio 4 · Post-2027</strong></td>
+          <td>Escalamiento comercial nacional. Estructura societaria abierta a terceros si aplica. Política de gobierno de la marca externa. Ritmo de crecimiento del canal externo vs foco cross-Grupo interno.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout navy" style="margin-top: 12px;">
+      <div class="callout-lbl">Documentado como ambición mapeada, no como compromiso</div>
+      <div class="callout-body">Este anexo se registra para dejar la evolución mapeada y que cuando llegue el momento de discutir cada estadio, la conversación arranque con contexto. <strong>Nada de lo aquí descrito compromete al Grupo</strong>. Cada estadio se activa por decisión explícita del Consejo con base en la evidencia del estadio anterior. Los 90 días operativos del Plan cubren únicamente el estadio 1.</div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <span><strong>Grupo Plasencia</strong> · Anexo · Medios Plasencia · Evolución del modelo</span>
+    <span>Agosto 2026 · Confidencial · Página 4 de 4</span>
+  </div>
+</div>
+
+</body>
+</html>
