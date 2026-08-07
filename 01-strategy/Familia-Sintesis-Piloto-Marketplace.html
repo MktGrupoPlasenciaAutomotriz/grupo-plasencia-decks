@@ -80,40 +80,44 @@ html, body { width:100%; background:#0A0F1F; font-family:var(--sans); -webkit-fo
 .bau-callout-body em { font-style: italic; color: var(--near-white); }
 
 /* Piloto detallado · Slide 3 · Flujo + KPIs */
-.pilar-wrap { display:grid; grid-template-columns: 1.28fr 1fr; gap: 22px; margin-top: 6px; flex: 1; min-height: 0; }
+.pilar-wrap { display:grid; grid-template-columns: 1.28fr 1fr; gap: 22px; margin-top: 4px; }
 
-.flujo-panel { background: var(--paper); border: 1px solid var(--g200); border-top: 4px solid var(--gp-navy); border-radius: 12px; padding: 18px 22px; display:flex; flex-direction:column; gap: 10px; box-shadow: 0 1px 3px rgba(30,39,64,.05); }
+.flujo-panel { background: var(--paper); border: 1px solid var(--g200); border-top: 4px solid var(--gp-navy); border-radius: 12px; padding: 14px 20px; display:flex; flex-direction:column; gap: 8px; box-shadow: 0 1px 3px rgba(30,39,64,.05); }
 .flujo-hdr { font-family:var(--sans); font-size:9pt; font-weight:800; letter-spacing:1.5px; text-transform:uppercase; color: var(--gp-navy); }
 .flujo-t { font-family:var(--serif); font-weight:800; font-size:15pt; color: var(--gp-navy); line-height:1.18; letter-spacing:-.4px; }
-.flujo-steps { display:flex; flex-direction:column; gap: 7px; margin-top: 2px; }
-.flujo-step { display:grid; grid-template-columns: 36px 1fr; gap: 12px; align-items:flex-start; }
-.flujo-step-num { font-family:var(--serif); font-weight:900; font-size:20pt; color: var(--gold); line-height:1; text-align:center; padding-top: 2px; }
-.flujo-step-body { font-family:var(--sans); font-size:9.5pt; color: var(--g600); line-height:1.45; }
+.flujo-steps { display:flex; flex-direction:column; gap: 5px; margin-top: 2px; }
+.flujo-step { display:grid; grid-template-columns: 32px 1fr; gap: 10px; align-items:flex-start; }
+.flujo-step-num { font-family:var(--serif); font-weight:900; font-size:18pt; color: var(--gold); line-height:1; text-align:center; padding-top: 1px; }
+.flujo-step-body { font-family:var(--sans); font-size:9pt; color: var(--g600); line-height:1.4; }
 .flujo-step-body strong { color: var(--gp-navy); font-weight:700; }
 .flujo-step-body em { font-style: italic; color: var(--gp-navy); }
 
-.kpi-panel { display:flex; flex-direction:column; gap: 10px; }
-.kpi-hero { background: linear-gradient(135deg, var(--gp-navy) 0%, #2A3654 100%); color: var(--near-white); border-radius: 12px; padding: 16px 20px; }
-.kpi-hero-lbl { font-family:var(--sans); font-size:8pt; font-weight:800; letter-spacing:2px; text-transform:uppercase; color: var(--gold); }
-.kpi-hero-num { font-family:var(--serif); font-weight:900; font-size:44pt; line-height:1; color: var(--gold); font-variant-numeric: tabular-nums; letter-spacing:-1.5px; margin-top: 6px; }
-.kpi-hero-sub { font-family:var(--sans); font-size:10pt; color: rgba(255,255,255,.9); margin-top: 6px; line-height:1.4; }
+.kpi-panel { display:flex; flex-direction:column; gap: 8px; }
+.kpi-hero { background: linear-gradient(135deg, var(--gp-navy) 0%, #2A3654 100%); color: var(--near-white); border-radius: 12px; padding: 12px 18px; }
+.kpi-hero-lbl { font-family:var(--sans); font-size:7.5pt; font-weight:800; letter-spacing:2px; text-transform:uppercase; color: var(--gold); }
+.kpi-hero-num { font-family:var(--serif); font-weight:900; font-size:38pt; line-height:1; color: var(--gold); font-variant-numeric: tabular-nums; letter-spacing:-1.5px; margin-top: 4px; }
+.kpi-hero-sub { font-family:var(--sans); font-size:9.5pt; color: rgba(255,255,255,.9); margin-top: 4px; line-height:1.35; }
 .kpi-hero-sub strong { color: var(--near-white); font-weight:700; }
 
-.kpi-strip { display:grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-.kpi-cell { background: var(--paper); border: 1px solid var(--g200); border-left: 4px solid var(--gp-red); border-radius: 8px; padding: 10px 14px; }
+.kpi-strip { display:grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.kpi-cell { background: var(--paper); border: 1px solid var(--g200); border-left: 4px solid var(--gp-red); border-radius: 8px; padding: 8px 12px; }
 .kpi-cell.gold { border-left-color: var(--amber); }
 .kpi-cell.green { border-left-color: var(--deep-green); }
 .kpi-cell-lbl { font-family:var(--sans); font-size:7.5pt; font-weight:800; letter-spacing:1.4px; text-transform:uppercase; color: var(--gp-red); }
 .kpi-cell.gold .kpi-cell-lbl { color: var(--amber); }
 .kpi-cell.green .kpi-cell-lbl { color: var(--deep-green); }
-.kpi-cell-num { font-family:var(--serif); font-weight:900; font-size:22pt; line-height:1; color: var(--gp-navy); font-variant-numeric: tabular-nums; letter-spacing:-.8px; margin-top: 4px; }
-.kpi-cell-sub { font-family:var(--sans); font-size:8pt; color: var(--g500); line-height:1.35; margin-top: 3px; }
+.kpi-cell-num { font-family:var(--serif); font-weight:900; font-size:18pt; line-height:1; color: var(--gp-navy); font-variant-numeric: tabular-nums; letter-spacing:-.7px; margin-top: 3px; }
+.kpi-cell-sub { font-family:var(--sans); font-size:7.5pt; color: var(--g500); line-height:1.3; margin-top: 2px; }
 .kpi-cell-sub strong { color: var(--gp-navy); font-weight:700; }
 
-.callout-navy { background: var(--gp-navy); color: var(--near-white); border-radius: 10px; padding: 14px 20px; margin-top: 4px; display:grid; grid-template-columns: auto 1fr; gap: 18px; align-items:center; }
-.callout-navy-icon { font-family:var(--serif); font-weight:900; font-size:28pt; color: var(--gold); line-height:1; padding-right: 16px; border-right: 1px solid rgba(255,255,255,.25); }
-.callout-navy-body { font-family:var(--serif); font-weight:500; font-style:italic; font-size:13pt; color: rgba(255,255,255,.95); line-height:1.35; }
+.callout-navy { background: var(--gp-navy); color: var(--near-white); border-radius: 10px; padding: 10px 18px; margin-top: 4px; display:grid; grid-template-columns: auto 1fr; gap: 16px; align-items:center; }
+.callout-navy-icon { font-family:var(--serif); font-weight:900; font-size:22pt; color: var(--gold); line-height:1; padding-right: 14px; border-right: 1px solid rgba(255,255,255,.25); }
+.callout-navy-body { font-family:var(--serif); font-weight:500; font-style:italic; font-size:11.5pt; color: rgba(255,255,255,.95); line-height:1.3; }
 .callout-navy-body strong { color: var(--gold); font-style: normal; font-weight:700; }
+
+.honesty-strip { background: linear-gradient(135deg, rgba(214,158,46,.10) 0%, rgba(30,39,64,.03) 100%); border: 1px solid var(--g200); border-left: 4px solid var(--amber); border-radius: 8px; padding: 7px 14px; margin-top: 4px; font-family: var(--sans); font-size: 8.5pt; color: var(--g600); line-height: 1.4; }
+.honesty-strip strong { color: var(--gp-navy); font-weight:700; }
+.honesty-strip em { font-style: italic; color: var(--gp-navy); }
 
 /* Preview Marketplace · Slide 4 */
 .preview-wrap { display:grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 4px; }
@@ -273,7 +277,7 @@ html, body { width:100%; background:#0A0F1F; font-family:var(--sans); -webkit-fo
 
       <div class="flujo-panel">
         <div class="flujo-hdr">Cómo funciona · del anuncio al piso de venta</div>
-        <div class="flujo-t">El lead viaja completo, desde la publicidad hasta la factura</div>
+        <div class="flujo-t">El lead viaja completo por la tubería de ventas del Grupo</div>
         <div class="flujo-steps">
           <div class="flujo-step">
             <div class="flujo-step-num">1</div>
@@ -281,19 +285,19 @@ html, body { width:100%; background:#0A0F1F; font-family:var(--sans); -webkit-fo
           </div>
           <div class="flujo-step">
             <div class="flujo-step-num">2</div>
-            <div class="flujo-step-body">Entra a la <strong>página propia de la marca</strong> (por ejemplo <em>hyundai.grupoplasencia.com</em>) — con catálogo, promoción del mes y selector de sucursal. Es una página del Grupo.</div>
+            <div class="flujo-step-body">Entra a la <strong>tienda digital de la marca</strong> (por ejemplo <em>hyundai.grupoplasencia.com</em>), ve el catálogo, escoge un auto y se registra.</div>
           </div>
           <div class="flujo-step">
             <div class="flujo-step-num">3</div>
-            <div class="flujo-step-body">El cliente escribe por WhatsApp; el sistema del Grupo <strong>le asigna automáticamente el vendedor de la sucursal correcta en menos de un minuto</strong>, con un folio único que identifica esa conversación de principio a fin.</div>
+            <div class="flujo-step-body">El lead entra a la <strong>tubería de ventas del Grupo</strong> — el sistema le asigna automáticamente el vendedor de la sucursal correcta en menos de un minuto, con folio único.</div>
           </div>
           <div class="flujo-step">
             <div class="flujo-step-num">4</div>
-            <div class="flujo-step-body">El vendedor <strong>atiende en menos de 2 horas</strong> y va moviendo la tarjeta del cliente en un tablero de seguimiento del Grupo: <em>por contactar → cita agendada → visita al piso → cotización → cierre → factura</em>.</div>
+            <div class="flujo-step-body">En <strong>Seminuevos</strong>, una IA conversacional (<em>Vambe</em>) atiende al cliente hasta agendar la cita. En las demás marcas, esto lo hace directamente el vendedor.</div>
           </div>
           <div class="flujo-step">
             <div class="flujo-step-num">5</div>
-            <div class="flujo-step-body">Al cierre, la venta se <strong>cruza contra el DCA</strong> — el sistema contable del propio Grupo. <em>La cifra es la misma que ve Finanzas</em>.</div>
+            <div class="flujo-step-body"><strong>De la cita en adelante, todo depende del vendedor</strong>: asegurar la visita al piso, cerrar la venta y reportar la factura. Al final, la venta se cruza contra el DCA.</div>
           </div>
         </div>
       </div>
@@ -334,6 +338,10 @@ html, body { width:100%; background:#0A0F1F; font-family:var(--sans); -webkit-fo
     <div class="callout-navy">
       <div class="callout-navy-icon">"</div>
       <div class="callout-navy-body">Cada peso invertido en publicidad tiene ahora <strong>apellido, matrícula y fecha de facturación</strong>. Es la primera vez que el Grupo puede demostrarlo con cifras del sistema contable.</div>
+    </div>
+
+    <div class="honesty-strip">
+      <strong>Lo que sigue · doble frente:</strong> por el lado del sistema, <em>extender la IA conversacional a todas las marcas</em> — que atienda el pipeline hasta la cita agendada, como ya lo hace Vambe en Seminuevos. Por el lado humano, la <em>disciplina del vendedor de la cita en adelante</em> (asegurar la visita al piso, cerrar la venta) sigue siendo el eslabón más débil — se está formalizando <strong>con cada Director de Marca correspondiente</strong>.
     </div>
 
   </div>
@@ -393,9 +401,9 @@ html, body { width:100%; background:#0A0F1F; font-family:var(--sans); -webkit-fo
       <div class="enmarcha-t">No arrancamos de cero · lo del piloto es la base del Marketplace</div>
       <div class="enmarcha-grid">
         <div class="enmarcha-item"><strong>El sistema completo ya funciona</strong> en 4 marcas · listo para replicar</div>
-        <div class="enmarcha-item"><strong>Manual de cómo trabajamos con las marcas</strong> ya escrito (roles, decisiones, rutinas)</div>
+        <div class="enmarcha-item"><strong>IA conversacional para todas las marcas</strong> (hasta cita agendada) · como Vambe en Seminuevos</div>
         <div class="enmarcha-item"><strong>Relanzamos las campañas</strong> de Seminuevos y concesionarios con lo aprendido</div>
-        <div class="enmarcha-item"><strong>Cada visita y compra queda registrada</strong> por el vendedor</div>
+        <div class="enmarcha-item"><strong>Disciplina de la parte humana</strong> (visita al piso, cierre) formalizada con los Directores de Marca</div>
       </div>
     </div>
 
