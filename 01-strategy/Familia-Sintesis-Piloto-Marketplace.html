@@ -22,29 +22,73 @@
 * { margin:0; padding:0; box-sizing:border-box; }
 html, body { width:100%; background:#0A0F1F; font-family:var(--sans); -webkit-font-smoothing:antialiased; padding: 32px 0; }
 .slide { position:relative; width:1280px; height:720px; margin: 0 auto 32px auto; overflow:hidden; display:flex; flex-direction:column; background: var(--bg); color: var(--text); box-shadow: 0 8px 32px rgba(0,0,0,.4); }
-.content { padding: 42px 72px 14px 72px; flex:1; display:flex; flex-direction:column; gap: 14px; position:relative; min-height:0; overflow:hidden; }
+.slide.dark { background: var(--gp-navy); color: var(--near-white); }
+.content { padding: 42px 72px 14px 72px; flex:1; display:flex; flex-direction:column; gap: 12px; position:relative; min-height:0; overflow:hidden; }
 .slide-header { display:flex; justify-content:space-between; align-items:flex-end; padding-bottom: 4px; border-bottom: 1px solid var(--g200); }
 .section-num { font-family:var(--sans); font-size:9pt; font-weight:800; letter-spacing:4px; color: var(--gp-red); text-transform:uppercase; }
 .slide-mark { font-family:var(--sans); font-size:8.5pt; font-weight:700; letter-spacing:3px; color: var(--g500); text-transform:uppercase; }
-.slide-h1 { font-family:var(--serif); font-weight:800; font-size:28pt; line-height:1.08; letter-spacing:-1px; color: var(--gp-navy); margin-top:6px; }
+.slide-h1 { font-family:var(--serif); font-weight:800; font-size:26pt; line-height:1.08; letter-spacing:-1px; color: var(--gp-navy); margin-top:4px; }
 .slide-h1 em { font-style:italic; color: var(--amber); font-weight:700; }
-.slide-lede { font-family:var(--sans); font-size:11pt; color: var(--g600); line-height:1.55; margin-top: 4px; max-width: 1130px; }
+.slide-lede { font-family:var(--sans); font-size:10.5pt; color: var(--g600); line-height:1.5; margin-top: 4px; max-width: 1130px; }
 .slide-lede strong { color: var(--gp-navy); font-weight:700; }
 .slide-lede em { font-style: italic; color: var(--gp-navy); }
 .slide-footer { position:relative; margin: 0 72px; padding: 8px 0 14px 0; display:flex; justify-content:space-between; align-items:center; font-family: var(--sans); font-size: 8.5pt; color: var(--g500); border-top: 1px solid var(--g200); gap: 16px; flex-shrink:0; }
 .slide-footer .dot { display:inline-block; width:8px; height:8px; background: var(--gp-red); border-radius:50%; margin-right:6px; vertical-align:middle; }
 .slide-footer strong { color: var(--gp-navy); font-weight:700; }
 
-/* Slide 1 · Pilar · Flujo + KPIs */
+/* Portada */
+.cover-inner { padding: 52px 78px 40px 78px; flex:1; display:flex; flex-direction:column; justify-content:space-between; background: radial-gradient(ellipse at 100% 0%, rgba(236,201,75,.18) 0%, transparent 55%), radial-gradient(ellipse at 0% 100%, rgba(200,16,46,.14) 0%, transparent 55%), var(--gp-navy); }
+.cover-top { display:flex; justify-content:space-between; align-items:flex-start; }
+.cover-mark { font-family:var(--sans); font-weight:700; font-size:11pt; letter-spacing:4px; color: var(--gold); text-transform:uppercase; }
+.cover-mark span { display:block; font-weight:400; color: rgba(255,255,255,.62); margin-top:5px; letter-spacing:1px; font-size:9pt; }
+.cover-conf { font-family:var(--sans); font-weight:700; font-size:9pt; letter-spacing:3.5px; color: var(--gp-red); text-transform:uppercase; text-align:right; }
+.cover-conf span { display:block; color: rgba(255,255,255,.55); font-weight:400; letter-spacing:1px; font-size:8pt; margin-top:4px; }
+.cover-center { flex:1; display:flex; flex-direction:column; justify-content:center; padding: 24px 0; }
+.cover-eyebrow { font-family:var(--sans); font-size:11pt; font-weight:700; letter-spacing:5px; color: var(--gp-red); text-transform:uppercase; }
+.cover-title { font-family:var(--serif); font-weight:800; font-size:46pt; line-height:1.05; letter-spacing:-1.5px; margin-top:16px; color: var(--near-white); max-width:1080px; }
+.cover-title em { font-style:italic; color: var(--gold); font-weight:700; }
+.cover-subtitle { font-family:var(--serif); font-weight:500; font-style:italic; font-size:15pt; color: rgba(255,255,255,.88); margin-top:22px; letter-spacing:-.2px; line-height:1.45; max-width:1020px; }
+.cover-subtitle strong { color: var(--near-white); font-style: normal; font-weight: 700; }
+.cover-meta { display:grid; grid-template-columns: repeat(4, 1fr); gap: 18px; border-top: 1px solid rgba(255,255,255,.18); padding-top:18px; margin-top: 24px; }
+.cover-meta-block { font-size:9pt; color: rgba(255,255,255,.72); line-height:1.55; font-family: var(--sans); }
+.cover-meta-block strong { display:block; color: var(--gold); font-weight:700; font-size:8pt; letter-spacing:1.5px; margin-bottom:4px; text-transform:uppercase; }
+.cover-meta-block span { display:block; color: rgba(255,255,255,.94); font-weight:500; font-size:10.5pt; margin-bottom:2px; }
+
+/* BAU vs Piloto · Slide 2 */
+.compara-wrap { display:grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 4px; }
+.compara-card { background: var(--paper); border: 1px solid var(--g200); border-radius: 12px; padding: 16px 20px; display:flex; flex-direction:column; gap: 10px; }
+.compara-card.bau { border-top: 4px solid var(--g500); }
+.compara-card.piloto { border-top: 4px solid var(--gold); background: linear-gradient(180deg, #FFFEF8 0%, var(--paper) 100%); }
+.compara-hdr { display:flex; align-items:baseline; justify-content:space-between; gap: 10px; }
+.compara-tag { font-family:var(--sans); font-size:8.5pt; font-weight:800; letter-spacing:2px; text-transform:uppercase; color: var(--g500); }
+.compara-card.piloto .compara-tag { color: var(--amber); }
+.compara-tag-mini { font-family:var(--sans); font-size:7.5pt; font-weight:700; color: var(--g400); letter-spacing:.6px; text-transform:uppercase; }
+.compara-card.piloto .compara-tag-mini { color: var(--amber); opacity:.8; }
+.compara-t { font-family:var(--serif); font-weight:800; font-size:15pt; color: var(--gp-navy); line-height:1.18; letter-spacing:-.4px; }
+.compara-list { display:flex; flex-direction:column; gap: 7px; margin-top: 2px; }
+.compara-item { font-family:var(--sans); font-size:9.5pt; color: var(--g600); line-height:1.5; padding-left: 22px; position:relative; }
+.compara-item::before { position:absolute; left:0; top:1px; font-weight:800; font-size:11pt; line-height:1; }
+.compara-card.bau .compara-item::before { content:"✕"; color: var(--gp-red); }
+.compara-card.piloto .compara-item::before { content:"✓"; color: var(--deep-green); }
+.compara-item strong { color: var(--gp-navy); font-weight:700; }
+.compara-item em { font-style: italic; color: var(--gp-navy); }
+
+.bau-callout { background: var(--gp-navy); color: var(--near-white); border-radius: 10px; padding: 12px 20px; margin-top: 4px; display:grid; grid-template-columns: auto 1fr; gap: 18px; align-items:center; }
+.bau-callout-icon { font-family:var(--serif); font-weight:900; font-size:26pt; color: var(--gold); line-height:1; padding-right: 16px; border-right: 1px solid rgba(255,255,255,.25); }
+.bau-callout-body { font-family:var(--sans); font-size:10.5pt; color: rgba(255,255,255,.94); line-height:1.45; }
+.bau-callout-body strong { color: var(--gold); font-weight:700; }
+.bau-callout-body em { font-style: italic; color: var(--near-white); }
+
+/* Piloto detallado · Slide 3 · Flujo + KPIs */
 .pilar-wrap { display:grid; grid-template-columns: 1.28fr 1fr; gap: 22px; margin-top: 6px; flex: 1; min-height: 0; }
 
-.flujo-panel { background: var(--paper); border: 1px solid var(--g200); border-top: 4px solid var(--gp-navy); border-radius: 12px; padding: 18px 22px; display:flex; flex-direction:column; gap: 12px; box-shadow: 0 1px 3px rgba(30,39,64,.05); }
+.flujo-panel { background: var(--paper); border: 1px solid var(--g200); border-top: 4px solid var(--gp-navy); border-radius: 12px; padding: 18px 22px; display:flex; flex-direction:column; gap: 10px; box-shadow: 0 1px 3px rgba(30,39,64,.05); }
 .flujo-hdr { font-family:var(--sans); font-size:9pt; font-weight:800; letter-spacing:1.5px; text-transform:uppercase; color: var(--gp-navy); }
 .flujo-t { font-family:var(--serif); font-weight:800; font-size:15pt; color: var(--gp-navy); line-height:1.18; letter-spacing:-.4px; }
-.flujo-steps { display:flex; flex-direction:column; gap: 8px; margin-top: 2px; }
+.flujo-steps { display:flex; flex-direction:column; gap: 7px; margin-top: 2px; }
 .flujo-step { display:grid; grid-template-columns: 36px 1fr; gap: 12px; align-items:flex-start; }
 .flujo-step-num { font-family:var(--serif); font-weight:900; font-size:20pt; color: var(--gold); line-height:1; text-align:center; padding-top: 2px; }
-.flujo-step-body { font-family:var(--sans); font-size:9.5pt; color: var(--g600); line-height:1.48; }
+.flujo-step-body { font-family:var(--sans); font-size:9.5pt; color: var(--g600); line-height:1.45; }
 .flujo-step-body strong { color: var(--gp-navy); font-weight:700; }
 .flujo-step-body em { font-style: italic; color: var(--gp-navy); }
 
@@ -64,15 +108,15 @@ html, body { width:100%; background:#0A0F1F; font-family:var(--sans); -webkit-fo
 .kpi-cell.green .kpi-cell-lbl { color: var(--deep-green); }
 .kpi-cell-num { font-family:var(--serif); font-weight:900; font-size:22pt; line-height:1; color: var(--gp-navy); font-variant-numeric: tabular-nums; letter-spacing:-.8px; margin-top: 4px; }
 .kpi-cell-sub { font-family:var(--sans); font-size:8pt; color: var(--g500); line-height:1.35; margin-top: 3px; }
+.kpi-cell-sub strong { color: var(--gp-navy); font-weight:700; }
 
 .callout-navy { background: var(--gp-navy); color: var(--near-white); border-radius: 10px; padding: 14px 20px; margin-top: 4px; display:grid; grid-template-columns: auto 1fr; gap: 18px; align-items:center; }
 .callout-navy-icon { font-family:var(--serif); font-weight:900; font-size:28pt; color: var(--gold); line-height:1; padding-right: 16px; border-right: 1px solid rgba(255,255,255,.25); }
-.callout-navy-body { font-family:var(--serif); font-weight:500; font-style:italic; font-size:14pt; color: rgba(255,255,255,.95); line-height:1.35; }
+.callout-navy-body { font-family:var(--serif); font-weight:500; font-style:italic; font-size:13pt; color: rgba(255,255,255,.95); line-height:1.35; }
 .callout-navy-body strong { color: var(--gold); font-style: normal; font-weight:700; }
 
-/* Slide 2 · Preview Marketplace */
+/* Preview Marketplace · Slide 4 */
 .preview-wrap { display:grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 4px; }
-
 .evo-card { background: var(--paper); border: 1px solid var(--g200); border-radius: 12px; padding: 14px 18px; display:flex; flex-direction:column; gap: 8px; overflow: hidden; }
 .evo-card.hoy { border-top: 4px solid var(--g400); }
 .evo-card.futuro { border-top: 4px solid var(--gold); background: linear-gradient(180deg, #FFFEF8 0%, var(--paper) 100%); }
@@ -86,13 +130,7 @@ html, body { width:100%; background:#0A0F1F; font-family:var(--sans); -webkit-fo
 .evo-item::before { content:"—"; position:absolute; left:0; color: var(--g400); font-weight:700; }
 .evo-card.futuro .evo-item::before { content:"▸"; color: var(--amber); }
 .evo-item strong { color: var(--gp-navy); font-weight:700; }
-
-.precedente-strip { background: linear-gradient(135deg, rgba(30,39,64,.03) 0%, rgba(236,201,75,.10) 100%); border: 1px solid var(--g200); border-left: 5px solid var(--gold); border-radius: 12px; padding: 14px 20px; display:grid; grid-template-columns: auto 1fr; gap: 20px; align-items:center; margin-top: 4px; }
-.precedente-lbl { font-family:var(--sans); font-size:8pt; font-weight:800; letter-spacing:2px; text-transform:uppercase; color: var(--amber); }
-.precedente-body { font-family:var(--sans); font-size:10pt; color: var(--g600); line-height:1.5; margin-top: 3px; }
-.precedente-body strong { color: var(--gp-navy); font-weight:700; }
-.precedente-body em { font-style: italic; color: var(--gp-navy); }
-.precedente-icon { font-family:var(--serif); font-weight:900; font-size:32pt; color: var(--gold); line-height:1; padding-right: 20px; border-right: 1px solid var(--g300); }
+.evo-item em { font-style: italic; color: var(--gp-navy); }
 
 .enmarcha-wrap { background: var(--paper); border: 1px solid var(--g200); border-top: 4px solid var(--deep-green); border-radius: 12px; padding: 11px 18px; margin-top: 4px; }
 .enmarcha-hdr { font-family:var(--sans); font-size:8pt; font-weight:800; letter-spacing:1.6px; text-transform:uppercase; color: var(--deep-green); margin-bottom: 4px; }
@@ -102,22 +140,134 @@ html, body { width:100%; background:#0A0F1F; font-family:var(--sans); -webkit-fo
 .enmarcha-item::before { content:"✓"; position:absolute; left:0; color: var(--deep-green); font-weight:800; }
 .enmarcha-item strong { color: var(--gp-navy); font-weight:700; }
 
+.precedente-strip { background: linear-gradient(135deg, rgba(30,39,64,.03) 0%, rgba(236,201,75,.10) 100%); border: 1px solid var(--g200); border-left: 5px solid var(--gold); border-radius: 12px; padding: 12px 20px; display:grid; grid-template-columns: auto 1fr; gap: 20px; align-items:center; margin-top: 4px; }
+.precedente-lbl { font-family:var(--sans); font-size:8pt; font-weight:800; letter-spacing:2px; text-transform:uppercase; color: var(--amber); }
+.precedente-body { font-family:var(--sans); font-size:9.5pt; color: var(--g600); line-height:1.5; margin-top: 3px; }
+.precedente-body strong { color: var(--gp-navy); font-weight:700; }
+.precedente-body em { font-style: italic; color: var(--gp-navy); }
+.precedente-icon { font-family:var(--serif); font-weight:900; font-size:30pt; color: var(--gold); line-height:1; padding-right: 18px; border-right: 1px solid var(--g300); }
+
+/* Cierre · navy · URLs */
+.close-inner { padding: 50px 78px 40px 78px; flex:1; display:flex; flex-direction:column; justify-content:space-between; background: radial-gradient(ellipse at 50% 30%, rgba(236,201,75,.14) 0%, transparent 60%), var(--gp-navy); }
+.close-top { text-align:center; }
+.close-eyebrow { font-family: var(--sans); font-size: 10pt; font-weight: 800; letter-spacing: 5px; color: var(--gold); text-transform: uppercase; }
+.close-rule { width: 80px; height: 1px; background: var(--gold); margin: 14px auto; opacity: .7; }
+.close-h { font-family: var(--serif); font-weight: 800; font-size: 30pt; line-height: 1.15; letter-spacing: -1.1px; color: var(--near-white); margin: 10px auto 0 auto; max-width: 1020px; }
+.close-h em { font-style: italic; color: var(--gold); font-weight: 700; }
+.close-sub { font-family: var(--sans); font-size: 11pt; color: rgba(255,255,255,.82); margin: 16px auto 0 auto; line-height: 1.5; max-width: 900px; text-align:center; }
+.close-sub em { font-style: italic; color: var(--near-white); }
+
+.urls-panel { background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.14); border-radius: 12px; padding: 18px 28px; margin-top: 6px; }
+.urls-panel-hdr { font-family:var(--sans); font-size:9pt; font-weight:800; letter-spacing:3px; text-transform:uppercase; color: var(--gold); text-align:center; margin-bottom: 4px; }
+.urls-panel-t { font-family:var(--serif); font-weight:600; font-style:italic; font-size:13pt; color: rgba(255,255,255,.9); text-align:center; margin-bottom: 12px; }
+.urls-grid { display:grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
+.url-item { text-align:center; padding: 4px 0; }
+.url-marca { display:block; font-family:var(--sans); font-size:8pt; font-weight:800; letter-spacing:1.5px; text-transform:uppercase; color: var(--gold); margin-bottom: 4px; }
+.url-link { display:block; font-family: 'SF Mono', ui-monospace, monospace; font-size:9.5pt; color: var(--near-white); font-weight:600; letter-spacing:-.2px; }
+
+.close-foot { display:flex; justify-content:space-between; align-items:center; font-family:var(--sans); font-size:8.5pt; color: rgba(255,255,255,.55); border-top: 1px solid rgba(255,255,255,.14); padding-top: 14px; margin-top: 10px; letter-spacing:1.5px; text-transform: uppercase; }
+.close-foot strong { color: var(--gold); font-weight:700; }
 </style>
 </head>
 <body>
 
-<!-- ==================== SLIDE 1 · PILAR · MOTOR + RESULTADOS ==================== -->
+<!-- ==================== SLIDE 1 · PORTADA ==================== -->
+<div class="slide dark">
+  <div class="cover-inner">
+    <div class="cover-top">
+      <div class="cover-mark">Grupo Plasencia Automotriz<span>Dirección de Marketing Corporativo</span></div>
+      <div class="cover-conf">Confidencial<span>Uso interno · Consejo Familiar</span></div>
+    </div>
+
+    <div class="cover-center">
+      <div class="cover-eyebrow">Síntesis de 90 días · abril – junio 2026</div>
+      <h1 class="cover-title">Cómo estamos midiendo <em>qué anuncio vende qué auto</em> · y hacia dónde vamos</h1>
+      <p class="cover-subtitle">Construimos un sistema que conecta la publicidad con la factura del sistema contable del Grupo. <strong>Pasamos de comprar volumen sin control · a construir ventas con seguimiento serio del vendedor.</strong> Los primeros 90 días ya tienen números.</p>
+    </div>
+
+    <div class="cover-meta">
+      <div class="cover-meta-block"><strong>Marcas del piloto</strong><span>Seminuevos · Hyundai</span><span>Stellantis · GAC</span></div>
+      <div class="cover-meta-block"><strong>Periodo medido</strong><span>13 abril – 30 junio 2026</span><span>90 días de operación</span></div>
+      <div class="cover-meta-block"><strong>Fuente de la venta</strong><span>DCA · sistema contable</span><span>del propio Grupo</span></div>
+      <div class="cover-meta-block"><strong>Próximo capítulo</strong><span>Marketplace Plasencia</span><span>tienda digital del Grupo</span></div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ==================== SLIDE 2 · BAU VS PILOTO ==================== -->
 <div class="slide">
   <div class="content">
 
     <div class="slide-header">
-      <div class="section-num">01 · Lo que construimos en 90 días</div>
+      <div class="section-num">01 · Por qué esto es diferente al día a día</div>
+      <div class="slide-mark">Business as Usual vs Piloto</div>
+    </div>
+
+    <h1 class="slide-h1">Antes se compraba volumen · <em>ahora se construye la venta</em></h1>
+
+    <p class="slide-lede">El día a día del Grupo (lo que en la industria se llama <em>Business as Usual</em>, o "así se ha hecho siempre") es sencillo: se paga publicidad para generar conversaciones por WhatsApp. Suena bien, pero tiene un problema serio — <strong>llega mucho volumen sin seguimiento y las oportunidades se pierden entre las manos del vendedor</strong>. El piloto de estos 90 días cambia esa manera de trabajar.</p>
+
+    <div class="compara-wrap">
+
+      <div class="compara-card bau">
+        <div class="compara-hdr">
+          <div class="compara-tag">Business as Usual</div>
+          <div class="compara-tag-mini">Así se ha hecho hasta ahora</div>
+        </div>
+        <div class="compara-t">Publicidad directa a WhatsApp del vendedor</div>
+        <div class="compara-list">
+          <div class="compara-item">Se compran <strong>anuncios que llevan al cliente al WhatsApp personal</strong> del vendedor.</div>
+          <div class="compara-item"><strong>Llegan muchas conversaciones</strong>, pero no hay forma de saber cuántas terminaron en cita, ni cuántas en venta.</div>
+          <div class="compara-item">El seguimiento <strong>depende de que el vendedor se acuerde</strong>. Sin sistema, muchos clientes quedan sin respuesta.</div>
+          <div class="compara-item"><strong>Se pierden oportunidades</strong> y no hay forma de verlo desde la Dirección hasta que ya pasó.</div>
+          <div class="compara-item">La marca <em>no puede saber</em> si el peso invertido en publicidad regresó en ventas.</div>
+        </div>
+      </div>
+
+      <div class="compara-card piloto">
+        <div class="compara-hdr">
+          <div class="compara-tag">Piloto · lo que construimos</div>
+          <div class="compara-tag-mini">Los últimos 90 días</div>
+        </div>
+        <div class="compara-t">Publicidad conectada a un sistema de seguimiento</div>
+        <div class="compara-list">
+          <div class="compara-item">El cliente entra a una <strong>página de la marca del Grupo</strong> y escribe por WhatsApp — pero ya no al celular personal, sino a un <em>sistema oficial</em>.</div>
+          <div class="compara-item">Cada conversación queda <strong>anotada con nombre del cliente, auto que le interesa y sucursal</strong>.</div>
+          <div class="compara-item">El vendedor <strong>reporta cada visita y cada compra</strong>. Ya no se depende de que se acuerde — todo queda escrito.</div>
+          <div class="compara-item">Menos volumen pero <strong>mejor atención</strong>. Las oportunidades ya no se pierden en el aire.</div>
+          <div class="compara-item">Al final, la venta se cruza con el DCA · <em>la marca sabe exactamente qué anuncio se convirtió en factura</em>.</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="bau-callout">
+      <div class="bau-callout-icon">→</div>
+      <div class="bau-callout-body">La diferencia no es de tecnología, es de <strong>orden y seguimiento</strong>. El piloto pone al Grupo en posición de <em>rendir cuentas de cada peso invertido en marketing</em>.</div>
+    </div>
+
+  </div>
+
+  <div class="slide-footer">
+    <span><span class="dot"></span><strong>Grupo Plasencia Automotriz</strong> · Síntesis Consejo · Agosto 2026</span>
+    <span>Confidencial · Slide 2 de 5</span>
+  </div>
+</div>
+
+
+<!-- ==================== SLIDE 3 · PILOTO DETALLADO · RESULTADOS ==================== -->
+<div class="slide">
+  <div class="content">
+
+    <div class="slide-header">
+      <div class="section-num">02 · Lo que construimos en 90 días</div>
       <div class="slide-mark">Al 30 de junio de 2026</div>
     </div>
 
     <h1 class="slide-h1">Por primera vez sabemos <em>qué anuncio vendió qué auto</em></h1>
 
-    <p class="slide-lede">Antes del piloto, el Grupo invertía en publicidad sin poder saber cuáles anuncios terminaban en una venta y cuáles no. En <strong>90 días construimos el sistema que conecta el anuncio pagado con la factura</strong> en el propio sistema contable del Grupo (DCA). Se probó en cuatro marcas — <em>Seminuevos, Hyundai, Stellantis y GAC</em> — y los resultados hablan por sí solos.</p>
+    <p class="slide-lede">En 90 días construimos el sistema que <strong>conecta el anuncio pagado con la factura</strong> en el propio sistema contable del Grupo (DCA). Se probó en cuatro marcas del piloto y los números están abajo.</p>
 
     <div class="pilar-wrap">
 
@@ -131,19 +281,19 @@ html, body { width:100%; background:#0A0F1F; font-family:var(--sans); -webkit-fo
           </div>
           <div class="flujo-step">
             <div class="flujo-step-num">2</div>
-            <div class="flujo-step-body">Llega a la <strong>página de la marca</strong> y escribe por WhatsApp; el sistema lo <em>rutea automáticamente</em> al vendedor de la sucursal correcta.</div>
+            <div class="flujo-step-body">Llega a la <strong>página de la marca</strong> y escribe por WhatsApp; el sistema lo <em>manda automáticamente</em> al vendedor de la sucursal correcta.</div>
           </div>
           <div class="flujo-step">
             <div class="flujo-step-num">3</div>
-            <div class="flujo-step-body"><strong>El vendedor da seguimiento</strong> y agenda la cita, todo desde una herramienta que deja huella (nada de celulares personales).</div>
+            <div class="flujo-step-body">El vendedor <strong>lo atiende y agenda la cita</strong> desde una herramienta oficial del Grupo. Ya no desde celulares personales — todo queda escrito.</div>
           </div>
           <div class="flujo-step">
             <div class="flujo-step-num">4</div>
-            <div class="flujo-step-body">El vendedor <strong>retroalimenta la visita</strong> (si vino, si compró, qué compró). El auto queda ligado al cliente y al anuncio original.</div>
+            <div class="flujo-step-body">El vendedor <strong>reporta si el cliente vino, si compró y qué compró</strong>. El auto queda ligado al anuncio original.</div>
           </div>
           <div class="flujo-step">
             <div class="flujo-step-num">5</div>
-            <div class="flujo-step-body">La venta se <strong>cruza contra el DCA</strong>. La fuente de verdad es <em>el sistema contable del propio Grupo</em>, no un tracker paralelo.</div>
+            <div class="flujo-step-body">La venta se <strong>compara contra el DCA</strong> — el sistema contable del propio Grupo. <em>La cifra es la misma que ve Finanzas</em>.</div>
           </div>
         </div>
       </div>
@@ -173,8 +323,8 @@ html, body { width:100%; background:#0A0F1F; font-family:var(--sans); -webkit-fo
           </div>
           <div class="kpi-cell green">
             <div class="kpi-cell-lbl">Por cada peso invertido</div>
-            <div class="kpi-cell-num">$100</div>
-            <div class="kpi-cell-sub">retornaron en ventas facturadas · <strong>$5.11 de utilidad bruta</strong></div>
+            <div class="kpi-cell-num">$11.20</div>
+            <div class="kpi-cell-sub"><strong>regresaron de utilidad</strong> · calculado con el margen real del sistema contable</div>
           </div>
         </div>
       </div>
@@ -183,56 +333,56 @@ html, body { width:100%; background:#0A0F1F; font-family:var(--sans); -webkit-fo
 
     <div class="callout-navy">
       <div class="callout-navy-icon">"</div>
-      <div class="callout-navy-body">Cada peso invertido en publicidad tiene ahora <strong>apellido, matrícula y fecha de facturación</strong>. Es la primera vez que el Grupo puede afirmarlo con evidencia contable.</div>
+      <div class="callout-navy-body">Cada peso invertido en publicidad tiene ahora <strong>apellido, matrícula y fecha de facturación</strong>. Es la primera vez que el Grupo puede demostrarlo con cifras del sistema contable.</div>
     </div>
 
   </div>
 
   <div class="slide-footer">
     <span><span class="dot"></span><strong>Grupo Plasencia Automotriz</strong> · Síntesis Consejo · Agosto 2026</span>
-    <span>Confidencial · Slide 1 de 2</span>
+    <span>Confidencial · Slide 3 de 5</span>
   </div>
 </div>
 
 
-<!-- ==================== SLIDE 2 · PREVIEW MARKETPLACE ==================== -->
+<!-- ==================== SLIDE 4 · PREVIEW MARKETPLACE ==================== -->
 <div class="slide">
   <div class="content">
 
     <div class="slide-header">
-      <div class="section-num">02 · Lo que sigue · próxima ola</div>
+      <div class="section-num">03 · Lo que sigue · próxima ola</div>
       <div class="slide-mark">Marketplace del Grupo</div>
     </div>
 
-    <h1 class="slide-h1">De tienditas separadas <em>a un canal digital único del Grupo</em></h1>
+    <h1 class="slide-h1">De marcas dispersas <em>a la tienda digital del Grupo</em></h1>
 
-    <p class="slide-lede">Con el sistema probado en cuatro marcas, la siguiente ola es <strong>consolidar las marcas del Grupo en un canal digital unificado</strong> — un solo lugar donde el cliente entra y encuentra el catálogo completo. Es el mismo patrón que el Grupo ya sigue con <em>GP Autolease, BienSea y KPMG-Plasencia</em>: entidades que ofrecen desde una sola vitrina un servicio que atraviesa a todas las marcas.</p>
+    <p class="slide-lede">Con el sistema probado en cuatro marcas, la siguiente ola es <strong>armar una tienda con el catálogo digital de todas las marcas del Grupo</strong> — un solo lugar donde el cliente entra y encuentra todo. <em>Algo así como un MercadoLibre propio</em>, pero solo con los autos y las marcas del Grupo. Es el mismo patrón que ya seguimos con <em>GP Autolease, BienSea y KPMG-Plasencia</em>: entidades que ofrecen desde un solo lugar un servicio que sirve a todas las marcas.</p>
 
     <div class="preview-wrap">
 
       <div class="evo-card hoy">
         <div class="evo-hdr">
           <div class="evo-tag">Hoy</div>
-          <div class="evo-tag-mini">Modelo actual</div>
+          <div class="evo-tag-mini">Sin catálogo digital común</div>
         </div>
-        <div class="evo-t">Cada marca opera como una tiendita separada</div>
+        <div class="evo-t">Cada marca vende por su cuenta</div>
         <div class="evo-list">
-          <div class="evo-item">Cada concesionario <strong>compite por su cuenta</strong> por el mismo cliente.</div>
-          <div class="evo-item">La pauta está <strong>fragmentada</strong> entre marcas y sucursales.</div>
-          <div class="evo-item">Cuando un cliente Hyundai termina comprando un Mazda, la venta se recupera <em>por casualidad</em>, no por diseño.</div>
+          <div class="evo-item">Cada concesionario <strong>compite solo</strong> por el mismo cliente.</div>
+          <div class="evo-item">La <strong>publicidad está dispersa</strong> entre marcas y sucursales.</div>
+          <div class="evo-item">Cuando un cliente de Hyundai termina comprando un Mazda, la venta se recupera <em>por suerte</em> — el sistema no está armado para eso.</div>
         </div>
       </div>
 
       <div class="evo-card futuro">
         <div class="evo-hdr">
           <div class="evo-tag">Próxima ola</div>
-          <div class="evo-tag-mini">Marketplace Plasencia</div>
+          <div class="evo-tag-mini">Marketplace Plasencia · el MercadoLibre del Grupo</div>
         </div>
-        <div class="evo-t">Un canal digital unificado del Grupo</div>
+        <div class="evo-t">Una tienda con el catálogo digital del Grupo</div>
         <div class="evo-list">
-          <div class="evo-item">Una <strong>sola vitrina digital</strong> donde el cliente ve las marcas del Grupo desde el mismo lugar.</div>
-          <div class="evo-item">Campañas <strong>alineadas Seminuevos + marcas</strong>, con los aprendizajes del piloto aplicados.</div>
-          <div class="evo-item">Cuando un cliente cambia de marca, la <strong>venta se queda en el Grupo</strong> por diseño, no por casualidad.</div>
+          <div class="evo-item">Un <strong>solo lugar en internet</strong> donde el cliente ve todas las marcas del Grupo — como una tienda con catálogo digital.</div>
+          <div class="evo-item"><strong>Campañas coordinadas</strong> entre Seminuevos y las marcas, aplicando lo que ya funcionó en el piloto.</div>
+          <div class="evo-item">Cuando un cliente cambia de marca, la <strong>venta se queda en el Grupo</strong> — no por suerte, porque el sistema está armado para eso.</div>
         </div>
       </div>
 
@@ -240,12 +390,12 @@ html, body { width:100%; background:#0A0F1F; font-family:var(--sans); -webkit-fo
 
     <div class="enmarcha-wrap">
       <div class="enmarcha-hdr">Lo que ya está en marcha</div>
-      <div class="enmarcha-t">No arrancamos de cero · el ecosistema del piloto es la base del Marketplace</div>
+      <div class="enmarcha-t">No arrancamos de cero · lo del piloto es la base del Marketplace</div>
       <div class="enmarcha-grid">
-        <div class="enmarcha-item"><strong>Ecosistema operativo probado</strong> en 4 marcas · listo para replicar</div>
-        <div class="enmarcha-item"><strong>Playbook de cómo trabajamos con las marcas</strong> ya documentado (roles, gobierno, cadencia)</div>
-        <div class="enmarcha-item"><strong>Relanzamiento de campañas alineadas</strong> Seminuevos + concesionarios con creativo y ofertas ajustadas al aprendizaje</div>
-        <div class="enmarcha-item"><strong>Gestión operativa del lead auditable</strong> · vendedor retroalimenta cada visita y compra</div>
+        <div class="enmarcha-item"><strong>El sistema completo ya funciona</strong> en 4 marcas · listo para replicar</div>
+        <div class="enmarcha-item"><strong>Manual de cómo trabajamos con las marcas</strong> ya escrito (roles, decisiones, rutinas)</div>
+        <div class="enmarcha-item"><strong>Relanzamos las campañas</strong> de Seminuevos y concesionarios con lo aprendido</div>
+        <div class="enmarcha-item"><strong>Cada visita y compra queda registrada</strong> por el vendedor</div>
       </div>
     </div>
 
@@ -253,7 +403,7 @@ html, body { width:100%; background:#0A0F1F; font-family:var(--sans); -webkit-fo
       <div class="precedente-icon">◆</div>
       <div>
         <div class="precedente-lbl">Precedente del propio Grupo</div>
-        <div class="precedente-body">El Grupo ya opera con este patrón en <strong>arrendamiento</strong> (GP Autolease, con Sergio Barroso), <strong>seguros</strong> (BienSea) y <strong>servicios profesionales</strong> (KPMG-Plasencia): entidades que ofrecen desde una vitrina única un servicio que atraviesa a todas las marcas. El Marketplace <em>extiende el mismo modelo al canal digital de venta de autos</em>.</div>
+        <div class="precedente-body">El Grupo ya opera con este patrón en <strong>arrendamiento</strong> (GP Autolease · con Sergio Barroso), <strong>seguros</strong> (BienSea) y <strong>servicios profesionales</strong> (KPMG-Plasencia): entidades que ofrecen desde un solo lugar un servicio que sirve a todas las marcas. El Marketplace <em>hace lo mismo con la venta de autos por internet</em>.</div>
       </div>
     </div>
 
@@ -261,7 +411,54 @@ html, body { width:100%; background:#0A0F1F; font-family:var(--sans); -webkit-fo
 
   <div class="slide-footer">
     <span><span class="dot"></span><strong>Grupo Plasencia Automotriz</strong> · Síntesis Consejo · Agosto 2026</span>
-    <span>Confidencial · Slide 2 de 2</span>
+    <span>Confidencial · Slide 4 de 5</span>
+  </div>
+</div>
+
+
+<!-- ==================== SLIDE 5 · CIERRE + URLs ==================== -->
+<div class="slide dark">
+  <div class="close-inner">
+
+    <div class="close-top">
+      <div class="close-eyebrow">Gracias por su tiempo</div>
+      <div class="close-rule"></div>
+      <h2 class="close-h">El piloto ya mostró que <em>el Grupo puede medir cada peso invertido</em>. Lo que sigue es armar el Marketplace — la tienda digital del Grupo.</h2>
+      <p class="close-sub">Cualquier pregunta que quieran hacer es bienvenida. Y si desean ver el sistema funcionando en vivo, <em>estas son las páginas donde nace todo esto</em> — pueden entrar desde cualquier navegador:</p>
+    </div>
+
+    <div class="urls-panel">
+      <div class="urls-panel-hdr">Páginas activas del ecosistema</div>
+      <div class="urls-panel-t">Vivas y funcionando — todas las conversaciones que entran por aquí quedan anotadas en el sistema</div>
+      <div class="urls-grid">
+        <div class="url-item">
+          <span class="url-marca">Seminuevos</span>
+          <span class="url-link">seminuevos.grupoplasencia.com</span>
+        </div>
+        <div class="url-item">
+          <span class="url-marca">Hyundai</span>
+          <span class="url-link">hyundai.grupoplasencia.com</span>
+        </div>
+        <div class="url-item">
+          <span class="url-marca">Stellantis</span>
+          <span class="url-link">stellantis.grupoplasencia.com</span>
+        </div>
+        <div class="url-item">
+          <span class="url-marca">GAC</span>
+          <span class="url-link">gac.grupoplasencia.com</span>
+        </div>
+        <div class="url-item">
+          <span class="url-marca">Flotillas B2B</span>
+          <span class="url-link">flotillas.grupoplasencia.com</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="close-foot">
+      <span><strong>Grupo Plasencia Automotriz</strong> · Síntesis Consejo · Agosto 2026</span>
+      <span>Confidencial · Slide 5 de 5</span>
+    </div>
+
   </div>
 </div>
 
