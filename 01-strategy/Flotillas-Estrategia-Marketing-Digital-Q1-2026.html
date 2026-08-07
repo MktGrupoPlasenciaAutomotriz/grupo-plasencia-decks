@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Propuesta · Marketing digital para Flotillas · Enero-marzo 2027 · Grupo Plasencia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@500;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gp-red: #C8102E;
+  --gp-navy: #1E2740;
+  --deep-green: #276749;
+  --deep-blue: #2B6CB0;
+  --amber: #D69E2E;
+  --gold: #ECC94B;
+  --paper: #FFFFFF;
+  --near-white: #F7FAFC;
+  --g100: #EDF2F7;
+  --g200: #E2E8F0;
+  --g300: #CBD5E0;
+  --g400: #A0AEC0;
+  --g500: #718096;
+  --g600: #4A5568;
+  --text: #2D3748;
+  --serif: 'Playfair Display', Georgia, serif;
+  --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; -webkit-font-smoothing: antialiased; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+html, body { background: #E2E8F0; color: var(--text); font-family: var(--sans); font-size: 9.5pt; line-height: 1.5; }
+
+.page { width: 210mm; height: 297mm; background: var(--paper); margin: 20px auto; padding: 0; box-shadow: 0 2px 12px rgba(0,0,0,.12); position: relative; display: flex; flex-direction: column; page-break-after: always; overflow: hidden; }
+.page:last-child { page-break-after: auto; }
+
+@media print {
+  body { background: white; }
+  @page { size: A4; margin: 0; }
+  .page { margin: 0 !important; box-shadow: none !important; width: 210mm !important; height: 297mm !important; page-break-after: always !important; page-break-inside: avoid !important; overflow: hidden !important; }
+  .page:last-child { page-break-after: auto !important; }
+}
+
+.hdr { background: linear-gradient(135deg, var(--gp-navy) 0%, #2A3654 40%, #384868 100%); color: var(--near-white); padding: 26px 44px 24px; position: relative; overflow: hidden; flex-shrink: 0; }
+.hdr::before { content: ""; position: absolute; top: -100px; right: -100px; width: 340px; height: 340px; background: radial-gradient(circle, rgba(236,201,75,.16) 0%, transparent 70%); border-radius: 50%; }
+.hdr::after { content: ""; position: absolute; bottom: -160px; left: -80px; width: 400px; height: 400px; background: radial-gradient(circle, rgba(200,16,46,.08) 0%, transparent 70%); border-radius: 50%; }
+.hdr-top { display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 2; margin-bottom: 14px; }
+.hdr-brand { font-family: var(--sans); font-weight: 800; font-size: 12pt; color: var(--gold); letter-spacing: 2px; text-transform: uppercase; }
+.hdr-brand span { display: block; font-weight: 400; color: rgba(255,255,255,.55); font-size: 8pt; letter-spacing: 1.2px; margin-top: 3px; }
+.hdr-date { font-family: var(--sans); font-size: 9pt; color: rgba(236,201,75,.75); font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase; text-align: right; }
+.hdr-date span { display: block; color: var(--gp-red); font-weight: 800; margin-bottom: 3px; letter-spacing: 2.5px; font-size: 8.5pt; }
+.hdr-eyebrow { position: relative; z-index: 2; font-family: var(--sans); font-size: 9pt; font-weight: 700; letter-spacing: 3px; color: rgba(255,255,255,.6); text-transform: uppercase; margin-bottom: 8px; }
+.hdr-title { position: relative; z-index: 2; font-family: var(--serif); font-weight: 800; font-size: 26pt; line-height: 1.06; letter-spacing: -.5px; color: var(--near-white); }
+.hdr-title em { font-style: italic; color: var(--gold); font-weight: 700; }
+.hdr-sub { position: relative; z-index: 2; font-family: var(--sans); font-weight: 400; font-size: 10.5pt; color: rgba(255,255,255,.9); line-height: 1.55; margin-top: 10px; max-width: 620px; }
+.hdr-sub strong { color: var(--near-white); font-weight: 700; }
+
+.hdr-compact { padding: 18px 44px 16px; }
+.hdr-compact .hdr-title { font-size: 20pt; }
+.hdr-compact .hdr-sub { display: none; }
+
+.body { padding: 20px 44px 12px; flex: 1; overflow: hidden; display: flex; flex-direction: column; }
+
+.section-hdr { font-family: var(--sans); font-weight: 800; font-size: 12pt; color: var(--gp-navy); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 14px; padding-bottom: 8px; border-bottom: 2px solid var(--gold); display: flex; align-items: center; gap: 12px; }
+.section-hdr .num { font-family: var(--serif); font-weight: 900; font-size: 18pt; color: var(--amber); line-height: 1; }
+
+.p { font-family: var(--sans); font-size: 9.5pt; color: var(--text); line-height: 1.55; margin-bottom: 8px; }
+.p strong { color: var(--gp-navy); font-weight: 700; }
+.p em { color: var(--gp-red); font-style: italic; font-weight: 500; }
+
+.lede { font-family: var(--sans); font-size: 10pt; color: var(--text); line-height: 1.55; margin-bottom: 12px; }
+.lede strong { color: var(--gp-navy); font-weight: 700; }
+.lede em { color: var(--amber); font-style: italic; }
+
+/* Portada — carta abierta */
+.letter-block { margin-top: 6px; background: linear-gradient(135deg, #F7FAFC 0%, #EDF2F7 100%); border: 1px solid var(--g200); border-left: 4px solid var(--amber); border-radius: 8px; padding: 16px 20px; }
+.letter-lbl { font-family: var(--sans); font-size: 8pt; font-weight: 800; letter-spacing: 1.8px; color: var(--amber); text-transform: uppercase; margin-bottom: 6px; }
+.letter-t { font-family: var(--serif); font-weight: 700; font-style: italic; font-size: 13.5pt; color: var(--gp-navy); line-height: 1.35; letter-spacing: -.2px; margin-bottom: 10px; }
+.letter-t em { color: var(--gp-red); font-style: italic; }
+.letter-body { font-family: var(--sans); font-size: 9.5pt; color: var(--text); line-height: 1.55; }
+.letter-body strong { color: var(--gp-navy); font-weight: 700; }
+.letter-sign { margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--g200); font-family: var(--sans); font-size: 8.5pt; color: var(--g600); }
+.letter-sign strong { color: var(--gp-navy); font-weight: 700; }
+
+/* Meta cards portada */
+.cover-meta { margin-top: 16px; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.cover-meta-card { background: var(--paper); border: 1px solid var(--g200); border-top: 3px solid var(--gp-navy); border-radius: 8px; padding: 12px 16px; }
+.cover-meta-card.gold { border-top-color: var(--amber); }
+.cover-meta-card.red { border-top-color: var(--gp-red); }
+.cover-meta-lbl { font-family: var(--sans); font-size: 8pt; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gp-navy); margin-bottom: 6px; }
+.cover-meta-card.gold .cover-meta-lbl { color: var(--amber); }
+.cover-meta-card.red .cover-meta-lbl { color: var(--gp-red); }
+.cover-meta-body { font-family: var(--sans); font-size: 9.5pt; color: var(--g600); line-height: 1.5; }
+.cover-meta-body strong { color: var(--gp-navy); font-weight: 700; }
+
+/* Big number highlight */
+.big-num-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-top: 14px; }
+.big-num-card { background: var(--paper); border: 1px solid var(--g200); border-radius: 8px; padding: 14px 16px; text-align: center; }
+.big-num-card.amber { border-top: 3px solid var(--amber); }
+.big-num-card.green { border-top: 3px solid var(--deep-green); }
+.big-num-card.red { border-top: 3px solid var(--gp-red); }
+.big-num-lbl { font-family: var(--sans); font-size: 7.5pt; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: var(--g500); margin-bottom: 6px; }
+.big-num-big { font-family: var(--serif); font-weight: 900; font-size: 26pt; line-height: 1; color: var(--gp-navy); letter-spacing: -.5px; }
+.big-num-card.amber .big-num-big { color: var(--amber); }
+.big-num-card.green .big-num-big { color: var(--deep-green); }
+.big-num-card.red .big-num-big { color: var(--gp-red); }
+.big-num-unit { font-family: var(--sans); font-size: 10pt; color: var(--g500); font-weight: 500; }
+.big-num-sub { font-family: var(--sans); font-size: 8.5pt; color: var(--g600); margin-top: 6px; line-height: 1.4; }
+.big-num-sub strong { color: var(--gp-navy); font-weight: 700; }
+
+/* Frente cards — qué proponemos hacer */
+.frente-list { display: flex; flex-direction: column; gap: 9px; margin-top: 4px; }
+.frente-card { background: var(--paper); border: 1px solid var(--g200); border-left: 4px solid var(--gp-navy); border-radius: 8px; padding: 11px 16px; display: grid; grid-template-columns: 52px 1fr; gap: 14px; align-items: start; }
+.frente-card.gold { border-left-color: var(--amber); }
+.frente-card.red { border-left-color: var(--gp-red); }
+.frente-card.green { border-left-color: var(--deep-green); }
+.frente-card.blue { border-left-color: var(--deep-blue); }
+.frente-num { font-family: var(--serif); font-weight: 900; font-size: 34pt; line-height: 1; color: var(--gp-navy); letter-spacing: -1px; }
+.frente-card.gold .frente-num { color: var(--amber); }
+.frente-card.red .frente-num { color: var(--gp-red); }
+.frente-card.green .frente-num { color: var(--deep-green); }
+.frente-card.blue .frente-num { color: var(--deep-blue); }
+.frente-content { display: flex; flex-direction: column; }
+.frente-eyebrow { font-family: var(--sans); font-size: 8pt; font-weight: 800; letter-spacing: 1.3px; text-transform: uppercase; color: var(--g500); margin-bottom: 4px; }
+.frente-t { font-family: var(--serif); font-weight: 700; font-size: 13pt; color: var(--gp-navy); line-height: 1.2; letter-spacing: -.2px; margin-bottom: 4px; }
+.frente-body { font-family: var(--sans); font-size: 9pt; color: var(--text); line-height: 1.5; }
+.frente-body strong { color: var(--gp-navy); font-weight: 700; }
+.frente-example { margin-top: 6px; padding: 6px 10px; background: rgba(30,39,64,.04); border-radius: 4px; font-family: var(--sans); font-size: 8.5pt; color: var(--g600); font-style: italic; line-height: 1.45; }
+.frente-example strong { color: var(--gp-navy); font-style: normal; font-weight: 700; }
+
+/* Cost breakdown */
+.cost-breakdown { margin-top: 8px; }
+.cost-line { display: grid; grid-template-columns: 40px 1fr 140px; gap: 14px; padding: 10px 0; border-bottom: 1px solid var(--g200); align-items: center; }
+.cost-line.total { border-bottom: none; border-top: 2px solid var(--gp-navy); margin-top: 4px; padding-top: 14px; }
+.cost-num { font-family: var(--serif); font-weight: 800; font-size: 16pt; color: var(--amber); line-height: 1; text-align: center; }
+.cost-line.total .cost-num { color: var(--gp-red); }
+.cost-content { font-family: var(--sans); font-size: 9.5pt; color: var(--text); line-height: 1.5; }
+.cost-content strong { color: var(--gp-navy); font-weight: 700; }
+.cost-content .desc { color: var(--g600); font-size: 8.5pt; margin-top: 2px; }
+.cost-amount { font-family: var(--serif); font-weight: 800; font-size: 13pt; color: var(--gp-navy); text-align: right; letter-spacing: -.2px; font-variant-numeric: tabular-nums; }
+.cost-line.total .cost-amount { font-size: 16pt; color: var(--gp-red); }
+.cost-amount .month { font-family: var(--sans); font-size: 8pt; color: var(--g500); font-weight: 500; }
+
+/* Callouts */
+.callout { margin-top: 10px; padding: 11px 16px; border-radius: 8px; border-left: 4px solid; }
+.callout.navy { background: linear-gradient(to right, rgba(30,39,64,.08), rgba(30,39,64,.02)); border-left-color: var(--gp-navy); }
+.callout.gold { background: linear-gradient(to right, rgba(236,201,75,.12), rgba(236,201,75,.02)); border-left-color: var(--amber); }
+.callout.red { background: linear-gradient(to right, rgba(200,16,46,.08), rgba(200,16,46,.02)); border-left-color: var(--gp-red); }
+.callout.green { background: linear-gradient(to right, rgba(39,103,73,.10), rgba(39,103,73,.02)); border-left-color: var(--deep-green); }
+.callout-lbl { font-family: var(--sans); font-size: 8pt; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 6px; }
+.callout.navy .callout-lbl { color: var(--gp-navy); }
+.callout.gold .callout-lbl { color: var(--amber); }
+.callout.red .callout-lbl { color: var(--gp-red); }
+.callout.green .callout-lbl { color: var(--deep-green); }
+.callout-body { font-family: var(--sans); font-size: 9pt; color: var(--text); line-height: 1.5; }
+.callout-body strong { color: var(--gp-navy); font-weight: 700; }
+
+/* Checklist "qué necesitamos de ti" */
+.check-list { margin-top: 4px; display: flex; flex-direction: column; gap: 6px; }
+.check-item { background: var(--paper); border: 1px solid var(--g200); border-radius: 6px; padding: 9px 14px; display: grid; grid-template-columns: 28px 1fr auto; gap: 12px; align-items: center; }
+.check-icon { width: 26px; height: 26px; border-radius: 50%; background: var(--amber); color: var(--paper); display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-weight: 900; font-size: 12pt; }
+.check-content { font-family: var(--sans); font-size: 9.5pt; color: var(--text); line-height: 1.5; }
+.check-content strong { color: var(--gp-navy); font-weight: 700; display: block; margin-bottom: 2px; }
+.check-when { font-family: var(--sans); font-size: 8pt; font-weight: 700; color: var(--gp-red); text-transform: uppercase; letter-spacing: 1px; white-space: nowrap; }
+
+/* Cronograma horizontal simple */
+.timeline-simple { display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; margin-top: 6px; }
+.tl-month { background: var(--paper); border: 1px solid var(--g200); border-top: 3px solid var(--g400); border-radius: 6px; padding: 12px 10px; text-align: center; }
+.tl-month.active { border-top-color: var(--amber); background: linear-gradient(to bottom, rgba(236,201,75,.06), var(--paper)); }
+.tl-month.hot { border-top-color: var(--gp-red); background: linear-gradient(to bottom, rgba(200,16,46,.06), var(--paper)); }
+.tl-mes { font-family: var(--sans); font-size: 8pt; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: var(--g500); margin-bottom: 4px; }
+.tl-month.active .tl-mes { color: var(--amber); }
+.tl-month.hot .tl-mes { color: var(--gp-red); }
+.tl-num { font-family: var(--serif); font-weight: 800; font-size: 20pt; color: var(--gp-navy); line-height: 1; margin-bottom: 6px; }
+.tl-what { font-family: var(--sans); font-size: 8.5pt; color: var(--g600); line-height: 1.35; }
+.tl-what strong { color: var(--gp-navy); font-weight: 700; }
+
+/* Footer */
+.foot { padding: 12px 44px; background: var(--g100); border-top: 1px solid var(--g200); display: flex; justify-content: space-between; align-items: center; font-family: var(--sans); font-size: 8pt; color: var(--g500); flex-shrink: 0; }
+.foot strong { color: var(--gp-navy); font-weight: 700; letter-spacing: .5px; text-transform: uppercase; }
+</style>
+</head>
+<body>
+
+<!-- ============================ PÁGINA 1 · PORTADA CARTA ABIERTA ============================ -->
+<div class="page">
+  <div class="hdr">
+    <div class="hdr-top">
+      <div>
+        <div class="hdr-brand">Grupo Plasencia Automotriz<span>Dirección de Marketing y Transformación Digital</span></div>
+      </div>
+      <div class="hdr-date"><span>Interno · Aurora</span>Agosto 2026 · v1.0</div>
+    </div>
+    <div class="hdr-eyebrow">Propuesta · Cliente interno División Flotillas</div>
+    <h1 class="hdr-title">Marketing digital para Flotillas <em>· enero a marzo 2027</em></h1>
+    <p class="hdr-sub">Piloto de 90 días operado desde la Dirección de Marketing Corporativo, bajo el mismo modelo del <strong>Modo 1 de Cocreación</strong> del Plan 90 Días — con acuerdo tripartito, presupuesto acotado y reporte mensual al Consejo.</p>
+  </div>
+
+  <div class="body">
+    <div class="letter-block">
+      <div class="letter-lbl">Aurora,</div>
+      <div class="letter-t">Flotillas creció <em>+435% en unidades</em> de enero a mayo de 2026 contra enero a mayo de 2025. Ese crecimiento se dio sin apoyo de marketing digital. La pregunta ya no es cómo arrancar, sino qué parte del crecimiento se está yendo a la competencia por no aparecer donde el cliente busca.</div>
+      <div class="letter-body">
+        Tu equipo cierra las arrendadoras grandes por relación directa: Element, ARI Fleet, Promotora Caribeña, ALD. Es 58% de la venta actual y funciona. No tocamos ahí.<br><br>
+        Donde sí podemos aportar es en la empresa mediana que compra entre 10 y 30 unidades al año — el 21.5% del mix actual, poco explotado — más los clientes de Grupo Plasencia que ya compraron 2 o más vehículos con nosotros en otras marcas y que hoy nadie está trabajando sistemáticamente para Flotillas.<br><br>
+        Esta propuesta traduce ese doble frente en un piloto medible: <strong>entre 45 y 100 unidades cerradas atribuibles al canal digital en el primer trimestre de 2027</strong>. Nosotros operamos medios, tracking y reportería; tú confirmas los leads con un vendedor de tu equipo; al cierre del trimestre presentamos números al Consejo.
+      </div>
+      <div class="letter-sign">— <strong>Jesús Pérez Porras</strong> · Director de Marketing y Transformación Digital · Grupo Plasencia Automotriz</div>
+    </div>
+
+    <div class="cover-meta">
+      <div class="cover-meta-card gold">
+        <div class="cover-meta-lbl">Para</div>
+        <div class="cover-meta-body"><strong>Aurora del Pozo</strong> · Directora de la División Flotillas · Grupo Plasencia Automotriz.</div>
+      </div>
+      <div class="cover-meta-card">
+        <div class="cover-meta-lbl">De</div>
+        <div class="cover-meta-body"><strong>Dirección de Marketing y Transformación Digital</strong> · Jesús Pérez Porras · agencia interna del Grupo bajo el Plan 90 Días.</div>
+      </div>
+    </div>
+
+    <div class="big-num-row">
+      <div class="big-num-card amber">
+        <div class="big-num-lbl">Meta trimestre</div>
+        <div class="big-num-big">45<span class="big-num-unit"> a 100</span></div>
+        <div class="big-num-sub">unidades nuevas cerradas por canal digital <strong>enero a marzo 2027</strong></div>
+      </div>
+      <div class="big-num-card green">
+        <div class="big-num-lbl">Utilidad esperada</div>
+        <div class="big-num-big">$2.5<span class="big-num-unit"> a 4.6M</span></div>
+        <div class="big-num-sub">pesos de utilidad operativa extra en el trimestre</div>
+      </div>
+      <div class="big-num-card red">
+        <div class="big-num-lbl">Inversión de publicidad</div>
+        <div class="big-num-big">$35K<span class="big-num-unit">/mes</span></div>
+        <div class="big-num-sub"><strong>piso</strong> · sin operativo (se cotiza aparte)</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <span><strong>Grupo Plasencia</strong> · Propuesta Flotillas · Enero-marzo 2027</span>
+    <span>Agosto 2026 · Uso interno · Página 1 de 6</span>
+  </div>
+</div>
+
+<!-- ============================ PÁGINA 2 · PUNTO DE PARTIDA ============================ -->
+<div class="page">
+  <div class="hdr hdr-compact">
+    <div class="hdr-eyebrow">Sección 1 · Punto de partida</div>
+    <h1 class="hdr-title">El crecimiento actual no compró digital; <em>el siguiente sí lo va a necesitar</em></h1>
+  </div>
+
+  <div class="body">
+    <p class="lede">Revisamos los Excels que compartiste el 17-jun, cruzamos contra el panorama competitivo mexicano y platicamos con tu equipo. Tres hallazgos, en orden.</p>
+
+    <div class="frente-list">
+      <div class="frente-card green">
+        <div class="frente-num">1</div>
+        <div class="frente-content">
+          <div class="frente-eyebrow">Crecimiento actual</div>
+          <div class="frente-t">La División ya crece orgánicamente</div>
+          <div class="frente-body">Ene-may 2026: <strong>749 unidades por $441.7M MXN</strong>, contra 140 unidades en el mismo período de 2025. El margen operativo pasó de 4.1% a 5.3%. Con la estacionalidad H2 observada en 2025, el cierre 2026 debería quedar entre 2,500 y 3,000 unidades.</div>
+        </div>
+      </div>
+
+      <div class="frente-card gold">
+        <div class="frente-num">2</div>
+        <div class="frente-content">
+          <div class="frente-eyebrow">Origen de esa venta</div>
+          <div class="frente-t">58% viene de arrendadoras cerradas por tu equipo</div>
+          <div class="frente-body">Element, ARI Fleet, Promotora Caribeña, ALD/Ayvens y las que ya conoces. Contratos marco, años de relación, ciclos de renovación. Ese motor no se compra por Google. El piloto digital no entra ahí — y no debería.</div>
+        </div>
+      </div>
+
+      <div class="frente-card red">
+        <div class="frente-num">3</div>
+        <div class="frente-content">
+          <div class="frente-eyebrow">Segmento sub-explotado</div>
+          <div class="frente-t">La empresa mediana de 10 a 30 unidades pesa 21.5% y crece</div>
+          <div class="frente-body">Perfil: distribuidora, logística mediana, constructora, PYME industrial regional. Decisor Director de Compras o dueño. Búsqueda activa en Google, evaluación en Facebook, decisión racional con TCO. Element, Ford Pro y ALD ya aparecen ahí; Grupo Plasencia no. Ese diferencial es lo que este piloto cierra.</div>
+          <div class="frente-example">Complemento: la base de clientes Grupo Plasencia con <strong>2 o más vehículos comprados</strong> en cualquier marca en los últimos 36 meses. Volumen exacto por cuantificar contra DCA / BITAM, pero cualitativamente es pipeline tibio que hoy no se trabaja.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout navy">
+      <div class="callout-lbl">Implicación</div>
+      <div class="callout-body">La División no necesita marketing digital para existir. Ya vende sin él. Lo que necesita es cerrar la brecha con el segmento AA (empresa mediana) donde la competencia sí aparece y Flotillas no. Cada trimestre que Grupo Plasencia no compite ahí, ese cliente entra al pipeline de Element o Ford Pro y después es más caro sacarlo por relación.</div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <span><strong>Grupo Plasencia</strong> · Propuesta Flotillas · Enero-marzo 2027</span>
+    <span>Agosto 2026 · Uso interno · Página 2 de 6</span>
+  </div>
+</div>
+
+<!-- ============================ PÁGINA 3 · LO QUE PROPONEMOS HACER ============================ -->
+<div class="page">
+  <div class="hdr hdr-compact">
+    <div class="hdr-eyebrow">Sección 2 · Propuesta operativa</div>
+    <h1 class="hdr-title">Google captura intención, Meta la anticipa; <em>el resto no cuesta publicidad</em></h1>
+  </div>
+
+  <div class="body">
+    <p class="lede">Cuatro frentes operando en paralelo. Dos consumen presupuesto de publicidad; dos consumen trabajo de contenido. Todos aterrizan en el mismo tablero de leads que tú y tu equipo revisan cada día.</p>
+
+    <div class="frente-list">
+      <div class="frente-card blue">
+        <div class="frente-num">1</div>
+        <div class="frente-content">
+          <div class="frente-eyebrow">Frente pagado · captura de intención</div>
+          <div class="frente-t">Google · presencia en búsquedas B2B activas</div>
+          <div class="frente-body">Cuando el Director de Compras teclea en Google <em>"arrendamiento flotilla empresarial Guadalajara"</em> o <em>"comprar flotilla Ford Transit"</em>, hoy le salen Element y Ford Pro en el primer resultado. Con este frente Grupo Plasencia entra a competir en esa página con un anuncio que lleva a la landing de Flotillas y a un formulario que llega directo a tu tablero.</div>
+          <div class="frente-example">55% del presupuesto · aproximadamente <strong>$19,250 MXN al mes</strong>. Es el canal con mayor tasa de cierre B2B porque el cliente ya declaró intención al escribir en Google.</div>
+        </div>
+      </div>
+
+      <div class="frente-card blue">
+        <div class="frente-num">2</div>
+        <div class="frente-content">
+          <div class="frente-eyebrow">Frente pagado · descubrimiento</div>
+          <div class="frente-t">Meta · presencia antes del momento de compra</div>
+          <div class="frente-body">Videos y anuncios dirigidos a perfiles de dueño PYME o Director de Operaciones en industrias como logística, distribución, construcción — que compran vehículos sueltos hoy y podrían consolidar en flotilla. Se acompaña con retargeting a personas que ya compraron en cualquier marca del Grupo, recordándoles la División Flotillas cuando ya conocen la casa.</div>
+          <div class="frente-example">45% del presupuesto · aproximadamente <strong>$15,750 MXN al mes</strong>. Producción de videos e imágenes se cotiza aparte con el operativo.</div>
+        </div>
+      </div>
+
+      <div class="frente-card gold">
+        <div class="frente-num">3</div>
+        <div class="frente-content">
+          <div class="frente-eyebrow">Frente sin publicidad · base tibia</div>
+          <div class="frente-t">Outbound a clientes Grupo Plasencia con 2 o más vehículos</div>
+          <div class="frente-body">Extraemos de DCA o BITAM el segmento de clientes que en los últimos 36 meses compraron 2 o más vehículos en cualquier marca del Grupo. A esa lista le llega, en 3 toques (WhatsApp — email — WhatsApp de cierre), un mensaje firmado por ti invitándolos a evaluar consolidar sus próximas compras en Flotillas. Fundamento legal: relación comercial preexistente bajo LFPDPPP.</div>
+          <div class="frente-example">Cero presupuesto de publicidad. Setup one-off (extracción de lista + redacción + revisión Legal) cotizado en el operativo.</div>
+        </div>
+      </div>
+
+      <div class="frente-card gold">
+        <div class="frente-num">4</div>
+        <div class="frente-content">
+          <div class="frente-eyebrow">Frente sin publicidad · posicionamiento</div>
+          <div class="frente-t">LinkedIn orgánico · página empresa Grupo Plasencia</div>
+          <div class="frente-body">Hoy la página empresa GP publica solo contenido de recursos humanos. Element, Ford Pro, ALD y las fintechs de flotilla publican contenido dirigido a decisores B2B y aparecen cuando el Director de Compras evalúa proveedores. La propuesta abre 3 publicaciones al mes con Aurora del Pozo como autora visible: insights de industria, casos con cliente autorizado, novedades operativas. <strong>Requiere autorización del Consejo</strong> — argumento detallado al final del documento.</div>
+          <div class="frente-example">Cero presupuesto de publicidad. LinkedIn Ads queda fuera del piloto: el optimizador rinde pobre con presupuestos menores a 3,000 USD/mes.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <span><strong>Grupo Plasencia</strong> · Propuesta Flotillas · Enero-marzo 2027</span>
+    <span>Agosto 2026 · Uso interno · Página 3 de 6</span>
+  </div>
+</div>
+
+<!-- ============================ PÁGINA 4 · CÓMO SE VE + INVERSIÓN ============================ -->
+<div class="page">
+  <div class="hdr hdr-compact">
+    <div class="hdr-eyebrow">Sección 3 · Operación e inversión</div>
+    <h1 class="hdr-title">$35K MXN al mes de publicidad <em>· operativo aparte</em></h1>
+  </div>
+
+  <div class="body">
+    <div class="section-hdr"><span class="num">A</span>La cadencia de tu equipo con el piloto operando</div>
+
+    <div class="frente-list">
+      <div class="frente-card">
+        <div class="frente-num" style="font-size: 22pt;">L-V</div>
+        <div class="frente-content">
+          <div class="frente-eyebrow">Rutina semanal</div>
+          <div class="frente-body">
+            <strong>Cada lead llega al tablero</strong> con etiqueta "Flotilla" y notifica por WhatsApp a ti y al vendedor designado. Trae empresa, número de unidades solicitadas, modalidad (compra / arrendamiento) y datos de contacto. Tu vendedor da primer contacto en menos de 24 horas y sigue el ciclo comercial estándar. <strong>La atribución al canal digital vive de este seguimiento disciplinado</strong> — sin él, el lead entra pero no cierra el círculo contra el sistema contable.<br><br>
+            <strong>Cada viernes un resumen de 10 líneas</strong>: leads recibidos, calificados, avanzados a cotización, ajustes de la semana siguiente en anuncios. Sin junta obligatoria.<br><br>
+            <strong>Cada mes un reporte de una hoja</strong> con las cifras del Consejo: unidades cerradas atribuidas, factura, costo por venta, recomendación para el mes siguiente.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-hdr" style="margin-top: 18px;"><span class="num">B</span>Inversión mensual · cuatro conceptos separados</div>
+
+    <p class="p">Se presentan por separado para dar visibilidad. Al Consejo se reporta el <strong>costo por venta</strong> únicamente con la línea de publicidad neta, para que la cifra sea comparable contra los benchmarks de mercado sin ensuciar la señal.</p>
+
+    <div class="cost-breakdown">
+      <div class="cost-line">
+        <div class="cost-num">1</div>
+        <div class="cost-content">
+          <strong>Publicidad neta</strong> — pauta directa a Google y Meta
+          <div class="desc">Piso $35K MXN al mes, con margen para subir a $50K si el desempeño lo justifica en los primeros 30 días.</div>
+        </div>
+        <div class="cost-amount">$35,000<span class="month"> /mes</span></div>
+      </div>
+      <div class="cost-line">
+        <div class="cost-num">2</div>
+        <div class="cost-content">
+          <strong>Comisión de la central de medios</strong>
+          <div class="desc">Porcentaje sobre la pauta, típicamente 8-12%, cobrado por la agencia que opere las cuentas. Grupo Plasencia está en proceso de RFP para nueva central; el porcentaje exacto se define al cierre.</div>
+        </div>
+        <div class="cost-amount">~$2,800<span class="month"> /mes</span></div>
+      </div>
+      <div class="cost-line">
+        <div class="cost-num">3</div>
+        <div class="cost-content">
+          <strong>IVA</strong>
+          <div class="desc">16% sobre pauta más comisión.</div>
+        </div>
+        <div class="cost-amount">$6,048<span class="month"> /mes</span></div>
+      </div>
+      <div class="cost-line total">
+        <div class="cost-num">Σ</div>
+        <div class="cost-content">
+          <strong>Desembolso mensual de medios</strong>
+          <div class="desc">Ejemplo con comisión 8%. Escala proporcionalmente si sube la pauta.</div>
+        </div>
+        <div class="cost-amount">$43,848<span class="month"> /mes</span></div>
+      </div>
+      <div class="cost-line" style="margin-top: 10px; border-top: 1px dashed var(--g300);">
+        <div class="cost-num" style="color: var(--g500);">+</div>
+        <div class="cost-content">
+          <strong style="color: var(--g600);">Operativo · cotización separada</strong>
+          <div class="desc">Gestión semanal de campañas, producción creativa (videos, imágenes, copy), extracción de base clientes GP con revisión Legal, contenido LinkedIn. Lo cotiza la agencia ganadora del RFP con scope específico Flotillas.</div>
+        </div>
+        <div class="cost-amount" style="color: var(--g500);">Aparte</div>
+      </div>
+    </div>
+
+    <div class="callout gold">
+      <div class="callout-lbl">La cuenta al Consejo</div>
+      <div class="callout-body">Con $35K MXN de publicidad al mes durante 3 meses ($105K MXN total) esperamos entre <strong>45 y 100 unidades cerradas atribuidas</strong>, equivalentes a $2.5-4.6M MXN de utilidad operativa incremental. Ratio utilidad sobre publicidad neta: <strong>entre 15× y 30×</strong>. Si a 90 días la cifra no llega al piso, se pausa y se replantea sin costo hundido operativo, porque el operativo se cotiza mes a mes.</div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <span><strong>Grupo Plasencia</strong> · Propuesta Flotillas · Enero-marzo 2027</span>
+    <span>Agosto 2026 · Uso interno · Página 4 de 6</span>
+  </div>
+</div>
+
+<!-- ============================ PÁGINA 5 · QUÉ NECESITAMOS + CRONOGRAMA ============================ -->
+<div class="page">
+  <div class="hdr hdr-compact">
+    <div class="hdr-eyebrow">Sección 4 · Insumos y cronograma</div>
+    <h1 class="hdr-title">Cinco insumos de tu lado <em>desbloquean los 90 días</em></h1>
+  </div>
+
+  <div class="body">
+    <div class="section-hdr"><span class="num">A</span>Cinco insumos de tu lado para arrancar</div>
+
+    <p class="p">El motor lo operamos nosotros. Estos cinco puntos son los que solo tú puedes resolver, y sin ellos el piloto no arranca.</p>
+
+    <div class="check-list">
+      <div class="check-item">
+        <div class="check-icon">1</div>
+        <div class="check-content"><strong>Vendedor designado del equipo Flotillas</strong>Punto único de contacto para follow-up de leads digitales. Primer contacto en menos de 24 horas. Puede ser una persona nueva o alguien ya asignado con capacidad probada.</div>
+        <div class="check-when">Semana 1</div>
+      </div>
+      <div class="check-item">
+        <div class="check-icon">2</div>
+        <div class="check-content"><strong>Tu WhatsApp y el del vendedor designado</strong>Hoy la notificación llega solo a la Dirección de Marketing. Necesitamos los dos números para incluirlos en el ruteo automático y que no se pierdan minutos en el hand-off.</div>
+        <div class="check-when">Semana 1</div>
+      </div>
+      <div class="check-item">
+        <div class="check-icon">3</div>
+        <div class="check-content"><strong>Cliente empresa autorizado para testimonio</strong>Un cliente flotilla actual que acepte un video de 30 segundos hablando de su experiencia con Grupo Plasencia. Perfil sugerido: CEMEX regional, GAS Los Altos, Pentanova o similar. La producción la agenda el equipo operativo una vez que tú confirmas quién y a qué contacto.</div>
+        <div class="check-when">Antes del go-live</div>
+      </div>
+      <div class="check-item">
+        <div class="check-icon">4</div>
+        <div class="check-content"><strong>Autorización del piso de $35K MXN al mes de publicidad</strong>Compromiso presupuestal necesario para firmar la orden de compra con la central de medios ganadora del RFP. La decisión de mantener, subir a $50K o pausar se toma trimestralmente contra resultados.</div>
+        <div class="check-when">Antes de cerrar acuerdo</div>
+      </div>
+      <div class="check-item">
+        <div class="check-icon">5</div>
+        <div class="check-content"><strong>Feedback sobre esta propuesta</strong>Si algún elemento requiere ajuste (presupuesto, meta, canales, tiempos), lo resolvemos en 30 minutos de sesión. Con tu confirmación se cierra el acuerdo tripartito en la ventana S9 del Plan 90 Días, junto con las demás marcas.</div>
+        <div class="check-when">Esta semana</div>
+      </div>
+    </div>
+
+    <div class="section-hdr" style="margin-top: 18px;"><span class="num">B</span>Cómo se ve el calendario</div>
+
+    <div class="timeline-simple">
+      <div class="tl-month active">
+        <div class="tl-mes">Oct 26</div>
+        <div class="tl-num">1</div>
+        <div class="tl-what"><strong>Setup y acuerdo</strong> · producción de anuncios · lista clientes GP</div>
+      </div>
+      <div class="tl-month hot">
+        <div class="tl-mes">Nov 26</div>
+        <div class="tl-num">2</div>
+        <div class="tl-what"><strong>Se prende</strong> · primeros leads · calibración</div>
+      </div>
+      <div class="tl-month">
+        <div class="tl-mes">Dic 26</div>
+        <div class="tl-num">3</div>
+        <div class="tl-what"><strong>Ajustes</strong> · lo que sirve sube, lo que no baja</div>
+      </div>
+      <div class="tl-month hot">
+        <div class="tl-mes">Ene 27</div>
+        <div class="tl-num">4</div>
+        <div class="tl-what"><strong>Trimestre real</strong> · aquí empieza el conteo al Consejo</div>
+      </div>
+      <div class="tl-month hot">
+        <div class="tl-mes">Feb 27</div>
+        <div class="tl-num">5</div>
+        <div class="tl-what"><strong>Pico</strong> · aquí se ve si el modelo funciona</div>
+      </div>
+      <div class="tl-month hot">
+        <div class="tl-mes">Mar 27</div>
+        <div class="tl-num">6</div>
+        <div class="tl-what"><strong>Cierre + reporte al Consejo</strong> · decisión de Q2</div>
+      </div>
+    </div>
+
+    <div class="callout navy" style="margin-top: 14px;">
+      <div class="callout-lbl">Cómo se conecta con el Plan 90 Días de la Dirección</div>
+      <div class="callout-body">Esta propuesta es <strong>el aterrizaje del Modo 1 de Cocreación</strong> del Plan 90 Días que presentamos a Dirección de Familia y al Consejo — el mismo modelo que estamos usando con Seminuevos, Hyundai, Stellantis, GAC, Changan y Corporativo. Flotillas entra a la cocreación en septiembre-octubre; esta propuesta es <em>lo que vamos a acordar juntas</em> en el acuerdo tripartito de la semana 9.</div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <span><strong>Grupo Plasencia</strong> · Propuesta Flotillas · Enero-marzo 2027</span>
+    <span>Agosto 2026 · Uso interno · Página 5 de 6</span>
+  </div>
+</div>
+
+<!-- ============================ PÁGINA 6 · LINKEDIN CONSEJO + CIERRE ============================ -->
+<div class="page">
+  <div class="hdr hdr-compact">
+    <div class="hdr-eyebrow">Sección 5 · Nota LinkedIn Consejo · próximo paso</div>
+    <h1 class="hdr-title">LinkedIn abre el canal <em>donde la competencia ya se presentó sola</em></h1>
+  </div>
+
+  <div class="body">
+    <div class="section-hdr"><span class="num">A</span>Nota adicional al Consejo · LinkedIn empresa Grupo Plasencia</div>
+
+    <p class="p">Nota compacta para llevar al próximo Consejo si lo consideras oportuno. No bloquea el arranque del piloto — LinkedIn queda como frente opcional cuya activación depende de una autorización específica.</p>
+
+    <div class="frente-card gold" style="grid-template-columns: 1fr;">
+      <div class="frente-content">
+        <div class="frente-eyebrow">Solicitud puntual al Consejo</div>
+        <div class="frente-t">Autorizar 3 publicaciones mensuales no-RH en la página empresa</div>
+        <div class="frente-body">La página empresa Grupo Plasencia en LinkedIn publica hoy solo contenido de recursos humanos. Element, Ford Pro, ALD Automotive, Localiza y las fintechs de flotilla publican en el mismo canal contenido dirigido a Directores de Compras, Operaciones y Finanzas de PYME. La ausencia de contenido B2B propio deja a Grupo Plasencia fuera del feed profesional donde el ICP flotillas toma decisiones de proveedor.<br><br>
+          La propuesta abre un cupo acotado de 3 publicaciones al mes con Aurora del Pozo como autora visible: insight de industria, caso con cliente autorizado, capacidad nueva de la División. Aprobación editorial doble (Dirección de Marketing y Aurora); si el contenido incluye cifras, aprobación adicional de la Dirección de Finanzas. Sin pauta pagada en LinkedIn — solo orgánico.
+        </div>
+        <div class="frente-example">Beneficio esperado en el primer trimestre: incremento estimado del 40% en impresiones página empresa · al menos 3 solicitudes entrantes por mensaje directo a Aurora del Pozo · posicionamiento de Grupo Plasencia como interlocutor B2B en el canal donde hoy no compite. Costo: producción de 3 posts/mes cotizada dentro del operativo. Cero MXN de pauta.</div>
+      </div>
+    </div>
+
+    <div class="section-hdr" style="margin-top: 18px;"><span class="num">B</span>Próximo paso</div>
+
+    <div class="letter-block" style="border-left-color: var(--gp-red); padding: 12px 18px;">
+      <div class="letter-lbl" style="color: var(--gp-red);">Cierre</div>
+      <div class="letter-t" style="font-size: 12.5pt; margin-bottom: 8px;">Sesión de 30 minutos para cerrar alcance, resolver los cinco insumos y sellar el acuerdo tripartito en la ventana S9 del Plan 90 Días.</div>
+      <div class="letter-body" style="font-size: 9pt; line-height: 1.5;">
+        El piloto es reversible: si a fin de marzo 2027 no se alcanza el piso de 45 unidades atribuidas, se pausa y se replantea. El costo hundido operativo es acotado porque el operativo se cotiza mes a mes con el ganador del RFP.<br><br>
+        El costo del status quo, en cambio, corre silencioso: cada trimestre sin presencia digital de Grupo Plasencia en el segmento AA es pipeline que se traslada a Element o Ford Pro y se vuelve más caro de recuperar por relación después.<br><br>
+        La propuesta queda lista para arrancar en cuanto autorices los cinco insumos anteriores. El acuerdo tripartito se cierra en la misma ventana que las demás marcas del Plan 90 Días.
+      </div>
+      <div class="letter-sign" style="margin-top: 8px; padding-top: 8px;">— <strong>Jesús Pérez Porras</strong> · Director de Marketing y Transformación Digital · Grupo Plasencia Automotriz · Agosto 2026</div>
+    </div>
+
+    <div class="callout navy" style="margin-top: 8px; padding: 8px 14px;">
+      <div class="callout-lbl">Conexión con el resto del piloto del Grupo</div>
+      <div class="callout-body" style="font-size: 8.5pt;">Flotillas se suma al mismo motor que ya opera en Seminuevos, Hyundai, Stellantis y GAC (73 ventas · $22.32M en 90 días). Doble frente: <strong>IA conversacional</strong> tipo Vambe + <strong>disciplina del vendedor</strong> de la cita al piso en adelante. Mismo patrón cross-marca de <em>GP Autolease</em> (Sergio Barroso) y <em>BienSea</em>.</div>
+    </div>
+
+    <div class="callout green" style="margin-top: 8px; padding: 7px 12px;">
+      <div class="callout-lbl">Documentación de respaldo</div>
+      <div class="callout-body" style="font-size: 8pt;">Cifras sustentadas en 4 fuentes internas: análisis ventas 2025 vs 2026 (Excels 17-jun de Aurora), snapshot competitivo México (12-jun), research readout Flotillas (17-jun) y Plan 90 Días Dir. Marketing Corporativo (v0.5, ago).</div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <span><strong>Grupo Plasencia</strong> · Propuesta Flotillas · Enero-marzo 2027</span>
+    <span>Agosto 2026 · Uso interno · Página 6 de 6</span>
+  </div>
+</div>
+
+</body>
+</html>
