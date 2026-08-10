@@ -187,11 +187,14 @@ html, body { width:100%; background:#0A0F1F; font-family:var(--sans); -webkit-fo
 .honesty-strip em { font-style: italic; color: var(--gp-navy); }
 
 /* Slide reporting E2E · funnel + audiencias */
-.funnel-e2e { display:grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin-top: 6px; position:relative; }
-.funnel-stage { background: var(--paper); border: 1px solid var(--g200); border-top: 3px solid var(--gp-red); border-radius: 10px; padding: 12px 12px 10px 12px; display:flex; flex-direction:column; gap: 5px; box-shadow: 0 1px 3px rgba(30,39,64,.05); position:relative; }
+.funnel-e2e { display:grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin-top: 4px; position:relative; }
+.funnel-stage { background: var(--paper); border: 1px solid var(--g200); border-top: 3px solid var(--gp-red); border-radius: 10px; padding: 10px 11px 9px 11px; display:flex; flex-direction:column; gap: 4px; box-shadow: 0 1px 3px rgba(30,39,64,.05); position:relative; }
 .funnel-stage-lbl { font-family:var(--sans); font-size:7pt; font-weight:800; letter-spacing:1.5px; text-transform:uppercase; color: var(--gp-red); }
 .funnel-stage-t { font-family:var(--serif); font-weight:800; font-size:12pt; color: var(--gp-navy); line-height:1.12; letter-spacing:-.3px; }
-.funnel-stage-metric { font-family:var(--sans); font-size:8.5pt; color: var(--g600); line-height:1.4; flex:1; }
+.funnel-stage-user { font-family:var(--sans); font-size:8pt; color: var(--gp-navy); line-height:1.35; padding: 6px 8px; background: rgba(66,153,225,.10); border-left: 2px solid var(--deep-blue); border-radius: 3px; margin-top: 2px; }
+.funnel-stage-user strong { font-family:var(--sans); font-style:normal; color: var(--deep-blue); font-weight:800; font-size:6.5pt; letter-spacing:1.2px; text-transform:uppercase; display:block; margin-bottom: 2px; }
+.funnel-stage-user span { font-style:italic; }
+.funnel-stage-metric { font-family:var(--sans); font-size:8pt; color: var(--g600); line-height:1.35; flex:1; padding: 0 2px; }
 .funnel-stage-metric strong { color: var(--gp-navy); font-weight:700; }
 .funnel-stage-cost { background: var(--gp-navy); color: var(--gold); font-family:var(--sans); font-size:7.5pt; font-weight:800; letter-spacing:1.3px; text-transform:uppercase; padding: 5px 10px; border-radius: 4px; margin-top: auto; text-align:center; }
 .funnel-arrow { position:absolute; right:-10px; top:50%; transform:translateY(-50%); color: var(--g400); font-family:var(--serif); font-weight:900; font-size:14pt; z-index:2; pointer-events:none; background:var(--bg); padding:0 2px; }
@@ -621,7 +624,7 @@ html, body { width:100%; background:#0A0F1F; font-family:var(--sans); -webkit-fo
 
     <div class="slide-header">
       <div class="section-num">06 · Cómo reportamos mes a mes</div>
-      <div class="slide-mark">Funnel end-to-end · métrica canónica por etapa</div>
+      <div class="slide-mark">Del anuncio a la venta · qué se mide en cada paso</div>
     </div>
 
     <h1 class="slide-h1">El funnel completo · <em>una etapa a la vez</em> · con costo por etapa y reporte específico para cada marca</h1>
@@ -632,41 +635,46 @@ html, body { width:100%; background:#0A0F1F; font-family:var(--sans); -webkit-fo
       <div class="funnel-stage">
         <div class="funnel-stage-lbl">Etapa 1</div>
         <div class="funnel-stage-t">Tráfico → Lead</div>
-        <div class="funnel-stage-metric">Usuarios de la tienda digital que <strong>se registran con folio único</strong> · leads generados por Meta + Google Ads</div>
+        <div class="funnel-stage-user"><strong>El cliente</strong><span>Ve el anuncio en Meta o Google · le interesa un auto</span></div>
+        <div class="funnel-stage-metric">Los anuncios lo llevan a la tienda digital y <strong>se registra con folio único</strong> al pedir info</div>
         <div class="funnel-stage-cost">CPL · Costo por Lead</div>
         <div class="funnel-arrow">›</div>
       </div>
       <div class="funnel-stage">
         <div class="funnel-stage-lbl">Etapa 2</div>
         <div class="funnel-stage-t">Lead → Vambe</div>
+        <div class="funnel-stage-user"><strong>El cliente</strong><span>Empieza a chatear · resuelve dudas del auto que le gustó</span></div>
         <div class="funnel-stage-metric"><strong>100% de los leads</strong> entra a Vambe · sin fugas · sin filtros manuales previos</div>
-        <div class="funnel-stage-cost">Cobertura del pipeline</div>
+        <div class="funnel-stage-cost">100% de leads cubiertos</div>
         <div class="funnel-arrow">›</div>
       </div>
       <div class="funnel-stage">
         <div class="funnel-stage-lbl">Etapa 3</div>
         <div class="funnel-stage-t">Vambe → Cita</div>
-        <div class="funnel-stage-metric">Vambe califica y <strong>agenda cita</strong> en la sucursal del auto de interés</div>
+        <div class="funnel-stage-user"><strong>El cliente</strong><span>Elige día y hora para ir a ver el auto al piso</span></div>
+        <div class="funnel-stage-metric">Vambe califica y <strong>agenda cita</strong> en la sucursal donde está el auto</div>
         <div class="funnel-stage-cost">CPC · Costo por Cita</div>
         <div class="funnel-arrow">›</div>
       </div>
       <div class="funnel-stage">
         <div class="funnel-stage-lbl">Etapa 4</div>
         <div class="funnel-stage-t">Cita → Visita</div>
-        <div class="funnel-stage-metric">Vendedor confirma la cita, <strong>trae al cliente al piso</strong> y <strong>retroalimenta el pipeline de Vambe</strong> con show / no-show</div>
-        <div class="funnel-stage-cost">Show rate %</div>
+        <div class="funnel-stage-user"><strong>El cliente</strong><span>Recibe la confirmación del vendedor · va al piso el día acordado</span></div>
+        <div class="funnel-stage-metric">Vendedor confirma la cita y <strong>retroalimenta el pipeline de Vambe</strong> con show / no-show</div>
+        <div class="funnel-stage-cost">% que sí llegó al piso</div>
         <div class="funnel-arrow">›</div>
       </div>
       <div class="funnel-stage">
         <div class="funnel-stage-lbl">Etapa 5</div>
         <div class="funnel-stage-t">Visita → Venta</div>
-        <div class="funnel-stage-metric">Cierre · <strong>declara la venta en DCA con folio</strong> + <strong>retroalimenta el pipeline de Vambe</strong> con motivo de cierre · revenue + utilidad</div>
-        <div class="funnel-stage-cost">CAC + NSM</div>
+        <div class="funnel-stage-user"><strong>El cliente</strong><span>Prueba el auto · negocia con el vendedor · firma y se lo lleva</span></div>
+        <div class="funnel-stage-metric">Cierre · <strong>declara la venta en DCA con folio</strong> + retroalimenta Vambe con motivo</div>
+        <div class="funnel-stage-cost">CAC · Ventas · Revenue</div>
       </div>
     </div>
 
-    <div class="handoff-note" style="margin-top: 10px;">
-      <div class="handoff-note-mark">Visibilidad<br>end-to-end</div>
+    <div class="handoff-note" style="margin-top: 4px; padding: 8px 14px;">
+      <div class="handoff-note-mark">Visibilidad<br>punta a punta</div>
       <div class="handoff-note-body"><strong>Vambe y el pipeline de MKT Corporativo están sincronizados por diseño.</strong> Cada retroalimentación del vendedor (show/no-show, motivo de cierre, venta declarada en DCA con folio) queda en Vambe y aparece automáticamente en el pipeline de control · misma cifra para Consejo, Finanzas, Comercial y cada Director de Marca. <em>Todo esto funciona siempre y cuando el vendedor retroalimente con disciplina</em> — la gestión, responsabilidad y disciplina operativa del vendedor es lo que enciende la medición. Sin ella, el sistema no ve nada.</div>
     </div>
 
