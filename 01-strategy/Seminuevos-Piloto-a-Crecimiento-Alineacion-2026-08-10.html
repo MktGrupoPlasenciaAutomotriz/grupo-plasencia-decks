@@ -79,6 +79,12 @@ html, body { width:100%; background:#0A0F1F; font-family:var(--sans); -webkit-fo
 .flow-timeline { display:grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 8px; position:relative; margin-top: 14px; }
 .flow-step { background: var(--paper); border: 1px solid var(--g200); border-top: 3px solid var(--gp-navy); border-radius: 10px; padding: 10px 10px 12px 10px; display:flex; flex-direction:column; gap: 4px; position:relative; box-shadow: 0 1px 3px rgba(30,39,64,.05); }
 .flow-step.comercial { border-top-color: var(--deep-green); }
+.flow-actor { font-family:var(--sans); font-size:6.5pt; font-weight:800; letter-spacing:1.1px; text-transform:uppercase; padding: 3px 7px; border-radius: 3px; text-align:center; display:inline-block; align-self:flex-start; }
+.flow-actor.mkt { color: var(--near-white); background: var(--gp-navy); }
+.flow-actor.vambe { color: var(--gp-navy); background: var(--amber); }
+.flow-actor.vendedor { color: var(--near-white); background: var(--deep-green); }
+.flow-actor.cliente { color: var(--near-white); background: var(--deep-blue); }
+.flow-actor.sistema { color: var(--near-white); background: var(--gp-red); }
 .flow-step-tag { position:absolute; top: -11px; left: -4px; background: var(--amber); color: var(--gp-navy); font-family: var(--sans); font-weight: 800; font-size: 6.5pt; letter-spacing: 1.2px; text-transform: uppercase; padding: 4px 9px; border-radius: 999px; box-shadow: 0 2px 8px rgba(214,158,46,.45), 0 0 0 2px var(--bg); white-space: nowrap; z-index: 5; }
 .flow-owner-lbl { font-family: var(--sans); font-size: 7pt; font-weight: 800; letter-spacing: 1.3px; text-transform: uppercase; color: var(--g500); margin-bottom: -2px; }
 .flow-step.comercial .flow-owner-lbl { color: var(--deep-green); }
@@ -207,9 +213,11 @@ html, body { width:100%; background:#0A0F1F; font-family:var(--sans); -webkit-fo
 .funnel-stage { background: var(--paper); border: 1px solid var(--g200); border-top: 3px solid var(--gp-red); border-radius: 10px; padding: 10px 11px 9px 11px; display:flex; flex-direction:column; gap: 4px; box-shadow: 0 1px 3px rgba(30,39,64,.05); position:relative; }
 .funnel-stage-lbl { font-family:var(--sans); font-size:7pt; font-weight:800; letter-spacing:1.5px; text-transform:uppercase; color: var(--gp-red); }
 .funnel-stage-t { font-family:var(--serif); font-weight:800; font-size:12pt; color: var(--gp-navy); line-height:1.12; letter-spacing:-.3px; }
-.funnel-stage-user { font-family:var(--sans); font-size:8pt; color: var(--gp-navy); line-height:1.35; padding: 6px 8px; background: rgba(66,153,225,.10); border-left: 2px solid var(--deep-blue); border-radius: 3px; margin-top: 2px; }
+.funnel-stage-user { font-family:var(--sans); font-size:8pt; color: var(--gp-navy); line-height:1.35; padding: 5px 8px; background: rgba(66,153,225,.10); border-left: 2px solid var(--deep-blue); border-radius: 3px; margin-top: 2px; }
 .funnel-stage-user strong { font-family:var(--sans); font-style:normal; color: var(--deep-blue); font-weight:800; font-size:6.5pt; letter-spacing:1.2px; text-transform:uppercase; display:block; margin-bottom: 2px; }
 .funnel-stage-user span { font-style:italic; }
+.funnel-stage-owner { font-family:var(--sans); font-size:7.5pt; color: var(--near-white); line-height:1.3; padding: 4px 8px; background: var(--gp-navy); border-left: 2px solid var(--gold); border-radius: 3px; }
+.funnel-stage-owner strong { font-family:var(--sans); color: var(--gold); font-weight:800; font-size:6.5pt; letter-spacing:1.2px; text-transform:uppercase; display:block; margin-bottom: 1px; }
 .funnel-stage-metric { font-family:var(--sans); font-size:8pt; color: var(--g600); line-height:1.35; flex:1; padding: 0 2px; }
 .funnel-stage-metric strong { color: var(--gp-navy); font-weight:700; }
 .funnel-stage-cost { background: var(--gp-navy); color: var(--gold); font-family:var(--sans); font-size:7.5pt; font-weight:800; letter-spacing:1.3px; text-transform:uppercase; padding: 5px 10px; border-radius: 4px; margin-top: auto; text-align:center; }
@@ -433,30 +441,35 @@ html, body { width:100%; background:#0A0F1F; font-family:var(--sans); -webkit-fo
 
       <div class="flow-timeline">
         <div class="flow-step">
+          <div class="flow-actor mkt">MKT</div>
           <div class="flow-num">1</div>
           <div class="flow-title">Ve el anuncio</div>
           <div class="flow-desc"><strong>Meta Ads · Google Ads</strong> impactan al comprador de seminuevos en Guadalajara</div>
           <div class="flow-arrow">›</div>
         </div>
         <div class="flow-step">
+          <div class="flow-actor cliente">Cliente</div>
           <div class="flow-num">2</div>
           <div class="flow-title">Entra a la tienda digital</div>
           <div class="flow-desc"><strong>seminuevos.grupoplasencia.com</strong> · ve el catálogo unificado de las 8 sucursales</div>
           <div class="flow-arrow">›</div>
         </div>
         <div class="flow-step">
+          <div class="flow-actor cliente">Cliente</div>
           <div class="flow-num">3</div>
           <div class="flow-title">Elige auto y se registra</div>
           <div class="flow-desc">Escoge el auto de interés · deja datos · se genera <strong>folio único</strong></div>
           <div class="flow-arrow">›</div>
         </div>
         <div class="flow-step">
+          <div class="flow-actor vambe">MKT + Vambe</div>
           <div class="flow-num">4</div>
           <div class="flow-title">Pipeline + Vambe</div>
           <div class="flow-desc">Entra al <strong>pipeline de control de Marketing</strong> y <strong>Vambe (IA)</strong> toma la conversación</div>
           <div class="flow-arrow">›</div>
         </div>
         <div class="flow-step">
+          <div class="flow-actor vambe">Vambe</div>
           <div class="flow-num">5</div>
           <div class="flow-title">Cita agendada</div>
           <div class="flow-desc">Vambe califica, <strong>agenda cita en la sucursal del auto</strong> y le pasa toda la conversación al vendedor</div>
@@ -464,12 +477,14 @@ html, body { width:100%; background:#0A0F1F; font-family:var(--sans); -webkit-fo
         </div>
         <div class="flow-step comercial">
           <div class="flow-step-tag">Hand-off · Comercial toma</div>
+          <div class="flow-actor vendedor">Vendedor</div>
           <div class="flow-num">6</div>
           <div class="flow-title">Vendedor toma la cita</div>
           <div class="flow-desc"><strong>Confirma con el cliente</strong>, provoca la visita al piso y lo recibe en la sucursal</div>
           <div class="flow-arrow">›</div>
         </div>
         <div class="flow-step comercial">
+          <div class="flow-actor vendedor">Vendedor + DCA</div>
           <div class="flow-num">7</div>
           <div class="flow-title">Venta + retroalimentación</div>
           <div class="flow-desc">Prueba de manejo · cierre · <strong>declara la venta en el DCA con folio</strong> · <strong>retroalimenta el pipeline de Vambe</strong> con show/no-show y motivo</div>
@@ -703,15 +718,15 @@ html, body { width:100%; background:#0A0F1F; font-family:var(--sans); -webkit-fo
         <div class="funnel-stage-lbl">Etapa 1</div>
         <div class="funnel-stage-t">Tráfico → Lead</div>
         <div class="funnel-stage-user"><strong>El cliente</strong><span>Ve el anuncio en Meta o Google · le interesa un auto</span></div>
-        <div class="funnel-stage-metric">Los anuncios lo llevan a la tienda digital y <strong>se registra con folio único</strong> al pedir info</div>
+        <div class="funnel-stage-owner"><strong>Ejecuta · MKT</strong>Genera y opera los anuncios · captura el lead con folio único</div>
         <div class="funnel-stage-cost">CPL · Costo por Lead</div>
         <div class="funnel-arrow">›</div>
       </div>
       <div class="funnel-stage">
         <div class="funnel-stage-lbl">Etapa 2</div>
         <div class="funnel-stage-t">Lead → Vambe</div>
-        <div class="funnel-stage-user"><strong>El cliente</strong><span>Empieza a chatear · resuelve dudas del auto que le gustó</span></div>
-        <div class="funnel-stage-metric"><strong>100% de los leads</strong> entra a Vambe · sin fugas · sin filtros manuales previos</div>
+        <div class="funnel-stage-user"><strong>El cliente</strong><span>Empieza a chatear · resuelve dudas del auto</span></div>
+        <div class="funnel-stage-owner"><strong>Ejecuta · MKT + Vambe</strong>100% de los leads entra a Vambe · sin fugas · sin filtros previos</div>
         <div class="funnel-stage-cost">100% de leads cubiertos</div>
         <div class="funnel-arrow">›</div>
       </div>
@@ -719,23 +734,23 @@ html, body { width:100%; background:#0A0F1F; font-family:var(--sans); -webkit-fo
         <div class="funnel-stage-lbl">Etapa 3</div>
         <div class="funnel-stage-t">Vambe → Cita</div>
         <div class="funnel-stage-user"><strong>El cliente</strong><span>Elige día y hora para ir a ver el auto al piso</span></div>
-        <div class="funnel-stage-metric">Vambe califica y <strong>agenda cita</strong> en la sucursal donde está el auto</div>
+        <div class="funnel-stage-owner"><strong>Ejecuta · Vambe</strong>Califica al cliente y agenda cita en la sucursal donde está el auto</div>
         <div class="funnel-stage-cost">CPC · Costo por Cita</div>
         <div class="funnel-arrow">›</div>
       </div>
       <div class="funnel-stage">
         <div class="funnel-stage-lbl">Etapa 4</div>
         <div class="funnel-stage-t">Cita → Visita</div>
-        <div class="funnel-stage-user"><strong>El cliente</strong><span>Recibe la confirmación del vendedor · va al piso el día acordado</span></div>
-        <div class="funnel-stage-metric">Vendedor confirma la cita y <strong>retroalimenta el pipeline de Vambe</strong> con show / no-show</div>
+        <div class="funnel-stage-user"><strong>El cliente</strong><span>Recibe confirmación · va al piso el día acordado</span></div>
+        <div class="funnel-stage-owner"><strong>Ejecuta · Vendedor</strong>Confirma la cita · trae al cliente al piso · retroalimenta Vambe con show / no-show</div>
         <div class="funnel-stage-cost">% que sí llegó al piso</div>
         <div class="funnel-arrow">›</div>
       </div>
       <div class="funnel-stage">
         <div class="funnel-stage-lbl">Etapa 5</div>
         <div class="funnel-stage-t">Visita → Venta</div>
-        <div class="funnel-stage-user"><strong>El cliente</strong><span>Prueba el auto · negocia con el vendedor · firma y se lo lleva</span></div>
-        <div class="funnel-stage-metric">Cierre · <strong>declara la venta en DCA con folio</strong> + retroalimenta Vambe con motivo</div>
+        <div class="funnel-stage-user"><strong>El cliente</strong><span>Prueba el auto · negocia · firma y se lo lleva</span></div>
+        <div class="funnel-stage-owner"><strong>Ejecuta · Vendedor + DCA</strong>Cierra la venta · la declara en DCA con folio · retroalimenta Vambe con el motivo</div>
         <div class="funnel-stage-cost">CAC · Ventas · Revenue</div>
       </div>
     </div>
