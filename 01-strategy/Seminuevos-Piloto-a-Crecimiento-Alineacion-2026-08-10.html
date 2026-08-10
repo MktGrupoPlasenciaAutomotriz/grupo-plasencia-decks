@@ -74,6 +74,27 @@ html, body { width:100%; background:#0A0F1F; font-family:var(--sans); -webkit-fo
 .fases-footnote { font-family:var(--sans); font-size:9pt; color: var(--g600); line-height:1.5; margin-top: 12px; padding: 10px 14px; background: var(--g100); border-left: 3px solid var(--gp-navy); border-radius: 4px; }
 .fases-footnote strong { color: var(--gp-navy); font-weight:700; }
 
+/* Slide flujo · timeline 7 pasos + sucursales */
+.flow-wrap { display:flex; flex-direction:column; gap: 10px; margin-top: 6px; }
+.flow-timeline { display:grid; grid-template-columns: repeat(7, 1fr); gap: 8px; position:relative; }
+.flow-step { background: var(--paper); border: 1px solid var(--g200); border-top: 3px solid var(--gp-navy); border-radius: 10px; padding: 10px 10px 12px 10px; display:flex; flex-direction:column; gap: 4px; position:relative; box-shadow: 0 1px 3px rgba(30,39,64,.05); }
+.flow-num { font-family: var(--serif); font-weight: 900; font-size: 22pt; color: var(--gp-red); line-height:1; }
+.flow-title { font-family: var(--sans); font-weight: 800; font-size: 9.5pt; color: var(--gp-navy); line-height:1.15; letter-spacing:-.1px; }
+.flow-desc { font-family: var(--sans); font-size: 8pt; color: var(--g600); line-height:1.35; }
+.flow-desc strong { color: var(--gp-navy); font-weight:700; }
+.flow-arrow { position:absolute; right:-9px; top:52%; transform:translateY(-50%); color: var(--g400); font-family:var(--serif); font-weight:900; font-size:15pt; z-index:2; pointer-events:none; background:var(--bg); padding: 0 2px; }
+.flow-step:last-child .flow-arrow { display:none; }
+
+.sucursales-panel { background: var(--paper); border: 1px solid var(--g200); border-radius: 10px; padding: 10px 16px 12px 16px; }
+.sucursales-hdr { display:flex; justify-content:space-between; align-items:baseline; font-family: var(--sans); font-size: 8pt; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gp-navy); margin-bottom: 6px; }
+.sucursales-hdr .link { color: var(--deep-blue); font-weight:600; text-transform:none; letter-spacing:.2px; font-size:8pt; }
+.sucursales-grid { display:grid; grid-template-columns: repeat(4, 1fr); gap: 6px 14px; }
+.sucursal-item { display:flex; flex-direction:column; gap: 1px; padding: 3px 0 3px 8px; border-left: 3px solid var(--g300); }
+.sucursal-item.dedicated { border-left-color: var(--gp-red); }
+.sucursal-item.mazda { border-left-color: var(--deep-blue); }
+.sucursal-name { font-family:var(--sans); font-size:8.5pt; font-weight:700; color: var(--gp-navy); line-height:1.2; }
+.sucursal-loc { font-family:var(--sans); font-size:7.5pt; color: var(--g500); line-height:1.3; }
+
 /* Slide baseline · flujo + KPIs (patrón Familia) */
 .pilar-wrap { display:grid; grid-template-columns: 1fr 1.15fr; gap: 20px; margin-top: 4px; }
 
@@ -270,7 +291,7 @@ html, body { width:100%; background:#0A0F1F; font-family:var(--sans); -webkit-fo
   </div>
   <div class="slide-footer">
     <span><span class="dot"></span><strong>Grupo Plasencia Automotriz</strong> · Documento de Alineación · Seminuevos · Agosto 2026</span>
-    <span>Interno · Slide 2 de 6</span>
+    <span>Interno · Slide 2 de 7</span>
   </div>
 </div>
 
@@ -294,7 +315,7 @@ html, body { width:100%; background:#0A0F1F; font-family:var(--sans); -webkit-fo
         <div class="baseline-hdr">Lo que se construyó y se probó</div>
         <div class="baseline-t">El motor completo · anuncio → factura</div>
         <div class="baseline-body">
-          <strong>Tienda digital</strong> con el catálogo de las 6 sucursales Mazda de Guadalajara · <strong>Google Ads y Meta Ads</strong> encendidos · <strong>Vambe (agente de conversación)</strong> atiende al 100% de los prospectos · <strong>pase al vendedor</strong> con cita agendada · <strong>cruce automático contra el DCA</strong> por folio único, nombre y número de serie del auto.<br><br>
+          <strong>Tienda digital</strong> con el catálogo unificado de las 8 sucursales del Grupo en Guadalajara (<em>seminuevos.grupoplasencia.com</em>) · <strong>Google Ads y Meta Ads</strong> encendidos · <strong>Vambe (IA conversacional)</strong> atiende al 100% de los prospectos · <strong>pase al vendedor</strong> con cita agendada · <strong>cruce automático contra el DCA</strong> por folio único, nombre y número de serie del auto.<br><br>
           <em>La cifra de ventas es la misma que ve Finanzas en el sistema contable</em>. Sin sistemas de medición paralelos ni proyecciones teóricas.
         </div>
       </div>
@@ -341,17 +362,100 @@ html, body { width:100%; background:#0A0F1F; font-family:var(--sans); -webkit-fo
 
   <div class="slide-footer">
     <span><span class="dot"></span><strong>Grupo Plasencia Automotriz</strong> · Documento de Alineación · Seminuevos · Agosto 2026</span>
-    <span>Interno · Slide 3 de 6</span>
+    <span>Interno · Slide 3 de 7</span>
   </div>
 </div>
 
 
-<!-- ==================== SLIDE 3 · QUÉ PROPONEMOS EN CRECIMIENTO ==================== -->
+<!-- ==================== SLIDE 4 · CÓMO FUNCIONA EL MOTOR + 8 SUCURSALES ==================== -->
 <div class="slide">
   <div class="content">
 
     <div class="slide-header">
-      <div class="section-num">03 · Qué proponemos en Crecimiento</div>
+      <div class="section-num">03 · Cómo funciona el motor · anuncio → factura</div>
+      <div class="slide-mark">Live hoy · seminuevos.grupoplasencia.com</div>
+    </div>
+
+    <h1 class="slide-h1">7 pasos · <em>del anuncio a la venta facturada</em> en el DCA</h1>
+
+    <p class="slide-lede">Toda venta atribuida al canal digital sigue este mismo recorrido. Cada paso <strong>deja rastro con folio único</strong>, y ese folio es lo que permite cruzar la venta contra el sistema contable al final. Ningún paso se salta · el motor es el mismo para las <strong>8 sucursales del Grupo en Guadalajara</strong>.</p>
+
+    <div class="flow-wrap">
+
+      <div class="flow-timeline">
+        <div class="flow-step">
+          <div class="flow-num">1</div>
+          <div class="flow-title">Ve el anuncio</div>
+          <div class="flow-desc"><strong>Meta Ads · Google Ads</strong> impactan al comprador de seminuevos en Guadalajara</div>
+          <div class="flow-arrow">›</div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">2</div>
+          <div class="flow-title">Entra a la tienda digital</div>
+          <div class="flow-desc"><strong>seminuevos.grupoplasencia.com</strong> · ve el catálogo unificado de las 8 sucursales</div>
+          <div class="flow-arrow">›</div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">3</div>
+          <div class="flow-title">Elige auto y se registra</div>
+          <div class="flow-desc">Escoge el auto de interés · deja datos · se genera <strong>folio único</strong></div>
+          <div class="flow-arrow">›</div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">4</div>
+          <div class="flow-title">Pipeline + Vambe</div>
+          <div class="flow-desc">Entra al <strong>pipeline de control de Marketing</strong> y <strong>Vambe (IA)</strong> toma la conversación</div>
+          <div class="flow-arrow">›</div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">5</div>
+          <div class="flow-title">Cita agendada</div>
+          <div class="flow-desc">Vambe califica y <strong>agenda cita</strong> en la sucursal donde está el auto</div>
+          <div class="flow-arrow">›</div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">6</div>
+          <div class="flow-title">Visita al piso</div>
+          <div class="flow-desc">Vendedor recibe al cliente · prueba de manejo · <strong>reporta show / no-show</strong></div>
+          <div class="flow-arrow">›</div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">7</div>
+          <div class="flow-title">Venta facturada</div>
+          <div class="flow-desc">Vendedor cierra · <strong>factura en el DCA</strong> con folio único · atribución automática</div>
+        </div>
+      </div>
+
+      <div class="sucursales-panel">
+        <div class="sucursales-hdr"><span>Cobertura · 8 sucursales en Guadalajara</span><span class="link">seminuevos.grupoplasencia.com</span></div>
+        <div class="sucursales-grid">
+          <div class="sucursal-item dedicated"><div class="sucursal-name">Seminuevos Plasencia · López Mateos</div><div class="sucursal-loc">Jardines del Sol · Zapopan</div></div>
+          <div class="sucursal-item dedicated"><div class="sucursal-name">Seminuevos Plasencia · Bugámbilias</div><div class="sucursal-loc">Bugámbilias · Zapopan</div></div>
+          <div class="sucursal-item mazda"><div class="sucursal-name">Mazda Plasencia</div><div class="sucursal-loc">Jardines del Sol · Zapopan</div></div>
+          <div class="sucursal-item mazda"><div class="sucursal-name">Mazda Galerías</div><div class="sucursal-loc">Jocotán · Zapopan</div></div>
+          <div class="sucursal-item mazda"><div class="sucursal-name">Mazda Américas</div><div class="sucursal-loc">Chapultepec Country · GDL</div></div>
+          <div class="sucursal-item mazda"><div class="sucursal-name">Mazda Acueducto</div><div class="sucursal-loc">Puerta de Hierro · Zapopan</div></div>
+          <div class="sucursal-item mazda"><div class="sucursal-name">Mazda González Gallo</div><div class="sucursal-loc">El Rosario · GDL</div></div>
+          <div class="sucursal-item mazda"><div class="sucursal-name">Mazda Santa Anita</div><div class="sucursal-loc">Los Gavilanes · Tlajomulco</div></div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+  <div class="slide-footer">
+    <span><span class="dot"></span><strong>Grupo Plasencia Automotriz</strong> · Documento de Alineación · Seminuevos · Agosto 2026</span>
+    <span>Interno · Slide 4 de 7</span>
+  </div>
+</div>
+
+
+<!-- ==================== SLIDE 5 · QUÉ PROPONEMOS EN CRECIMIENTO ==================== -->
+<div class="slide">
+  <div class="content">
+
+    <div class="slide-header">
+      <div class="section-num">04 · Qué proponemos en Crecimiento</div>
       <div class="slide-mark">Presupuesto + reparto acordado con Jonathan</div>
     </div>
 
@@ -399,7 +503,7 @@ html, body { width:100%; background:#0A0F1F; font-family:var(--sans); -webkit-fo
 
   <div class="slide-footer">
     <span><span class="dot"></span><strong>Grupo Plasencia Automotriz</strong> · Documento de Alineación · Seminuevos · Agosto 2026</span>
-    <span>Interno · Slide 4 de 6</span>
+    <span>Interno · Slide 5 de 7</span>
   </div>
 </div>
 
@@ -409,7 +513,7 @@ html, body { width:100%; background:#0A0F1F; font-family:var(--sans); -webkit-fo
   <div class="content">
 
     <div class="slide-header">
-      <div class="section-num">04 · Métricas y compromisos por lado</div>
+      <div class="section-num">05 · Métricas y compromisos por lado</div>
       <div class="slide-mark">Alineado con Jonathan · lunes 10-ago</div>
     </div>
 
@@ -470,7 +574,7 @@ html, body { width:100%; background:#0A0F1F; font-family:var(--sans); -webkit-fo
 
   <div class="slide-footer">
     <span><span class="dot"></span><strong>Grupo Plasencia Automotriz</strong> · Documento de Alineación · Seminuevos · Agosto 2026</span>
-    <span>Interno · Slide 5 de 6</span>
+    <span>Interno · Slide 6 de 7</span>
   </div>
 </div>
 
@@ -482,7 +586,7 @@ html, body { width:100%; background:#0A0F1F; font-family:var(--sans); -webkit-fo
     <div class="close-top">
       <div class="close-eyebrow">Conclusión · por qué pasar de Piloto a Crecimiento ahora</div>
       <div class="close-rule"></div>
-      <h2 class="close-h">El Piloto demostró que el canal digital <em>vende para Seminuevos</em>. Toca escalarlo a las <em>15 sucursales de Guadalajara</em> con presupuesto compartido, comprometiendo resultados por marca fondeadora.</h2>
+      <h2 class="close-h">El Piloto demostró que el canal digital <em>vende para Seminuevos</em>. Toca escalarlo a las <em>8 sucursales del Grupo en Guadalajara</em> con presupuesto compartido, comprometiendo resultados por marca fondeadora.</h2>
       <p class="close-sub">A cambio de <strong>$60 mil pesos al mes de publicidad</strong> fondeados a partes iguales por Mazda, Hyundai y Ford, el Grupo obtiene un motor que ya facturó <strong>$22.32 millones en 90 días</strong> con la mitad de esa inversión, con <strong>costo por venta calibrado en $2,805</strong> y el modelo operativo anuncio → venta corriendo solo. <em>Con el presupuesto liberado, arrancamos en 48 horas.</em></p>
     </div>
 
@@ -514,7 +618,7 @@ html, body { width:100%; background:#0A0F1F; font-family:var(--sans); -webkit-fo
 
     <div class="close-foot">
       <span><strong>Grupo Plasencia Automotriz</strong> · Documento de Alineación · Seminuevos · Agosto 2026</span>
-      <span>Interno · Slide 6 de 6</span>
+      <span>Interno · Slide 7 de 7</span>
     </div>
 
   </div>
