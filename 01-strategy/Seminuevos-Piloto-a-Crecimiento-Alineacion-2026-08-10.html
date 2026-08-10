@@ -186,6 +186,26 @@ html, body { width:100%; background:#0A0F1F; font-family:var(--sans); -webkit-fo
 .honesty-strip strong { color: var(--gp-navy); font-weight:700; }
 .honesty-strip em { font-style: italic; color: var(--gp-navy); }
 
+/* Slide reporting E2E · funnel + audiencias */
+.funnel-e2e { display:grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin-top: 6px; position:relative; }
+.funnel-stage { background: var(--paper); border: 1px solid var(--g200); border-top: 3px solid var(--gp-red); border-radius: 10px; padding: 12px 12px 10px 12px; display:flex; flex-direction:column; gap: 5px; box-shadow: 0 1px 3px rgba(30,39,64,.05); position:relative; }
+.funnel-stage-lbl { font-family:var(--sans); font-size:7pt; font-weight:800; letter-spacing:1.5px; text-transform:uppercase; color: var(--gp-red); }
+.funnel-stage-t { font-family:var(--serif); font-weight:800; font-size:12pt; color: var(--gp-navy); line-height:1.12; letter-spacing:-.3px; }
+.funnel-stage-metric { font-family:var(--sans); font-size:8.5pt; color: var(--g600); line-height:1.4; flex:1; }
+.funnel-stage-metric strong { color: var(--gp-navy); font-weight:700; }
+.funnel-stage-cost { background: var(--gp-navy); color: var(--gold); font-family:var(--sans); font-size:7.5pt; font-weight:800; letter-spacing:1.3px; text-transform:uppercase; padding: 5px 10px; border-radius: 4px; margin-top: auto; text-align:center; }
+.funnel-arrow { position:absolute; right:-10px; top:50%; transform:translateY(-50%); color: var(--g400); font-family:var(--serif); font-weight:900; font-size:14pt; z-index:2; pointer-events:none; background:var(--bg); padding:0 2px; }
+.funnel-stage:last-child .funnel-arrow { display:none; }
+
+.reporting-audiencias { display:grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 12px; }
+.aud-card { background: var(--paper); border: 1px solid var(--g200); border-left: 3px solid var(--deep-blue); border-radius: 8px; padding: 10px 14px; display:flex; flex-direction:column; gap: 4px; }
+.aud-card.consejo { border-left-color: var(--gp-red); }
+.aud-card.marca { border-left-color: var(--amber); }
+.aud-t { font-family:var(--sans); font-size:9pt; font-weight:800; color: var(--gp-navy); text-transform:uppercase; letter-spacing:1.2px; }
+.aud-who { font-family:var(--sans); font-size:8pt; color: var(--g500); font-style:italic; }
+.aud-body { font-family:var(--sans); font-size:8.5pt; color: var(--g600); line-height:1.4; margin-top:3px; }
+.aud-body strong { color: var(--gp-navy); font-weight:700; }
+
 /* Cierre · próximos pasos */
 .close-inner { padding: 46px 78px 36px 78px; flex:1; display:flex; flex-direction:column; justify-content:space-between; background: radial-gradient(ellipse at 50% 30%, rgba(236,201,75,.14) 0%, transparent 60%), var(--gp-navy); }
 .close-top { text-align:center; }
@@ -301,7 +321,7 @@ html, body { width:100%; background:#0A0F1F; font-family:var(--sans); -webkit-fo
   </div>
   <div class="slide-footer">
     <span><span class="dot"></span><strong>Grupo Plasencia Automotriz</strong> · Documento de Alineación · Seminuevos · Agosto 2026</span>
-    <span>Interno · Slide 2 de 7</span>
+    <span>Interno · Slide 2 de 8</span>
   </div>
 </div>
 
@@ -372,7 +392,7 @@ html, body { width:100%; background:#0A0F1F; font-family:var(--sans); -webkit-fo
 
   <div class="slide-footer">
     <span><span class="dot"></span><strong>Grupo Plasencia Automotriz</strong> · Documento de Alineación · Seminuevos · Agosto 2026</span>
-    <span>Interno · Slide 3 de 7</span>
+    <span>Interno · Slide 3 de 8</span>
   </div>
 </div>
 
@@ -461,7 +481,7 @@ html, body { width:100%; background:#0A0F1F; font-family:var(--sans); -webkit-fo
   </div>
   <div class="slide-footer">
     <span><span class="dot"></span><strong>Grupo Plasencia Automotriz</strong> · Documento de Alineación · Seminuevos · Agosto 2026</span>
-    <span>Interno · Slide 4 de 7</span>
+    <span>Interno · Slide 4 de 8</span>
   </div>
 </div>
 
@@ -519,7 +539,7 @@ html, body { width:100%; background:#0A0F1F; font-family:var(--sans); -webkit-fo
 
   <div class="slide-footer">
     <span><span class="dot"></span><strong>Grupo Plasencia Automotriz</strong> · Documento de Alineación · Seminuevos · Agosto 2026</span>
-    <span>Interno · Slide 5 de 7</span>
+    <span>Interno · Slide 5 de 8</span>
   </div>
 </div>
 
@@ -590,12 +610,93 @@ html, body { width:100%; background:#0A0F1F; font-family:var(--sans); -webkit-fo
 
   <div class="slide-footer">
     <span><span class="dot"></span><strong>Grupo Plasencia Automotriz</strong> · Documento de Alineación · Seminuevos · Agosto 2026</span>
-    <span>Interno · Slide 6 de 7</span>
+    <span>Interno · Slide 6 de 8</span>
   </div>
 </div>
 
 
-<!-- ==================== SLIDE 5 · CIERRE + PRÓXIMOS PASOS ==================== -->
+<!-- ==================== SLIDE 7 · REPORTING E2E · FUNNEL + AUDIENCIAS ==================== -->
+<div class="slide">
+  <div class="content">
+
+    <div class="slide-header">
+      <div class="section-num">06 · Cómo reportamos mes a mes</div>
+      <div class="slide-mark">Funnel end-to-end · métrica canónica por etapa</div>
+    </div>
+
+    <h1 class="slide-h1">El funnel completo · <em>una etapa a la vez</em> · con costo por etapa y reporte específico para cada marca</h1>
+
+    <p class="slide-lede">Cada mes reportamos el funnel entero — de <strong>usuario en la tienda digital hasta venta facturada en el DCA</strong> — con la métrica canónica de cada etapa. Todos ven qué está funcionando y qué no · y a <em>cada marca fondeadora</em> le llega el corte específico de qué generó su aporte.</p>
+
+    <div class="funnel-e2e">
+      <div class="funnel-stage">
+        <div class="funnel-stage-lbl">Etapa 1</div>
+        <div class="funnel-stage-t">Tráfico → Lead</div>
+        <div class="funnel-stage-metric">Usuarios de la tienda digital que <strong>se registran con folio único</strong> · leads generados por Meta + Google Ads</div>
+        <div class="funnel-stage-cost">CPL · Costo por Lead</div>
+        <div class="funnel-arrow">›</div>
+      </div>
+      <div class="funnel-stage">
+        <div class="funnel-stage-lbl">Etapa 2</div>
+        <div class="funnel-stage-t">Lead → Vambe</div>
+        <div class="funnel-stage-metric"><strong>100% de los leads</strong> entra a Vambe · sin fugas · sin filtros manuales previos</div>
+        <div class="funnel-stage-cost">Cobertura del pipeline</div>
+        <div class="funnel-arrow">›</div>
+      </div>
+      <div class="funnel-stage">
+        <div class="funnel-stage-lbl">Etapa 3</div>
+        <div class="funnel-stage-t">Vambe → Cita</div>
+        <div class="funnel-stage-metric">Vambe califica y <strong>agenda cita</strong> en la sucursal del auto de interés</div>
+        <div class="funnel-stage-cost">CPC · Costo por Cita</div>
+        <div class="funnel-arrow">›</div>
+      </div>
+      <div class="funnel-stage">
+        <div class="funnel-stage-lbl">Etapa 4</div>
+        <div class="funnel-stage-t">Cita → Visita</div>
+        <div class="funnel-stage-metric">Vendedor confirma la cita y <strong>trae al cliente al piso</strong> · reporta show / no-show en el pipeline</div>
+        <div class="funnel-stage-cost">Show rate %</div>
+        <div class="funnel-arrow">›</div>
+      </div>
+      <div class="funnel-stage">
+        <div class="funnel-stage-lbl">Etapa 5</div>
+        <div class="funnel-stage-t">Visita → Venta</div>
+        <div class="funnel-stage-metric">Cierre · <strong>factura en DCA con folio</strong> · revenue atribuido + utilidad</div>
+        <div class="funnel-stage-cost">CAC + NSM</div>
+      </div>
+    </div>
+
+    <div class="reporting-audiencias">
+      <div class="aud-card consejo">
+        <div class="aud-t">Consejo</div>
+        <div class="aud-who">Nicolás · Andrés · Enrique</div>
+        <div class="aud-body">Vista consolidada de 1 página · <strong>ventas atribuidas + revenue</strong> · CAC vs banda · señal verde/rojo del mes</div>
+      </div>
+      <div class="aud-card">
+        <div class="aud-t">Finanzas</div>
+        <div class="aud-who">Pepe Morales</div>
+        <div class="aud-body">Presupuesto ejercido vs comprometido · <strong>reconciliación contra el DCA</strong> · disciplina financiera</div>
+      </div>
+      <div class="aud-card">
+        <div class="aud-t">Comercial</div>
+        <div class="aud-who">Jonathan Medina + gerentes de sucursal</div>
+        <div class="aud-body">Funnel operativo por sucursal · <strong>show rate y tasa de cierre</strong> · calidad de la retroalimentación humana en el pipeline</div>
+      </div>
+      <div class="aud-card marca">
+        <div class="aud-t">Directores de Marca</div>
+        <div class="aud-who">Mazda · Hyundai · Ford</div>
+        <div class="aud-body">Corte específico por marca · <strong>ventas y revenue que generó SU aporte</strong> · CAC del tercio fondeado · qué mover el siguiente mes</div>
+      </div>
+    </div>
+
+  </div>
+  <div class="slide-footer">
+    <span><span class="dot"></span><strong>Grupo Plasencia Automotriz</strong> · Documento de Alineación · Seminuevos · Agosto 2026</span>
+    <span>Interno · Slide 7 de 8</span>
+  </div>
+</div>
+
+
+<!-- ==================== SLIDE 8 · CIERRE + PRÓXIMOS PASOS ==================== -->
 <div class="slide dark">
   <div class="close-inner">
 
@@ -634,7 +735,7 @@ html, body { width:100%; background:#0A0F1F; font-family:var(--sans); -webkit-fo
 
     <div class="close-foot">
       <span><strong>Grupo Plasencia Automotriz</strong> · Documento de Alineación · Seminuevos · Agosto 2026</span>
-      <span>Interno · Slide 7 de 7</span>
+      <span>Interno · Slide 8 de 8</span>
     </div>
 
   </div>
