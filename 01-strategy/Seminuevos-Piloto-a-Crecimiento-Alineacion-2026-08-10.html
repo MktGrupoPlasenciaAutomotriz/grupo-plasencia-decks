@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seminuevos · de Piloto a Crecimiento · Alineación pre-KO · Grupo Plasencia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@500;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gp-red: #C8102E; --gp-navy: #1E2740; --gp-slate: #2D3748;
+  --green: #48BB78; --deep-green: #276749;
+  --blue: #4299E1; --deep-blue: #2B6CB0;
+  --amber: #D69E2E; --gold: #ECC94B;
+  --bg: #F0F4F8; --paper: #FFFFFF; --near-white: #F7FAFC;
+  --g100: #EDF2F7; --g200: #E2E8F0; --g300: #CBD5E0; --g400: #A0AEC0; --g500: #718096; --g600: #4A5568; --g700: #2D3748;
+  --text: #2D3748;
+  --serif: 'Playfair Display', Georgia, serif;
+  --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { width:100%; background:#0A0F1F; font-family:var(--sans); -webkit-font-smoothing:antialiased; padding: 32px 0; }
+.slide { position:relative; width:1280px; height:720px; margin: 0 auto 32px auto; overflow:hidden; display:flex; flex-direction:column; background: var(--bg); color: var(--text); box-shadow: 0 8px 32px rgba(0,0,0,.4); }
+.slide.dark { background: var(--gp-navy); color: var(--near-white); }
+.content { padding: 42px 72px 14px 72px; flex:1; display:flex; flex-direction:column; gap: 12px; position:relative; min-height:0; overflow:hidden; }
+.slide-header { display:flex; justify-content:space-between; align-items:flex-end; padding-bottom: 4px; border-bottom: 1px solid var(--g200); }
+.section-num { font-family:var(--sans); font-size:9pt; font-weight:800; letter-spacing:4px; color: var(--gp-red); text-transform:uppercase; }
+.slide-mark { font-family:var(--sans); font-size:8.5pt; font-weight:700; letter-spacing:3px; color: var(--g500); text-transform:uppercase; }
+.slide-h1 { font-family:var(--serif); font-weight:800; font-size:26pt; line-height:1.08; letter-spacing:-1px; color: var(--gp-navy); margin-top:4px; }
+.slide-h1 em { font-style:italic; color: var(--amber); font-weight:700; }
+.slide-lede { font-family:var(--sans); font-size:10.5pt; color: var(--g600); line-height:1.5; margin-top: 4px; max-width: 1130px; }
+.slide-lede strong { color: var(--gp-navy); font-weight:700; }
+.slide-lede em { font-style: italic; color: var(--gp-navy); }
+.slide-footer { position:relative; margin: 0 72px; padding: 8px 0 14px 0; display:flex; justify-content:space-between; align-items:center; font-family: var(--sans); font-size: 8.5pt; color: var(--g500); border-top: 1px solid var(--g200); gap: 16px; flex-shrink:0; }
+.slide-footer .dot { display:inline-block; width:8px; height:8px; background: var(--gp-red); border-radius:50%; margin-right:6px; vertical-align:middle; }
+.slide-footer strong { color: var(--gp-navy); font-weight:700; }
+
+/* Portada */
+.cover-inner { padding: 50px 78px 40px 78px; flex:1; display:flex; flex-direction:column; justify-content:space-between; background: radial-gradient(ellipse at 100% 0%, rgba(236,201,75,.18) 0%, transparent 55%), radial-gradient(ellipse at 0% 100%, rgba(200,16,46,.14) 0%, transparent 55%), var(--gp-navy); }
+.cover-top { display:flex; justify-content:space-between; align-items:flex-start; }
+.cover-mark { font-family:var(--sans); font-weight:700; font-size:11pt; letter-spacing:4px; color: var(--gold); text-transform:uppercase; }
+.cover-mark span { display:block; font-weight:400; color: rgba(255,255,255,.62); margin-top:5px; letter-spacing:1px; font-size:9pt; }
+.cover-conf { font-family:var(--sans); font-weight:700; font-size:9pt; letter-spacing:3.5px; color: var(--gp-red); text-transform:uppercase; text-align:right; }
+.cover-conf span { display:block; color: rgba(255,255,255,.55); font-weight:400; letter-spacing:1px; font-size:8pt; margin-top:4px; }
+.cover-center { flex:1; display:flex; flex-direction:column; justify-content:center; padding: 20px 0; }
+.cover-eyebrow { font-family:var(--sans); font-size:11pt; font-weight:700; letter-spacing:5px; color: var(--gp-red); text-transform:uppercase; }
+.cover-title { font-family:var(--serif); font-weight:800; font-size:40pt; line-height:1.05; letter-spacing:-1.5px; margin-top:14px; color: var(--near-white); max-width:1080px; }
+.cover-title em { font-style:italic; color: var(--gold); font-weight:700; }
+.cover-subtitle { font-family:var(--serif); font-weight:500; font-style:italic; font-size:14pt; color: rgba(255,255,255,.88); margin-top:20px; letter-spacing:-.2px; line-height:1.45; max-width:1020px; }
+.cover-subtitle strong { color: var(--near-white); font-style: normal; font-weight: 700; }
+.cover-meta { display:grid; grid-template-columns: repeat(4, 1fr); gap: 18px; border-top: 1px solid rgba(255,255,255,.18); padding-top:16px; margin-top: 20px; }
+.cover-meta-block { font-size:9pt; color: rgba(255,255,255,.72); line-height:1.55; font-family: var(--sans); }
+.cover-meta-block strong { display:block; color: var(--gold); font-weight:700; font-size:8pt; letter-spacing:1.5px; margin-bottom:4px; text-transform:uppercase; }
+.cover-meta-block span { display:block; color: rgba(255,255,255,.94); font-weight:500; font-size:10pt; margin-bottom:2px; }
+
+/* Slide baseline · flujo + KPIs (patrón Familia) */
+.pilar-wrap { display:grid; grid-template-columns: 1fr 1.15fr; gap: 20px; margin-top: 4px; }
+
+.baseline-panel { background: var(--paper); border: 1px solid var(--g200); border-top: 4px solid var(--gp-navy); border-radius: 12px; padding: 14px 20px; display:flex; flex-direction:column; gap: 8px; box-shadow: 0 1px 3px rgba(30,39,64,.05); }
+.baseline-hdr { font-family:var(--sans); font-size:9pt; font-weight:800; letter-spacing:1.5px; text-transform:uppercase; color: var(--gp-navy); }
+.baseline-t { font-family:var(--serif); font-weight:800; font-size:15pt; color: var(--gp-navy); line-height:1.18; letter-spacing:-.4px; }
+.baseline-body { font-family:var(--sans); font-size:9.5pt; color: var(--g600); line-height:1.5; }
+.baseline-body strong { color: var(--gp-navy); font-weight:700; }
+.baseline-body em { font-style: italic; color: var(--gp-navy); }
+
+.kpi-panel { display:flex; flex-direction:column; gap: 8px; }
+.kpi-hero { background: linear-gradient(135deg, var(--gp-navy) 0%, #2A3654 100%); color: var(--near-white); border-radius: 12px; padding: 14px 20px; }
+.kpi-hero-lbl { font-family:var(--sans); font-size:8pt; font-weight:800; letter-spacing:2px; text-transform:uppercase; color: var(--gold); }
+.kpi-hero-num { font-family:var(--serif); font-weight:900; font-size:40pt; line-height:1; color: var(--gold); font-variant-numeric: tabular-nums; letter-spacing:-1.5px; margin-top: 6px; }
+.kpi-hero-sub { font-family:var(--sans); font-size:10pt; color: rgba(255,255,255,.9); margin-top: 6px; line-height:1.4; }
+.kpi-hero-sub strong { color: var(--near-white); font-weight:700; }
+
+.kpi-strip { display:grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.kpi-cell { background: var(--paper); border: 1px solid var(--g200); border-left: 4px solid var(--gp-red); border-radius: 8px; padding: 8px 12px; }
+.kpi-cell.gold { border-left-color: var(--amber); }
+.kpi-cell.green { border-left-color: var(--deep-green); }
+.kpi-cell-lbl { font-family:var(--sans); font-size:7.5pt; font-weight:800; letter-spacing:1.4px; text-transform:uppercase; color: var(--gp-red); }
+.kpi-cell.gold .kpi-cell-lbl { color: var(--amber); }
+.kpi-cell.green .kpi-cell-lbl { color: var(--deep-green); }
+.kpi-cell-num { font-family:var(--serif); font-weight:900; font-size:20pt; line-height:1; color: var(--gp-navy); font-variant-numeric: tabular-nums; letter-spacing:-.7px; margin-top: 3px; }
+.kpi-cell-sub { font-family:var(--sans); font-size:8pt; color: var(--g500); line-height:1.3; margin-top: 3px; }
+.kpi-cell-sub strong { color: var(--gp-navy); font-weight:700; }
+
+.callout-navy { background: var(--gp-navy); color: var(--near-white); border-radius: 10px; padding: 12px 20px; margin-top: 4px; display:grid; grid-template-columns: auto 1fr; gap: 18px; align-items:center; }
+.callout-navy-icon { font-family:var(--serif); font-weight:900; font-size:24pt; color: var(--gold); line-height:1; padding-right: 14px; border-right: 1px solid rgba(255,255,255,.25); }
+.callout-navy-body { font-family:var(--serif); font-weight:500; font-style:italic; font-size:13pt; color: rgba(255,255,255,.95); line-height:1.35; }
+.callout-navy-body strong { color: var(--gold); font-style: normal; font-weight:700; }
+
+/* Slide Crecimiento · presupuesto + allocation */
+.propuesta-wrap { display:grid; grid-template-columns: 1fr 1.1fr; gap: 18px; margin-top: 4px; }
+
+.presup-card { background: linear-gradient(180deg, #FFFEF8 0%, var(--paper) 100%); border: 1px solid var(--g200); border-top: 4px solid var(--amber); border-radius: 12px; padding: 14px 20px; }
+.presup-lbl { font-family:var(--sans); font-size:8pt; font-weight:800; letter-spacing:2px; text-transform:uppercase; color: var(--amber); margin-bottom: 4px; }
+.presup-t { font-family:var(--serif); font-weight:800; font-size:14pt; color: var(--gp-navy); line-height:1.18; letter-spacing:-.4px; margin-bottom: 6px; }
+.presup-num { font-family:var(--serif); font-weight:900; font-size:44pt; line-height:1; color: var(--gp-navy); font-variant-numeric: tabular-nums; letter-spacing:-1.5px; }
+.presup-num-unit { font-family:var(--sans); font-size:11pt; color: var(--g500); font-weight:500; }
+.presup-sub { font-family:var(--sans); font-size:9pt; color: var(--g600); margin-top: 4px; line-height:1.4; }
+.presup-sub strong { color: var(--gp-navy); font-weight:700; }
+
+.alloc-list { display:flex; flex-direction:column; gap: 8px; margin-top: 4px; }
+.alloc-item { background: var(--paper); border: 1px solid var(--g200); border-left: 4px solid var(--gp-navy); border-radius: 8px; padding: 10px 14px; display:grid; grid-template-columns: 60px 1fr; gap: 14px; align-items:flex-start; }
+.alloc-item.blue { border-left-color: var(--deep-blue); }
+.alloc-item.gold { border-left-color: var(--amber); }
+.alloc-pct { font-family:var(--serif); font-weight:900; font-size:26pt; color: var(--gp-navy); line-height:1; text-align:center; }
+.alloc-item.blue .alloc-pct { color: var(--deep-blue); }
+.alloc-item.gold .alloc-pct { color: var(--amber); }
+.alloc-t { font-family:var(--sans); font-size:10pt; font-weight:800; color: var(--gp-navy); margin-bottom: 2px; }
+.alloc-body { font-family:var(--sans); font-size:9pt; color: var(--g600); line-height:1.42; }
+.alloc-body strong { color: var(--gp-navy); font-weight:700; }
+.alloc-body em { font-style: italic; color: var(--gp-navy); }
+
+/* Slide compromisos · 3 columnas */
+.compromiso-grid { display:grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; margin-top: 4px; }
+.compromiso-card { background: var(--paper); border: 1px solid var(--g200); border-radius: 12px; padding: 14px 16px; display:flex; flex-direction:column; gap: 8px; overflow: hidden; }
+.compromiso-card.mkt { border-top: 4px solid var(--gp-red); }
+.compromiso-card.comercial { border-top: 4px solid var(--amber); background: linear-gradient(180deg, #FFFEF8 0%, var(--paper) 100%); }
+.compromiso-card.compartido { border-top: 4px solid var(--deep-green); background: linear-gradient(180deg, #F6FBF8 0%, var(--paper) 100%); }
+.compromiso-hdr { display:flex; align-items:baseline; justify-content:space-between; gap: 8px; margin-bottom: 2px; }
+.compromiso-tag { font-family:var(--sans); font-size:8pt; font-weight:800; letter-spacing:2px; text-transform:uppercase; color: var(--gp-red); }
+.compromiso-card.comercial .compromiso-tag { color: var(--amber); }
+.compromiso-card.compartido .compromiso-tag { color: var(--deep-green); }
+.compromiso-who { font-family:var(--sans); font-size:7.5pt; font-weight:700; color: var(--g500); letter-spacing:.6px; text-transform:uppercase; text-align:right; }
+.compromiso-t { font-family:var(--serif); font-weight:800; font-size:14pt; color: var(--gp-navy); line-height:1.18; letter-spacing:-.4px; margin-bottom: 4px; }
+.compromiso-list { display:flex; flex-direction:column; gap: 5px; }
+.compromiso-item { font-family:var(--sans); font-size:8.5pt; color: var(--g600); line-height:1.4; padding-left: 14px; position:relative; }
+.compromiso-item::before { position:absolute; left:0; font-weight:800; }
+.compromiso-card.mkt .compromiso-item::before { content:"◆"; color: var(--gp-red); font-size:7pt; top:3px; }
+.compromiso-card.comercial .compromiso-item::before { content:"▸"; color: var(--amber); }
+.compromiso-card.compartido .compromiso-item::before { content:"✓"; color: var(--deep-green); font-size:9pt; }
+.compromiso-item strong { color: var(--gp-navy); font-weight:700; }
+.compromiso-item em { font-style: italic; color: var(--gp-navy); }
+
+.honesty-strip { background: linear-gradient(135deg, rgba(214,158,46,.10) 0%, rgba(30,39,64,.03) 100%); border: 1px solid var(--g200); border-left: 4px solid var(--amber); border-radius: 8px; padding: 8px 14px; margin-top: 4px; font-family: var(--sans); font-size: 8.5pt; color: var(--g600); line-height: 1.4; }
+.honesty-strip strong { color: var(--gp-navy); font-weight:700; }
+.honesty-strip em { font-style: italic; color: var(--gp-navy); }
+
+/* Cierre · próximos pasos */
+.close-inner { padding: 46px 78px 36px 78px; flex:1; display:flex; flex-direction:column; justify-content:space-between; background: radial-gradient(ellipse at 50% 30%, rgba(236,201,75,.14) 0%, transparent 60%), var(--gp-navy); }
+.close-top { text-align:center; }
+.close-eyebrow { font-family: var(--sans); font-size: 10pt; font-weight: 800; letter-spacing: 5px; color: var(--gold); text-transform: uppercase; }
+.close-rule { width: 80px; height: 1px; background: var(--gold); margin: 14px auto; opacity: .7; }
+.close-h { font-family: var(--serif); font-weight: 800; font-size: 28pt; line-height: 1.15; letter-spacing: -1.1px; color: var(--near-white); margin: 10px auto 0 auto; max-width: 1020px; }
+.close-h em { font-style: italic; color: var(--gold); font-weight: 700; }
+.close-sub { font-family: var(--sans); font-size: 11pt; color: rgba(255,255,255,.82); margin: 14px auto 0 auto; line-height: 1.5; max-width: 900px; text-align:center; }
+.close-sub em { font-style: italic; color: var(--near-white); }
+
+.pasos-panel { background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.14); border-radius: 12px; padding: 16px 26px; margin-top: 6px; }
+.pasos-hdr { font-family:var(--sans); font-size:9pt; font-weight:800; letter-spacing:3px; text-transform:uppercase; color: var(--gold); text-align:center; margin-bottom: 12px; }
+.pasos-grid { display:grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.paso-item { text-align:center; padding: 4px 0; }
+.paso-fecha { display:block; font-family:var(--sans); font-size:8pt; font-weight:800; letter-spacing:1.5px; text-transform:uppercase; color: var(--gold); margin-bottom: 4px; }
+.paso-what { display:block; font-family:var(--serif); font-weight:700; font-size:11pt; color: var(--near-white); line-height:1.25; margin-bottom: 3px; }
+.paso-who { display:block; font-family:var(--sans); font-size:8pt; color: rgba(255,255,255,.7); line-height:1.35; }
+
+.close-foot { display:flex; justify-content:space-between; align-items:center; font-family:var(--sans); font-size:8.5pt; color: rgba(255,255,255,.55); border-top: 1px solid rgba(255,255,255,.14); padding-top: 14px; margin-top: 10px; letter-spacing:1.5px; text-transform: uppercase; }
+.close-foot strong { color: var(--gold); font-weight:700; }
+</style>
+</head>
+<body>
+
+<!-- ==================== SLIDE 1 · PORTADA ==================== -->
+<div class="slide dark">
+  <div class="cover-inner">
+    <div class="cover-top">
+      <div class="cover-mark">Grupo Plasencia Automotriz<span>Dirección de Marketing y Transformación Digital</span></div>
+      <div class="cover-conf">Interno · pre-KO<span>Alineación · lunes 10-ago 2026</span></div>
+    </div>
+
+    <div class="cover-center">
+      <div class="cover-eyebrow">Seminuevos · Alineación pre-KO miércoles 12-ago</div>
+      <h1 class="cover-title">De <em>Piloto</em> a <em>Crecimiento</em></h1>
+      <p class="cover-subtitle">El piloto ya validó que el canal digital funciona para Seminuevos. Toca escalar. <strong>$60 mil pesos al mes de publicidad, 60% Google y 40% Meta, arrancando este miércoles</strong> — con métricas comprometidas por lado y compromisos ya alineados con Jonathan.</p>
+    </div>
+
+    <div class="cover-meta">
+      <div class="cover-meta-block"><strong>Para</strong><span>Andrés + Nicolás Plasencia</span><span>Pepe Morales · Jonathan Medina</span></div>
+      <div class="cover-meta-block"><strong>De</strong><span>Jesús Pérez Porras</span><span>Dir. Marketing Corporativo</span></div>
+      <div class="cover-meta-block"><strong>Fecha</strong><span>Lunes 10-ago-2026</span><span>KO miércoles 12-ago</span></div>
+      <div class="cover-meta-block"><strong>Objetivo</strong><span>Alineación previa al arranque</span><span>Vobo antes del miércoles</span></div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ==================== SLIDE 2 · BASELINE DEL PILOTO ==================== -->
+<div class="slide">
+  <div class="content">
+
+    <div class="slide-header">
+      <div class="section-num">01 · Qué logró el Piloto</div>
+      <div class="slide-mark">Baseline duro · al 30-jun-2026</div>
+    </div>
+
+    <h1 class="slide-h1">Con $30K al mes de publicidad, el Piloto <em>ya funcionó</em></h1>
+
+    <p class="slide-lede">Estas son las cifras cerradas del Piloto de Seminuevos al 30 de junio · atribuidas al canal digital · trazadas de anuncio a factura contra el sistema contable del Grupo (DCA). <strong>La evidencia es suficiente para pasar a Crecimiento</strong>: escalar presupuesto y ampliar canales, sin cambiar la mecánica que ya probó.</p>
+
+    <div class="pilar-wrap">
+
+      <div class="baseline-panel">
+        <div class="baseline-hdr">Lo que se construyó y se probó</div>
+        <div class="baseline-t">El motor completo · anuncio → factura</div>
+        <div class="baseline-body">
+          <strong>Tienda digital</strong> con catálogo de las 6 sucursales Mazda de Guadalajara · <strong>Google Ads + Meta Ads</strong> encendidos · <strong>Vambe como IA conversacional</strong> atendiendo el 100% de los leads · <strong>hand-off a vendedor</strong> con cita agendada · <strong>cierre con matching automatizado contra DCA</strong> por folio único, nombre y VIN.<br><br>
+          <em>La cifra de ventas atribuidas es la misma que ve Finanzas en el sistema contable</em>. Sin trackers paralelos, sin proyecciones teóricas.
+        </div>
+      </div>
+
+      <div class="kpi-panel">
+        <div class="kpi-hero">
+          <div class="kpi-hero-lbl">Resultado del Piloto · 90 días · Seminuevos</div>
+          <div class="kpi-hero-num">73</div>
+          <div class="kpi-hero-sub"><strong>ventas atribuidas</strong> · autos que llegaron por el canal digital y se facturaron en las sucursales del Grupo</div>
+        </div>
+
+        <div class="kpi-strip">
+          <div class="kpi-cell gold">
+            <div class="kpi-cell-lbl">Ventas facturadas</div>
+            <div class="kpi-cell-num">$22.32M</div>
+            <div class="kpi-cell-sub">valor total en DCA · seminuevos + cross-brand</div>
+          </div>
+          <div class="kpi-cell">
+            <div class="kpi-cell-lbl">Inversión publicidad</div>
+            <div class="kpi-cell-num">$30K/mes</div>
+            <div class="kpi-cell-sub">pauta neta · Meta + Google · 90 días</div>
+          </div>
+          <div class="kpi-cell green">
+            <div class="kpi-cell-lbl">Costo por venta</div>
+            <div class="kpi-cell-num">$2,805</div>
+            <div class="kpi-cell-sub">lo que costó adquirir cada una de las 73 ventas</div>
+          </div>
+          <div class="kpi-cell green">
+            <div class="kpi-cell-lbl">Por cada peso invertido</div>
+            <div class="kpi-cell-num">$11.20</div>
+            <div class="kpi-cell-sub"><strong>regresaron de utilidad</strong> · margen operativo real DCA</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="callout-navy">
+      <div class="callout-navy-icon">→</div>
+      <div class="callout-navy-body">Con evidencia de esta calidad, la pregunta ya no es <em>si funciona</em> — funciona. La pregunta ahora es <strong>cuánto más devuelve si le metemos combustible al motor</strong>.</div>
+    </div>
+
+  </div>
+
+  <div class="slide-footer">
+    <span><span class="dot"></span><strong>Grupo Plasencia Automotriz</strong> · Alineación pre-KO Seminuevos · Agosto 2026</span>
+    <span>Interno · Slide 2 de 5</span>
+  </div>
+</div>
+
+
+<!-- ==================== SLIDE 3 · QUÉ PROPONEMOS EN CRECIMIENTO ==================== -->
+<div class="slide">
+  <div class="content">
+
+    <div class="slide-header">
+      <div class="section-num">02 · Qué proponemos en Crecimiento</div>
+      <div class="slide-mark">Presupuesto + Allocation acordado con Jonathan</div>
+    </div>
+
+    <h1 class="slide-h1">$60 mil al mes · <em>60% Google · 40% Meta</em></h1>
+
+    <p class="slide-lede">Duplicamos la inversión del Piloto (de $30K a $60K al mes) pero <strong>sin rampa escalonada</strong>. Mantener $60K/mes plano durante 30 días · estabilizar el motor completo · después meter más combustible si las señales están verdes. Es más honesto al momento actual: Vambe termina de amarrarse la próxima semana y la disciplina de captura del vendedor apenas se está formalizando con Jonathan.</p>
+
+    <div class="propuesta-wrap">
+
+      <div class="presup-card">
+        <div class="presup-lbl">Inversión publicidad · Crecimiento</div>
+        <div class="presup-t">Duplica el Piloto · plano por 30 días</div>
+        <div class="presup-num">$60K<span class="presup-num-unit"> /mes</span></div>
+        <div class="presup-sub">100% Seminuevos corporativo · 100% Guadalajara · <strong>escalar después de que se estabilice</strong> el motor completo (no rampa automática).<br><br>Referencia: el Piloto operó con <strong>$30K al mes</strong> y devolvió 73 ventas atribuidas por $22.32M. Duplicar la inversión con el motor ya probado es la palanca más obvia disponible.</div>
+      </div>
+
+      <div class="alloc-list">
+        <div class="alloc-item blue">
+          <div class="alloc-pct">60%</div>
+          <div>
+            <div class="alloc-t">Google Ads · $36K/mes</div>
+            <div class="alloc-body">El usuario declara intención de compra cuando teclea <em>"autos usados Guadalajara"</em>. La cuenta del Piloto ya está lista para reactivar — Jonathan lo comentó directo: <em>"hoy somos la opción 10 en Guadalajara · tenemos lotes mucho más chicos que el Grupo por arriba de nosotros"</em>. Este canal cierra esa brecha.</div>
+          </div>
+        </div>
+        <div class="alloc-item gold">
+          <div class="alloc-pct">40%</div>
+          <div>
+            <div class="alloc-t">Meta Ads · $24K/mes</div>
+            <div class="alloc-body">Descubrimiento en audiencias amplias + reencuentro con quienes visitaron la tienda digital. Optimización de creativos usando el marco <strong>Andromeda</strong> (5 ganchos × 5 formatos × 5 ángulos) — probar rápido qué combinación de imagen y mensaje mueve a más gente a la tienda digital.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="callout-navy">
+      <div class="callout-navy-icon">✓</div>
+      <div class="callout-navy-body">Acordado con Jonathan Medina en llamada del lunes 10-ago: <strong>arranque miércoles 12-ago</strong> · Vambe listo el lunes 11 en las 6 sucursales Mazda de Guadalajara · martes se prueban errores · miércoles motor completo en vivo.</div>
+    </div>
+
+  </div>
+
+  <div class="slide-footer">
+    <span><span class="dot"></span><strong>Grupo Plasencia Automotriz</strong> · Alineación pre-KO Seminuevos · Agosto 2026</span>
+    <span>Interno · Slide 3 de 5</span>
+  </div>
+</div>
+
+
+<!-- ==================== SLIDE 4 · MÉTRICAS Y COMPROMISOS ==================== -->
+<div class="slide">
+  <div class="content">
+
+    <div class="slide-header">
+      <div class="section-num">03 · Métricas y compromisos por lado</div>
+      <div class="slide-mark">Alineado con Jonathan · lunes 10-ago</div>
+    </div>
+
+    <h1 class="slide-h1">Quién rinde cuentas <em>de qué</em> · con honestidad graduada</h1>
+
+    <p class="slide-lede">El motor tiene cuatro etapas: <em>Lead → Cita → Visita al piso → Venta</em>. En Seminuevos, cada etapa tiene un responsable claro. La lógica canónica del Grupo — <strong>quien administra la herramienta o el proceso de una etapa es dueño de esa métrica</strong>. Comprometemos al Consejo lo que hoy realmente se puede rendir cuentas · y ponemos plazo claro para lo que aún necesita disciplina en construcción.</p>
+
+    <div class="compromiso-grid">
+
+      <div class="compromiso-card mkt">
+        <div class="compromiso-hdr">
+          <div class="compromiso-tag">Dirección MKT</div>
+          <div class="compromiso-who">Chucho Porras</div>
+        </div>
+        <div class="compromiso-t">Leads generados</div>
+        <div class="compromiso-list">
+          <div class="compromiso-item">Reactivar Google Ads (cuenta ya lista del Piloto) y arrancar Meta Ads con marco Andromeda.</div>
+          <div class="compromiso-item">Garantizar que <strong>100% de los leads caen en Vambe</strong> vía formulario de la tienda digital.</div>
+          <div class="compromiso-item"><strong>CPL (costo por lead)</strong> reportado semanal y mensual · umbral verde de referencia del Piloto.</div>
+          <div class="compromiso-item">Reportería única al Consejo con las cifras del canal digital.</div>
+        </div>
+        <div class="honesty-strip"><strong>Se compromete desde el día 1</strong> (miércoles 12-ago).</div>
+      </div>
+
+      <div class="compromiso-card comercial">
+        <div class="compromiso-hdr">
+          <div class="compromiso-tag">Comercial Seminuevos</div>
+          <div class="compromiso-who">Jonathan Medina + Pepe Reyes</div>
+        </div>
+        <div class="compromiso-t">Citas agendadas y visitas al piso</div>
+        <div class="compromiso-list">
+          <div class="compromiso-item"><strong>Vambe corriendo al 100%</strong> en las 6 sucursales Mazda de Guadalajara (Pepe Reyes lo deja listo el lunes 11-ago).</div>
+          <div class="compromiso-item"><strong>CPC (cita agendada)</strong> vía Vambe · Pepe Reyes administra la herramienta · sale del sistema automático.</div>
+          <div class="compromiso-item">Forzar <em>disciplina del "sí vino"</em> — checkbox en Vambe que el vendedor marca cuando el cliente llega al piso. Jonathan reúne a los gerentes de cada tienda el miércoles para instalar la rutina.</div>
+          <div class="compromiso-item">Cortes semanales por gerente · Pepe Morales respalda desde Finanzas.</div>
+        </div>
+        <div class="honesty-strip"><strong>CPC y citas: desde día 1.</strong> <em>Show rate (visitas): se compromete formalmente al cierre de septiembre</em> — palabras de Jonathan: <em>"lo veo lejano 3 semanas, tenemos que forzar la disciplina para que suceda"</em>.</div>
+      </div>
+
+      <div class="compromiso-card compartido">
+        <div class="compromiso-hdr">
+          <div class="compromiso-tag">NSM · Ventas</div>
+          <div class="compromiso-who">Compartido · MKT + Comercial</div>
+        </div>
+        <div class="compromiso-t">Ventas atribuidas al canal digital</div>
+        <div class="compromiso-list">
+          <div class="compromiso-item"><strong>Método corto plazo</strong> · comparación antes/después contra el promedio mensual histórico de Seminuevos (unidades incrementales).</div>
+          <div class="compromiso-item"><strong>Método largo plazo</strong> · matching automatizado del registro en tienda digital contra la venta en DCA (folio + nombre + VIN). Ya construido del Piloto.</div>
+          <div class="compromiso-item">Los dos métodos <em>conviven</em> — el corto plazo demuestra impacto pronto · el largo plazo da precisión conforme la disciplina del vendedor se estabilice.</div>
+          <div class="compromiso-item">Cifra reportada al Consejo cruza contra DCA · <em>la misma que ve Finanzas</em>.</div>
+        </div>
+        <div class="honesty-strip"><strong>Incremental por diseño</strong> — solo cuenta la venta que entró por la tienda digital, fue gestionada por el pipeline y se cerró con el vendedor. Sin traslape con la venta orgánica de las sucursales.</div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="slide-footer">
+    <span><span class="dot"></span><strong>Grupo Plasencia Automotriz</strong> · Alineación pre-KO Seminuevos · Agosto 2026</span>
+    <span>Interno · Slide 4 de 5</span>
+  </div>
+</div>
+
+
+<!-- ==================== SLIDE 5 · CIERRE + PRÓXIMOS PASOS ==================== -->
+<div class="slide dark">
+  <div class="close-inner">
+
+    <div class="close-top">
+      <div class="close-eyebrow">Próximo paso · KO miércoles 12-ago</div>
+      <div class="close-rule"></div>
+      <h2 class="close-h">Si están de acuerdo con este planteamiento, <em>arrancamos el miércoles</em> con el motor completo y las métricas comprometidas por lado.</h2>
+      <p class="close-sub">Lo que necesitamos antes del miércoles: <em>vobo de Pepe Morales al presupuesto de $60K/mes</em> · coordinación con Flor / Hyundai para transferir la parte del presupuesto que corresponde a Seminuevos · confirmación de que Vambe queda al 100% el lunes.</p>
+    </div>
+
+    <div class="pasos-panel">
+      <div class="pasos-hdr">Cronograma de arranque</div>
+      <div class="pasos-grid">
+        <div class="paso-item">
+          <span class="paso-fecha">Hoy · Lunes 10</span>
+          <span class="paso-what">Vobo al planteamiento</span>
+          <span class="paso-who">Pepe · Andrés · Nicolás</span>
+        </div>
+        <div class="paso-item">
+          <span class="paso-fecha">Lunes 10 · noche</span>
+          <span class="paso-what">Vambe al 100% en 6 sucursales</span>
+          <span class="paso-who">Pepe Reyes · Jonathan</span>
+        </div>
+        <div class="paso-item">
+          <span class="paso-fecha">Martes 11</span>
+          <span class="paso-what">Prueba de errores de principio a fin</span>
+          <span class="paso-who">MKT + Comercial</span>
+        </div>
+        <div class="paso-item">
+          <span class="paso-fecha">Miércoles 12 · KO</span>
+          <span class="paso-what">Motor completo en vivo</span>
+          <span class="paso-who">Reunión con gerentes de tienda</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="close-foot">
+      <span><strong>Grupo Plasencia Automotriz</strong> · Alineación pre-KO Seminuevos · Agosto 2026</span>
+      <span>Interno · Slide 5 de 5</span>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
