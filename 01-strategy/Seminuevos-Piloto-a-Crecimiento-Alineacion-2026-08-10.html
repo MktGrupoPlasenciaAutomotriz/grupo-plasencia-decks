@@ -76,14 +76,24 @@ html, body { width:100%; background:#0A0F1F; font-family:var(--sans); -webkit-fo
 
 /* Slide flujo · timeline 7 pasos + sucursales */
 .flow-wrap { display:flex; flex-direction:column; gap: 10px; margin-top: 6px; }
-.flow-timeline { display:grid; grid-template-columns: repeat(7, 1fr); gap: 8px; position:relative; }
+.flow-timeline { display:grid; grid-template-columns: repeat(7, 1fr); gap: 8px; position:relative; margin-top: 14px; }
 .flow-step { background: var(--paper); border: 1px solid var(--g200); border-top: 3px solid var(--gp-navy); border-radius: 10px; padding: 10px 10px 12px 10px; display:flex; flex-direction:column; gap: 4px; position:relative; box-shadow: 0 1px 3px rgba(30,39,64,.05); }
+.flow-step.comercial { border-top-color: var(--deep-green); }
+.flow-step-tag { position:absolute; top: -11px; left: -4px; background: var(--amber); color: var(--gp-navy); font-family: var(--sans); font-weight: 800; font-size: 6.5pt; letter-spacing: 1.2px; text-transform: uppercase; padding: 4px 9px; border-radius: 999px; box-shadow: 0 2px 8px rgba(214,158,46,.45), 0 0 0 2px var(--bg); white-space: nowrap; z-index: 5; }
+.flow-owner-lbl { font-family: var(--sans); font-size: 7pt; font-weight: 800; letter-spacing: 1.3px; text-transform: uppercase; color: var(--g500); margin-bottom: -2px; }
+.flow-step.comercial .flow-owner-lbl { color: var(--deep-green); }
 .flow-num { font-family: var(--serif); font-weight: 900; font-size: 22pt; color: var(--gp-red); line-height:1; }
 .flow-title { font-family: var(--sans); font-weight: 800; font-size: 9.5pt; color: var(--gp-navy); line-height:1.15; letter-spacing:-.1px; }
 .flow-desc { font-family: var(--sans); font-size: 8pt; color: var(--g600); line-height:1.35; }
 .flow-desc strong { color: var(--gp-navy); font-weight:700; }
 .flow-arrow { position:absolute; right:-9px; top:52%; transform:translateY(-50%); color: var(--g400); font-family:var(--serif); font-weight:900; font-size:15pt; z-index:2; pointer-events:none; background:var(--bg); padding: 0 2px; }
 .flow-step:last-child .flow-arrow { display:none; }
+
+.handoff-note { background: linear-gradient(90deg, rgba(214,158,46,.16) 0%, rgba(72,187,120,.14) 100%); border: 1px solid rgba(214,158,46,.35); border-left: 4px solid var(--amber); border-radius: 8px; padding: 10px 14px; display:grid; grid-template-columns: auto 1fr; gap: 14px; align-items:center; }
+.handoff-note-mark { font-family: var(--sans); font-size: 7pt; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gp-navy); background: var(--amber); padding: 6px 11px; border-radius: 999px; white-space: nowrap; box-shadow: 0 2px 6px rgba(214,158,46,.35); text-align:center; line-height:1.15; }
+.handoff-note-body { font-family: var(--sans); font-size: 9pt; color: var(--g600); line-height: 1.45; }
+.handoff-note-body strong { color: var(--gp-navy); font-weight: 700; }
+.handoff-note-body em { color: var(--deep-green); font-style: normal; font-weight: 700; }
 
 .sucursales-panel { background: var(--paper); border: 1px solid var(--g200); border-radius: 10px; padding: 10px 16px 12px 16px; }
 .sucursales-hdr { display:flex; justify-content:space-between; align-items:baseline; font-family: var(--sans); font-size: 8pt; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gp-navy); margin-bottom: 6px; }
@@ -410,20 +420,26 @@ html, body { width:100%; background:#0A0F1F; font-family:var(--sans); -webkit-fo
         <div class="flow-step">
           <div class="flow-num">5</div>
           <div class="flow-title">Cita agendada</div>
-          <div class="flow-desc">Vambe califica y <strong>agenda cita</strong> en la sucursal donde está el auto</div>
+          <div class="flow-desc">Vambe califica, <strong>agenda cita en la sucursal del auto</strong> y le pasa toda la conversación al vendedor</div>
           <div class="flow-arrow">›</div>
         </div>
-        <div class="flow-step">
+        <div class="flow-step comercial">
+          <div class="flow-step-tag">Hand-off · Comercial toma</div>
           <div class="flow-num">6</div>
-          <div class="flow-title">Visita al piso</div>
-          <div class="flow-desc">Vendedor recibe al cliente · prueba de manejo · <strong>reporta show / no-show</strong></div>
+          <div class="flow-title">Vendedor toma la cita</div>
+          <div class="flow-desc"><strong>Confirma con el cliente</strong>, provoca la visita al piso y lo recibe en la sucursal</div>
           <div class="flow-arrow">›</div>
         </div>
-        <div class="flow-step">
+        <div class="flow-step comercial">
           <div class="flow-num">7</div>
-          <div class="flow-title">Venta facturada</div>
-          <div class="flow-desc">Vendedor cierra · <strong>factura en el DCA</strong> con folio único · atribución automática</div>
+          <div class="flow-title">Venta + retroalimentación</div>
+          <div class="flow-desc">Prueba de manejo · cierre · <strong>declara la venta en el DCA con folio</strong> · <strong>retroalimenta el pipeline de Vambe</strong> con show/no-show y motivo</div>
         </div>
+      </div>
+
+      <div class="handoff-note">
+        <div class="handoff-note-mark">Aquí se juega<br>el éxito</div>
+        <div class="handoff-note-body">El <strong>hand-off Vambe → vendedor</strong> (paso 5 → 6) y la <em>retroalimentación humana del vendedor</em> al cierre (paso 7: venta declarada en DCA con folio + show/no-show y motivo en el pipeline) son la <strong>bisagra que determina si el motor funciona o no</strong>. Sin esa gestión humana disciplinada, no hay medición confiable, no hay compromiso creíble al Consejo, y no hay base para pasar más adelante a Escalamiento.</div>
       </div>
 
       <div class="sucursales-panel">
