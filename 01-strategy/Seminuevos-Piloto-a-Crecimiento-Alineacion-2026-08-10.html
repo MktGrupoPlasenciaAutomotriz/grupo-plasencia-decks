@@ -186,6 +186,22 @@ html, body { width:100%; background:#0A0F1F; font-family:var(--sans); -webkit-fo
 .honesty-strip strong { color: var(--gp-navy); font-weight:700; }
 .honesty-strip em { font-style: italic; color: var(--gp-navy); }
 
+/* Slide atribución · 3 casos matching DCA */
+.matching-cases { display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 14px; margin-top: 8px; }
+.matching-case { background: var(--paper); border: 1px solid var(--g200); border-top: 4px solid var(--deep-blue); border-radius: 12px; padding: 14px 18px; display:flex; flex-direction:column; gap: 8px; box-shadow: 0 1px 3px rgba(30,39,64,.04); position:relative; }
+.matching-case.exact { border-top-color: var(--deep-green); }
+.matching-case.change { border-top-color: var(--amber); }
+.matching-case.other { border-top-color: var(--gp-red); }
+.mc-num { font-family:var(--sans); font-size:7.5pt; font-weight:800; letter-spacing:1.4px; text-transform:uppercase; color: var(--g500); }
+.matching-case.exact .mc-num { color: var(--deep-green); }
+.matching-case.change .mc-num { color: var(--amber); }
+.matching-case.other .mc-num { color: var(--gp-red); }
+.mc-title { font-family:var(--serif); font-weight:800; font-size:15pt; color: var(--gp-navy); line-height:1.15; letter-spacing:-.4px; }
+.mc-body { font-family:var(--sans); font-size:9pt; color: var(--g600); line-height:1.5; flex:1; }
+.mc-body strong { color: var(--gp-navy); font-weight:700; }
+.mc-required { background: var(--g100); border-left: 3px solid var(--gp-navy); padding: 7px 11px; font-family:var(--sans); font-size:8.5pt; color: var(--g700); border-radius: 4px; }
+.mc-required strong { display:block; color: var(--gp-navy); font-weight:800; font-size:7pt; letter-spacing:1.2px; text-transform:uppercase; margin-bottom: 3px; }
+
 /* Slide reporting E2E · funnel + audiencias */
 .funnel-e2e { display:grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin-top: 4px; position:relative; }
 .funnel-stage { background: var(--paper); border: 1px solid var(--g200); border-top: 3px solid var(--gp-red); border-radius: 10px; padding: 10px 11px 9px 11px; display:flex; flex-direction:column; gap: 4px; box-shadow: 0 1px 3px rgba(30,39,64,.05); position:relative; }
@@ -324,7 +340,7 @@ html, body { width:100%; background:#0A0F1F; font-family:var(--sans); -webkit-fo
   </div>
   <div class="slide-footer">
     <span><span class="dot"></span><strong>Grupo Plasencia Automotriz</strong> · Documento de Alineación · Seminuevos · Agosto 2026</span>
-    <span>Interno · Slide 2 de 8</span>
+    <span>Interno · Slide 2 de 9</span>
   </div>
 </div>
 
@@ -395,7 +411,7 @@ html, body { width:100%; background:#0A0F1F; font-family:var(--sans); -webkit-fo
 
   <div class="slide-footer">
     <span><span class="dot"></span><strong>Grupo Plasencia Automotriz</strong> · Documento de Alineación · Seminuevos · Agosto 2026</span>
-    <span>Interno · Slide 3 de 8</span>
+    <span>Interno · Slide 3 de 9</span>
   </div>
 </div>
 
@@ -484,17 +500,68 @@ html, body { width:100%; background:#0A0F1F; font-family:var(--sans); -webkit-fo
   </div>
   <div class="slide-footer">
     <span><span class="dot"></span><strong>Grupo Plasencia Automotriz</strong> · Documento de Alineación · Seminuevos · Agosto 2026</span>
-    <span>Interno · Slide 4 de 8</span>
+    <span>Interno · Slide 4 de 9</span>
   </div>
 </div>
 
 
-<!-- ==================== SLIDE 5 · QUÉ PROPONEMOS EN CRECIMIENTO ==================== -->
+<!-- ==================== SLIDE 5 · CÓMO SE ATRIBUYE LA VENTA (3 CASOS MATCHING DCA) ==================== -->
 <div class="slide">
   <div class="content">
 
     <div class="slide-header">
-      <div class="section-num">04 · Qué proponemos en Crecimiento</div>
+      <div class="section-num">04 · Cómo se atribuye la venta al canal digital</div>
+      <div class="slide-mark">Matching automático en el DCA · 3 casos posibles</div>
+    </div>
+
+    <h1 class="slide-h1">3 formas en las que una venta cuenta como del canal digital · <em>las 3 dependen del vendedor</em></h1>
+
+    <p class="slide-lede">El cruce automático en el DCA compara los datos del lead (<strong>nombre, teléfono, correo y número de serie del auto</strong>) contra el cubo de ventas del sistema contable. Cuando coinciden, la venta se atribuye <strong>1 a 1</strong> al canal digital. Hay 3 escenarios posibles — <em>en los 3 la retroalimentación del vendedor es lo que hace que la venta cuente</em>.</p>
+
+    <div class="matching-cases">
+
+      <div class="matching-case exact">
+        <div class="mc-num">Caso 1 · Match automático</div>
+        <div class="mc-title">Mismos datos + mismo auto</div>
+        <div class="mc-body">El cliente cotizó un auto y compró ese mismo auto. Sus <strong>datos personales y el número de serie coinciden</strong> con la venta facturada en el DCA. El sistema hace el cruce automático <strong>1 a 1</strong> sin intervención.</div>
+        <div class="mc-required"><strong>El vendedor</strong>Reporta la venta cerrada en el pipeline</div>
+      </div>
+
+      <div class="matching-case change">
+        <div class="mc-num">Caso 2 · Cambio de auto</div>
+        <div class="mc-title">Mismos datos + auto distinto</div>
+        <div class="mc-body">El cliente vino cotizando un auto pero en la visita cambió de opinión y compró otro. <strong>Por diseño del proceso sigue siendo atribución 1 a 1</strong> al canal digital — la conversación arrancó ahí, la decisión final se acomoda.</div>
+        <div class="mc-required"><strong>El vendedor</strong>Registra en Vambe el cambio de auto</div>
+      </div>
+
+      <div class="matching-case other">
+        <div class="mc-num">Caso 3 · Sin match automático</div>
+        <div class="mc-title">Cotiza uno · factura otro</div>
+        <div class="mc-body">El lead cotiza con sus datos pero la factura sale a nombre de su esposa, hijo o algún familiar. <strong>El DCA no puede hacer match automático</strong> — la atribución depende 100% de que el vendedor lo reporte en el pipeline.</div>
+        <div class="mc-required"><strong>El vendedor</strong>Marca en Vambe a quién se facturó y por qué</div>
+      </div>
+
+    </div>
+
+    <div class="handoff-note" style="margin-top: 6px; padding: 8px 14px;">
+      <div class="handoff-note-mark">Clave<br>del éxito</div>
+      <div class="handoff-note-body">En los <strong>3 casos</strong> la atribución solo existe si el vendedor retroalimenta con disciplina. Sin gestión humana, <em>hasta las ventas más obvias se pierden en el sistema</em>. La disciplina operativa del equipo comercial es lo que hace que el motor mida bien y siga creciendo.</div>
+    </div>
+
+  </div>
+  <div class="slide-footer">
+    <span><span class="dot"></span><strong>Grupo Plasencia Automotriz</strong> · Documento de Alineación · Seminuevos · Agosto 2026</span>
+    <span>Interno · Slide 5 de 9</span>
+  </div>
+</div>
+
+
+<!-- ==================== SLIDE 6 · QUÉ PROPONEMOS EN CRECIMIENTO ==================== -->
+<div class="slide">
+  <div class="content">
+
+    <div class="slide-header">
+      <div class="section-num">05 · Qué proponemos en Crecimiento</div>
       <div class="slide-mark">Presupuesto + reparto acordado con Jonathan</div>
     </div>
 
@@ -542,7 +609,7 @@ html, body { width:100%; background:#0A0F1F; font-family:var(--sans); -webkit-fo
 
   <div class="slide-footer">
     <span><span class="dot"></span><strong>Grupo Plasencia Automotriz</strong> · Documento de Alineación · Seminuevos · Agosto 2026</span>
-    <span>Interno · Slide 5 de 8</span>
+    <span>Interno · Slide 6 de 9</span>
   </div>
 </div>
 
@@ -552,7 +619,7 @@ html, body { width:100%; background:#0A0F1F; font-family:var(--sans); -webkit-fo
   <div class="content">
 
     <div class="slide-header">
-      <div class="section-num">05 · Métricas y compromisos por lado</div>
+      <div class="section-num">06 · Métricas y compromisos por lado</div>
       <div class="slide-mark">Alineado con Jonathan · lunes 10-ago</div>
     </div>
 
@@ -613,7 +680,7 @@ html, body { width:100%; background:#0A0F1F; font-family:var(--sans); -webkit-fo
 
   <div class="slide-footer">
     <span><span class="dot"></span><strong>Grupo Plasencia Automotriz</strong> · Documento de Alineación · Seminuevos · Agosto 2026</span>
-    <span>Interno · Slide 6 de 8</span>
+    <span>Interno · Slide 7 de 9</span>
   </div>
 </div>
 
@@ -623,7 +690,7 @@ html, body { width:100%; background:#0A0F1F; font-family:var(--sans); -webkit-fo
   <div class="content">
 
     <div class="slide-header">
-      <div class="section-num">06 · Cómo reportamos mes a mes</div>
+      <div class="section-num">07 · Cómo reportamos mes a mes</div>
       <div class="slide-mark">Del anuncio a la venta · qué se mide en cada paso</div>
     </div>
 
@@ -704,7 +771,7 @@ html, body { width:100%; background:#0A0F1F; font-family:var(--sans); -webkit-fo
   </div>
   <div class="slide-footer">
     <span><span class="dot"></span><strong>Grupo Plasencia Automotriz</strong> · Documento de Alineación · Seminuevos · Agosto 2026</span>
-    <span>Interno · Slide 7 de 8</span>
+    <span>Interno · Slide 8 de 9</span>
   </div>
 </div>
 
@@ -748,7 +815,7 @@ html, body { width:100%; background:#0A0F1F; font-family:var(--sans); -webkit-fo
 
     <div class="close-foot">
       <span><strong>Grupo Plasencia Automotriz</strong> · Documento de Alineación · Seminuevos · Agosto 2026</span>
-      <span>Interno · Slide 8 de 8</span>
+      <span>Interno · Slide 9 de 9</span>
     </div>
 
   </div>
