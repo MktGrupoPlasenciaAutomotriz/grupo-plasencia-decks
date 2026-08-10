@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Documento de Alineación · Flotillas · Arranque del Piloto Digital · Grupo Plasencia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@500;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gp-red: #C8102E; --gp-navy: #1E2740; --gp-slate: #2D3748;
+  --green: #48BB78; --deep-green: #276749;
+  --blue: #4299E1; --deep-blue: #2B6CB0;
+  --amber: #D69E2E; --gold: #ECC94B;
+  --bg: #F0F4F8; --paper: #FFFFFF; --near-white: #F7FAFC;
+  --g100: #EDF2F7; --g200: #E2E8F0; --g300: #CBD5E0; --g400: #A0AEC0; --g500: #718096; --g600: #4A5568; --g700: #2D3748;
+  --text: #2D3748;
+  --serif: 'Playfair Display', Georgia, serif;
+  --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { width:100%; background:#0A0F1F; font-family:var(--sans); -webkit-font-smoothing:antialiased; padding: 32px 0; }
+.slide { position:relative; width:1280px; height:720px; margin: 0 auto 32px auto; overflow:hidden; display:flex; flex-direction:column; background: var(--bg); color: var(--text); box-shadow: 0 8px 32px rgba(0,0,0,.4); }
+.slide.dark { background: var(--gp-navy); color: var(--near-white); }
+.content { padding: 42px 72px 14px 72px; flex:1; display:flex; flex-direction:column; gap: 12px; position:relative; min-height:0; overflow:hidden; }
+.slide-header { display:flex; justify-content:space-between; align-items:flex-end; padding-bottom: 4px; border-bottom: 1px solid var(--g200); }
+.section-num { font-family:var(--sans); font-size:9pt; font-weight:800; letter-spacing:4px; color: var(--gp-red); text-transform:uppercase; }
+.slide-mark { font-family:var(--sans); font-size:8.5pt; font-weight:700; letter-spacing:3px; color: var(--g500); text-transform:uppercase; }
+.slide-h1 { font-family:var(--serif); font-weight:800; font-size:26pt; line-height:1.08; letter-spacing:-1px; color: var(--gp-navy); margin-top:4px; }
+.slide-h1 em { font-style:italic; color: var(--amber); font-weight:700; }
+.slide-lede { font-family:var(--sans); font-size:10.5pt; color: var(--g600); line-height:1.5; margin-top: 4px; max-width: 1130px; }
+.slide-lede strong { color: var(--gp-navy); font-weight:700; }
+.slide-lede em { font-style: italic; color: var(--gp-navy); }
+.slide-footer { position:relative; margin: 0 72px; padding: 8px 0 14px 0; display:flex; justify-content:space-between; align-items:center; font-family: var(--sans); font-size: 8.5pt; color: var(--g500); border-top: 1px solid var(--g200); gap: 16px; flex-shrink:0; }
+.slide-footer .dot { display:inline-block; width:8px; height:8px; background: var(--gp-red); border-radius:50%; margin-right:6px; vertical-align:middle; }
+.slide-footer strong { color: var(--gp-navy); font-weight:700; }
+
+/* Portada */
+.cover-inner { padding: 50px 78px 40px 78px; flex:1; display:flex; flex-direction:column; justify-content:space-between; background: radial-gradient(ellipse at 100% 0%, rgba(236,201,75,.18) 0%, transparent 55%), radial-gradient(ellipse at 0% 100%, rgba(200,16,46,.14) 0%, transparent 55%), var(--gp-navy); }
+.cover-top { display:flex; justify-content:space-between; align-items:flex-start; }
+.cover-mark { font-family:var(--sans); font-weight:700; font-size:11pt; letter-spacing:4px; color: var(--gold); text-transform:uppercase; }
+.cover-mark span { display:block; font-weight:400; color: rgba(255,255,255,.62); margin-top:5px; letter-spacing:1px; font-size:9pt; }
+.cover-conf { font-family:var(--sans); font-weight:700; font-size:9pt; letter-spacing:3.5px; color: var(--gp-red); text-transform:uppercase; text-align:right; }
+.cover-conf span { display:block; color: rgba(255,255,255,.55); font-weight:400; letter-spacing:1px; font-size:8pt; margin-top:4px; }
+.cover-center { flex:1; display:flex; flex-direction:column; justify-content:center; padding: 20px 0; }
+.cover-eyebrow { font-family:var(--sans); font-size:11pt; font-weight:700; letter-spacing:5px; color: var(--gp-red); text-transform:uppercase; }
+.cover-title { font-family:var(--serif); font-weight:800; font-size:40pt; line-height:1.05; letter-spacing:-1.5px; margin-top:14px; color: var(--near-white); max-width:1080px; }
+.cover-title em { font-style:italic; color: var(--gold); font-weight:700; }
+.cover-subtitle { font-family:var(--serif); font-weight:500; font-style:italic; font-size:14pt; color: rgba(255,255,255,.88); margin-top:20px; letter-spacing:-.2px; line-height:1.45; max-width:1020px; }
+.cover-subtitle strong { color: var(--near-white); font-style: normal; font-weight: 700; }
+.cover-meta { display:grid; grid-template-columns: repeat(4, 1fr); gap: 18px; border-top: 1px solid rgba(255,255,255,.18); padding-top:16px; margin-top: 20px; }
+.cover-meta-block { font-size:9pt; color: rgba(255,255,255,.72); line-height:1.55; font-family: var(--sans); }
+.cover-meta-block strong { display:block; color: var(--gold); font-weight:700; font-size:8pt; letter-spacing:1.5px; margin-bottom:4px; text-transform:uppercase; }
+.cover-meta-block span { display:block; color: rgba(255,255,255,.94); font-weight:500; font-size:10pt; margin-bottom:2px; }
+
+/* Slide ciclo de vida · 4 fases */
+.fases-lede { font-family:var(--sans); font-size:10.5pt; color: var(--g600); line-height:1.5; margin-top: 4px; max-width: 1130px; }
+.fases-lede strong { color: var(--gp-navy); font-weight:700; }
+.fases-grid { display:grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 12px; }
+.fase-card { background: var(--paper); border: 1px solid var(--g200); border-top: 4px solid var(--g300); border-radius: 12px; padding: 12px 14px; display:flex; flex-direction:column; gap: 7px; box-shadow: 0 1px 3px rgba(30,39,64,.04); position:relative; }
+.fase-card.actual { border-top-color: var(--amber); background: linear-gradient(180deg, #FFFEF5 0%, var(--paper) 100%); box-shadow: 0 4px 14px rgba(214,158,46,.18); }
+.fase-card.done { border-top-color: var(--deep-green); opacity: .92; }
+.fase-num { font-family:var(--sans); font-size:8pt; font-weight:800; letter-spacing:2px; text-transform:uppercase; color: var(--g500); }
+.fase-card.actual .fase-num { color: var(--amber); }
+.fase-card.done .fase-num { color: var(--deep-green); }
+.fase-title { font-family:var(--serif); font-weight:800; font-size:17pt; color: var(--gp-navy); letter-spacing:-.5px; line-height:1.05; }
+.fase-desc { font-family:var(--sans); font-size:9pt; color: var(--g600); line-height:1.45; }
+.fase-desc strong { color: var(--gp-navy); font-weight:700; }
+.fase-meta { display:flex; flex-direction:column; gap: 3px; padding-top: 8px; margin-top: auto; border-top: 1px dashed var(--g200); }
+.fase-meta-row { font-family:var(--sans); font-size:8pt; color: var(--g500); line-height:1.35; }
+.fase-meta-row strong { font-family:var(--sans); color: var(--gp-navy); font-weight:700; display:block; font-size:7.5pt; letter-spacing:1.2px; text-transform:uppercase; }
+.fase-badge-here { position:absolute; top:-11px; left:50%; transform:translateX(-50%); background: var(--amber); color: var(--gp-navy); font-family:var(--sans); font-size:7.5pt; font-weight:800; letter-spacing:1.5px; text-transform:uppercase; padding: 4px 12px; border-radius: 999px; box-shadow: 0 2px 8px rgba(214,158,46,.4); white-space:nowrap; }
+.fases-footnote { font-family:var(--sans); font-size:9pt; color: var(--g600); line-height:1.5; margin-top: 12px; padding: 10px 14px; background: var(--g100); border-left: 3px solid var(--gp-navy); border-radius: 4px; }
+.fases-footnote strong { color: var(--gp-navy); font-weight:700; }
+
+/* Slide flujo · timeline 7 pasos + sucursales */
+.flow-wrap { display:flex; flex-direction:column; gap: 10px; margin-top: 6px; }
+.flow-timeline { display:grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 8px; position:relative; margin-top: 14px; }
+.flow-step { background: var(--paper); border: 1px solid var(--g200); border-top: 3px solid var(--gp-navy); border-radius: 10px; padding: 10px 10px 12px 10px; display:flex; flex-direction:column; gap: 4px; position:relative; box-shadow: 0 1px 3px rgba(30,39,64,.05); }
+.flow-step.comercial { border-top-color: var(--deep-green); }
+.flow-actor { font-family:var(--sans); font-size:6.5pt; font-weight:800; letter-spacing:1.1px; text-transform:uppercase; padding: 3px 7px; border-radius: 3px; text-align:center; display:inline-block; align-self:flex-start; }
+.flow-actor.mkt { color: var(--near-white); background: var(--gp-navy); }
+.flow-actor.vambe { color: var(--gp-navy); background: var(--amber); }
+.flow-actor.vendedor { color: var(--near-white); background: var(--deep-green); }
+.flow-actor.cliente { color: var(--near-white); background: var(--deep-blue); }
+.flow-actor.sistema { color: var(--near-white); background: var(--gp-red); }
+.flow-step-tag { position:absolute; top: -11px; left: -4px; background: var(--amber); color: var(--gp-navy); font-family: var(--sans); font-weight: 800; font-size: 6.5pt; letter-spacing: 1.2px; text-transform: uppercase; padding: 4px 9px; border-radius: 999px; box-shadow: 0 2px 8px rgba(214,158,46,.45), 0 0 0 2px var(--bg); white-space: nowrap; z-index: 5; }
+.flow-owner-lbl { font-family: var(--sans); font-size: 7pt; font-weight: 800; letter-spacing: 1.3px; text-transform: uppercase; color: var(--g500); margin-bottom: -2px; }
+.flow-step.comercial .flow-owner-lbl { color: var(--deep-green); }
+.flow-num { font-family: var(--serif); font-weight: 900; font-size: 22pt; color: var(--gp-red); line-height:1; }
+.flow-title { font-family: var(--sans); font-weight: 800; font-size: 9.5pt; color: var(--gp-navy); line-height:1.15; letter-spacing:-.1px; }
+.flow-desc { font-family: var(--sans); font-size: 8pt; color: var(--g600); line-height:1.35; }
+.flow-desc strong { color: var(--gp-navy); font-weight:700; }
+.flow-arrow { position:absolute; right:-9px; top:52%; transform:translateY(-50%); color: var(--g400); font-family:var(--serif); font-weight:900; font-size:15pt; z-index:2; pointer-events:none; background:var(--bg); padding: 0 2px; }
+.flow-step:last-child .flow-arrow { display:none; }
+
+.handoff-note { background: linear-gradient(90deg, rgba(214,158,46,.16) 0%, rgba(72,187,120,.14) 100%); border: 1px solid rgba(214,158,46,.35); border-left: 4px solid var(--amber); border-radius: 8px; padding: 10px 14px; display:grid; grid-template-columns: auto 1fr; gap: 14px; align-items:center; }
+.handoff-note-mark { font-family: var(--sans); font-size: 7pt; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gp-navy); background: var(--amber); padding: 6px 11px; border-radius: 999px; white-space: nowrap; box-shadow: 0 2px 6px rgba(214,158,46,.35); text-align:center; line-height:1.15; }
+.handoff-note-body { font-family: var(--sans); font-size: 9pt; color: var(--g600); line-height: 1.45; }
+.handoff-note-body strong { color: var(--gp-navy); font-weight: 700; }
+.handoff-note-body em { color: var(--deep-green); font-style: normal; font-weight: 700; }
+
+.sucursales-panel { background: var(--paper); border: 1px solid var(--g200); border-radius: 10px; padding: 10px 16px 12px 16px; }
+.sucursales-hdr { display:flex; justify-content:space-between; align-items:baseline; font-family: var(--sans); font-size: 8pt; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gp-navy); margin-bottom: 6px; }
+.sucursales-hdr .link { color: var(--deep-blue); font-weight:600; text-transform:none; letter-spacing:.2px; font-size:8pt; }
+.sucursales-grid { display:grid; grid-template-columns: repeat(5, 1fr); gap: 6px 14px; }
+.sucursal-item { display:flex; flex-direction:column; gap: 1px; padding: 3px 0 3px 8px; border-left: 3px solid var(--g300); }
+.sucursal-item.dedicated { border-left-color: var(--gp-red); }
+.sucursal-item.mazda { border-left-color: var(--deep-blue); }
+.sucursal-name { font-family:var(--sans); font-size:8.5pt; font-weight:700; color: var(--gp-navy); line-height:1.2; }
+.sucursal-loc { font-family:var(--sans); font-size:7.5pt; color: var(--g500); line-height:1.3; }
+
+/* Slide baseline · flujo + KPIs (patrón Familia) */
+.pilar-wrap { display:grid; grid-template-columns: 1fr 1.15fr; gap: 20px; margin-top: 4px; }
+
+.baseline-panel { background: var(--paper); border: 1px solid var(--g200); border-top: 4px solid var(--gp-navy); border-radius: 12px; padding: 14px 20px; display:flex; flex-direction:column; gap: 8px; box-shadow: 0 1px 3px rgba(30,39,64,.05); }
+.baseline-hdr { font-family:var(--sans); font-size:9pt; font-weight:800; letter-spacing:1.5px; text-transform:uppercase; color: var(--gp-navy); }
+.baseline-t { font-family:var(--serif); font-weight:800; font-size:15pt; color: var(--gp-navy); line-height:1.18; letter-spacing:-.4px; }
+.baseline-body { font-family:var(--sans); font-size:9.5pt; color: var(--g600); line-height:1.5; }
+.baseline-body strong { color: var(--gp-navy); font-weight:700; }
+.baseline-body em { font-style: italic; color: var(--gp-navy); }
+
+.kpi-panel { display:flex; flex-direction:column; gap: 8px; }
+.kpi-hero { background: linear-gradient(135deg, var(--gp-navy) 0%, #2A3654 100%); color: var(--near-white); border-radius: 12px; padding: 14px 20px; }
+.kpi-hero-lbl { font-family:var(--sans); font-size:8pt; font-weight:800; letter-spacing:2px; text-transform:uppercase; color: var(--gold); }
+.kpi-hero-num { font-family:var(--serif); font-weight:900; font-size:40pt; line-height:1; color: var(--gold); font-variant-numeric: tabular-nums; letter-spacing:-1.5px; margin-top: 6px; }
+.kpi-hero-sub { font-family:var(--sans); font-size:10pt; color: rgba(255,255,255,.9); margin-top: 6px; line-height:1.4; }
+.kpi-hero-sub strong { color: var(--near-white); font-weight:700; }
+
+.kpi-strip { display:grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.kpi-cell { background: var(--paper); border: 1px solid var(--g200); border-left: 4px solid var(--gp-red); border-radius: 8px; padding: 8px 12px; }
+.kpi-cell.gold { border-left-color: var(--amber); }
+.kpi-cell.green { border-left-color: var(--deep-green); }
+.kpi-cell-lbl { font-family:var(--sans); font-size:7.5pt; font-weight:800; letter-spacing:1.4px; text-transform:uppercase; color: var(--gp-red); }
+.kpi-cell.gold .kpi-cell-lbl { color: var(--amber); }
+.kpi-cell.green .kpi-cell-lbl { color: var(--deep-green); }
+.kpi-cell-num { font-family:var(--serif); font-weight:900; font-size:20pt; line-height:1; color: var(--gp-navy); font-variant-numeric: tabular-nums; letter-spacing:-.7px; margin-top: 3px; }
+.kpi-cell-sub { font-family:var(--sans); font-size:8pt; color: var(--g500); line-height:1.3; margin-top: 3px; }
+.kpi-cell-sub strong { color: var(--gp-navy); font-weight:700; }
+
+.callout-navy { background: var(--gp-navy); color: var(--near-white); border-radius: 10px; padding: 12px 20px; margin-top: 4px; display:grid; grid-template-columns: auto 1fr; gap: 18px; align-items:center; }
+.callout-navy-icon { font-family:var(--serif); font-weight:900; font-size:24pt; color: var(--gold); line-height:1; padding-right: 14px; border-right: 1px solid rgba(255,255,255,.25); }
+.callout-navy-body { font-family:var(--serif); font-weight:500; font-style:italic; font-size:13pt; color: rgba(255,255,255,.95); line-height:1.35; }
+.callout-navy-body strong { color: var(--gold); font-style: normal; font-weight:700; }
+
+/* Slide Crecimiento · presupuesto + allocation */
+.propuesta-wrap { display:grid; grid-template-columns: 1fr 1.1fr; gap: 18px; margin-top: 4px; }
+
+.presup-card { background: linear-gradient(180deg, #FFFEF8 0%, var(--paper) 100%); border: 1px solid var(--g200); border-top: 4px solid var(--amber); border-radius: 12px; padding: 14px 20px; }
+.presup-lbl { font-family:var(--sans); font-size:8pt; font-weight:800; letter-spacing:2px; text-transform:uppercase; color: var(--amber); margin-bottom: 4px; }
+.presup-t { font-family:var(--serif); font-weight:800; font-size:14pt; color: var(--gp-navy); line-height:1.18; letter-spacing:-.4px; margin-bottom: 6px; }
+.presup-num { font-family:var(--serif); font-weight:900; font-size:44pt; line-height:1; color: var(--gp-navy); font-variant-numeric: tabular-nums; letter-spacing:-1.5px; }
+.presup-num-unit { font-family:var(--sans); font-size:11pt; color: var(--g500); font-weight:500; }
+.presup-sub { font-family:var(--sans); font-size:9pt; color: var(--g600); margin-top: 4px; line-height:1.4; }
+.presup-sub strong { color: var(--gp-navy); font-weight:700; }
+
+.alloc-list { display:flex; flex-direction:column; gap: 8px; margin-top: 4px; }
+.alloc-item { background: var(--paper); border: 1px solid var(--g200); border-left: 4px solid var(--gp-navy); border-radius: 8px; padding: 10px 14px; display:grid; grid-template-columns: 60px 1fr; gap: 14px; align-items:flex-start; }
+.alloc-item.blue { border-left-color: var(--deep-blue); }
+.alloc-item.gold { border-left-color: var(--amber); }
+.alloc-pct { font-family:var(--serif); font-weight:900; font-size:26pt; color: var(--gp-navy); line-height:1; text-align:center; }
+.alloc-item.blue .alloc-pct { color: var(--deep-blue); }
+.alloc-item.gold .alloc-pct { color: var(--amber); }
+.alloc-t { font-family:var(--sans); font-size:10pt; font-weight:800; color: var(--gp-navy); margin-bottom: 2px; }
+.alloc-body { font-family:var(--sans); font-size:9pt; color: var(--g600); line-height:1.42; }
+.alloc-body strong { color: var(--gp-navy); font-weight:700; }
+.alloc-body em { font-style: italic; color: var(--gp-navy); }
+
+/* Slide compromisos · 3 columnas */
+.compromiso-grid { display:grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; margin-top: 4px; }
+.compromiso-card { background: var(--paper); border: 1px solid var(--g200); border-radius: 12px; padding: 14px 16px; display:flex; flex-direction:column; gap: 8px; overflow: hidden; }
+.compromiso-card.mkt { border-top: 4px solid var(--gp-red); }
+.compromiso-card.comercial { border-top: 4px solid var(--amber); background: linear-gradient(180deg, #FFFEF8 0%, var(--paper) 100%); }
+.compromiso-card.compartido { border-top: 4px solid var(--deep-green); background: linear-gradient(180deg, #F6FBF8 0%, var(--paper) 100%); }
+.compromiso-hdr { display:flex; align-items:baseline; justify-content:space-between; gap: 8px; margin-bottom: 2px; }
+.compromiso-tag { font-family:var(--sans); font-size:8pt; font-weight:800; letter-spacing:2px; text-transform:uppercase; color: var(--gp-red); }
+.compromiso-card.comercial .compromiso-tag { color: var(--amber); }
+.compromiso-card.compartido .compromiso-tag { color: var(--deep-green); }
+.compromiso-who { font-family:var(--sans); font-size:7.5pt; font-weight:700; color: var(--g500); letter-spacing:.6px; text-transform:uppercase; text-align:right; }
+.compromiso-t { font-family:var(--serif); font-weight:800; font-size:14pt; color: var(--gp-navy); line-height:1.18; letter-spacing:-.4px; margin-bottom: 4px; }
+.compromiso-list { display:flex; flex-direction:column; gap: 5px; }
+.compromiso-item { font-family:var(--sans); font-size:8.5pt; color: var(--g600); line-height:1.4; padding-left: 14px; position:relative; }
+.compromiso-item::before { position:absolute; left:0; font-weight:800; }
+.compromiso-card.mkt .compromiso-item::before { content:"◆"; color: var(--gp-red); font-size:7pt; top:3px; }
+.compromiso-card.comercial .compromiso-item::before { content:"▸"; color: var(--amber); }
+.compromiso-card.compartido .compromiso-item::before { content:"✓"; color: var(--deep-green); font-size:9pt; }
+.compromiso-item strong { color: var(--gp-navy); font-weight:700; }
+.compromiso-item em { font-style: italic; color: var(--gp-navy); }
+
+.honesty-strip { background: linear-gradient(135deg, rgba(214,158,46,.10) 0%, rgba(30,39,64,.03) 100%); border: 1px solid var(--g200); border-left: 4px solid var(--amber); border-radius: 8px; padding: 7px 12px; margin-top: 4px; font-family: var(--sans); font-size: 8pt; color: var(--g600); line-height: 1.35; }
+.honesty-strip strong { color: var(--gp-navy); font-weight:700; }
+.honesty-strip em { font-style: italic; color: var(--gp-navy); }
+
+/* Slide atribución · 3 casos matching DCA */
+.matching-cases { display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 14px; margin-top: 8px; }
+.matching-case { background: var(--paper); border: 1px solid var(--g200); border-top: 4px solid var(--deep-blue); border-radius: 12px; padding: 14px 18px; display:flex; flex-direction:column; gap: 8px; box-shadow: 0 1px 3px rgba(30,39,64,.04); position:relative; }
+.matching-case.exact { border-top-color: var(--deep-green); }
+.matching-case.change { border-top-color: var(--amber); }
+.matching-case.other { border-top-color: var(--gp-red); }
+.mc-num { font-family:var(--sans); font-size:7.5pt; font-weight:800; letter-spacing:1.4px; text-transform:uppercase; color: var(--g500); }
+.matching-case.exact .mc-num { color: var(--deep-green); }
+.matching-case.change .mc-num { color: var(--amber); }
+.matching-case.other .mc-num { color: var(--gp-red); }
+.mc-title { font-family:var(--serif); font-weight:800; font-size:15pt; color: var(--gp-navy); line-height:1.15; letter-spacing:-.4px; }
+.mc-body { font-family:var(--sans); font-size:9pt; color: var(--g600); line-height:1.5; flex:1; }
+.mc-body strong { color: var(--gp-navy); font-weight:700; }
+.mc-required { background: var(--g100); border-left: 3px solid var(--gp-navy); padding: 7px 11px; font-family:var(--sans); font-size:8.5pt; color: var(--g700); border-radius: 4px; }
+.mc-required strong { display:block; color: var(--gp-navy); font-weight:800; font-size:7pt; letter-spacing:1.2px; text-transform:uppercase; margin-bottom: 3px; }
+
+/* Slide reporting E2E · funnel + audiencias */
+.funnel-e2e { display:grid; grid-template-columns: repeat(5, 1fr); gap: 6px; margin-top: 2px; position:relative; }
+.funnel-stage { background: var(--paper); border: 1px solid var(--g200); border-top: 3px solid var(--gp-red); border-radius: 10px; padding: 10px 11px 9px 11px; display:flex; flex-direction:column; gap: 4px; box-shadow: 0 1px 3px rgba(30,39,64,.05); position:relative; }
+.funnel-stage-lbl { font-family:var(--sans); font-size:7pt; font-weight:800; letter-spacing:1.5px; text-transform:uppercase; color: var(--gp-red); }
+.funnel-stage-t { font-family:var(--serif); font-weight:800; font-size:12pt; color: var(--gp-navy); line-height:1.12; letter-spacing:-.3px; }
+.funnel-stage-user { font-family:var(--sans); font-size:8pt; color: var(--gp-navy); line-height:1.35; padding: 5px 8px; background: rgba(66,153,225,.10); border-left: 2px solid var(--deep-blue); border-radius: 3px; margin-top: 2px; }
+.funnel-stage-user strong { font-family:var(--sans); font-style:normal; color: var(--deep-blue); font-weight:800; font-size:6.5pt; letter-spacing:1.2px; text-transform:uppercase; display:block; margin-bottom: 2px; }
+.funnel-stage-user span { font-style:italic; }
+.funnel-stage-owner { font-family:var(--sans); font-size:7.5pt; color: var(--near-white); line-height:1.3; padding: 4px 8px; background: var(--gp-navy); border-left: 2px solid var(--gold); border-radius: 3px; }
+.funnel-stage-owner strong { font-family:var(--sans); color: var(--gold); font-weight:800; font-size:6.5pt; letter-spacing:1.2px; text-transform:uppercase; display:block; margin-bottom: 1px; }
+.funnel-stage-metric { font-family:var(--sans); font-size:8pt; color: var(--g600); line-height:1.35; flex:1; padding: 0 2px; }
+.funnel-stage-metric strong { color: var(--gp-navy); font-weight:700; }
+.funnel-stage-cost { background: var(--gp-navy); color: var(--gold); font-family:var(--sans); font-size:7.5pt; font-weight:800; letter-spacing:1.3px; text-transform:uppercase; padding: 5px 10px; border-radius: 4px; margin-top: auto; text-align:center; }
+.funnel-arrow { position:absolute; right:-10px; top:50%; transform:translateY(-50%); color: var(--g400); font-family:var(--serif); font-weight:900; font-size:14pt; z-index:2; pointer-events:none; background:var(--bg); padding:0 2px; }
+.funnel-stage:last-child .funnel-arrow { display:none; }
+
+.reporting-audiencias { display:grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 12px; }
+.aud-card { background: var(--paper); border: 1px solid var(--g200); border-left: 3px solid var(--deep-blue); border-radius: 8px; padding: 10px 14px; display:flex; flex-direction:column; gap: 4px; }
+.aud-card.consejo { border-left-color: var(--gp-red); }
+.aud-card.marca { border-left-color: var(--amber); }
+.aud-t { font-family:var(--sans); font-size:9pt; font-weight:800; color: var(--gp-navy); text-transform:uppercase; letter-spacing:1.2px; }
+.aud-who { font-family:var(--sans); font-size:8pt; color: var(--g500); font-style:italic; }
+.aud-body { font-family:var(--sans); font-size:8.5pt; color: var(--g600); line-height:1.4; margin-top:3px; }
+.aud-body strong { color: var(--gp-navy); font-weight:700; }
+
+/* Cierre · próximos pasos */
+.close-inner { padding: 46px 78px 36px 78px; flex:1; display:flex; flex-direction:column; justify-content:space-between; background: radial-gradient(ellipse at 50% 30%, rgba(236,201,75,.14) 0%, transparent 60%), var(--gp-navy); }
+.close-top { text-align:center; }
+.close-eyebrow { font-family: var(--sans); font-size: 10pt; font-weight: 800; letter-spacing: 5px; color: var(--gold); text-transform: uppercase; }
+.close-rule { width: 80px; height: 1px; background: var(--gold); margin: 14px auto; opacity: .7; }
+.close-h { font-family: var(--serif); font-weight: 800; font-size: 28pt; line-height: 1.15; letter-spacing: -1.1px; color: var(--near-white); margin: 10px auto 0 auto; max-width: 1020px; }
+.close-h em { font-style: italic; color: var(--gold); font-weight: 700; }
+.close-sub { font-family: var(--sans); font-size: 11pt; color: rgba(255,255,255,.82); margin: 14px auto 0 auto; line-height: 1.5; max-width: 900px; text-align:center; }
+.close-sub em { font-style: italic; color: var(--near-white); }
+
+.pasos-panel { background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.14); border-radius: 12px; padding: 16px 26px; margin-top: 6px; }
+.pasos-hdr { font-family:var(--sans); font-size:9pt; font-weight:800; letter-spacing:3px; text-transform:uppercase; color: var(--gold); text-align:center; margin-bottom: 12px; }
+.pasos-grid { display:grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.paso-item { text-align:center; padding: 4px 0; }
+.paso-fecha { display:block; font-family:var(--sans); font-size:8pt; font-weight:800; letter-spacing:1.5px; text-transform:uppercase; color: var(--gold); margin-bottom: 4px; }
+.paso-what { display:block; font-family:var(--serif); font-weight:700; font-size:11pt; color: var(--near-white); line-height:1.25; margin-bottom: 3px; }
+.paso-who { display:block; font-family:var(--sans); font-size:8pt; color: rgba(255,255,255,.7); line-height:1.35; }
+
+.close-foot { display:flex; justify-content:space-between; align-items:center; font-family:var(--sans); font-size:8.5pt; color: rgba(255,255,255,.55); border-top: 1px solid rgba(255,255,255,.14); padding-top: 14px; margin-top: 10px; letter-spacing:1.5px; text-transform: uppercase; }
+.close-foot strong { color: var(--gold); font-weight:700; }
+</style>
+</head>
+<body>
+
+<!-- ==================== SLIDE 1 · PORTADA ==================== -->
+<div class="slide dark">
+  <div class="cover-inner">
+    <div class="cover-top">
+      <div class="cover-mark">Grupo Plasencia Automotriz<span>Dirección de Marketing y Transformación Digital</span></div>
+      <div class="cover-conf">Interno · previo a Consejo<span>Lunes 10-ago 2026</span></div>
+    </div>
+
+    <div class="cover-center">
+      <div class="cover-eyebrow">Documento de Alineación · Flotillas</div>
+      <h1 class="cover-title">Arranque del <em>Piloto Digital</em></h1>
+      <p class="cover-subtitle">La División Flotillas ya crece orgánicamente (+435% en 2026 vs 2025 con margen +1.17 pts). El canal digital no inventa el negocio — <strong>amplifica y abre el segmento AA (10-30 unidades) donde hoy no llega la captación por relaciones</strong>. Arrancamos el Piloto formal por 90 días para validar el motor B2B.</p>
+    </div>
+
+    <div class="cover-meta">
+      <div class="cover-meta-block"><strong>Circula con</strong><span>Aurora del Pozo · Pepe Morales</span><span>Consejo · Directores de Marca</span></div>
+      <div class="cover-meta-block"><strong>De</strong><span>Jesús Pérez Porras</span><span>Dir. Marketing Corporativo</span></div>
+      <div class="cover-meta-block"><strong>Cómo se lee</strong><span>Cada quien revisa, da OK</span><span>y sigue al siguiente</span></div>
+      <div class="cover-meta-block"><strong>Objetivo</strong><span>Alineación para arrancar</span><span>el Piloto Digital 90 días</span></div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ==================== SLIDE 2 · CICLO DE VIDA · 4 FASES ==================== -->
+<div class="slide">
+  <div class="content">
+
+    <div class="slide-header">
+      <div class="section-num">01 · Ciclo de vida de una iniciativa</div>
+      <div class="slide-mark">Marco común · aplica a todas las iniciativas del área</div>
+    </div>
+
+    <h1 class="slide-h1">Toda iniciativa del canal digital <em>vive 4 fases</em> · Flotillas está arrancando la 1</h1>
+
+    <p class="fases-lede">Este marco lo usamos para <strong>todas</strong> las iniciativas del canal digital del Grupo. Sirve para que cada decisión de inversión sea legible: <strong>qué se valida en cada fase, cuánto tiempo dura y qué se compromete al Consejo cuando se cruza al siguiente escalón</strong>.</p>
+
+    <div class="fases-grid">
+
+      <div class="fase-card actual">
+        <div class="fase-badge-here">Estamos aquí</div>
+        <div class="fase-num">Fase 1</div>
+        <div class="fase-title">Piloto</div>
+        <div class="fase-desc">Probar que <strong>el motor completo funciona</strong> — anuncio → prospecto → contacto calificado → cotización → venta facturada — con inversión chica y foco en un segmento específico.</div>
+        <div class="fase-meta">
+          <div class="fase-meta-row"><strong>Se compromete</strong>Operar con disciplina · leer señales verde/rojo</div>
+          <div class="fase-meta-row"><strong>NO se compromete</strong>Ventas ni ROI (no hay baseline digital aún)</div>
+          <div class="fase-meta-row"><strong>Duración típica</strong>60–90 días</div>
+        </div>
+      </div>
+
+      <div class="fase-card">
+        <div class="fase-num">Fase 2</div>
+        <div class="fase-title">Crecimiento</div>
+        <div class="fase-desc">Con el motor probado, se <strong>sube la inversión de forma controlada</strong> mes por mes para <strong>calibrar el costo por venta real</strong> y confirmar que el modelo aguanta más volumen. Aún hay ajuste fino.</div>
+        <div class="fase-meta">
+          <div class="fase-meta-row"><strong>Se compromete</strong>Rango realista de costo por venta + ventas atribuidas</div>
+          <div class="fase-meta-row"><strong>Cómo se escala</strong>Mes por mes · solo si el mes anterior venía bien</div>
+          <div class="fase-meta-row"><strong>Duración típica</strong>3–6 meses</div>
+        </div>
+      </div>
+
+      <div class="fase-card">
+        <div class="fase-num">Fase 3</div>
+        <div class="fase-title">Escalamiento</div>
+        <div class="fase-desc">Con <strong>todo validado en las fases previas</strong> — el canal digital funciona, el costo por venta está calibrado, el modelo operativo anuncio→venta corre solo — se <strong>inyecta presupuesto grande a la línea de negocio</strong> para crecerla en serio, con la seguridad de que el modelo digital probado va a sostener el volumen.</div>
+        <div class="fase-meta">
+          <div class="fase-meta-row"><strong>Se compromete</strong>Crecimiento agresivo de ventas y revenue de la línea</div>
+          <div class="fase-meta-row"><strong>Cómo se escala</strong>Presupuesto grande de una · ya no hay validación pendiente</div>
+          <div class="fase-meta-row"><strong>Duración típica</strong>6–12 meses</div>
+        </div>
+      </div>
+
+      <div class="fase-card">
+        <div class="fase-num">Fase 4</div>
+        <div class="fase-title">Operación</div>
+        <div class="fase-desc">El motor <strong>opera en régimen estable</strong>. Se mantiene, se afina, no crece en presupuesto salvo por inflación de medios. Reporte trimestral en lugar de mensual.</div>
+        <div class="fase-meta">
+          <div class="fase-meta-row"><strong>Se compromete</strong>Sostener el resultado con costo estable</div>
+          <div class="fase-meta-row"><strong>Cómo se opera</strong>Ciclo trimestral · revisión de tendencia</div>
+          <div class="fase-meta-row"><strong>Duración típica</strong>Indefinida · mientras la unidad viva</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="fases-footnote"><strong>Flotillas hoy:</strong> División crece <strong>+435% en 2026 vs 2025</strong> (749 unidades ene-may · $441.7M facturado · margen +1.17 pts) <em>sin motor digital</em> — el negocio actual se sostiene por relaciones + arrendadoras · <strong>ahora se propone arrancar el Piloto Digital con $45 mil al mes durante 90 días</strong> (piso B2B corporativo) · foco en el <strong>segmento AA (10-30 unidades)</strong> donde hoy no llega la captación por relaciones.</div>
+
+  </div>
+  <div class="slide-footer">
+    <span><span class="dot"></span><strong>Grupo Plasencia Automotriz</strong> · Documento de Alineación · Flotillas · Agosto 2026</span>
+    <span>Interno · Slide 2 de 9</span>
+  </div>
+</div>
+
+
+<!-- ==================== SLIDE 3 · BASELINE DEL PILOTO ==================== -->
+<div class="slide">
+  <div class="content">
+
+    <div class="slide-header">
+      <div class="section-num">02 · Qué es la División Flotillas hoy</div>
+      <div class="slide-mark">Baseline duro · Cuadernos Aurora del Pozo · 2026 ene-may</div>
+    </div>
+
+    <h1 class="slide-h1">La División Flotillas <em>crece +435%</em> vs 2025 · sin motor digital</h1>
+
+    <p class="slide-lede">Estas son las cifras del reporte comparativo Flotillas 2025 vs 2026 YTD (fuente: Cuadernos 2025.1 y 2026.1 compartidos por Aurora del Pozo el 17-jun-2026 · procesamiento al 100% con filtro <em>Origen ∈ {Flotilla, Flotillas}</em>). <strong>La División está en explosión sostenida sin canal digital</strong>: quintuplicó volumen + subió margen + bajó AOV (mix más PYME). El Piloto Digital aterriza sobre un negocio que ya crece — el rol del digital es amplificar y abrir un segmento nuevo.</p>
+
+    <div class="pilar-wrap">
+
+      <div class="baseline-panel">
+        <div class="baseline-hdr">Lo que ya funciona sin canal digital</div>
+        <div class="baseline-t">Relaciones + arrendadoras + equipo profesionalizado</div>
+        <div class="baseline-body">
+          <strong>58% del volumen actual son ARRENDADORAS</strong> (segmento AAA · Element, Arval, Ayvens, etc.) — captadas por relaciones, contratos marco y RFPs, <em>no por digital</em>. El resto viene de referidos y walk-in B2B a las sucursales. <strong>Equipo comercial se profesionalizó en 2026</strong>: 3 nuevos top reps (Yosef, Sheyla, Javier López) entraron al ranking · Aurora dejó de facturar como vendedora (rol formal de Directora consolidado).<br><br>
+          <em>Estas cifras son las mismas que ve Finanzas en los Cuadernos que Aurora comparte cada corte</em>. Sin sistemas paralelos.
+        </div>
+      </div>
+
+      <div class="kpi-panel">
+        <div class="kpi-hero">
+          <div class="kpi-hero-lbl">Unidades vendidas · 2026 ene-may · Flotillas</div>
+          <div class="kpi-hero-num">749</div>
+          <div class="kpi-hero-sub"><strong>+435% vs 2025 ene-may</strong> · quintuplicó volumen en el mismo período</div>
+        </div>
+
+        <div class="kpi-strip">
+          <div class="kpi-cell gold">
+            <div class="kpi-cell-lbl">Facturación total</div>
+            <div class="kpi-cell-num">$441.7M</div>
+            <div class="kpi-cell-sub">2026 ene-may · <strong>+457% vs 2025</strong> mismo período</div>
+          </div>
+          <div class="kpi-cell">
+            <div class="kpi-cell-lbl">AOV promedio</div>
+            <div class="kpi-cell-num">$589,748</div>
+            <div class="kpi-cell-sub">−7% vs 2025 · mix con más PYME (baja saludable)</div>
+          </div>
+          <div class="kpi-cell green">
+            <div class="kpi-cell-lbl">Utilidad operación</div>
+            <div class="kpi-cell-num">$23.2M</div>
+            <div class="kpi-cell-sub">2026 ene-may · <strong>+434% vs 2025</strong> mismo período</div>
+          </div>
+          <div class="kpi-cell green">
+            <div class="kpi-cell-lbl">Margen operativo</div>
+            <div class="kpi-cell-num">5.26%</div>
+            <div class="kpi-cell-sub"><strong>+1.17 pts vs 2025</strong> (era 4.09%) · mix más rentable</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="callout-navy">
+      <div class="callout-navy-icon">→</div>
+      <div class="callout-navy-body"><strong>El digital abre un segmento donde hoy no llegamos:</strong> <strong>58% del volumen actual = ARRENDADORAS (AAA)</strong> — captable solo por relaciones/RFP, no por digital. El <strong>sweet spot para el Piloto es AA (10-30 unidades · ~$640K ticket · 8% margen · ciclo 3-6 meses)</strong> — subatendido por competencia digital y viable con LinkedIn + Meta B2B. <em>El digital no canibaliza el negocio actual: abre una carretera nueva</em>.</div>
+    </div>
+
+  </div>
+
+  <div class="slide-footer">
+    <span><span class="dot"></span><strong>Grupo Plasencia Automotriz</strong> · Documento de Alineación · Flotillas · Agosto 2026</span>
+    <span>Interno · Slide 3 de 9</span>
+  </div>
+</div>
+
+
+<!-- ==================== SLIDE 4 · CÓMO FUNCIONA EL MOTOR + 8 SUCURSALES ==================== -->
+<div class="slide">
+  <div class="content">
+
+    <div class="slide-header">
+      <div class="section-num">03 · Cómo va a funcionar el motor · anuncio → factura</div>
+      <div class="slide-mark">MVP técnico construido · flotillas.grupoplasencia.com</div>
+    </div>
+
+    <h1 class="slide-h1">6 pasos · 4 actores del servicio · <em>MKT enciende → Cliente B2B se registra → Aurora califica → Vendedor cierra</em></h1>
+
+    <p class="slide-lede">Toda venta atribuida al canal digital sigue este recorrido con folio único por paso. <strong>MKT</strong> prende el motor (LinkedIn + Meta B2B enfocado en comprador AA) · <strong>el Cliente B2B</strong> entra a la SPA y solicita cotización · <strong>Aurora del Pozo</strong> recibe el lead, califica y asigna vendedor · <strong>el Vendedor B2B</strong> contacta, cotiza, negocia y cierra · <strong>MKT concilia diariamente lead ↔ venta contra el DCA</strong>. Motor único para las <strong>5 sucursales destino prioritarias</strong> de Flotillas.</p>
+
+    <div class="flow-wrap">
+
+      <div class="flow-timeline">
+        <div class="flow-step">
+          <div class="flow-actor mkt">MKT</div>
+          <div class="flow-num">1</div>
+          <div class="flow-title">Ve el anuncio</div>
+          <div class="flow-desc"><strong>MKT</strong> enciende <strong>LinkedIn + Meta B2B</strong> · impactan al comprador AA (CFO · Compras · Operaciones)</div>
+          <div class="flow-arrow">›</div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-actor cliente">Cliente B2B</div>
+          <div class="flow-num">2</div>
+          <div class="flow-title">Entra a la SPA Flotillas</div>
+          <div class="flow-desc"><strong>El cliente B2B</strong> entra a <em>flotillas.grupoplasencia.com</em> y ve el lineup para su segmento</div>
+          <div class="flow-arrow">›</div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-actor cliente">Cliente B2B</div>
+          <div class="flow-num">3</div>
+          <div class="flow-title">Solicita cotización</div>
+          <div class="flow-desc"><strong>El cliente B2B</strong> deja empresa · RFC · # unidades · uso · datos de contacto · se genera <strong>folio único</strong></div>
+          <div class="flow-arrow">›</div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-actor vambe">Aurora</div>
+          <div class="flow-num">4</div>
+          <div class="flow-title">Califica y asigna</div>
+          <div class="flow-desc"><strong>Aurora recibe el lead</strong> vía WhatsApp + pipeline · califica (AA/A/AAA) · <strong>asigna al vendedor B2B</strong> por sucursal destino · <em>opción de asistir el chat con Karbot (IA B2B)</em></div>
+          <div class="flow-arrow">›</div>
+        </div>
+        <div class="flow-step comercial">
+          <div class="flow-step-tag">Hand-off · Comercial toma</div>
+          <div class="flow-actor vendedor">Vendedor B2B</div>
+          <div class="flow-num">5</div>
+          <div class="flow-title">Contacto + cotización</div>
+          <div class="flow-desc"><strong>El vendedor B2B</strong> (Yosef · Sheyla · Javier López) contacta en &lt;24h · <strong>envía cotización formal</strong> · negocia con el comité del cliente</div>
+          <div class="flow-arrow">›</div>
+        </div>
+        <div class="flow-step comercial">
+          <div class="flow-actor vendedor">Vendedor + DCA</div>
+          <div class="flow-num">6</div>
+          <div class="flow-title">Cierre + retroalimentación</div>
+          <div class="flow-desc"><strong>El vendedor</strong> cierra (ciclo 60-180 días típico B2B) · <strong>declara la venta en el DCA</strong> con RFC + folio · retroalimenta el pipeline · <strong>MKT concilia</strong> lead ↔ venta a diario</div>
+        </div>
+      </div>
+
+      <div class="handoff-note" style="padding: 8px 14px;">
+        <div class="handoff-note-mark">Aquí se juega<br>el éxito</div>
+        <div class="handoff-note-body">El <strong>hand-off Aurora → Vendedor</strong> (paso 4 → 5) y la <em>retroalimentación disciplinada del vendedor B2B</em> al cierre son la bisagra del motor. Cierra el loop <strong>MKT con la conciliación diaria lead ↔ venta contra el DCA por RFC + folio</strong> — cada venta atribuida queda validada con el sistema contable. Sin gestión humana + sin conciliación diaria no hay base para Crecimiento.</div>
+      </div>
+
+      <div class="sucursales-panel">
+        <div class="sucursales-hdr"><span>Sucursales destino Flotillas · ~60% del volumen 2026 YTD</span><span class="link">flotillas.grupoplasencia.com</span></div>
+        <div class="sucursales-grid">
+          <div class="sucursal-item dedicated"><div class="sucursal-name">Stellantis LCV</div><div class="sucursal-loc">Comerciales · líder del ritmo</div></div>
+          <div class="sucursal-item mazda"><div class="sucursal-name">Ford Guadalajara</div><div class="sucursal-loc">Ford · volumen líder 2026</div></div>
+          <div class="sucursal-item mazda"><div class="sucursal-name">Ford Santa Anita</div><div class="sucursal-loc">Ford · Los Gavilanes · Tlajomulco</div></div>
+          <div class="sucursal-item mazda"><div class="sucursal-name">GAC Bugámbilias</div><div class="sucursal-loc">GAC · crecimiento agresivo 2026</div></div>
+          <div class="sucursal-item mazda"><div class="sucursal-name">Mazda Acueducto</div><div class="sucursal-loc">Mazda · joya 2026 (+121% utilidad)</div></div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+  <div class="slide-footer">
+    <span><span class="dot"></span><strong>Grupo Plasencia Automotriz</strong> · Documento de Alineación · Flotillas · Agosto 2026</span>
+    <span>Interno · Slide 4 de 9</span>
+  </div>
+</div>
+
+
+<!-- ==================== SLIDE 5 · CÓMO SE ATRIBUYE LA VENTA (3 CASOS MATCHING DCA) ==================== -->
+<div class="slide">
+  <div class="content">
+
+    <div class="slide-header">
+      <div class="section-num">04 · Cómo se atribuye la venta al canal digital</div>
+      <div class="slide-mark">Matching automático en el DCA · 3 casos B2B posibles</div>
+    </div>
+
+    <h1 class="slide-h1">3 formas en las que una venta cuenta como del canal digital · <em>las 3 dependen del vendedor B2B</em></h1>
+
+    <p class="slide-lede">El cruce automático en el DCA compara los datos del lead (<strong>RFC de la empresa, razón social, contacto y folio único</strong>) contra el cubo de ventas del sistema contable. Cuando coinciden, la venta se atribuye <strong>1 a 1</strong> al canal digital. Hay 3 escenarios posibles — <em>en los 3 la retroalimentación del vendedor en el pipeline es lo que hace que la venta cuente</em>. <strong>Todo lo que el vendedor registra en el pipeline se refleja automáticamente en el sistema de control de Marketing Corporativo</strong>.</p>
+
+    <div class="matching-cases">
+
+      <div class="matching-case exact">
+        <div class="mc-num">Caso 1 · Match automático</div>
+        <div class="mc-title">Misma empresa + mismo pedido</div>
+        <div class="mc-body">La empresa cotizó X unidades y facturó ese mismo pedido. <strong>RFC + folio coinciden</strong> con la venta facturada en el DCA. El sistema hace el cruce automático <strong>1 a 1</strong> sin intervención.</div>
+        <div class="mc-required"><strong>El vendedor B2B</strong>Registra la venta cerrada en el pipeline · <em>el sistema de MKT la refleja automáticamente</em></div>
+      </div>
+
+      <div class="matching-case change">
+        <div class="mc-num">Caso 2 · Cambio de mix</div>
+        <div class="mc-title">Misma empresa + pedido distinto</div>
+        <div class="mc-body">La empresa cotizó una mezcla de unidades y cerró con distinta cantidad o versiones (ajuste de mix durante la negociación). <strong>Por diseño sigue siendo atribución 1 a 1</strong> — la conversación arrancó en el canal digital, el pedido final se acomoda al ciclo B2B.</div>
+        <div class="mc-required"><strong>El vendedor B2B</strong>Registra el cambio de mix en el pipeline · <em>el sistema lo reconoce y re-atribuye</em></div>
+      </div>
+
+      <div class="matching-case other">
+        <div class="mc-num">Caso 3 · Sin match automático</div>
+        <div class="mc-title">Cotiza una empresa · factura otra</div>
+        <div class="mc-body">El lead entra a nombre de una empresa pero la factura sale a una <strong>entidad vinculada del mismo grupo empresarial</strong> (holding vs subsidiaria, arrendadora relacionada, persona moral asociada). <strong>El DCA no puede hacer match automático por RFC</strong> — la atribución depende 100% de que el vendedor lo reporte.</div>
+        <div class="mc-required"><strong>El vendedor B2B</strong>Marca en el pipeline a qué RFC se facturó y por qué · <em>el sistema captura la atribución cross-registro</em></div>
+      </div>
+
+    </div>
+
+    <div class="handoff-note" style="margin-top: 6px; padding: 8px 14px;">
+      <div class="handoff-note-mark">Clave<br>del éxito</div>
+      <div class="handoff-note-body">En los <strong>3 casos</strong> la atribución solo existe si el vendedor B2B retroalimenta con disciplina. Sin gestión humana, <em>hasta las ventas más obvias se pierden en el sistema</em> — sobre todo en B2B donde el ciclo es 60-180 días y la factura suele salir a una entidad vinculada. La disciplina operativa del equipo Flotillas es lo que hace que el motor mida bien y avance a Crecimiento.</div>
+    </div>
+
+  </div>
+  <div class="slide-footer">
+    <span><span class="dot"></span><strong>Grupo Plasencia Automotriz</strong> · Documento de Alineación · Flotillas · Agosto 2026</span>
+    <span>Interno · Slide 5 de 9</span>
+  </div>
+</div>
+
+
+<!-- ==================== SLIDE 6 · QUÉ PROPONEMOS EN CRECIMIENTO ==================== -->
+<div class="slide">
+  <div class="content">
+
+    <div class="slide-header">
+      <div class="section-num">05 · Qué proponemos en el Piloto</div>
+      <div class="slide-mark">Presupuesto arranque · 90 días · fondeado por División Flotillas</div>
+    </div>
+
+    <h1 class="slide-h1">$45 mil al mes de publicidad · 90 días · <em>validar el motor B2B en segmento AA</em></h1>
+
+    <p class="slide-lede">Piso corporativo elevado para B2B (base SOP $35K para B2C · <strong>$45K para B2B</strong> por ciclo más largo, comité de decisión, ticket mayor y CPL típico más alto que retail). <strong>Fondea la División Flotillas</strong> — Aurora concentra decisión de fondeo + operación comercial · el canal beneficia directamente a la División (a diferencia de Seminuevos que fondean 3 marcas por su cross-brand structural). Al cierre del Piloto (día 90), si el motor validó, se propone pasar a Crecimiento con presupuesto mayor y potencial fondeo compartido con las marcas destino que más leads reciban.</p>
+
+    <div class="propuesta-wrap">
+
+      <div class="presup-card">
+        <div class="presup-lbl">Fondeo mensual · Piloto Flotillas</div>
+        <div class="presup-t">Fondeado por la División Flotillas · 90 días</div>
+        <table style="width:100%; margin-top:8px; font-family:var(--sans); font-size:9pt; border-collapse:collapse;">
+          <tr style="border-bottom:1px solid var(--g200); background:rgba(30,39,64,.04);"><td style="padding:6px 6px; color:var(--gp-navy); font-weight:700;">Publicidad neta (piso B2B)</td><td style="text-align:right; padding:6px 6px; font-family:var(--serif); font-weight:900; color:var(--gp-navy); font-variant-numeric:tabular-nums; font-size:11pt;">$45,000</td></tr>
+          <tr style="border-bottom:1px solid var(--g200);"><td style="padding:5px 0; color:var(--g600);">+ Comisión medios (8% referencia<sup>*</sup>)</td><td style="text-align:right; padding:5px 0; font-family:var(--serif); font-weight:600; color:var(--g600); font-variant-numeric:tabular-nums;">$3,600</td></tr>
+          <tr style="border-bottom:1px solid var(--g200);"><td style="padding:5px 0; color:var(--g600);">+ IVA (16% sobre subtotal)</td><td style="text-align:right; padding:5px 0; font-family:var(--serif); font-weight:600; color:var(--g600); font-variant-numeric:tabular-nums;">$7,776</td></tr>
+          <tr style="background:rgba(236,201,75,.14);"><td style="padding:8px 6px; color:var(--gp-navy); font-weight:800;">Total desembolso mensual</td><td style="text-align:right; padding:8px 6px; font-family:var(--serif); font-weight:900; color:var(--amber); font-variant-numeric:tabular-nums; font-size:13pt;">$56,376</td></tr>
+          <tr><td style="padding:6px 0; color:var(--g600); font-size:8.5pt;">× 3 meses (Piloto)</td><td style="text-align:right; padding:6px 0; font-family:var(--serif); font-weight:800; color:var(--gp-navy); font-variant-numeric:tabular-nums;">$169,128</td></tr>
+        </table>
+        <div class="presup-sub" style="margin-top:6px;"><sup>*</sup>Comisión medios <strong>por acordar</strong> con la nueva central de medios (RFP en curso · Viceversa saliente). 8% se usa como referencia del Piloto Seminuevos; ajustar al cierre del RFP. <strong>Operativo (setup técnico · gestión · reporte) se cotiza por separado si aplica</strong> — el arranque del Piloto usa recursos ya existentes del área. Si Aurora opta por IA conversacional B2B (Karbot), se suma como línea aparte del stack tecnológico Flotillas.</div>
+      </div>
+
+      <div class="alloc-list">
+        <div class="alloc-item blue">
+          <div class="alloc-pct">55%</div>
+          <div>
+            <div class="alloc-t">LinkedIn Ads · $24,750 al mes</div>
+            <div class="alloc-body">Segmentación por cargo (CFO · Compras · Operaciones · Fleet Manager) + tamaño empresa 10-500 empleados en Jalisco + zona metro. Es donde vive el decisor AA · calidad de lead alta pero volumen bajo (CPL típico B2B $200-500).</div>
+          </div>
+        </div>
+        <div class="alloc-item gold">
+          <div class="alloc-pct">45%</div>
+          <div>
+            <div class="alloc-t">Meta B2B · $20,250 al mes</div>
+            <div class="alloc-body">Pixel B2B <code>1007710711647839</code> ya instalado. Segmentación por interés + retargeting a visitantes de la SPA + lookalikes de la base actual de flotilla. Volumen mayor + retargeting del funnel LinkedIn.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="slide-footer">
+    <span><span class="dot"></span><strong>Grupo Plasencia Automotriz</strong> · Documento de Alineación · Flotillas · Agosto 2026</span>
+    <span>Interno · Slide 6 de 9</span>
+  </div>
+</div>
+
+
+<!-- ==================== SLIDE 4 · MÉTRICAS Y COMPROMISOS ==================== -->
+<div class="slide">
+  <div class="content">
+
+    <div class="slide-header">
+      <div class="section-num">06 · Métricas y compromisos por lado</div>
+      <div class="slide-mark">Piloto Flotillas · 90 días · alineado con Aurora del Pozo</div>
+    </div>
+
+    <h1 class="slide-h1">Quién rinde cuentas <em>de qué</em> · comprometiendo lo que hoy sí se puede</h1>
+
+    <p class="slide-lede">El camino del cliente B2B tiene cuatro etapas: <em>Prospecto → Contacto calificado → Cotización enviada → Venta cerrada</em>. Cada etapa tiene un responsable claro. La regla que aplicamos — <strong>quien maneja cada etapa es responsable de su número</strong>. En Piloto comprometemos lo que hoy sí se puede rendir cuentas · el resto se calibra durante los 90 días · <strong>reporte específico a la División Flotillas</strong> + corte por sucursal destino para las marcas que reciben leads.</p>
+
+    <div class="compromiso-grid">
+
+      <div class="compromiso-card mkt">
+        <div class="compromiso-hdr">
+          <div class="compromiso-tag">Dirección MKT</div>
+          <div class="compromiso-who">Chucho Porras</div>
+        </div>
+        <div class="compromiso-t">Prospectos B2B generados</div>
+        <div class="compromiso-list">
+          <div class="compromiso-item">Arrancar <strong>LinkedIn Ads (55%) + Meta B2B (45%)</strong> con segmentación por cargo + tamaño empresa 10-500 empleados en Jalisco.</div>
+          <div class="compromiso-item">Garantizar que el <strong>100% de los prospectos entra al pipeline</strong> con folio único (SPA + RFC + # unidades + uso).</div>
+          <div class="compromiso-item"><strong>Costo por Lead (CPL)</strong> reportado cada semana y cada mes · sin baseline aún (se calibra durante el Piloto).</div>
+          <div class="compromiso-item"><strong>MKT concilia diariamente</strong> lead ↔ venta contra el DCA por RFC + folio.</div>
+        </div>
+        <div class="honesty-strip"><strong>Se compromete desde el día 1</strong> del arranque · rangos verde/rojo se calibran al cierre del mes 1.</div>
+      </div>
+
+      <div class="compromiso-card comercial">
+        <div class="compromiso-hdr">
+          <div class="compromiso-tag">División Flotillas</div>
+          <div class="compromiso-who">Aurora del Pozo + equipo (Yosef · Sheyla · Javier López)</div>
+        </div>
+        <div class="compromiso-t">Contacto calificado + cotización + cierre</div>
+        <div class="compromiso-list">
+          <div class="compromiso-item"><strong>Aurora recibe el lead vía WhatsApp + pipeline</strong> · califica (AA/A/AAA) · asigna al vendedor por sucursal destino <em>en &lt;4 horas hábiles</em>.</div>
+          <div class="compromiso-item"><strong>Vendedor contacta al lead en &lt;24 horas</strong> · envía cotización formal · retroalimenta el pipeline con cada avance del ciclo (60-180 días B2B).</div>
+          <div class="compromiso-item"><strong>2 opciones de gestión del chat</strong> · Aurora elige: <em>(a) Karbot (IA conversacional B2B)</em> que asiste al vendedor en el chat WhatsApp · <em>(b) Entrega directa</em> — vendedor gestiona sin IA por WhatsApp/llamada/correo.</div>
+          <div class="compromiso-item">Retroalimentación disciplinada del vendedor en cada paso · sin eso, el sistema no ve la venta.</div>
+        </div>
+        <div class="honesty-strip"><strong>Contacto calificado + cotización enviada: se comprometen desde el día 1.</strong> <em>Ventas cerradas: se calibran conforme avance el ciclo B2B</em> — en 90 días veremos los primeros cierres de los leads del mes 1.</div>
+      </div>
+
+      <div class="compromiso-card compartido">
+        <div class="compromiso-hdr">
+          <div class="compromiso-tag">Ventas + Reporte</div>
+          <div class="compromiso-who">Compartido · Aurora + Consejo + Directores de Marca destino</div>
+        </div>
+        <div class="compromiso-t">Ventas atribuidas + revenue</div>
+        <div class="compromiso-list">
+          <div class="compromiso-item"><strong>De corto plazo</strong> · velocidad del funnel B2B (leads/mes · calificados AA · cotizaciones enviadas · pipeline activo por vendedor).</div>
+          <div class="compromiso-item"><strong>De largo plazo</strong> · cruce automático en el DCA (RFC + folio + razón social) contra el cubo de ventas Flotillas.</div>
+          <div class="compromiso-item"><strong>Reporte específico por sucursal destino</strong> · cada Director de Marca (Ford, Mazda, STL, GAC…) ve cuántas unidades le llegaron del canal digital · Aurora ve todo el track · Consejo ve consolidado.</div>
+          <div class="compromiso-item">Los dos métodos <em>conviven</em> — el de corto plazo demuestra que el motor funciona · el de largo plazo da precisión con las cifras del DCA.</div>
+        </div>
+        <div class="honesty-strip"><strong>Incremental por diseño</strong> — armamos un <strong>ecosistema de ventas dedicado</strong> (SPA B2B + Aurora + pipeline + conciliación DCA) que mide cada punto de contacto punta a punta. <strong>Es una carretera independiente del BAU</strong> (relaciones + walk-in + arrendadoras). Por diseño, la venta que entra por aquí no se solapa con la que la División ya hace por su cuenta · <em>lo que produce este canal es suma, no reemplazo</em>.</div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="slide-footer">
+    <span><span class="dot"></span><strong>Grupo Plasencia Automotriz</strong> · Documento de Alineación · Flotillas · Agosto 2026</span>
+    <span>Interno · Slide 7 de 9</span>
+  </div>
+</div>
+
+
+<!-- ==================== SLIDE 7 · REPORTING E2E · FUNNEL + AUDIENCIAS ==================== -->
+<div class="slide">
+  <div class="content">
+
+    <div class="slide-header">
+      <div class="section-num">07 · Cómo reportamos mes a mes</div>
+      <div class="slide-mark">Del anuncio a la venta · qué se mide en cada paso</div>
+    </div>
+
+    <h1 class="slide-h1">El embudo completo · <em>una etapa a la vez</em> · con costo por etapa y reporte específico para cada marca</h1>
+
+    <p class="slide-lede">Cada mes reportamos el embudo B2B entero — de <strong>tráfico digital hasta venta facturada en el DCA</strong> — con la métrica de cada etapa. Todos ven qué está funcionando y qué no · Aurora ve el track completo · Consejo ve el consolidado · cada Director de Marca destino ve las unidades que llegaron a sus sucursales.</p>
+
+    <div class="funnel-e2e">
+      <div class="funnel-stage">
+        <div class="funnel-stage-lbl">Etapa 1</div>
+        <div class="funnel-stage-t">Tráfico → Lead</div>
+        <div class="funnel-stage-user"><strong>El cliente B2B</strong><span>Ve el anuncio en LinkedIn o Meta · le interesa cotizar flotilla</span></div>
+        <div class="funnel-stage-owner"><strong>Ejecuta · MKT</strong>Opera anuncios LinkedIn + Meta B2B · captura el lead con folio único (SPA + RFC)</div>
+        <div class="funnel-stage-cost">CPL · Costo por Lead</div>
+        <div class="funnel-arrow">›</div>
+      </div>
+      <div class="funnel-stage">
+        <div class="funnel-stage-lbl">Etapa 2</div>
+        <div class="funnel-stage-t">Lead → Contacto Aurora</div>
+        <div class="funnel-stage-user"><strong>El cliente B2B</strong><span>Recibe primer mensaje de la División · confirma interés</span></div>
+        <div class="funnel-stage-owner"><strong>Ejecuta · Aurora</strong>Recibe 100% de los leads · califica AA/A/AAA · asigna vendedor · &lt;4h hábiles</div>
+        <div class="funnel-stage-cost">CPCC · Costo por Contacto</div>
+        <div class="funnel-arrow">›</div>
+      </div>
+      <div class="funnel-stage">
+        <div class="funnel-stage-lbl">Etapa 3</div>
+        <div class="funnel-stage-t">Contacto → Cotización</div>
+        <div class="funnel-stage-user"><strong>El cliente B2B</strong><span>Habla con el vendedor · comparte necesidad · recibe cotización formal</span></div>
+        <div class="funnel-stage-owner"><strong>Ejecuta · Vendedor B2B</strong>Contacta en &lt;24h · califica necesidad · envía cotización formal · retroalimenta pipeline</div>
+        <div class="funnel-stage-cost">CPCot · Costo por Cotización</div>
+        <div class="funnel-arrow">›</div>
+      </div>
+      <div class="funnel-stage">
+        <div class="funnel-stage-lbl">Etapa 4</div>
+        <div class="funnel-stage-t">Cotización → Comité</div>
+        <div class="funnel-stage-user"><strong>El cliente B2B</strong><span>Presenta la cotización al comité de compra · negocia condiciones · define timing</span></div>
+        <div class="funnel-stage-owner"><strong>Ejecuta · Vendedor B2B</strong>Sostiene negociación B2B (60-180d) · seguimiento disciplinado · retroalimenta pipeline</div>
+        <div class="funnel-stage-cost">Tasa de avance a cierre</div>
+        <div class="funnel-arrow">›</div>
+      </div>
+      <div class="funnel-stage">
+        <div class="funnel-stage-lbl">Etapa 5</div>
+        <div class="funnel-stage-t">Comité → Venta</div>
+        <div class="funnel-stage-user"><strong>El cliente B2B</strong><span>Firma el pedido · recibe las unidades en la sucursal destino</span></div>
+        <div class="funnel-stage-owner"><strong>Ejecuta · Vendedor + DCA</strong>Cierra · declara la venta en DCA con RFC + folio · retroalimenta el pipeline con motivo</div>
+        <div class="funnel-stage-cost">CAC · Ventas · Revenue</div>
+      </div>
+    </div>
+
+    <div class="handoff-note" style="margin-top: 4px; padding: 6px 12px;">
+      <div class="handoff-note-mark">Visibilidad<br>punta a punta</div>
+      <div class="handoff-note-body"><strong>Pipeline Flotillas + sistema MKT sincronizados por diseño.</strong> Cada retroalimentación del vendedor queda en el pipeline · <strong>MKT concilia diariamente lead ↔ venta contra el DCA por RFC + folio</strong> · misma cifra para Aurora, Consejo, Finanzas y Directores de Marca destino. <em>Funciona siempre y cuando el vendedor retroalimente con disciplina</em>. Si Aurora activa Karbot, la sincronización desde WhatsApp es automática.</div>
+    </div>
+
+    <div class="reporting-audiencias">
+      <div class="aud-card consejo">
+        <div class="aud-t">Consejo</div>
+        <div class="aud-who">Nicolás · Andrés · Enrique</div>
+        <div class="aud-body">Vista consolidada de 1 página · <strong>ventas atribuidas + revenue del track</strong> · CAC vs banda · señal verde/rojo del mes</div>
+      </div>
+      <div class="aud-card">
+        <div class="aud-t">División Flotillas</div>
+        <div class="aud-who">Aurora del Pozo + vendedores B2B</div>
+        <div class="aud-body">Funnel operativo end-to-end · <strong>calidad de calificación + tasa cotización→cierre</strong> · retroalimentación por vendedor</div>
+      </div>
+      <div class="aud-card">
+        <div class="aud-t">Finanzas</div>
+        <div class="aud-who">Pepe Morales</div>
+        <div class="aud-body">Presupuesto ejercido vs comprometido · <strong>reconciliación contra el DCA</strong> · disciplina financiera del Piloto</div>
+      </div>
+      <div class="aud-card marca">
+        <div class="aud-t">Directores de Marca destino</div>
+        <div class="aud-who">Ford · Mazda · STL · GAC · Hyundai</div>
+        <div class="aud-body">Corte específico por sucursal destino · <strong>unidades que llegaron a su marca del canal digital Flotillas</strong> · qué ajustar el siguiente mes</div>
+      </div>
+    </div>
+
+  </div>
+  <div class="slide-footer">
+    <span><span class="dot"></span><strong>Grupo Plasencia Automotriz</strong> · Documento de Alineación · Flotillas · Agosto 2026</span>
+    <span>Interno · Slide 8 de 9</span>
+  </div>
+</div>
+
+
+<!-- ==================== SLIDE 8 · CIERRE + PRÓXIMOS PASOS ==================== -->
+<div class="slide dark">
+  <div class="close-inner">
+
+    <div class="close-top">
+      <div class="close-eyebrow">Conclusión · por qué arrancar el Piloto Digital Flotillas ahora</div>
+      <div class="close-rule"></div>
+      <h2 class="close-h">La División Flotillas <em>ya crece +435%</em> sin motor digital. Con <em>$45 mil al mes durante 90 días</em> abrimos el segmento AA (10-30 unidades) donde hoy no llega la captación por relaciones.</h2>
+      <p class="close-sub">A cambio de <strong>$45 mil pesos al mes de publicidad</strong> fondeados por la División Flotillas, el Grupo aterriza un motor B2B dedicado (SPA + LinkedIn/Meta B2B + pipeline + conciliación DCA) sobre un negocio que ya factura <strong>$441.7 millones en 5 meses con margen 5.26%</strong>. El digital no canibaliza: <strong>abre una carretera nueva hacia el segmento AA subatendido</strong>. <em>Con el presupuesto liberado y decisión de Aurora sobre gestión del chat (Karbot o entrega directa), arrancamos en 5 días hábiles.</em></p>
+    </div>
+
+    <div class="pasos-panel">
+      <div class="pasos-hdr">Lo que Marketing compromete a cambio del presupuesto</div>
+      <div class="pasos-grid">
+        <div class="paso-item">
+          <span class="paso-fecha">Compromiso 1</span>
+          <span class="paso-what">Volumen de leads B2B calificados</span>
+          <span class="paso-who">Rango de leads AA/mes · comprometido al cierre del mes 1 con data real</span>
+        </div>
+        <div class="paso-item">
+          <span class="paso-fecha">Compromiso 2</span>
+          <span class="paso-what">Conciliación diaria DCA</span>
+          <span class="paso-who">MKT cruza lead ↔ venta cada día · Aurora + Consejo ven la misma cifra</span>
+        </div>
+        <div class="paso-item">
+          <span class="paso-fecha">Compromiso 3</span>
+          <span class="paso-what">Reporte mensual a Aurora + corte por sucursal destino</span>
+          <span class="paso-who">Aurora ve el track completo · Directores de Marca destino ven lo que llegó a sus sucursales</span>
+        </div>
+        <div class="paso-item">
+          <span class="paso-fecha">Compromiso 4</span>
+          <span class="paso-what">Señal verde / rojo al cierre del mes 1</span>
+          <span class="paso-who">Al día 90, decisión de pasar a Crecimiento con presupuesto mayor · potencial fondeo compartido con marcas destino</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="close-foot">
+      <span><strong>Grupo Plasencia Automotriz</strong> · Documento de Alineación · Flotillas · Agosto 2026</span>
+      <span>Interno · Slide 9 de 9</span>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
