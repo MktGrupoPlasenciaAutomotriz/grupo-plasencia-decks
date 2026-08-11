@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plan 90 Días · Dirección MKT Corporativo · Resumen Ejecutivo con Status · Grupo Plasencia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@500;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gp-red: #C8102E; --gp-navy: #1E2740; --gp-slate: #2D3748;
+  --green: #48BB78; --deep-green: #276749;
+  --blue: #4299E1; --deep-blue: #2B6CB0;
+  --amber: #D69E2E; --gold: #ECC94B;
+  --bg: #F0F4F8; --paper: #FFFFFF; --near-white: #F7FAFC;
+  --g100: #EDF2F7; --g200: #E2E8F0; --g300: #CBD5E0; --g400: #A0AEC0; --g500: #718096; --g600: #4A5568; --g700: #2D3748;
+  --text: #2D3748;
+  --serif: 'Playfair Display', Georgia, serif;
+  --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { width:100%; background:#0A0F1F; font-family:var(--sans); -webkit-font-smoothing:antialiased; padding: 32px 0; }
+.slide { position:relative; width:1280px; height:720px; margin: 0 auto 32px auto; overflow:hidden; display:flex; flex-direction:column; background: var(--bg); color: var(--text); box-shadow: 0 8px 32px rgba(0,0,0,.4); }
+.slide.dark { background: var(--gp-navy); color: var(--near-white); }
+.content { padding: 42px 72px 14px 72px; flex:1; display:flex; flex-direction:column; gap: 12px; position:relative; min-height:0; overflow:hidden; }
+.slide-header { display:flex; justify-content:space-between; align-items:flex-end; padding-bottom: 4px; border-bottom: 1px solid var(--g200); }
+.section-num { font-family:var(--sans); font-size:9pt; font-weight:800; letter-spacing:4px; color: var(--gp-red); text-transform:uppercase; }
+.slide-mark { font-family:var(--sans); font-size:8.5pt; font-weight:700; letter-spacing:3px; color: var(--g500); text-transform:uppercase; }
+.slide-h1 { font-family:var(--serif); font-weight:800; font-size:26pt; line-height:1.08; letter-spacing:-1px; color: var(--gp-navy); margin-top:4px; }
+.slide-h1 em { font-style:italic; color: var(--amber); font-weight:700; }
+.slide-lede { font-family:var(--sans); font-size:10.5pt; color: var(--g600); line-height:1.5; margin-top: 4px; max-width: 1130px; }
+.slide-lede strong { color: var(--gp-navy); font-weight:700; }
+.slide-lede em { font-style: italic; color: var(--gp-navy); }
+.slide-footer { position:relative; margin: 0 72px; padding: 8px 0 14px 0; display:flex; justify-content:space-between; align-items:center; font-family: var(--sans); font-size: 8.5pt; color: var(--g500); border-top: 1px solid var(--g200); gap: 16px; flex-shrink:0; }
+.slide-footer .dot { display:inline-block; width:8px; height:8px; background: var(--gp-red); border-radius:50%; margin-right:6px; vertical-align:middle; }
+.slide-footer strong { color: var(--gp-navy); font-weight:700; }
+
+/* Portada */
+.cover-inner { padding: 52px 78px 40px 78px; flex:1; display:flex; flex-direction:column; justify-content:space-between; background: radial-gradient(ellipse at 100% 0%, rgba(236,201,75,.18) 0%, transparent 55%), radial-gradient(ellipse at 0% 100%, rgba(200,16,46,.14) 0%, transparent 55%), var(--gp-navy); }
+.cover-top { display:flex; justify-content:space-between; align-items:flex-start; }
+.cover-mark { font-family:var(--sans); font-weight:700; font-size:11pt; letter-spacing:4px; color: var(--gold); text-transform:uppercase; }
+.cover-mark span { display:block; font-weight:400; color: rgba(255,255,255,.62); margin-top:5px; letter-spacing:1px; font-size:9pt; }
+.cover-conf { font-family:var(--sans); font-weight:700; font-size:9pt; letter-spacing:3.5px; color: var(--gp-red); text-transform:uppercase; text-align:right; }
+.cover-conf span { display:block; color: rgba(255,255,255,.55); font-weight:400; letter-spacing:1px; font-size:8pt; margin-top:4px; }
+.cover-center { flex:1; display:flex; flex-direction:column; justify-content:center; padding: 24px 0; }
+.cover-eyebrow { font-family:var(--sans); font-size:11pt; font-weight:700; letter-spacing:5px; color: var(--gp-red); text-transform:uppercase; }
+.cover-title { font-family:var(--serif); font-weight:800; font-size:46pt; line-height:1.05; letter-spacing:-1.5px; margin-top:16px; color: var(--near-white); max-width:1080px; }
+.cover-title em { font-style:italic; color: var(--gold); font-weight:700; }
+.cover-subtitle { font-family:var(--serif); font-weight:500; font-style:italic; font-size:15pt; color: rgba(255,255,255,.88); margin-top:22px; letter-spacing:-.2px; line-height:1.45; max-width:1020px; }
+.cover-subtitle strong { color: var(--near-white); font-style: normal; font-weight: 700; }
+.cover-meta { display:grid; grid-template-columns: repeat(4, 1fr); gap: 18px; border-top: 1px solid rgba(255,255,255,.18); padding-top:18px; margin-top: 24px; }
+.cover-meta-block { font-size:9pt; color: rgba(255,255,255,.72); line-height:1.55; font-family: var(--sans); }
+.cover-meta-block strong { display:block; color: var(--gold); font-weight:700; font-size:8pt; letter-spacing:1.5px; margin-bottom:4px; text-transform:uppercase; }
+.cover-meta-block span { display:block; color: rgba(255,255,255,.94); font-weight:500; font-size:10.5pt; margin-bottom:2px; }
+
+/* BAU vs Piloto · Slide 2 */
+.compara-wrap { display:grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 4px; }
+.compara-card { background: var(--paper); border: 1px solid var(--g200); border-radius: 12px; padding: 16px 20px; display:flex; flex-direction:column; gap: 10px; }
+.compara-card.bau { border-top: 4px solid var(--g500); }
+.compara-card.piloto { border-top: 4px solid var(--gold); background: linear-gradient(180deg, #FFFEF8 0%, var(--paper) 100%); }
+.compara-hdr { display:flex; align-items:baseline; justify-content:space-between; gap: 10px; }
+.compara-tag { font-family:var(--sans); font-size:8.5pt; font-weight:800; letter-spacing:2px; text-transform:uppercase; color: var(--g500); }
+.compara-card.piloto .compara-tag { color: var(--amber); }
+.compara-tag-mini { font-family:var(--sans); font-size:7.5pt; font-weight:700; color: var(--g400); letter-spacing:.6px; text-transform:uppercase; }
+.compara-card.piloto .compara-tag-mini { color: var(--amber); opacity:.8; }
+.compara-t { font-family:var(--serif); font-weight:800; font-size:15pt; color: var(--gp-navy); line-height:1.18; letter-spacing:-.4px; }
+.compara-list { display:flex; flex-direction:column; gap: 7px; margin-top: 2px; }
+.compara-item { font-family:var(--sans); font-size:9.5pt; color: var(--g600); line-height:1.5; padding-left: 22px; position:relative; }
+.compara-item::before { position:absolute; left:0; top:1px; font-weight:800; font-size:11pt; line-height:1; }
+.compara-card.bau .compara-item::before { content:"✕"; color: var(--gp-red); }
+.compara-card.piloto .compara-item::before { content:"✓"; color: var(--deep-green); }
+.compara-item strong { color: var(--gp-navy); font-weight:700; }
+.compara-item em { font-style: italic; color: var(--gp-navy); }
+
+.bau-callout { background: var(--gp-navy); color: var(--near-white); border-radius: 10px; padding: 12px 20px; margin-top: 4px; display:grid; grid-template-columns: auto 1fr; gap: 18px; align-items:center; }
+.bau-callout-icon { font-family:var(--serif); font-weight:900; font-size:26pt; color: var(--gold); line-height:1; padding-right: 16px; border-right: 1px solid rgba(255,255,255,.25); }
+.bau-callout-body { font-family:var(--sans); font-size:10.5pt; color: rgba(255,255,255,.94); line-height:1.45; }
+.bau-callout-body strong { color: var(--gold); font-weight:700; }
+.bau-callout-body em { font-style: italic; color: var(--near-white); }
+
+/* Piloto detallado · Slide 3 · Flujo + KPIs */
+.pilar-wrap { display:grid; grid-template-columns: 1.28fr 1fr; gap: 22px; margin-top: 4px; }
+
+.flujo-panel { background: var(--paper); border: 1px solid var(--g200); border-top: 4px solid var(--gp-navy); border-radius: 12px; padding: 14px 20px; display:flex; flex-direction:column; gap: 8px; box-shadow: 0 1px 3px rgba(30,39,64,.05); }
+.flujo-hdr { font-family:var(--sans); font-size:9pt; font-weight:800; letter-spacing:1.5px; text-transform:uppercase; color: var(--gp-navy); }
+.flujo-t { font-family:var(--serif); font-weight:800; font-size:15pt; color: var(--gp-navy); line-height:1.18; letter-spacing:-.4px; }
+.flujo-steps { display:flex; flex-direction:column; gap: 5px; margin-top: 2px; }
+.flujo-step { display:grid; grid-template-columns: 32px 1fr; gap: 10px; align-items:flex-start; }
+.flujo-step-num { font-family:var(--serif); font-weight:900; font-size:18pt; color: var(--gold); line-height:1; text-align:center; padding-top: 1px; }
+.flujo-step-body { font-family:var(--sans); font-size:9pt; color: var(--g600); line-height:1.4; }
+.flujo-step-body strong { color: var(--gp-navy); font-weight:700; }
+.flujo-step-body em { font-style: italic; color: var(--gp-navy); }
+
+.kpi-panel { display:flex; flex-direction:column; gap: 8px; }
+.kpi-hero { background: linear-gradient(135deg, var(--gp-navy) 0%, #2A3654 100%); color: var(--near-white); border-radius: 12px; padding: 12px 18px; }
+.kpi-hero-lbl { font-family:var(--sans); font-size:7.5pt; font-weight:800; letter-spacing:2px; text-transform:uppercase; color: var(--gold); }
+.kpi-hero-num { font-family:var(--serif); font-weight:900; font-size:38pt; line-height:1; color: var(--gold); font-variant-numeric: tabular-nums; letter-spacing:-1.5px; margin-top: 4px; }
+.kpi-hero-sub { font-family:var(--sans); font-size:9.5pt; color: rgba(255,255,255,.9); margin-top: 4px; line-height:1.35; }
+.kpi-hero-sub strong { color: var(--near-white); font-weight:700; }
+
+.kpi-strip { display:grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.kpi-cell { background: var(--paper); border: 1px solid var(--g200); border-left: 4px solid var(--gp-red); border-radius: 8px; padding: 8px 12px; }
+.kpi-cell.gold { border-left-color: var(--amber); }
+.kpi-cell.green { border-left-color: var(--deep-green); }
+.kpi-cell-lbl { font-family:var(--sans); font-size:7.5pt; font-weight:800; letter-spacing:1.4px; text-transform:uppercase; color: var(--gp-red); }
+.kpi-cell.gold .kpi-cell-lbl { color: var(--amber); }
+.kpi-cell.green .kpi-cell-lbl { color: var(--deep-green); }
+.kpi-cell-num { font-family:var(--serif); font-weight:900; font-size:18pt; line-height:1; color: var(--gp-navy); font-variant-numeric: tabular-nums; letter-spacing:-.7px; margin-top: 3px; }
+.kpi-cell-sub { font-family:var(--sans); font-size:7.5pt; color: var(--g500); line-height:1.3; margin-top: 2px; }
+.kpi-cell-sub strong { color: var(--gp-navy); font-weight:700; }
+
+.callout-navy { background: var(--gp-navy); color: var(--near-white); border-radius: 10px; padding: 10px 18px; margin-top: 4px; display:grid; grid-template-columns: auto 1fr; gap: 16px; align-items:center; }
+.callout-navy-icon { font-family:var(--serif); font-weight:900; font-size:22pt; color: var(--gold); line-height:1; padding-right: 14px; border-right: 1px solid rgba(255,255,255,.25); }
+.callout-navy-body { font-family:var(--serif); font-weight:500; font-style:italic; font-size:11.5pt; color: rgba(255,255,255,.95); line-height:1.3; }
+.callout-navy-body strong { color: var(--gold); font-style: normal; font-weight:700; }
+
+.honesty-strip { background: linear-gradient(135deg, rgba(214,158,46,.10) 0%, rgba(30,39,64,.03) 100%); border: 1px solid var(--g200); border-left: 4px solid var(--amber); border-radius: 8px; padding: 7px 14px; margin-top: 4px; font-family: var(--sans); font-size: 8.5pt; color: var(--g600); line-height: 1.4; }
+.honesty-strip strong { color: var(--gp-navy); font-weight:700; }
+.honesty-strip em { font-style: italic; color: var(--gp-navy); }
+
+/* Preview Marketplace · Slide 4 */
+.preview-wrap { display:grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 4px; }
+.evo-card { background: var(--paper); border: 1px solid var(--g200); border-radius: 12px; padding: 14px 18px; display:flex; flex-direction:column; gap: 8px; overflow: hidden; }
+.evo-card.hoy { border-top: 4px solid var(--g400); }
+.evo-card.futuro { border-top: 4px solid var(--gold); background: linear-gradient(180deg, #FFFEF8 0%, var(--paper) 100%); }
+.evo-hdr { display:flex; align-items:baseline; justify-content:space-between; gap: 10px; }
+.evo-tag { font-family:var(--sans); font-size:8.5pt; font-weight:800; letter-spacing:2px; text-transform:uppercase; color: var(--g500); }
+.evo-card.futuro .evo-tag { color: var(--amber); }
+.evo-tag-mini { font-family:var(--sans); font-size:7.5pt; font-weight:700; color: var(--g400); letter-spacing:.6px; text-transform:uppercase; }
+.evo-t { font-family:var(--serif); font-weight:800; font-size:14pt; color: var(--gp-navy); line-height:1.18; letter-spacing:-.4px; }
+.evo-list { display:flex; flex-direction:column; gap: 5px; margin-top: 2px; }
+.evo-item { font-family:var(--sans); font-size:9pt; color: var(--g600); line-height:1.42; padding-left: 14px; position:relative; }
+.evo-item::before { content:"—"; position:absolute; left:0; color: var(--g400); font-weight:700; }
+.evo-card.futuro .evo-item::before { content:"▸"; color: var(--amber); }
+.evo-item strong { color: var(--gp-navy); font-weight:700; }
+.evo-item em { font-style: italic; color: var(--gp-navy); }
+
+.enmarcha-wrap { background: var(--paper); border: 1px solid var(--g200); border-top: 4px solid var(--deep-green); border-radius: 12px; padding: 11px 18px; margin-top: 4px; }
+.enmarcha-hdr { font-family:var(--sans); font-size:8pt; font-weight:800; letter-spacing:1.6px; text-transform:uppercase; color: var(--deep-green); margin-bottom: 4px; }
+.enmarcha-t { font-family:var(--serif); font-weight:800; font-size:12pt; color: var(--gp-navy); line-height:1.2; letter-spacing:-.3px; margin-bottom: 5px; }
+.enmarcha-grid { display:grid; grid-template-columns: 1fr 1fr; gap: 4px 18px; }
+.enmarcha-item { font-family:var(--sans); font-size:8.5pt; color: var(--g600); line-height:1.4; padding-left: 13px; position:relative; }
+.enmarcha-item::before { content:"✓"; position:absolute; left:0; color: var(--deep-green); font-weight:800; }
+.enmarcha-item strong { color: var(--gp-navy); font-weight:700; }
+
+.precedente-strip { background: linear-gradient(135deg, rgba(30,39,64,.03) 0%, rgba(236,201,75,.10) 100%); border: 1px solid var(--g200); border-left: 5px solid var(--gold); border-radius: 12px; padding: 12px 20px; display:grid; grid-template-columns: auto 1fr; gap: 20px; align-items:center; margin-top: 4px; }
+.precedente-lbl { font-family:var(--sans); font-size:8pt; font-weight:800; letter-spacing:2px; text-transform:uppercase; color: var(--amber); }
+.precedente-body { font-family:var(--sans); font-size:9.5pt; color: var(--g600); line-height:1.5; margin-top: 3px; }
+.precedente-body strong { color: var(--gp-navy); font-weight:700; }
+.precedente-body em { font-style: italic; color: var(--gp-navy); }
+.precedente-icon { font-family:var(--serif); font-weight:900; font-size:30pt; color: var(--gold); line-height:1; padding-right: 18px; border-right: 1px solid var(--g300); }
+
+/* Cierre · navy · URLs */
+.close-inner { padding: 50px 78px 40px 78px; flex:1; display:flex; flex-direction:column; justify-content:space-between; background: radial-gradient(ellipse at 50% 30%, rgba(236,201,75,.14) 0%, transparent 60%), var(--gp-navy); }
+.close-top { text-align:center; }
+.close-eyebrow { font-family: var(--sans); font-size: 10pt; font-weight: 800; letter-spacing: 5px; color: var(--gold); text-transform: uppercase; }
+.close-rule { width: 80px; height: 1px; background: var(--gold); margin: 14px auto; opacity: .7; }
+.close-h { font-family: var(--serif); font-weight: 800; font-size: 30pt; line-height: 1.15; letter-spacing: -1.1px; color: var(--near-white); margin: 10px auto 0 auto; max-width: 1020px; }
+.close-h em { font-style: italic; color: var(--gold); font-weight: 700; }
+.close-sub { font-family: var(--sans); font-size: 11pt; color: rgba(255,255,255,.82); margin: 16px auto 0 auto; line-height: 1.5; max-width: 900px; text-align:center; }
+.close-sub em { font-style: italic; color: var(--near-white); }
+
+.urls-panel { background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.14); border-radius: 12px; padding: 18px 28px; margin-top: 6px; }
+.urls-panel-hdr { font-family:var(--sans); font-size:9pt; font-weight:800; letter-spacing:3px; text-transform:uppercase; color: var(--gold); text-align:center; margin-bottom: 4px; }
+.urls-panel-t { font-family:var(--serif); font-weight:600; font-style:italic; font-size:13pt; color: rgba(255,255,255,.9); text-align:center; margin-bottom: 12px; }
+.urls-grid { display:grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
+.url-item { text-align:center; padding: 4px 0; }
+.url-marca { display:block; font-family:var(--sans); font-size:8pt; font-weight:800; letter-spacing:1.5px; text-transform:uppercase; color: var(--gold); margin-bottom: 4px; }
+.url-link { display:block; font-family: 'SF Mono', ui-monospace, monospace; font-size:9.5pt; color: var(--near-white); font-weight:600; letter-spacing:-.2px; }
+
+.close-foot { display:flex; justify-content:space-between; align-items:center; font-family:var(--sans); font-size:8.5pt; color: rgba(255,255,255,.55); border-top: 1px solid rgba(255,255,255,.14); padding-top: 14px; margin-top: 10px; letter-spacing:1.5px; text-transform: uppercase; }
+.close-foot strong { color: var(--gold); font-weight:700; }
+</style>
+</head>
+<body>
+
+<!-- ==================== SLIDE 1 · PORTADA ==================== -->
+<div class="slide dark">
+  <div class="cover-inner">
+    <div class="cover-top">
+      <div class="cover-mark">Grupo Plasencia Automotriz<span>Dirección de Marketing Corporativo</span></div>
+      <div class="cover-conf">Confidencial<span>Uso interno · Consejo Familiar</span></div>
+    </div>
+
+    <div class="cover-center">
+      <div class="cover-eyebrow">Plan 90 días · Dirección de Marketing Corporativo</div>
+      <h1 class="cover-title">Plan 90 días · <em>dónde arrancamos hoy</em></h1>
+      <p class="cover-subtitle">Hoy es <strong>día 1 de 90</strong>. Este documento resume el plan que acordamos con Andrés y Nicolás el 28 de julio y comparte <strong>dónde estamos parados al arranque</strong>: qué ya está en marcha, qué falta cerrar en las próximas 4 semanas, y a dónde puede evolucionar el modelo más adelante.</p>
+    </div>
+
+    <div class="cover-meta">
+      <div class="cover-meta-block"><strong>Para</strong><span>Pepe Morales</span><span>Consejo · Nicolás · Andrés · Enrique</span></div>
+      <div class="cover-meta-block"><strong>De</strong><span>Jesús Pérez Porras</span><span>Dir. Marketing Corporativo</span></div>
+      <div class="cover-meta-block"><strong>Ventana del plan</strong><span>10 agosto – 3 noviembre</span><span>13 semanas · 3 reportes</span></div>
+      <div class="cover-meta-block"><strong>Primer reporte</strong><span>31 de agosto</span><span>semana 4 · semáforo</span></div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ==================== SLIDE 2 · BAU VS PILOTO ==================== -->
+<div class="slide">
+  <div class="content">
+
+    <div class="slide-header">
+      <div class="section-num">01 · Qué acordamos hacer en 90 días</div>
+      <div class="slide-mark">Tres frentes en paralelo · 13 semanas</div>
+    </div>
+
+    <h1 class="slide-h1">Tres frentes al mismo tiempo · <em>calidad sobre cobertura</em></h1>
+
+    <p class="slide-lede">El plan aprobado con Andrés y Nicolás el 28 de julio se resume en tres frentes que corren en paralelo durante 13 semanas. La regla es <strong>calidad sobre cobertura</strong>: vamos con 4 marcas primero, no con las 11 del portafolio al mismo tiempo. Lo que salga bien se crece · lo que no, se ajusta antes del siguiente reporte al Consejo.</p>
+
+    <div class="compara-wrap" style="grid-template-columns: 1fr 1fr 1fr;">
+
+      <div class="compara-card piloto">
+        <div class="compara-hdr">
+          <div class="compara-tag">Frente 1</div>
+          <div class="compara-tag-mini">Cocreación con marcas</div>
+        </div>
+        <div class="compara-t">Un plan comercial firmado con cada marca</div>
+        <div class="compara-list">
+          <div class="compara-item">Nos sentamos <strong>marca por marca</strong> a construir su plan comercial de marketing.</div>
+          <div class="compara-item">Cada plan se <strong>firma entre tres partes</strong>: Dirección de Familia, Director de Marca y Dirección de MKT.</div>
+          <div class="compara-item">Meta 90 días: <strong>7 planes firmados</strong> (Seminuevos, Hyundai, Stellantis, GAC, Changan, Flotillas, Corporativo).</div>
+        </div>
+      </div>
+
+      <div class="compara-card piloto">
+        <div class="compara-hdr">
+          <div class="compara-tag">Frente 2</div>
+          <div class="compara-tag-mini">Marketplace del Grupo</div>
+        </div>
+        <div class="compara-t">Una tienda digital donde el Grupo se ve como uno</div>
+        <div class="compara-list">
+          <div class="compara-item">El cliente entra al <strong>Marketplace del Grupo</strong> y ve las marcas juntas · cada marca opera como una <em>tiendita</em> con su catálogo.</div>
+          <div class="compara-item">Beta interno con Seminuevos, Hyundai y Stellantis en <strong>semana 4</strong>.</div>
+          <div class="compara-item">Público con las 5 marcas de retail en <strong>semana 6-7</strong>.</div>
+        </div>
+      </div>
+
+      <div class="compara-card piloto">
+        <div class="compara-hdr">
+          <div class="compara-tag">Frente 3</div>
+          <div class="compara-tag-mini">Compra de medios consolidada</div>
+        </div>
+        <div class="compara-t">Un solo proveedor de publicidad para todas las marcas</div>
+        <div class="compara-list">
+          <div class="compara-item"><strong>Concurso con agencias</strong> para que una sola opere la publicidad de todas las marcas · mejor precio, menos fragmentación.</div>
+          <div class="compara-item">Firma en <strong>semana 5</strong> (medios digitales) · segundo concurso en semana 12 (radio, TV, exterior).</div>
+          <div class="compara-item">Concurso paralelo para <strong>elegir la IA que conversa con el cliente</strong> por WhatsApp (Karbot o Vambe).</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="bau-callout">
+      <div class="bau-callout-icon">→</div>
+      <div class="bau-callout-body">Los tres frentes se reportan al Consejo con <strong>semáforo verde/amarillo/rojo</strong> en tres momentos: <em>semana 4 (31 agosto), semana 8 (28 septiembre) y semana 13 (3 noviembre · cierre de los 90 días)</em>.</div>
+    </div>
+
+  </div>
+
+  <div class="slide-footer">
+    <span><span class="dot"></span><strong>Grupo Plasencia Automotriz</strong> · Plan 90 días · Resumen ejecutivo · Agosto 2026</span>
+    <span>Confidencial · Slide 2 de 5</span>
+  </div>
+</div>
+
+
+<!-- ==================== SLIDE 3 · PILOTO DETALLADO · RESULTADOS ==================== -->
+<div class="slide">
+  <div class="content">
+
+    <div class="slide-header">
+      <div class="section-num">02 · Dónde estamos hoy · Día 1</div>
+      <div class="slide-mark">Lunes 10 de agosto · semana 1 de 13</div>
+    </div>
+
+    <h1 class="slide-h1">Dos iniciativas <em>ya arrancaron adelantadas</em> · las demás esta semana</h1>
+
+    <p class="slide-lede">Hoy es el primer día del plan. Dos de las siete marcas del plan ya tienen su documento de trabajo circulando desde esta mañana — <strong>adelantadas respecto al calendario acordado</strong>. Las demás piezas arrancan formalmente esta semana y deben quedar cerradas antes del primer reporte al Consejo el <strong>31 de agosto</strong>.</p>
+
+    <div class="pilar-wrap">
+
+      <div class="flujo-panel">
+        <div class="flujo-hdr">Qué está pasando hoy</div>
+        <div class="flujo-t">Cuatro piezas en movimiento simultáneo</div>
+        <div class="flujo-steps">
+          <div class="flujo-step">
+            <div class="flujo-step-num">1</div>
+            <div class="flujo-step-body"><strong>Seminuevos</strong> · documento circulando desde hoy con Pepe y Jonathan para pasar el piloto a crecimiento con presupuesto de las tres marcas del piloto. <em>Adelantado 3 semanas</em>.</div>
+          </div>
+          <div class="flujo-step">
+            <div class="flujo-step-num">2</div>
+            <div class="flujo-step-body"><strong>Flotillas</strong> · documento circulando desde hoy con Aurora del Pozo y Pepe para arrancar el piloto digital de la división. <em>Adelantado 5 a 8 semanas</em>.</div>
+          </div>
+          <div class="flujo-step">
+            <div class="flujo-step-num">3</div>
+            <div class="flujo-step-body"><strong>Hyundai y Stellantis</strong> · agendamos esta semana la cocreación de sus planes comerciales — plan firmado con cada marca antes del 31 de agosto.</div>
+          </div>
+          <div class="flujo-step">
+            <div class="flujo-step-num">4</div>
+            <div class="flujo-step-body"><strong>Concurso de medios + Marketplace</strong> · esta semana arrancan el concurso con agencias, el concurso paralelo para elegir la IA que conversa por WhatsApp, y el desarrollo técnico del Marketplace.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="kpi-panel">
+        <div class="kpi-hero">
+          <div class="kpi-hero-lbl">Días transcurridos del plan</div>
+          <div class="kpi-hero-num">1</div>
+          <div class="kpi-hero-sub"><strong>de 90 días</strong> · ventana operativa del 10 de agosto al 3 de noviembre</div>
+        </div>
+
+        <div class="kpi-strip">
+          <div class="kpi-cell gold">
+            <div class="kpi-cell-lbl">Marcas del plan</div>
+            <div class="kpi-cell-num">7</div>
+            <div class="kpi-cell-sub">4 en primera oleada · 3 en segunda oleada · el resto solo si lo piden</div>
+          </div>
+          <div class="kpi-cell">
+            <div class="kpi-cell-lbl">Ya circulando</div>
+            <div class="kpi-cell-num">2</div>
+            <div class="kpi-cell-sub">Seminuevos · Flotillas · con su documento en manos de Pepe y los owners</div>
+          </div>
+          <div class="kpi-cell green">
+            <div class="kpi-cell-lbl">Reportes al Consejo</div>
+            <div class="kpi-cell-num">3</div>
+            <div class="kpi-cell-sub">31 agosto · 28 septiembre · 3 noviembre (cierre)</div>
+          </div>
+          <div class="kpi-cell green">
+            <div class="kpi-cell-lbl">Equipo operativo</div>
+            <div class="kpi-cell-num">1+IA</div>
+            <div class="kpi-cell-sub"><strong>Chucho + apoyo de IA</strong> · ~40 horas por semana efectivas</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="callout-navy">
+      <div class="callout-navy-icon">→</div>
+      <div class="callout-navy-body">El plan no pide que las 7 marcas lleguen a crecimiento en 13 semanas. Pide que <strong>arranquen bien</strong>. Que dos ya circulen su documento el mismo día 1 es <em>adelanto vs lo comprometido, no expectativa para las demás</em>.</div>
+    </div>
+
+    <div class="honesty-strip">
+      <strong>Filosofía canónica del plan:</strong> <em>calidad sobre cobertura, memoria sobre pipeline</em>. No abrimos las 11 entidades del portafolio en paralelo · cerramos bien las 4 marcas de la primera oleada, arrancamos con evidencia el Marketplace, y crecemos hacia las demás cuando lo justifique. Fase 3 (Autolease, Mazda, Ford, GWM, Isuzu) solo se activa <strong>por pull explícito de la marca</strong>, no por push de la Dirección.
+    </div>
+
+  </div>
+
+  <div class="slide-footer">
+    <span><span class="dot"></span><strong>Grupo Plasencia Automotriz</strong> · Plan 90 días · Resumen ejecutivo · Agosto 2026</span>
+    <span>Confidencial · Slide 3 de 5</span>
+  </div>
+</div>
+
+
+<!-- ==================== SLIDE 4 · PREVIEW MARKETPLACE ==================== -->
+<div class="slide">
+  <div class="content">
+
+    <div class="slide-header">
+      <div class="section-num">03 · Anexo · a dónde puede evolucionar el modelo</div>
+      <div class="slide-mark">Medios Plasencia · ambición mapeada, no compromiso</div>
+    </div>
+
+    <h1 class="slide-h1">Hoy es concurso con agencia · <em>mañana puede ser una entidad del Grupo</em></h1>
+
+    <p class="slide-lede">Dentro del plan de 90 días, la compra de medios se centraliza con una <strong>agencia externa que gana el concurso</strong> — así arrancamos operando cross-marca sin comprometer nada estructural. <em>Si el modelo demuestra que funciona, hacia adelante puede evolucionar a una entidad formal del Grupo</em> — el mismo patrón que ya conocemos con GP Autolease, BienSea y KPMG-Plasencia. Esto es un mapa conceptual, <strong>no decisión de esta ronda</strong>.</p>
+
+    <div class="preview-wrap">
+
+      <div class="evo-card hoy">
+        <div class="evo-hdr">
+          <div class="evo-tag">Hoy · Plan 90 días</div>
+          <div class="evo-tag-mini">Concurso con agencia externa</div>
+        </div>
+        <div class="evo-t">Aterrizar la operación cross-marca con agencia</div>
+        <div class="evo-list">
+          <div class="evo-item">La compra de medios se centraliza vía <strong>concurso con agencias</strong> — ganadora opera la publicidad de las marcas del Grupo con precio consolidado.</div>
+          <div class="evo-item"><strong>Cero compromiso estructural</strong> · no se constituye nada nuevo · se aprovecha la relación con agencias existentes.</div>
+          <div class="evo-item">Al cierre de los 90 días medimos el <strong>ahorro real vs el modelo anterior</strong> (agencias dispersas por marca) — con ese dato se decide si tiene sentido evolucionar.</div>
+        </div>
+      </div>
+
+      <div class="evo-card futuro">
+        <div class="evo-hdr">
+          <div class="evo-tag">Hacia adelante</div>
+          <div class="evo-tag-mini">Medios Plasencia como entidad del Grupo</div>
+        </div>
+        <div class="evo-t">Constituir Medios Plasencia S.A. — como GP Autolease o BienSea</div>
+        <div class="evo-list">
+          <div class="evo-item">Si el modelo funciona, se puede <strong>constituir una entidad formal del Grupo</strong> que opere la compra de medios internamente.</div>
+          <div class="evo-item">El dinero que hoy sale a agencias externas <em>se queda como flujo interno del Grupo</em> — como pasa con arrendamiento en GP Autolease y seguros en BienSea.</div>
+          <div class="evo-item">Cualquier decisión estructural (constitución, gobierno, facturación entre marcas) <strong>requiere autorización explícita del Consejo</strong> en su momento. Nada de esto se decide ahora.</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="enmarcha-wrap">
+      <div class="enmarcha-hdr">Cuatro estadios naturales · cada uno depende del anterior</div>
+      <div class="enmarcha-t">Solo se avanza al siguiente cuando el actual demuestra resultados medibles</div>
+      <div class="enmarcha-grid">
+        <div class="enmarcha-item"><strong>Estadio 1 · hoy hasta 3-nov</strong> · agencia externa con concurso · aterrizar la operación</div>
+        <div class="enmarcha-item"><strong>Estadio 2 · después de los 90 días</strong> · constituir Medios Plasencia S.A. · flujo interno del Grupo</div>
+        <div class="enmarcha-item"><strong>Estadio 3 · 2027</strong> · piloto ofreciendo la suite a un grupo automotriz externo</div>
+        <div class="enmarcha-item"><strong>Estadio 4 · después de 2027</strong> · comercialización abierta al mercado automotriz nacional</div>
+      </div>
+    </div>
+
+    <div class="precedente-strip">
+      <div class="precedente-icon">◆</div>
+      <div>
+        <div class="precedente-lbl">Precedente del propio Grupo</div>
+        <div class="precedente-body">El Grupo ya opera con este patrón en <strong>arrendamiento</strong> (GP Autolease · con Sergio Barroso), <strong>seguros</strong> (BienSea) y <strong>servicios profesionales</strong> (KPMG-Plasencia). Medios Plasencia sigue el mismo patrón <em>si el Consejo decide activarlo cuando llegue el momento</em> — pero primero hay que demostrar que el modelo funciona con la agencia externa en estos 90 días.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="slide-footer">
+    <span><span class="dot"></span><strong>Grupo Plasencia Automotriz</strong> · Plan 90 días · Resumen ejecutivo · Agosto 2026</span>
+    <span>Confidencial · Slide 4 de 5</span>
+  </div>
+</div>
+
+
+<!-- ==================== SLIDE 5 · CIERRE + URLs ==================== -->
+<div class="slide dark">
+  <div class="close-inner">
+
+    <div class="close-top">
+      <div class="close-eyebrow">Qué falta antes del primer reporte al Consejo</div>
+      <div class="close-rule"></div>
+      <h2 class="close-h">El primer semáforo es el <em>31 de agosto</em> · lo que quede cerrado en las próximas 4 semanas es lo que vamos a reportar.</h2>
+      <p class="close-sub">Este documento comparte el arranque para que Pepe y el Consejo tengan visibilidad desde el día 1 y puedan intervenir temprano si algo requiere ajuste. En 4 semanas presento el primer semáforo con verde, amarillo o rojo por cada frente. Estos son los cuatro compromisos concretos:</p>
+    </div>
+
+    <div class="urls-panel">
+      <div class="urls-panel-hdr">Compromisos hacia el 31 de agosto</div>
+      <div class="urls-panel-t">Cuatro cierres en 4 semanas · esto es lo que voy a reportar al Consejo</div>
+      <div class="urls-grid">
+        <div class="url-item">
+          <span class="url-marca">Cocreación</span>
+          <span class="url-link">Plan comercial firmado con Hyundai y Stellantis</span>
+        </div>
+        <div class="url-item">
+          <span class="url-marca">Concurso medios</span>
+          <span class="url-link">Ganador del concurso digital + IA conversacional</span>
+        </div>
+        <div class="url-item">
+          <span class="url-marca">Comité TxD</span>
+          <span class="url-link">Formalizado y con al menos una sesión</span>
+        </div>
+        <div class="url-item">
+          <span class="url-marca">Marketplace</span>
+          <span class="url-link">Beta interno con Seminuevos, Hyundai y Stellantis</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="close-foot">
+      <span><strong>Grupo Plasencia Automotriz</strong> · Plan 90 días · Resumen ejecutivo · Agosto 2026</span>
+      <span>Confidencial · Slide 5 de 5</span>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
