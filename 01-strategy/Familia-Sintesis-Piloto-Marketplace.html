@@ -91,6 +91,7 @@ html, body { width:100%; background:#0A0F1F; font-family:var(--sans); -webkit-fo
 .flujo-step-body { font-family:var(--sans); font-size:9pt; color: var(--g600); line-height:1.4; }
 .flujo-step-body strong { color: var(--gp-navy); font-weight:700; }
 .flujo-step-body em { font-style: italic; color: var(--gp-navy); }
+.flujo-step-actor { display:inline-block; font-family:var(--sans); font-size:7.5pt; font-weight:800; text-transform:uppercase; letter-spacing:.9px; color: var(--gp-red); background: rgba(200,16,46,.08); padding: 2px 7px; border-radius: 3px; margin-right: 8px; vertical-align: 1px; }
 
 .kpi-panel { display:flex; flex-direction:column; gap: 8px; }
 .kpi-hero { background: linear-gradient(135deg, var(--gp-navy) 0%, #2A3654 100%); color: var(--near-white); border-radius: 12px; padding: 12px 18px; }
@@ -281,23 +282,27 @@ html, body { width:100%; background:#0A0F1F; font-family:var(--sans); -webkit-fo
         <div class="flujo-steps">
           <div class="flujo-step">
             <div class="flujo-step-num">1</div>
-            <div class="flujo-step-body"><strong>El cliente ve un anuncio</strong> del Grupo en Facebook, Instagram o Google.</div>
+            <div class="flujo-step-body"><span class="flujo-step-actor">Cliente</span>ve el anuncio del Grupo en <strong>Facebook, Instagram o Google</strong>.</div>
           </div>
           <div class="flujo-step">
             <div class="flujo-step-num">2</div>
-            <div class="flujo-step-body">Entra a la <strong>tienda digital de la marca</strong> (por ejemplo <em>hyundai.grupoplasencia.com</em>), ve el catálogo, escoge un auto y se registra.</div>
+            <div class="flujo-step-body"><span class="flujo-step-actor">Cliente</span>entra a la <strong>tienda digital de la marca</strong> (ej. <em>hyundai.grupoplasencia.com</em>), ve el catálogo, escoge un auto y se registra.</div>
           </div>
           <div class="flujo-step">
             <div class="flujo-step-num">3</div>
-            <div class="flujo-step-body">El lead entra a la <strong>tubería de ventas del Grupo</strong> con folio único — el sistema lo dirige al <strong>gerente de ventas digitales de la sucursal correspondiente</strong>, que debe asignar al vendedor digital para el seguimiento.</div>
+            <div class="flujo-step-body"><span class="flujo-step-actor">Sistema</span>crea un <strong>folio único</strong> del lead y lo dirige al <strong>Gerente de Ventas Digitales</strong> de la sucursal correspondiente, que asigna al Vendedor Digital.</div>
           </div>
           <div class="flujo-step">
             <div class="flujo-step-num">4</div>
-            <div class="flujo-step-body">En <strong>Seminuevos</strong>, una IA conversacional (<em>Vambe</em>) atiende al cliente hasta agendar la cita. En las demás marcas, esto lo hace directamente el vendedor asignado.</div>
+            <div class="flujo-step-body"><span class="flujo-step-actor">IA Vambe · Vendedor Digital</span>atiende al cliente por WhatsApp hasta <strong>agendar la cita</strong> (IA Vambe en Seminuevos · Vendedor Digital en las demás marcas).</div>
           </div>
           <div class="flujo-step">
             <div class="flujo-step-num">5</div>
-            <div class="flujo-step-body"><strong>De la cita en adelante, todo depende del vendedor</strong>: asegurar la visita al piso, cerrar la venta y reportar la factura. Al final, la venta se cruza contra el DCA.</div>
+            <div class="flujo-step-body"><span class="flujo-step-actor">Vendedor Digital</span>recibe al cliente en piso, <strong>cierra la venta</strong> y reporta la factura.</div>
+          </div>
+          <div class="flujo-step">
+            <div class="flujo-step-num">6</div>
+            <div class="flujo-step-body"><span class="flujo-step-actor">Sistema · DCA</span>cruza la <strong>factura</strong> del sistema contable con el <strong>anuncio original</strong> — medición punta a punta cerrada.</div>
           </div>
         </div>
       </div>
