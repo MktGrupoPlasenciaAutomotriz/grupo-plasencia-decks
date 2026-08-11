@@ -79,6 +79,35 @@ html, body { width:100%; background:#0A0F1F; font-family:var(--sans); -webkit-fo
 .bau-callout-body strong { color: var(--gold); font-weight:700; }
 .bau-callout-body em { font-style: italic; color: var(--near-white); }
 
+/* Maduración canal digital · Slide 3 */
+.madurez-wrap { display:flex; flex-direction:column; gap: 14px; flex:1; min-height:0; }
+.madurez-row { display:grid; grid-template-columns: repeat(4, 1fr); gap: 14px; flex:1; min-height:0; }
+.madurez-card { background: var(--paper); border: 1px solid var(--g200); border-top: 4px solid var(--g400); border-radius: 4px; padding: 14px 16px; display:flex; flex-direction:column; gap: 8px; min-width:0; }
+.madurez-card.piloto { border-top-color: var(--amber); }
+.madurez-card.crecimiento { border-top-color: var(--blue); }
+.madurez-card.escalamiento { border-top-color: var(--deep-green); }
+.madurez-card.operacion { border-top-color: var(--gp-navy); }
+.madurez-hdr { display:flex; align-items:baseline; gap: 8px; }
+.madurez-num { font-family:var(--serif); font-weight:800; font-size:18pt; color: var(--g300); line-height:1; }
+.madurez-card.piloto .madurez-num { color: var(--amber); }
+.madurez-card.crecimiento .madurez-num { color: var(--blue); }
+.madurez-card.escalamiento .madurez-num { color: var(--deep-green); }
+.madurez-card.operacion .madurez-num { color: var(--gp-navy); }
+.madurez-tag { font-family:var(--sans); font-size:8pt; font-weight:800; letter-spacing:2px; text-transform:uppercase; color: var(--g500); }
+.madurez-card.piloto .madurez-tag { color: var(--amber); }
+.madurez-card.crecimiento .madurez-tag { color: var(--blue); }
+.madurez-card.escalamiento .madurez-tag { color: var(--deep-green); }
+.madurez-card.operacion .madurez-tag { color: var(--gp-navy); }
+.madurez-t { font-family:var(--serif); font-weight:800; font-size:12pt; color: var(--gp-navy); line-height:1.15; letter-spacing:-.2px; }
+.madurez-body { font-family:var(--sans); font-size:8.5pt; color: var(--g600); line-height:1.4; }
+.madurez-body strong { color: var(--gp-navy); font-weight:700; }
+.madurez-list { display:flex; flex-direction:column; gap: 4px; margin-top: 2px; }
+.madurez-list-item { font-family:var(--sans); font-size:8pt; color: var(--g600); line-height:1.35; padding-left: 10px; position:relative; }
+.madurez-list-item::before { content:"·"; position:absolute; left:2px; top:-2px; font-weight:800; font-size:12pt; color: var(--g400); }
+.madurez-hoy { background: var(--g100); border-left: 3px solid var(--amber); padding: 10px 14px; border-radius: 2px; font-family:var(--sans); font-size:9pt; color: var(--g600); line-height:1.5; }
+.madurez-hoy strong { color: var(--gp-navy); font-weight:700; }
+.madurez-hoy em { font-style: italic; color: var(--gp-navy); }
+
 /* Piloto detallado · Slide 3 · Flujo + KPIs */
 .pilar-wrap { display:grid; grid-template-columns: 1.28fr 1fr; gap: 22px; margin-top: 4px; }
 
@@ -186,7 +215,7 @@ html, body { width:100%; background:#0A0F1F; font-family:var(--sans); -webkit-fo
     <div class="cover-center">
       <div class="cover-eyebrow">Plan 90 días · Dirección de Marketing Corporativo</div>
       <h1 class="cover-title">Plan 90 días · <em>dónde arrancamos hoy</em></h1>
-      <p class="cover-subtitle">Hoy es <strong>día 1 de 90</strong>. Este documento resume el plan que acordamos con Andrés y Nicolás Plasencia el 28 de julio y comparte <strong>dónde estamos parados al arranque</strong>: qué ya está en marcha, qué falta cerrar en las próximas 4 semanas, y a dónde puede evolucionar el modelo más adelante.</p>
+      <p class="cover-subtitle">Hoy <strong>lunes 10 de agosto de 2026</strong> es día 1 de 90. Este documento resume el plan que acordamos con Andrés y Nicolás Plasencia el 28 de julio y comparte <strong>dónde estamos parados al arranque</strong>: qué ya está en marcha, qué falta cerrar en las próximas 4 semanas, y a dónde puede evolucionar el modelo más adelante.</p>
     </div>
 
     <div class="cover-meta">
@@ -221,23 +250,22 @@ html, body { width:100%; background:#0A0F1F; font-family:var(--sans); -webkit-fo
         </div>
         <div class="compara-t">Ayudarles a estructurar su marketing y atarlo a sus ventas</div>
         <div class="compara-list">
-          <div class="compara-item"><strong>Diagnosticar dónde está cada marca hoy</strong> — cómo trabaja su día a día de marketing y qué le está funcionando.</div>
-          <div class="compara-item"><strong>Codiseñar su plan anual</strong> — calendario de temporadas, mapeo de contenidos y alineación con las ofertas comerciales de la marca.</div>
-          <div class="compara-item"><strong>Objetivos de marketing con bandas mínimo/máximo</strong> (leads, costo por lead, ventas, costo por venta) que cubran las metas comerciales de la marca.</div>
-          <div class="compara-item">Firmado por <strong>Dirección de Familia + Director de Marca + Dirección de MKT</strong>. Meta 90 días: 7 marcas.</div>
+          <div class="compara-item">A demanda del <strong>Director de Familia, Director de Marca o Gerente de Marketing</strong> — nos involucramos donde nos lo pidan.</div>
+          <div class="compara-item"><strong>Dos niveles de acompañamiento</strong> — codiseño del plan de marketing+comercial anual completo (temporadas, calendarios, ofertas, bandas objetivo mínimo/máximo por métrica: leads, costo por lead, ventas, costo por venta), o recomendaciones puntuales al mes.</div>
+          <div class="compara-item">Empezamos por las marcas de la primera oleada. Al Consejo se le reporta <strong>cuántas marcas ya trabajan con nosotros bajo alguno de los dos niveles</strong>.</div>
         </div>
       </div>
 
       <div class="compara-card piloto">
         <div class="compara-hdr">
           <div class="compara-tag">Frente 2</div>
-          <div class="compara-tag-mini">Marketplace del Grupo</div>
+          <div class="compara-tag-mini">Pilotos hacia una tienda digital</div>
         </div>
-        <div class="compara-t">Una tienda digital donde el Grupo se ve como uno</div>
+        <div class="compara-t">Madurar el canal digital de cada marca hasta convergir en un Marketplace del Grupo</div>
         <div class="compara-list">
-          <div class="compara-item">El cliente entra al <strong>Marketplace del Grupo</strong> y ve las marcas juntas · cada marca opera como una <em>tiendita</em> con su catálogo.</div>
-          <div class="compara-item">Beta interno con Seminuevos, Hyundai y Stellantis en <strong>semana 4</strong>.</div>
-          <div class="compara-item">Público con las 5 marcas de retail en <strong>semana 6-7</strong>.</div>
+          <div class="compara-item">Cada marca vive un <strong>proceso de maduración digital en cuatro etapas</strong> — Piloto, Crecimiento, Escalamiento, Operación (siguiente slide).</div>
+          <div class="compara-item">Arrancamos el <strong>levantamiento del Marketplace</strong> con las marcas que ya venían del piloto — <strong>Hyundai, Stellantis, GAC</strong> — y con <strong>Changan</strong> que estaba en el backlog.</div>
+          <div class="compara-item">Beta interno con estas 4 en <strong>semana 4</strong> · apertura pública conforme cada marca cierra su etapa de maduración.</div>
         </div>
       </div>
 
@@ -248,8 +276,8 @@ html, body { width:100%; background:#0A0F1F; font-family:var(--sans); -webkit-fo
         </div>
         <div class="compara-t">Un solo proveedor de publicidad para todas las marcas</div>
         <div class="compara-list">
-          <div class="compara-item"><strong>Concurso con agencias</strong> para que una sola opere la publicidad de todas las marcas · mejor precio, menos fragmentación.</div>
-          <div class="compara-item">Firma en <strong>semana 5</strong> (medios digitales) · segundo concurso en semana 12 (radio, TV, exterior).</div>
+          <div class="compara-item"><strong>Licitación con agencias</strong> para que una sola opere la publicidad de todas las marcas · mejor precio, menos fragmentación.</div>
+          <div class="compara-item">Esta semana <strong>envío el RFP a Compras (Sergio Ferreyra)</strong> para arrancar el proceso · los tiempos de la licitación los marca Compras. Segundo concurso más adelante (radio, TV, exterior).</div>
           <div class="compara-item">Concurso paralelo para <strong>elegir la IA que conversa con el cliente</strong> por WhatsApp (Karbot o Vambe).</div>
         </div>
       </div>
@@ -265,12 +293,86 @@ html, body { width:100%; background:#0A0F1F; font-family:var(--sans); -webkit-fo
 
   <div class="slide-footer">
     <span><span class="dot"></span><strong>Grupo Plasencia Automotriz</strong> · Plan 90 días · Resumen ejecutivo · Agosto 2026</span>
-    <span>Confidencial · Slide 2 de 5</span>
+    <span>Confidencial · Slide 2 de 6</span>
   </div>
 </div>
 
 
-<!-- ==================== SLIDE 3 · PILOTO DETALLADO · RESULTADOS ==================== -->
+<!-- ==================== SLIDE 3 · MADURACIÓN CANAL DIGITAL ==================== -->
+<div class="slide">
+  <div class="content">
+
+    <div class="slide-header">
+      <div class="section-num">02 · Cómo maduran los canales digitales</div>
+      <div class="slide-mark">Piloto → Crecimiento → Escalamiento → Operación</div>
+    </div>
+
+    <h1 class="slide-h1">Cada marca vive un proceso de <em>maduración digital en cuatro etapas</em></h1>
+
+    <p class="slide-lede">El Frente 2 no es un interruptor · es un camino. Cada marca del Grupo entra por <strong>Piloto</strong>, se gradúa a <strong>Crecimiento</strong> cuando hay evidencia, escala su inversión en <strong>Escalamiento</strong> y estabiliza el canal en <strong>Operación</strong>. El Marketplace del Grupo es el destino donde las marcas que ya maduraron su canal digital <em>convergen bajo un mismo storefront</em>.</p>
+
+    <div class="madurez-wrap">
+
+      <div class="madurez-row">
+
+        <div class="madurez-card piloto">
+          <div class="madurez-hdr"><span class="madurez-num">1</span><span class="madurez-tag">Piloto</span></div>
+          <div class="madurez-t">Confirmar que hay demanda por canal digital</div>
+          <div class="madurez-body">Presupuesto acotado, tracking mínimo, hipótesis clara. El objetivo <strong>no es facturar</strong> sino aprender qué mensajes, audiencias y ofertas responden.</div>
+          <div class="madurez-list">
+            <div class="madurez-list-item">Setup técnico completo (pixel, GA4, WhatsApp).</div>
+            <div class="madurez-list-item">Se sale cuando hay <strong>señales confirmadas</strong> de leads que compran.</div>
+          </div>
+        </div>
+
+        <div class="madurez-card crecimiento">
+          <div class="madurez-hdr"><span class="madurez-num">2</span><span class="madurez-tag">Crecimiento</span></div>
+          <div class="madurez-t">Escalar lo que funciona · cerrar los leaks</div>
+          <div class="madurez-body">Se sube gasto en las combinaciones ganadoras del piloto, se cierran los leaks del funnel y se afina la operación con el equipo comercial de cada marca.</div>
+          <div class="madurez-list">
+            <div class="madurez-list-item">Reporting semanal con CPL y ventas atribuidas.</div>
+            <div class="madurez-list-item">Se sale cuando el <strong>costo por venta se estabiliza</strong> en la banda objetivo.</div>
+          </div>
+        </div>
+
+        <div class="madurez-card escalamiento">
+          <div class="madurez-hdr"><span class="madurez-num">3</span><span class="madurez-tag">Escalamiento</span></div>
+          <div class="madurez-t">Canal probado · se acelera inversión</div>
+          <div class="madurez-body">La marca invierte con confianza · se conecta con inventario y CRM · se estandariza el reporting mensual. El canal digital <strong>ya pesa en la mezcla de la marca</strong>.</div>
+          <div class="madurez-list">
+            <div class="madurez-list-item">Integración con procesos comerciales de la marca.</div>
+            <div class="madurez-list-item">Se sale cuando el canal opera con <strong>ritmo predecible mes a mes</strong>.</div>
+          </div>
+        </div>
+
+        <div class="madurez-card operacion">
+          <div class="madurez-hdr"><span class="madurez-num">4</span><span class="madurez-tag">Operación</span></div>
+          <div class="madurez-t">Canal estable · BAU con optimización continua</div>
+          <div class="madurez-body">Canal en régimen de operación normal · benchmarks internos · optimización continua sin sobresaltos. La marca <strong>puede sumarse al Marketplace del Grupo</strong> como storefront convergido.</div>
+          <div class="madurez-list">
+            <div class="madurez-list-item">Reporting mensual estándar al Consejo.</div>
+            <div class="madurez-list-item">La marca <strong>ya está lista para convivir con las demás</strong> en un mismo Marketplace.</div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="madurez-hoy">
+        <strong>Dónde está cada marca hoy:</strong> <em>Seminuevos</em> cierra Piloto y pasa a Crecimiento con presupuesto de las tres marcas. <em>Hyundai, Stellantis y GAC</em> cerraron su Piloto en la ronda anterior y se están preparando para levantar el Marketplace junto con <em>Changan</em> (que estaba en backlog). <em>Flotillas</em> arranca su Piloto digital esta semana. Las demás marcas del portafolio entran cuando lo pidan.
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="slide-footer">
+    <span><span class="dot"></span><strong>Grupo Plasencia Automotriz</strong> · Plan 90 días · Resumen ejecutivo · Agosto 2026</span>
+    <span>Confidencial · Slide 3 de 6</span>
+  </div>
+</div>
+
+
+<!-- ==================== SLIDE 4 · PILOTO DETALLADO · RESULTADOS ==================== -->
 <div class="slide">
   <div class="content">
 
@@ -299,11 +401,11 @@ html, body { width:100%; background:#0A0F1F; font-family:var(--sans); -webkit-fo
           </div>
           <div class="flujo-step">
             <div class="flujo-step-num">3</div>
-            <div class="flujo-step-body"><strong>Hyundai y Stellantis</strong> · agendamos esta semana el arranque de la consultoría con cada marca — diagnóstico, codiseño del plan anual y bandas objetivo por métrica · firmado antes del 31 de agosto.</div>
+            <div class="flujo-step-body"><strong>Hyundai y Stellantis</strong> · esta semana agendamos las sesiones con cada marca para ofrecer los dos niveles de acompañamiento (plan de marketing+comercial anual completo o recomendaciones puntuales al mes) — arrancamos con quien lo pida.</div>
           </div>
           <div class="flujo-step">
             <div class="flujo-step-num">4</div>
-            <div class="flujo-step-body"><strong>Concurso de medios + Marketplace</strong> · esta semana arrancan el concurso con agencias, el concurso paralelo para elegir la IA que conversa por WhatsApp, y el desarrollo técnico del Marketplace.</div>
+            <div class="flujo-step-body"><strong>Licitación de medios + Marketplace</strong> · esta semana envío el RFP de medios a Compras (Sergio Ferreyra) para iniciar el proceso — los tiempos de licitación los marca Compras. Arrancan también el concurso paralelo para elegir la IA que conversa por WhatsApp y el desarrollo técnico del Marketplace.</div>
           </div>
         </div>
       </div>
@@ -354,7 +456,7 @@ html, body { width:100%; background:#0A0F1F; font-family:var(--sans); -webkit-fo
 
   <div class="slide-footer">
     <span><span class="dot"></span><strong>Grupo Plasencia Automotriz</strong> · Plan 90 días · Resumen ejecutivo · Agosto 2026</span>
-    <span>Confidencial · Slide 3 de 5</span>
+    <span>Confidencial · Slide 4 de 6</span>
   </div>
 </div>
 
@@ -424,7 +526,7 @@ html, body { width:100%; background:#0A0F1F; font-family:var(--sans); -webkit-fo
 
   <div class="slide-footer">
     <span><span class="dot"></span><strong>Grupo Plasencia Automotriz</strong> · Plan 90 días · Resumen ejecutivo · Agosto 2026</span>
-    <span>Confidencial · Slide 4 de 5</span>
+    <span>Confidencial · Slide 5 de 6</span>
   </div>
 </div>
 
@@ -446,11 +548,11 @@ html, body { width:100%; background:#0A0F1F; font-family:var(--sans); -webkit-fo
       <div class="urls-grid">
         <div class="url-item">
           <span class="url-marca">Consultoría de marketing</span>
-          <span class="url-link">Plan anual firmado con Hyundai y Stellantis (con bandas objetivo)</span>
+          <span class="url-link">Al menos Hyundai y Stellantis ya trabajando con nosotros (plan anual o recomendaciones al mes)</span>
         </div>
         <div class="url-item">
-          <span class="url-marca">Concurso medios</span>
-          <span class="url-link">Ganador del concurso digital + IA conversacional</span>
+          <span class="url-marca">Licitación medios</span>
+          <span class="url-link">RFP entregado a Compras · IA conversacional elegida</span>
         </div>
         <div class="url-item">
           <span class="url-marca">Comité TxD</span>
@@ -458,14 +560,14 @@ html, body { width:100%; background:#0A0F1F; font-family:var(--sans); -webkit-fo
         </div>
         <div class="url-item">
           <span class="url-marca">Marketplace</span>
-          <span class="url-link">Beta interno con Seminuevos, Hyundai y Stellantis</span>
+          <span class="url-link">Beta interno con Hyundai, Stellantis, GAC y Changan</span>
         </div>
       </div>
     </div>
 
     <div class="close-foot">
       <span><strong>Grupo Plasencia Automotriz</strong> · Plan 90 días · Resumen ejecutivo · Agosto 2026</span>
-      <span>Confidencial · Slide 5 de 5</span>
+      <span>Confidencial · Slide 6 de 6</span>
     </div>
 
   </div>
