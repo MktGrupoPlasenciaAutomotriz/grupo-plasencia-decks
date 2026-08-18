@@ -78,7 +78,7 @@ let CARS=[], MARCAS=[], SUCS=[];
 // Inventario PROXY · datos reales del KO-Estrategico + catalogo Seminuevos piloto
 // El piloto Otero (8 lotes) muestra 239 unidades — eso es subset del grupo
 // El grupo total Seminuevos cubre las 42 agencias y multi-marca (incluye trade-ins
-// de Toyota, Nissan, VW, Renault que NO se venden nuevos)
+// de Toyota, VW, Renault que NO se venden nuevos)
 // Volumen: ~800 facturas/mes (Mazda 403 + Hyundai 121 + GAC 39 + GWM 80 + resto)
 const INVENTORY={
   total:2700, // 1,950 nuevos + 750 seminuevos certificados
