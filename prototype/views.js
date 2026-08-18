@@ -367,7 +367,7 @@ tradein(){
     <div>
       <div class="eyebrow gold" style="color:var(--gold)">Tu auto a cuenta · cualquier marca</div>
       <h1 style="margin-top:14px">Tu auto vale más<br><span>cuando hay a quién venderlo.</span></h1>
-      <p class="sub">No importa si tienes un Toyota, Nissan, VW o cualquier otra marca. Lo <b style="color:#fff">recibimos a cuenta de tu próximo auto</b>, te lo compramos en efectivo o te damos 7 días para decidir — sin compromiso. La oferta llega en 2 minutos.</p>
+      <p class="sub">No importa si tienes un Toyota, Chevrolet, VW o cualquier otra marca. Lo <b style="color:#fff">recibimos a cuenta de tu próximo auto</b>, te lo compramos en efectivo o te damos 7 días para decidir — sin compromiso. La oferta llega en 2 minutos.</p>
       <div style="margin-top:24px;display:flex;gap:10px;flex-wrap:wrap">
         <button class="btn btn-gold btn-lg" onclick="Flow.openTradein()">Empezar valuación ${I.arrowR(16)}</button>
         <button class="btn btn-ghost-dark btn-lg" onclick="Plasi.open('¿Cómo funciona el trade-in?')">¿Cómo funciona?</button>
@@ -378,7 +378,7 @@ tradein(){
       <p style="font-size:13px;color:var(--n600);margin-top:4px">Estimación en 30 segundos.</p>
       <div style="margin-top:14px;display:flex;flex-direction:column;gap:10px">
         <div class="field-row">
-          <div class="field"><label>Marca</label><select id="qti_marca">${['Mazda','Hyundai','Toyota','Nissan','Chevrolet','Ford','Volkswagen','Kia','Jeep','Otro'].map(m=>`<option>${m}</option>`).join('')}</select></div>
+          <div class="field"><label>Marca</label><select id="qti_marca">${['Mazda','Hyundai','Toyota','Chevrolet','Ford','Volkswagen','Jeep','Otro'].map(m=>`<option>${m}</option>`).join('')}</select></div>
           <div class="field"><label>Año</label><select id="qti_anio">${Array.from({length:15},(_,i)=>2025-i).map(y=>`<option>${y}</option>`).join('')}</select></div>
         </div>
         <div class="field"><label>Kilometraje aprox.</label><input id="qti_km" type="number" placeholder="50000"></div>

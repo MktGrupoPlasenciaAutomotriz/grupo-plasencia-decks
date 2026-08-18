@@ -7,7 +7,7 @@ const initials = s => (s||'').split(' ').filter(w=>/^[A-ZÁÉÍÓÚ]/.test(w[0]|
 const FALLBACK='data:image/svg+xml;utf8,'+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="400" height="250"><rect width="400" height="250" fill="#E2E8F0"/><text x="50%" y="50%" font-family="sans-serif" font-size="14" fill="#A0AEC0" text-anchor="middle" dy=".3em">Foto próximamente</text></svg>');
 
 // Las 13 marcas NUEVAS oficiales que vende el grupo (KO-Estrategico, fuente oficial)
-// NO incluye Nissan/Chevrolet/Kia/Buick/GMC/Foton/Infiniti — esas solo aparecen
+// NO incluye Chevrolet/Buick/GMC/Foton/Infiniti — esas solo aparecen
 // como seminuevos por trade-ins multi-marca, no son marcas representadas
 const MARCAS_NUEVAS=['Mazda','Hyundai','Ford','Jeep','RAM','Dodge','Fiat','Peugeot','Chrysler','GAC','GWM','Changan','Isuzu'];
 // Mapa marca → logo SVG (solo las 13 reales del grupo + Seminuevos como entidad)
@@ -89,7 +89,7 @@ const INVENTORY={
   estados:6, // Jalisco, Nayarit, Colima, SLP, Sinaloa, Aguascalientes
   agencias:42, // 37-42 segun fuente; tomamos 42 (data ventas)
   // Solo las 13 marcas NUEVAS oficiales (KO-Estrategico). El grupo NO vende
-  // Nissan/Chevrolet/Kia/Buick/GMC/Infiniti/Foton — pueden aparecer como seminuevos
+  // Chevrolet/Buick/GMC/Infiniti/Foton — pueden aparecer como seminuevos
   // por trade-ins multi-marca, pero no son marcas representadas con agencia.
   porMarca:{
     Mazda:780,    // 10-11 agencias · CPL mas eficiente · 403 facturas/mes
