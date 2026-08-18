@@ -79,6 +79,29 @@ html, body { width:100%; background:#0A0F1F; font-family:var(--sans); -webkit-fo
 .bau-callout-body strong { color: var(--gold); font-weight:700; }
 .bau-callout-body em { font-style: italic; color: var(--near-white); }
 
+/* Acuerdos con Andrés · Slide 6 */
+.acuerdos-lede-strong { font-family:var(--sans); font-size:9pt; color: var(--g600); line-height:1.5; margin-top: 2px; padding: 8px 14px; background: var(--g100); border-left: 3px solid var(--gp-red); border-radius: 3px; }
+.acuerdos-lede-strong strong { color: var(--gp-navy); font-weight:700; }
+.acuerdos-lede-strong em { font-style: italic; color: var(--gp-navy); }
+.acuerdos-grid { display:grid; grid-template-columns: repeat(4, 1fr); gap: 10px; flex:1; min-height:0; margin-top: 8px; }
+.acuerdo-card { background: var(--paper); border: 1px solid var(--g200); border-top: 3px solid var(--g400); border-radius: 8px; padding: 10px 12px; display:flex; flex-direction:column; gap: 5px; box-shadow: 0 1px 3px rgba(30,39,64,.04); position: relative; min-width:0; }
+.acuerdo-card.pasando { border-top-color: var(--deep-green); }
+.acuerdo-card.siguiente { border-top-color: var(--amber); }
+.acuerdo-card.acuerdo { border-top-color: var(--blue); }
+.acuerdo-hdr { display:flex; align-items:baseline; justify-content:space-between; gap: 6px; }
+.acuerdo-num { font-family:var(--serif); font-weight:900; font-size:16pt; color: var(--g300); line-height:1; }
+.acuerdo-card.pasando .acuerdo-num { color: var(--deep-green); }
+.acuerdo-card.siguiente .acuerdo-num { color: var(--amber); }
+.acuerdo-card.acuerdo .acuerdo-num { color: var(--blue); }
+.acuerdo-status { font-family:var(--sans); font-size:6.5pt; font-weight:800; letter-spacing:1.1px; text-transform:uppercase; padding: 2px 6px; border-radius: 3px; color: var(--g500); background: var(--g100); }
+.acuerdo-card.pasando .acuerdo-status { color: var(--deep-green); background: rgba(72,187,120,.14); }
+.acuerdo-card.siguiente .acuerdo-status { color: var(--amber); background: rgba(214,158,46,.14); }
+.acuerdo-card.acuerdo .acuerdo-status { color: var(--blue); background: rgba(66,153,225,.14); }
+.acuerdo-t { font-family:var(--sans); font-weight:800; font-size:9pt; color: var(--gp-navy); line-height:1.2; letter-spacing:-.1px; }
+.acuerdo-body { font-family:var(--sans); font-size:8pt; color: var(--g600); line-height:1.38; }
+.acuerdo-body strong { color: var(--gp-navy); font-weight:700; }
+.acuerdo-body em { font-style: italic; color: var(--gp-navy); }
+
 /* Maduración canal digital · Slide 3 */
 .madurez-wrap { display:flex; flex-direction:column; gap: 14px; flex:1; min-height:0; }
 .madurez-row { display:grid; grid-template-columns: repeat(4, 1fr); gap: 14px; flex:1; min-height:0; }
@@ -252,7 +275,7 @@ html, body { width:100%; background:#0A0F1F; font-family:var(--sans); -webkit-fo
         <div class="compara-list">
           <div class="compara-item"><strong>Modelo a demanda</strong> — Dir Familia, Dir Marca o Gte MKT envía la solicitud. Nada se impone: la marca fondea sólo si el planteamiento hace sentido.</div>
           <div class="compara-item"><strong>Proceso en 4 pasos</strong> — (1) se recibe la solicitud · (2) se diseña planteamiento a la medida (apoyado en el mapeo del gasto que cada marca ya declara en el SPA Directorio de Proveedores) · (3) se cotiza con costo transparente · (4) se entrega. La marca decide si fondea la ejecución u operación.</div>
-          <div class="compara-item"><strong>Stellantis ya está sucediendo</strong> · Enrique Rojas (consejero asignado a la dirección de Stellantis) envió solicitud directa · planteamiento en diseño. Al Consejo se reporta cuántas marcas enviaron solicitud, cuántos planteamientos se entregaron cotizados, y cuántos fueron fondeados por la marca.</div>
+          <div class="compara-item"><strong>Stellantis ya sucede</strong> · Enrique Rojas envió solicitud directa · planteamiento en diseño. <strong>MKT Corp orquesta · agencias tercerizadas ejecutan</strong> (branding · diseño · performance) vía el RFP de la semana. Al Consejo se reportan solicitudes recibidas, planteamientos entregados y fondeados.</div>
         </div>
       </div>
 
@@ -275,11 +298,11 @@ html, body { width:100%; background:#0A0F1F; font-family:var(--sans); -webkit-fo
           <div class="compara-tag">Frente 3</div>
           <div class="compara-tag-mini">Compra de medios consolidada</div>
         </div>
-        <div class="compara-t">Un solo proveedor de publicidad para todas las marcas</div>
+        <div class="compara-t">Un RFP a agencias · medios + ejecución integral (branding, diseño, performance)</div>
         <div class="compara-list">
-          <div class="compara-item"><strong>Licitación con agencias</strong> para que una sola opere la publicidad de todas las marcas · mejor precio, menos fragmentación.</div>
-          <div class="compara-item">Esta semana <strong>se envía el RFP a Compras (Sergio Ferreyra)</strong> para arrancar el proceso · los tiempos de la licitación los marca Compras. Segundo concurso más adelante (radio, TV, exterior).</div>
-          <div class="compara-item">Concurso paralelo para <strong>elegir la IA que conversa con el cliente</strong> por WhatsApp (Karbot o Vambe).</div>
+          <div class="compara-item"><strong>Licitación abierta</strong> · incluye a los <em>proveedores actuales de MKT</em> para que participen (acuerdo con Andrés) + agencias externas. Alcance: <strong>ejecución integral</strong> (no solo compra de medios).</div>
+          <div class="compara-item">Esta semana <strong>se envía el RFP a Compras (Sergio Ferreyra)</strong> · los tiempos los marca Compras. Segundo concurso más adelante (radio, TV, exterior).</div>
+          <div class="compara-item">AI conversacional canonizada por Andrés: <strong>Vambe se mantiene en Seminuevos</strong> · <strong>CX elegido para Nuevos</strong> (revisar que no sea tec vieja · definir SLA).</div>
         </div>
       </div>
 
@@ -406,7 +429,7 @@ html, body { width:100%; background:#0A0F1F; font-family:var(--sans); -webkit-fo
           </div>
           <div class="flujo-step">
             <div class="flujo-step-num">4</div>
-            <div class="flujo-step-body"><strong>Licitación de medios + IA conversacional</strong> · esta semana se envía el RFP de medios a Compras (Sergio Ferreyra) para iniciar el proceso — los tiempos de licitación los marca Compras. Arranca en paralelo el concurso para elegir la IA que conversa por WhatsApp con el cliente (Karbot o Vambe).</div>
+            <div class="flujo-step-body"><strong>RFP a agencias · ejecución integral</strong> · esta semana se envía el RFP a Compras (Sergio Ferreyra) — alcance: medios + branding + diseño + performance marketing (marco acordado con Andrés: incluir a proveedores actuales de MKT + externas). AI conversacional canonizada: <strong>Vambe en SEM · CX en Nuevos</strong>.</div>
           </div>
         </div>
       </div>
@@ -457,7 +480,7 @@ html, body { width:100%; background:#0A0F1F; font-family:var(--sans); -webkit-fo
 
   <div class="slide-footer">
     <span><span class="dot"></span><strong>Grupo Plasencia Automotriz</strong> · Plan 90 días · Resumen ejecutivo · Agosto 2026</span>
-    <span>Confidencial · Slide 4 de 6</span>
+    <span>Confidencial · Slide 4 de 7</span>
   </div>
 </div>
 
@@ -527,12 +550,88 @@ html, body { width:100%; background:#0A0F1F; font-family:var(--sans); -webkit-fo
 
   <div class="slide-footer">
     <span><span class="dot"></span><strong>Grupo Plasencia Automotriz</strong> · Plan 90 días · Resumen ejecutivo · Agosto 2026</span>
-    <span>Confidencial · Slide 5 de 6</span>
+    <span>Confidencial · Slide 5 de 7</span>
   </div>
 </div>
 
 
-<!-- ==================== SLIDE 5 · CIERRE + URLs ==================== -->
+<!-- ==================== SLIDE 6 · ACUERDOS CON ANDRÉS PLASENCIA ==================== -->
+<div class="slide">
+  <div class="content">
+
+    <div class="slide-header">
+      <div class="section-num">05 · Marco acordado con Andrés Plasencia</div>
+      <div class="slide-mark">Revisión del plan de marketing · acuerdos, siguientes pasos, cosas ya pasando</div>
+    </div>
+
+    <h1 class="slide-h1">Siete acuerdos · <em>lo que ya se está moviendo y lo que sigue</em></h1>
+
+    <div class="acuerdos-lede-strong">
+      Estos siete acuerdos salieron de la revisión del plan de marketing con <strong>Andrés Plasencia</strong>. Cada uno entra al Plan 90 Días como <em>ya pasando</em> (en ejecución), <em>siguiente</em> (arranca esta semana o la próxima) o <em>acuerdo</em> (marco de decisión). MKT Corp <strong>orquesta</strong> desde Marketing Ops · la ejecución (branding, diseño, performance marketing en Google/Meta) <strong>se tercerizará</strong> vía el RFP a agencias que sale esta semana (acuerdo #6).
+    </div>
+
+    <div class="acuerdos-grid">
+
+      <div class="acuerdo-card siguiente">
+        <div class="acuerdo-hdr"><span class="acuerdo-num">1</span><span class="acuerdo-status">Siguiente · 14-ago</span></div>
+        <div class="acuerdo-t">Pitch Marketplace Plasencia</div>
+        <div class="acuerdo-body">Reunión 14 de agosto con <strong>Directores y Gerentes de MKT</strong> · pitch del proyecto + demo + siguientes pasos para implementación del Marketplace.</div>
+      </div>
+
+      <div class="acuerdo-card acuerdo">
+        <div class="acuerdo-hdr"><span class="acuerdo-num">2</span><span class="acuerdo-status">Acuerdo</span></div>
+        <div class="acuerdo-t">Despliegue operativo por agencia</div>
+        <div class="acuerdo-body">Del 14-ago se despliega reunión operativa con <strong>Gerentes Generales, de Ventas y de MKT</strong> de cada agencia de Guadalajara.</div>
+      </div>
+
+      <div class="acuerdo-card pasando">
+        <div class="acuerdo-hdr"><span class="acuerdo-num">3</span><span class="acuerdo-status">Ya pasando</span></div>
+        <div class="acuerdo-t">AI · Vambe (SEM) + CX (Nuevos)</div>
+        <div class="acuerdo-body"><strong>Vambe se mantiene</strong> como agente de AI para Seminuevos. <strong>CX elegido</strong> como agente de AI para Nuevos — revisar que no sea tecnología vieja de árboles de decisiones · definir SLA y alcance · reportar focos rojos al momento.</div>
+      </div>
+
+      <div class="acuerdo-card pasando">
+        <div class="acuerdo-hdr"><span class="acuerdo-num">4</span><span class="acuerdo-status">Ya pasando</span></div>
+        <div class="acuerdo-t">Seminuevos · ago-sep con mayor inversión</div>
+        <div class="acuerdo-body">Seguir creciendo Seminuevos en <strong>agosto y septiembre con mayor inversión</strong> — alineado con la propuesta de Crecimiento ya en curso (Consejo dio VoBo).</div>
+      </div>
+
+      <div class="acuerdo-card siguiente">
+        <div class="acuerdo-hdr"><span class="acuerdo-num">5</span><span class="acuerdo-status">Siguiente</span></div>
+        <div class="acuerdo-t">Piloto Flotillas · VoBo Aurora + Pepe</div>
+        <div class="acuerdo-body">Revisar y obtener <strong>VoBo con Aurora y Pepe</strong> · agendar cita para presentación formal del piloto.</div>
+      </div>
+
+      <div class="acuerdo-card siguiente">
+        <div class="acuerdo-hdr"><span class="acuerdo-num">6</span><span class="acuerdo-status">Siguiente · esta sem.</span></div>
+        <div class="acuerdo-t">RFP proveedores de medios</div>
+        <div class="acuerdo-body">Sale esta semana · tomar en cuenta a <strong>todos los proveedores actuales de MKT</strong> para que puedan participar sus proveedores. Es el vehículo para tercerizar ejecución (medios + agencia integral).</div>
+      </div>
+
+      <div class="acuerdo-card siguiente">
+        <div class="acuerdo-hdr"><span class="acuerdo-num">7</span><span class="acuerdo-status">Siguiente</span></div>
+        <div class="acuerdo-t">Reunión llenado ene-jul con MKT</div>
+        <div class="acuerdo-body">Reunión con todas las áreas de MKT para explicar el <strong>llenado del formulario de gasto ene-jul 2026</strong> · desglose: personas 100% dedicadas MKT · personas híbridas · igualas de proveedores · gasto publicitario. Usa el SPA Directorio de Proveedores.</div>
+      </div>
+
+      <div class="acuerdo-card acuerdo">
+        <div class="acuerdo-hdr"><span class="acuerdo-num">✦</span><span class="acuerdo-status">Marco</span></div>
+        <div class="acuerdo-t">MKT Corp orquesta · agencias ejecutan</div>
+        <div class="acuerdo-body">Chucho no ejecuta directamente. MKT Corp = <strong>Marketing Ops</strong> (estrategia + orquestación + medición + selección de proveedores). La ejecución de branding, diseño y performance marketing la hacen <em>agencias tercerizadas</em> vía el RFP.</div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="slide-footer">
+    <span><span class="dot"></span><strong>Grupo Plasencia Automotriz</strong> · Plan 90 días · Resumen ejecutivo · Agosto 2026</span>
+    <span>Confidencial · Slide 6 de 7</span>
+  </div>
+</div>
+
+
+<!-- ==================== SLIDE 7 · CIERRE + URLs ==================== -->
 <div class="slide dark">
   <div class="close-inner">
 
@@ -552,8 +651,8 @@ html, body { width:100%; background:#0A0F1F; font-family:var(--sans); -webkit-fo
           <span class="url-link">Stellantis ya en diseño (solicitud de Enrique Rojas) · al menos 1-2 planteamientos entregados y cotizados (decisión de fondeo con la marca)</span>
         </div>
         <div class="url-item">
-          <span class="url-marca">Licitación medios</span>
-          <span class="url-link">RFP entregado a Compras · IA conversacional elegida</span>
+          <span class="url-marca">RFP agencias</span>
+          <span class="url-link">RFP integral entregado a Compras (medios + ejecución) · Vambe SEM y CX Nuevos canonizados</span>
         </div>
         <div class="url-item">
           <span class="url-marca">Comité TxD</span>
@@ -568,7 +667,7 @@ html, body { width:100%; background:#0A0F1F; font-family:var(--sans); -webkit-fo
 
     <div class="close-foot">
       <span><strong>Grupo Plasencia Automotriz</strong> · Plan 90 días · Resumen ejecutivo · Agosto 2026</span>
-      <span>Confidencial · Slide 6 de 6</span>
+      <span>Confidencial · Slide 7 de 7</span>
     </div>
 
   </div>
