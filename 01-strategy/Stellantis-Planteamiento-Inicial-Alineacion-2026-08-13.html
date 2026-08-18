@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stellantis · Planteamiento Inicial · Documento de Alineación · Grupo Plasencia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@500;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gp-red: #C8102E; --gp-navy: #1E2740; --gp-slate: #2D3748;
+  --green: #48BB78; --deep-green: #276749;
+  --blue: #4299E1; --deep-blue: #2B6CB0;
+  --amber: #D69E2E; --gold: #ECC94B;
+  --bg: #F0F4F8; --paper: #FFFFFF; --near-white: #F7FAFC;
+  --g100: #EDF2F7; --g200: #E2E8F0; --g300: #CBD5E0; --g400: #A0AEC0; --g500: #718096; --g600: #4A5568; --g700: #2D3748;
+  --text: #2D3748;
+  --serif: 'Playfair Display', Georgia, serif;
+  --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { width:100%; background:#0A0F1F; font-family:var(--sans); -webkit-font-smoothing:antialiased; padding: 32px 0; }
+.slide { position:relative; width:1280px; height:720px; margin: 0 auto 32px auto; overflow:hidden; display:flex; flex-direction:column; background: var(--bg); color: var(--text); box-shadow: 0 8px 32px rgba(0,0,0,.4); }
+.slide.dark { background: var(--gp-navy); color: var(--near-white); }
+.content { padding: 42px 72px 14px 72px; flex:1; display:flex; flex-direction:column; gap: 12px; position:relative; min-height:0; overflow:hidden; }
+.slide-header { display:flex; justify-content:space-between; align-items:flex-end; padding-bottom: 4px; border-bottom: 1px solid var(--g200); }
+.section-num { font-family:var(--sans); font-size:9pt; font-weight:800; letter-spacing:4px; color: var(--gp-red); text-transform:uppercase; }
+.slide-mark { font-family:var(--sans); font-size:8.5pt; font-weight:700; letter-spacing:3px; color: var(--g500); text-transform:uppercase; }
+.slide-h1 { font-family:var(--serif); font-weight:800; font-size:24pt; line-height:1.1; letter-spacing:-1px; color: var(--gp-navy); margin-top:4px; }
+.slide-h1 em { font-style:italic; color: var(--amber); font-weight:700; }
+.slide-lede { font-family:var(--sans); font-size:10.5pt; color: var(--g600); line-height:1.5; margin-top: 4px; max-width: 1130px; }
+.slide-lede strong { color: var(--gp-navy); font-weight:700; }
+.slide-lede em { font-style: italic; color: var(--gp-navy); }
+.slide-footer { position:relative; margin: 0 72px; padding: 8px 0 14px 0; display:flex; justify-content:space-between; align-items:center; font-family: var(--sans); font-size: 8.5pt; color: var(--g500); border-top: 1px solid var(--g200); gap: 16px; flex-shrink:0; }
+.slide-footer .dot { display:inline-block; width:8px; height:8px; background: var(--gp-red); border-radius:50%; margin-right:6px; vertical-align:middle; }
+.slide-footer strong { color: var(--gp-navy); font-weight:700; }
+
+/* Portada */
+.cover-inner { padding: 50px 78px 40px 78px; flex:1; display:flex; flex-direction:column; justify-content:space-between; background: radial-gradient(ellipse at 100% 0%, rgba(236,201,75,.18) 0%, transparent 55%), radial-gradient(ellipse at 0% 100%, rgba(200,16,46,.14) 0%, transparent 55%), var(--gp-navy); }
+.cover-top { display:flex; justify-content:space-between; align-items:flex-start; }
+.cover-mark { font-family:var(--sans); font-weight:700; font-size:11pt; letter-spacing:4px; color: var(--gold); text-transform:uppercase; }
+.cover-mark span { display:block; font-weight:400; color: rgba(255,255,255,.62); margin-top:5px; letter-spacing:1px; font-size:9pt; }
+.cover-conf { font-family:var(--sans); font-weight:700; font-size:9pt; letter-spacing:3.5px; color: var(--gp-red); text-transform:uppercase; text-align:right; }
+.cover-conf span { display:block; color: rgba(255,255,255,.55); font-weight:400; letter-spacing:1px; font-size:8pt; margin-top:4px; }
+.cover-center { flex:1; display:flex; flex-direction:column; justify-content:center; padding: 20px 0; }
+.cover-eyebrow { font-family:var(--sans); font-size:11pt; font-weight:700; letter-spacing:5px; color: var(--gp-red); text-transform:uppercase; }
+.cover-title { font-family:var(--serif); font-weight:800; font-size:40pt; line-height:1.05; letter-spacing:-1.5px; margin-top:14px; color: var(--near-white); max-width:1080px; }
+.cover-title em { font-style:italic; color: var(--gold); font-weight:700; }
+.cover-subtitle { font-family:var(--serif); font-weight:500; font-style:italic; font-size:14pt; color: rgba(255,255,255,.88); margin-top:20px; letter-spacing:-.2px; line-height:1.45; max-width:1020px; }
+.cover-subtitle strong { color: var(--near-white); font-style: normal; font-weight: 700; }
+.cover-meta { display:grid; grid-template-columns: repeat(4, 1fr); gap: 18px; border-top: 1px solid rgba(255,255,255,.18); padding-top:16px; margin-top: 20px; }
+.cover-meta-block { font-size:9pt; color: rgba(255,255,255,.72); line-height:1.55; font-family: var(--sans); }
+.cover-meta-block strong { display:block; color: var(--gold); font-weight:700; font-size:8pt; letter-spacing:1.5px; margin-bottom:4px; text-transform:uppercase; }
+.cover-meta-block span { display:block; color: rgba(255,255,255,.94); font-weight:500; font-size:10pt; margin-bottom:2px; }
+
+/* Contexto · lo que trajo Enrique */
+.contexto-wrap { display:grid; grid-template-columns: 1.3fr 1fr; gap: 16px; margin-top: 4px; flex:1; min-height:0; }
+.contexto-panel { background: var(--paper); border: 1px solid var(--g200); border-top: 4px solid var(--gp-red); border-radius: 12px; padding: 14px 20px; display:flex; flex-direction:column; gap: 8px; box-shadow: 0 1px 3px rgba(30,39,64,.05); }
+.contexto-hdr { font-family:var(--sans); font-size:9pt; font-weight:800; letter-spacing:1.5px; text-transform:uppercase; color: var(--gp-red); }
+.contexto-t { font-family:var(--serif); font-weight:800; font-size:15pt; color: var(--gp-navy); line-height:1.15; letter-spacing:-.4px; }
+.contexto-list { display:flex; flex-direction:column; gap: 7px; margin-top: 2px; }
+.contexto-item { font-family:var(--sans); font-size:9pt; color: var(--g600); line-height:1.42; padding-left: 18px; position:relative; }
+.contexto-item::before { content:"◆"; position:absolute; left:0; top:0px; color: var(--gp-red); font-size:9pt; }
+.contexto-item strong { color: var(--gp-navy); font-weight:700; }
+.contexto-item em { font-style: italic; color: var(--gp-navy); }
+.contexto-panel.marcas { border-top-color: var(--amber); }
+.contexto-panel.marcas .contexto-hdr { color: var(--amber); }
+.contexto-panel.marcas .contexto-item::before { color: var(--amber); }
+
+.marca-strip { display:grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin-top: 4px; }
+.marca-tile { background: var(--paper); border: 1px solid var(--g200); border-top: 3px solid var(--gp-navy); border-radius: 8px; padding: 8px 10px; text-align:center; }
+.marca-tile.leader { border-top-color: var(--deep-green); background: linear-gradient(180deg, #F6FBF8 0%, var(--paper) 100%); }
+.marca-name { font-family:var(--sans); font-size:10pt; font-weight:800; color: var(--gp-navy); }
+.marca-status { font-family:var(--sans); font-size:7.5pt; color: var(--g500); margin-top:2px; letter-spacing:.5px; }
+.marca-tile.leader .marca-status { color: var(--deep-green); font-weight:700; }
+
+/* 3 líneas · slide central */
+.lineas-wrap { display:grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 6px; flex:1; min-height:0; }
+.linea-card { background: var(--paper); border: 1px solid var(--g200); border-radius: 12px; padding: 14px 18px; display:flex; flex-direction:column; gap: 10px; overflow:hidden; box-shadow: 0 1px 3px rgba(30,39,64,.05); position:relative; }
+.linea-card.uno { border-top: 4px solid var(--gp-red); }
+.linea-card.dos { border-top: 4px solid var(--amber); background: linear-gradient(180deg, #FFFEF8 0%, var(--paper) 100%); }
+.linea-card.tres { border-top: 4px solid var(--deep-green); background: linear-gradient(180deg, #F6FBF8 0%, var(--paper) 100%); }
+.linea-num { font-family:var(--sans); font-size:8pt; font-weight:800; letter-spacing:2px; text-transform:uppercase; color: var(--gp-red); }
+.linea-card.dos .linea-num { color: var(--amber); }
+.linea-card.tres .linea-num { color: var(--deep-green); }
+.linea-t { font-family:var(--serif); font-weight:800; font-size:16pt; color: var(--gp-navy); line-height:1.12; letter-spacing:-.4px; }
+.linea-obj { font-family:var(--sans); font-size:8.5pt; color: var(--g600); font-style: italic; line-height:1.4; padding-bottom: 8px; border-bottom: 1px dashed var(--g200); }
+.linea-obj strong { color: var(--gp-navy); font-style: normal; font-weight:700; }
+.linea-list { display:flex; flex-direction:column; gap: 5px; }
+.linea-item { font-family:var(--sans); font-size:8.5pt; color: var(--g600); line-height:1.4; padding-left: 14px; position:relative; }
+.linea-item::before { content:"→"; position:absolute; left:0; top:0px; color: var(--gp-navy); font-weight:800; }
+.linea-item strong { color: var(--gp-navy); font-weight:700; }
+.linea-item em { font-style: italic; color: var(--gp-navy); }
+
+/* Modelo operativo · roles */
+.roles-wrap { display:grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 4px; flex:1; min-height:0; }
+.rol-card { background: var(--paper); border: 1px solid var(--g200); border-top: 4px solid var(--gp-navy); border-radius: 12px; padding: 12px 14px; display:flex; flex-direction:column; gap: 8px; box-shadow: 0 1px 3px rgba(30,39,64,.05); }
+.rol-card.marca { border-top-color: var(--gp-red); }
+.rol-card.planta { border-top-color: var(--amber); background: linear-gradient(180deg, #FFFEF8 0%, var(--paper) 100%); }
+.rol-card.sucursales { border-top-color: var(--deep-green); background: linear-gradient(180deg, #F6FBF8 0%, var(--paper) 100%); }
+.rol-tag { font-family:var(--sans); font-size:7.5pt; font-weight:800; letter-spacing:1.5px; text-transform:uppercase; color: var(--gp-navy); }
+.rol-card.marca .rol-tag { color: var(--gp-red); }
+.rol-card.planta .rol-tag { color: var(--amber); }
+.rol-card.sucursales .rol-tag { color: var(--deep-green); }
+.rol-t { font-family:var(--serif); font-weight:800; font-size:13pt; color: var(--gp-navy); line-height:1.15; letter-spacing:-.3px; }
+.rol-list { display:flex; flex-direction:column; gap: 4px; margin-top: 2px; }
+.rol-item { font-family:var(--sans); font-size:8pt; color: var(--g600); line-height:1.4; padding-left: 12px; position:relative; }
+.rol-item::before { content:"·"; position:absolute; left:2px; top:-3px; font-size:12pt; font-weight:800; color: var(--g400); }
+.rol-item strong { color: var(--gp-navy); font-weight:700; }
+
+/* Cierre · próximos pasos */
+.close-inner { padding: 42px 78px 20px 78px; flex:1; display:flex; flex-direction:column; gap: 14px; background: radial-gradient(ellipse at 100% 100%, rgba(236,201,75,.12) 0%, transparent 55%), var(--gp-navy); }
+.close-eyebrow { font-family:var(--sans); font-size:9pt; font-weight:800; letter-spacing:4px; color: var(--gp-red); text-transform:uppercase; }
+.close-h { font-family:var(--serif); font-weight:800; font-size:24pt; line-height:1.12; letter-spacing:-1px; color: var(--near-white); max-width:1100px; }
+.close-h em { color: var(--gold); font-style:italic; }
+.close-sub { font-family:var(--sans); font-size:10.5pt; color: rgba(255,255,255,.85); line-height:1.55; max-width:1080px; }
+.close-sub strong { color: var(--near-white); font-weight:700; }
+.pasos-grid { display:grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 4px; }
+.paso-card { background: rgba(255,255,255,.06); border-left: 3px solid var(--gold); border-radius: 6px; padding: 10px 14px; }
+.paso-card.red { border-left-color: var(--gp-red); }
+.paso-t { font-family:var(--sans); font-size:8pt; font-weight:800; letter-spacing:1.5px; text-transform:uppercase; color: var(--gold); }
+.paso-card.red .paso-t { color: var(--gp-red); }
+.paso-body { font-family:var(--sans); font-size:9pt; color: rgba(255,255,255,.9); line-height:1.42; margin-top: 4px; }
+.paso-body strong { color: var(--near-white); font-weight:700; }
+.close-foot { display:flex; justify-content:space-between; align-items:center; padding-top: 12px; border-top: 1px solid rgba(255,255,255,.15); font-family:var(--sans); font-size:8.5pt; color: rgba(255,255,255,.55); margin-top: auto; }
+.close-foot strong { color: var(--gold); font-weight:700; }
+</style>
+</head>
+<body>
+
+<!-- ==================== SLIDE 1 · PORTADA ==================== -->
+<div class="slide dark">
+  <div class="cover-inner">
+    <div class="cover-top">
+      <div class="cover-mark">Grupo Plasencia Automotriz<span>Dirección de Marketing Corporativo</span></div>
+      <div class="cover-conf">Interno · Alineación<span>Enrique Rojas · Rafael Benítez · Jesús Pérez Porras</span></div>
+    </div>
+
+    <div class="cover-center">
+      <div class="cover-eyebrow">Stellantis · Planteamiento inicial de marketing</div>
+      <h1 class="cover-title">Posicionar las 5 marcas · <em>base de datos, awareness y hard sale</em></h1>
+      <p class="cover-subtitle">Primer planteamiento a la medida a partir de la solicitud directa de <strong>Enrique Rojas</strong> del 13 de agosto. Estructurado en las <strong>3 líneas</strong> que Enrique canonizó (Posicionamiento · Top of Mind · Hard Sale) y con visibilidad completa de las <strong>5 marcas Stellantis</strong> del Grupo. Documento vivo · se retroalimenta en la sesión semanal del jueves con Enrique y se ajusta antes de cotizar.</p>
+    </div>
+
+    <div class="cover-meta">
+      <div class="cover-meta-block"><strong>Para</strong><span>Enrique Rojas</span><span>Rafael Benítez</span></div>
+      <div class="cover-meta-block"><strong>De</strong><span>Jesús Pérez Porras</span><span>Dir. Marketing Corporativo</span></div>
+      <div class="cover-meta-block"><strong>Cadencia</strong><span>Sesión semanal · jueves</span><span>Con Enrique Rojas</span></div>
+      <div class="cover-meta-block"><strong>Estado</strong><span>Paso 2 de 4 · en diseño</span><span>Siguiente · cotización</span></div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ==================== SLIDE 2 · CONTEXTO QUE TRAJO ENRIQUE ==================== -->
+<div class="slide">
+  <div class="content">
+
+    <div class="slide-header">
+      <div class="section-num">01 · Contexto · lo que Enrique compartió el 13-ago</div>
+      <div class="slide-mark">Recap del transcript · solicitud directa</div>
+    </div>
+
+    <h1 class="slide-h1">5 marcas Stellantis · <em>solo hay base de datos de Peugeot</em></h1>
+
+    <p class="slide-lede">La solicitud de Enrique arrancó con un diagnóstico claro: <strong>Grupo Plasencia es número uno en Peugeot y tiene su base de datos</strong>, pero no tiene base de datos de Jeep, RAM, Fiat ni DS. Sin base de datos no hay seguimiento; hay que construirla desde awareness. En paralelo la planta Stellantis ya está enterada de la solicitud y espera una propuesta para acompañar la inversión.</p>
+
+    <div class="marca-strip">
+      <div class="marca-tile leader"><div class="marca-name">Peugeot</div><div class="marca-status">#1 · con base de datos</div></div>
+      <div class="marca-tile"><div class="marca-name">Jeep</div><div class="marca-status">Sin base de datos</div></div>
+      <div class="marca-tile"><div class="marca-name">RAM</div><div class="marca-status">Sin base de datos</div></div>
+      <div class="marca-tile"><div class="marca-name">Fiat</div><div class="marca-status">Sin base de datos</div></div>
+      <div class="marca-tile"><div class="marca-name">DS</div><div class="marca-status">Sin base de datos</div></div>
+    </div>
+
+    <div class="contexto-wrap">
+
+      <div class="contexto-panel">
+        <div class="contexto-hdr">Lo que pide Enrique</div>
+        <div class="contexto-t">Súper campaña de posicionamiento en las 5 marcas</div>
+        <div class="contexto-list">
+          <div class="contexto-item"><strong>Construir base de datos</strong> de las 4 marcas sin BBDD (Jeep, RAM, Fiat, DS) desde awareness al mercado.</div>
+          <div class="contexto-item"><strong>Diferenciarse por inmediatez</strong> — ejemplo dado: <em>"si no te entrego tu coche en 1 hora, no lo pagas"</em>. Confort · super instalaciones.</div>
+          <div class="contexto-item"><strong>Atacar 2 segmentos</strong>: flotillas B2B y retail/menudeo. En paralelo: post venta corporativa (que las empresas dejen sus autos en el taller).</div>
+          <div class="contexto-item"><strong>Seminuevos Stellantis:</strong> lote no está volando · platicar con Jonathan para el ángulo Marketplace/canal digital.</div>
+          <div class="contexto-item"><strong>Santa Anita:</strong> ubicación buena pero <em>no visible</em> (hacia abajo). Tema de posicionamiento local prioritario.</div>
+        </div>
+      </div>
+
+      <div class="contexto-panel marcas">
+        <div class="contexto-hdr">Cofondeo · Planta Stellantis</div>
+        <div class="contexto-t">La planta ya está enterada y espera propuesta</div>
+        <div class="contexto-list">
+          <div class="contexto-item">La planta puede <strong>acompañar la inversión</strong> del Grupo si la propuesta llega bien pensada.</div>
+          <div class="contexto-item">Restricción clara: la planta <em>no puede dar ventaja indebida</em> a un distribuidor sobre otros en la plaza. La propuesta cuida esa línea.</div>
+          <div class="contexto-item"><strong>El planteamiento debe pensarse para ambos</strong> — sirve para pedir cofondeo a planta y para arrancar operación con el Grupo.</div>
+          <div class="contexto-item">Enrique canonizó la <strong>estructura de 3 líneas</strong> como el marco donde encajan todas las inversiones: <em>Posicionamiento · Top of Mind · Hard Sale</em>.</div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="slide-footer">
+    <span><span class="dot"></span><strong>Grupo Plasencia Automotriz</strong> · Documento de Alineación · Stellantis · Agosto 2026</span>
+    <span>Interno · Slide 2 de 6</span>
+  </div>
+</div>
+
+
+<!-- ==================== SLIDE 3 · LAS 3 LÍNEAS ==================== -->
+<div class="slide">
+  <div class="content">
+
+    <div class="slide-header">
+      <div class="section-num">02 · Estructura del planteamiento</div>
+      <div class="slide-mark">3 líneas canonizadas por Enrique</div>
+    </div>
+
+    <h1 class="slide-h1">Las 3 líneas · <em>Posicionamiento → Top of Mind → Hard Sale</em></h1>
+
+    <p class="slide-lede">Toda inversión de marketing de Stellantis se estructura y reporta bajo estas 3 líneas. Cada línea tiene un <strong>objetivo distinto</strong> (aprender, mantener presencia, vender) y una <strong>métrica principal</strong> que la mide. Este marco sirve para conversar con la planta, con la marca y con las sucursales sin ambigüedad — todos hablan el mismo lenguaje.</p>
+
+    <div class="lineas-wrap">
+
+      <div class="linea-card uno">
+        <div class="linea-num">Línea 1</div>
+        <div class="linea-t">Posicionamiento</div>
+        <div class="linea-obj"><strong>Objetivo:</strong> construir <em>awareness</em> de las 5 marcas Stellantis y <em>capturar la base de datos</em> que hoy no existe (Jeep, RAM, Fiat, DS).</div>
+        <div class="linea-list">
+          <div class="linea-item"><strong>Campañas cross-marca</strong> con foco en las 4 marcas sin BBDD.</div>
+          <div class="linea-item"><strong>Formularios y landing</strong> para capturar el lead antes de la venta.</div>
+          <div class="linea-item"><strong>Branded content</strong> · historias de marca · testimoniales.</div>
+          <div class="linea-item"><em>Métrica principal:</em> impresiones y <strong>tamaño de la base de datos construida por marca</strong>.</div>
+        </div>
+      </div>
+
+      <div class="linea-card dos">
+        <div class="linea-num">Línea 2</div>
+        <div class="linea-t">Top of Mind</div>
+        <div class="linea-obj"><strong>Objetivo:</strong> mantener presencia continua en el mercado local (GDL/ZMG) y solucionar el <em>problema de visibilidad de Santa Anita</em>.</div>
+        <div class="linea-list">
+          <div class="linea-item"><strong>Siempre-encendido</strong> display + retargeting a los leads capturados en Línea 1.</div>
+          <div class="linea-item"><strong>Geolocalización</strong> por sucursal · foco en zonas de influencia.</div>
+          <div class="linea-item"><strong>Diferenciación explícita</strong>: inmediatez, confort, instalaciones (ideas de Enrique).</div>
+          <div class="linea-item"><em>Métrica principal:</em> frecuencia efectiva por audiencia y <strong>tráfico calificado a landings/piso</strong>.</div>
+        </div>
+      </div>
+
+      <div class="linea-card tres">
+        <div class="linea-num">Línea 3</div>
+        <div class="linea-t">Hard Sale</div>
+        <div class="linea-obj"><strong>Objetivo:</strong> activar la venta en <em>los 3 departamentos</em> — nuevos, seminuevos y post venta corporativa.</div>
+        <div class="linea-list">
+          <div class="linea-item"><strong>Nuevos:</strong> campañas de conversión con oferta específica por marca y por segmento (flotillas / retail).</div>
+          <div class="linea-item"><strong>Seminuevos:</strong> ángulo con Jonathan · integración al Marketplace del Grupo.</div>
+          <div class="linea-item"><strong>Post venta corporativa:</strong> outreach a compras de empresas dueñas de flotas de las 5 marcas.</div>
+          <div class="linea-item"><em>Métrica principal:</em> <strong>ventas facturadas atribuidas a nivel sistema en DCA</strong> · CAC por línea.</div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="slide-footer">
+    <span><span class="dot"></span><strong>Grupo Plasencia Automotriz</strong> · Documento de Alineación · Stellantis · Agosto 2026</span>
+    <span>Interno · Slide 3 de 6</span>
+  </div>
+</div>
+
+
+<!-- ==================== SLIDE 4 · HIPÓTESIS POR SEGMENTO ==================== -->
+<div class="slide">
+  <div class="content">
+
+    <div class="slide-header">
+      <div class="section-num">03 · Hipótesis operativas · segmentos y canales</div>
+      <div class="slide-mark">Para retroalimentar el jueves con Enrique</div>
+    </div>
+
+    <h1 class="slide-h1">3 segmentos · 3 canales base · <em>hipótesis a validar antes de cotizar</em></h1>
+
+    <p class="slide-lede">Antes de mover a cotización, se validan con Enrique tres hipótesis operativas: qué segmento tiene más pesca clara, qué canales encienden primero, y cómo se conecta la Línea 1 (captura BBDD) con la Línea 3 (venta). El objetivo del jueves es alinear estas hipótesis · las inversiones específicas se dimensionan en el paso 3 (cotización).</p>
+
+    <div class="contexto-wrap" style="grid-template-columns: 1fr 1fr;">
+
+      <div class="contexto-panel">
+        <div class="contexto-hdr">Hipótesis por segmento</div>
+        <div class="contexto-t">Dónde arranca la pesca más clara</div>
+        <div class="contexto-list">
+          <div class="contexto-item"><strong>Flotillas B2B (arranque):</strong> las 5 marcas Stellantis tienen oferta B2B fuerte. Outreach directo a áreas de Compras + Operaciones + Fleet Manager de empresas medianas y grandes. Es el segmento más asignable a ROI a corto plazo.</div>
+          <div class="contexto-item"><strong>Retail / menudeo (paralelo):</strong> awareness cross-marca + landing por marca con captura de lead. Foco geolocalizado en zonas de influencia de las agencias.</div>
+          <div class="contexto-item"><strong>Post venta corporativa (evolución):</strong> convertir el contacto B2B en cliente de taller. Es la palanca de recurrencia — cliente que deja el auto en el taller regresa a comprar el siguiente.</div>
+        </div>
+      </div>
+
+      <div class="contexto-panel marcas">
+        <div class="contexto-hdr">Canales base propuestos</div>
+        <div class="contexto-t">3 canales que encienden desde la semana 1</div>
+        <div class="contexto-list">
+          <div class="contexto-item"><strong>Meta Ads (Instagram + Facebook):</strong> Línea 1 y Línea 2 · captura de lead + retargeting local. Formatos de video + carrusel por marca.</div>
+          <div class="contexto-item"><strong>Google Ads (Search + Performance Max):</strong> Línea 3 · captura de intención por marca (buscadores de Jeep, RAM, Fiat, DS, Peugeot en GDL) + PMax con inventario.</div>
+          <div class="contexto-item"><strong>Outreach B2B (LinkedIn + email + WhatsApp):</strong> Línea 3 segmento flotillas. Contenido orgánico sin pauta en LinkedIn · lista construida con empresas objetivo.</div>
+          <div class="contexto-item"><strong>Habilitadores base (medición):</strong> pixel Meta + GA4 + registro de ventas en DCA para que las 3 líneas se reporten <em>de punta a punta hasta la venta facturada</em>, no solo hasta el clic.</div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="slide-footer">
+    <span><span class="dot"></span><strong>Grupo Plasencia Automotriz</strong> · Documento de Alineación · Stellantis · Agosto 2026</span>
+    <span>Interno · Slide 4 de 6</span>
+  </div>
+</div>
+
+
+<!-- ==================== SLIDE 5 · MODELO OPERATIVO · QUIÉN HACE QUÉ ==================== -->
+<div class="slide">
+  <div class="content">
+
+    <div class="slide-header">
+      <div class="section-num">04 · Modelo operativo · quién hace qué</div>
+      <div class="slide-mark">Grupo · Marca · Planta · Sucursales</div>
+    </div>
+
+    <h1 class="slide-h1">Cuatro actores · <em>una sola operación</em></h1>
+
+    <p class="slide-lede">La operación no la hace una parte sola. MKT Corp (Grupo) diseña y opera el sistema · la Marca (Enrique + Rafa) valida y aporta experiencia de mercado · la Planta Stellantis cofondea sin romper la ecuación competitiva de la plaza · las Sucursales aportan el input del piso y ejecutan la parte comercial. Este split se afina el jueves.</p>
+
+    <div class="roles-wrap">
+
+      <div class="rol-card">
+        <div class="rol-tag">Grupo · MKT Corp</div>
+        <div class="rol-t">Diseño estratégico + operación digital + reporting</div>
+        <div class="rol-list">
+          <div class="rol-item"><strong>Estrategia</strong> por línea (posicionamiento / TOM / hard sale).</div>
+          <div class="rol-item"><strong>Operación digital</strong> (Meta, Google, landings, tracking DCA).</div>
+          <div class="rol-item"><strong>Reporting mensual</strong> con métricas por línea y por marca.</div>
+          <div class="rol-item"><strong>Coordinación</strong> con Planta para cofondeo.</div>
+        </div>
+      </div>
+
+      <div class="rol-card marca">
+        <div class="rol-tag">Marca · Enrique + Rafa</div>
+        <div class="rol-t">Validación + aporte experiencia de marca</div>
+        <div class="rol-list">
+          <div class="rol-item"><strong>Retroalimentación</strong> del planteamiento en sesión semanal del jueves.</div>
+          <div class="rol-item"><strong>Aporte de contenido</strong> propio de las 5 marcas.</div>
+          <div class="rol-item"><strong>Validación creativa</strong> de campañas antes de encender.</div>
+          <div class="rol-item"><strong>Vocería</strong> hacia la planta.</div>
+        </div>
+      </div>
+
+      <div class="rol-card planta">
+        <div class="rol-tag">Planta Stellantis</div>
+        <div class="rol-t">Cofondeo + coordinación regional</div>
+        <div class="rol-list">
+          <div class="rol-item"><strong>Cofondeo</strong> · dimensión por definir en cotización.</div>
+          <div class="rol-item"><strong>Restricción cuidada:</strong> sin ventaja indebida vs otros distribuidores de la plaza.</div>
+          <div class="rol-item"><strong>Aval regional</strong> de campañas de las 5 marcas.</div>
+        </div>
+      </div>
+
+      <div class="rol-card sucursales">
+        <div class="rol-tag">Sucursales · gerentes</div>
+        <div class="rol-t">Input del piso + ejecución comercial</div>
+        <div class="rol-list">
+          <div class="rol-item"><strong>Input</strong> de la realidad del piso (input recogido por Enrique el miércoles).</div>
+          <div class="rol-item"><strong>Ejecución comercial</strong> · atender leads · dar seguimiento.</div>
+          <div class="rol-item"><strong>Registro disciplinado</strong> de la venta en DCA para cerrar la atribución.</div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="slide-footer">
+    <span><span class="dot"></span><strong>Grupo Plasencia Automotriz</strong> · Documento de Alineación · Stellantis · Agosto 2026</span>
+    <span>Interno · Slide 5 de 6</span>
+  </div>
+</div>
+
+
+<!-- ==================== SLIDE 6 · PRÓXIMOS PASOS · JUEVES ==================== -->
+<div class="slide dark">
+  <div class="close-inner">
+
+    <div>
+      <div class="close-eyebrow">05 · Próximos pasos · cadencia semanal</div>
+      <h2 class="close-h">El jueves con Enrique · <em>retroalimentar, cerrar hipótesis y pasar a cotización</em></h2>
+      <p class="close-sub">Este planteamiento entra a la sesión semanal del jueves como documento vivo. La meta de la sesión: cerrar las hipótesis del Slide 4, dejar claras las decisiones que corresponden a cada actor, y dar semáforo para pasar al paso 3 del proceso (cotización con costo transparente). El input que Enrique recoja el miércoles con los gerentes se integra la semana siguiente.</p>
+    </div>
+
+    <div class="pasos-grid">
+      <div class="paso-card red">
+        <div class="paso-t">Jueves · sesión semanal</div>
+        <div class="paso-body"><strong>Sesión de retroalimentación con Enrique Rojas.</strong> Revisar cada slide de este planteamiento · cerrar las hipótesis del Slide 4 · alinear el modelo operativo del Slide 5 · dar semáforo para pasar a cotización.</div>
+      </div>
+      <div class="paso-card">
+        <div class="paso-t">Miércoles · sin Chucho</div>
+        <div class="paso-body">Rafa conduce la sesión con gerentes en Mazda Plasencia (12:00) · Enrique escucha el input del piso. <strong>El output se integra en la sesión del jueves</strong> y en la siguiente ronda del planteamiento.</div>
+      </div>
+      <div class="paso-card">
+        <div class="paso-t">Paso 3 · cotización</div>
+        <div class="paso-body">Una vez cerrado el planteamiento, se cotiza con <strong>costo transparente</strong> (medios + operación + fees) y con la propuesta específica de <strong>cofondeo Planta</strong>. Se entrega y la marca decide si fondea la ejecución.</div>
+      </div>
+      <div class="paso-card">
+        <div class="paso-t">Regla de correo</div>
+        <div class="paso-body">Todos los correos entre <strong>Chucho ↔ Rafa</strong> sobre Stellantis <strong>copian a Enrique Rojas</strong> (regla canónica desde 2026-08-13).</div>
+      </div>
+    </div>
+
+    <div class="close-foot">
+      <span><strong>Grupo Plasencia Automotriz</strong> · Documento de Alineación · Stellantis · Planteamiento inicial · 13 de agosto 2026</span>
+      <span>Interno · Slide 6 de 6</span>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
